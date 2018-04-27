@@ -14,15 +14,16 @@ public class BFMService {
 	public String BFMservice(HttpServletRequest request) throws UnsupportedEncodingException {
 		
 		request.setCharacterEncoding("UTF-8");
-
+	
 		String dep = request.getParameter("dept");
 		String arr = request.getParameter("arrv");
-		String deD = request.getParameter("depDate") + "T11:00:00";
-		String reD = request.getParameter("reDate") + "T11:00:00";
-		System.out.println("出發地" + dep + "日期" + deD + "," + "目的地" + arr + "日期" + reD);
-		
+		String deD = request.getParameter("depDate") + "T00:00:00";
+		String reD = request.getParameter("reDate") + "T00:00:00";
+		String psg = request.getParameter("psg");
+//		System.out.println("出發地" + dep + "日期" + deD + "," + "目的地" + arr + "日期" + reD);
+		String result=null;
 		try {
-			String result = RunTest.run(deD, dep, reD, arr);
+			 result = RunTest.run(deD, dep, reD, arr,psg);
 			if(result!=null) {
 				return result;
 			}
@@ -30,6 +31,6 @@ public class BFMService {
 			e.printStackTrace();
 			System.err.println("查詢錯誤");
 		}
-		return "no answer";
+		return result;
 	}
 }

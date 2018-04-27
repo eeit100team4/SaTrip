@@ -382,23 +382,23 @@
 															</section>
 														</div>
 														<div class="col-xxs-12 col-xs-6 mt">
-														<section>
-													<label for="class">成人:</label>
-													<select name="psg" style="color:blue; " class="cs-select cs-skin-border">
-<!-- 														<option value="" disable selected ></option> -->
-														<option value="1" selected>1</option>
-														<option value="2">2</option>
-														<option value="3">3</option>
-														<option value="4">4</option>
-													</select>
-												</section>
+															<section>
+																<label for="class" style="color:blue">成人</label> <select
+																	class="cs-select cs-skin-border">
+																	<option value="" disabled selected>1</option>
+																	<option value="1">1</option>
+																	<option value="2">2</option>
+																	<option value="3">3</option>
+																	<option value="4">4</option>
+																</select>
+															</section>
 														</div>
 														<div class="col-xxs-12 col-xs-6 mt">
 															<section>
-																<label for="class">孩童</label> 
-																<select style="color:blue; "
+																<label for="class">孩童</label> <select
 																	class="cs-select cs-skin-border">
-																	<option value="0">0</option selected>
+																	<!--<option value="" disabled selected>1</option>-->
+																	<option value="1">0</option selected>
 																	<option value="1">1</option>
 																	<option value="2">2</option>
 																	<option value="3">3</option>

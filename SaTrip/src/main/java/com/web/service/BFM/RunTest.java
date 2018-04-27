@@ -15,7 +15,7 @@ public class RunTest {
 
 	private static Token token;
 
-	public static String run(String depT, String localCode, String repT, String returnCode) throws Exception {
+	public static String run(String depT, String localCode, String repT, String returnCode,String psg) throws Exception {
 
 		/*
 		 * Step 1 取得ClientID
@@ -58,7 +58,7 @@ public class RunTest {
 			tokenresponse.append(inputLine);
 		}
 		in.close();
-		System.out.println("TOKEN JSON :" + tokenresponse.toString());
+//		System.out.println("TOKEN JSON :" + tokenresponse.toString());
 
 		Gson gson = new Gson();
 		token = gson.fromJson(tokenresponse.toString(), Token.class);
@@ -71,13 +71,13 @@ public class RunTest {
 		// String repT = "2018-06-05T11:00:00";// 回程時間
 		// String returnCode = "NRT"; // 目的地城市
 
-		System.out.println(depT + localCode + repT + returnCode);
-
-		return getBFM(depT, localCode, repT, returnCode);
+//		System.out.println(depT + localCode + repT + returnCode);
+		String order = getBFM(depT, localCode, repT, returnCode,psg);
+		return order;
 
 	}
 
-	public static String getBFM(String depT, String localCode, String repT, String returnCode) throws Exception {
+	public static String getBFM(String depT, String localCode, String repT, String returnCode,String psg) throws Exception {
 
 		// https: //api.sabre.com 正式環境
 		// https: //api.test.sabre.com 測試環境
@@ -90,7 +90,7 @@ public class RunTest {
 		hreq.setDoOutput(true);
 
 		OutputStream os = hreq.getOutputStream();
-		os.write(BFMSearch2.getRequestBody(depT, localCode, repT, returnCode).getBytes("utf-8"));
+		os.write(BFMSearch.getRequestBody(depT, localCode, repT, returnCode,psg).getBytes("utf-8"));
 		os.close();
 
 		GZIPInputStream zipBFMinformation = null;
@@ -105,7 +105,7 @@ public class RunTest {
 			response.append(inputLine);
 		}
 		in.close();
-//		System.out.println("BFM ANSWER :" + response.toString());
+		System.out.println("BFM ANSWER :" + response.toString());
 		return response.toString();
 	}
 

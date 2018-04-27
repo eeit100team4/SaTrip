@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>>
 
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -132,31 +133,12 @@
 
 		})
 	*/
-	<!--回傳搜尋內容 開始-->
-	function sendDetails(){
-			$.ajax({
-			    type : "get",
-			    url : "http://localhost:8080/SaTrip/booking",
-			    data: "id=1969&name=John", // 資料是用 & 做串接
-			    success : function(response) {
-			        alert('Success');
-			        window.location.assign("http://localhost:8080/SaTrip/test.jsp");
-			    },
-			    error : function() {
-			        alert('fail');
-			    }
-			});
-			
-			
-			
-			
-		}
-	<!--回傳搜尋內容 結束-->
+
 	$(document).ready(function(){
 		var docFrag=$(document.createDocumentFragment());
 		$.each(emp.OTA_AirLowFareSearchRS.PricedItineraries.PricedItinerary,function(name,value){
 				
-       			var cell1=$("<div></div>").text(value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].DepartureDateTime)
+       			var cell1=$("<div id='ddd'></div>").text(value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].DepartureDateTime)
 	            var cell2=$("<div></div>").text(value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].DepartureAirport.LocationCode)
 	            var td1=$("<td width='20%' align='center' valign='middle'></td>").append(cell1,cell2);
        			
@@ -239,8 +221,31 @@
 				});
 			
 		<!--分頁功能結束-->
-		
+		 var temp=$("#ddd").text;
 	})
+	
+	<!-- 傳送選擇航班資料回SERVER 開始-->
+		function sendDetails(){
+				$.ajax({
+				    type : "get",
+				    url : "http://localhost:8080/SaTrip/booking",
+				    data: "id=1969&name=John", // 資料是用 & 做串接
+				    success : function(response) {
+				        alert('Success');
+				        alert($("#ddd").text);
+				        alert(temp);
+				        window.location.assign("http://localhost:8080/SaTrip/test.jsp");
+				    },
+				    error : function() {
+				        alert('fail');
+				    }
+				});
+				
+				
+				
+				
+			}
+		<!-- 傳送選擇航班資料回SERVER 結束-->
 	
 			
 </script>
@@ -314,6 +319,13 @@
 					
 					 <div class="main123"> 
         <div class="item123"> 
+        
+        <c:if test="${empty result}">
+	<div style="margin:5px;" align="center">
+	<h2  style="color:red">查無航班，請重新搜尋</h2>
+	<a style="font-size:1em;" href="index.jsp">回首頁</a>
+	</div>
+	</c:if>
  						<table class="clear123" width=100%  align="center" style=" border: 5px solid red ; background-color: white">
 						
 						<!--  -->
@@ -366,7 +378,7 @@
 	</div>
 	<!-- END fh5co-wrapper -->
 
-
+</div>
 </body>
 </html>
 
