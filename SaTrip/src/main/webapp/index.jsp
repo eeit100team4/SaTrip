@@ -123,7 +123,7 @@
 		//等待
 		// document.getElementById("myDiv").innerHTML="讀取中...";   
 		//載入
-		xmlhttp.open("GET", "CITY_CHT2.xml", true);
+		xmlhttp.open("GET", "CITYcode.xml", true);
 		//處理
 		xmlhttp.onreadystatechange = function() {
 			handleStateChange();
@@ -158,7 +158,7 @@
 			$("#sec")
 					.click(
 							function() {
-								xmlhttp.open("GET", "CITY_CHT2.xml", true);
+								xmlhttp.open("GET", "CITYcode.xml", true);
 								xmlhttp.onreadystatechange = function() {
 									RET = document.getElementById("ret");
 									value = $('#sec :selected').text();

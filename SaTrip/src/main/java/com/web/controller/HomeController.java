@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -27,19 +28,24 @@ public class HomeController {
 
 	 @RequestMapping("/booking")
 //	 @ResponseBody
-	 public String test(@RequestParam(value="id") Integer id, 
-             @RequestParam(value="name") String name,Model model) {
-		 String test=id+","+name;
-//	 model.addAttribute("test", test);
+	 public String test(@RequestBody String jj, 
+//             @RequestParam(value="depC") String depC,
+//             @RequestParam(value="arrT") String arrT,
+//             @RequestParam(value="arrC") String arrC,
+//             @RequestParam(value="totalP") String totalP,
+             Model model) {
+		 String test=jj;
+//				 ","+depC+","+arrT+","+arrC+","+totalP;
+	 model.addAttribute("test", test);
 		 session.setAttribute("test", test);
 	 System.out.println(test);
-	 return "test";
+	 return "airTickets/test";
 	 }
 
 	@RequestMapping("/BFMS")
 	public String getOrder(HttpServletRequest request, Model model) throws UnsupportedEncodingException {
 		String result = bfmService.BFMservice(request);
 		model.addAttribute("result", result);
-		return "flightOrder";
+		return "airTickets/flightOrder";
 	}
 }
