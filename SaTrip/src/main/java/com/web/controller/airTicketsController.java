@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.web.service.BFMService;
 
 @Controller
-public class HomeController {
+public class airTicketsController {
 	@Autowired
 	BFMService bfmService;
 	@Autowired
