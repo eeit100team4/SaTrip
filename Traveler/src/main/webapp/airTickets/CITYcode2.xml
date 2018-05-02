@@ -1,8 +1,26 @@
 <?xml version="1.0" encoding="big5"?>
 <Coder>
+
+		<T>
+		<C>NH</C>
+		<D>全日空航空</D>
+	</T>
+
 	<T>
-		<C>TSA</C><D>台北松山(TSA)</D>
-		
+		<C>BR</C>
+		<D>長榮航空</D>
+	</T>
+
+	<T>
+		<C>JL</C>
+		<D>日本航空</D>
+	</T>
+
+
+	<T>
+		<C>TSA</C>
+		<D>台北松山(TSA)</D>
+
 	</T>
 	<T>
 		<C>TPE</C>
@@ -48,5 +66,9 @@
 		<D>長沙黃花 (HHA)</D>
 	</T>
 
+	<T>
+		<C>CI</C>
+		<D>中華航空</D>
+	</T>
 
 </Coder>

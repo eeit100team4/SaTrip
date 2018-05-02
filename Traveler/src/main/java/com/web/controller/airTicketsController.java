@@ -13,10 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.Gson;
-import com.web.model.airplain.JsonTest;
-import com.web.model.airplain.JsonTestTickets;
-import com.web.model.airplain.TsetSerV2;
-import com.web.service.BFMService;
+import com.web.model.airplain.OrderDetailsBean;
+import com.web.service.airplain.BFMService;
+import com.web.service.airplain.OrderService;
 
 @Controller
 public class airTicketsController {
@@ -25,7 +24,7 @@ public class airTicketsController {
 	@Autowired
 	HttpSession session;
 	@Autowired
-	TsetSerV2 tes2;
+	OrderService os;
  
 	 @RequestMapping({"/","index"})
 	 public String index() {
@@ -34,17 +33,14 @@ public class airTicketsController {
 
 	 @RequestMapping("/booking")
 	 @ResponseBody
-	 public String test(@RequestBody String jj,Model model) {
-		 String test=jj;
-		 System.out.println(jj);
+	 public String test(@RequestBody String order,Model model) {
 		 Gson gs = new Gson();
-		 JsonTestTickets jt =gs.fromJson(jj, JsonTestTickets.class);
-		 System.out.println(jt.toString());
-		 int re=tes2.addTese(jt);
+		 OrderDetailsBean odb =gs.fromJson(order, OrderDetailsBean.class);
+		 int success=os.addOrder(odb);
 		 String sess = session.getId();
+		 System.out.println(success);
 		 session.setAttribute("sess", sess);
-		 session.setAttribute("test", test);
-	 return String.valueOf(re);
+	 return String.valueOf(success);
 	 }
 
 	@RequestMapping("/BFMS")

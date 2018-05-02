@@ -1,6 +1,9 @@
-package com.web.service.BFM;
+package com.web.service.airplain;
 
-public class BFMSearch {
+import javax.servlet.http.HttpServletRequest;
+
+
+public class BFMSearch   {
 
 	public static String getRequestBody(String depT, String localCode, String repT, String returnCode,String psg) {
 
@@ -29,5 +32,6 @@ public class BFMSearch {
 		                                                             										  
 		return bfmsearch.toString();
 	}
+
 
 }

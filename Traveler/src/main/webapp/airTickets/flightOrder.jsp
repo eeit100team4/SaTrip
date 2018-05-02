@@ -174,8 +174,9 @@ float:left;
 .divv2{
 border: 1px solid orange ; 
 background-color: white;
-width:10%;
-line-height:880%;
+width:15%;
+line-height:434%;
+align:center;
 padding:20px;
 float:left;
 }
@@ -238,7 +239,9 @@ function list(){
             
             var table1=$("<table  align='center' style=' border: 1px solid orange ; background-color: white'></table>").append(row1,row2,row3);
             var div1=$("<div class='divv1'></div>").append(table1);
-            var div2=$("<div class='divv2'></div>").text(value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[0].OperatingAirline.Code);
+            var airline=value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[0].OperatingAirline.Code;	
+            var div2=$("<div class='divv2' align='center'></div>").text(airline);
+                div2.append("<img src=images/"+airline+".gif>");
             var divAll=$("<div></div>").append(div2,div1);
             docFrag.append(divAll);
 	})
@@ -349,7 +352,7 @@ function list(){
 						//等待
 						// document.getElementById("myDiv").innerHTML="讀取中...";   
 						//載入
-						xmlhttp.open("GET", "CITYcode.xml", true);
+						xmlhttp.open("GET", "CITYcode2.xml", true);
 						//處理
 						xmlhttp.onload=function(){
 							 xmlDoc = xmlhttp.responseXML;
@@ -370,6 +373,7 @@ function list(){
 								"application/x-www-form-urlencoded;charset=utf-8")
 						//傳送
 						xmlhttp.send();
+						
 			 }
 </script>
 <script>
@@ -377,6 +381,7 @@ function list(){
 
 
 	$(document).ready(function(){
+
 		show();
 	})
 	
@@ -407,14 +412,16 @@ function list(){
 				console.log("航班:"+airline);
 				console.log("去程機型:"+depNum);
 				console.log("回程機型:"+returnNum);
-				var sendDet =JSON.stringify({"depT":depT,"depC":depC,"arrT":arrT,"arrC":arrC,"totalP":totalP,"airline":airline,"depNum":depNum,"returnNum":returnNum});
+				var depDate="${depDate}";
+				var returnDate="${reDate}";			
+				var sendDet =JSON.stringify({"depT":depT,"depDate":depDate,"depC":depC,"arrT":arrT,"returnDate":returnDate,"arrC":arrC,"totalP":totalP,"airline":airline,"depNum":depNum,"returnNum":returnNum});
 				$.ajax({
 				    type : "post",
 				    url : "http://localhost:8080/Traveler/booking",
 				    //data: "回傳出發地="+depT"&name=John", // 資料是用 & 做串接
 				    data: sendDet,
 				    contentType: "application/json; charset=UTF-8",
-				    dataType:"json",
+// 				    dataType:"json",
 				    success : function(response) {
 				        alert('Success');
 				        alert(response);
@@ -551,8 +558,8 @@ ul {
 											<a style="font-size: 1em;" href="index.jsp">回首頁</a>
 										</div>
 									</c:if>
-								<div>
-								<span>去：${depDate}，回：${reDate}</span>
+								<div align="center">
+								<span style="font-size:18px;"><strong>去：${depDate}，回：${reDate}</strong></span>
 								</div>
 								<div id=ticketResult>
 								

@@ -10,16 +10,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class TestServ {
+public class OrderRepository {
 @Autowired
 SessionFactory factory;
 
-public int addTest(JsonTestTickets jt) {
+public int addTest(OrderDetailsBean odb) {
 	Session session = factory.getCurrentSession();
-	System.out.println(jt.toString()+3);
-	Serializable re = session.save(jt);
+	Serializable re = session.save(odb);
 	if(re!=null) {
-		return 1;
+		return (int) re;
 	}
 	return 0;
 }
