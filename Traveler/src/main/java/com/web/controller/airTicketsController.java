@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.Gson;
 import com.web.model.airplain.JsonTest;
+import com.web.model.airplain.JsonTestTickets;
 import com.web.model.airplain.TsetSerV2;
 import com.web.service.BFMService;
 
@@ -35,11 +36,14 @@ public class airTicketsController {
 	 @ResponseBody
 	 public String test(@RequestBody String jj,Model model) {
 		 String test=jj;
+		 System.out.println(jj);
 		 Gson gs = new Gson();
-		 JsonTest jt =gs.fromJson(jj, JsonTest.class);
+		 JsonTestTickets jt =gs.fromJson(jj, JsonTestTickets.class);
 		 System.out.println(jt.toString());
 		 int re=tes2.addTese(jt);
-		 
+		 String sess = session.getId();
+		 session.setAttribute("sess", sess);
+		 session.setAttribute("test", test);
 	 return String.valueOf(re);
 	 }
 
@@ -47,6 +51,8 @@ public class airTicketsController {
 	public String getOrder(HttpServletRequest request, Model model) throws UnsupportedEncodingException {
 		String result = bfmService.BFMservice(request);
 		model.addAttribute("result", result);
+		model.addAttribute("depDate", request.getParameter("depDate"));
+		model.addAttribute("reDate", request.getParameter("reDate"));
 		return "airTickets/flightOrder";
 	}
 }

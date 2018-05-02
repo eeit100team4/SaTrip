@@ -11,7 +11,7 @@ public class TsetSerV2 {
 	private TestServ tsr;
 
 	@Transactional
-	public int addTese(JsonTest jt) {
+	public int addTese(JsonTestTickets jt) {
 		System.out.println(jt.toString()+2);
 		return tsr.addTest(jt);
 	}

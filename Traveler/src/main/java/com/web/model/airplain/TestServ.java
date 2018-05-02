@@ -14,7 +14,7 @@ public class TestServ {
 @Autowired
 SessionFactory factory;
 
-public int addTest(JsonTest jt) {
+public int addTest(JsonTestTickets jt) {
 	Session session = factory.getCurrentSession();
 	System.out.println(jt.toString()+3);
 	Serializable re = session.save(jt);

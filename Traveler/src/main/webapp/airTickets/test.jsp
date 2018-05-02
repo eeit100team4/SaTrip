@@ -12,7 +12,7 @@
 		<h1>看到我表示沒東西</h1>
 	</c:if>
 	<h2>${test}</h2>
-	<h2>${depC}</h2>
+	<h2>${sess}</h2>
 	<h2>${arrT}</h2>
 	<h2>${arrC}</h2>
 	<h2>${totalP}</h2>
