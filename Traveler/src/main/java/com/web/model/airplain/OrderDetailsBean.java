@@ -1,13 +1,16 @@
 package com.web.model.airplain;
 
+import java.lang.annotation.Native;
+
+import javax.persistence.Column;
+import javax.persistence.ColumnResult;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 @Entity
 @Table(name="airTickets")
@@ -16,7 +19,7 @@ public class OrderDetailsBean {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int ID;
-	@Transient
+	@Column(name="orderID",insertable=false)
 	private String orderID;
 	private int memberId;
 	private String depT;
@@ -32,6 +35,19 @@ public class OrderDetailsBean {
 	private int bonus;
 
 
+
+
+
+	public OrderDetailsBean() {
+	}
+
+	@Override
+	public String toString() {
+		return "OrderDetailsBean [ID=" + ID + ", orderID=" + orderID + ", memberId=" + memberId + ", depT=" + depT
+				+ ", depDate=" + depDate + ", depC=" + depC + ", arrT=" + arrT + ", returnDate=" + returnDate
+				+ ", arrC=" + arrC + ", totalP=" + totalP + ", airline=" + airline + ", depNum=" + depNum
+				+ ", returnNum=" + returnNum + ", bonus=" + bonus + "]";
+	}
 
 	public String getOrderID() {
 		return orderID;

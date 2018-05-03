@@ -45,7 +45,7 @@
 <meta name="twitter:card" content="" />
 
 <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-<link rel="shortcut icon" href="favicon.ico">
+<link rel="shortcut icon" href="images/favicon.ico">
 
 <!--<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>-->
 
@@ -123,7 +123,7 @@
 		//等待
 		// document.getElementById("myDiv").innerHTML="讀取中...";   
 		//載入
-		xmlhttp.open("GET", "CITYcode.xml", true);
+		xmlhttp.open("GET", "xml/CITYcode.xml", true);
 		//處理
 		xmlhttp.onreadystatechange = function() {
 			handleStateChange();
@@ -158,7 +158,7 @@
 			$("#sec")
 					.click(
 							function() {
-								xmlhttp.open("GET", "CITYcode.xml", true);
+								xmlhttp.open("GET", "xml/CITYcode.xml", true);
 								xmlhttp.onreadystatechange = function() {
 									RET = document.getElementById("ret");
 									value = $('#sec :selected').text();

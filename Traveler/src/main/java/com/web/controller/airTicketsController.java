@@ -8,8 +8,10 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.Gson;
@@ -36,11 +38,12 @@ public class airTicketsController {
 	 public String test(@RequestBody String order,Model model) {
 		 Gson gs = new Gson();
 		 OrderDetailsBean odb =gs.fromJson(order, OrderDetailsBean.class);
-		 int success=os.addOrder(odb);
+		 int id=os.addOrder(odb);
+		 String orderid = os.selectOneById(id);
 		 String sess = session.getId();
-		 System.out.println(success);
+		 System.out.println(orderid);
 		 session.setAttribute("sess", sess);
-	 return String.valueOf(success);
+	 return orderid;
 	 }
 
 	@RequestMapping("/BFMS")
@@ -49,6 +52,20 @@ public class airTicketsController {
 		model.addAttribute("result", result);
 		model.addAttribute("depDate", request.getParameter("depDate"));
 		model.addAttribute("reDate", request.getParameter("reDate"));
+		model.addAttribute("psg", request.getParameter("psg"));
 		return "airTickets/flightOrder";
+	}
+	
+	@RequestMapping(method=RequestMethod.GET, value="{orId}")
+	public String getOrder(@PathVariable("orId") String orId, Model model)  {
+		System.out.println("??");
+		OrderDetailsBean obean = os.selectOneByOrderId(orId);
+		System.out.println(orId);
+		System.out.println(obean);
+		Gson gson = new Gson();
+		String jsonInString = gson.toJson(obean);
+		System.out.println(jsonInString);
+		model.addAttribute("bean",jsonInString);
+		return "airTickets/test";
 	}
 }

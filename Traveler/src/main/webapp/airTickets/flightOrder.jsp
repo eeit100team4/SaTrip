@@ -46,7 +46,7 @@
 <meta name="twitter:card" content="" />
 
 <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-<link rel="shortcut icon" href="favicon.ico">
+<link rel="shortcut icon" href="images/favicon.ico">
 
 <!--<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>-->
 
@@ -352,7 +352,7 @@ function list(){
 						//等待
 						// document.getElementById("myDiv").innerHTML="讀取中...";   
 						//載入
-						xmlhttp.open("GET", "CITYcode2.xml", true);
+						xmlhttp.open("GET", "xml/CITYcode2.xml", true);
 						//處理
 						xmlhttp.onload=function(){
 							 xmlDoc = xmlhttp.responseXML;
@@ -395,7 +395,7 @@ function list(){
 				var arrT=$("#"+k).parents("tbody").find("tr:eq(0)").children("td:eq(2)").children("div:eq(0)").text(); //去程抵達時間
 				var arrC=$("#"+k).parents("tbody").find("tr:eq(0)").children("td:eq(2)").children("div:eq(1)").text(); //去程目的地
 				var totalP=$("#"+k).parents("tbody").find("tr:eq(0)").children("td:eq(4)").children("span:eq(0)").text(); //總價格
-				
+				var price=totalP*${psg};
 				var returnT=$("#"+k).parents("tbody").find("tr:eq(2)").children("td:eq(0)").children("div:eq(0)").text(); //回程出發時間
 				var returnT=$("#"+k).parents("tbody").find("tr:eq(2)").children("td:eq(2)").children("div:eq(0)").text(); //回程抵達時間
 				var airline=$("#"+k).parents("table").parent("div").prev("div").text();                                //航班
@@ -414,7 +414,7 @@ function list(){
 				console.log("回程機型:"+returnNum);
 				var depDate="${depDate}";
 				var returnDate="${reDate}";			
-				var sendDet =JSON.stringify({"depT":depT,"depDate":depDate,"depC":depC,"arrT":arrT,"returnDate":returnDate,"arrC":arrC,"totalP":totalP,"airline":airline,"depNum":depNum,"returnNum":returnNum});
+				var sendDet =JSON.stringify({"depT":depT,"depDate":depDate,"depC":depC,"arrT":arrT,"returnDate":returnDate,"arrC":arrC,"totalP":price,"airline":airline,"depNum":depNum,"returnNum":returnNum});
 				$.ajax({
 				    type : "post",
 				    url : "http://localhost:8080/Traveler/booking",
@@ -423,9 +423,8 @@ function list(){
 				    contentType: "application/json; charset=UTF-8",
 // 				    dataType:"json",
 				    success : function(response) {
-				        alert('Success');
-				        alert(response);
-				        window.location.assign("http://localhost:8080/Traveler/airTickets/test.jsp");
+				    	var orId=response;
+				        window.location.assign("http://localhost:8080/Traveler/"+response);
 				    },
 				    error : function() {
 				        alert('fail');
@@ -559,7 +558,7 @@ ul {
 										</div>
 									</c:if>
 								<div align="center">
-								<span style="font-size:18px;"><strong>去：${depDate}，回：${reDate}</strong></span>
+								<span style="font-size:18px;"><strong>去：${depDate}，回：${reDate}，人數：${psg}</strong></span>
 								</div>
 								<div id=ticketResult>
 								
