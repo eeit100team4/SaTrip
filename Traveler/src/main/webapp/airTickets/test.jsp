@@ -117,7 +117,7 @@ $(document).ready(function(){
 	$("#depNum").text(beanJSON.depNum);
 	
 	$("#redepC").text(beanJSON.arrC);
-	$("#returnDate").text(beanJSON.returnDate+" "+beanJSON.arrT+" ~ "+"待補");
+	$("#returnDate").text(beanJSON.returnDate+" "+beanJSON.arrT+" ~ "+beanJSON.returnDate+" XX:XX");
 	$("#rearrC").text(beanJSON.depC);
 	$("#reairline").text(beanJSON.airline);
 	$("#returnNum").text(beanJSON.returnNum);
