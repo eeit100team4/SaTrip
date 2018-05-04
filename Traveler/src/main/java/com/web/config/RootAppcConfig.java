@@ -43,8 +43,9 @@ public class RootAppcConfig {
 		LocalSessionFactoryBean factory=new LocalSessionFactoryBean();
 		factory.setDataSource(dataSource());
 		factory.setPackagesToScan(new String[] {
-				"com.web.model.*"
+				"com.web.*"
 		});
+		factory.setHibernateProperties(additionalProperties());
 		return factory;
 	}
 

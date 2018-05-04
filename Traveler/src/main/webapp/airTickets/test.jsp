@@ -219,8 +219,6 @@ $(document).ready(function(){
 							</tr>
 						</tbody>
 					</table>
-					<h2>sessionID=${sess}</h2>
-					<h2>${bean}</h2>
 					<h2></h2>
 				</div>
 
