@@ -8,14 +8,16 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.Gson;
-import com.web.model.airplain.JsonTest;
-import com.web.model.airplain.TsetSerV2;
-import com.web.service.BFMService;
+import com.web.model.airplain.OrderDetailsBean;
+import com.web.service.airplain.BFMService;
+import com.web.service.airplain.OrderService;
 
 @Controller
 public class airTicketsController {
@@ -24,7 +26,7 @@ public class airTicketsController {
 	@Autowired
 	HttpSession session;
 	@Autowired
-	TsetSerV2 tes2;
+	OrderService os;
  
 	 @RequestMapping({"/","index"})
 	 public String index() {
@@ -33,20 +35,37 @@ public class airTicketsController {
 
 	 @RequestMapping("/booking")
 	 @ResponseBody
-	 public String test(@RequestBody String jj,Model model) {
-		 String test=jj;
+	 public String test(@RequestBody String order,Model model) {
 		 Gson gs = new Gson();
-		 JsonTest jt =gs.fromJson(jj, JsonTest.class);
-		 System.out.println(jt.toString());
-		 int re=tes2.addTese(jt);
-		 
-	 return String.valueOf(re);
+		 OrderDetailsBean odb =gs.fromJson(order, OrderDetailsBean.class);
+		 int id=os.addOrder(odb);
+		 String orderid = os.selectOneById(id);
+		 String sess = session.getId();
+		 System.out.println(orderid);
+		 session.setAttribute("sess", sess);
+	 return orderid;
 	 }
 
 	@RequestMapping("/BFMS")
 	public String getOrder(HttpServletRequest request, Model model) throws UnsupportedEncodingException {
 		String result = bfmService.BFMservice(request);
 		model.addAttribute("result", result);
+		model.addAttribute("depDate", request.getParameter("depDate"));
+		model.addAttribute("reDate", request.getParameter("reDate"));
+		model.addAttribute("psg", request.getParameter("psg"));
 		return "airTickets/flightOrder";
+	}
+	
+	@RequestMapping(method=RequestMethod.GET, value="{orId}")
+	public String getOrder(@PathVariable("orId") String orId, Model model)  {
+		System.out.println(orId);
+		OrderDetailsBean obean = os.selectOneByOrderId(orId);
+		System.out.println(orId);
+		System.out.println(obean);
+		Gson gson = new Gson();
+		String jsonInString = gson.toJson(obean);
+		System.out.println(jsonInString);
+		model.addAttribute("bean",jsonInString);
+		return "airTickets/test";
 	}
 }

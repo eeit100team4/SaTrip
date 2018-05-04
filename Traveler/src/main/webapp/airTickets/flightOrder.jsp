@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -46,7 +46,7 @@
 <meta name="twitter:card" content="" />
 
 <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-<link rel="shortcut icon" href="favicon.ico">
+<link rel="shortcut icon" href="images/favicon.ico">
 
 <!--<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>-->
 
@@ -174,8 +174,9 @@ float:left;
 .divv2{
 border: 1px solid orange ; 
 background-color: white;
-width:10%;
-line-height:750%;
+width:15%;
+line-height:434%;
+align:center;
 padding:20px;
 float:left;
 }
@@ -197,13 +198,14 @@ function list(){
             
             var cell5=$("<div></div>").text(value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].ArrivalDateTime);
             var cell6=$("<div></div>").text(value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].ArrivalAirport.LocationCode);
-            var td3=$("<td width='20%' align='center' valign='middle'></td>").append(cell5,cell6);
+            var cellH=$("<div hidden='hidden'></div>").text(value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].Equipment[0].AirEquipType);
+            var td3=$("<td width='20%' align='center' valign='middle'></td>").append(cell5,cell6,cellH);
             
             var cell7=$("<span></span>").text(value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].ElapsedTime+"分鐘");
 
             var td4=$("<td  width='50%' align='center' valign='middle'></td>").append(cell7);
             
-            var cellhr=$("<td colspan='5' align='center' valign='middle' ></td>").html("<hr>");
+            var cellhr=$("<td colspan='5' align='center' valign='middle' ></td>").html("<hr size='1' noshade='noshade' style='border:1px #cccccc dashed;'>");
             var row2=$("<tr></tr>").append(cellhr);
             
             var cell10=$("<div></div>").html("<p>每人含稅</p>");
@@ -223,7 +225,8 @@ function list(){
             
             var cellR5=$("<div></div>").text(value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[0].ArrivalDateTime);
             var cellR6=$("<div></div>").text(value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[0].ArrivalAirport.LocationCode);
-            var tdR3=$("<td width='20%' align='center' valign='middle'></td>").append(cellR5,cellR6);
+            var cellRH=$("<div hidden='hidden'></div>").text(value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[0].Equipment[0].AirEquipType);
+            var tdR3=$("<td width='20%' align='center' valign='middle'></td>").append(cellR5,cellR6,cellRH);
             
             var cellR7=$("<span></span>").text(value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[0].ElapsedTime+"分鐘");
             var tdR4=$("<td  width='50%' align='center' valign='middle'></td>").append(cellR7);
@@ -236,7 +239,9 @@ function list(){
             
             var table1=$("<table  align='center' style=' border: 1px solid orange ; background-color: white'></table>").append(row1,row2,row3);
             var div1=$("<div class='divv1'></div>").append(table1);
-            var div2=$("<div class='divv2'></div>").text(value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[0].OperatingAirline.Code);
+            var airline=value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[0].OperatingAirline.Code;	
+            var div2=$("<div class='divv2' align='center'></div>").text(airline);
+                div2.append("<img src=images/"+airline+".gif>");
             var divAll=$("<div></div>").append(div2,div1);
             docFrag.append(divAll);
 	})
@@ -347,7 +352,7 @@ function list(){
 						//等待
 						// document.getElementById("myDiv").innerHTML="讀取中...";   
 						//載入
-						xmlhttp.open("GET", "CITYcode.xml", true);
+						xmlhttp.open("GET", "xml/CITYcode2.xml", true);
 						//處理
 						xmlhttp.onload=function(){
 							 xmlDoc = xmlhttp.responseXML;
@@ -368,6 +373,7 @@ function list(){
 								"application/x-www-form-urlencoded;charset=utf-8")
 						//傳送
 						xmlhttp.send();
+						
 			 }
 </script>
 <script>
@@ -375,6 +381,7 @@ function list(){
 
 
 	$(document).ready(function(){
+
 		show();
 	})
 	
@@ -382,23 +389,42 @@ function list(){
 		function sendDetails(){
 
 				var k =event.target.id;
-				var depT=$("#"+k).parents("tr").find("td:eq(0)").children("div:eq(0)").text(); //去程出發時間
-				var depC=$("#"+k).parents("tr").find("td:eq(0)").children("div:eq(1)").text(); //出發地
-				var arrT=$("#"+k).parents("tr").find("td:eq(2)").children("div:eq(0)").text(); //去程抵達時間
-				var arrC=$("#"+k).parents("tr").find("td:eq(2)").children("div:eq(1)").text(); //目的地
-				var totalP=$("#"+k).parents("tr").find("td:eq(3)").children("span:eq(0)").text(); //含稅價格
+
+				var depT=$("#"+k).parents("tbody").find("tr:eq(0)").children("td:eq(0)").children("div:eq(0)").text(); //去程出發時間
+				var depC=$("#"+k).parents("tbody").find("tr:eq(0)").children("td:eq(0)").children("div:eq(1)").text(); //去程出發地
+				var arrT=$("#"+k).parents("tbody").find("tr:eq(0)").children("td:eq(2)").children("div:eq(0)").text(); //去程抵達時間
+				var arrC=$("#"+k).parents("tbody").find("tr:eq(0)").children("td:eq(2)").children("div:eq(1)").text(); //去程目的地
+				var totalP=$("#"+k).parents("tbody").find("tr:eq(0)").children("td:eq(4)").children("span:eq(0)").text(); //總價格
+				var price=totalP*${psg};
+				var returnT=$("#"+k).parents("tbody").find("tr:eq(2)").children("td:eq(0)").children("div:eq(0)").text(); //回程出發時間
+				var returnT=$("#"+k).parents("tbody").find("tr:eq(2)").children("td:eq(2)").children("div:eq(0)").text(); //回程抵達時間
+				var airline=$("#"+k).parents("table").parent("div").prev("div").text();                                //航班
+				var depNum=$("#"+k).parents("tbody").find("tr:eq(0)").children("td:eq(2)").children("div:eq(2)").text(); //去程機型
+				var returnNum=$("#"+k).parents("tbody").find("tr:eq(2)").children("td:eq(2)").children("div:eq(2)").text(); //回程機型
 				
+				
+				console.log(k);
+				console.log("去程時間:"+depT);
+				console.log("去程出發地:"+depC);
+				console.log("去程抵達時間:"+arrT);
+				console.log("去程目的地:"+arrC);
+				console.log("總價格:"+totalP);
+				console.log("航班:"+airline);
+				console.log("去程機型:"+depNum);
+				console.log("回程機型:"+returnNum);
+				var depDate="${depDate}";
+				var returnDate="${reDate}";			
+				var sendDet =JSON.stringify({"depT":depT,"depDate":depDate,"depC":depC,"arrT":arrT,"returnDate":returnDate,"arrC":arrC,"totalP":price,"airline":airline,"depNum":depNum,"returnNum":returnNum});
 				$.ajax({
 				    type : "post",
 				    url : "http://localhost:8080/Traveler/booking",
 				    //data: "回傳出發地="+depT"&name=John", // 資料是用 & 做串接
-				    data: JSON.stringify( {"depC":depC,"depT":depT,"arrC":arrC,"totalP":totalP}),
+				    data: sendDet,
 				    contentType: "application/json; charset=UTF-8",
 // 				    dataType:"json",
 				    success : function(response) {
-				        alert('Success');
-				        alert(response);
-// 				        window.location.assign("http://localhost:8080/Traveler/airTickets/test.jsp");
+				    	var orId=response;
+				        window.location.assign("http://localhost:8080/Traveler/"+response);
 				    },
 				    error : function() {
 				        alert('fail');
@@ -468,7 +494,7 @@ ul {
 </style>
 
 </head>
-<body >
+<body  style="background-image: url(images/cover_bg_1.jpg);background-attachment: fixed; ">
 	<div id="fh5co-wrapper">
 		<div id="fh5co-page">
 
@@ -508,7 +534,7 @@ ul {
 
 				<!-- 	背景暖色系樣式			<div class="fh5co-overlay"></div> -->
 				<div class="fh5co-cover" data-stellar-background-ratio="0.5"
-					style="background-image: url(images/cover_bg_1.jpg);background-attachment: fixed; ">
+					>
 
 					<div>
 						<div class="page_btn clear">
@@ -531,8 +557,8 @@ ul {
 											<a style="font-size: 1em;" href="index.jsp">回首頁</a>
 										</div>
 									</c:if>
-								<div>
-								<span>去：XXXX-XX-XX，回：XXXX-XX-XX</span>
+								<div align="center">
+								<span style="font-size:18px;"><strong>去：${depDate}，回：${reDate}，人數：${psg}</strong></span>
 								</div>
 								<div id=ticketResult>
 								

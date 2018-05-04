@@ -45,7 +45,7 @@
 <meta name="twitter:card" content="" />
 
 <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-<link rel="shortcut icon" href="favicon.ico">
+<link rel="shortcut icon" href="images/favicon.ico">
 
 <!--<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>-->
 
@@ -123,7 +123,7 @@
 		//等待
 		// document.getElementById("myDiv").innerHTML="讀取中...";   
 		//載入
-		xmlhttp.open("GET", "CITYcode.xml", true);
+		xmlhttp.open("GET", "xml/CITYcode.xml", true);
 		//處理
 		xmlhttp.onreadystatechange = function() {
 			handleStateChange();
@@ -158,7 +158,11 @@
 			$("#sec")
 					.click(
 							function() {
-								xmlhttp.open("GET", "CITYcode.xml", true);
+// 								if($('#sec').options[0])
+								if($('#sec :selected').text()=="選擇出發地"){
+									$('#sec :selected').remove();
+								}
+								xmlhttp.open("GET", "xml/CITYcode.xml", true);
 								xmlhttp.onreadystatechange = function() {
 									RET = document.getElementById("ret");
 									value = $('#sec :selected').text();
@@ -292,7 +296,7 @@ function slow(){
 								<li><a href="flight.html">航班</a></li>
 								<li><a href="hotel.html">Hotel</a></li>
 								<li><a href="car.html">Car</a></li>
-								<li><a href="blog.html">Blog</a></li>
+								<li><a href="blog.html">客戶服務</a></li>
 								<li><a href="contact.html">Contact</a></li>
 							</ul>
 						</nav>
@@ -330,18 +334,18 @@ function slow(){
 											<div role="tabpanel" class="tab-pane active" id="flights">
 												<div class="row">
 													<form action="BFMS" method="get">
-														<div class="col-xxs-12 col-xs-6 mt">
+														<div class="col-xxs-12 col-xs-5 mt">
 															<div class="input-field">
 																<label for="from">出發地</label>
 																<!-- 													增加先啟提供地點 -->
 																<!-- 													<input type="text" class="form-control" id="from-place" placeholder="台灣-桃園"/> -->
 																<select id="sec" name="dept" class="secDep"
 																	style="color: blue;">
-
+																	<option selected="selected">選擇出發地</option>
 																</select>
 															</div>
 														</div>
-														<div class="col-xxs-12 col-xs-6 mt">
+														<div class="col-xxs-12 col-xs-5 col-xs-offset-1 mt">
 															<div class="input-field">
 																<label for="from">目的地</label>
 																<!-- 																 <input type="text" class="form-control" id="to-place" -->

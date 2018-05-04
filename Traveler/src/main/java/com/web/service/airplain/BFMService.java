@@ -1,12 +1,10 @@
-package com.web.service;
+package com.web.service.airplain;
 
 import java.io.UnsupportedEncodingException;
 
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Service;
-
-import com.web.service.BFM.RunTest;
 
 @Service
 public class BFMService {
