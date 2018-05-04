@@ -18,21 +18,21 @@ public class OrderDetailsBean {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int ID;
+	private Integer ID;
 	@Column(name="orderID",insertable=false)
 	private String orderID;
-	private int memberId;
+	private Integer memberId;
 	private String depT;
 	private String depDate;
 	private String depC;
 	private String arrT;
 	private String returnDate;
 	private String arrC;
-	private int totalP;
+	private Integer totalP;
 	private String airline;
 	private String depNum;
 	private String returnNum;
-	private int bonus;
+	private Integer bonus;
 
 
 
@@ -40,6 +40,234 @@ public class OrderDetailsBean {
 
 	public OrderDetailsBean() {
 	}
+
+
+
+
+
+	public Integer getID() {
+		return ID;
+	}
+
+
+
+
+
+	public void setID(Integer iD) {
+		ID = iD;
+	}
+
+
+
+
+
+	public String getOrderID() {
+		return orderID;
+	}
+
+
+
+
+
+	public void setOrderID(String orderID) {
+		this.orderID = orderID;
+	}
+
+
+
+
+
+	public Integer getMemberId() {
+		return memberId;
+	}
+
+
+
+
+
+	public void setMemberId(Integer memberId) {
+		this.memberId = memberId;
+	}
+
+
+
+
+
+	public String getDepT() {
+		return depT;
+	}
+
+
+
+
+
+	public void setDepT(String depT) {
+		this.depT = depT;
+	}
+
+
+
+
+
+	public String getDepDate() {
+		return depDate;
+	}
+
+
+
+
+
+	public void setDepDate(String depDate) {
+		this.depDate = depDate;
+	}
+
+
+
+
+
+	public String getDepC() {
+		return depC;
+	}
+
+
+
+
+
+	public void setDepC(String depC) {
+		this.depC = depC;
+	}
+
+
+
+
+
+	public String getArrT() {
+		return arrT;
+	}
+
+
+
+
+
+	public void setArrT(String arrT) {
+		this.arrT = arrT;
+	}
+
+
+
+
+
+	public String getReturnDate() {
+		return returnDate;
+	}
+
+
+
+
+
+	public void setReturnDate(String returnDate) {
+		this.returnDate = returnDate;
+	}
+
+
+
+
+
+	public String getArrC() {
+		return arrC;
+	}
+
+
+
+
+
+	public void setArrC(String arrC) {
+		this.arrC = arrC;
+	}
+
+
+
+
+
+	public Integer getTotalP() {
+		return totalP;
+	}
+
+
+
+
+
+	public void setTotalP(Integer totalP) {
+		this.totalP = totalP;
+	}
+
+
+
+
+
+	public String getAirline() {
+		return airline;
+	}
+
+
+
+
+
+	public void setAirline(String airline) {
+		this.airline = airline;
+	}
+
+
+
+
+
+	public String getDepNum() {
+		return depNum;
+	}
+
+
+
+
+
+	public void setDepNum(String depNum) {
+		this.depNum = depNum;
+	}
+
+
+
+
+
+	public String getReturnNum() {
+		return returnNum;
+	}
+
+
+
+
+
+	public void setReturnNum(String returnNum) {
+		this.returnNum = returnNum;
+	}
+
+
+
+
+
+	public Integer getBonus() {
+		return bonus;
+	}
+
+
+
+
+
+	public void setBonus(Integer bonus) {
+		this.bonus = bonus;
+	}
+
+
+
+
 
 	@Override
 	public String toString() {
@@ -49,119 +277,5 @@ public class OrderDetailsBean {
 				+ ", returnNum=" + returnNum + ", bonus=" + bonus + "]";
 	}
 
-	public String getOrderID() {
-		return orderID;
-	}
-
-	public void setOrderID(String orderID) {
-		this.orderID = orderID;
-	}
-
-	public String getReturnDate() {
-		return returnDate;
-	}
-
-	public void setReturnDate(String returnDate) {
-		this.returnDate = returnDate;
-	}
-
-	public String getDepDate() {
-		return depDate;
-	}
-
-	public void setDepDate(String depDate) {
-		this.depDate = depDate;
-	}
-
-
-	public int getBonus() {
-		return bonus;
-	}
-
-	public void setBonus(int totalP) {
-		System.out.println(bonus+"setBonus");
-	}
-
-	public int getID() {
-		return ID;
-	}
-
-	public void setID(int iD) {
-		ID = iD;
-	}
-
-
-	public int getTotalP() {
-		return totalP;
-	}
-
-	public int getMemberId() {
-		return memberId;
-	}
-
-	public void setMemberId(int memberId) {
-		this.memberId = memberId;
-	}
-
-	public void setTotalP(int totalP) {
-		this.totalP = totalP;
-	}
-
-	public void setDepT(String depT) {
-		this.depT = depT;
-	}
-
-	public String getDepT() {
-		return depT;
-	}
-
-	public void setDepC(String depC) {
-		this.depC = depC;
-	}
-
-	public String getDepC() {
-		return depC;
-	}
-
-	public void setArrT(String arrT) {
-		this.arrT = arrT;
-	}
-
-	public String getArrT() {
-		return arrT;
-	}
-
-	public void setArrC(String arrC) {
-		this.arrC = arrC;
-	}
-
-	public String getArrC() {
-		return arrC;
-	}
-
-
-	public void setAirline(String airline) {
-		this.airline = airline;
-	}
-
-	public String getAirline() {
-		return airline;
-	}
-
-	public void setDepNum(String depNum) {
-		this.depNum = depNum;
-	}
-
-	public String getDepNum() {
-		return depNum;
-	}
-
-	public void setReturnNum(String returnNum) {
-		this.returnNum = returnNum;
-	}
-
-	public String getReturnNum() {
-		return returnNum;
-	}
 
 }

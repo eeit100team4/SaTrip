@@ -58,7 +58,7 @@ public class airTicketsController {
 	
 	@RequestMapping(method=RequestMethod.GET, value="{orId}")
 	public String getOrder(@PathVariable("orId") String orId, Model model)  {
-		System.out.println("??");
+		System.out.println(orId);
 		OrderDetailsBean obean = os.selectOneByOrderId(orId);
 		System.out.println(orId);
 		System.out.println(obean);
