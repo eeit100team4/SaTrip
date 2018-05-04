@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="big5"?>
 <Coder>
 
-		<T>
+	<T>
+		<C>CX</C>
+		<D>國泰航空</D>
+	</T>
+
+	<T>
 		<C>NH</C>
 		<D>全日空航空</D>
 	</T>

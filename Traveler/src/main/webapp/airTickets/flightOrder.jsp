@@ -205,7 +205,7 @@ function list(){
 
             var td4=$("<td  width='50%' align='center' valign='middle'></td>").append(cell7);
             
-            var cellhr=$("<td colspan='5' align='center' valign='middle' ></td>").html("<hr>");
+            var cellhr=$("<td colspan='5' align='center' valign='middle' ></td>").html("<hr size='1' noshade='noshade' style='border:1px #cccccc dashed;'>");
             var row2=$("<tr></tr>").append(cellhr);
             
             var cell10=$("<div></div>").html("<p>每人含稅</p>");

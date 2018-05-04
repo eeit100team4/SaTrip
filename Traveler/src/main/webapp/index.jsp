@@ -158,6 +158,10 @@
 			$("#sec")
 					.click(
 							function() {
+// 								if($('#sec').options[0])
+								if($('#sec :selected').text()=="選擇出發地"){
+									$('#sec :selected').remove();
+								}
 								xmlhttp.open("GET", "xml/CITYcode.xml", true);
 								xmlhttp.onreadystatechange = function() {
 									RET = document.getElementById("ret");
@@ -329,18 +333,18 @@ function slow(){
 											<div role="tabpanel" class="tab-pane active" id="flights">
 												<div class="row">
 													<form action="BFMS" method="get">
-														<div class="col-xxs-12 col-xs-6 mt">
+														<div class="col-xxs-12 col-xs-5 mt">
 															<div class="input-field">
 																<label for="from">出發地</label>
 																<!-- 													增加先啟提供地點 -->
 																<!-- 													<input type="text" class="form-control" id="from-place" placeholder="台灣-桃園"/> -->
 																<select id="sec" name="dept" class="secDep"
 																	style="color: blue;">
-
+																	<option selected="selected">選擇出發地</option>
 																</select>
 															</div>
 														</div>
-														<div class="col-xxs-12 col-xs-6 mt">
+														<div class="col-xxs-12 col-xs-5 col-xs-offset-1 mt">
 															<div class="input-field">
 																<label for="from">目的地</label>
 																<!-- 																 <input type="text" class="form-control" id="to-place" -->
