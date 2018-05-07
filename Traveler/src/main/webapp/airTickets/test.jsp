@@ -123,7 +123,7 @@ $(document).ready(function(){
 	$("#reairline").text(beanJSON.airline);
 	$("#person").text(beanJSON.person);
 	$("#price").text(beanJSON.price);
-	var te= $("#totalPrice").text(parseInt(beanJSON.price)*parseInt(beanJSON.person));
+	var te= $("#totalPrice").text("NT$"+parseInt(beanJSON.price)*parseInt(beanJSON.person));
 	console.log(te);
 	$("#returnNum").text(beanJSON.returnNum);
 	
@@ -132,7 +132,7 @@ $(document).ready(function(){
 	
 });
 
-function test(){
+function sendGuest(){
 	var data = new FormData(document.querySelector("form"));
 	console.log(data);
 	$.ajax({
@@ -248,13 +248,13 @@ function test(){
 							</tr>
 						</tbody>
 					</table>
-					<div  style="width:80%;margin:0px auto;border:1px orange solid 	"  >
+					<div  style="width:50%;margin:0px auto;border:1px orange solid 	"  >
 					<table class="table">
 						<thead class="thead-light">
 							<tr>
 								<th class="text-center" scope="col">人數</th>
-								<th class="text-center" scope="col">票價/人</th>
-								<th class="text-center" scope="col">總計</th>
+								<th class="text-center" scope="col">票價/人(含稅)</th>
+								<th class="text-center" scope="col">總計(含稅)</th>
 							</tr>
 						</thead>
 						<tbody >
@@ -265,22 +265,21 @@ function test(){
 							</tr>
 						</tbody>
 					</table>
-					
 					</div>
-					
 					  
-	<div>
+	<div  style="width:40%;margin:20px ;border:1px orange solid 	">
 		<form id="myform"  enctype="multipart/form-data">
-			<p>旅客一</p>
-			<label>中文姓</label> <input type="text" name="chineseFirstpath_1" />&nbsp&nbsp&nbsp&nbsp
+			<p>聯絡人</p>
+			<label>中文姓</label> <input type="text" name="chineseLastName_1" />&nbsp&nbsp&nbsp&nbsp
 			<label>中文名</label><input type="text" name="chineseFirstName_1" />
 			<br><br>
 			<label>英文姓</label>
 			<input type="text" name="lastName_1" />&nbsp&nbsp&nbsp&nbsp
 			<label>英文名</label> <input type="text" name="firstName_1" />
-			
+			<br><br>
+			<label class=>生日</label><input  type="text" name="birth_1" />
 			 	<input type="hidden" name="_method" value="post" /> 
-			 <button type="button" onclick="test()">送出</button>
+			 <button type="button" onclick="sendGuest()">送出</button>
 		</form>
 	</div>
     </div>

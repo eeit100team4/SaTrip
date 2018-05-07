@@ -9,7 +9,6 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,6 +19,7 @@ import com.google.gson.Gson;
 import com.web.model.airplain.GuestBean;
 import com.web.model.airplain.OrderDetailsBean;
 import com.web.service.airplain.BFMService;
+import com.web.service.airplain.GuestService;
 import com.web.service.airplain.OrderService;
 
 @Controller
@@ -30,12 +30,14 @@ public class airTicketsController {
 	HttpSession session;
 	@Autowired
 	OrderService os;
+	@Autowired
+	GuestService gs;
  
 	 @RequestMapping({"/","index"})
 	 public String index() {
 	 return "index";
 	 }
-
+	
 	 @RequestMapping("/booking")
 	 @ResponseBody
 	 public String test(@RequestBody String order,Model model) {
@@ -89,11 +91,12 @@ public class airTicketsController {
 	}
 	
 	@RequestMapping(value="/airTickets/guest" ,method=RequestMethod.POST)
-	public @ResponseBody String addGuest(GuestBean guestBean,Model model) {
+	public @ResponseBody int addGuest(GuestBean guestBean,Model model) {
 		System.out.println("in");
 		System.out.println(guestBean);
+		int resultId =gs.addGuest(guestBean);
 //		session.setAttribute("guestBean", guestBean);
 //		model.addAttribute("guestBean",guestBean);
-		return "QQ";
+		return resultId;
 	}
 }
