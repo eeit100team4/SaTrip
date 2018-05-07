@@ -3,6 +3,7 @@ package com.web.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
@@ -19,7 +20,7 @@ public class WebAppConfig extends WebMvcConfigurerAdapter {
 	public ViewResolver internalResourceViewResolver() {
 		InternalResourceViewResolver resolver = new InternalResourceViewResolver();
 		resolver.setViewClass(JstlView.class);
-		resolver.setPrefix("//");
+		resolver.setPrefix("/");
 		resolver.setSuffix(".jsp");
 		return resolver;
 	}
@@ -38,6 +39,13 @@ public class WebAppConfig extends WebMvcConfigurerAdapter {
 	  @Override
 	    public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
 	        configurer.enable();
-	    }	
+	    }
+	  
+	  @Bean
+	  public CommonsMultipartResolver multipartResolver() {
+		  CommonsMultipartResolver resolver = new CommonsMultipartResolver();
+		  resolver.setMaxInMemorySize(819200000);
+		  return resolver;
+	  }
 	
 }

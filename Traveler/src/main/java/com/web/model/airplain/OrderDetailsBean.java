@@ -28,11 +28,67 @@ public class OrderDetailsBean {
 	private String arrT;
 	private String returnDate;
 	private String arrC;
-	private Integer totalP;
+	private String returnTime;
+	private Integer price;
 	private String airline;
 	private String depNum;
 	private String returnNum;
+	private Integer person;
 	private Integer bonus;
+
+
+
+	@Override
+	public String toString() {
+		return "OrderDetailsBean [ID=" + ID + ", orderID=" + orderID + ", memberId=" + memberId + ", depT=" + depT
+				+ ", depDate=" + depDate + ", depC=" + depC + ", arrT=" + arrT + ", returnDate=" + returnDate
+				+ ", arrC=" + arrC + ", returnTime=" + returnTime + ", price=" + price + ", airline=" + airline
+				+ ", depNum=" + depNum + ", returnNum=" + returnNum + ", person=" + person + ", bonus=" + bonus + "]";
+	}
+
+
+
+
+
+	public String getReturnTime() {
+		return returnTime;
+	}
+
+
+
+
+
+
+
+
+
+
+
+	public void setReturnTime(String returnTime) {
+		this.returnTime = returnTime;
+	}
+
+
+
+
+
+
+
+
+
+
+
+	public Integer getPerson() {
+		return person;
+	}
+
+
+
+
+
+	public void setPerson(Integer person) {
+		this.person = person;
+	}
 
 
 
@@ -189,17 +245,34 @@ public class OrderDetailsBean {
 
 
 
-	public Integer getTotalP() {
-		return totalP;
+
+
+
+
+
+	public Integer getPrice() {
+		return price;
 	}
 
 
 
 
 
-	public void setTotalP(Integer totalP) {
-		this.totalP = totalP;
+
+
+
+
+
+
+	public void setPrice(Integer price) {
+		this.price = price;
 	}
+
+
+
+
+
+
 
 
 
@@ -269,13 +342,6 @@ public class OrderDetailsBean {
 
 
 
-	@Override
-	public String toString() {
-		return "OrderDetailsBean [ID=" + ID + ", orderID=" + orderID + ", memberId=" + memberId + ", depT=" + depT
-				+ ", depDate=" + depDate + ", depC=" + depC + ", arrT=" + arrT + ", returnDate=" + returnDate
-				+ ", arrC=" + arrC + ", totalP=" + totalP + ", airline=" + airline + ", depNum=" + depNum
-				+ ", returnNum=" + returnNum + ", bonus=" + bonus + "]";
-	}
 
 
 }

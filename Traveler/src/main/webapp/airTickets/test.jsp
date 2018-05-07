@@ -1,5 +1,6 @@
 ﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -117,21 +118,49 @@ $(document).ready(function(){
 	$("#depNum").text(beanJSON.depNum);
 	
 	$("#redepC").text(beanJSON.arrC);
-	$("#returnDate").text(beanJSON.returnDate+" "+beanJSON.arrT+" ~ "+beanJSON.returnDate+" XX:XX");
+	$("#returnDate").text(beanJSON.returnDate+" "+beanJSON.arrT+" ~ "+beanJSON.returnDate+" "+beanJSON.returnTime);
 	$("#rearrC").text(beanJSON.depC);
 	$("#reairline").text(beanJSON.airline);
+	$("#person").text(beanJSON.person);
+	$("#price").text(beanJSON.price);
+	var te= $("#totalPrice").text(parseInt(beanJSON.price)*parseInt(beanJSON.person));
+	console.log(te);
 	$("#returnNum").text(beanJSON.returnNum);
 	
-	
-	console.log(beanJSON.ID);
-	console.log(beanJSON.depT);
-	console.log(beanJSON.ID);
-	
-})
 
+	
+	
+});
 
+function test(){
+	var data = new FormData(document.querySelector("form"));
+	console.log(data);
+	$.ajax({
+		url : 'airTickets/guest',
+		type : 'POST',
+		data : data,
+		//enctype: "multipart/form-data",
+		contentType : false,
+		processData : false,
+		success : function(responce) {
+			alert(responce);
+			alert("ok");
+			window.location.href = "airTickets/test2.jsp"
+		},
+		error:function(){
+			alert("error");
+		}
+
+	});
+	
+	
+	
+}
 
 </script>
+
+
+
 
 </head>
 <body>
@@ -201,11 +230,11 @@ $(document).ready(function(){
 						<thead class="thead-light">
 							<tr>
 								<th class="text-center" scope="col">回程</th>
-								<th class="text-center" scope="col">出發</th>
-								<th class="text-center" scope="col">目的</th>
-								<th class="text-center" scope="col">日期</th>
-								<th class="text-center" scope="col">航空公司</th>
-								<th class="text-center" scope="col">機型</th>
+								<th class="text-center" scope="col"></th>
+								<th class="text-center" scope="col"></th>
+								<th class="text-center" scope="col"></th>
+								<th class="text-center" scope="col"></th>
+								<th class="text-center" scope="col"></th>
 							</tr>
 						</thead>
 						<tbody>
@@ -219,7 +248,42 @@ $(document).ready(function(){
 							</tr>
 						</tbody>
 					</table>
-					<h2></h2>
+					<div  style="width:80%;margin:0px auto;border:1px orange solid 	"  >
+					<table class="table">
+						<thead class="thead-light">
+							<tr>
+								<th class="text-center" scope="col">人數</th>
+								<th class="text-center" scope="col">票價/人</th>
+								<th class="text-center" scope="col">總計</th>
+							</tr>
+						</thead>
+						<tbody >
+							<tr >
+								<th  id="person" class="text-center"scope="row" scope="col"></th>
+								<td id="price" scope="col"></td>
+								<td  scope="col" style="color:red;"><strong id="totalPrice"></strong></td>
+							</tr>
+						</tbody>
+					</table>
+					
+					</div>
+					
+					  
+	<div>
+		<form id="myform"  enctype="multipart/form-data">
+			<p>旅客一</p>
+			<label>中文姓</label> <input type="text" name="chineseFirstpath_1" />&nbsp&nbsp&nbsp&nbsp
+			<label>中文名</label><input type="text" name="chineseFirstName_1" />
+			<br><br>
+			<label>英文姓</label>
+			<input type="text" name="lastName_1" />&nbsp&nbsp&nbsp&nbsp
+			<label>英文名</label> <input type="text" name="firstName_1" />
+			
+			 	<input type="hidden" name="_method" value="post" /> 
+			 <button type="button" onclick="test()">送出</button>
+		</form>
+	</div>
+    </div>
 				</div>
 
 
@@ -245,15 +309,8 @@ $(document).ready(function(){
 				</div>
 			</div>
 		</div>
-		</footer>
 
 
-
-	</div>
-	<!-- END fh5co-page -->
-
-	</div>
-	<!-- END fh5co-wrapper -->
 
 
 
