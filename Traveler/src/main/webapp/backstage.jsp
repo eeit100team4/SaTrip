@@ -23,6 +23,8 @@
 	src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
 	integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
 	crossorigin="anonymous"></script>
+	
+	
 <title>Insert title here</title>
 
 <style>
@@ -148,14 +150,14 @@ float:right;
 		<header>		
 		 <nav>		
 		<ul class="menu">
-	    	<li cless="le"><a href="index.html">TRAVEL後台管理系統</a></li>
-					<li><a href="index.html">機票管理</a></li>
-					<li><a href="index.html">飯店管理</a></li>
-					<li><a href="index.html">主題旅遊管理</a></li>
-					<li><a href="index.html">會員管理</a></li>
-					<li><a href="index.html">紅利管理</a></li>
-					<li><a href="index.html">客服管理</a></li>
-					<li><a href="index.html">登入</a></li> <!--登出-->
+	    	<li cless="le"><a href="index.html"><img src='images/icon_index.png' height="25px" width="25px"/>TRAVEL後台管理系統</a></li>
+					<li><a href="index.html"><img src='images/icon_air.png' height="25px" width="25px"/>機票管理</a></li>
+					<li><a href="index.html"><img src='images/icon_hotel.png' height="25px" width="25px"/>飯店管理</a></li>
+					<li><a href="index.html"><img src='images/icon_traveler.png' height="25px" width="25px"/>主題旅遊管理</a></li>
+					<li><a href="index.html"><img src='images/icon_vip.png' height="25px" width="25px"/>會員管理</a></li>
+					<li><a href="index.html"><img src='images/icon_comm.png' height="25px" width="25px"/>紅利管理</a></li>
+					<li><a href="index.html"><img src='images/icon_support.png' height="25px" width="25px"/>客服管理</a></li>
+					<li><a href="index.html"><img src='images/icon_login.png' height="25px" width="25px"/>登入</a></li> <!--登出-->
 		</ul>
 
 		</nav> </header>
