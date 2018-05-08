@@ -1,6 +1,6 @@
 ﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -107,58 +107,67 @@
 <script src="/Traveler/js/main.js"></script>
 
 
-<script >
+<script>
+	$(document).ready(
+			function() {
+				var beanJSON = ${bean};
+				$("#depC").text(beanJSON.depC);
+				$("#depDate").text(
+						beanJSON.depDate + " " + beanJSON.depT + " ~ "
+								+ beanJSON.depDate + " " + beanJSON.arrT);
+				$("#arrC").text(beanJSON.arrC);
+				$("#airline").text(beanJSON.airline);
+				$("#depNum").text(beanJSON.depNum);
 
-$(document).ready(function(){
-	var beanJSON=${bean};
-	$("#depC").text(beanJSON.depC);
-	$("#depDate").text(beanJSON.depDate+" "+beanJSON.depT+" ~ "+beanJSON.depDate+" "+beanJSON.arrT);
-	$("#arrC").text(beanJSON.arrC);
-	$("#airline").text(beanJSON.airline);
-	$("#depNum").text(beanJSON.depNum);
-	
-	$("#redepC").text(beanJSON.arrC);
-	$("#returnDate").text(beanJSON.returnDate+" "+beanJSON.arrT+" ~ "+beanJSON.returnDate+" "+beanJSON.returnTime);
-	$("#rearrC").text(beanJSON.depC);
-	$("#reairline").text(beanJSON.airline);
-	$("#person").text(beanJSON.person);
-	$("#price").text(beanJSON.price);
-	var te= $("#totalPrice").text("NT$"+parseInt(beanJSON.price)*parseInt(beanJSON.person));
-	console.log(te);
-	$("#returnNum").text(beanJSON.returnNum);
-	
+				$("#redepC").text(beanJSON.arrC);
+				$("#returnDate").text(
+						beanJSON.returnDate + " " + beanJSON.arrT + " ~ "
+								+ beanJSON.returnDate + " "
+								+ beanJSON.returnTime);
+				$("#rearrC").text(beanJSON.depC);
+				$("#reairline").text(beanJSON.airline);
+				$("#person").text(beanJSON.person);
+				$("#price").text(beanJSON.price);
+				var te = $("#totalPrice").text(
+						"NT$" + parseInt(beanJSON.price)
+								* parseInt(beanJSON.person));
+				console.log(te);
+				$("#returnNum").text(beanJSON.returnNum);
 
-	
-	
-});
+			});
 
-function sendGuest(){
-	var data = new FormData(document.querySelector("form"));
-	console.log(data);
-	$.ajax({
-		url : 'guest',
-		type : 'POST',
-		data : data,
-		//enctype: "multipart/form-data",
-		contentType : false,
-		processData : false,
-		success : function(responce) {
-			alert(responce);
-			alert("ok");
-			window.location.href = "test2.jsp"
-		},
-		error:function(){
-			alert("error");
-		}
+	function sendGuest() {
+		var data = new FormData(document.querySelector("form"));
+		console.log(data);
+		$.ajax({
+			url : 'guest',
+			type : 'POST',
+			data : data,
+			//enctype: "multipart/form-data",
+			contentType : false,
+			processData : false,
+			success : function(responce) {
+				alert(responce);
+				alert("ok");
+				window.location.assign(responce);
+			},
+			error : function() {
+				alert("error");
+			}
 
-	});
-	
-	
-	
-}
+		});
 
+	}
 </script>
 
+<style>
+
+.lab {
+padding:5px;
+width:100px;
+}
+
+</style>
 
 
 
@@ -204,7 +213,7 @@ function sendGuest(){
 				<div class="text-center">
 					<table class="table">
 						<thead class="thead-dark">
-							<tr >
+							<tr>
 								<th class="text-center" scope="col">去程</th>
 								<th class="text-center" scope="col">出發</th>
 								<th class="text-center" scope="col">目的</th>
@@ -248,66 +257,132 @@ function sendGuest(){
 							</tr>
 						</tbody>
 					</table>
-					<div  style="width:50%;margin:0px auto;border:1px orange solid 	"  >
-					<table class="table">
-						<thead class="thead-light">
-							<tr>
-								<th class="text-center" scope="col">人數</th>
-								<th class="text-center" scope="col">票價/人(含稅)</th>
-								<th class="text-center" scope="col">總計(含稅)</th>
-							</tr>
-						</thead>
-						<tbody >
-							<tr >
-								<th  id="person" class="text-center"scope="row" scope="col"></th>
-								<td id="price" scope="col"></td>
-								<td  scope="col" style="color:red;"><strong id="totalPrice"></strong></td>
-							</tr>
-						</tbody>
-					</table>
+					<div style="width: 50%; margin: 0px auto; border: 1px orange solid">
+						<table class="table">
+							<thead class="thead-light">
+								<tr>
+									<th class="text-center" scope="col">人數</th>
+									<th class="text-center" scope="col">票價/人(含稅)</th>
+									<th class="text-center" scope="col">總計(含稅)</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<th id="person" class="text-center" scope="row" scope="col"></th>
+									<td id="price" scope="col"></td>
+									<td scope="col" style="color: red;"><strong
+										id="totalPrice"></strong></td>
+								</tr>
+							</tbody>
+						</table>
 					</div>
-					  
-	<div  style="width:40%;margin:20px ;border:1px orange solid 	">
-		<form id="myform"  enctype="multipart/form-data">
-			<p>聯絡人</p>
-			<label>中文姓</label> <input type="text" name="chineseLastName_1" />&nbsp&nbsp&nbsp&nbsp
-			<label>中文名</label><input type="text" name="chineseFirstName_1" />
-			<br><br>
-			<label>英文姓</label>
-			<input type="text" name="lastName_1" />&nbsp&nbsp&nbsp&nbsp
-			<label>英文名</label> <input type="text" name="firstName_1" />
-			<br><br>
-			<label class=>生日</label><input  type="text" name="birth_1" />
-			 	<input type="hidden" name="_method" value="post" /> 
-			 <button type="button" onclick="sendGuest()">送出</button>
-		</form>
-	</div>
-    </div>
-				</div>
+
+					<div class="text-left" style="width: 50%;height:1000px; margin: 0px auto; border: 1px orange solid">
 
 
+    <form action="#" method="get">
+        <fieldset>
+        	<legend>聯絡人資訊</legend>
+            <div class="st1">
+                <label for="contactName" class="lab">姓名</label>
+                <input type="text" name="contactName" id="contactName" size="10" autofocus autocomplete="off">
+            </div>
+            <div class="st1">
+                <label for="contactIdCard" class="lab">身分證字號</label>
+                <input type="text" name="contactIdCard" id="contactIdCard" maxlength="10">
+            </div>
+             <div class="st1">
+                <label for="contactPhone" class="lab">手機</label>
+                <input type="text" name="contactPhone" id="contactPhone" maxlength="10">
+            </div>
+            <div class="st1">
+                <label for="contactAddress" class="lab">地址</label>
+                <input type="text" name="contactAddress" id="contactAddress">
+            </div>
+            <div class="st1">
+                <label for="" class="lab">E-mail</label>
+                <input type="email" name="mail" id="mail">
+            </div>
+        </fieldset>
+        <fieldset>
+        	<legend>旅客一資料</legend>
+			            <div class="st1">
+                <label for="guestOneName" class="lab">姓名</label>
+                <input type="text" name="guestOneName" id="guestOneName" size="10" autofocus autocomplete="off">
+            </div>
+            <div class="st1">
+                <label for="guestOneLastName" class="lab">英文姓</label>
+                <input type="text" name="guestOneLastName" id="guestOneLastName" maxlength="10">
+            </div>
+             <div class="st1">
+                <label for="guestOneFirstName" class="lab">英文名</label>
+                <input type="text" name="guestOneFirstName" id="guestOneFirstName" maxlength="10">
+            </div>
+            <div class="st1">
+                <label for="guestOnepassportNum" class="lab">護照號碼</label>
+                <input type="text" name=guestOnepassportNum id="guestOnepassportNum">
+            </div>
+            <div class="st1">
+                <label for="guestOneBirth" class="lab">生日</label>
+                <input type="text" name="guestOneBirth" id="guestOneBirth">
+            </div>
+            <div class="st1">
+                <label class="lab">性別</label>
+                <input type="radio" name="guestOneGender" id="m1" value="male">
+                <label for="m1">男</label>
+                <input type="radio" name="guestOneGender" id="f1" value="female">
+                <label for="f1">女</label>
+            </div>
 
 
+        </fieldset>
 
-				<div class="row">
-					<div class="col-md-6 col-md-offset-3 text-center">
-						<p class="fh5co-social-icons">
-							<a href="#"><i class="icon-twitter2"></i></a> <a href="#"><i
-								class="icon-facebook2"></i></a> <a href="#"><i
-								class="icon-instagram"></i></a> <a href="#"><i
-								class="icon-dribbble2"></i></a> <a href="#"><i
-								class="icon-youtube"></i></a>
-						</p>
-						<p>
-							Copyright 2016 Free Html5 <a href="#">Module</a>. All Rights
-							Reserved. <br>Made with <i class="icon-heart3"></i> by <a
-								href="http://freehtml5.co/" target="_blank">Freehtml5.co</a> /
-							Demo Images: <a href="https://unsplash.com/" target="_blank">Unsplash</a>
-						</p>
+        <fieldset>
+            <legend>旅客二資料 </legend>
+           			            <div class="st1">
+                <label for="guestTwoName" class="lab">姓名</label>
+                <input type="text" name="guestTwoName" id="guestTwoName" size="10" autofocus autocomplete="off">
+            </div>
+            <div class="st1">
+                <label for="guestTwoLastName" class="lab">英文姓</label>
+                <input type="text" name="guestTwoLastName" id="guestTwoLastName" maxlength="10">
+            </div>
+             <div class="st1">
+                <label for="guestTwoFirstName" class="lab">英文名</label>
+                <input type="text" name="guestTwoFirstName" id="guestTwoFirstName" maxlength="10">
+            </div>
+            <div class="st1">
+                <label for="guestTwopassportNum" class="lab">護照號碼</label>
+                <input type="text" name=guestTwopassportNum id="guestTwopassportNum">
+            </div>
+            <div class="st1">
+                <label for="guestTwoBirth" class="lab">生日</label>
+                <input type="text" name="guestTwoBirth" id="guestTwoBirth">
+            </div>
+            <div class="st1">
+                <label class="lab">性別</label>
+                <input type="radio" name="guestTwoGender" id="m1" value="male">
+                <label for="m1">男</label>
+                <input type="radio" name="guestTwoGender" id="f1" value="female">
+                <label for="f1">女</label>
+            </div>
+        </fieldset>
+	          <div class="sub text-center">
+                <input type="submit" name="submit" value="送出">
+                <input type="reset" name="reset" value="清除">
+            </div>
+    </form>
 					</div>
 				</div>
 			</div>
+
+
+
+
+
+
 		</div>
+	</div>
 
 
 

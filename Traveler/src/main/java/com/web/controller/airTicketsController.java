@@ -3,6 +3,7 @@ package com.web.controller;
 import java.io.UnsupportedEncodingException;
 import java.util.Map;
 
+import javax.persistence.PostRemove;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -77,22 +78,26 @@ public class airTicketsController {
 //		map.put("abc", gb);
 //	}
 	
-	@RequestMapping("/tt")
-	public String gatTest(Map<String,Object> map) {
-		
-		GuestBean gb = new GuestBean();
-		map.put("abc", gb);
-		
-		return "airTickets/test3";
-	}
+//	@RequestMapping("/tt")
+//	public String gatTest(Map<String,Object> map) {
+//		
+//		GuestBean gb = new GuestBean();
+//		map.put("abc", gb);
+//		
+//		return "airTickets/test3";
+//	}
 	
 	@RequestMapping(value="/guest" ,method=RequestMethod.POST)
-	public @ResponseBody int addGuest(GuestBean guestBean,Model model) {
+	public @ResponseBody String addGuest(GuestBean guestBean,Model model) {
 		System.out.println("in");
 		System.out.println(guestBean);
-		int resultId =gs.addGuest(guestBean);
+//		int resultId =gs.addGuest(guestBean);
 //		session.setAttribute("guestBean", guestBean);
 //		model.addAttribute("guestBean",guestBean);
-		return resultId;
+		return "ticktesCheckOut";
+	}
+	@RequestMapping("/ticktesCheckOut")
+	public String forwordTest3() {
+		return "airTickets/ticktesCheckOut";
 	}
 }
