@@ -161,8 +161,7 @@ float:right;
 		</ul>
 
 		</nav> </header>
-
-		
+	
 <div class="d1"> 
 <h2 style="text-align:center">機票管理</h2>
 <ul class="me">
