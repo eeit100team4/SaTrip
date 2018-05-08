@@ -22,6 +22,7 @@ Session session=null;
 public int addTest(OrderDetailsBean odb) {
 	 session = factory.getCurrentSession();
 	Serializable re = session.save(odb);
+	System.out.println(re);
 	if(re!=null) {
 		int temp=(int)re;
 		return temp;
