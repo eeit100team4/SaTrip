@@ -294,10 +294,11 @@ function slow(){
 										<li><a href="#">Django &amp; Python</a></li>
 									</ul></li>
 								<li><a href="flight.html">航班</a></li>
-								<li><a href="hotel.html">Hotel</a></li>
-								<li><a href="car.html">Car</a></li>
+								<li><a href="hotel.html">飯店</a></li>
+								<li><a href="car.html">主題旅遊</a></li>
 								<li><a href="blog.html">客戶服務</a></li>
-								<li><a href="contact.html">Contact</a></li>
+								<li><a href="commlist">紅利兌換</a></li>
+								<li><a href="contact.html">加入會員</a></li>
 							</ul>
 						</nav>
 					</div>

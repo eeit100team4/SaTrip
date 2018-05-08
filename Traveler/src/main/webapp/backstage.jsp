@@ -155,7 +155,7 @@ float:right;
 					<li><a href="index.html"><img src='images/icon_hotel.png' height="25px" width="25px"/>飯店管理</a></li>
 					<li><a href="index.html"><img src='images/icon_traveler.png' height="25px" width="25px"/>主題旅遊管理</a></li>
 					<li><a href="index.html"><img src='images/icon_vip.png' height="25px" width="25px"/>會員管理</a></li>
-					<li><a href="index.html"><img src='images/icon_comm.png' height="25px" width="25px"/>紅利管理</a></li>
+					<li><a href="commlist"><img src='images/icon_comm.png' height="25px" width="25px"/>紅利管理</a></li>
 					<li><a href="index.html"><img src='images/icon_support.png' height="25px" width="25px"/>客服管理</a></li>
 					<li><a href="index.html"><img src='images/icon_login.png' height="25px" width="25px"/>登入</a></li> <!--登出-->
 		</ul>
