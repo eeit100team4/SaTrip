@@ -28,12 +28,14 @@ public class GuestBean {
 		private String guestOneLastName;
 		private String guestOneFirstName;
 		private String guestOnepassportNum;
+		@DateTimeFormat(pattern="yyyy-MM-dd")
 		private Date guestOneBirth;
 		private String guestOneGender;
 		private String guestTwoName;
 		private String guestTwoLastName;
 		private String guestTwoFirstName;
 		private String guestTwopassportNum;
+		@DateTimeFormat(pattern="yyyy-MM-dd")
 		private Date guestTwoBirth;
 		private String guestTwoGender;
 		

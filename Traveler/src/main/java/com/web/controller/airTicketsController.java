@@ -68,7 +68,7 @@ public class airTicketsController {
 		String jsonInString = gson.toJson(obean);
 		System.out.println(jsonInString);
 		model.addAttribute("bean",jsonInString);
-		return "airTickets/test";
+		return "airTickets/passagngerInfo";
 	}
 	
 	
@@ -91,7 +91,7 @@ public class airTicketsController {
 	public @ResponseBody String addGuest(GuestBean guestBean,Model model) {
 		System.out.println("in");
 		System.out.println(guestBean);
-//		int resultId =gs.addGuest(guestBean);
+		int resultId =gs.addGuest(guestBean);
 //		session.setAttribute("guestBean", guestBean);
 //		model.addAttribute("guestBean",guestBean);
 		return "ticktesCheckOut";

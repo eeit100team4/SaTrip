@@ -1,6 +1,6 @@
 ﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -46,7 +46,7 @@
 <meta name="twitter:card" content="" />
 
 <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-<link rel="shortcut icon" href="/Traveler/images/favicon.ico">
+<link rel="shortcut icon" href="images/favicon.ico">
 
 <!--<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>-->
 
@@ -107,67 +107,58 @@
 <script src="/Traveler/js/main.js"></script>
 
 
-<script>
-	$(document).ready(
-			function() {
-				var beanJSON = ${bean};
-				$("#depC").text(beanJSON.depC);
-				$("#depDate").text(
-						beanJSON.depDate + " " + beanJSON.depT + " ~ "
-								+ beanJSON.depDate + " " + beanJSON.arrT);
-				$("#arrC").text(beanJSON.arrC);
-				$("#airline").text(beanJSON.airline);
-				$("#depNum").text(beanJSON.depNum);
+<script >
 
-				$("#redepC").text(beanJSON.arrC);
-				$("#returnDate").text(
-						beanJSON.returnDate + " " + beanJSON.arrT + " ~ "
-								+ beanJSON.returnDate + " "
-								+ beanJSON.returnTime);
-				$("#rearrC").text(beanJSON.depC);
-				$("#reairline").text(beanJSON.airline);
-				$("#person").text(beanJSON.person);
-				$("#price").text(beanJSON.price);
-				var te = $("#totalPrice").text(
-						"NT$" + parseInt(beanJSON.price)
-								* parseInt(beanJSON.person));
-				console.log(te);
-				$("#returnNum").text(beanJSON.returnNum);
+$(document).ready(function(){
+	var beanJSON=${bean};
+	$("#depC").text(beanJSON.depC);
+	$("#depDate").text(beanJSON.depDate+" "+beanJSON.depT+" ~ "+beanJSON.depDate+" "+beanJSON.arrT);
+	$("#arrC").text(beanJSON.arrC);
+	$("#airline").text(beanJSON.airline);
+	$("#depNum").text(beanJSON.depNum);
+	
+	$("#redepC").text(beanJSON.arrC);
+	$("#returnDate").text(beanJSON.returnDate+" "+beanJSON.arrT+" ~ "+beanJSON.returnDate+" "+beanJSON.returnTime);
+	$("#rearrC").text(beanJSON.depC);
+	$("#reairline").text(beanJSON.airline);
+	$("#person").text(beanJSON.person);
+	$("#price").text(beanJSON.price);
+	var te= $("#totalPrice").text("NT$"+parseInt(beanJSON.price)*parseInt(beanJSON.person));
+	console.log(te);
+	$("#returnNum").text(beanJSON.returnNum);
+	
 
-			});
+	
+	
+});
 
-	function sendGuest() {
-		var data = new FormData(document.querySelector("form"));
-		console.log(data);
-		$.ajax({
-			url : 'guest',
-			type : 'POST',
-			data : data,
-			//enctype: "multipart/form-data",
-			contentType : false,
-			processData : false,
-			success : function(responce) {
-				alert(responce);
-				alert("ok");
-				window.location.assign(responce);
-			},
-			error : function() {
-				alert("error");
-			}
+function sendGuest(){
+	var data = new FormData(document.querySelector("form"));
+	console.log(data);
+	$.ajax({
+		url : 'guest',
+		type : 'POST',
+		data : data,
+		//enctype: "multipart/form-data",
+		contentType : false,
+		processData : false,
+		success : function(responce) {
+			alert(responce);
+			alert("ok");
+			window.location.assign(responce);
+		},
+		error:function(){
+			alert("error");
+		}
 
-		});
-
-	}
-</script>
-
-<style>
-
-.lab {
-padding:5px;
-width:100px;
+	});
+	
+	
+	
 }
 
-</style>
+</script>
+
 
 
 
@@ -213,7 +204,7 @@ width:100px;
 				<div class="text-center">
 					<table class="table">
 						<thead class="thead-dark">
-							<tr>
+							<tr >
 								<th class="text-center" scope="col">去程</th>
 								<th class="text-center" scope="col">出發</th>
 								<th class="text-center" scope="col">目的</th>
@@ -257,31 +248,29 @@ width:100px;
 							</tr>
 						</tbody>
 					</table>
-					<div style="width: 50%; margin: 0px auto; border: 1px orange solid">
-						<table class="table">
-							<thead class="thead-light">
-								<tr>
-									<th class="text-center" scope="col">人數</th>
-									<th class="text-center" scope="col">票價/人(含稅)</th>
-									<th class="text-center" scope="col">總計(含稅)</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<th id="person" class="text-center" scope="row" scope="col"></th>
-									<td id="price" scope="col"></td>
-									<td scope="col" style="color: red;"><strong
-										id="totalPrice"></strong></td>
-								</tr>
-							</tbody>
-						</table>
+					<div  style="width:50%;margin:0px auto;border:1px orange solid 	"  >
+					<table class="table">
+						<thead class="thead-light">
+							<tr>
+								<th class="text-center" scope="col">人數</th>
+								<th class="text-center" scope="col">票價/人(含稅)</th>
+								<th class="text-center" scope="col">總計(含稅)</th>
+							</tr>
+						</thead>
+						<tbody >
+							<tr >
+								<th  id="person" class="text-center"scope="row" scope="col"></th>
+								<td id="price" scope="col"></td>
+								<td  scope="col" style="color:red;"><strong id="totalPrice"></strong></td>
+							</tr>
+						</tbody>
+					</table>
 					</div>
+					  
+	<div class="text-left" style="width: 50%;height:1000px; margin: 0px auto; border: 1px orange solid">
+		<form id="myform"  enctype="multipart/form-data">
 
-					<div class="text-left" style="width: 50%;height:1000px; margin: 0px auto; border: 1px orange solid">
-
-
-    <form action="#" method="get">
-        <fieldset>
+			<fieldset>
         	<legend>聯絡人資訊</legend>
             <div class="st1">
                 <label for="contactName" class="lab">姓名</label>
@@ -301,10 +290,10 @@ width:100px;
             </div>
             <div class="st1">
                 <label for="" class="lab">E-mail</label>
-                <input type="email" name="mail" id="mail">
+                <input type="text" name="contactEmail" id="contactEmail">
             </div>
         </fieldset>
-        <fieldset>
+                <fieldset>
         	<legend>旅客一資料</legend>
 			            <div class="st1">
                 <label for="guestOneName" class="lab">姓名</label>
@@ -333,10 +322,7 @@ width:100px;
                 <input type="radio" name="guestOneGender" id="f1" value="female">
                 <label for="f1">女</label>
             </div>
-
-
         </fieldset>
-
         <fieldset>
             <legend>旅客二資料 </legend>
            			            <div class="st1">
@@ -367,22 +353,38 @@ width:100px;
                 <label for="f1">女</label>
             </div>
         </fieldset>
-	          <div class="sub text-center">
-                <input type="submit" name="submit" value="送出">
+        
+			          <div class="sub text-center">
+	          <input type="hidden" name="_method" value="post" /> 
+	          <button type="button" onclick="sendGuest()">送出</button>
                 <input type="reset" name="reset" value="清除">
             </div>
-    </form>
+
+			
+		</form>
+	</div>
+    </div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-6 col-md-offset-3 text-center">
+						<p class="fh5co-social-icons">
+							<a href="#"><i class="icon-twitter2"></i></a> <a href="#"><i
+								class="icon-facebook2"></i></a> <a href="#"><i
+								class="icon-instagram"></i></a> <a href="#"><i
+								class="icon-dribbble2"></i></a> <a href="#"><i
+								class="icon-youtube"></i></a>
+						</p>
+						<p>
+							Copyright 2016 Free Html5 <a href="#">Module</a>. All Rights
+							Reserved. <br>Made with <i class="icon-heart3"></i> by <a
+								href="http://freehtml5.co/" target="_blank">Freehtml5.co</a> /
+							Demo Images: <a href="https://unsplash.com/" target="_blank">Unsplash</a>
+						</p>
 					</div>
 				</div>
 			</div>
-
-
-
-
-
-
 		</div>
-	</div>
 
 
 
