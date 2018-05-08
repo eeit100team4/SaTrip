@@ -423,8 +423,9 @@ function list(){
 				    contentType: "application/json; charset=UTF-8",
 // 				    dataType:"json",
 				    success : function(response) {
-// 				    	var orId=response;
-				        window.location.assign("http://localhost:8080/Traveler/"+response);
+				    	alert("http://localhost:8080/Traveler//order/"+response);
+				    	var forword="http://localhost:8080/Traveler/order/"+response;
+				        window.location.assign(forword);
 				    },
 				    error : function() {
 				        alert('fail');

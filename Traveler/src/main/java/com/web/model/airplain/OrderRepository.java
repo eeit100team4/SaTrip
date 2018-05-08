@@ -30,19 +30,20 @@ public int addTest(OrderDetailsBean odb) {
 	return 0;
 }
 
-public String selectOneById(int id) {
+public String selectOneById(int iddd) {
 	session = factory.getCurrentSession();
-	String hql="FROM OrderDetailsBean WHERE ID="+id;
+	String hql="FROM OrderDetailsBean WHERE ID="+iddd;
 	OrderDetailsBean result = session.createQuery(hql,OrderDetailsBean.class).uniqueResult();
 	String orderId = result.getOrderID();
-	String test = result.toString();
-	System.out.println(test);
+//	String test = result.toString();
+//	System.out.println(test);
 	return orderId;
 }
 
 public OrderDetailsBean selectOneByOrderId(String orderId) {
 	session = factory.getCurrentSession();
 	String hql="FROM OrderDetailsBean WHERE orderID="+orderId;
+	System.out.println("出現就錯誤");
 	OrderDetailsBean result = session.createQuery(hql,OrderDetailsBean.class).uniqueResult();
 	return result;
 }

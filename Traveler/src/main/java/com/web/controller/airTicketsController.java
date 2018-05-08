@@ -38,7 +38,7 @@ public class airTicketsController {
 	 return "index";
 	 }
 	
-	 @RequestMapping("/booking")
+	 @RequestMapping(value="/booking",method=RequestMethod.POST)
 	 @ResponseBody
 	 public String test(@RequestBody String order,Model model) {
 		 Gson gs = new Gson();
@@ -61,9 +61,9 @@ public class airTicketsController {
 		return "airTickets/flightOrder";
 	}
 	
-	@RequestMapping(method=RequestMethod.GET, value="/{orId}")
+	@RequestMapping(method=RequestMethod.GET, value="/order/{orId}")
 	public String getOrder(@PathVariable("orId") String orId, Model model)  {
-		System.out.println(orId);
+		System.out.println("有鬼");
 		OrderDetailsBean obean = os.selectOneByOrderId(orId);
 		System.out.println(orId);
 		System.out.println(obean);
