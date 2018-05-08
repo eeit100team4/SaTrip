@@ -73,7 +73,7 @@
 	<div id="fh5co-wrapper">
 		<div id="fh5co-page">
 
-			<header id="fh5co-header-section" class="sticky-banner" >
+			<header id="fh5co-header-section" class="sticky-banner">
 			<div class="container">
 				<div class="nav-header">
 					<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle dark"><i></i></a>
@@ -105,34 +105,59 @@
 
 			<!-- end:header-top -->
 
-			<div>
-
-				<div class="text-center">
-				<h2>確認資訊</h2>
-				<div></div>
-				
-				
+			<div class="text-center" style="width:50%;margin:10px auto;">
+				<div class="row ">
+					<div class="col-lg-12 text-center">
+						<div class="table-responsive">
+							<table class="table table-bordered table-condensed">
+								<tr>
+									<th class="text-center" colspan="2">訂單明細(訂單號碼:${orderList.orderID})</th>
+								</tr>
+								<tr class="success">
+									<td>出發</td>
+									<td>${orderList.depC}~ ${orderList.arrC}</td>
+								</tr>
+								<tr class="warning">
+									<td>時間</td>
+									<td>${orderList.depDate}</td>
+								</tr>
+								<tr class="danger">
+									<td>回程</td>
+									<td>${orderList.arrC}~ ${orderList.depC}</td>
+								</tr>
+								<tr class="active">
+									<td>總價格</td>
+									<td style="color:red">NT$10000</td>
+								</tr>
+							</table>
+						</div>
+					</div>
 				</div>
 			</div>
 
-			<div class="row">
-				<div class="col-md-6 col-md-offset-3 text-center">
-					<p class="fh5co-social-icons">
-						<a href="#"><i class="icon-twitter2"></i></a> <a href="#"><i
-							class="icon-facebook2"></i></a> <a href="#"><i
-							class="icon-instagram"></i></a> <a href="#"><i
-							class="icon-dribbble2"></i></a> <a href="#"><i
-							class="icon-youtube"></i></a>
-					</p>
-					<p>
-						Copyright 2016 Free Html5 <a href="#">Module</a>. All Rights
-						Reserved. <br>Made with <i class="icon-heart3"></i> by <a
-							href="http://freehtml5.co/" target="_blank">Freehtml5.co</a> /
-						Demo Images: <a href="https://unsplash.com/" target="_blank">Unsplash</a>
-					</p>
-				</div>
-			</div>
+
+
+
 		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-6 col-md-offset-3 text-center">
+			<p class="fh5co-social-icons">
+				<a href="#"><i class="icon-twitter2"></i></a> <a href="#"><i
+					class="icon-facebook2"></i></a> <a href="#"><i
+					class="icon-instagram"></i></a> <a href="#"><i
+					class="icon-dribbble2"></i></a> <a href="#"><i class="icon-youtube"></i></a>
+			</p>
+			<p>
+				Copyright 2016 Free Html5 <a href="#">Module</a>. All Rights
+				Reserved. <br>Made with <i class="icon-heart3"></i> by <a
+					href="http://freehtml5.co/" target="_blank">Freehtml5.co</a> / Demo
+				Images: <a href="https://unsplash.com/" target="_blank">Unsplash</a>
+			</p>
+		</div>
+	</div>
+	</div>
 	</div>
 </body>
 </html>

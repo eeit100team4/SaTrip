@@ -29,4 +29,9 @@ public class OrderService {
 		return ordId;
 	}
 	
+	public int updateByOrderId(String orderId,Integer guestId) {
+		int result = or.updateByOrderId(orderId, guestId);
+		return result;
+	}
+	
 }
