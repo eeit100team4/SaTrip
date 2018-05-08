@@ -26,13 +26,17 @@ public class ThemeTitleController {
 	//新增主題用 產生空白表單
 	@RequestMapping(value = "/theme/addTheme", method=RequestMethod.GET)
 	public String getAddNewThemeForm(Model model){
+		System.out.println("這是測試");
 		ThemeBean tb = new ThemeBean();
-		model.addAttribute("ThemeBean", tb);
+		model.addAttribute("themeBean", tb);
+		System.out.println("這是測試2");
 		return "theme/addTheme";
 	}
 	//新增主題用 表單在原來頁面新增的內容
 	@RequestMapping(value = "/theme/addTheme", method=RequestMethod.POST)
-	public String processAddNewThemeForm(@ModelAttribute("ThemeBean")ThemeBean tb){
+	public String processAddNewThemeForm(@ModelAttribute("themeBean")ThemeBean tb){
+		System.out.println(tb);
+		themeService.addThemeTitle(tb);
 		return "redirect:themeTitles";
 	}
 }

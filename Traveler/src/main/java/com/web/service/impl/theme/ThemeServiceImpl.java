@@ -22,6 +22,7 @@ public class ThemeServiceImpl implements ThemeService {
 	public List<ThemeBean> getAllProducts() {		
 		return themeRepository.getAllProducts();		
 	}
+	@Transactional
 	@Override
 	public void addThemeTitle(ThemeBean Theme) {
 		themeRepository.addThemeTitle(Theme);
