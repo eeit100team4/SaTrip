@@ -23,6 +23,7 @@ import com.web.service.airplain.GuestService;
 import com.web.service.airplain.OrderService;
 
 @Controller
+@RequestMapping({"/airTickets"})
 public class airTicketsController {
 	@Autowired
 	BFMService bfmService;
@@ -33,10 +34,6 @@ public class airTicketsController {
 	@Autowired
 	GuestService gs;
  
-	 @RequestMapping({"/","index"})
-	 public String index() {
-	 return "index";
-	 }
 	
 	 @RequestMapping(value="/booking",method=RequestMethod.POST)
 	 @ResponseBody
@@ -61,9 +58,8 @@ public class airTicketsController {
 		return "airTickets/flightOrder";
 	}
 	
-	@RequestMapping(method=RequestMethod.GET, value="/order/{orId}")
+	@RequestMapping(method=RequestMethod.GET, value="/{orId}")
 	public String getOrder(@PathVariable("orId") String orId, Model model)  {
-		System.out.println("有鬼");
 		OrderDetailsBean obean = os.selectOneByOrderId(orId);
 		System.out.println(orId);
 		System.out.println(obean);
@@ -81,7 +77,7 @@ public class airTicketsController {
 //		map.put("abc", gb);
 //	}
 	
-	@RequestMapping("/airTickets/tt")
+	@RequestMapping("/tt")
 	public String gatTest(Map<String,Object> map) {
 		
 		GuestBean gb = new GuestBean();
@@ -90,7 +86,7 @@ public class airTicketsController {
 		return "airTickets/test3";
 	}
 	
-	@RequestMapping(value="/airTickets/guest" ,method=RequestMethod.POST)
+	@RequestMapping(value="/guest" ,method=RequestMethod.POST)
 	public @ResponseBody int addGuest(GuestBean guestBean,Model model) {
 		System.out.println("in");
 		System.out.println(guestBean);

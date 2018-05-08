@@ -46,7 +46,7 @@
 <meta name="twitter:card" content="" />
 
 <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-<link rel="shortcut icon" href="images/favicon.ico">
+<link rel="shortcut icon" href="/Traveler/images/favicon.ico">
 
 <!--<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>-->
 
@@ -136,7 +136,7 @@ function sendGuest(){
 	var data = new FormData(document.querySelector("form"));
 	console.log(data);
 	$.ajax({
-		url : 'airTickets/guest',
+		url : 'guest',
 		type : 'POST',
 		data : data,
 		//enctype: "multipart/form-data",
@@ -145,7 +145,7 @@ function sendGuest(){
 		success : function(responce) {
 			alert(responce);
 			alert("ok");
-			window.location.href = "airTickets/test2.jsp"
+			window.location.href = "test2.jsp"
 		},
 		error:function(){
 			alert("error");

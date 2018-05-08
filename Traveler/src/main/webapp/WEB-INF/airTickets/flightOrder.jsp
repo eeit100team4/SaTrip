@@ -46,70 +46,71 @@
 <meta name="twitter:card" content="" />
 
 <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-<link rel="shortcut icon" href="images/favicon.ico">
+<link rel="shortcut icon" href="/Traveler/images/favicon.ico">
 
 <!--<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>-->
 
 <!-- Animate.css -->
-<link rel="stylesheet" href="css/animate.css">
+<link rel="stylesheet" href="/Traveler/css/animate.css">
 <!-- Icomoon Icon Fonts-->
-<link rel="stylesheet" href="css/icomoon.css">
+<link rel="stylesheet" href="/Traveler/css/icomoon.css">
 <!-- Bootstrap  -->
-<link rel="stylesheet" href="css/bootstrap.css">
+<link rel="stylesheet" href="/Traveler/css/bootstrap.css">
 <!-- Superfish -->
-<link rel="stylesheet" href="css/superfish.css">
+<link rel="stylesheet" href="/Traveler/css/superfish.css">
 <!-- Magnific Popup -->
-<link rel="stylesheet" href="css/magnific-popup.css">
+<link rel="stylesheet" href="/Traveler/css/magnific-popup.css">
 <!-- Date Picker -->
-<link rel="stylesheet" href="css/bootstrap-datepicker.min.css">
+<link rel="stylesheet" href="/Traveler/css/bootstrap-datepicker.min.css">
 <!-- CS Select -->
-<link rel="stylesheet" href="css/cs-select.css">
-<link rel="stylesheet" href="css/cs-skin-border.css">
+<link rel="stylesheet" href="/Traveler/css/cs-select.css">
+<link rel="stylesheet" href="/Traveler/css/cs-skin-border.css">
 
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="/Traveler/css/style.css">
 
 
 <!-- Modernizr JS -->
-<script src="js/modernizr-2.6.2.min.js"></script>
+<script src="/Traveler/js/modernizr-2.6.2.min.js"></script>
 <!-- FOR IE9 below -->
 <!--[if lt IE 9]>
-	<script src="js/respond.min.js"></script>
+	<script src="/Traveler/js/respond.min.js"></script>
 	<![endif]-->
 
 
 <!-- jQuery -->
 
 
-<script src="js/jquery.min.js"></script>
+<script src="/Traveler/js/jquery.min.js"></script>
 <!-- jQuery Easing -->
-<script src="js/jquery.easing.1.3.js"></script>
+<script src="/Traveler/js/jquery.easing.1.3.js"></script>
 <!-- Bootstrap -->
-<script src="js/bootstrap.min.js"></script>
+<script src="/Traveler/js/bootstrap.min.js"></script>
 <!-- Waypoints -->
-<script src="js/jquery.waypoints.min.js"></script>
-<script src="js/sticky.js"></script>
+<script src="/Traveler/js/jquery.waypoints.min.js"></script>
+<script src="/Traveler/js/sticky.js"></script>
 
 <!-- Stellar -->
-<script src="js/jquery.stellar.min.js"></script>
+<script src="/Traveler/js/jquery.stellar.min.js"></script>
 <!-- Superfish -->
-<script src="js/hoverIntent.js"></script>
-<script src="js/superfish.js"></script>
+<script src="/Traveler/js/hoverIntent.js"></script>
+<script src="/Traveler/js/superfish.js"></script>
 <!-- Magnific Popup -->
-<script src="js/jquery.magnific-popup.min.js"></script>
-<script src="js/magnific-popup-options.js"></script>
+<script src="/Traveler/js/jquery.magnific-popup.min.js"></script>
+<script src="/Traveler/js/magnific-popup-options.js"></script>
 <!-- Date Picker -->
-<script src="js/bootstrap-datepicker.min.js"></script>
+<script src="/Traveler/js/bootstrap-datepicker.min.js"></script>
 <!-- CS Select -->
-<script src="js/classie.js"></script>
-<script src="js/selectFx.js"></script>
+<script src="/Traveler/js/classie.js"></script>
+<script src="/Traveler/js/selectFx.js"></script>
 
 <!-- Main JS -->
-<script src="js/main.js"></script>
+<script src="/Traveler/js/main.js"></script>
 
 
 <script>
 
 var emp = ${result};
+alert(emp);
 //照飛行時間排序
 // var data = emp.OTA_AirLowFareSearchRS.PricedItineraries.PricedItinerary;
 //  data.sort(function(a,b){
@@ -193,7 +194,7 @@ function list(){
             var cell2=$("<div></div>").text(value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].DepartureAirport.LocationCode)
             var td1=$("<td width='20%' align='center' valign='middle'></td>").append(cell1,cell2);
    			
-            var cell4=$("<div></div>").html("<img src=images/arrow.png>");
+            var cell4=$("<div></div>").html("<img src=/Traveler/images/arrow.png>");
             var td2=$("<td width='10%' align='center' valign='middle'></td>").append(cell4);
             
             var cell5=$("<div></div>").text(value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].ArrivalDateTime);
@@ -220,7 +221,7 @@ function list(){
             var cellR2=$("<div></div>").text(value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[0].DepartureAirport.LocationCode);
             var tdR1=$("<td width='20%' align='center' valign='middle'></td>").append(cellR1,cellR2);
             
-            var cellR4=$("<div></div>").html("<img src=images/arrow.png>");
+            var cellR4=$("<div></div>").html("<img src=/Traveler/images/arrow.png>");
             var tdR2=$("<td width='10%' align='center' valign='middle'></td>").append(cellR4);
             
             var cellR5=$("<div></div>").text(value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[0].ArrivalDateTime);
@@ -241,7 +242,7 @@ function list(){
             var div1=$("<div class='divv1'></div>").append(table1);
             var airline=value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[0].OperatingAirline.Code;	
             var div2=$("<div class='divv2' align='center'></div>").text(airline);
-                div2.append("<img src=images/"+airline+".gif>");
+                div2.append("<img src=/Traveler/images/"+airline+".gif>");
             var divAll=$("<div></div>").append(div2,div1);
             docFrag.append(divAll);
 	})
@@ -352,7 +353,7 @@ function list(){
 						//等待
 						// document.getElementById("myDiv").innerHTML="讀取中...";   
 						//載入
-						xmlhttp.open("GET", "xml/CITYcode2.xml", true);
+						xmlhttp.open("GET", "/Traveler/xml/CITYcode2.xml", true);
 						//處理
 						xmlhttp.onload=function(){
 							 xmlDoc = xmlhttp.responseXML;
@@ -417,14 +418,14 @@ function list(){
 				var sendDet =JSON.stringify({"depT":depT,"depDate":depDate,"depC":depC,"arrT":arrT,"returnDate":returnDate,"arrC":arrC,"returnTime":returnTime,"price":price,"airline":airline,"depNum":depNum,"returnNum":returnNum,"person":person});
 				$.ajax({
 				    type : "post",
-				    url : "http://localhost:8080/Traveler/booking",
+				    url : "booking",
 				    //data: "回傳出發地="+depT"&name=John", // 資料是用 & 做串接
 				    data: sendDet,
 				    contentType: "application/json; charset=UTF-8",
 // 				    dataType:"json",
 				    success : function(response) {
-				    	alert("http://localhost:8080/Traveler//order/"+response);
-				    	var forword="http://localhost:8080/Traveler/order/"+response;
+				    	var forword=""+response;
+				    	alert(forword);
 				        window.location.assign(forword);
 				    },
 				    error : function() {
@@ -495,7 +496,7 @@ ul {
 </style>
 
 </head>
-<body  style="background-image: url(images/cover_bg_1.jpg);background-attachment: fixed; ">
+<body  style="background-image: url(/Traveler/images/cover_bg_1.jpg);background-attachment: fixed; ">
 	<div id="fh5co-wrapper">
 		<div id="fh5co-page">
 
