@@ -18,7 +18,7 @@
 <div>
  <c:forEach var='theme' items='${themeTitles}'>
   <div style="width:300px; height:200px; float: left; ">
-    <img src="../images/1-${theme.titleId}.png">
+    <img src="/Traveler/images/themeTitle-${theme.titleId}.png">
     <p>
     <b style='font-size:16px;'>${theme.titleName}</b>
     </p>

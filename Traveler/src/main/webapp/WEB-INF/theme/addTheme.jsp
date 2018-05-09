@@ -19,14 +19,20 @@
 	<hr width='3'>
 
 	<section>
-		<fieldset>
-			<form:form method="POST" modelAttribute="themeBean">
-
-				<label>add theme</label>
-				<form:input type="text" path="titleName" />
-				<input type="submit" value="enter" />
-			</form:form>
-		</fieldset>
+		<form:form method="POST" modelAttribute="themeBean" enctype="multipart/form-data" >
+		   <fieldset>
+				<label>新增主題名稱</label>
+				<form:input  path="titleName" type="text" />		
+						
+				<br>
+				<label>新增主題圖片</label>
+				<form:input  path="titleImage" type="file"  />			
+													
+				<div>					
+				<input type="submit" value="送出" />
+				</div>
+			</fieldset>
+		</form:form>		
 	</section>
 </body>
 </html>
