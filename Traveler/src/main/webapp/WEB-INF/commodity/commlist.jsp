@@ -138,14 +138,14 @@ footer {
 	<div id="allpage">
 		<header> <nav>
 		<ul class="menu">
-			<li cless="le"><a href="index.html"><img src='icon_index.png' height="25px" width="25px"/>TRAVEL後台管理系統</a></li>
-					<li><a href="index.html"><img src='/icon_air.png' height="25px" width="25px"/>機票管理</a></li>
+			<li cless="le"><a href="index.html"><img src='images/icon_index.png' height="25px" width="25px"/>TRAVEL後台管理系統</a></li>
+					<li><a href="index.html"><img src='images/icon_air.png' height="25px" width="25px"/>機票管理</a></li>
 					<li><a href="index.html"><img src='images/icon_hotel.png' height="25px" width="25px"/>飯店管理</a></li>
-					<li><a href="index.html"><img src='/../images/icon_traveler.png' height="25px" width="25px"/>主題旅遊管理</a></li>
-					<li><a href="index.html"><img src='../../images/icon_vip.png' height="25px" width="25px"/>會員管理</a></li>
-					<li><a href="index.html"><img src='../../../../../../images/icon_comm.png' height="25px" width="25px"/>紅利管理</a></li>
-					<li><a href="index.html"><img src='C:/Traveler/workspace/woodstock/src/main/webapp/images/icon_support.png' height="25px" width="25px"/>客服管理</a></li>
-					<li><a href="index.html"><img src='../../../../../../../../../images/icon_logout.png' height="25px" width="25px"/>登出</a></li> <!--登入-->
+					<li><a href="index.html"><img src='images/icon_traveler.png' height="25px" width="25px"/>主題旅遊管理</a></li>
+					<li><a href="index.html"><img src='images/icon_vip.png' height="25px" width="25px"/>會員管理</a></li>
+					<li><a href="index.html"><img src='images/icon_comm.png' height="25px" width="25px"/>紅利管理</a></li>
+					<li><a href="index.html"><img src='images/icon_support.png' height="25px" width="25px"/>客服管理</a></li>
+					<li><a href="index.html"><img src='images/icon_logout.png' height="25px" width="25px"/>登出</a></li> <!--登入-->
 			<!--登出C:/Traveler/workspace/woodstock/src/main/webapp/images/icon_support.png -->
 		</ul>
 
@@ -165,7 +165,7 @@ footer {
 			<table class="table table-hover">
 				<thead>
 					<tr>
-						<th scope="col">ID</th>
+						<th scope="col">編號</th>
 						<th scope="col">圖片</th>
 						<th scope="col">名稱</th>
 						<th scope="col">種類</th>
@@ -178,7 +178,7 @@ footer {
 					<c:forEach var='comm' items='${commlist}'>
 						<tr>
 							<th scope="row">${comm.commodityid}</th>
-							<td><img width='110' height='140'
+							<td><img width='180' height='180'
 								src="<c:url value='/getPicture/${comm.commodityid}'/>" /></td>
 							<td>${comm.name}</td>
 							<td>${comm.kind}</td>
