@@ -25,8 +25,8 @@ public class OrderService {
 	}
 	
 	public OrderDetailsBean selectOneByOrderId(String orderId) {
-		OrderDetailsBean ordId = or.selectOneByOrderId(orderId);
-		return ordId;
+		OrderDetailsBean odb = or.selectOneByOrderId(orderId);
+		return odb;
 	}
 	
 	public int updateByOrderId(String orderId,Integer guestId) {
