@@ -3,6 +3,7 @@ package com.web.controller;
 import java.io.UnsupportedEncodingException;
 import java.util.Map;
 
+import javax.persistence.PostRemove;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -23,6 +24,7 @@ import com.web.service.airplain.GuestService;
 import com.web.service.airplain.OrderService;
 
 @Controller
+@RequestMapping({"/airTickets"})
 public class airTicketsController {
 	@Autowired
 	BFMService bfmService;
@@ -32,21 +34,19 @@ public class airTicketsController {
 	OrderService os;
 	@Autowired
 	GuestService gs;
- 
-	 @RequestMapping({"/","index"})
-	 public String index() {
-	 return "index";
-	 }
 	
-	 @RequestMapping("/booking")
+	 String sess = null;
+ 
+	
+	 @RequestMapping(value="/booking",method=RequestMethod.POST)
 	 @ResponseBody
 	 public String test(@RequestBody String order,Model model) {
 		 Gson gs = new Gson();
 		 OrderDetailsBean odb =gs.fromJson(order, OrderDetailsBean.class);
 		 int id=os.addOrder(odb);
 		 String orderid = os.selectOneById(id);
-		 String sess = session.getId();
-		 System.out.println(orderid);
+		 sess=session.getId();
+		 session.setAttribute(sess, orderid);
 		 session.setAttribute("sess", sess);
 	 return orderid;
 	 }
@@ -65,13 +65,12 @@ public class airTicketsController {
 	public String getOrder(@PathVariable("orId") String orId, Model model)  {
 		System.out.println(orId);
 		OrderDetailsBean obean = os.selectOneByOrderId(orId);
-		System.out.println(orId);
 		System.out.println(obean);
 		Gson gson = new Gson();
 		String jsonInString = gson.toJson(obean);
 		System.out.println(jsonInString);
 		model.addAttribute("bean",jsonInString);
-		return "airTickets/test";
+		return "airTickets/passagngerInfo";
 	}
 	
 	
@@ -81,22 +80,35 @@ public class airTicketsController {
 //		map.put("abc", gb);
 //	}
 	
-	@RequestMapping("/airTickets/tt")
-	public String gatTest(Map<String,Object> map) {
-		
-		GuestBean gb = new GuestBean();
-		map.put("abc", gb);
-		
-		return "airTickets/test3";
-	}
+//	@RequestMapping("/tt")
+//	public String gatTest(Map<String,Object> map) {
+//		
+//		GuestBean gb = new GuestBean();
+//		map.put("abc", gb);
+//		
+//		return "airTickets/test3";
+//	}
 	
-	@RequestMapping(value="/airTickets/guest" ,method=RequestMethod.POST)
-	public @ResponseBody int addGuest(GuestBean guestBean,Model model) {
+	@RequestMapping(value="/guest" ,method=RequestMethod.POST)
+	public @ResponseBody String addGuest(GuestBean guestBean,Model model) {
 		System.out.println("in");
 		System.out.println(guestBean);
 		int resultId =gs.addGuest(guestBean);
+		System.out.println(resultId);
+		String orderId=(String)session.getAttribute(sess);
+		System.out.println(orderId);
+		int result=os.updateByOrderId(orderId, resultId);
+//		System.out.println(result);
 //		session.setAttribute("guestBean", guestBean);
 //		model.addAttribute("guestBean",guestBean);
-		return resultId;
+		return "ticktesCheckOut";
+	}
+	@RequestMapping("/ticktesCheckOut")
+	public String forwordTest3(Model model) {
+		sess=session.getId();
+		String orderId =(String) session.getAttribute(sess);
+		OrderDetailsBean bean = os.selectOneByOrderId(orderId);
+		model.addAttribute("orderList", bean);
+		return "airTickets/ticktesCheckOut";
 	}
 }
