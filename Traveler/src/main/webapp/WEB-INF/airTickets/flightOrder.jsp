@@ -424,7 +424,7 @@ function list(){
 				    contentType: "application/json; charset=UTF-8",
 // 				    dataType:"json",
 				    success : function(response) {
-				    	var forword=response;
+				    	var forword=response+"";
 				    	alert(forword);
 				        window.location.assign(forword);
 				    },

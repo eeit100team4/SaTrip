@@ -37,6 +37,12 @@ public class airTicketsController {
 	
 	 String sess = null;
  
+	 
+	 
+	 @RequestMapping("/test")
+	 public void testOpay() {
+		 System.out.println("歐富寶測試");
+	 }
 	
 	 @RequestMapping(value="/booking",method=RequestMethod.POST)
 	 @ResponseBody
@@ -106,6 +112,11 @@ public class airTicketsController {
 		System.out.println(odBean);
 		model.addAttribute("orderList", odBean);
 		model.addAttribute("guest", guestBean);
+		return "airTickets/ticktesCheckOut";
+	}
+	
+	@RequestMapping("/testOpay")
+	public String testOp(){
 		return "airTickets/ticktesCheckOut";
 	}
 }

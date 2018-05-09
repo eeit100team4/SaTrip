@@ -39,8 +39,9 @@ public class OrderRepository {
 
 	public OrderDetailsBean selectOneByOrderId(String orderId) {
 		session = factory.getCurrentSession();
-		Query<OrderDetailsBean> query = session.createQuery("FROM OrderDetailsBean WHERE orderID=" + orderId,
+		Query<OrderDetailsBean> query = session.createQuery("FROM OrderDetailsBean WHERE orderID=:orderId",
 				OrderDetailsBean.class);
+		query.setParameter("orderId", orderId);
 		// String hql = "FROM OrderDetailsBean WHERE orderID=" + orderId;
 		OrderDetailsBean result = query.uniqueResult();
 		return result;
