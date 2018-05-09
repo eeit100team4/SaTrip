@@ -3,6 +3,7 @@ package com.web.controller;
 import java.io.UnsupportedEncodingException;
 import java.util.Map;
 
+import javax.persistence.PostRemove;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -33,6 +34,8 @@ public class airTicketsController {
 	OrderService os;
 	@Autowired
 	GuestService gs;
+	
+	 String sess = null;
  
 	
 	 @RequestMapping(value="/booking",method=RequestMethod.POST)
@@ -42,9 +45,10 @@ public class airTicketsController {
 		 OrderDetailsBean odb =gs.fromJson(order, OrderDetailsBean.class);
 		 int id=os.addOrder(odb);
 		 String orderid = os.selectOneById(id);
-		 String sess = session.getId();
-		 System.out.println(orderid);
+		 sess=session.getId();
+		 session.setAttribute(sess, orderid);
 		 session.setAttribute("sess", sess);
+		 System.out.println("booking可以");
 	 return orderid;
 	 }
 
@@ -61,14 +65,12 @@ public class airTicketsController {
 	@RequestMapping(method=RequestMethod.GET, value="/{orId}")
 	public String getOrder(@PathVariable("orId") String orId, Model model)  {
 		OrderDetailsBean obean = os.selectOneByOrderId(orId);
-		System.out.println(orId);
-		System.out.println(obean);
 		Gson gson = new Gson();
 		String jsonInString = gson.toJson(obean);
-		System.out.println(jsonInString);
 		model.addAttribute("bean",jsonInString);
-		return "airTickets/test";
+		return "airTickets/passagngerInfo";
 	}
+	
 	
 	
 //	@ModelAttribute
@@ -77,22 +79,33 @@ public class airTicketsController {
 //		map.put("abc", gb);
 //	}
 	
-	@RequestMapping("/tt")
-	public String gatTest(Map<String,Object> map) {
-		
-		GuestBean gb = new GuestBean();
-		map.put("abc", gb);
-		
-		return "airTickets/test3";
-	}
+//	@RequestMapping("/tt")
+//	public String gatTest(Map<String,Object> map) {
+//		
+//		GuestBean gb = new GuestBean();
+//		map.put("abc", gb);
+//		
+//		return "airTickets/test3";
+//	}
 	
 	@RequestMapping(value="/guest" ,method=RequestMethod.POST)
-	public @ResponseBody int addGuest(GuestBean guestBean,Model model) {
-		System.out.println("in");
-		System.out.println(guestBean);
+	public @ResponseBody String addGuest(GuestBean guestBean,Model model) {
 		int resultId =gs.addGuest(guestBean);
-//		session.setAttribute("guestBean", guestBean);
-//		model.addAttribute("guestBean",guestBean);
-		return resultId;
+		String orderId=(String)session.getAttribute(sess);
+		os.updateByOrderId(orderId, resultId);
+		session.setAttribute("guestBean", guestBean);
+		model.addAttribute("guestBean",guestBean);
+		return "ticktesCheckOut";
+	}
+	@RequestMapping("/ticktesCheckOut")
+	public String forwordTest3(Model model) {
+		sess=session.getId();
+		String orderId =(String) session.getAttribute(sess);
+		OrderDetailsBean odBean = os.selectOneByOrderId(orderId);
+		GuestBean guestBean = gs.selectById(odBean.getGuestId());
+		System.out.println(odBean);
+		model.addAttribute("orderList", odBean);
+		model.addAttribute("guest", guestBean);
+		return "airTickets/ticktesCheckOut";
 	}
 }

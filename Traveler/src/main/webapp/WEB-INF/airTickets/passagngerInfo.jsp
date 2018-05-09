@@ -46,7 +46,7 @@
 <meta name="twitter:card" content="" />
 
 <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-<link rel="shortcut icon" href="/Traveler/images/favicon.ico">
+<link rel="shortcut icon" href="images/favicon.ico">
 
 <!--<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>-->
 
@@ -145,7 +145,7 @@ function sendGuest(){
 		success : function(responce) {
 			alert(responce);
 			alert("ok");
-			window.location.href = "test2.jsp"
+			window.location.assign(responce);
 		},
 		error:function(){
 			alert("error");
@@ -267,27 +267,104 @@ function sendGuest(){
 					</table>
 					</div>
 					  
-	<div  style="width:40%;margin:20px ;border:1px orange solid 	">
+	<div class="text-left" style="width: 50%;height:1000px; margin: 0px auto; border: 1px orange solid">
 		<form id="myform"  enctype="multipart/form-data">
-			<p>聯絡人</p>
-			<label>中文姓</label> <input type="text" name="chineseLastName_1" />&nbsp&nbsp&nbsp&nbsp
-			<label>中文名</label><input type="text" name="chineseFirstName_1" />
-			<br><br>
-			<label>英文姓</label>
-			<input type="text" name="lastName_1" />&nbsp&nbsp&nbsp&nbsp
-			<label>英文名</label> <input type="text" name="firstName_1" />
-			<br><br>
-			<label class=>生日</label><input  type="text" name="birth_1" />
-			 	<input type="hidden" name="_method" value="post" /> 
-			 <button type="button" onclick="sendGuest()">送出</button>
+
+			<fieldset>
+        	<legend>聯絡人資訊</legend>
+            <div class="st1">
+                <label for="contactName" class="lab">姓名</label>
+                <input type="text" name="contactName" id="contactName" size="10" autofocus autocomplete="off">
+            </div>
+            <div class="st1">
+                <label for="contactIdCard" class="lab">身分證字號</label>
+                <input type="text" name="contactIdCard" id="contactIdCard" maxlength="10">
+            </div>
+             <div class="st1">
+                <label for="contactPhone" class="lab">手機</label>
+                <input type="text" name="contactPhone" id="contactPhone" maxlength="10">
+            </div>
+            <div class="st1">
+                <label for="contactAddress" class="lab">地址</label>
+                <input type="text" name="contactAddress" id="contactAddress">
+            </div>
+            <div class="st1">
+                <label for="" class="lab">E-mail</label>
+                <input type="text" name="contactEmail" id="contactEmail">
+            </div>
+        </fieldset>
+                <fieldset>
+        	<legend>旅客一資料</legend>
+			            <div class="st1">
+                <label for="guestOneName" class="lab">姓名</label>
+                <input type="text" name="guestOneName" id="guestOneName" size="10" autofocus autocomplete="off">
+            </div>
+            <div class="st1">
+                <label for="guestOneLastName" class="lab">英文姓</label>
+                <input type="text" name="guestOneLastName" id="guestOneLastName" maxlength="10">
+            </div>
+             <div class="st1">
+                <label for="guestOneFirstName" class="lab">英文名</label>
+                <input type="text" name="guestOneFirstName" id="guestOneFirstName" maxlength="10">
+            </div>
+            <div class="st1">
+                <label for="guestOnepassportNum" class="lab">護照號碼</label>
+                <input type="text" name=guestOnepassportNum id="guestOnepassportNum">
+            </div>
+            <div class="st1">
+                <label for="guestOneBirth" class="lab">生日</label>
+                <input type="text" name="guestOneBirth" id="guestOneBirth">
+            </div>
+            <div class="st1">
+                <label class="lab">性別</label>
+                <input type="radio" name="guestOneGender" id="m1" value="male">
+                <label for="m1">男</label>
+                <input type="radio" name="guestOneGender" id="f1" value="female">
+                <label for="f1">女</label>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>旅客二資料 </legend>
+           			            <div class="st1">
+                <label for="guestTwoName" class="lab">姓名</label>
+                <input type="text" name="guestTwoName" id="guestTwoName" size="10" autofocus autocomplete="off">
+            </div>
+            <div class="st1">
+                <label for="guestTwoLastName" class="lab">英文姓</label>
+                <input type="text" name="guestTwoLastName" id="guestTwoLastName" maxlength="10">
+            </div>
+             <div class="st1">
+                <label for="guestTwoFirstName" class="lab">英文名</label>
+                <input type="text" name="guestTwoFirstName" id="guestTwoFirstName" maxlength="10">
+            </div>
+            <div class="st1">
+                <label for="guestTwopassportNum" class="lab">護照號碼</label>
+                <input type="text" name=guestTwopassportNum id="guestTwopassportNum">
+            </div>
+            <div class="st1">
+                <label for="guestTwoBirth" class="lab">生日</label>
+                <input type="text" name="guestTwoBirth" id="guestTwoBirth">
+            </div>
+            <div class="st1">
+                <label class="lab">性別</label>
+                <input type="radio" name="guestTwoGender" id="m1" value="male">
+                <label for="m1">男</label>
+                <input type="radio" name="guestTwoGender" id="f1" value="female">
+                <label for="f1">女</label>
+            </div>
+        </fieldset>
+        
+			          <div class="sub text-center">
+	          <input type="hidden" name="_method" value="post" /> 
+	          <button type="button" onclick="sendGuest()">送出</button>
+                <input type="reset" name="reset" value="清除">
+            </div>
+
+			
 		</form>
 	</div>
     </div>
 				</div>
-
-
-
-
 
 				<div class="row">
 					<div class="col-md-6 col-md-offset-3 text-center">

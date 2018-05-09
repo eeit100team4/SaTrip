@@ -8,13 +8,21 @@ import com.web.model.airplain.GuestBean;
 import com.web.model.airplain.GuestRepository;
 
 @Service
+@Transactional
 public class GuestService {
 	@Autowired
 	GuestRepository gr;
-	@Transactional
+	
 	public int addGuest(GuestBean gb) {
 		int reId=gr.addGuest(gb);
 		return reId;
 	}
+	
+	public GuestBean selectById(int id) {
+		GuestBean gb = gr.selectByid(id);
+		return gb;
+	}
+	
+	
 	
 }

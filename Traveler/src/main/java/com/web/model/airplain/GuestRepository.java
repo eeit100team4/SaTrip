@@ -11,16 +11,23 @@ import org.springframework.web.jsf.FacesContextUtils;
 
 @Repository
 public class GuestRepository {
-	
+
 	@Autowired
 	SessionFactory sessionFactory;
-	Session session=null;
-	
+	Session session = null;
+
 	public int addGuest(GuestBean guestBean) {
-		session=sessionFactory.getCurrentSession();
+		session = sessionFactory.getCurrentSession();
 		Serializable re = session.save(guestBean);
-		int returnId=(int)re;
+		int returnId = (int) re;
 		return returnId;
 	}
-	
+
+	public GuestBean selectByid(int id) {
+		session = sessionFactory.getCurrentSession();
+		String hql = "FROM GuestBean WHERE ID=" + id;
+		GuestBean result = session.createQuery(hql, GuestBean.class).uniqueResult();
+		return result;
+	}
+
 }
