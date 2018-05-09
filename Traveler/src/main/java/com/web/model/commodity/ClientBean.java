@@ -35,8 +35,122 @@ public class ClientBean {
 	@Transient
 	private CommodityBean commodityBean;
 	
+//	@Transient
+//	private MemberBean memberBean;
+	
 	@Transient
 	private MultipartFile  productImage;
+
+	public Integer getId() {
+		return Id;
+	}
+
+	public void setId(Integer id) {
+		Id = id;
+	}
+
+	public String getComName() {
+		return comName;
+	}
+
+	public void setComName(String comName) {
+		this.comName = comName;
+	}
+
+	public Integer getComId() {
+		return comId;
+	}
+
+	public void setComId(Integer comId) {
+		this.comId = comId;
+	}
+
+	public Double getComPoint() {
+		return comPoint;
+	}
+
+	public void setComPoint(Double comPoint) {
+		this.comPoint = comPoint;
+	}
+
+	public Integer getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(Integer quantity) {
+		this.quantity = quantity;
+	}
+
+	public java.util.Date getDate() {
+		return date;
+	}
+
+	public void setDate(java.util.Date date) {
+		this.date = date;
+	}
+
+	public Integer getMemberId() {
+		return memberId;
+	}
+
+	public void setMemberId(Integer memberId) {
+		this.memberId = memberId;
+	}
+
+	public String getMembername() {
+		return membername;
+	}
+
+	public void setMembername(String membername) {
+		this.membername = membername;
+	}
+
+	public String getTel() {
+		return tel;
+	}
+
+	public void setTel(String tel) {
+		this.tel = tel;
+	}
+
+	public String getAddr() {
+		return addr;
+	}
+
+	public void setAddr(String addr) {
+		this.addr = addr;
+	}
+
+	public String getTransport() {
+		return transport;
+	}
+
+	public void setTransport(String transport) {
+		this.transport = transport;
+	}
+
+	public CommodityBean getCommodityBean() {
+		return commodityBean;
+	}
+
+	public void setCommodityBean(CommodityBean commodityBean) {
+		this.commodityBean = commodityBean;
+	}
+
+	public MultipartFile getProductImage() {
+		return productImage;
+	}
+
+	public void setProductImage(MultipartFile productImage) {
+		this.productImage = productImage;
+	}
+
+	@Override
+	public String toString() {
+		return "ClientBean [Id=" + Id + ", comName=" + comName + ", comId=" + comId + ", comPoint=" + comPoint
+				+ ", quantity=" + quantity + ", date=" + date + ", memberId=" + memberId + ", membername=" + membername
+				+ ", tel=" + tel + ", addr=" + addr + ", transport=" + transport + "]";
+	}
 	
 	
 	

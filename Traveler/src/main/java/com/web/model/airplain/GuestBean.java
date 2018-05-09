@@ -21,27 +21,6 @@ public class GuestBean {
 		@GeneratedValue(strategy = GenerationType.IDENTITY)
 		private Integer id;
 		
-		private String contactName;
-		private String contactEmail;
-		private Integer contactPhone;
-		private String contactAddress;
-		private String contactIdCard;
-		private String guestOneName;
-		private String guestOneLastName;
-		private String guestOneFirstName;
-		private String guestOnepassportNum;
-		@DateTimeFormat(pattern="yyyy-MM-dd")
-		private Date guestOneBirth;
-		private String guestOneGender;
-		private String guestTwoName;
-		private String guestTwoLastName;
-		private String guestTwoFirstName;
-		private String guestTwopassportNum;
-		@DateTimeFormat(pattern="yyyy-MM-dd")
-		private Date guestTwoBirth;
-		private String guestTwoGender;
-		
-		
 		public Integer getId() {
 			return id;
 		}
@@ -150,6 +129,26 @@ public class GuestBean {
 		public void setGuestTwoGender(String guestTwoGender) {
 			this.guestTwoGender = guestTwoGender;
 		}
+		private String contactName;
+		private String contactEmail;
+		private Integer contactPhone;
+		private String contactAddress;
+		private String contactIdCard;
+		private String guestOneName;
+		private String guestOneLastName;
+		private String guestOneFirstName;
+		private String guestOnepassportNum;
+		@DateTimeFormat(pattern="yyyy-MM-dd")
+		private Date guestOneBirth;
+		private String guestOneGender;
+		private String guestTwoName;
+		private String guestTwoLastName;
+		private String guestTwoFirstName;
+		private String guestTwopassportNum;
+		@DateTimeFormat(pattern="yyyy-MM-dd")
+		private Date guestTwoBirth;
+		private String guestTwoGender;
+
 		@Override
 		public String toString() {
 			return "GuestBean [id=" + id + ", contactName=" + contactName + ", contactEmail=" + contactEmail
@@ -162,6 +161,7 @@ public class GuestBean {
 					+ guestTwoBirth + ", guestTwoGender=" + guestTwoGender + "]";
 		}
 		
+	
 		
 		
 		

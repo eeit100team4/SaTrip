@@ -50,60 +50,60 @@
 <!--<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>-->
 
 <!-- Animate.css -->
-<link rel="stylesheet" href="/Traveler/css/animate.css">
+<link rel="stylesheet" href="css/animate.css">
 <!-- Icomoon Icon Fonts-->
-<link rel="stylesheet" href="/Traveler/css/icomoon.css">
+<link rel="stylesheet" href="css/icomoon.css">
 <!-- Bootstrap  -->
-<link rel="stylesheet" href="/Traveler/css/bootstrap.css">
+<link rel="stylesheet" href="css/bootstrap.css">
 <!-- Superfish -->
-<link rel="stylesheet" href="/Traveler/css/superfish.css">
+<link rel="stylesheet" href="css/superfish.css">
 <!-- Magnific Popup -->
-<link rel="stylesheet" href="/Traveler/css/magnific-popup.css">
+<link rel="stylesheet" href="css/magnific-popup.css">
 <!-- Date Picker -->
-<link rel="stylesheet" href="/Traveler/css/bootstrap-datepicker.min.css">
+<link rel="stylesheet" href="css/bootstrap-datepicker.min.css">
 <!-- CS Select -->
-<link rel="stylesheet" href="/Traveler/css/cs-select.css">
-<link rel="stylesheet" href="/Traveler/css/cs-skin-border.css">
+<link rel="stylesheet" href="css/cs-select.css">
+<link rel="stylesheet" href="css/cs-skin-border.css">
 
-<link rel="stylesheet" href="/Traveler/css/style.css">
+<link rel="stylesheet" href="css/style.css">
 
 
 <!-- Modernizr JS -->
-<script src="/Traveler/js/modernizr-2.6.2.min.js"></script>
+<script src="js/modernizr-2.6.2.min.js"></script>
 <!-- FOR IE9 below -->
 <!--[if lt IE 9]>
-	<script src="/Traveler/js/respond.min.js"></script>
+	<script src="js/respond.min.js"></script>
 	<![endif]-->
 
 
 <!-- jQuery -->
 
 
-<script src="/Traveler/js/jquery.min.js"></script>
+<script src="js/jquery.min.js"></script>
 <!-- jQuery Easing -->
-<script src="/Traveler/js/jquery.easing.1.3.js"></script>
+<script src="js/jquery.easing.1.3.js"></script>
 <!-- Bootstrap -->
-<script src="/Traveler/js/bootstrap.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
 <!-- Waypoints -->
-<script src="/Traveler/js/jquery.waypoints.min.js"></script>
-<script src="/Traveler/js/sticky.js"></script>
+<script src="js/jquery.waypoints.min.js"></script>
+<script src="js/sticky.js"></script>
 
 <!-- Stellar -->
-<script src="/Traveler/js/jquery.stellar.min.js"></script>
+<script src="js/jquery.stellar.min.js"></script>
 <!-- Superfish -->
-<script src="/Traveler/js/hoverIntent.js"></script>
-<script src="/Traveler/js/superfish.js"></script>
+<script src="js/hoverIntent.js"></script>
+<script src="js/superfish.js"></script>
 <!-- Magnific Popup -->
-<script src="/Traveler/js/jquery.magnific-popup.min.js"></script>
-<script src="/Traveler/js/magnific-popup-options.js"></script>
+<script src="js/jquery.magnific-popup.min.js"></script>
+<script src="js/magnific-popup-options.js"></script>
 <!-- Date Picker -->
-<script src="/Traveler/js/bootstrap-datepicker.min.js"></script>
+<script src="js/bootstrap-datepicker.min.js"></script>
 <!-- CS Select -->
-<script src="/Traveler/js/classie.js"></script>
-<script src="/Traveler/js/selectFx.js"></script>
+<script src="js/classie.js"></script>
+<script src="js/selectFx.js"></script>
 
 <!-- Main JS -->
-<script src="/Traveler/js/main.js"></script>
+<script src="js/main.js"></script>
 
 
 
@@ -158,8 +158,8 @@
 			$("#sec")
 					.click(
 							function() {
-								// 								if($('#sec').options[0])
-								if ($('#sec :selected').text() == "選擇出發地") {
+// 								if($('#sec').options[0])
+								if($('#sec :selected').text()=="選擇出發地"){
 									$('#sec :selected').remove();
 								}
 								xmlhttp.open("GET", "xml/CITYcode.xml", true);
@@ -204,8 +204,9 @@
 <!-- 		選擇日期 -->
 
 
-<script src="/Traveler/js/jquery-ui.min.js"></script>
-<link rel="stylesheet" href="/Traveler/js/jquery-ui.min.css">
+<script src="js/jquery-ui.min.js"></script>
+<link rel="stylesheet"
+	href="js/jquery-ui.min.css">
 <script>
 	$(function() {
 		$("#datepicker")
@@ -257,12 +258,14 @@
 	}
 </script>
 
-<script>
-	function slow() {
-		$("#all").css("filter", "opacity(40%)");
-		$("#img1").css("position", "absolute").css("left", "50%").css("top",
-				"50%").css("display", "inline").css("filter", "opacity(100%)");
-	}
+<script >
+
+function slow(){
+	$("#all").css("filter","opacity(40%)");
+	$("#img1").css("position","absolute").css("left","50%").css("top","50%")
+	.css("display","inline").css("filter","opacity(100%)");
+}
+
 </script>
 
 </head>
@@ -282,8 +285,8 @@
 							<ul class="sf-menu" id="fh5co-primary-menu">
 								<li class="active"><a href="">Home</a></li>
 								<li><a href="theme/themeTitles" class="fh5co-sub-ddown">主題旅遊</a>
-									<!-- 下面這塊ul以後會刪掉 -->
-									<ul class="fh5co-sub-menu">
+								<!-- 下面這塊ul以後會刪掉 -->
+									<ul class="fh5co-sub-menu">								    
 										<li><a href="#">Family</a></li>
 										<li><a href="#">CSS3 &amp; HTML5</a></li>
 										<li><a href="#">Angular JS</a></li>
@@ -304,7 +307,7 @@
 			<!-- end:header-top -->
 
 			<div  id="all"  class="fh5co-hero">
-<!-- 				<div class="fh5co-overlay"></div> -->
+				<div class="fh5co-overlay"></div>
 				<div class="fh5co-cover" data-stellar-background-ratio="0.5"
 					style="background-image: url(images/cover_bg_1.jpg);">
 					<div class="desc">
@@ -330,7 +333,7 @@
 										<div class="tab-content">
 											<div role="tabpanel" class="tab-pane active" id="flights">
 												<div class="row">
-													<form action="airTickets/BFMS" method="get">
+													<form action="BFMS" method="get">
 														<div class="col-xxs-12 col-xs-5 mt">
 															<div class="input-field">
 																<label for="from">出發地</label>
@@ -392,21 +395,22 @@
 															</section>
 														</div>
 														<div class="col-xxs-12 col-xs-6 mt">
-															<section>
-																<label for="class">成人:</label> <select name="psg"
-																	style="color: blue;" class="cs-select cs-skin-border">
-																	<!-- 														<option value="" disable selected ></option> -->
-																	<option value="1" selected>1</option>
-																	<option value="2">2</option>
-																	<option value="3">3</option>
-																	<option value="4">4</option>
-																</select>
-															</section>
+														<section>
+													<label for="class">成人:</label>
+													<select name="psg" style="color:blue; " class="cs-select cs-skin-border">
+<!-- 														<option value="" disable selected ></option> -->
+														<option value="1" selected>1</option>
+														<option value="2">2</option>
+														<option value="3">3</option>
+														<option value="4">4</option>
+													</select>
+												</section>
 														</div>
 														<div class="col-xxs-12 col-xs-6 mt">
 															<section>
-																<label for="class">孩童</label> <select
-																	style="color: blue;" class="cs-select cs-skin-border">
+																<label for="class">孩童</label> 
+																<select style="color:blue; "
+																	class="cs-select cs-skin-border">
 																	<option value="0">0</option selected>
 																	<option value="1">1</option>
 																	<option value="2">2</option>
@@ -565,12 +569,8 @@
 									</div>
 								</div>
 								<div class="desc2 animate-box">
-									<div algin=ce
-										class="col-sm-7 col-sm-push-1 col-md-7 col-md-push-1">
-										<p>
-										<p>
-											<a class="btn btn-primary btn-lg" href="#">空空的不知道要放啥</a>
-										</p>
+									<div algin=ce class="col-sm-7 col-sm-push-1 col-md-7 col-md-push-1" >										<p>
+										<p><a class="btn btn-primary btn-lg" href="#">空空的不知道要放啥</a></p>
 									</div>
 								</div>
 							</div>
@@ -611,13 +611,11 @@
 
 	</div>
 	<!-- END fh5co-wrapper -->
-
-	<div id="img1" style="display: none">
-		<h1>
-			<strong>搜尋中......</strang>
-		</h1>
-		<img alt="" src="images/airplain.gif" widtg=200px height=150px />
-	</div>
+	
+										<div  id="img1" style="display:none">										
+											<h1><strong>搜尋中......</strang></h1> 
+											<img  alt="" src="images/airplain.gif" widtg=200px height=150px />
+									</div>
 
 
 </body>

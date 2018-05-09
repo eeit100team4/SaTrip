@@ -134,14 +134,14 @@ footer {
 <div id="allpage">
 		<header> <nav>
 		<ul class="menu">
-		<li cless="le"><a href="index.html"><img src='../images/icon_index.png' height="25px" width="25px"/>TRAVEL後台管理系統</a></li>
-					<li><a href="index.html"><img src='../images/icon_air.png' height="25px" width="25px"/>機票管理</a></li>
-					<li><a href="index.html"><img src='../images/icon_hotel.png' height="25px" width="25px"/>飯店管理</a></li>
-					<li><a href="index.html"><img src='../images/icon_traveler.png' height="25px" width="25px"/>主題旅遊管理</a></li>
-					<li><a href="index.html"><img src='../images/icon_vip.png' height="25px" width="25px"/>會員管理</a></li>
-					<li><a href="index.html"><img src='../images/icon_comm.png' height="25px" width="25px"/>紅利管理</a></li>
-					<li><a href="index.html"><img src='../images/icon_support.png' height="25px" width="25px"/>客服管理</a></li>
-					<li><a href="index.html"><img src='../images/icon_logout.png' height="25px" width="25px"/>登出</a></li> <!--登入-->
+		<li cless="le"><a href="index.html"><img src='images/icon_index.png' height="25px" width="25px"/>TRAVEL後台管理系統</a></li>
+					<li><a href="index.html"><img src='images/icon_air.png' height="25px" width="25px"/>機票管理</a></li>
+					<li><a href="index.html"><img src='images/icon_hotel.png' height="25px" width="25px"/>飯店管理</a></li>
+					<li><a href="index.html"><img src='images/icon_traveler.png' height="25px" width="25px"/>主題旅遊管理</a></li>
+					<li><a href="index.html"><img src='images/icon_vip.png' height="25px" width="25px"/>會員管理</a></li>
+					<li><a href="index.html"><img src='images/icon_comm.png' height="25px" width="25px"/>紅利管理</a></li>
+					<li><a href="index.html"><img src='images/icon_support.png' height="25px" width="25px"/>客服管理</a></li>
+					<li><a href="index.html"><img src='images/icon_logout.png' height="25px" width="25px"/>登出</a></li> <!--登入-->
 			<!--登出-->
 		</ul>
 
@@ -164,7 +164,7 @@ footer {
 			<div class="container">
 <!-- 				<div class="form-row"> -->
 					<div class="d3">
-						<form:form method='POST' action='/woodstock/add'
+						<form:form method='POST' action='/Traveler/add'
 							modelAttribute="CommodityBean" enctype="multipart/form-data">
 							<legend>新增產品資訊</legend>
 							
