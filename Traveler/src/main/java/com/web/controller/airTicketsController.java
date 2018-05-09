@@ -48,6 +48,7 @@ public class airTicketsController {
 		 sess=session.getId();
 		 session.setAttribute(sess, orderid);
 		 session.setAttribute("sess", sess);
+		 System.out.println("booking可以");
 	 return orderid;
 	 }
 
@@ -63,15 +64,13 @@ public class airTicketsController {
 	
 	@RequestMapping(method=RequestMethod.GET, value="/{orId}")
 	public String getOrder(@PathVariable("orId") String orId, Model model)  {
-		System.out.println(orId);
 		OrderDetailsBean obean = os.selectOneByOrderId(orId);
-		System.out.println(obean);
 		Gson gson = new Gson();
 		String jsonInString = gson.toJson(obean);
-		System.out.println(jsonInString);
 		model.addAttribute("bean",jsonInString);
 		return "airTickets/passagngerInfo";
 	}
+	
 	
 	
 //	@ModelAttribute
@@ -91,24 +90,22 @@ public class airTicketsController {
 	
 	@RequestMapping(value="/guest" ,method=RequestMethod.POST)
 	public @ResponseBody String addGuest(GuestBean guestBean,Model model) {
-		System.out.println("in");
-		System.out.println(guestBean);
 		int resultId =gs.addGuest(guestBean);
-		System.out.println(resultId);
 		String orderId=(String)session.getAttribute(sess);
-		System.out.println(orderId);
-		int result=os.updateByOrderId(orderId, resultId);
-//		System.out.println(result);
-//		session.setAttribute("guestBean", guestBean);
-//		model.addAttribute("guestBean",guestBean);
+		os.updateByOrderId(orderId, resultId);
+		session.setAttribute("guestBean", guestBean);
+		model.addAttribute("guestBean",guestBean);
 		return "ticktesCheckOut";
 	}
 	@RequestMapping("/ticktesCheckOut")
 	public String forwordTest3(Model model) {
 		sess=session.getId();
 		String orderId =(String) session.getAttribute(sess);
-		OrderDetailsBean bean = os.selectOneByOrderId(orderId);
-		model.addAttribute("orderList", bean);
+		OrderDetailsBean odBean = os.selectOneByOrderId(orderId);
+		GuestBean guestBean = gs.selectById(odBean.getGuestId());
+		System.out.println(odBean);
+		model.addAttribute("orderList", odBean);
+		model.addAttribute("guest", guestBean);
 		return "airTickets/ticktesCheckOut";
 	}
 }

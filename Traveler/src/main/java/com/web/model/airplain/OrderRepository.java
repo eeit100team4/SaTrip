@@ -2,7 +2,6 @@ package com.web.model.airplain;
 
 import java.io.Serializable;
 
-import org.hibernate.Hibernate;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
@@ -50,11 +49,11 @@ public class OrderRepository {
 	public int updateByOrderId(String orderId, Integer guestId) {
 		session = factory.getCurrentSession();
 		System.out.println("update中的資訊" + orderId + "," + guestId);
-		String hql = "UPDATE airTickets set depNum = :newName WHERE depNum = :dep";
-		Query<OrderDetailsBean> query = session.createQuery(hql, OrderDetailsBean.class);
+		String hql = "update OrderDetailsBean s set s.guestId =:guestId WHERE s.orderID =:orderID";
+		Query query = session.createQuery(hql);
+		query.setParameter("guestId", guestId);
+		query.setParameter("orderID", orderId);
 		System.out.println("query之後");
-		query.setParameter("newnewNameName", 666);
-		query.setParameter("dep", 333);
 		int result = query.executeUpdate();
 		return result;
 	}

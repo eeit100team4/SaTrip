@@ -129,7 +129,13 @@
 									<td>總價格</td>
 									<td style="color:red">NT$10000</td>
 								</tr>
+									<tr class="active">
+									<td>FK測試</td>
+									<td >${guest.contactName}</td>
+									<td >${guest.id}</td>
+								</tr>
 							</table>
+							<button type="button" class="bnt">確定付款</button>
 						</div>
 					</div>
 				</div>
