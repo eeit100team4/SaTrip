@@ -303,13 +303,8 @@
 
 			<!-- end:header-top -->
 
-<<<<<<< HEAD
 			<div  id="all"  class="fh5co-hero">
 <!-- 				<div class="fh5co-overlay"></div> -->
-=======
-			<div id="all" class="fh5co-hero">
-				<div class="fh5co-overlay"></div>
->>>>>>> branch 'master' of https://github.com/eeit100team4/Traveler.git
 				<div class="fh5co-cover" data-stellar-background-ratio="0.5"
 					style="background-image: url(images/cover_bg_1.jpg);">
 					<div class="desc">
