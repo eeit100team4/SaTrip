@@ -56,7 +56,7 @@ public class ThemeTitleController {
 		try {
 			//File imageFolder = new File("c:/test/image", "images");//資料夾位置
 			//將圖片存到Tomcat下的資料夾，但圖片不會顯示在左邊專案.....
-			File imageFolder = new File("C:\\sts-bundle\\tomcat8\\webapps\\Traveler", "images");
+			File imageFolder = new File("C:\\sts-bundle\\tomcat8\\webapps\\Traveler\\WEB-INF", "images");
 			if (!imageFolder.exists()) {
 				imageFolder.mkdirs();
 			}
