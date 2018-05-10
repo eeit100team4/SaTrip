@@ -360,8 +360,8 @@ function sendGuest(){
         
 			          <div class="sub text-center">
 	          <input type="hidden" name="_method" value="post" /> 
-	          <button type="button" onclick="sendGuest()">送出</button>
-                <input type="reset" name="reset" value="清除">
+	          <button type="button" class="btn btn-success" onclick="sendGuest()">送出</button>
+                <input type="reset" class="btn btn-secondary"> name="reset" value="清除">
             </div>
 
 			
