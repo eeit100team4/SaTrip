@@ -122,8 +122,8 @@ $(document).ready(function(){
 	$("#rearrC").text(beanJSON.depC);
 	$("#reairline").text(beanJSON.airline);
 	$("#person").text(beanJSON.person);
-	$("#price").text(beanJSON.price);
-	var te= $("#totalPrice").text("NT$"+parseInt(beanJSON.price)*parseInt(beanJSON.person));
+	$("#price").text(parseInt(beanJSON.price)/parseInt(beanJSON.person));
+	var te= $("#totalPrice").text("NT$"+parseInt(beanJSON.price));
 	console.log(te);
 	$("#returnNum").text(beanJSON.returnNum);
 	

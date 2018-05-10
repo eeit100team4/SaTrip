@@ -58,5 +58,16 @@ public class OrderRepository {
 		int result = query.executeUpdate();
 		return result;
 	}
+	
+	public int updateCheckByOrderId(String orderId) {
+		session = factory.getCurrentSession();
+		String hql = "update OrderDetailsBean s set s.checkpay =:check WHERE s.orderID =:orderID";
+		Query query = session.createQuery(hql);
+		query.setParameter("check","已付款");
+		query.setParameter("orderID", orderId);
+		int result = query.executeUpdate();
+		return result;
+	}
+
 
 }

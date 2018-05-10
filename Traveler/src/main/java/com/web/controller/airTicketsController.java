@@ -1,15 +1,19 @@
 package com.web.controller;
 
 import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
 import java.util.Map;
 
 import javax.persistence.PostRemove;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,6 +25,7 @@ import com.web.model.airplain.GuestBean;
 import com.web.model.airplain.OrderDetailsBean;
 import com.web.service.airplain.BFMService;
 import com.web.service.airplain.GuestService;
+import com.web.service.airplain.OpayEncoding;
 import com.web.service.airplain.OrderService;
 
 @Controller
@@ -39,10 +44,6 @@ public class airTicketsController {
  
 	 
 	 
-	 @RequestMapping("/test")
-	 public void testOpay() {
-		 System.out.println("歐富寶測試");
-	 }
 	
 	 @RequestMapping(value="/booking",method=RequestMethod.POST)
 	 @ResponseBody
@@ -78,22 +79,6 @@ public class airTicketsController {
 	}
 	
 	
-	
-//	@ModelAttribute
-//	public void getAtt( Map<String,Object> map) {
-//		GuestBean gb = new GuestBean();
-//		map.put("abc", gb);
-//	}
-	
-//	@RequestMapping("/tt")
-//	public String gatTest(Map<String,Object> map) {
-//		
-//		GuestBean gb = new GuestBean();
-//		map.put("abc", gb);
-//		
-//		return "airTickets/test3";
-//	}
-	
 	@RequestMapping(value="/guest" ,method=RequestMethod.POST)
 	public @ResponseBody String addGuest(GuestBean guestBean,Model model) {
 		int resultId =gs.addGuest(guestBean);
@@ -119,4 +104,22 @@ public class airTicketsController {
 	public String testOp(){
 		return "airTickets/ticktesCheckOut";
 	}
+	
+	
+	@RequestMapping("/opay")
+	@ResponseBody
+	public String doOpayMacValue(@RequestBody String mac) {
+		String macValue = OpayEncoding.setCheckMacValue(mac);
+		return macValue;
+				
+	}
+	
+	 @RequestMapping("/checkOK")
+	 public String testOpay() {
+		 String orderId=(String)session.getAttribute(sess);
+		 os.updateCheckPayByOrderId(orderId);
+		 System.out.println("歐富寶測試");
+		 
+		 return "airTickets/test2";
+	 }
 }

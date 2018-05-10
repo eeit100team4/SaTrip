@@ -403,19 +403,22 @@ function list(){
 				var depNum=$("#"+k).parents("tbody").find("tr:eq(0)").children("td:eq(2)").children("div:eq(2)").text(); //去程機型
 				var returnNum=$("#"+k).parents("tbody").find("tr:eq(2)").children("td:eq(2)").children("div:eq(2)").text(); //回程機型
 				
-				
-				console.log(k);
-				console.log("去程時間:"+depT);
-				console.log("去程出發地:"+depC);
-				console.log("去程抵達時間:"+arrT);
-				console.log("去程目的地:"+arrC);
-				console.log("總價格:"+price);
-				console.log("航班:"+airline);
-				console.log("去程機型:"+depNum);
-				console.log("回程機型:"+returnNum);
+				var priceInt=parseInt(price);
+				var personInt=parseInt(person);
+				var priceTotal=priceInt*personInt;
+				alert(priceTotal);
+// 				console.log(k);
+// 				console.log("去程時間:"+depT);
+// 				console.log("去程出發地:"+depC);
+// 				console.log("去程抵達時間:"+arrT);
+// 				console.log("去程目的地:"+arrC);
+// 				console.log("總價格:"+price);
+// 				console.log("航班:"+airline);
+// 				console.log("去程機型:"+depNum);
+// 				console.log("回程機型:"+returnNum);
 				var depDate="${depDate}";
 				var returnDate="${reDate}";			
-				var sendDet =JSON.stringify({"depT":depT,"depDate":depDate,"depC":depC,"arrT":arrT,"returnDate":returnDate,"arrC":arrC,"returnTime":returnTime,"price":price,"airline":airline,"depNum":depNum,"returnNum":returnNum,"person":person});
+				var sendDet =JSON.stringify({"depT":depT,"depDate":depDate,"depC":depC,"arrT":arrT,"returnDate":returnDate,"arrC":arrC,"returnTime":returnTime,"price":priceTotal,"airline":airline,"depNum":depNum,"returnNum":returnNum,"person":person});
 				$.ajax({
 				    type : "post",
 				    url : "booking",

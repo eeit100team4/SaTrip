@@ -7,8 +7,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.ManyToAny;
 
 
 
@@ -34,16 +38,28 @@ public class OrderDetailsBean {
 	private String depNum;
 	private String returnNum;
 	private Integer person;
-	private Integer bonus;
+	private Integer bonus;	
 	private Integer guestId;
+	private String checkpay;
+	
+	@ManyToOne
+	@JoinColumn(
+			name="guestId",referencedColumnName="id",insertable=false,updatable=false)
+	private GuestBean guestBean;
 
-	@Override
-	public String toString() {
-		return "OrderDetailsBean [ID=" + ID + ", orderID=" + orderID + ", memberId=" + memberId + ", depT=" + depT
-				+ ", depDate=" + depDate + ", depC=" + depC + ", arrT=" + arrT + ", returnDate=" + returnDate
-				+ ", arrC=" + arrC + ", returnTime=" + returnTime + ", price=" + price + ", airline=" + airline
-				+ ", depNum=" + depNum + ", returnNum=" + returnNum + ", person=" + person + ", bonus=" + bonus
-				+ ", guestId=" + guestId + "]";
+
+	
+	
+
+
+
+
+	public String getCheckpay() {
+		return checkpay;
+	}
+
+	public void setCheckpay(String checkpay) {
+		this.checkpay = checkpay;
 	}
 
 	public Integer getID() {
@@ -174,6 +190,15 @@ public class OrderDetailsBean {
 		this.bonus = bonus;
 	}
 
+	@Override
+	public String toString() {
+		return "OrderDetailsBean [ID=" + ID + ", orderID=" + orderID + ", memberId=" + memberId + ", depT=" + depT
+				+ ", depDate=" + depDate + ", depC=" + depC + ", arrT=" + arrT + ", returnDate=" + returnDate
+				+ ", arrC=" + arrC + ", returnTime=" + returnTime + ", price=" + price + ", airline=" + airline
+				+ ", depNum=" + depNum + ", returnNum=" + returnNum + ", person=" + person + ", bonus=" + bonus
+				+ ", guestId=" + guestId + ", checkpay=" + checkpay + ", guestBean=" + guestBean + "]";
+	}
+
 	public Integer getGuestId() {
 		return guestId;
 	}
@@ -181,6 +206,16 @@ public class OrderDetailsBean {
 	public void setGuestId(Integer guestId) {
 		this.guestId = guestId;
 	}
+
+	public GuestBean getGuestBean() {
+		return guestBean;
+	}
+
+	public void setGuestBean(GuestBean guestBean) {
+		this.guestBean = guestBean;
+	}
+
+
 
 
 }
