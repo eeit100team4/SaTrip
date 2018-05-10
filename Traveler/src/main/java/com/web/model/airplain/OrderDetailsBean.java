@@ -42,6 +42,12 @@ public class OrderDetailsBean {
 	private Integer guestId;
 	private String checkpay;
 	
+	
+	//多對一，單向設定，name代表此Bean所對應表格的欄位名稱，referenceColumnName代表外部鍵表格的主鍵欄位名稱
+	//insertable以及updatable要設定成false，因為在資料庫的table中並無此colunm，hibernate在啟動的時候
+	//會對有@Entity的註解去資料庫中自己做映對，如果屬性數量不吻合會有問題，所以必須將兩個屬性設定成false，
+	//才不會造成錯誤
+	
 	@ManyToOne
 	@JoinColumn(
 			name="guestId",referencedColumnName="id",insertable=false,updatable=false)

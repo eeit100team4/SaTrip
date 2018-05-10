@@ -132,6 +132,10 @@ $(document).ready(function(){
 	
 });
 
+
+//將HTML的form包成form-data傳給JAVA的方法
+//由JS new出一個FormData的物件，取得FORM的內容，由ajax傳送，contentType與processData要設定成false，
+//不然會有錯誤，後端java的PARAMETER直接用 Bean型別去接即可，form裡面的name必須和Bean的屬性名稱相符合
 function sendGuest(){
 	var data = new FormData(document.querySelector("form"));
 	console.log(data);
