@@ -34,4 +34,8 @@ public class OrderService {
 		return result;
 	}
 	
+	public int updateCheckPayByOrderId(String orderId) {
+		int result = or.updateCheckByOrderId(orderId);
+		return result;
+	}
 }

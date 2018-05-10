@@ -122,8 +122,8 @@ $(document).ready(function(){
 	$("#rearrC").text(beanJSON.depC);
 	$("#reairline").text(beanJSON.airline);
 	$("#person").text(beanJSON.person);
-	$("#price").text(beanJSON.price);
-	var te= $("#totalPrice").text("NT$"+parseInt(beanJSON.price)*parseInt(beanJSON.person));
+	$("#price").text(parseInt(beanJSON.price)/parseInt(beanJSON.person));
+	var te= $("#totalPrice").text("NT$"+parseInt(beanJSON.price));
 	console.log(te);
 	$("#returnNum").text(beanJSON.returnNum);
 	
@@ -132,6 +132,10 @@ $(document).ready(function(){
 	
 });
 
+
+//將HTML的form包成form-data傳給JAVA的方法
+//由JS new出一個FormData的物件，取得FORM的內容，由ajax傳送，contentType與processData要設定成false，
+//不然會有錯誤，後端java的PARAMETER直接用 Bean型別去接即可，form裡面的name必須和Bean的屬性名稱相符合
 function sendGuest(){
 	var data = new FormData(document.querySelector("form"));
 	console.log(data);
@@ -356,8 +360,8 @@ function sendGuest(){
         
 			          <div class="sub text-center">
 	          <input type="hidden" name="_method" value="post" /> 
-	          <button type="button" onclick="sendGuest()">送出</button>
-                <input type="reset" name="reset" value="清除">
+	          <button type="button" class="btn btn-success" onclick="sendGuest()">送出</button>
+                <input type="reset" class="btn btn-secondary"> name="reset" value="清除">
             </div>
 
 			
