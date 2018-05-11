@@ -10,7 +10,7 @@
 	<head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Travel &mdash; 100% Free Fully Responsive HTML5 Template by FREEHTML5.co</title>
+	<title>hotelIndex</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
 	<meta name="keywords" content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
@@ -54,22 +54,22 @@
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/brands.css" integrity="sha384-ATC/oZittI09GYIoscTZKDdBr/kI3lCwzw3oBMnOYCPVNJ4i7elNlCxSgLfdfFbl" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/fontawesome.css" integrity="sha384-Lyz+8VfV0lv38W729WFAmn77iH5OSroyONnUva4+gYaQTic3iI2fnUKtDSpbVf0J" crossorigin="anonymous">
 	<!-- Animate.css -->
-	<link rel="stylesheet" href="css/animate.css">
+	<link rel="stylesheet" href="/Traveler/css/animate.css">
 	<!-- Icomoon Icon Fonts-->
-	<link rel="stylesheet" href="css/icomoon.css">
+	<link rel="stylesheet" href="/Traveler/css/icomoon.css">
 	<!-- Bootstrap  -->
-	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="/Traveler/css/bootstrap.css">
 	<!-- Superfish -->
-	<link rel="stylesheet" href="css/superfish.css">
+	<link rel="stylesheet" href="/Traveler/css/superfish.css">
 	<!-- Magnific Popup -->
-	<link rel="stylesheet" href="css/magnific-popup.css">
+	<link rel="stylesheet" href="/Traveler/css/magnific-popup.css">
 	<!-- Date Picker -->
-	<link rel="stylesheet" href="css/bootstrap-datepicker.min.css">
+	<link rel="stylesheet" href="/Traveler/css/bootstrap-datepicker.min.css">
 	<!-- CS Select -->
-	<link rel="stylesheet" href="css/cs-select.css">
-	<link rel="stylesheet" href="css/cs-skin-border.css">
+	<link rel="stylesheet" href="/Traveler/css/cs-select.css">
+	<link rel="stylesheet" href="/Traveler/css/cs-skin-border.css">
 	
-	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="/Traveler/css/style.css">
 
 
 	 
@@ -95,9 +95,9 @@
 					<!-- START #fh5co-menu-wrap -->
 					<nav id="fh5co-menu-wrap" role="navigation">
 						<ul class="sf-menu" id="fh5co-primary-menu">
-							<li></i><a href="index.html"><i class="fas fa-plane"></i>機票</a></li>							
-							<li><a href="flight.html"><i class="fas fa-home"></i>飯店</a></li>
-							<li class="active"><a href="hotel.html"><i class="fas fa-globe"></i>旅遊</a></li>
+							<li></i><a href="index"><i class="fas fa-plane"></i>機票</a></li>							
+							<li><a href="_Hotel/hotel"><i class="fas fa-home"></i>飯店</a></li>
+							<li class="theme/themeTitles"><a href="hotel.html"><i class="fas fa-globe"></i>旅遊</a></li>
 							<li><a href="car.html"><i class="fas fa-cart-arrow-down"></i>紅利商品</a></li>
 							<li><a href="blog.html"><i class="fas fa-phone-square"></i>客服中心</a></li>
 							<li><a href="contact.html"><i class="far fa-user-circle"></i>登入/註冊</a></li>
@@ -111,7 +111,7 @@
 	
 		<div class="fh5co-hero">
 			<!-- <div class="fh5co-overlay"></div> -->
-			<div class="fh5co-cover" data-stellar-background-ratio="0.5" style="background-image: url(images/T1.jpg);">
+			<div class="fh5co-cover" data-stellar-background-ratio="0.5" style="background-image: url(/Traveler/images/T1.jpg);">
 				<div class="desc">
 					<div class="container">
 						<div class="row">
@@ -285,7 +285,7 @@
 				</div>
 				<div class="row row-bottom-padded-md">
 					<div class="col-md-4 col-sm-6 fh5co-tours animate-box" data-animate-effect="fadeIn">
-						<div href="#"><img src="images/place-1.jpg" alt="Free HTML5 Website Template by FreeHTML5.co" class="img-responsive">
+						<div href="#"><img src="/Traveler/images/place-1.jpg" alt="Free HTML5 Website Template by FreeHTML5.co" class="img-responsive">
 							<div class="desc">
 								<span></span>
 								<h3>New York</h3>
@@ -296,7 +296,7 @@
 						</div>
 					</div>
 					<div class="col-md-4 col-sm-6 fh5co-tours animate-box" data-animate-effect="fadeIn">
-						<div href="#"><img src="images/place-2.jpg" alt="Free HTML5 Website Template by FreeHTML5.co" class="img-responsive">
+						<div href="#"><img src="/Traveler/images/place-2.jpg" alt="Free HTML5 Website Template by FreeHTML5.co" class="img-responsive">
 							<div class="desc">
 								<span></span>
 								<h3>Philippines</h3>
@@ -307,7 +307,7 @@
 						</div>
 					</div>
 					<div class="col-md-4 col-sm-6 fh5co-tours animate-box" data-animate-effect="fadeIn">
-						<div href="#"><img src="images/place-3.jpg" alt="Free HTML5 Website Template by FreeHTML5.co" class="img-responsive">
+						<div href="#"><img src="/Traveler/images/place-3.jpg" alt="Free HTML5 Website Template by FreeHTML5.co" class="img-responsive">
 							<div class="desc">
 								<span></span>
 								<h3>Hongkong</h3>
@@ -318,7 +318,7 @@
 						</div>
 					</div>
 					<div class="col-md-4 col-sm-6 fh5co-tours animate-box" data-animate-effect="fadeIn">
-						<div href="#"><img src="images/place-1.jpg" alt="Free HTML5 Website Template by FreeHTML5.co" class="img-responsive">
+						<div href="#"><img src="/Traveler/mages/place-1.jpg" alt="Free HTML5 Website Template by FreeHTML5.co" class="img-responsive">
 							<div class="desc">
 								<span></span>
 								<h3>New York</h3>
@@ -329,7 +329,7 @@
 						</div>
 					</div>
 					<div class="col-md-4 col-sm-6 fh5co-tours animate-box" data-animate-effect="fadeIn">
-						<div href="#"><img src="images/place-2.jpg" alt="Free HTML5 Website Template by FreeHTML5.co" class="img-responsive">
+						<div href="#"><img src="/Traveler/images/place-2.jpg" alt="Free HTML5 Website Template by FreeHTML5.co" class="img-responsive">
 							<div class="desc">
 								<span></span>
 								<h3>Philippines</h3>
@@ -340,7 +340,7 @@
 						</div>
 					</div>
 					<div class="col-md-4 col-sm-6 fh5co-tours animate-box" data-animate-effect="fadeIn">
-						<div href="#"><img src="images/place-3.jpg" alt="Free HTML5 Website Template by FreeHTML5.co" class="img-responsive">
+						<div href="#"><img src="/Traveler/images/place-3.jpg" alt="Free HTML5 Website Template by FreeHTML5.co" class="img-responsive">
 							<div class="desc">
 								<span></span>
 								<h3>Hongkong</h3>
@@ -365,12 +365,12 @@
 						<a href="#">知道更多...<i class="icon-arrow-right22"></i></a>
 					</div>
 					<div class="col-md-6 animate-box">
-						<img class="img-responsive" src="images/cover_bg_2.jpg" alt="travel">
+						<img class="img-responsive" src="/Traveler/images/cover_bg_2.jpg" alt="travel">
 					</div>
 				</div>
 			</div>
 		</div>
-		<div id="fh5co-testimonial" style="background-image:url(images/img_bg_1.jpg);">
+		<div id="fh5co-testimonial" style="background-image:url(/Traveler/images/img_bg_1.jpg);">
 		<div class="container">
 			<div class="row animate-box">
 				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
@@ -504,31 +504,31 @@
 	<!-- jQuery -->
 
 
-	<script src="js/jquery.min.js"></script>
+	<script src="/Traveler/js/jquery.min.js"></script>
 	<!-- jQuery Easing -->
-	<script src="js/jquery.easing.1.3.js"></script>
+	<script src="/Traveler/js/jquery.easing.1.3.js"></script>
 	<!-- Bootstrap -->
-	<script src="js/bootstrap.min.js"></script>
+	<script src="/Traveler/js/bootstrap.min.js"></script>
 	<!-- Waypoints -->
-	<script src="js/jquery.waypoints.min.js"></script>
-	<script src="js/sticky.js"></script>
+	<script src="/Traveler/js/jquery.waypoints.min.js"></script>
+	<script src="/Traveler/js/sticky.js"></script>
 
 	<!-- Stellar -->
-	<script src="js/jquery.stellar.min.js"></script>
+	<script src="/Traveler/js/jquery.stellar.min.js"></script>
 	<!-- Superfish -->
-	<script src="js/hoverIntent.js"></script>
-	<script src="js/superfish.js"></script>
+	<script src="/Traveler/js/hoverIntent.js"></script>
+	<script src="/Traveler/js/superfish.js"></script>
 	<!-- Magnific Popup -->
-	<script src="js/jquery.magnific-popup.min.js"></script>
-	<script src="js/magnific-popup-options.js"></script>
+	<script src="/Traveler/js/jquery.magnific-popup.min.js"></script>
+	<script src="/Traveler/js/magnific-popup-options.js"></script>
 	<!-- Date Picker -->
-	<script src="js/bootstrap-datepicker.min.js"></script>
+	<script src="/Traveler/js/bootstrap-datepicker.min.js"></script>
 	<!-- CS Select -->
-	<script src="js/classie.js"></script>
-	<script src="js/selectFx.js"></script>
+	<script src="/Traveler/js/classie.js"></script>
+	<script src="/Traveler/js/selectFx.js"></script>
 	
 	<!-- Main JS -->
-	<script src="js/main.js"></script>
+	<script src="/Traveler/js/main.js"></script>
 
 	</body>
 </html>
