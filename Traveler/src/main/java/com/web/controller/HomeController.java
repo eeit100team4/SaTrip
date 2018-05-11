@@ -11,6 +11,11 @@ public class HomeController {
 	 public String index() {
 	 return "index";
 	 }
+	 
+	 @RequestMapping({"/backStage"})
+	 public String backStage() {
+	 return "backstage";
+	 }
 	
 	
 }
