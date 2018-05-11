@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -90,6 +91,13 @@ function randomNum() {
 
 	  return text;
 	}
+
+
+function showInfo(){
+		$("#guestInfo").slideToggle() 
+}
+	
+
 
 
 </script>
@@ -193,34 +201,70 @@ function randomNum() {
 				<div class="row ">
 					<div class="col-lg-12 text-center">
 						<div class="table-responsive">
+						<div style="margin-top:20px;" ><h2><span class="label label-warning">訂單明細</span></h2></div>
 							<table class="table table-bordered table-condensed">
 								<tr>
-									<th class="text-center" colspan="2"><strong>訂單明細</strong></th>
-								</tr>
-								<tr>
-									<th class="text-center" colspan="2">訂單號碼:${orderList.orderID}</th>
-								</tr>
-								<tr class="success">
-									<td>出發</td>
-									<td>${orderList.depC}~ ${orderList.arrC}</td>
+									<th class="text-center" colspan="2">訂單號碼 ：${orderList.orderID}</th>
 								</tr>
 								<tr class="warning">
-									<td>時間</td>
-									<td>${orderList.depDate}</td>
+									<td class="cor-lg-2" >去程</td>
+									<td class="col-lg-10">${orderList.depDate} ${orderList.depT} ${orderList.depC} --> ${orderList.depDate} ${orderList.arrT} XX:XX ${orderList.arrC}</td>
 								</tr>
-								<tr class="danger">
+								<tr class="warning">
 									<td>回程</td>
-									<td>${orderList.arrC}~ ${orderList.depC}</td>
+									<td>${orderList.returnDate} ${orderList.returnTime} ${orderList.arrC} --> ${orderList.returnDate} XX:XX ${orderList.depC}</td>
 								</tr>
-								<tr class="active">
+								<tr class="warning">
+									<td>航空公司</td>
+									<td>${orderList.airline}</td>
+								</tr>
+								<tr class="warning">
+									<td>人數</td>
+									<td >${orderList.person}</td>
+								</tr>
+								<tr class="warning">
 									<td>總價格</td>
-									<td style="color:red">${orderList.price}</td>
+									<td style="color:red">NT$ ${orderList.price}</td>
 								</tr>
-									<tr class="active">
-									<td>FK測試</td>
-									<td >${orderList.guestBean.contactName}</td>
+									<tr class="warning">
+									<td>獲得紅利</td>
+									<td ></td>
 								</tr>
 							</table>
+							
+							<div align="left"><button  style="margin:10px;" type="button" class="btn btn-info" onclick="showInfo()" >旅客資訊</button></div>
+							
+	<div id="guestInfo" style="width:500px;display:none	">
+    <table class="text-center table table-hover">
+    <thead>
+      <tr>
+        <th class="col-lg-2 text-center">Firstname</th>
+        <th class="col-lg-2 text-center">Lastname</th>
+        <th class="col-lg-3 text-center">護照號碼</th>
+        <th class="col-lg-3 text-center">生日</th>
+        <th class="col-lg-2 text-center">性別</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>John</td>
+        <td>Doe</td>
+        <td>john@example.com</td>
+        <td>john@example.com</td>
+        <td>john@example.com</td>
+      </tr>
+     <c:if test="${person}==2">
+      <tr>
+        <td>Mary</td>
+        <td>Moe</td>
+        <td>Moe</td>
+        <td>Moe</td>
+        <td>mary@example.com</td>
+      </tr>
+      </c:if>
+    </tbody>
+  </table>
+</div>
 							
 							
 							

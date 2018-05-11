@@ -1,6 +1,7 @@
 ﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -69,6 +70,19 @@
 <link rel="stylesheet" href="/Traveler/css/style.css">
 
 
+<style>
+.lab{
+width:100px;
+ text-align: center;
+}
+#contactAddress{
+ width:400px;
+ }	
+ .sub{
+margin:20px
+ }
+</style>
+
 <!-- Modernizr JS -->
 <script src="/Traveler/js/modernizr-2.6.2.min.js"></script>
 <!-- FOR IE9 below -->
@@ -121,7 +135,7 @@ $(document).ready(function(){
 	$("#returnDate").text(beanJSON.returnDate+" "+beanJSON.arrT+" ~ "+beanJSON.returnDate+" "+beanJSON.returnTime);
 	$("#rearrC").text(beanJSON.depC);
 	$("#reairline").text(beanJSON.airline);
-	$("#person").text(beanJSON.person);
+// 	$("#person").text(beanJSON.person);
 	$("#price").text(parseInt(beanJSON.price)/parseInt(beanJSON.person));
 	var te= $("#totalPrice").text("NT$"+parseInt(beanJSON.price));
 	console.log(te);
@@ -263,7 +277,7 @@ function sendGuest(){
 						</thead>
 						<tbody >
 							<tr >
-								<th  id="person" class="text-center"scope="row" scope="col"></th>
+								<th  id="person" class="text-center"scope="row" scope="col">${personNum}</th>
 								<td id="price" scope="col"></td>
 								<td  scope="col" style="color:red;"><strong id="totalPrice"></strong></td>
 							</tr>
@@ -271,11 +285,11 @@ function sendGuest(){
 					</table>
 					</div>
 					  
-	<div class="text-left" style="width: 50%;height:1000px; margin: 0px auto; border: 1px orange solid">
+	<div class="text-left" style="width: 50%;height:auto; margin: 0px auto; border: 1px orange solid">
 		<form id="myform"  enctype="multipart/form-data">
 
 			<fieldset>
-        	<legend>聯絡人資訊</legend>
+        	<h2><legend class="label label-warning">聯絡人資訊</legend></h2>
             <div class="st1">
                 <label for="contactName" class="lab">姓名</label>
                 <input type="text" name="contactName" id="contactName" size="10" autofocus autocomplete="off">
@@ -289,8 +303,8 @@ function sendGuest(){
                 <input type="text" name="contactPhone" id="contactPhone" maxlength="10">
             </div>
             <div class="st1">
-                <label for="contactAddress" class="lab">地址</label>
-                <input type="text" name="contactAddress" id="contactAddress">
+                <label for="contactAddress"  class="lab">地址</label>
+                <input   type="text" name="contactAddress" id="contactAddress">
             </div>
             <div class="st1">
                 <label for="" class="lab">E-mail</label>
@@ -298,8 +312,8 @@ function sendGuest(){
             </div>
         </fieldset>
                 <fieldset>
-        	<legend>旅客一資料</legend>
-			            <div class="st1">
+                  <h2><legend class="label label-warning">旅客一資料</legend></h2>
+			      <div class="st1">
                 <label for="guestOneName" class="lab">姓名</label>
                 <input type="text" name="guestOneName" id="guestOneName" size="10" autofocus autocomplete="off">
             </div>
@@ -327,9 +341,11 @@ function sendGuest(){
                 <label for="f1">女</label>
             </div>
         </fieldset>
+        
+        <c:if test="${personNum}==2">
         <fieldset>
-            <legend>旅客二資料 </legend>
-           			            <div class="st1">
+          <h2><legend class="label label-warning">旅客二資料</legend></h2>
+               <div class="st1">
                 <label for="guestTwoName" class="lab">姓名</label>
                 <input type="text" name="guestTwoName" id="guestTwoName" size="10" autofocus autocomplete="off">
             </div>
@@ -357,11 +373,12 @@ function sendGuest(){
                 <label for="f1">女</label>
             </div>
         </fieldset>
+        </c:if>
         
 			          <div class="sub text-center">
 	          <input type="hidden" name="_method" value="post" /> 
-	          <button type="button" class="btn btn-success" onclick="sendGuest()">送出</button>
-                <input type="reset" class="btn btn-secondary"> name="reset" value="清除">
+	          <button type="button" class="btn btn-warning" onclick="sendGuest()">送出</button>
+                <input type="reset" class="btn  btn-danger" name="reset" value="清除">
             </div>
 
 			
