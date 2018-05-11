@@ -50,6 +50,7 @@ public class WebAppConfig extends WebMvcConfigurerAdapter {
 	  @Bean
 	  public CommonsMultipartResolver multipartResolver() {
 		  CommonsMultipartResolver resolver = new CommonsMultipartResolver();
+		  resolver.setDefaultEncoding("UTF-8");
 		  resolver.setMaxInMemorySize(819200000);
 		  return resolver;
 	  }
