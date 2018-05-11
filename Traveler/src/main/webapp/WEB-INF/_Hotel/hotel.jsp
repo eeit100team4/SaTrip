@@ -40,7 +40,7 @@
 	<meta name="twitter:image" content="" />
 	<meta name="twitter:url" content="" />
 	<meta name="twitter:card" content="" />
-
+    
 	   
 	
 	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
