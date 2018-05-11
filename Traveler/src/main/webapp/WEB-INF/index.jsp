@@ -286,9 +286,7 @@
 									<ul class="fh5co-sub-menu">
 										<li><a href="#">Family</a></li>
 										<li><a href="#">CSS3 &amp; HTML5</a></li>
-										<li><a href="#">Angular JS</a></li>
-										<li><a href="#">Node JS</a></li>
-										<li><a href="#">Django &amp; Python</a></li>
+										
 									</ul></li>
 								<li><a href="flight.html">航班</a></li>
 
