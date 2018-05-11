@@ -15,9 +15,9 @@ public class HotelController {
 	@Autowired
 	ThemeService themeService;
 	//從首頁點選主題旅遊時的dispatcher
-	@RequestMapping("_Hotel/hotel")
+	@RequestMapping("_Hotel/HotelIndex")
 	public String list(Model model) {		
-		return "_Hotel/hotel";
+		return "_Hotel/HotelIndex";
 	}
 	
 	
