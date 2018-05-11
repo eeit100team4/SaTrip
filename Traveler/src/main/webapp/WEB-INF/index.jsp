@@ -289,11 +289,7 @@
 										
 									</ul></li>
 								<li><a href="flight.html">航班</a></li>
-
 								<li><a href="_Hotel/hotel">Hotel</a></li>
-
-								<li><a href="hotel.jsp">Hotel</a></li>
-
 								<li><a href="car.html">Car</a></li>
 								<li><a href="blog.html">客戶服務</a></li>
 								<li><a href="contact.html">Contact</a></li>
