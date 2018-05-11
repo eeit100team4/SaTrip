@@ -71,9 +71,11 @@ public class airTicketsController {
 	@RequestMapping(method = RequestMethod.GET, value = "/{orId}")
 	public String getOrder(@PathVariable("orId") String orId, Model model) {
 		OrderDetailsBean obean = os.selectOneByOrderId(orId);
+		Integer personNum = obean.getPerson();
 		Gson gson = new Gson();
 		String jsonInString = gson.toJson(obean);
 		model.addAttribute("bean", jsonInString);
+		model.addAttribute("personNum",personNum);
 		return "airTickets/passagngerInfo";
 	}
 	//將前端輸入的旅客資訊以formdata傳到後台，直接用bean接收後做處裡
