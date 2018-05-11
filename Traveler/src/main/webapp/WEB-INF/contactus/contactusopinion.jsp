@@ -70,7 +70,15 @@
 <title>意見反應表</title>
 </head>
 <style>
-
+textarea{
+color:black;
+}
+select{
+color:black;
+}
+button{
+text-align:center;
+}
 
 </style>
 <body>
@@ -99,7 +107,11 @@
 						<li><a href="flight.html">Flights</a></li>
 						<li><a href="hotel.html">Hotel</a></li>
 						<li><a href="car.html">Car</a></li>
-						<li class="active"><a href="contactusopinion.jsp">客戶服務</a></li>
+						<li class="active"  class="fh5co-sub-ddown"><a href="contactusopinion">客戶服務</a>
+						<ul class="fh5co-sub-menu">
+								<li><a href="InsertOpinionSuccess">查看留言</a></li>
+								<li><a href="#">客服信箱</a></li>
+						</ul></li>
 						<li><a href="contact.html">Contact</a></li>
 					</ul>
 					</nav>
@@ -157,14 +169,14 @@
 							</div>
 							<div class='form-group'>
 						<label for='comment'>意見欄:</label>
-						<textarea style=color:black cols="40" rows="5"  id="comment" path='comment'></textarea>
+						<form:textarea cols="40" rows="5"  id="comment" path='comment'></form:textarea>
 						</div>
 						<div  style=color:red> 歡迎您對Traveler旅遊各項服務及產品提供意見與發表問題，<br>
                                                   請務必填妥聯絡資料以利Traveler旅遊與您取得聯繫，<br>
                                                    感謝您!
                </div>
                <div class='form-group'>
-               	<input type="submit" id='btnAdd' value="提交" style=color:black/>
+               	<button type="submit" id='btnAdd' class="btn btn-primary">送出</button>
                	</div>
 		</fieldest>
 		</form:form>

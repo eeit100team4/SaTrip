@@ -1,9 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -70,8 +69,15 @@
 <title>意見反應表</title>
 </head>
 <style>
-
-
+table{
+border:1px solid black;
+}
+p{
+color:black;
+}
+th{
+color:black;
+}
 </style>
 <body>
 	<div id="fh5co-wrapper">
@@ -99,7 +105,11 @@
 						<li><a href="flight.html">Flights</a></li>
 						<li><a href="hotel.html">Hotel</a></li>
 						<li><a href="car.html">Car</a></li>
-						<li class="active"><a href="contactusopinion.jsp">客戶服務</a></li>
+						<li class="active"><a href="contactusopinion">客戶服務</a>
+						<ul class="fh5co-sub-menu">
+								<li><a href="InsertOpinionSuccess">查看留言</a></li>
+						<li><a href="#">客服信箱</a></li>
+						</ul></li>
 						<li><a href="contact.html">Contact</a></li>
 					</ul>
 					</nav>
@@ -119,56 +129,49 @@
 								<div class="col-sm-5 col-md-5">
 								<div class="tabulation animate-box">
 								<section class='container'>
-<form:form method='POST' action="test" modelAttribute="contactusBean"  enctype='multipart/form-data'>
-						 <fieldest>
-						 <div class='form-group'>
-						 <label for='name'>姓名:</label>
-						 <form:input id='name' path='name' type='text'/>
-						 </div>
-						 <div class='form-group'>
-						 <label for='sex'>性別:</label>
-						 <form:input id='sex' path='sex' type='text'/>
-						 </div>
-						 <div class='form-group'>
-						 <label for='age'>年齡:</label>
-						 <form:input id='age' path='age' type='text'/>
-						 </div>
-						 <div class='form-group'>
-						 <label for='phone'>連絡電話:</label>
-						 <form:input id='phone' path='phone' type='text'/>
-						 </div>
-						 <div class='form-group'>
-						 <label for='email'>電子信箱:</label>
-						 <form:input id='email' path='email' type='text'/>
-						 </div>
-						 <div class='form-group'>
-						 <label for='address'>所在地:</label>						 
-						 <form:input id='address' path='address' type='text'/>
-						 </div>
-						 <div class="form-group">
-								<label for='opinion'>意見類別:</label>
-								<select path="opinion" style=color:black>
-									<option value="" lable="請選擇">請選擇</option>
-									<option value="旅遊資訊">旅遊資訊</option>
-									<option value="機票預訂">機票預訂</option>
-									<option value="飯店預訂">飯店預訂</option>
-									<option value="其它">其它</option>
-								</select>
-							</div>
-							<div class='form-group'>
-						<label for='comment'>意見欄:</label>
-						<textarea style=color:black cols="40" rows="5"  id="comment" path='comment'></textarea>
-						</div>
-						<div  style=color:red> 歡迎您對Traveler旅遊各項服務及產品提供意見與發表問題，<br>
-                                                  請務必填妥聯絡資料以利Traveler旅遊與您取得聯繫，<br>
-                                                   感謝您!
-               </div>
-               <div class='form-group'>
-               	<input type="submit" id='btnAdd' value="提交" style=color:black>
-               	</div>
-		</fieldest>
-		</form:form>
-	
+								<h1>留言成功</h1>
+								<div class="a1">
+								<table>
+								<thead>
+					<tr>
+						<th scope="col">姓名:</th>
+						<th scope="col">性別:</th>
+						<th scope="col">年齡:</th>
+						<th scope="col">連絡電話:</th>
+						<th scope="col">電子信箱:</th>
+						<th scope="col">所在地:</th>
+						<th scope="col">意見類別:</th>
+						<th scope="col">意見內容:</th>
+					</tr>
+				</thead>
+				<tbody>
+					<c:forEach var='con' items='${contactus}'>
+							
+<%-- 							<p style=color:black>姓名:${contactus.name}</p> --%>
+<%-- 							<p style=color:black>性別:${contactus.sex}</p> --%>
+<%-- 							<p style=color:black>年齡:${contactus.age}</p> --%>
+<%-- 							<p style=color:black>連絡電話:${contactus.phone}</p> --%>
+<%-- 							<p style=color:black>電子信箱:${contactus.email}</p> --%>
+<%-- 							<p style=color:black>所在地:${contactus.address}</p> --%>
+<%-- 							<p style=color:black>意見類別:${contactus.opinion}</p> --%>
+<%-- 							<p style=color:black>意見內容:${contactus.comment}</p> --%>
+
+							
+						<tr>
+							<td>${con.name}</td>
+							<td>${con.sex}</td>
+							<td>${con.age}</td>
+							<td>${con.phone}</td>
+							<td>${con.email}</td>
+							<td>${con.address}</td>
+							<td>${con.opinion}</td>
+							<td>${con.comment}</td>
+						</tr>
+					</c:forEach>
+					</tbody>
+					</table>
+	</div>
+						</section>
 							</div>
 						</div>
 					</div>
@@ -176,7 +179,7 @@
 			</div>
 		</div>
 
-	<!-- fh5co-blog-section -->
+<!-- 	fh5co-blog-section -->
 
 	<div class="row">
 		<div class="col-md-6 col-md-offset-3 text-center">

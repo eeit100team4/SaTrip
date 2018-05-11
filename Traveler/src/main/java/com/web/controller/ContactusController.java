@@ -45,7 +45,8 @@ public class ContactusController {
 		return "contactus/InsertOpinionSuccess";
 	}
 	@RequestMapping(value="contactus/InsertOpinionSuccess",method=RequestMethod.POST)
-	public String processAddNewContactusForm(@ModelAttribute("contactusBean")ContactusBean contactus) {
+	public String processAddNewContactusForm(@ModelAttribute("contactusBean")ContactusBean contactus,
+			BindingResult result, HttpServletRequest request) {
 		System.out.println("ENTER POST");
 		System.out.println(contactus);
 		contactusService.addCustomerOpinion(contactus);
