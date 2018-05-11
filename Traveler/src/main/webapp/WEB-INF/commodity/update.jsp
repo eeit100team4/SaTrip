@@ -180,14 +180,14 @@ height:270px;
 	<div id="allpage">
 		<header> <nav>
 		<ul class="menu">
-		<li cless="le">	<a href="index.html"><img src='../images/icon_index.png' height="25px" width="25px"/>TRAVEL後台管理系統</a></li>
-					<li><a href="index.html"><img src='../images/icon_air.png' height="25px" width="25px"/>機票管理</a></li>
-					<li><a href="index.html"><img src='../images/icon_hotel.png' height="25px" width="25px"/>飯店管理</a></li>
-					<li><a href="index.html"><img src='../images/icon_traveler.png' height="25px" width="25px"/>主題旅遊管理</a></li>
-					<li><a href="index.html"><img src='../images/icon_vip.png' height="25px" width="25px"/>會員管理</a></li>
-					<li><a href="index.html"><img src='../images/icon_comm.png' height="25px" width="25px"/>紅利管理</a></li>
-					<li><a href="index.html"><img src='../images/icon_support.png' height="25px" width="25px"/>客服管理</a></li>
-					<li><a href="index.html"><img src='../images/icon_logout.png' height="25px" width="25px"/>登出</a></li> <!--登入-->
+		<li cless="le">	<a href="index.html"><img src='images/icon_index.png' height="25px" width="25px"/>TRAVEL後台管理系統</a></li>
+					<li><a href="index.html"><img src='images/icon_air.png' height="25px" width="25px"/>機票管理</a></li>
+					<li><a href="index.html"><img src='images/icon_hotel.png' height="25px" width="25px"/>飯店管理</a></li>
+					<li><a href="index.html"><img src='images/icon_traveler.png' height="25px" width="25px"/>主題旅遊管理</a></li>
+					<li><a href="index.html"><img src='images/icon_vip.png' height="25px" width="25px"/>會員管理</a></li>
+					<li><a href="index.html"><img src='images/icon_comm.png' height="25px" width="25px"/>紅利管理</a></li>
+					<li><a href="index.html"><img src='images/icon_support.png' height="25px" width="25px"/>客服管理</a></li>
+					<li><a href="index.html"><img src='images/icon_logout.png' height="25px" width="25px"/>登出</a></li> <!--登入-->
 			<!--登出-->
 		</ul>
 
@@ -208,12 +208,12 @@ height:270px;
 <c:forEach var='comm' items='${commlist}'>
 		<div class="ds">
 
-			<form:form action='/Exercise/update/${comm.commodityid}'
+			<form:form action='/Traveler/update/${comm.commodityid}'
 				modelAttribute="CommodityBean" enctype="multipart/form-data">
 
 				<fieldset>
 					<div class="dr">
-						<img width='150' height='180'
+						<img width='180' height='180'
 							src="<c:url value='/getPicture/${comm.commodityid}'/>" />
 					</div>
 

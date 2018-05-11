@@ -10,7 +10,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>成功</h1>
+<h1></h1>
 
 </body>
 </html>

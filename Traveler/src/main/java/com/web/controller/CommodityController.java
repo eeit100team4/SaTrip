@@ -51,7 +51,7 @@ public class CommodityController {
 //		return "index";
 //	}
 	
-	@RequestMapping("/commlist")
+	@RequestMapping(value="/commlist")
 	public String list(Model model) {
 		List<CommodityBean>  list = commodityservice.getAllData();
 		model.addAttribute("commlist", list);
@@ -63,7 +63,7 @@ public class CommodityController {
 	
 
 	//挑出類型
-	@RequestMapping("/queryByKind")
+	@RequestMapping(value="/queryByKind")
 	public String kindlist(Model model) {
 		List<String> list=commodityservice.getAllKinds();
 		model.addAttribute("kindlist",list);
@@ -72,7 +72,7 @@ public class CommodityController {
 	}
 	
 	//依類型顯示該類型商品
-	@RequestMapping("/commlist/{kinds}")
+	@RequestMapping(value="/commlist/{kinds}")
 	public String getCommodityByKind(@PathVariable("kinds") String kind,Model model) {
 		List<CommodityBean> list=commodityservice.getCommodityByKind(kind);
 		model.addAttribute("commlist", list);
@@ -82,7 +82,7 @@ public class CommodityController {
 	
 	
 	//new空白的bean給表單
-	@RequestMapping("/tsuika")
+	@RequestMapping(value="/tsuika")
 	public String insertform(Model model) {
 		CommodityBean cb=new CommodityBean();
 		model.addAttribute("CommodityBean", cb);	
@@ -128,12 +128,12 @@ public class CommodityController {
 				e.printStackTrace();
 				throw new RuntimeException("檔案上傳發生異常: " + e.getMessage());
 			}
-		return "redirect:/commodity/commlist";
+		return "redirect:/commlist";
 	
 	}
 	
 	//新增產品JSP中 列出種類清單的方法
-	@ModelAttribute("kindList")
+	@ModelAttribute(value="kindList")
 	public List<String> getkindList(){
 		return commodityservice.getAllKinds();
 	}
@@ -185,7 +185,7 @@ public class CommodityController {
 //		return "forward:/QQ2";
 //	}
 	
-	@RequestMapping("/henkou")
+	@RequestMapping(value="/henkou")
 	public String updateform(Model model,
 			@ModelAttribute("CommodityBean") CommodityBean cb) {
 		
@@ -208,7 +208,7 @@ public class CommodityController {
 
 	
 		
-		return "redirect:/commodity/commlist";
+		return "redirect:/commlist";
 	}
 	
 	

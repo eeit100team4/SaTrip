@@ -39,8 +39,9 @@ public class OrderRepository {
 
 	public OrderDetailsBean selectOneByOrderId(String orderId) {
 		session = factory.getCurrentSession();
-		Query<OrderDetailsBean> query = session.createQuery("FROM OrderDetailsBean WHERE orderID=" + orderId,
+		Query<OrderDetailsBean> query = session.createQuery("FROM OrderDetailsBean WHERE orderID=:orderId",
 				OrderDetailsBean.class);
+		query.setParameter("orderId", orderId);
 		// String hql = "FROM OrderDetailsBean WHERE orderID=" + orderId;
 		OrderDetailsBean result = query.uniqueResult();
 		return result;
@@ -57,5 +58,16 @@ public class OrderRepository {
 		int result = query.executeUpdate();
 		return result;
 	}
+	
+	public int updateCheckByOrderId(String orderId) {
+		session = factory.getCurrentSession();
+		String hql = "update OrderDetailsBean s set s.checkpay =:check WHERE s.orderID =:orderID";
+		Query query = session.createQuery(hql);
+		query.setParameter("check","已付款");
+		query.setParameter("orderID", orderId);
+		int result = query.executeUpdate();
+		return result;
+	}
+
 
 }
