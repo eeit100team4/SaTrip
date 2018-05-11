@@ -122,9 +122,10 @@ function showInfo(){
             month[11]="12"
             
             //將時間格式重製為  YYYY-MM-DD HH:mm:ss			
-            var currentDateTimeTepm =today.getFullYear()+'/'+month[(today.getMonth())]+'/'+("0" + today.getDate()).slice(-2)+' '+today.getHours()+':'+("0" + today.getMinutes()).slice(-2)+':'+("0" + today.getSeconds()).slice(-2)	;
+            var currentDateTimeTepm =today.getFullYear()+'/'+month[(today.getMonth())]+'/'+("0" + today.getDate()).slice(-2)+' '+("0" + today.getHours()).slice(-2)+':'+("0" + today.getMinutes()).slice(-2)+':'+("0" + today.getSeconds()).slice(-2)	;
 			var currentDateTime = currentDateTimeTepm.toString();
 			$("#MerchantTradeDate").val(currentDateTime);
+	        alert(currentDateTime);
 			//將MerchantTradeNo生成為特定格式的20位碼， EX:DXYYYYMMDD000000aaa
 			var rando="DX"+today.getFullYear()+month[(today.getMonth())]+("0" + today.getDate()).slice(-2)+randomNum()+randomAll();
 			$("#MerchantTradeNo").val(rando);
@@ -157,6 +158,7 @@ function showInfo(){
             });
             
         });
+
     </script>
 
 
@@ -197,7 +199,7 @@ function showInfo(){
 
 			<!-- end:header-top -->
 
-			<div class="text-center" style="width:50%;margin:10px auto;">
+			<div class="text-center" style="width:65%;margin:10px auto;">
 				<div class="row ">
 					<div class="col-lg-12 text-center">
 						<div class="table-responsive">
@@ -228,13 +230,13 @@ function showInfo(){
 								</tr>
 									<tr class="warning">
 									<td>獲得紅利</td>
-									<td ></td>
+									<td > ${orderList.testB}</td>
 								</tr>
 							</table>
 							
 							<div align="left"><button  style="margin:10px;" type="button" class="btn btn-info" onclick="showInfo()" >旅客資訊</button></div>
 							
-	<div id="guestInfo" style="width:500px;display:none	">
+	<div id="guestInfo" style="width:450px;display:none	">
     <table class="text-center table table-hover">
     <thead>
       <tr>
@@ -253,7 +255,7 @@ function showInfo(){
         <td>john@example.com</td>
         <td>john@example.com</td>
       </tr>
-     <c:if test="${person}==2">
+     <c:if test="${person==2}">
       <tr>
         <td>Mary</td>
         <td>Moe</td>

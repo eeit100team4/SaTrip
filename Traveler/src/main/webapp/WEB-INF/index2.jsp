@@ -180,23 +180,22 @@
 											<div role="tabpanel" class="tab-pane active" id="flights">
 												<div class="row">
 													<form action="airTickets/BFMS" method="get">
-														<div class="col-xxs-12 col-xs-5 mt">
-															<div class="input-field">
-																<label for="from">出發地</label>
+														<div class="col-xxs-12 col-xs-6 mt">
+														 <div class="form-group">
+														   <label for="sec">出發地</label>
 																<!-- 													增加先啟提供地點 -->
 																<!-- 													<input type="text" class="form-control" id="from-place" placeholder="台灣-桃園"/> -->
-																<select id="sec" name="dept" class="secDep"
-																	style="color: blue;">
+																<select id="sec" name="dept" class="secDep form-control">
 																	<option selected="selected">選擇出發地</option>
 																</select>
 															</div>
 														</div>
-														<div class="col-xxs-12 col-xs-5 col-xs-offset-1 mt">
+														<div class="col-xxs-12 col-xs-6 mt">
 															<div class="input-field">
 																<label for="from">目的地</label>
 																<!-- 																 <input type="text" class="form-control" id="to-place" -->
 																<!-- 																placeholder="Tokyo, Japan" /> -->
-																<select id="ret" name="arrv" style="color: blue;">
+																<select id="ret" name="arrv"  class="secDep form-control">
 																	<option selected="selected">必須選擇出發地</option>
 																</select>
 															</div>

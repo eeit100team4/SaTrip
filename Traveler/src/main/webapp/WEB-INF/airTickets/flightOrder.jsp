@@ -176,7 +176,7 @@ float:left;
 border: 1px solid orange ; 
 background-color: white;
 width:15%;
-line-height:434%;
+line-height:440%;
 align:center;
 padding:20px;
 float:left;
