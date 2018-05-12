@@ -33,6 +33,7 @@ public class OrderDetailsBean {
 	private String returnDate;
 	private String arrC;
 	private String returnTime;
+	private String returnArrTime;
 	private Integer price;
 	private String airline;
 	private String depNum;
@@ -196,14 +197,6 @@ public class OrderDetailsBean {
 		this.bonus = bonus;
 	}
 
-	@Override
-	public String toString() {
-		return "OrderDetailsBean [ID=" + ID + ", orderID=" + orderID + ", memberId=" + memberId + ", depT=" + depT
-				+ ", depDate=" + depDate + ", depC=" + depC + ", arrT=" + arrT + ", returnDate=" + returnDate
-				+ ", arrC=" + arrC + ", returnTime=" + returnTime + ", price=" + price + ", airline=" + airline
-				+ ", depNum=" + depNum + ", returnNum=" + returnNum + ", person=" + person + ", bonus=" + bonus
-				+ ", guestId=" + guestId + ", checkpay=" + checkpay + ", guestBean=" + guestBean + "]";
-	}
 
 	public Integer getGuestId() {
 		return guestId;
@@ -221,7 +214,26 @@ public class OrderDetailsBean {
 		this.guestBean = guestBean;
 	}
 
+	public String getReturnArrTime() {
+		return returnArrTime;
+	}
+
+	public void setReturnArrTime(String returnArrTime) {
+		this.returnArrTime = returnArrTime;
+	}
+
+	@Override
+	public String toString() {
+		return "OrderDetailsBean [ID=" + ID + ", orderID=" + orderID + ", memberId=" + memberId + ", depT=" + depT
+				+ ", depDate=" + depDate + ", depC=" + depC + ", arrT=" + arrT + ", returnDate=" + returnDate
+				+ ", arrC=" + arrC + ", returnTime=" + returnTime + ", returnArrTime=" + returnArrTime + ", price="
+				+ price + ", airline=" + airline + ", depNum=" + depNum + ", returnNum=" + returnNum + ", person="
+				+ person + ", bonus=" + bonus + ", guestId=" + guestId + ", checkpay=" + checkpay + ", guestBean="
+				+ guestBean + "]";
+	}
 
 
+
+	
 
 }

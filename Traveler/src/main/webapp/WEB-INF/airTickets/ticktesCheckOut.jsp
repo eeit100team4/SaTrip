@@ -197,7 +197,7 @@ function showInfo(){
 
 			<!-- end:header-top -->
 
-			<div class="text-center" style="width:50%;margin:10px auto;">
+			<div class="text-center" style="width:55%;margin:10px auto;">
 				<div class="row ">
 					<div class="col-lg-12 text-center">
 						<div class="table-responsive">
@@ -242,24 +242,24 @@ function showInfo(){
         <th class="col-lg-2 text-center">Lastname</th>
         <th class="col-lg-3 text-center">護照號碼</th>
         <th class="col-lg-3 text-center">生日</th>
-        <th class="col-lg-2 text-center">性別</th>
+        <th class="col-lg-2 text-center">性別${guestBean.contactName}</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td>John</td>
-        <td>Doe</td>
-        <td>john@example.com</td>
-        <td>john@example.com</td>
-        <td>john@example.com</td>
+        <td>${guestBean.guestOneFirstName}</td>
+        <td>${guestBean.guestOneLastName}</td>
+        <td>${guestBean.guestOnepassportNum}</td>
+        <td>${guestBean.guestOneBirth}</td>
+        <td>${guestBean.guestOneGender}</td>
       </tr>
-     <c:if test="${person}==2">
+     <c:if test="${person==2}">
       <tr>
-        <td>Mary</td>
-        <td>Moe</td>
-        <td>Moe</td>
-        <td>Moe</td>
-        <td>mary@example.com</td>
+       <td>${guestBean.guestTwoFirstName}</td>
+        <td>${guestBean.guestTwoLastName}</td>
+        <td>${guestBean.guestTwopassportNum}</td>
+        <td>${guestBean.guestTwoBirth}</td>
+        <td>${guestBean.guestTwoGender}</td>
       </tr>
       </c:if>
     </tbody>
