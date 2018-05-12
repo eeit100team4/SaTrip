@@ -12,8 +12,7 @@ public class HotelBean implements Serializable {
 	private String hotel_name;
 	private Blob coverImage;
 	private String file_name;
-	private String address;
-	
+	private String address;	
 	private Integer double_room_no;
 	private Integer quad_room_no;
 
