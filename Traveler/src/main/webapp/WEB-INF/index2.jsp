@@ -123,7 +123,7 @@
 					<div class="nav-header">
 						<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle dark"><i></i></a>
 						<h1 id="fh5co-logo">
-							<a href=""><i class="icon-airplane"></i>Traveler</a>
+							<a href=""><i class="icon-airplane"></i>Travel</a>
 						</h1>
 						<!-- START #fh5co-menu-wrap -->
 						<nav id="fh5co-menu-wrap" role="navigation">
@@ -152,16 +152,8 @@
 
 			<!-- end:header-top -->
 
-<<<<<<< HEAD
-=======
 			<div  id="all"  class="fh5co-hero">
->>>>>>> branch 'master' of https://github.com/eeit100team4/Traveler.git
 <!-- 				<div class="fh5co-overlay"></div> -->
-<<<<<<< HEAD
-			<div id="all" class="fh5co-hero">
-				<div class="fh5co-overlay"></div>
-=======
->>>>>>> branch 'master' of https://github.com/eeit100team4/Traveler.git
 				<div class="fh5co-cover" data-stellar-background-ratio="0.5"
 					style="background-image: url(images/cover_bg_1.jpg);">
 					<div class="desc">
@@ -188,23 +180,22 @@
 											<div role="tabpanel" class="tab-pane active" id="flights">
 												<div class="row">
 													<form action="airTickets/BFMS" method="get">
-														<div class="col-xxs-12 col-xs-5 mt">
-															<div class="input-field">
-																<label for="from">出發地</label>
+														<div class="col-xxs-12 col-xs-6 mt">
+														 <div class="form-group">
+														   <label for="sec">出發地</label>
 																<!-- 													增加先啟提供地點 -->
 																<!-- 													<input type="text" class="form-control" id="from-place" placeholder="台灣-桃園"/> -->
-																<select id="sec" name="dept" class="secDep"
-																	style="color: blue;">
+																<select id="sec" name="dept" class="secDep form-control">
 																	<option selected="selected">選擇出發地</option>
 																</select>
 															</div>
 														</div>
-														<div class="col-xxs-12 col-xs-5 col-xs-offset-1 mt">
+														<div class="col-xxs-12 col-xs-6 mt">
 															<div class="input-field">
 																<label for="from">目的地</label>
 																<!-- 																 <input type="text" class="form-control" id="to-place" -->
 																<!-- 																placeholder="Tokyo, Japan" /> -->
-																<select id="ret" name="arrv" style="color: blue;">
+																<select id="ret" name="arrv"  class="secDep form-control">
 																	<option selected="selected">必須選擇出發地</option>
 																</select>
 															</div>

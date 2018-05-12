@@ -197,7 +197,7 @@ function showInfo(){
 
 			<!-- end:header-top -->
 
-			<div class="text-center" style="width:55%;margin:10px auto;">
+			<div class="text-center" style="width:65%;margin:10px auto;">
 				<div class="row ">
 					<div class="col-lg-12 text-center">
 						<div class="table-responsive">

@@ -10,6 +10,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Type;
 import org.springframework.format.annotation.DateTimeFormat;
 
 
@@ -139,6 +140,7 @@ public class GuestBean {
 		private String guestOneFirstName;
 		private String guestOnepassportNum;
 		@DateTimeFormat(pattern="yyyy-MM-dd")
+		@Type(type="date")
 		private Date guestOneBirth;
 		private String guestOneGender;
 		private String guestTwoName;
@@ -146,6 +148,7 @@ public class GuestBean {
 		private String guestTwoFirstName;
 		private String guestTwopassportNum;
 		@DateTimeFormat(pattern="yyyy-MM-dd")
+		@Type(type="date")
 		private Date guestTwoBirth;
 		private String guestTwoGender;
 

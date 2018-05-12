@@ -12,6 +12,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Formula;
 import org.hibernate.annotations.ManyToAny;
 
 
@@ -42,6 +43,8 @@ public class OrderDetailsBean {
 	private Integer bonus;	
 	private Integer guestId;
 	private String checkpay;
+	@Formula("price/10")
+	private Integer testB;
 	
 	
 	//多對一，單向設定，name代表此Bean所對應表格的欄位名稱，referenceColumnName代表外部鍵表格的主鍵欄位名稱
@@ -60,6 +63,14 @@ public class OrderDetailsBean {
 
 
 
+
+	public Integer getTestB() {
+		return testB;
+	}
+
+	public void setTestB(Integer testB) {
+		this.testB = testB;
+	}
 
 	public String getCheckpay() {
 		return checkpay;
