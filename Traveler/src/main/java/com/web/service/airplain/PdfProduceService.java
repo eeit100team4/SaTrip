@@ -25,14 +25,14 @@ import com.web.model.airplain.OrderDetailsBean;
 @Service
 public class PdfProduceService {
 
-	Document document =null;
+	Document document = null;
 
-	public void pdfProduce( OrderDetailsBean odbean) throws DocumentException, IOException {
+	public void pdfProduce(OrderDetailsBean odbean) throws DocumentException, IOException {
 
 		document = new Document(PageSize.A4, 50, 50, 25, 50);
 
-		  ByteArrayOutputStream out = new ByteArrayOutputStream();        
-//		PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream(go));
+		ByteArrayOutputStream out = new ByteArrayOutputStream();
+		// PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream(go));
 		try {
 			PdfWriter.getInstance(document, out);
 			document.open();
@@ -48,24 +48,28 @@ public class PdfProduceService {
 			image2.scaleAbsolute(269f, 100f);
 			document.add(image2);
 
-//			// table1
+			// // table1
 			PdfPTable table1 = new PdfPTable(1);
 			table1.setWidthPercentage(100);
 			PdfPCell cell = new PdfPCell();
 			Paragraph p = new Paragraph();
 			// p.add(new Chunk(image2, 0, 0));
-//			p.add(new Phrase("訂單編號：2018XXXXXXX", font));
-			p.add(new Phrase("訂單編號"+odbean.getOrderID(), font));
+			// p.add(new Phrase("訂單編號：2018XXXXXXX", font));
+			p.add(new Phrase("訂單編號" + odbean.getOrderID(), font));
 
 			Paragraph p3 = new Paragraph();
-//			p3.add(new Phrase("去程：台北桃園機場 2018XXXXXXX XX:XX ~  台北桃園機場 2018XXXXXXX XX:XX", font));
-			p3.add(new Phrase("去程："+odbean.getDepC() +" "+odbean.getDepDate() +" "+odbean.getDepT()+ "~"+ odbean.getArrC()+" "+ odbean.getDepDate()+" "+odbean.getArrT(), font));
+			// p3.add(new Phrase("去程：台北桃園機場 2018XXXXXXX XX:XX ~ 台北桃園機場 2018XXXXXXX XX:XX",
+			// font));
+			p3.add(new Phrase("去程：" + odbean.getDepC() + " " + odbean.getDepDate() + " " + odbean.getDepT() + "~"
+					+ odbean.getArrC() + " " + odbean.getDepDate() + " " + odbean.getArrT(), font));
 			p3.setSpacingBefore(10f);
 
 			Paragraph p4 = new Paragraph();
-			p4.add(new Phrase("回程："+odbean.getArrC() +" "+odbean.getReturnDate() +" "+odbean.getReturnTime()+ "~"+ odbean.getDepC()+" "+ odbean.getReturnDate()+" "+odbean.getReturnArrTime(), font));
+			p4.add(new Phrase("回程：" + odbean.getArrC() + " " + odbean.getReturnDate() + " " + odbean.getReturnTime()
+					+ "~" + odbean.getDepC() + " " + odbean.getReturnDate() + " " + odbean.getReturnArrTime(), font));
 			p4.setSpacingBefore(10f);
-			p4.setSpacingAfter(10f);;
+			p4.setSpacingAfter(10f);
+			;
 
 			Paragraph para1 = new Paragraph();
 			Anchor anchorTarget2 = new Anchor("機票訂購確認單", font2);
@@ -78,7 +82,7 @@ public class PdfProduceService {
 			table1.addCell(cell);
 			table1.setSpacingBefore(20f);
 
-//			// table2 旅客資訊
+			// // table2 旅客資訊
 			PdfPTable table2 = new PdfPTable(1);
 			table2.setWidthPercentage(40);
 			table2.setHorizontalAlignment(10);
@@ -86,7 +90,9 @@ public class PdfProduceService {
 			PdfPCell cell21 = new PdfPCell();
 
 			Paragraph p21 = new Paragraph();
-			p21.add(new Phrase("旅客1："+odbean.getGuestBean().getGuestOneLastName() +odbean.getGuestBean().getGuestOneFirstName() + "性別"+odbean.getGuestBean().getGuestOneGender(), font));
+			p21.add(new Phrase("旅客1：" + odbean.getGuestBean().getGuestOneLastName()
+					+ odbean.getGuestBean().getGuestOneFirstName() + "性別" + odbean.getGuestBean().getGuestOneGender(),
+					font));
 			p21.setSpacingBefore(10f);
 
 			Paragraph p22 = new Paragraph();
@@ -103,22 +109,38 @@ public class PdfProduceService {
 			document.add(table1);
 			document.add(table2);
 
-		} 
-		finally {
+		} finally {
 			System.out.println(document);
 			document.close();
 		}
-		//寫出PDF
+		// 寫出PDF
 		byte[] pdf = out.toByteArray();
 		File file = new File("c:/OrderPDF");
-		if(!file.exists()) {
+		if (!file.exists()) {
 			file.mkdirs();
 		}
-		FileOutputStream fos= new FileOutputStream("c:/OrderPDF/"+odbean.getOrderID()+".pdf");
+		FileOutputStream fos = new FileOutputStream("c:/OrderPDF/" + odbean.getOrderID() + ".pdf");
 		fos.write(pdf);
 		fos.flush();
 		fos.close();
-		
+
 	}
+
+//	public void imgProduce(byte[] data) throws IOException {
+//		File file = new File("c:/pdf");
+//		if (!file.exists()) {
+//			file.mkdirs();
+//		}
+//
+//		try (FileOutputStream fo = new FileOutputStream("c:/pdf/TravelerTitle2.png");) {
+//			fo.write(data);
+//			fo.flush();
+//			System.out.println("pdf圖片創建完成");
+//
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
+//
+//	}
 
 }

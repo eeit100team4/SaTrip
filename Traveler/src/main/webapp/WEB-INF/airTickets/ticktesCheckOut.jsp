@@ -77,7 +77,7 @@ function randomAll() {
 	  var text = "";
 	  var possible = "abcdefghijklmnopqrstuvwxyz0123456789";
 
-	  for (var i = 0; i < 6; i++)
+	  for (var i = 0; i < 2; i++)
 	    text += possible.charAt(Math.floor(Math.random() * possible.length));
 
 	  return text;
@@ -86,7 +86,7 @@ function randomNum() {
 	  var text = "";
 	  var possible = "0123456789";
 
-	  for (var i = 0; i < 4; i++)
+	  for (var i = 0; i < 8; i++)
 	    text += possible.charAt(Math.floor(Math.random() * possible.length));
 
 	  return text;
@@ -122,7 +122,7 @@ function showInfo(){
             month[11]="12"
             
             //將時間格式重製為  YYYY-MM-DD HH:mm:ss			
-            var currentDateTimeTepm =today.getFullYear()+'/'+month[(today.getMonth())]+'/'+("0" + today.getDate()).slice(-2)+' '+today.getHours()+':'+("0" + today.getMinutes()).slice(-2)+':'+("0" + today.getSeconds()).slice(-2)	;
+            var currentDateTimeTepm =today.getFullYear()+'/'+month[(today.getMonth())]+'/'+("0" + today.getDate()).slice(-2)+' '+("0" + today.getHours()).slice(-2)+':'+("0" + today.getMinutes()).slice(-2)+':'+("0" + today.getSeconds()).slice(-2)	;
 			var currentDateTime = currentDateTimeTepm.toString();
 			$("#MerchantTradeDate").val(currentDateTime);
 			//將MerchantTradeNo生成為特定格式的20位碼， EX:DXYYYYMMDD000000aaa
