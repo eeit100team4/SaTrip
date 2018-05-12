@@ -106,164 +106,12 @@
 <script src="/Traveler/js/main.js"></script>
 
 
-
-
-<!-- 讀取出發地地xml -->
-<script type="text/javascript">
-	var xmlhttp;
-	$(document).ready(loadXMLDoc);
-	function loadXMLDoc() {
-		//判斷瀏覽器
-		if (window.XMLHttpRequest) { // code for IE7+, Firefox, Chrome, Opera, Safari
-			xmlhttp = new XMLHttpRequest();
-		} else { // code for IE6, IE5
-			xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-		}
-
-		//等待
-		// document.getElementById("myDiv").innerHTML="讀取中...";   
-		//載入
-		xmlhttp.open("GET", "xml/CITYcode.xml", true);
-		//處理
-		xmlhttp.onreadystatechange = function() {
-			handleStateChange();
-		};
-		//設定表頭
-		xmlhttp.setRequestHeader("Content-Type",
-				"application/x-www-form-urlencoded;charset=utf-8")
-		//傳送
-		xmlhttp.send();
-	}
-
-	function handleStateChange() //處理動作--讀取XML
-	{
-		// readyState: 4 代表 request finished and response is ready
-		// status: 200 代表 Ok
-		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-			xmlDoc = xmlhttp.responseXML;
-			txt = "";
-			D = xmlDoc.getElementsByTagName("D");
-			C = xmlDoc.getElementsByTagName("C");
-			DEP = document.getElementById("sec");
-			for (i = 0; i < C.length; i++) {
-				opy = new Option(D[i].childNodes[0].nodeValue,
-						C[i].childNodes[0].nodeValue);
-				DEP.options.add(opy);
-
-			}
-
-		}
-
-		{
-			$("#sec")
-					.click(
-							function() {
-								// 								if($('#sec').options[0])
-								if ($('#sec :selected').text() == "選擇出發地") {
-									$('#sec :selected').remove();
-								}
-								xmlhttp.open("GET", "xml/CITYcode.xml", true);
-								xmlhttp.onreadystatechange = function() {
-									RET = document.getElementById("ret");
-									value = $('#sec :selected').text();
-									while (RET.length > 0) {
-										RET.remove(RET.length - 1);
-									}
-
-									if (xmlhttp.readyState == 4
-											&& xmlhttp.status == 200) {
-										xmlDoc = xmlhttp.responseXML;
-										txt = "";
-										D = xmlDoc.getElementsByTagName("D");
-										C = xmlDoc.getElementsByTagName("C");
-
-										for (i = 0; i < C.length; i++) {
-											opy = new Option(
-													D[i].childNodes[0].nodeValue,
-													C[i].childNodes[0].nodeValue);
-											if (D[i].childNodes[0].nodeValue == value) {
-												continue;
-											}
-											RET.options.add(opy);
-										}
-									}
-								};
-								xmlhttp
-										.setRequestHeader("Content-Type",
-												"application/x-www-form-urlencoded;charset=utf-8")
-								xmlhttp.send();
-
-							});
-		}
-		;
-
-	}
-
-	<!--選擇出發地後生出目的地-->
-</script>
-<!-- 		選擇日期 -->
-
-
+<script src="/Traveler/js/airplain	/airSearch.js"></script>
 <script src="/Traveler/js/jquery-ui.min.js"></script>
 <link rel="stylesheet" href="/Traveler/js/jquery-ui.min.css">
-<script>
-	$(function() {
-		$("#datepicker")
-				.datepicker(
-						{
-							showOn : "button",
-							buttonImage : "https://jqueryui.com/resources/demos/datepicker/images/calendar.gif",
-							buttonImageOnly : true,
-							buttonText : "Select date",
-							minDate : 0,
-							maxDate : "+1M +10D",
-							dateFormat : "yy-mm-dd"
-						});
-	});
 
-	$(function() {
-		$("#datepicker2")
-				.datepicker(
-						{
-							showOn : "button",
-							buttonImage : "https://jqueryui.com/resources/demos/datepicker/images/calendar.gif",
-							buttonImageOnly : true,
-							buttonText : "Select date",
-							minDate : 0,
-							maxDate : "+1M +10D",
-							dateFormat : "yy-mm-dd"
-						});
-	});
+	
 
-	$(document).ready(function() {
-		$("div.input-text5,img").on("change", function() {
-			setTimeout(function() {
-				$("div.input-text6,img").click()
-			}, 10);
-			//   		  		$("div.input-text6,img").click()
-		});
-	});
-</script>
-
-
-<script type="text/javascript">
-	function re() {
-		$("#reb").attr("style", "display");
-
-	}
-	function reba() {
-		$("#reb").attr("style", "display:none");
-
-	}
-</script>
-
-<script>
-	function slow() {
-		$("#all").css("filter", "opacity(40%)");
-		$("#img1").css("position", "absolute").css("left", "50%").css("top",
-				"50%").css("display", "inline").css("filter", "opacity(100%)");
-	}
-</script>
 
 </head>
 <body>
@@ -291,9 +139,10 @@
 										<li><a href="#">Django &amp; Python</a></li>
 									</ul></li>
 								<li><a href="flight.html">航班</a></li>
-								<li><a href="hotel.html">Hotel</a></li>
+								<li><a href="_Hotel/HotelIndex">Hotel</a></li>
 								<li><a href="car.html">Car</a></li>
-								<li><a href="blog.html">客戶服務</a></li>
+								<li><a href="contactus/contactusopinion">客戶服務</a></li>
+							
 								<li><a href="contact.html">Contact</a></li>
 							</ul>
 						</nav>
@@ -577,7 +426,7 @@
 										class="col-sm-7 col-sm-push-1 col-md-7 col-md-push-1">
 										<p>
 										<p>
-											<a class="btn btn-primary btn-lg" href="#">空空的不知道要放啥</a>
+											<a class="btn btn-primary btn-lg" href="backStage">前往後台的傳送門</a>
 										</p>
 									</div>
 								</div>

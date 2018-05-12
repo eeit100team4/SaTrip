@@ -1,5 +1,7 @@
 package com.web.service.airplain;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -34,4 +36,12 @@ public class OrderService {
 		return result;
 	}
 	
+	public int updateCheckPayByOrderId(String orderId) {
+		int result = or.updateCheckByOrderId(orderId);
+		return result;
+	}
+	
+	public List<OrderDetailsBean> getAllOrder(){
+		 return or.getAll();
+	}
 }

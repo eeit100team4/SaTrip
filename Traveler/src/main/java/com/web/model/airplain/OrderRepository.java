@@ -1,6 +1,7 @@
 package com.web.model.airplain;
 
 import java.io.Serializable;
+import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -58,5 +59,25 @@ public class OrderRepository {
 		int result = query.executeUpdate();
 		return result;
 	}
+	
+	public int updateCheckByOrderId(String orderId) {
+		session = factory.getCurrentSession();
+		String hql = "update OrderDetailsBean s set s.checkpay =:check WHERE s.orderID =:orderID";
+		Query query = session.createQuery(hql);
+		query.setParameter("check","已付款");
+		query.setParameter("orderID", orderId);
+		int result = query.executeUpdate();
+		return result;
+	}
+	
+	public List<OrderDetailsBean> getAll(){
+		List<OrderDetailsBean> list=null;
+		session = factory.getCurrentSession();
+		String hql="FROM OrderDetailsBean";
+		Query query = session.createQuery(hql);
+		List<OrderDetailsBean> result = query.list();
+		return result;
+	}
+
 
 }
