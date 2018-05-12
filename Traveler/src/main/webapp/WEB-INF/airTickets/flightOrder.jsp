@@ -176,7 +176,7 @@ float:left;
 border: 1px solid orange ; 
 background-color: white;
 width:15%;
-line-height:434%;
+line-height:440%;
 align:center;
 padding:20px;
 float:left;
@@ -397,8 +397,9 @@ function list(){
 				var arrC=$("#"+k).parents("tbody").find("tr:eq(0)").children("td:eq(2)").children("div:eq(1)").text(); //去程目的地
 				var price=$("#"+k).parents("tbody").find("tr:eq(0)").children("td:eq(4)").children("span:eq(0)").text(); //總價格
 				var person=${psg};//人數
-				var returnDate=$("#"+k).parents("tbody").find("tr:eq(2)").children("td:eq(0)").children("div:eq(0)").text(); //回程出發時間
-				var returnTime=$("#"+k).parents("tbody").find("tr:eq(2)").children("td:eq(2)").children("div:eq(0)").text(); //回程抵達時間
+				var returnDate=$("#"+k).parents("tbody").find("tr:eq(2)").children("td:eq(0)").children("div:eq(0)").text(); //回程出發日期
+				var returnTime=$("#"+k).parents("tbody").find("tr:eq(2)").children("td:eq(0)").children("div:eq(0)").text(); //回程出發時間
+				var returnArrTime=$("#"+k).parents("tbody").find("tr:eq(2)").children("td:eq(2)").children("div:eq(0)").text(); //回程抵達時間
 				var airline=$("#"+k).parents("table").parent("div").prev("div").text();                                //航班
 				var depNum=$("#"+k).parents("tbody").find("tr:eq(0)").children("td:eq(2)").children("div:eq(2)").text(); //去程機型
 				var returnNum=$("#"+k).parents("tbody").find("tr:eq(2)").children("td:eq(2)").children("div:eq(2)").text(); //回程機型
@@ -406,7 +407,6 @@ function list(){
 				var priceInt=parseInt(price);
 				var personInt=parseInt(person);
 				var priceTotal=priceInt*personInt;
-				alert(priceTotal);
 // 				console.log(k);
 // 				console.log("去程時間:"+depT);
 // 				console.log("去程出發地:"+depC);
@@ -418,7 +418,7 @@ function list(){
 // 				console.log("回程機型:"+returnNum);
 				var depDate="${depDate}";
 				var returnDate="${reDate}";			
-				var sendDet =JSON.stringify({"depT":depT,"depDate":depDate,"depC":depC,"arrT":arrT,"returnDate":returnDate,"arrC":arrC,"returnTime":returnTime,"price":priceTotal,"airline":airline,"depNum":depNum,"returnNum":returnNum,"person":person});
+				var sendDet =JSON.stringify({"depT":depT,"depDate":depDate,"depC":depC,"arrT":arrT,"returnDate":returnDate,"arrC":arrC,"returnTime":returnTime,"returnArrTime":returnArrTime,"price":priceTotal,"airline":airline,"depNum":depNum,"returnNum":returnNum,"person":person});
 				$.ajax({
 				    type : "post",
 				    url : "booking",

@@ -1,19 +1,20 @@
 package com.web.controller;
 
+import java.io.File;
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
-import java.net.URLEncoder;
-import java.util.Map;
 
-import javax.persistence.PostRemove;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import org.apache.commons.codec.digest.DigestUtils;
+import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,12 +22,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.Gson;
+import com.itextpdf.text.DocumentException;
 import com.web.model.airplain.GuestBean;
 import com.web.model.airplain.OrderDetailsBean;
 import com.web.service.airplain.BFMService;
 import com.web.service.airplain.GuestService;
 import com.web.service.airplain.OpayEncoding;
 import com.web.service.airplain.OrderService;
+import com.web.service.airplain.PdfProduceService;
 
 @Controller
 @RequestMapping({ "/airTickets" })
@@ -39,6 +42,8 @@ public class airTicketsController {
 	OrderService os;
 	@Autowired
 	GuestService gs;
+	@Autowired
+	PdfProduceService pdf;
 
 	String sess = null;
 
@@ -67,7 +72,7 @@ public class airTicketsController {
 		return orderid;
 	}
 
-	//將前端點選的機票內容，從DB中取出，顯示在VIEW
+	// 將前端點選的機票內容，從DB中取出，顯示在VIEW
 	@RequestMapping(method = RequestMethod.GET, value = "/{orId}")
 	public String getOrder(@PathVariable("orId") String orId, Model model) {
 		OrderDetailsBean obean = os.selectOneByOrderId(orId);
@@ -75,22 +80,22 @@ public class airTicketsController {
 		Gson gson = new Gson();
 		String jsonInString = gson.toJson(obean);
 		model.addAttribute("bean", jsonInString);
-		model.addAttribute("personNum",personNum);
+		model.addAttribute("personNum", personNum);
 		return "airTickets/passagngerInfo";
 	}
-	//將前端輸入的旅客資訊以formdata傳到後台，直接用bean接收後做處裡
+
+	// 將前端輸入的旅客資訊以formdata傳到後台，直接用bean接收後做處裡
 	@RequestMapping(value = "/guest", method = RequestMethod.POST)
 	public @ResponseBody String addGuest(GuestBean guestBean, Model model) {
-		int resultId = gs.addGuest(guestBean);
-		String orderId = (String) session.getAttribute(sess);
-		os.updateByOrderId(orderId, resultId);
+//		int resultId = gs.addGuest(guestBean);
+//		String orderId = (String) session.getAttribute(sess);
+//		os.updateByOrderId(orderId, resultId);
 		session.setAttribute("guestBean", guestBean);
-		model.addAttribute("guestBean", guestBean);
+//		model.addAttribute("guestBean", guestBean);
 		return "ticktesCheckOut";
 	}
-	
-	
-	//將前面下訂的資訊彙整到VIEW上，確認後即可付款
+
+	// 將前面下訂的資訊彙整到VIEW上，確認後即可付款
 	@RequestMapping("/ticktesCheckOut")
 	public String forwordTest3(Model model) {
 		sess = session.getId();
@@ -100,8 +105,8 @@ public class airTicketsController {
 		model.addAttribute("orderList", odBean);
 		return "airTickets/ticktesCheckOut";
 	}
-	
-	//呼叫歐富寶API，將前端的金流字串由後端加密成MacValue再傳給前端送出
+
+	// 呼叫歐富寶API，將前端的金流字串由後端加密成MacValue再傳給前端送出
 	@RequestMapping("/opay")
 	@ResponseBody
 	public String doOpayMacValue(@RequestBody String mac) {
@@ -110,13 +115,45 @@ public class airTicketsController {
 
 	}
 
-	//信用卡付款之後將table中的checkpay設為"已付款"，再導向付款完的view
+	// 信用卡付款之後將table中的checkpay設為"已付款"，再導向付款完的view
 	@RequestMapping("/checkOK")
-	public String testOpay() {
+	public String testOpay() throws DocumentException, IOException {
 		String orderId = (String) session.getAttribute(sess);
-		os.updateCheckPayByOrderId(orderId);
-		System.out.println("歐富寶測試");
+		//將旅客資訊存入DB
+		GuestBean guestBean = (GuestBean) session.getAttribute("guestBean");
+		int resultId = gs.addGuest(guestBean);
+		
+		os.updateByOrderId(orderId, resultId);
+		if (orderId != null) {
+			os.updateCheckPayByOrderId(orderId);
+			System.out.println("歐富寶測試");
+			System.out.println("產生PDF");
+			pdf.pdfProduce(os.selectOneByOrderId(orderId));
+			return "airTickets/test2";
+		}
+		return "airTickets/error";
+	}
 
-		return "airTickets/test2";
+	// 測試PDF功能
+	// @RequestMapping("/pdfTest")
+	// public String testPdf() throws DocumentException, IOException {
+	// System.out.println("產生PDF");
+	// pdf.pdfProduce(os.selectOneByOrderId("201805100044"));
+	// return "airTickets/test2";
+	// }
+
+	// 測試下載
+	@RequestMapping(value = "/download")
+	public ResponseEntity<byte[]> download() throws IOException {
+		System.out.println("進入下載測試");
+		String orderId = (String) session.getAttribute(sess);
+		if(orderId!=null) {		String filename = orderId + ".pdf";
+		File file = new File("c:/OrderPDF/" + filename);
+		HttpHeaders headers = new HttpHeaders();
+		headers.setContentDispositionFormData("attachment", filename);
+		headers.setContentType(MediaType.APPLICATION_PDF);
+		return new ResponseEntity<byte[]>(FileUtils.readFileToByteArray(file), headers, HttpStatus.CREATED);
+		}
+		return null;
 	}
 }

@@ -132,7 +132,7 @@ $(document).ready(function(){
 	$("#depNum").text(beanJSON.depNum);
 	
 	$("#redepC").text(beanJSON.arrC);
-	$("#returnDate").text(beanJSON.returnDate+" "+beanJSON.arrT+" ~ "+beanJSON.returnDate+" "+beanJSON.returnTime);
+	$("#returnDate").text(beanJSON.returnDate+" "+beanJSON.returnTime+" ~ "+beanJSON.returnDate+" "+beanJSON.returnArrTime);
 	$("#rearrC").text(beanJSON.depC);
 	$("#reairline").text(beanJSON.airline);
 // 	$("#person").text(beanJSON.person);
@@ -342,7 +342,7 @@ function sendGuest(){
             </div>
         </fieldset>
         
-        <c:if test="${personNum}==2">
+        <c:if test="${personNum==2}">
         <fieldset>
           <h2><legend class="label label-warning">旅客二資料</legend></h2>
                <div class="st1">

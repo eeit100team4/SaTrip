@@ -12,9 +12,9 @@
 		<h1>看到我表示沒東西</h1>
 	</c:if>
 	<h2>付款完成</h2>
-	<h2>${guestBean.id}</h2>
+	<h2>下載PDF</h2>
+	<a href="/Traveler/airTickets/download"> 點擊下載</a>
 	<h2>sessionID=${sess}</h2>
-	<h2>${guestBean.chineseLastName_1}</h2>
 	<h2>${arrC}</h2>
 	<h2>${totalP}</h2>
 	<a href="/Traveler/">回首頁</a>
