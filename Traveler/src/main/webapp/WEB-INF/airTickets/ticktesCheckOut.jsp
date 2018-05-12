@@ -67,6 +67,21 @@
 <!-- Main JS -->
 <script src="/Traveler/js/main.js"></script>
 
+    <script>
+        $(document).ready(function () {
+
+            var today = new Date();
+
+            var currentDateTime =today.getFullYear()+'/'+(today.getMonth() + 1)+'/'+today.getDate()+' '+today.getHours()+':'+today.getMinutes()+':'+today.getSeconds(); 
+              var query="ChoosePayment=Credit&ClientBackURL=http://localhost:8080/Traveler/test&CreditInstallment=&EncryptType=1&InstallmentAmount=&ItemName=飛機票&MerchantID=2000132&MerchantTradeDate="+currentDateTime;
+
+              var query = "&MerchantTradeNo=DX20180509225107YDwD&PaymentType=aio&Redeem=&ReturnURL=http://localhost:8080/Traveler/test&StoreID=&TotalAmount=" + ${ orderList.depC }"+&TradeDesc=" + ${ orderList.orderID } +"訂單"
+
+            alert(query);
+            alert(currentDateTime);
+        });
+    </script>
+
 
 </head>
 <body>
@@ -135,7 +150,67 @@
 									<td >${guest.id}</td>
 								</tr>
 							</table>
-							<button type="button" class="bnt">確定付款</button>
+							
+							
+							
+    <form id="formCreditCard" method="post" accept-charset="UTF-8" action="https://payment-stage.opay.tw/Cashier/AioCheckOut/V5">
+        <input type="text" id="abc" value="321">
+        <!--MerchantID 商店代號: -->
+        <input type="hidden" name="MerchantID" id="MerchantID" value="2000132" />
+        <br />
+        <!--MerchantTradeNo 商店交易編號:  -->
+        <input type="hidden" name="MerchantTradeNo" value="DX20180509225107YDwD" />
+        <br />
+        <!--MerchantTradeDate 商店交易時間:  -->
+        <input type="hidden" name="MerchantTradeDate" value="" />
+        <br />
+        <!--PaymentType 交易類型:-->
+        <input type="hidden" name="PaymentType" value="aio" />
+        <br />
+        <!--TotalAmount 交易金額:-->
+        <input type="hidden" name="TotalAmount" value="11010" />
+        <br />
+        <!--TradeDesc 交易描述:-->
+        <input type="hidden" name="TradeDesc" value="飛機票" />
+        <br />
+        <!--ItemName 商品名稱:  -->
+        <input type="hidden" name="ItemName" value="飛機票" />
+        <br />
+        <!--ReturnURL 付款完成通知回傳網址:-->
+        <input type="hidden" name="ReturnURL" value="http://localhost:8080/Traveler/test" />
+        <br />
+        <!--ChoosePayment 預設付款方式: -->
+        <input type="hidden" name="ChoosePayment" value="Credit" />
+        <br />
+        <!-- 會員商店代碼:  -->
+        <input type="hidden" name="StoreID" value="" />
+        <br />
+        <!--ClientBackURL Client端返回廠商網址: -->
+        <input type="hidden" name="ClientBackURL" value="http://localhost:8080/Traveler/" />
+        <br />
+
+        <!--CreditInstallment 刷卡分期期數: -->
+        <input type="hidden" name="CreditInstallment" value="" />
+        <br />
+        <!--InstallmentAmount 使用刷卡分期的付款金額: -->
+        <input type="hidden" name="InstallmentAmount" value="" />
+        <br />
+        <!--Redeem 信用卡是否使用紅利折抵: -->
+        <input type="hidden" name="Redeem" value="" />
+        <br />
+        <!--CheckMacValue 簽章類型: -->
+        <input type="hidden" name="EncryptType" value="1" />
+        <br />
+        <!--CheckMacValue 檢查碼:-->
+        <input type="hidden" name="CheckMacValue" value="53980AEA0308DCC32CD721DB868CCFE59223A37BA8520AE7145DEE5C9394C40C" />
+        <br />
+        <input type="submit" value="確定付款" class="bnt" />
+    </form>                                                                      
+							
+							
+							
+							
+						
 						</div>
 					</div>
 				</div>
