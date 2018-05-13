@@ -1,13 +1,18 @@
 package com.web.controller;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.apache.commons.io.FileUtils;
+import org.omg.IOP.ServiceContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -44,6 +49,8 @@ public class airTicketsController {
 	GuestService gs;
 	@Autowired
 	PdfProduceService pdf;
+	@Autowired
+	ServletContext servletContext;
 
 	String sess = null;
 
@@ -51,6 +58,11 @@ public class airTicketsController {
 	@RequestMapping("/BFMS")
 	public String getOrder(HttpServletRequest request, Model model) throws UnsupportedEncodingException {
 		String result = bfmService.BFMservice(request);
+		try {
+			imgTransform();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		model.addAttribute("result", result);
 		model.addAttribute("depDate", request.getParameter("depDate"));
 		model.addAttribute("reDate", request.getParameter("reDate"));
@@ -87,11 +99,11 @@ public class airTicketsController {
 	// 將前端輸入的旅客資訊以formdata傳到後台，直接用bean接收後做處裡
 	@RequestMapping(value = "/guest", method = RequestMethod.POST)
 	public @ResponseBody String addGuest(GuestBean guestBean, Model model) {
-//		int resultId = gs.addGuest(guestBean);
-//		String orderId = (String) session.getAttribute(sess);
-//		os.updateByOrderId(orderId, resultId);
+		// int resultId = gs.addGuest(guestBean);
+		// String orderId = (String) session.getAttribute(sess);
+		// os.updateByOrderId(orderId, resultId);
 		session.setAttribute("guestBean", guestBean);
-//		model.addAttribute("guestBean", guestBean);
+		// model.addAttribute("guestBean", guestBean);
 		return "ticktesCheckOut";
 	}
 
@@ -119,10 +131,10 @@ public class airTicketsController {
 	@RequestMapping("/checkOK")
 	public String testOpay() throws DocumentException, IOException {
 		String orderId = (String) session.getAttribute(sess);
-		//將旅客資訊存入DB
+		// 將旅客資訊存入DB
 		GuestBean guestBean = (GuestBean) session.getAttribute("guestBean");
 		int resultId = gs.addGuest(guestBean);
-		
+
 		os.updateByOrderId(orderId, resultId);
 		if (orderId != null) {
 			os.updateCheckPayByOrderId(orderId);
@@ -147,13 +159,39 @@ public class airTicketsController {
 	public ResponseEntity<byte[]> download() throws IOException {
 		System.out.println("進入下載測試");
 		String orderId = (String) session.getAttribute(sess);
-		if(orderId!=null) {		String filename = orderId + ".pdf";
-		File file = new File("c:/OrderPDF/" + filename);
-		HttpHeaders headers = new HttpHeaders();
-		headers.setContentDispositionFormData("attachment", filename);
-		headers.setContentType(MediaType.APPLICATION_PDF);
-		return new ResponseEntity<byte[]>(FileUtils.readFileToByteArray(file), headers, HttpStatus.CREATED);
+		if (orderId != null) {
+			String filename = orderId + ".pdf";
+			File file = new File("c:/OrderPDF/" + filename);
+			HttpHeaders headers = new HttpHeaders();
+			headers.setContentDispositionFormData("attachment", filename);
+			headers.setContentType(MediaType.APPLICATION_PDF);
+			return new ResponseEntity<byte[]>(FileUtils.readFileToByteArray(file), headers, HttpStatus.CREATED);
 		}
 		return null;
+	}
+
+	public void imgTransform() throws IOException {
+		InputStream is = servletContext.getResourceAsStream("/WEB-INF/images/TravelerTitle.png");
+		FileOutputStream fos = null;
+		File file = new File("c:/pdf");
+		if (!file.exists()) {
+			file.mkdirs();
+		}
+
+		byte[] b = new byte[8192];
+		int len = 0;
+		try {
+			fos = new FileOutputStream("c:/pdf/" + "TravelerTitle.png");
+			while ((len = is.read(b)) != -1) {
+				fos.write(b, 0, len);
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			if (fos != null) {
+				fos.close();
+			}
+		}
+
 	}
 }
