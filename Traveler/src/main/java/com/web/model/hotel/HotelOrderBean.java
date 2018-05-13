@@ -14,7 +14,7 @@ public class HotelOrderBean implements Serializable {
 	private String account;
 	private Date order_date;
 	private Date booking_date;
-	private Integer room_id;
+	private Integer rm_no;
 	private Double totalAmount;
 
 	

@@ -7,8 +7,8 @@ public class HotelBookingDateBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private Integer booking_id;
-	private Integer hotel_id;
-	private Integer room_no;
+	private Integer hote_no;
+	private Integer rom_no;
 	private Timestamp DateTime;
 	private Integer double_stock;
 	private Integer quad_stock;

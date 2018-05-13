@@ -8,7 +8,7 @@ public class MemberBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private Integer pkey;
-	private String account;
+	private String accoun;
 	private String password;
 	private String first_name;
 	private String last_name;
