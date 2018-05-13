@@ -4,7 +4,12 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Service;
 
 import com.itextpdf.text.Anchor;
@@ -44,7 +49,7 @@ public class PdfProduceService {
 			Font font2 = new Font(bfChinese, 20, Font.BOLD, new BaseColor(100, 100, 100));
 
 			// 匯入圖片
-			Image image2 = Image.getInstance("c:/pdf3/TravelerTitle.png");
+			Image image2 = Image.getInstance("c:/pdf/TravelerTitle.png");
 			image2.scaleAbsolute(269f, 100f);
 			document.add(image2);
 
@@ -115,10 +120,6 @@ public class PdfProduceService {
 		}
 		// 寫出PDF
 		byte[] pdf = out.toByteArray();
-		File file = new File("c:/OrderPDF");
-		if (!file.exists()) {
-			file.mkdirs();
-		}
 		FileOutputStream fos = new FileOutputStream("c:/OrderPDF/" + odbean.getOrderID() + ".pdf");
 		fos.write(pdf);
 		fos.flush();
@@ -126,21 +127,31 @@ public class PdfProduceService {
 
 	}
 
-//	public void imgProduce(byte[] data) throws IOException {
-//		File file = new File("c:/pdf");
-//		if (!file.exists()) {
-//			file.mkdirs();
-//		}
-//
-//		try (FileOutputStream fo = new FileOutputStream("c:/pdf/TravelerTitle2.png");) {
-//			fo.write(data);
-//			fo.flush();
-//			System.out.println("pdf圖片創建完成");
-//
-//		} catch (IOException e) {
-//			e.printStackTrace();
-//		}
-//
-//	}
+	
+	
+	public void imgProduce(ServletContext servletContext ) throws IOException {
+		InputStream is = servletContext.getResourceAsStream("/WEB-INF/images/TravelerTitle.png");
+		FileOutputStream fos = null;
+		File file = new File("c:/OrderPDF");
+		if (!file.exists()) {
+			file.mkdirs();
+		}
+
+		byte[] b = new byte[8192];
+		int len = 0;
+		try {
+			fos = new FileOutputStream("c:/OrderPDF/" + "TravelerTitle.png");
+			while ((len = is.read(b)) != -1) {
+				fos.write(b, 0, len);
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			if (fos != null) {
+				fos.close();
+			}
+		}
+		System.out.println("圖片創建完成");
+	}
 
 }

@@ -1,29 +1,43 @@
 ﻿package com.web.service.airplain;
 
 import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Base64;
+import java.util.Properties;
 import java.util.zip.GZIPInputStream;
 
-import com.google.gson.*;
+import com.google.gson.Gson;
 
-	
 public class RunTest {
 
 	private static Token token;
 
-	public static String run(String depT, String localCode, String repT, String returnCode,String psg) throws Exception {
+	public static String run(String depT, String localCode, String repT, String returnCode, String psg)
+			throws Exception {
 
 		/*
 		 * Step 1 取得ClientID
 		 * 
 		 */
-		String ClientID = "V1:987632:A2U8:AA";// "V1:d6ztddyuw791ocj6:DEVCENTER:EXT";
-		String Password = "SDY2KUL";// "rDd0nE8G";
 
+		Properties properties = new Properties();
+		String configFile = "c:/pdf/BFM.properties";
+
+		try {
+			properties.load(new FileInputStream(configFile));
+		} catch (IOException ex) {
+			ex.printStackTrace();
+		}
+		
+		
+		String ClientID = properties.getProperty("ClientID");
+		String Password = properties.getProperty("Password");
 		/*
 		 * Step 2 轉換為Base64String
 		 * 
@@ -58,7 +72,7 @@ public class RunTest {
 			tokenresponse.append(inputLine);
 		}
 		in.close();
-//		System.out.println("TOKEN JSON :" + tokenresponse.toString());
+		// System.out.println("TOKEN JSON :" + tokenresponse.toString());
 
 		Gson gson = new Gson();
 		token = gson.fromJson(tokenresponse.toString(), Token.class);
@@ -71,13 +85,14 @@ public class RunTest {
 		// String repT = "2018-06-05T11:00:00";// 回程時間
 		// String returnCode = "NRT"; // 目的地城市
 
-//		System.out.println(depT + localCode + repT + returnCode);
-		String order = getBFM(depT, localCode, repT, returnCode,psg);
+		// System.out.println(depT + localCode + repT + returnCode);
+		String order = getBFM(depT, localCode, repT, returnCode, psg);
 		return order;
 
 	}
 
-	public static String getBFM(String depT, String localCode, String repT, String returnCode,String psg) throws Exception {
+	public static String getBFM(String depT, String localCode, String repT, String returnCode, String psg)
+			throws Exception {
 
 		// https: //api.sabre.com 正式環境
 		// https: //api.test.sabre.com 測試環境
@@ -90,7 +105,7 @@ public class RunTest {
 		hreq.setDoOutput(true);
 
 		OutputStream os = hreq.getOutputStream();
-		os.write(BFMSearch.getRequestBody(depT, localCode, repT, returnCode,psg).getBytes("utf-8"));
+		os.write(BFMSearch.getRequestBody(depT, localCode, repT, returnCode, psg).getBytes("utf-8"));
 		os.close();
 
 		GZIPInputStream zipBFMinformation = null;

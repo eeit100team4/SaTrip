@@ -35,6 +35,7 @@ import com.web.service.airplain.GuestService;
 import com.web.service.airplain.OpayEncoding;
 import com.web.service.airplain.OrderService;
 import com.web.service.airplain.PdfProduceService;
+import com.web.service.airplain.SendEmailService;
 
 @Controller
 @RequestMapping({ "/airTickets" })
@@ -50,6 +51,8 @@ public class airTicketsController {
 	@Autowired
 	PdfProduceService pdf;
 	@Autowired
+	SendEmailService emailService;
+	@Autowired
 	ServletContext servletContext;
 
 	String sess = null;
@@ -58,8 +61,9 @@ public class airTicketsController {
 	@RequestMapping("/BFMS")
 	public String getOrder(HttpServletRequest request, Model model) throws UnsupportedEncodingException {
 		String result = bfmService.BFMservice(request);
+		// 產生PDF標題圖片
 		try {
-			imgTransform();
+			pdf.imgProduce(servletContext);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -138,9 +142,12 @@ public class airTicketsController {
 		os.updateByOrderId(orderId, resultId);
 		if (orderId != null) {
 			os.updateCheckPayByOrderId(orderId);
+			
 			System.out.println("歐富寶測試");
 			System.out.println("產生PDF");
 			pdf.pdfProduce(os.selectOneByOrderId(orderId));
+			emailService.sendTest();
+			System.out.println("寄信測試");
 			return "airTickets/test2";
 		}
 		return "airTickets/error";
@@ -154,7 +161,7 @@ public class airTicketsController {
 	// return "airTickets/test2";
 	// }
 
-	// 測試下載
+//	 測試下載
 	@RequestMapping(value = "/download")
 	public ResponseEntity<byte[]> download() throws IOException {
 		System.out.println("進入下載測試");
@@ -170,28 +177,8 @@ public class airTicketsController {
 		return null;
 	}
 
-	public void imgTransform() throws IOException {
-		InputStream is = servletContext.getResourceAsStream("/WEB-INF/images/TravelerTitle.png");
-		FileOutputStream fos = null;
-		File file = new File("c:/pdf");
-		if (!file.exists()) {
-			file.mkdirs();
-		}
-
-		byte[] b = new byte[8192];
-		int len = 0;
-		try {
-			fos = new FileOutputStream("c:/pdf/" + "TravelerTitle.png");
-			while ((len = is.read(b)) != -1) {
-				fos.write(b, 0, len);
-			}
-		} catch (IOException e) {
-			e.printStackTrace();
-		} finally {
-			if (fos != null) {
-				fos.close();
-			}
-		}
-
+	@RequestMapping("/testtt")
+	public void sendEmail() {
+		emailService.sendTest();
 	}
 }
