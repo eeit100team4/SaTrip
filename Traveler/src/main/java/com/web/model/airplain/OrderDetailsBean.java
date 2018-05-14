@@ -1,7 +1,6 @@
 package com.web.model.airplain;
 
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,11 +8,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.Formula;
-import org.hibernate.annotations.ManyToAny;
 
 
 
@@ -44,7 +41,7 @@ public class OrderDetailsBean {
 	private Integer guestId;
 	private String checkpay;
 	@Formula("price/10")
-	private Integer testB;
+	private Integer redPoint;
 	
 	
 	//多對一，單向設定，name代表此Bean所對應表格的欄位名稱，referenceColumnName代表外部鍵表格的主鍵欄位名稱
@@ -64,12 +61,14 @@ public class OrderDetailsBean {
 
 
 
-	public Integer getTestB() {
-		return testB;
+
+
+	public Integer getRedPoint() {
+		return redPoint;
 	}
 
-	public void setTestB(Integer testB) {
-		this.testB = testB;
+	public void setRedPoint(Integer redPoint) {
+		this.redPoint = redPoint;
 	}
 
 	public String getCheckpay() {
@@ -239,9 +238,10 @@ public class OrderDetailsBean {
 				+ ", depDate=" + depDate + ", depC=" + depC + ", arrT=" + arrT + ", returnDate=" + returnDate
 				+ ", arrC=" + arrC + ", returnTime=" + returnTime + ", returnArrTime=" + returnArrTime + ", price="
 				+ price + ", airline=" + airline + ", depNum=" + depNum + ", returnNum=" + returnNum + ", person="
-				+ person + ", bonus=" + bonus + ", guestId=" + guestId + ", checkpay=" + checkpay + ", guestBean="
-				+ guestBean + "]";
+				+ person + ", bonus=" + bonus + ", guestId=" + guestId + ", checkpay=" + checkpay + ", redPoint="
+				+ redPoint + ", guestBean=" + guestBean + "]";
 	}
+
 
 
 

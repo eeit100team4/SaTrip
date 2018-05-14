@@ -1,5 +1,6 @@
 package com.web.model.airplain;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -9,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.Type;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -82,6 +85,7 @@ public class GuestBean {
 		public void setGuestOnepassportNum(String guestOnepassportNum) {
 			this.guestOnepassportNum = guestOnepassportNum;
 		}
+		
 		public Date getGuestOneBirth() {
 			return guestOneBirth;
 		}
@@ -141,6 +145,7 @@ public class GuestBean {
 		private String guestOnepassportNum;
 		@DateTimeFormat(pattern="yyyy-MM-dd")
 		@Type(type="date")
+		@Temporal(TemporalType.DATE)
 		private Date guestOneBirth;
 		private String guestOneGender;
 		private String guestTwoName;
@@ -149,6 +154,7 @@ public class GuestBean {
 		private String guestTwopassportNum;
 		@DateTimeFormat(pattern="yyyy-MM-dd")
 		@Type(type="date")
+		@Temporal(TemporalType.DATE)
 		private Date guestTwoBirth;
 		private String guestTwoGender;
 

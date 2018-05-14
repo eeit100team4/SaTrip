@@ -31,6 +31,7 @@ import com.itextpdf.text.DocumentException;
 import com.web.model.airplain.GuestBean;
 import com.web.model.airplain.OrderDetailsBean;
 import com.web.service.airplain.BFMService;
+import com.web.service.airplain.ExtraPriceService;
 import com.web.service.airplain.GuestService;
 import com.web.service.airplain.OpayEncoding;
 import com.web.service.airplain.OrderService;
@@ -54,6 +55,9 @@ public class airTicketsController {
 	SendEmailService emailService;
 	@Autowired
 	ServletContext servletContext;
+	@Autowired
+	ExtraPriceService eps;
+	
 
 	String sess = null;
 
@@ -82,14 +86,13 @@ public class airTicketsController {
 		OrderDetailsBean odb = gs.fromJson(order, OrderDetailsBean.class);
 		int id = os.addOrder(odb);
 		String orderid = os.selectOneById(id);
-		sess = session.getId();
-		session.setAttribute(sess, orderid);
-		session.setAttribute("sess", sess);
+		session.setAttribute("orderID", orderid);
+		System.out.println("將ORDERID存入SESSION orderId="+orderid);
 		return orderid;
 	}
 
 	// 將前端點選的機票內容，從DB中取出，顯示在VIEW
-	@RequestMapping(method = RequestMethod.GET, value = "/{orId}")
+	@RequestMapping(method = RequestMethod.GET, value = "/show/{orId}")
 	public String getOrder(@PathVariable("orId") String orId, Model model) {
 		OrderDetailsBean obean = os.selectOneByOrderId(orId);
 		Integer personNum = obean.getPerson();
@@ -101,21 +104,19 @@ public class airTicketsController {
 	}
 
 	// 將前端輸入的旅客資訊以formdata傳到後台，直接用bean接收後做處裡
-	@RequestMapping(value = "/guest", method = RequestMethod.POST)
+	@RequestMapping(value = "/show/guest", method = RequestMethod.POST)
 	public @ResponseBody String addGuest(GuestBean guestBean, Model model) {
-		// int resultId = gs.addGuest(guestBean);
-		// String orderId = (String) session.getAttribute(sess);
-		// os.updateByOrderId(orderId, resultId);
+//		 int resultId = gs.addGuest(guestBean);
+//		 String orderId = (String) session.getAttribute(sess);
+//		 os.updateByOrderId(orderId, resultId);
 		session.setAttribute("guestBean", guestBean);
-		// model.addAttribute("guestBean", guestBean);
-		return "ticktesCheckOut";
+		return "/Traveler/airTickets/ticktesCheckOut";
 	}
 
 	// 將前面下訂的資訊彙整到VIEW上，確認後即可付款
 	@RequestMapping("/ticktesCheckOut")
 	public String forwordTest3(Model model) {
-		sess = session.getId();
-		String orderId = (String) session.getAttribute(sess);
+		String orderId = (String) session.getAttribute("orderID");
 		OrderDetailsBean odBean = os.selectOneByOrderId(orderId);
 		System.out.println(odBean);
 		model.addAttribute("orderList", odBean);
@@ -134,7 +135,7 @@ public class airTicketsController {
 	// 信用卡付款之後將table中的checkpay設為"已付款"，再導向付款完的view
 	@RequestMapping("/checkOK")
 	public String testOpay() throws DocumentException, IOException {
-		String orderId = (String) session.getAttribute(sess);
+		String orderId = (String) session.getAttribute("orderID");
 		// 將旅客資訊存入DB
 		GuestBean guestBean = (GuestBean) session.getAttribute("guestBean");
 		int resultId = gs.addGuest(guestBean);
@@ -146,9 +147,9 @@ public class airTicketsController {
 			System.out.println("歐富寶測試");
 			System.out.println("產生PDF");
 			pdf.pdfProduce(os.selectOneByOrderId(orderId));
-			emailService.sendTest();
+			emailService.sendTest(orderId);
 			System.out.println("寄信測試");
-			return "airTickets/test2";
+			return "redirect:test2";
 		}
 		return "airTickets/error";
 	}
@@ -164,8 +165,7 @@ public class airTicketsController {
 //	 測試下載
 	@RequestMapping(value = "/download")
 	public ResponseEntity<byte[]> download() throws IOException {
-		System.out.println("進入下載測試");
-		String orderId = (String) session.getAttribute(sess);
+		String orderId = (String) session.getAttribute("orderID");
 		if (orderId != null) {
 			String filename = orderId + ".pdf";
 			File file = new File("c:/OrderPDF/" + filename);
@@ -176,9 +176,13 @@ public class airTicketsController {
 		}
 		return null;
 	}
+	
+	@RequestMapping("/test4")
+	public String toTest2(Model model) {
+		Integer price = eps.getExtraPrice();
+		model.addAttribute("price",price);
+		return"airTickets/test4";
+	}	
+	
 
-	@RequestMapping("/testtt")
-	public void sendEmail() {
-		emailService.sendTest();
-	}
 }

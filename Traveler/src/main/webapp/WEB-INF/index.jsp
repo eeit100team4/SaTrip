@@ -106,7 +106,7 @@
 <script src="/Traveler/js/main.js"></script>
 
 
-<script src="/Traveler/js/airplain	/airSearch.js"></script>
+<script src="/Traveler/js/airplain/airSearch.js"></script>
 <script src="/Traveler/js/jquery-ui.min.js"></script>
 <link rel="stylesheet" href="/Traveler/js/jquery-ui.min.css">
 
