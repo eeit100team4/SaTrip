@@ -12,7 +12,7 @@ public class BFMService {
 	public String BFMservice(HttpServletRequest request) throws UnsupportedEncodingException {
 		
 		request.setCharacterEncoding("UTF-8");
-	
+		
 		String dep = request.getParameter("dept");
 		String arr = request.getParameter("arrv");
 		String deD = request.getParameter("depDate") + "T00:00:00";

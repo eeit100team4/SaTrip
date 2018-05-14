@@ -109,8 +109,8 @@ text-align:center;
 						<li><a href="car.html">Car</a></li>
 						<li class="active"  class="fh5co-sub-ddown"><a href="contactusopinion">客戶服務</a>
 						<ul class="fh5co-sub-menu">
-								<li><a href="InsertOpinionSuccess">查看留言</a></li>
-								<li><a href="#">客服信箱</a></li>
+								<li><a href="InsertOpinionSuccess">查看回覆</a></li>
+								<li><a href="mailto:asally1110@gmail.com">客服信箱</a></li>
 						</ul></li>
 						<li><a href="contact.html">Contact</a></li>
 					</ul>
@@ -132,7 +132,7 @@ text-align:center;
 								<div class="col-sm-5 col-md-5">
 								<div class="tabulation animate-box">
 								<section class='container'>
-<form:form method='POST' action="InsertOpinionSuccess" modelAttribute="contactusBean"  enctype='multipart/form-data'>
+<form:form method='POST' action="selectopinion" modelAttribute="contactusBean"  enctype='multipart/form-data'>
 						 <fieldest>
 						 <div class='form-group'>
 						 <label for='name'>姓名:</label>
@@ -176,7 +176,7 @@ text-align:center;
                                                    感謝您!
                </div>
                <div class='form-group'>
-               	<button type="submit" id='btnAdd' class="btn btn-primary">送出</button>
+               	<input type="submit" id='btnAdd' class="btn btn-primary">送出</button>
                	</div>
 		</fieldest>
 		</form:form>
