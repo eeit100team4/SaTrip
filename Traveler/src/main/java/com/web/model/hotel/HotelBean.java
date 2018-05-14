@@ -8,11 +8,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
+
 
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
+
 import javax.xml.bind.annotation.XmlTransient;
 
 import org.springframework.web.multipart.MultipartFile;
@@ -34,8 +35,9 @@ public class HotelBean implements Serializable {
 	private String file_name;
 	private String address;
 	private Integer room_no;
-	private MultipartFile productImage;
-
+		
+	@Transient
+	private MultipartFile  productImage;
 	@Transient
 	@XmlTransient
 	public MultipartFile getProductImage() {
@@ -46,13 +48,8 @@ public class HotelBean implements Serializable {
 		this.productImage = productImage;
 	}
 
-	@OneToMany(cascade=CascadeType.ALL, mappedBy="room_no")
-	@JoinColumn (name="room_no")
-	private HotelRoomBean hotelRoomBean;
-
-	public HotelBean(Integer hotel_id, String country, String city, String name, Blob coverImage,
-			String file_name, String address, Integer room_no, MultipartFile productImage,
-			HotelRoomBean hotelRoomBean) {
+	public HotelBean(Integer hotel_id, String country, String city, String name, Blob coverImage, String file_name,
+			String address, Integer room_no, MultipartFile productImage) {
 		super();
 		this.hotel_id = hotel_id;
 		this.country = country;
@@ -63,11 +60,10 @@ public class HotelBean implements Serializable {
 		this.address = address;
 		this.room_no = room_no;
 		this.productImage = productImage;
-		this.hotelRoomBean = hotelRoomBean;
 	}
 
 	public HotelBean() {
-
+		
 	}
 
 	public Integer getHotel_id() {
@@ -94,11 +90,11 @@ public class HotelBean implements Serializable {
 		this.city = city;
 	}
 
-	public String getname() {
+	public String getName() {
 		return name;
 	}
 
-	public void setname(String name) {
+	public void setName(String name) {
 		this.name = name;
 	}
 
@@ -134,24 +130,21 @@ public class HotelBean implements Serializable {
 		this.room_no = room_no;
 	}
 
-	public HotelRoomBean getHotelRoomBean() {
-		return hotelRoomBean;
-	}
-
-	public void setHotelRoomBean(HotelRoomBean hotelRoomBean) {
-		this.hotelRoomBean = hotelRoomBean;
-	}
-
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
 
 	@Override
 	public String toString() {
-		return "HotelBean [hotel_id=" + hotel_id + ", country=" + country + ", city=" + city + ", name="
-				+ name + ", coverImage=" + coverImage + ", file_name=" + file_name + ", address=" + address
-				+ ", room_no=" + room_no + ", productImage=" + productImage + ", hotelRoomBean=" + hotelRoomBean + "]";
+		return "HotelBean [hotel_id=" + hotel_id + ", country=" + country + ", city=" + city + ", name=" + name
+				+ ", coverImage=" + coverImage + ", file_name=" + file_name + ", address=" + address + ", room_no="
+				+ room_no + ", productImage=" + productImage + "]";
 	}
+	
+	
+	
+
+	
 	
 	
 	
