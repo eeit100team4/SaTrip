@@ -36,13 +36,14 @@ public class ThemeBean implements Serializable {
 	public void setTitleImage(MultipartFile titleImage){
 		this.titleImage = titleImage;
 	}
-	
+	//帶參數建構子
 	public ThemeBean(Integer titleId, String titleName, String fileName){
 	this.titleId = titleId;
 	this.titleName = titleName;
 	this.fileName = fileName;
 	
 }
+	//空建構子
 	public ThemeBean() {
 	}
 	@Id//指定PK鍵

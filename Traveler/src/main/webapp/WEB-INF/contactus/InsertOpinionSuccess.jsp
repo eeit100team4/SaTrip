@@ -107,8 +107,8 @@ color:black;
 						<li><a href="car.html">Car</a></li>
 						<li class="active"><a href="contactusopinion">客戶服務</a>
 						<ul class="fh5co-sub-menu">
-								<li><a href="InsertOpinionSuccess">查看留言</a></li>
-						<li><a href="#">客服信箱</a></li>
+								<li><a href="InsertOpinionSuccess">查看回覆</a></li>
+						<li><a href="mailto:asally1110@gmail.com">客服信箱</a></li>
 						</ul></li>
 						<li><a href="contact.html">Contact</a></li>
 					</ul>
@@ -129,47 +129,20 @@ color:black;
 								<div class="col-sm-5 col-md-5">
 								<div class="tabulation animate-box">
 								<section class='container'>
-								<h1>留言成功</h1>
-								<div class="a1">
-								<table>
-								<thead>
-					<tr>
-						<th scope="col">姓名:</th>
-						<th scope="col">性別:</th>
-						<th scope="col">年齡:</th>
-						<th scope="col">連絡電話:</th>
-						<th scope="col">電子信箱:</th>
-						<th scope="col">所在地:</th>
-						<th scope="col">意見類別:</th>
-						<th scope="col">意見內容:</th>
-					</tr>
-				</thead>
-				<tbody>
-					<c:forEach var='con' items='${contactus}'>
 							
-<%-- 							<p style=color:black>姓名:${contactus.name}</p> --%>
-<%-- 							<p style=color:black>性別:${contactus.sex}</p> --%>
-<%-- 							<p style=color:black>年齡:${contactus.age}</p> --%>
-<%-- 							<p style=color:black>連絡電話:${contactus.phone}</p> --%>
-<%-- 							<p style=color:black>電子信箱:${contactus.email}</p> --%>
-<%-- 							<p style=color:black>所在地:${contactus.address}</p> --%>
-<%-- 							<p style=color:black>意見類別:${contactus.opinion}</p> --%>
-<%-- 							<p style=color:black>意見內容:${contactus.comment}</p> --%>
+							<p style=color:black>姓名:${aa.name}</p>
+							<p style=color:black>性別:${aa.sex}</p>
+							<p style=color:black>年齡:${aa.age}</p>
+							<p style=color:black>連絡電話:${aa.phone}</p>
+							<p style=color:black>電子信箱:${aa.email}</p>
+							<p style=color:black>所在地:${aa.address}</p>
+							<p style=color:black>意見類別:${aa.opinion}</p>
+							<p style=color:black>意見內容:${aa.comment}</p>
+							<p style=color:black>回覆內容:${aa.feedback}</p>
 
 							
-						<tr>
-							<td>${con.name}</td>
-							<td>${con.sex}</td>
-							<td>${con.age}</td>
-							<td>${con.phone}</td>
-							<td>${con.email}</td>
-							<td>${con.address}</td>
-							<td>${con.opinion}</td>
-							<td>${con.comment}</td>
-						</tr>
-					</c:forEach>
-					</tbody>
-					</table>
+						
+					
 	</div>
 						</section>
 							</div>
