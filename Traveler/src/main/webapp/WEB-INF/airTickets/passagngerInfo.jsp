@@ -220,7 +220,7 @@ function sendGuest(){
 		success : function(responce) {
 			alert(responce);
 			alert("ok");
-			window.location.assign(responce);
+			window.location.assign("http://www.yahoo.com.tw");
 		},
 		error:function(){
 			alert("error");

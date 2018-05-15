@@ -158,6 +158,11 @@ function showInfo(){
             });
             
         });
+        
+        
+        function back(){
+        	window.history.go(-1);
+        }
     </script>
 
 
@@ -209,11 +214,11 @@ function showInfo(){
 								</tr>
 								<tr class="warning">
 									<td class="cor-lg-2" >去程</td>
-									<td class="col-lg-10">${orderList.depDate} ${orderList.depT} ${orderList.depC} --> ${orderList.depDate} ${orderList.arrT} XX:XX ${orderList.arrC}</td>
+									<td class="col-lg-10">${orderList.depDate} ${orderList.depT} ${orderList.depC} --> ${orderList.depDate} ${orderList.arrT}  ${orderList.arrC}</td>
 								</tr>
 								<tr class="warning">
 									<td>回程</td>
-									<td>${orderList.returnDate} ${orderList.returnTime} ${orderList.arrC} --> ${orderList.returnDate} XX:XX ${orderList.depC}</td>
+									<td>${orderList.returnDate} ${orderList.returnTime} ${orderList.arrC} --> ${orderList.returnDate} ${orderList.returnArrTime}  ${orderList.depC}</td>
 								</tr>
 								<tr class="warning">
 									<td>航空公司</td>
@@ -265,6 +270,7 @@ function showInfo(){
       </c:if>
     </tbody>
   </table>
+  <button  style="margin: 0px;"  type="button" class="text-left btn-xs btn-warning" onclick="back()">修改旅客資料</button>
 </div>
 							
 							

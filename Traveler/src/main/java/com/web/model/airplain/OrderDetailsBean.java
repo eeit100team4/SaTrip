@@ -1,6 +1,8 @@
 package com.web.model.airplain;
 
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -42,6 +44,7 @@ public class OrderDetailsBean {
 	private String checkpay;
 	@Formula("price/10")
 	private Integer redPoint;
+	private Date orderDay=new Date();
 	
 	
 	//多對一，單向設定，name代表此Bean所對應表格的欄位名稱，referenceColumnName代表外部鍵表格的主鍵欄位名稱
@@ -62,6 +65,14 @@ public class OrderDetailsBean {
 
 
 
+
+	public Date getOrderDay() {
+		return orderDay;
+	}
+
+	public void setOrderDay(Date orderDay) {
+		this.orderDay = orderDay;
+	}
 
 	public Integer getRedPoint() {
 		return redPoint;

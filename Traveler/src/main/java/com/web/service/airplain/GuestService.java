@@ -23,6 +23,11 @@ public class GuestService {
 		return gb;
 	}
 	
+	public int update(GuestBean guestBean) {
+		gr.update(guestBean);
+		return 1;
+	}
+	
 	
 	
 }

@@ -149,7 +149,7 @@ public class airTicketsController {
 			pdf.pdfProduce(os.selectOneByOrderId(orderId));
 			emailService.sendTest(orderId);
 			System.out.println("寄信測試");
-			return "redirect:test2";
+			return "redirect:finishPage";
 		}
 		return "airTickets/error";
 	}
@@ -177,11 +177,11 @@ public class airTicketsController {
 		return null;
 	}
 	
-	@RequestMapping("/test4")
+	@RequestMapping("/finishPage")
 	public String toTest2(Model model) {
 		Integer price = eps.getExtraPrice();
 		model.addAttribute("price",price);
-		return"airTickets/test4";
+		return"airTickets/finishPage";
 	}	
 	
 
