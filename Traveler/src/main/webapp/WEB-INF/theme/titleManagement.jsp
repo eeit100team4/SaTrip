@@ -165,10 +165,10 @@ float:right;
 <div class="d1"> 
 <h2 style="text-align:center">旅遊管理項目</h2>
 <ul class="me">
-<li><a href="titleManagement">主題名稱</a></li>
-<li><a href="index.html">商品資料</a></li>
-<li><a href="index.html">行程內容</a></li>
-<li><a href="index.html">報名表單</a></li>
+<li><a href="titleManagement">主題種類</a></li>
+<li><a href="productManagement">商品資料</a></li>
+<li><a href="journeyManagement">行程內容</a></li>
+<li><a href="applicationManagement">報名表單</a></li>
 </ul>
 
 		</div>
@@ -188,11 +188,23 @@ float:right;
 	<section>
 		<form:form method="POST" modelAttribute="themeBean" enctype="multipart/form-data" >
 		   <fieldset>
-				<label>新增主題名稱</label>
+				<label>新增主題</label>
 				<form:input  path="titleName" type="text" />		
 						
 				<br>
-				<label>新增主題圖片</label>
+				<label>新增圖片</label>
+				<form:input  path="titleImage" type="file"  />			
+													
+				<div>					
+				<input type="submit" value="送出" />
+				</div>
+			</fieldset>
+			<fieldset>
+				<label>修改主題</label>
+				<form:input  path="titleName" type="text" />		
+						
+				<br>
+				<label>修改圖片</label>
 				<form:input  path="titleImage" type="file"  />			
 													
 				<div>					

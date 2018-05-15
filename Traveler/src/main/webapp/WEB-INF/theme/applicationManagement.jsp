@@ -178,7 +178,7 @@ float:right;
 		
 		
 		
-<div class="d2">這裡是管理介面</div>
+<div class="d2">報名表管理介面</div>
 		
 		<footer>
 		<p>TRAVEL &nbsp; Tel:(02)2222-8888 &nbsp;

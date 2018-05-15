@@ -105,7 +105,7 @@ public class ThemeProducts implements Serializable{
 	private ThemeBean themeBean;
 	//FK
 	@ManyToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="titleId")
+	@JoinColumn(name="titleId" ,referencedColumnName="titleId", insertable=false, updatable=false)
     public ThemeBean getThemeBean() {
 		return themeBean;
 	}

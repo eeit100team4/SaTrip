@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.web.model.theme.ThemeBean;
+import com.web.model.theme.ThemeProducts;
 import com.web.repository.theme.ThemeRepository;
 import com.web.service.theme.ThemeService;
 
@@ -26,5 +27,18 @@ public class ThemeServiceImpl implements ThemeService {
 	@Override
 	public void addThemeTitle(ThemeBean Theme) {
 		themeRepository.addThemeTitle(Theme);
+	}
+	//分類查詢 從固定title查該title下商品資料
+	//找出所有title
+	@Transactional
+	@Override
+	public List<String> getAllTitles(){
+		return themeRepository.getAllTitles();	
+	}
+	//依title抓產品
+	@Transactional
+	@Override
+	public List<ThemeProducts> getProductsByTitle(String titleIName){
+		return themeRepository.getProductsByTitle(titleIName);		
 	}
 }

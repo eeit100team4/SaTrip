@@ -76,7 +76,7 @@ public class ThemeJourneys implements Serializable{
 	private ThemeProducts themeProducts;
 	//FK
 	@ManyToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="productId")
+	@JoinColumn(name="productId",referencedColumnName="productId", insertable=false, updatable=false)
     public ThemeProducts getThemeProducts() {
 		return themeProducts;
 	}

@@ -9,31 +9,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.web.model.theme.ThemeBean;
+import com.web.model.theme.ThemeProducts;
 import com.web.service.theme.ThemeService;
 
 @Controller
-public class ThemeTitleController {
+public class ThemeBackController {
 	@Autowired
 	ThemeService themeService;
-
-	// 從首頁點選主題旅遊時的dispatcher
-	@RequestMapping("theme/themeTitles")
-	public String list(Model model) {
-		List<ThemeBean> list = themeService.getAllProducts();
-		model.addAttribute("themeTitles", list);
-		return "theme/themeTitles";
-	}
-	//後台頁面  新增主題(暫時)
-	@RequestMapping("theme/management")
-	public String test(){
-		return "theme/management";
-	}
-
 
 	// 新增主題用 產生空白表單 預設讀取GET方法
 	@RequestMapping(value = "/theme/titleManagement", method = RequestMethod.GET)
@@ -44,7 +32,7 @@ public class ThemeTitleController {
 	}
 
 	// 新增主題用 傳入表單上的資訊，在原來頁面新增內容，在JSP裡指定POST方法
-	@RequestMapping(value = "/theme/addTheme", method = RequestMethod.POST)
+	@RequestMapping(value = "/theme/titleManagement", method = RequestMethod.POST)
 	public String processAddNewThemeForm(@ModelAttribute("themeBean") ThemeBean tb, HttpServletRequest request) {
 		// 寫入圖片檔跟檔名
 		MultipartFile titleImage = tb.getTitleImage();
@@ -71,6 +59,23 @@ public class ThemeTitleController {
 			throw new RuntimeException("檔案上傳發生異常: " + e.getMessage());
 		}
 		return "redirect:themeTitles";
+	}
+	//後台頁面  連結到主題管理頁
+	@RequestMapping("theme/management")
+	public String title(){
+		return "theme/management";
+	}//後台頁面  連結
+	@RequestMapping("theme/productManagement")
+	public String product(){
+		return "theme/productManagement";
+	}//後台頁面  連結
+	@RequestMapping("theme/journeyManagement")
+	public String journey(){
+		return "theme/journeyManagement";
+	}//後台頁面  連結
+	@RequestMapping("theme/applicationManagement")
+	public String application(){
+		return "theme/applicationManagement";
 	}
 
 }

@@ -40,7 +40,7 @@ public class ThemeApplications implements Serializable {
 	private ThemeJourneys themeJourneys;
 	
 	@ManyToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="journeyId")
+	@JoinColumn(name="journeyId",referencedColumnName="journeyId", insertable=false, updatable=false)
     public ThemeJourneys getThemeJourneys() {
 		return themeJourneys;
 	}
