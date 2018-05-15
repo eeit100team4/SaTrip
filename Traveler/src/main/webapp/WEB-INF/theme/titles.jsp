@@ -6,22 +6,19 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>themeTitles</title>
+<title></title>
 <!--從首頁點選主題旅遊時產生的頁面 -->
 </head>
 <body>
 <ul class="fh5co-sub-menu">
 <!-- 加一行 -->
 </ul>
-<div>
- <c:forEach var='theme' items='${themeTitles}'>
-  <div style="width:300px; height:200px; float: left; ">
-    <img src="/Traveler/images/themeTitle-${theme.titleId}.png">
-    <p>
-    <b style='font-size:16px;'>${theme.titleName}</b>
-    </p>
-  </div>
- </c:forEach>
+<div style="text-align:center">
+ <h1>請挑選<h1>
+  <c:forEach var='titleName' items='${titleList}'>
+     <a href="/${titleName}">${titleName}</a>
+     <br>
+  </c:forEach>
 </div>
 </body>
 </html>

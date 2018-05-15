@@ -3,11 +3,15 @@ package com.web.model.theme;
 import java.io.Serializable;
 import java.sql.Timestamp;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
@@ -17,7 +21,6 @@ public class ThemeJourneys implements Serializable{
 	private static final long serialVersionUID = 1L;
 	//PK
 	private Integer journeyId;
-	
 	//FK
 	private Integer productId;
 	//出發日期
@@ -69,7 +72,18 @@ public class ThemeJourneys implements Serializable{
 	//返回-抵達-機場
 	private String returnEndWhere;
 	
-	//帶參數建構子
+	//FK的表格
+	private ThemeProducts themeProducts;
+	//FK
+	@ManyToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name="productId",referencedColumnName="productId", insertable=false, updatable=false)
+    public ThemeProducts getThemeProducts() {
+		return themeProducts;
+	}
+	public void setThemeProducts(ThemeProducts themeProducts) {
+		this.themeProducts = themeProducts;
+	}
+	//帶參數建構子 //放入FK的表格
 	public ThemeJourneys(Integer journeyId, Integer productId, Timestamp setOut,
 			Timestamp returnDay, Timestamp deadline, Timestamp createDate, 
 			Integer price, String companyName, Integer goPlaneId, Integer returnPlaneId, 
@@ -78,7 +92,7 @@ public class ThemeJourneys implements Serializable{
 			String goStartWhere, String goEndWhere, Timestamp returnStartDate, 
 			String returnStartHour, String returnStartMinute, Timestamp returnEndDate, 
 			String returnEndHour, String returnEndMinute, String returnStartWhere, 
-			String returnEndWhere) {
+			String returnEndWhere, ThemeProducts themeProducts) {
 		this.journeyId = journeyId;
 		this.productId = productId;
 		this.setOut = setOut;
@@ -108,6 +122,8 @@ public class ThemeJourneys implements Serializable{
 		this.returnEndMinute = returnEndMinute;
 		this.returnStartWhere = returnStartWhere;
 		this.returnEndWhere = returnEndWhere;
+		//FK的表格
+		this.themeProducts = themeProducts;
 	}
 	//空建構子
 	public ThemeJourneys() {	
@@ -122,6 +138,7 @@ public class ThemeJourneys implements Serializable{
 		this.journeyId = journeyId;
 	}
 	//FK
+	@Transient
 	public Integer getProductId() {
 		return productId;
 	}
@@ -297,7 +314,7 @@ public class ThemeJourneys implements Serializable{
 		this.returnEndWhere = returnEndWhere;
 	}
 	@Override
-	public String toString() {
+	public String toString() {//加入FK表格
 		return "ThemeJourneys [journeyId=" + journeyId + ", productId=" + productId + ", setOut=" + setOut
 				+ ", returnDay=" + returnDay + ", deadline=" + deadline + ", createDate=" + createDate + ", price="
 				+ price + ", companyName=" + companyName + ", goPlaneId=" + goPlaneId + ", returnPlaneId="
@@ -307,7 +324,7 @@ public class ThemeJourneys implements Serializable{
 				+ returnStartDate + ", returnStartHour=" + returnStartHour + ", returnStartMinute=" + returnStartMinute
 				+ ", returnEndDate=" + returnEndDate + ", returnEndHour=" + returnEndHour + ", returnEndMinute="
 				+ returnEndMinute + ", returnStartWhere=" + returnStartWhere + ", returnEndWhere=" + returnEndWhere
-				+ "]";
+				+ ", themeProducts=" + themeProducts + "]";
 	}
 	
 }

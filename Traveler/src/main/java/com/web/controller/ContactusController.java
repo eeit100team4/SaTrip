@@ -14,6 +14,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -63,11 +64,30 @@ public class ContactusController {
 		session.setAttribute("aa", contactus2);
 		return "redirect:/contactus/InsertOpinionSuccess";
 	}
-	@RequestMapping("/update/feedbackopinion")
+	@RequestMapping(path="/update/{pkid}")
 	public String update(@ModelAttribute("contactusBean")ContactusBean contactus2
-			) {
+			,@PathVariable Integer pkid) {
 		contactusService.update(contactus2);
 		return "redirect:/feedbackopinion";
 	}
 	
+	@RequestMapping("/update/feedback")
+	public String updateFeedback(Model model) {
+		contactusService.updateAllFeedback();
+		return "redirect:/feedbackopinion";
+	}
+	
+	
+	@RequestMapping("contactus/feedbackopinion")
+	public String list2(Model model) {
+		List<ContactusBean> list2=contactusService.getAllContactus();
+		model.addAttribute("contactus", list2);
+		return "contactus/feedbackopinion";
+	}
+	@RequestMapping("contactus/contactuspie")
+	public String list3(Model model) {
+		List<ContactusBean> list3=contactusService.getAllContactus();
+		model.addAttribute("contactus", list3);
+		return "contactus/contactuspie";
+	}
 }

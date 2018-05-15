@@ -17,7 +17,7 @@
 
 <!-- -------------------------------------------------------------------------------------------------------	 -->
 <!-- (原廠設定)Place favicon.ico and apple-touch-icon.png in the root directory -->
-<link rel="shortcut icon" href="favicon.ico">
+<link rel="shortcut icon" href="/Traveler/images/LeftTopCorner.ico">
 <!-- (原廠設定) -->
 <link
 	href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300'
