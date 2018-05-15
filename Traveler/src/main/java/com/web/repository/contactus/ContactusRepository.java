@@ -10,5 +10,6 @@ public interface ContactusRepository {
 	void addCustomerOpinion(ContactusBean contactus);
 	void update(ContactusBean contactus);
 	List<ContactusBean> getAllContactus();
-//	void updateFeedback(String name, String sex);
+	void updateFeedback(String name, String sex);
+	List<ContactusBean> getAllFeedback();
 }

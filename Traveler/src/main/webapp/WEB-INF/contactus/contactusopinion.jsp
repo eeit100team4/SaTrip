@@ -132,7 +132,7 @@ text-align:center;
 								<div class="col-sm-5 col-md-5">
 								<div class="tabulation animate-box">
 								<section class='container'>
-<form:form method='POST' action="selectopinion" modelAttribute="contactusBean"  enctype='multipart/form-data'>
+<form:form method='POST' action="InsertOpinionSuccess" modelAttribute="contactusBean"  enctype='multipart/form-data'>
 						 <fieldest>
 						 <div class='form-group'>
 						 <label for='name'>姓名:</label>
