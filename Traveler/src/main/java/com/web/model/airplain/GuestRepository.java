@@ -29,5 +29,11 @@ public class GuestRepository {
 		GuestBean result = session.createQuery(hql, GuestBean.class).uniqueResult();
 		return result;
 	}
+	
+	public int update(GuestBean guestBean) {
+		session = sessionFactory.getCurrentSession();
+		session.update(guestBean);
+		return 1;
+	}
 
 }

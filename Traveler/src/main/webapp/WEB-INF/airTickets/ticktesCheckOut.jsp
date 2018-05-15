@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+	<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -157,6 +158,11 @@ function showInfo(){
             });
             
         });
+        
+        
+        function back(){
+        	window.history.go(-1);
+        }
     </script>
 
 
@@ -208,11 +214,11 @@ function showInfo(){
 								</tr>
 								<tr class="warning">
 									<td class="cor-lg-2" >去程</td>
-									<td class="col-lg-10">${orderList.depDate} ${orderList.depT} ${orderList.depC} --> ${orderList.depDate} ${orderList.arrT} XX:XX ${orderList.arrC}</td>
+									<td class="col-lg-10">${orderList.depDate} ${orderList.depT} ${orderList.depC} --> ${orderList.depDate} ${orderList.arrT}  ${orderList.arrC}</td>
 								</tr>
 								<tr class="warning">
 									<td>回程</td>
-									<td>${orderList.returnDate} ${orderList.returnTime} ${orderList.arrC} --> ${orderList.returnDate} XX:XX ${orderList.depC}</td>
+									<td>${orderList.returnDate} ${orderList.returnTime} ${orderList.arrC} --> ${orderList.returnDate} ${orderList.returnArrTime}  ${orderList.depC}</td>
 								</tr>
 								<tr class="warning">
 									<td>航空公司</td>
@@ -228,7 +234,7 @@ function showInfo(){
 								</tr>
 									<tr class="warning">
 									<td>獲得紅利</td>
-									<td ></td>
+									<td >${orderList.redPoint}</td>
 								</tr>
 							</table>
 							
@@ -242,7 +248,7 @@ function showInfo(){
         <th class="col-lg-2 text-center">Lastname</th>
         <th class="col-lg-3 text-center">護照號碼</th>
         <th class="col-lg-3 text-center">生日</th>
-        <th class="col-lg-2 text-center">性別${guestBean.contactName}</th>
+        <th class="col-lg-2 text-center">性別</th>
       </tr>
     </thead>
     <tbody>
@@ -250,20 +256,21 @@ function showInfo(){
         <td>${guestBean.guestOneFirstName}</td>
         <td>${guestBean.guestOneLastName}</td>
         <td>${guestBean.guestOnepassportNum}</td>
-        <td>${guestBean.guestOneBirth}</td>
+        <td><fmt:formatDate value="${guestBean.guestOneBirth}" pattern="yyyy-MM-dd" /></td>
         <td>${guestBean.guestOneGender}</td>
       </tr>
-     <c:if test="${person==2}">
+     <c:if test="${orderList.person==2}">
       <tr>
        <td>${guestBean.guestTwoFirstName}</td>
         <td>${guestBean.guestTwoLastName}</td>
         <td>${guestBean.guestTwopassportNum}</td>
-        <td>${guestBean.guestTwoBirth}</td>
+         <td><fmt:formatDate value="${guestBean.guestTwoBirth}" pattern="yyyy-MM-dd" /></td>
         <td>${guestBean.guestTwoGender}</td>
       </tr>
       </c:if>
     </tbody>
   </table>
+  <button  style="margin: 0px;"  type="button" class="text-left btn-xs btn-warning" onclick="back()">修改旅客資料</button>
 </div>
 							
 							

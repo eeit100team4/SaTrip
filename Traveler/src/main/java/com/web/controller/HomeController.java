@@ -16,6 +16,5 @@ public class HomeController {
 	 public String backStage() {
 	 return "backstage";
 	 }
-	
-	
+	 
 }

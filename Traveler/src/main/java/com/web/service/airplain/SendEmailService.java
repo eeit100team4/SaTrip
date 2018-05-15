@@ -22,7 +22,7 @@ public class SendEmailService {
 	
 	Properties props =new Properties();
 	String RECIPIENT=null;
-	public  void sendTest()  {
+	public  void sendTest(String fileName)  {
 		try {
 			props.load(new FileInputStream("c:/pdf/BFM.properties"));
 		} catch (IOException e) {
@@ -40,7 +40,7 @@ public class SendEmailService {
 		String body = sb.toString() ;
 
 		try {
-			sendFromGMail(from, pass, to, subject, body);
+			sendFromGMail(from, pass, to, subject, body,fileName);
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}
@@ -49,7 +49,7 @@ public class SendEmailService {
 	
 	
 
-	private static void sendFromGMail(String from, String pass, String[] to, String subject, String body) throws UnsupportedEncodingException {
+	private static void sendFromGMail(String from, String pass, String[] to, String subject, String body,String fileName) throws UnsupportedEncodingException {
 		Properties props = System.getProperties();
 		String host = "smtp.gmail.com";
 		// 下面設定是根據GMail官方文件所寫的，開啟TLS以及SMTP AUTH
@@ -86,7 +86,7 @@ public class SendEmailService {
 	        MimeBodyPart filePart2 = new MimeBodyPart();
 	        // 檔案位置
 	        try {
-				filePart1.attachFile("c:/OrderPDF/20180513001.pdf");
+				filePart1.attachFile("c:/OrderPDF/"+fileName+".pdf");
 			} catch (IOException e) {
 				e.printStackTrace();
 			} 

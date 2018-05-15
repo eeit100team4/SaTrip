@@ -176,7 +176,8 @@ float:left;
 border: 1px solid orange ; 
 background-color: white;
 width:15%;
-line-height:440%;
+/* line-height:446%; */
+ line-height:447%; 
 align:center;
 padding:20px;
 float:left;
@@ -429,7 +430,7 @@ function list(){
 				    success : function(response) {
 				    	var forword=response+"";
 				    	alert(forword);
-				        window.location.assign(forword);
+				        window.location.assign("show/"+forword);
 				    },
 				    error : function() {
 				        alert('fail');
@@ -498,6 +499,74 @@ ul {
 }
 </style>
 
+
+
+<!-- 測試側邊 -->
+<style>
+#mwt_mwt_slider_scroll
+{
+top: 100px;
+left:-100px; 
+width:100px;
+position:fixed; 
+z-index:9999;
+}
+
+#mwt_slider_content{
+/* background:#FF8800; */
+ background:#FF8800; 
+text-align:center;
+padding-top:20px;
+}
+
+#mwt_fb_tab {
+position:absolute;
+top:20px;
+right:-24px;
+width:24px;
+background:#FF8800;
+color:#ffffff;
+font-family:Arial, Helvetica, sans-serif;
+text-align:center;
+padding:9px 0;
+
+-moz-border-radius-topright:10px;
+-moz-border-radius-bottomright:10px;
+-webkit-border-top-right-radius:10px;
+-webkit-border-bottom-right-radius:10px;
+}
+#mwt_fb_tab span {
+display:block;
+height:12px;
+padding:1px 0;
+line-height:12px;
+text-transform:uppercase;
+font-size:12px;
+}
+</style>
+
+<script type='text/javascript'>
+$(function(){
+var w = $("#mwt_slider_content").width();
+$('#mwt_slider_content').css('height', ($(window).height() - 20) + 'px' ); //將區塊自動撐滿畫面高度
+
+$("#mwt_fb_tab").mouseover(function(){ //滑鼠滑入時
+if ($("#mwt_mwt_slider_scroll").css('left') == '-'+w+'px')
+{
+$("#mwt_mwt_slider_scroll").animate({ left:'0px' }, 600 ,'swing');
+}
+});
+
+
+$("#mwt_slider_content").mouseleave(function(){　//滑鼠離開後
+$("#mwt_mwt_slider_scroll").animate( { left:'-'+w+'px' }, 600 ,'swing');
+});
+});
+
+</script>
+
+
+
 </head>
 <body  style="background-image: url(/Traveler/images/cover_bg_1.jpg);background-attachment: fixed; ">
 	<div id="fh5co-wrapper">
@@ -543,13 +612,14 @@ ul {
 
 					<div>
 						<div class="page_btn clear">
-							<span class="page_box"> <a class="prev">上一頁</a> <span
-								class="num"><span class="current_page">1</span><span
-									style="padding: 0 3px;">/</span><span class="total"></span></span> <a
-								class="next">下一頁</a>
-							</span> <span>
-								<button type='button' onclick='sortByPrice()'>依價格</button>
-								<button type='button' onclick='sortByTime()'>依出發時間</button>
+<!-- 							<span class="page_box"> <a class="prev">上一頁</a> <span -->
+<!-- 								class="num"><span class="current_page">1</span><span -->
+<!-- 									style="padding: 0 3px;">/</span><span class="total"></span></span> <a -->
+<!-- 								class="next">下一頁</a> -->
+<!-- 							</span>  -->
+							<span>
+<!-- 								<button type='button' onclick='sortByPrice()'>依價格</button> -->
+<!-- 								<button type='button' onclick='sortByTime()'>依出發時間</button> -->
 							</span>
 
 
@@ -573,6 +643,24 @@ ul {
 							</div>
 
 						</div>
+						
+<div id="mwt_mwt_slider_scroll">
+ <div id="mwt_fb_tab">
+    <span>排</span>
+    <span>序</span>
+    <span>查</span>
+    <span>詢</span>
+</div>
+<div id="mwt_slider_content"   >
+<!-- <div class="btn-group-vertical"> -->
+  <button type="button" class="btn-xs btn-primary " onclick='sortByPrice()'>找低價</button>
+  <button type="button" class="btn-xs btn-primary" onclick='sortByTime()'>早出發</button>
+  <button type="button" class="btn-xs btn-primary" onclick=''>提早一天</button>
+  <button type="button" class="btn-xs btn-primary" onclick=''>延後一天</button>
+<!--   <button type="button" class="btn-xs ">Sony</button> -->
+<!-- </div> -->
+</div>
+</div>
 
 
 
