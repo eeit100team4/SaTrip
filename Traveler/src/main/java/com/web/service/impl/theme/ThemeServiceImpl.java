@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.web.model.theme.ThemeBean;
+import com.web.model.theme.ThemeJourneys;
 import com.web.model.theme.ThemeProducts;
 import com.web.repository.theme.ThemeRepository;
 import com.web.service.theme.ThemeService;
@@ -20,8 +21,8 @@ public class ThemeServiceImpl implements ThemeService {
 	//查詢第一個表格(多筆)
 	@Transactional
 	@Override
-	public List<ThemeBean> getAllProducts() {		
-		return themeRepository.getAllProducts();		
+	public List<ThemeBean> getTitles() {		
+		return themeRepository.getTitles();		
 	}
 	@Transactional
 	@Override
@@ -40,5 +41,17 @@ public class ThemeServiceImpl implements ThemeService {
 	@Override
 	public List<ThemeProducts> getProductsByTitle(String titleIName){
 		return themeRepository.getProductsByTitle(titleIName);		
+	}
+	//顯示所有商品資料
+	@Transactional
+	@Override
+	public List<ThemeProducts> getAllProducts(){
+		return themeRepository.getAllProducts();		
+	}
+	//顯示所有行程內容
+	@Transactional
+	@Override
+	public List<ThemeJourneys> getAllJourneys(){
+		return themeRepository.getAllJourneys();		
 	}
 }

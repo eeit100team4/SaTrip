@@ -9,16 +9,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.web.model.theme.ThemeBean;
+import com.web.model.theme.ThemeJourneys;
 import com.web.model.theme.ThemeProducts;
 import com.web.repository.theme.ThemeRepository;
 @Repository
 public class ThemeRepositoryImpl implements ThemeRepository {
 	@Autowired
 	SessionFactory factory;
-	//從第一個表格做查詢(查詢多筆)
+	
+	//顯示所有種類名稱
 	@Override
 	@SuppressWarnings("unchecked")
-	public List<ThemeBean> getAllProducts() {
+	public List<ThemeBean> getTitles() {
 		String hql = "FROM ThemeBean";
 		Session session = null;
 		List<ThemeBean>list = new ArrayList<>();
@@ -48,5 +50,27 @@ public class ThemeRepositoryImpl implements ThemeRepository {
 		Session session = factory.getCurrentSession();
 		list = session.createQuery(hql).setParameter("titleName",titleName).getResultList();
 		return list;
-	};
+	}
+	//顯示所有商品資料
+	@Override
+	@SuppressWarnings("unchecked")
+	public List<ThemeProducts> getAllProducts(){
+		String hql = "FROM ThemeProducts";
+		Session session = null;
+		List<ThemeProducts> list = new ArrayList<>();
+		session = factory.getCurrentSession();
+		list = session.createQuery(hql).getResultList();
+		return list;
+	}
+	//顯示所有行程內容
+	@Override
+	@SuppressWarnings("unchecked")
+	public List<ThemeJourneys> getAllJourneys(){
+		String hql = "FROM ThemeJourneys";
+		Session session = null;
+		List<ThemeJourneys> list = new ArrayList<>();
+		session = factory.getCurrentSession();
+		list = session.createQuery(hql).getResultList();
+		return list;
+	}
 }

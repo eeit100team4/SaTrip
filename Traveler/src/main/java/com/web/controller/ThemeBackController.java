@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.web.model.theme.ThemeBean;
+import com.web.model.theme.ThemeJourneys;
 import com.web.model.theme.ThemeProducts;
 import com.web.service.theme.ThemeService;
 
@@ -76,6 +77,22 @@ public class ThemeBackController {
 	@RequestMapping("theme/applicationManagement")
 	public String application(){
 		return "theme/applicationManagement";
+	}
+	
+	//顯示全部商品資料
+	@RequestMapping("theme/products")
+	public String productList(Model model) {
+		List<ThemeProducts> list = themeService.getAllProducts();
+		model.addAttribute("products", list);
+		return "theme/products";	
+	}
+	
+	//顯示全部行程內容
+	@RequestMapping("theme/journeys")
+	public String journeyList(Model model) {
+		List<ThemeJourneys> list = themeService.getAllJourneys();
+		model.addAttribute("journeys", list);
+		return "theme/journeys";	
 	}
 
 }

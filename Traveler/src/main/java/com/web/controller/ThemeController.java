@@ -19,7 +19,7 @@ public class ThemeController {
 	// 從首頁點選主題旅遊時的dispatcher
 	@RequestMapping("theme/themeTitles")
 	public String list(Model model) {
-		List<ThemeBean> list = themeService.getAllProducts();
+		List<ThemeBean> list = themeService.getTitles();
 		model.addAttribute("themeTitles", list);
 		return "theme/themeTitles";
 	}

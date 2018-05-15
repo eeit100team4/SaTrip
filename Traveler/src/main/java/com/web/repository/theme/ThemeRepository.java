@@ -3,11 +3,12 @@ package com.web.repository.theme;
 import java.util.List;
 
 import com.web.model.theme.ThemeBean;
+import com.web.model.theme.ThemeJourneys;
 import com.web.model.theme.ThemeProducts;
 
 public interface ThemeRepository {
-	//介面(從第一個表格做查詢(查詢多筆))
-	List<ThemeBean> getAllProducts();
+	//顯示所有種類名稱
+	List<ThemeBean> getTitles();
 	
 	//介面(新增主題到第一個表格)
 	void addThemeTitle(ThemeBean theme);
@@ -17,4 +18,10 @@ public interface ThemeRepository {
 	List<String> getAllTitles();
 	//依title抓產品
 	List<ThemeProducts> getProductsByTitle(String titleIName);
+	
+	//顯示所有商品資料
+	List<ThemeProducts> getAllProducts();
+	
+	//顯示所有行程內容
+	List<ThemeJourneys> getAllJourneys();
 }

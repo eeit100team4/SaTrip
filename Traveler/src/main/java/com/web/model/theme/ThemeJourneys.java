@@ -36,9 +36,9 @@ public class ThemeJourneys implements Serializable{
 	//航空公司名
 	private String companyName;
 	//出發班機編號
-	private Integer goPlaneId;
+	private String goPlaneId;
 	//回程班機編號
-	private Integer returnPlaneId;
+	private String returnPlaneId;
 	//出發-起飛-日期
 	private Timestamp goStartDate;
 	//出發-起飛-時
@@ -86,7 +86,7 @@ public class ThemeJourneys implements Serializable{
 	//帶參數建構子 //放入FK的表格
 	public ThemeJourneys(Integer journeyId, Integer productId, Timestamp setOut,
 			Timestamp returnDay, Timestamp deadline, Timestamp createDate, 
-			Integer price, String companyName, Integer goPlaneId, Integer returnPlaneId, 
+			Integer price, String companyName, String goPlaneId, String returnPlaneId, 
 			Timestamp goStartDate, String goStartHour, String goStartMinute, 
 			Timestamp goEndDate, String goEndHour, String goEndMinute, 
 			String goStartWhere, String goEndWhere, Timestamp returnStartDate, 
@@ -188,17 +188,17 @@ public class ThemeJourneys implements Serializable{
 		this.companyName = companyName;
 	}
 	//出發班機編號
-	public Integer getGoPlaneId() {
+	public String getGoPlaneId() {
 		return goPlaneId;
 	}
-	public void setGoPlaneId(Integer goPlaneId) {
+	public void setGoPlaneId(String goPlaneId) {
 		this.goPlaneId = goPlaneId;
 	}
 	//回程班機編號
-	public Integer getReturnPlaneId() {
+	public String getReturnPlaneId() {
 		return returnPlaneId;
 	}
-	public void setReturnPlaneId(Integer returnPlaneId) {
+	public void setReturnPlaneId(String returnPlaneId) {
 		this.returnPlaneId = returnPlaneId;
 	}
 	//出發-起飛-日期
