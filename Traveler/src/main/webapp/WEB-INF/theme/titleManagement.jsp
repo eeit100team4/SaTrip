@@ -153,7 +153,7 @@ float:right;
 	    	<li cless="le"><a href="index.html"><img src='/Traveler/images//icon_index.png' height="25px" width="25px"/>TRAVEL後台管理系統</a></li>
 					<li><a href="airTickets/back/list"><img src='/Traveler/images//icon_air.png' height="25px" width="25px"/>機票管理</a></li>
 					<li><a href="index.html"><img src='/Traveler/images//icon_hotel.png' height="25px" width="25px"/>飯店管理</a></li>
-					<li><a href="../theme/titleManagement"><img src='/Traveler/images//icon_traveler.png' height="25px" width="25px"/>主題旅遊管理</a></li>
+					<li><a href="../theme/management"><img src='/Traveler/images//icon_traveler.png' height="25px" width="25px"/>主題旅遊管理</a></li>
 					<li><a href="index.html"><img src='/Traveler/images//icon_vip.png' height="25px" width="25px"/>會員管理</a></li>
 					<li><a href="commlist"><img src='/Traveler/images//icon_comm.png' height="25px" width="25px"/>紅利管理</a></li>
 					<li><a href="feedbackopinion"><img src='/Traveler/images//icon_support.png' height="25px" width="25px"/>客服管理</a></li>
@@ -163,12 +163,12 @@ float:right;
 		</nav> </header>
 	
 <div class="d1"> 
-<h2 style="text-align:center">主題旅遊</h2>
+<h2 style="text-align:center">旅遊管理項目</h2>
 <ul class="me">
-<li><a href="addTheme">管理主題</a></li>
-<li><a href="index.html">管理產品</a></li>
-<li><a href="index.html">管理行程</a></li>
-<li><a href="index.html">管理報名表</a></li>
+<li><a href="titleManagement">主題名稱</a></li>
+<li><a href="index.html">商品資料</a></li>
+<li><a href="index.html">行程內容</a></li>
+<li><a href="index.html">報名表單</a></li>
 </ul>
 
 		</div>
@@ -177,7 +177,31 @@ float:right;
 		
 		
 		
-<div class="d2">這裡是管理介面</div>
+<div class="d2"><section>
+		<div>
+			<h1 style="text =align: center">主題維護</h1>
+		</div>
+	</section>
+
+	<hr width='3'>
+
+	<section>
+		<form:form method="POST" modelAttribute="themeBean" enctype="multipart/form-data" >
+		   <fieldset>
+				<label>新增主題名稱</label>
+				<form:input  path="titleName" type="text" />		
+						
+				<br>
+				<label>新增主題圖片</label>
+				<form:input  path="titleImage" type="file"  />			
+													
+				<div>					
+				<input type="submit" value="送出" />
+				</div>
+			</fieldset>
+		</form:form>		
+	</section>
+	</div>
 		
 		<footer>
 		<p>TRAVEL &nbsp; Tel:(02)2222-8888 &nbsp;

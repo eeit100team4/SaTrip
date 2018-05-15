@@ -29,18 +29,18 @@ public class ThemeTitleController {
 		return "theme/themeTitles";
 	}
 	//後台頁面  新增主題(暫時)
-	@RequestMapping("theme/titleManagement")
+	@RequestMapping("theme/management")
 	public String test(){
-		return "theme/titleManagement";
+		return "theme/management";
 	}
 
 
 	// 新增主題用 產生空白表單 預設讀取GET方法
-	@RequestMapping(value = "/theme/addTheme", method = RequestMethod.GET)
+	@RequestMapping(value = "/theme/titleManagement", method = RequestMethod.GET)
 	public String getAddNewThemeForm(Model model) {
 		ThemeBean tb = new ThemeBean();
 		model.addAttribute("themeBean", tb);
-		return "theme/addTheme";
+		return "theme/titleManagement";
 	}
 
 	// 新增主題用 傳入表單上的資訊，在原來頁面新增內容，在JSP裡指定POST方法

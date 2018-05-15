@@ -12,7 +12,6 @@
 <body>
 <ul class="fh5co-sub-menu">
 <!-- 加一行 -->
-<li><a href='/Traveler/theme/addTheme'>新增主題</a></li>
 </ul>
 <div>
  <c:forEach var='theme' items='${themeTitles}'>
