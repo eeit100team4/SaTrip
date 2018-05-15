@@ -120,7 +120,7 @@ public class RunTest {
 			response.append(inputLine);
 		}
 		in.close();
-		System.out.println("BFM ANSWER :" + response.toString());
+//		System.out.println("BFM ANSWER :" + response.toString());
 		return response.toString();
 	}
 

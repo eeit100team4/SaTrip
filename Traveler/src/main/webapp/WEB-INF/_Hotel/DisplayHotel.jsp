@@ -8,7 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>hotelIndex</title>
+<title>DisplayHotel</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
 <meta name="keywords"
@@ -139,6 +139,12 @@
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
 <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> -->
 <!-- <script src="http://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js"></script> -->
+
+<!-- --------A別人的網站-----------------------------------------------------------------------------------------------	 -->
+
+
+
+
 <!-- -------------------------------------------------------------------------------------------------------	 -->
 
 </head>
@@ -158,7 +164,7 @@
 						<!-- START #fh5co-menu-wrap -->
 						<nav id="fh5co-menu-wrap" role="navigation">
 							<ul class="sf-menu" id="fh5co-primary-menu">
-								<li></i><a href="index"><i class="fas fa-plane"></i>機票</a></li>
+								<li></i><a href=""><i class="fas fa-plane"></i>機票</a></li>
 								<li><a href="_Hotel/hotel"><i class="fas fa-home"></i>飯店</a></li>
 								<li class="theme/themeTitles"><a href="hotel.html"><i
 										class="fas fa-globe"></i>旅遊</a></li>
@@ -172,62 +178,86 @@
 					</div>
 				</div>
 			</header>
+			
+				<hr style="height: 1px; border: none; color: #333; background-color: #333;">
 			<!-- -------------------------------------------------------------------------------------------------------	 -->
 			<!-- ____________上欄位整行____________↓ -->
 
-			<div class="col-xl">
-				<div class="well">
-					<div class="col-sm-3">欄位1</div>
-				</div>
-			</div>
+<!-- 			<div class="col-xl"> -->
+<!-- 				<div class="well"> -->
+<!-- 					<div class="col-sm-3">欄位1</div> -->
+<!-- 				</div> -->
+<!-- 			</div> -->
 			<!-- ____________主要布局____________↓ -->
 			<div class="container-fluid">
 
 				<!-- ____________左邊欄位____________↓ -->
-				<article>
+				<!-- --------A別人的網站-----------------------------------------------------------------------------------------------	 -->
+<!-- 				<article> -->
 					<div class="col-md-2 col-md-offset-1">
-						<div class="well">地圖</div>
-						<div class="well">地圖</div>
-						<div class="well">地圖</div>
-						<div class="well">地圖</div>
-						<div class="well">地圖</div>
-						<div class="well">地圖</div>
+						
+						
+						
 					</div>
-				</article>
+
+
+					<!-- -------------------------------------------------------------------------------------------------------	 -->
+					<!-- 老師的範例暫用 -->
+				
+				
+	<div class="row">
+			<c:forEach var='product' items='${hotels}'>
+				<div class="col-sm-6 col-md-3" style="width: 360px; height: 360px">
+					<div class="thumbnail" style="width: 320px; height: 340px">
+						<img width='250' height='200' 
+     						src="<c:url value='/getPic/${product.hotel_id}' />" />
+						<div class="caption">
+							<p>
+								<b style='font-size: 16px;'>${product.hotel_id}</b>
+							</p>
+							<p>${product.country}</p>
+							<p>${product.city}</p>
+							<p>${product.name}</p>
+							<p>${product.hotelRoomBean.room_id}</p>
+							<p>${product.hotelRoomBean.occupancy}</p>
+<%-- 							<p>目前在庫數量: ${product.stock}本</p> --%>
+							<p>
+								<a href="<spring:url value='product?id=${product.hotel_id}' />"   
+									class="btn btn-primary"> <span
+									class="glyphicon-info-sigh glyphicon"></span>詳細資料	
+								</a>
+								<a href="DisplayRoom">超連結</a>
+							</p>
+						</div>
+					</div>
+				</div>
+			</c:forEach>
+		</div>
+
+
+					<!-- -------------------------------------------------------------------------------------------------------	 -->
+
+
+<!-- 				</article> -->
 				<!-- ____________右邊欄位____________↓ -->
-				<aside>
-					<div class="col-sm-8">
-						<div class="panel panel-primary">
-							<div class="panel-heading">Raspberry Pi 加入成功 裝置 1</div>
-							<div class="panel-body">這裡是數據內容</div>
-						</div>
-						<br>
-						<div class="panel panel-primary">
-							<div class="panel-heading">Raspberry Pi 加入成功 裝置 2</div>
-							<div class="panel-body">這裡是數據內容</div>
-						</div>
-						<hr>
+<!-- 				<aside> -->
+<!-- 					<div class="col-sm-8"> -->
+<!-- 						<div class="panel panel-primary"> -->
+<!-- 							<div class="panel-heading">Raspberry Pi 加入成功 裝置 1</div> -->
+<!-- 							<div class="panel-body">這裡是數據內容</div> -->
+<!-- 						</div> -->
+<!-- 						<br> -->
+<!-- 						<div class="panel panel-primary"> -->
+<!-- 							<div class="panel-heading">Raspberry Pi 加入成功 裝置 2</div> -->
+<!-- 							<div class="panel-body">這裡是數據內容</div> -->
+<!-- 						</div> -->
+<!-- 						<hr> -->
 
-					</div>
-			</div>
-			</aside>
-
+<!-- 					</div> -->
+<!-- 			</div> -->
+<!-- 			</aside> -->
+			
 			<!-- ____________主要布局____________↑ -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -298,7 +328,7 @@
 										class="icon-youtube"></i></a>
 								</p>
 								<p>
-									Welcome to in Traveler.<i class="icon-heart3"></i> 
+									Welcome to in Traveler.<i class="icon-heart3"></i>
 								</p>
 							</div>
 						</div>

@@ -151,6 +151,63 @@ $(document).ready(function(){
 //由JS new出一個FormData的物件，取得FORM的內容，由ajax傳送，contentType與processData要設定成false，
 //不然會有錯誤，後端java的PARAMETER直接用 Bean型別去接即可，form裡面的name必須和Bean的屬性名稱相符合
 function sendGuest(){
+	
+	
+	if($("#contactName").val()==""){
+        alert("你尚未填寫姓名");
+        eval("document.form['contactName'].focus()");       
+    }else if($("#contactIdCard").val()==""){
+        alert("你尚未填寫身分證字號");
+        eval("document.form['contactIdCard'].focus()");    
+    }else if($("#contactPhone").val()==""){
+        alert("你尚未填寫手機");
+        eval("document.form['contactPhone'].focus()"); 
+    }else if($("#contactAddress").val()==""){
+        alert("你尚未填寫地址");
+        eval("document.form['contactAddress'].focus()");  
+    }else if($("#contactEmail").val()==""){
+        alert("你尚未填寫E-MAIL");
+        eval("document.form['contactEmail'].focus()");  
+    }else if($("#guestOneName").val()==""){
+        alert("你尚未填寫旅客名字");
+        eval("document.form['guestOneName'].focus()");  
+    }else if($("#guestOneLastName").val()==""){
+        alert("你尚未填寫旅客英文名字");
+        eval("document.form['guestOneLastName'].focus()");  
+    }else if($("#guestOneFirstName").val()==""){
+        alert("你尚未填寫旅客英文名字");
+        eval("document.form['guestOneFirstName'].focus()");  
+    }else if($("#guestOnepassportNum").val()==""){
+        alert("你尚未填寫旅客護照號碼");
+        eval("document.form['guestOnepassportNum'].focus()");  
+    }else if($("#guestOneBirth").val()==""){
+        alert("你尚未填寫旅客生日");
+        eval("document.form['guestOneBirth'].focus()");  
+    }else if($("#contactPhone").val()==""){
+        alert("你尚未填寫手機");
+        eval("document.form['contactPhone'].focus()");  
+    }else if($("#contactPhone").val()==""){
+        alert("你尚未填寫手機");
+        eval("document.form['contactPhone'].focus()");  
+    }else if($("#contactPhone").val()==""){
+        alert("你尚未填寫手機");
+        eval("document.form['contactPhone'].focus()");  
+    }else if($("#contactPhone").val()==""){
+        alert("你尚未填寫手機");
+        eval("document.form['contactPhone'].focus()");  
+    }else if($("#contactPhone").val()==""){
+        alert("你尚未填寫手機");
+        eval("document.form['contactPhone'].focus()");  
+    }else if($("#contactPhone").val()==""){
+        alert("你尚未填寫手機");
+        eval("document.form['contactPhone'].focus()");  
+    }else if($("#contactPhone").val()==""){
+        alert("你尚未填寫手機");
+        eval("document.form['contactPhone'].focus()");  
+        
+    }else{
+
+	
 	var data = new FormData(document.querySelector("form"));
 	console.log(data);
 	$.ajax({
@@ -163,7 +220,7 @@ function sendGuest(){
 		success : function(responce) {
 			alert(responce);
 			alert("ok");
-			window.location.assign(responce);
+			window.location.assign("http://www.yahoo.com.tw");
 		},
 		error:function(){
 			alert("error");
@@ -172,12 +229,18 @@ function sendGuest(){
 	});
 	
 	
-	
+    }
 }
 
 </script>
 
-
+<script>
+ $(document).ready(function(){
+    $("#button").click(function(){
+        
+    })
+ })
+</script>
 
 
 </head>
@@ -286,17 +349,17 @@ function sendGuest(){
 					</div>
 					  
 	<div class="text-left" style="width: 50%;height:auto; margin: 0px auto; border: 1px orange solid">
-		<form id="myform"  enctype="multipart/form-data">
+		<form id="myform"  enctype="multipart/form-data" >
 
 			<fieldset>
         	<h2><legend class="label label-warning">聯絡人資訊</legend></h2>
             <div class="st1">
-                <label for="contactName" class="lab">姓名</label>
+                <label onclick="return false" for="contactName" class="lab">姓名</label>
                 <input type="text" name="contactName" id="contactName" size="10" autofocus autocomplete="off">
             </div>
             <div class="st1">
                 <label for="contactIdCard" class="lab">身分證字號</label>
-                <input type="text" name="contactIdCard" id="contactIdCard" maxlength="10">
+                <input  type="text" name="contactIdCard" id="contactIdCard" maxlength="10">
             </div>
              <div class="st1">
                 <label for="contactPhone" class="lab">手機</label>
@@ -331,7 +394,7 @@ function sendGuest(){
             </div>
             <div class="st1">
                 <label for="guestOneBirth" class="lab">生日</label>
-                <input type="text" name="guestOneBirth" id="guestOneBirth">
+                <input type="text" name="guestOneBirth" id="guestOneBirth" placeholder="yyyy-MM-dd">
             </div>
             <div class="st1">
                 <label class="lab">性別</label>
@@ -363,7 +426,7 @@ function sendGuest(){
             </div>
             <div class="st1">
                 <label for="guestTwoBirth" class="lab">生日</label>
-                <input type="text" name="guestTwoBirth" id="guestTwoBirth">
+                <input type="text" name="guestTwoBirth" id="guestTwoBirth" placeholder="yyyy-MM-dd">
             </div>
             <div class="st1">
                 <label class="lab">性別</label>
@@ -377,7 +440,7 @@ function sendGuest(){
         
 			          <div class="sub text-center">
 	          <input type="hidden" name="_method" value="post" /> 
-	          <button type="button" class="btn btn-warning" onclick="sendGuest()">送出</button>
+	          <button type="button" class="btn btn-warning"    onclick="sendGuest()">送出</button>
                 <input type="reset" class="btn  btn-danger" name="reset" value="清除">
             </div>
 
@@ -408,7 +471,9 @@ function sendGuest(){
 		</div>
 
 
+<script>
 
+</script>
 
 
 </body>

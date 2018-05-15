@@ -8,9 +8,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Conditional;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.web.model.airplain.GuestBean;
 import com.web.model.airplain.OrderDetailsBean;
 import com.web.service.airplain.BFMService;
 import com.web.service.airplain.GuestService;
@@ -40,5 +43,28 @@ public class airTicketsBackController {
 		model.addAttribute("list",allOrder);
 		return "airTickets/back/airBackAllOrder2";
 	}
+	
+	@RequestMapping(value="/selectOne/{orderID}",method = RequestMethod.GET)
+	public String selectOne(@PathVariable("orderID") String orderID,Model model) {
+		OrderDetailsBean bean=os.selectOneByOrderId(orderID);
+		model.addAttribute("bean",bean);
+		System.out.println(bean);
+		return "/airTickets/back/backtest";
+	}
+	
+	@RequestMapping(value="/selectOne/tt/tt" ,method = RequestMethod.POST)
+	@ResponseBody
+	public String updateGuestInfo(GuestBean guestBean,OrderDetailsBean orderBean,Model model) {
+		System.out.println("前"+guestBean);
+		guestBean.setId(orderBean.getGuestId());
+		gs.update(guestBean);
+			System.out.println("後"+guestBean);
+		return "QQ";
+	}
 
+	@RequestMapping("/testtt")
+	public String selectOne() {
+		return "/airTickets/back/backtest";
+	}
+	
 }

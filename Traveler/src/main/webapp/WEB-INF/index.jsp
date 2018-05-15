@@ -106,7 +106,7 @@
 <script src="/Traveler/js/main.js"></script>
 
 
-<script src="/Traveler/js/airplain	/airSearch.js"></script>
+<script src="/Traveler/js/airplain/airSearch.js"></script>
 <script src="/Traveler/js/jquery-ui.min.js"></script>
 <link rel="stylesheet" href="/Traveler/js/jquery-ui.min.css">
 
@@ -137,7 +137,7 @@
 										<li><a href="theme/journeys">顯示全行程</a></li>
 									</ul></li>
 								<li><a href="flight.html">航班</a></li>
-								<li><a href="_Hotel/HotelIndex">Hotel</a></li>
+								<li><a href="_Hotel/DisplayHotel">Hotel</a></li>
 								<li><a href="car.html">Car</a></li>
 								<li><a href="contactus/contactusopinion">客戶服務</a></li>
 							

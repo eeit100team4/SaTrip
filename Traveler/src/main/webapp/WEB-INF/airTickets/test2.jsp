@@ -11,7 +11,7 @@
 	<c:if test="${not empty test} ">
 		<h1>看到我表示沒東西</h1>
 	</c:if>
-	<h2>付款完成</h2>
+	<h2>付款完成</h2>return 
 	<h2>下載PDF</h2>
 	<a href="/Traveler/airTickets/download"> 點擊下載</a>
 	<h2>sessionID=${sess}</h2>

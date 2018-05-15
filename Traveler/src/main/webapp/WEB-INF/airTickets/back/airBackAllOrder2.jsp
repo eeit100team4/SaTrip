@@ -23,6 +23,10 @@
 	src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
 	integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
 	crossorigin="anonymous"></script>
+<head>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
 
 
 <title>Insert title here</title>
@@ -134,8 +138,37 @@ footer {
 </style>
 
 
+<script src="/Traveler/js/airplain/jquery-tablepage.js"></script>
+<script>
+	$(document).ready(function(){
+		page();
+// 		pagecolor();
+	});
+	function ale(){
+		
+	 var timeout=setTimeout(function () {
+// 		 alert("QQ");
+		 pagecolor();
+		    }, 1);
+		;
+	}
+
+	function page() {
+		$("#tbb").tablepage($("#table_page"), 10);
+		pagecolor();
+	}
+	function pagecolor(){	
+// 		alert("color");
+		$(".spann").find("td").css("color","orange");
+		$(".spann").find("td").find("table").css("margin","2px");
+// 		$(".spann").find("td").find("table").find("th").css("text-align","center").css("color","orange");
+		$(".spann").find("td").find("table").find("th").css("text-align","center").css("color","orange").attr("onclick","ale()");;
+		
+	}
+</script>
 
 </head>
+
 <body>
 	<div id="allpage">
 		<header> <nav>
@@ -144,18 +177,19 @@ footer {
 					src='/Traveler/images//icon_index.png' height="25px" width="25px" />TRAVEL後台管理系統</a></li>
 			<li><a href="airTickets/back/list"><img
 					src='/Traveler/images//icon_air.png' height="25px" width="25px" />機票管理</a></li>
-			<li><a href="index.html"><img src='/Traveler/images//icon_hotel.png'
-					height="25px" width="25px" />飯店管理</a></li>
-			<li><a href="index.html"><img src='/Traveler/images//icon_traveler.png'
-					height="25px" width="25px" />主題旅遊管理</a></li>
-			<li><a href="index.html"><img src='/Traveler/images//icon_vip.png'
-					height="25px" width="25px" />會員管理</a></li>
-			<li><a href="commlist"><img src='/Traveler/images//icon_comm.png'
-					height="25px" width="25px" />紅利管理</a></li>
-			<li><a href="index.html"><img src='/Traveler/images//icon_support.png'
-					height="25px" width="25px" />客服管理</a></li>
-			<li><a href="index.html"><img src='/Traveler/images//icon_login.png'
-					height="25px" width="25px" />登入</a></li>
+			<li><a href="index.html"><img
+					src='/Traveler/images//icon_hotel.png' height="25px" width="25px" />飯店管理</a></li>
+			<li><a href="index.html"><img
+					src='/Traveler/images//icon_traveler.png' height="25px"
+					width="25px" />主題旅遊管理</a></li>
+			<li><a href="index.html"><img
+					src='/Traveler/images//icon_vip.png' height="25px" width="25px" />會員管理</a></li>
+			<li><a href="commlist"><img
+					src='/Traveler/images//icon_comm.png' height="25px" width="25px" />紅利管理</a></li>
+			<li><a href="index.html"><img
+					src='/Traveler/images//icon_support.png' height="25px" width="25px" />客服管理</a></li>
+			<li><a href="index.html"><img
+					src='/Traveler/images//icon_login.png' height="25px" width="25px" />登入</a></li>
 			<!--登出-->
 		</ul>
 
@@ -172,11 +206,39 @@ footer {
 		</div>
 		<div class="d2">
 			<h2 class="text-center">所有訂單</h2>
+			<!-- 			<table class="table" class="table table-sm table-hover"> -->
+			<!-- 				<thead> -->
 
-			<c:forEach var="order" items="${list}">
-				<h5>${order.orderID}</h5>
-			</c:forEach>
+			<!-- 				</thead> -->
+			<!-- 				<tbody> -->
 
+			<!-- 						<tr> -->
+			<!-- 						</tr> -->
+
+			<!-- 				</tbody> -->
+			<!-- 			</table> -->
+
+			<table id="tbb" class="table table-hover">
+				<thead>
+					<tr>
+						<th scope="col">訂單編號</th>
+						<th scope="col">會員編號</th>
+						<th scope="col">下訂日期</th>
+						<th scope="col">總價</th>
+					</tr>
+				</thead>
+				<tbody>
+					<c:forEach  var="order" items="${list}">
+						<tr>
+							<th scope="row"><a href="selectOne/${order.orderID}">${order.orderID}</a></th>
+							<td>會員ID</td>
+							<td>2018-05-15</td>
+							<td>${order.price}</td>
+						</tr>
+					</c:forEach>
+				</tbody>
+			</table>
+			<span style="text-align:center;;" class="spann" id='table_page'></span>
 		</div>
 
 
