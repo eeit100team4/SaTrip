@@ -1,12 +1,9 @@
 package com.web.controller;
 
 import java.io.File;
-import java.io.IOException;
-import java.sql.Blob;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.sql.rowset.serial.SerialBlob;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -31,6 +28,12 @@ public class ThemeTitleController {
 		model.addAttribute("themeTitles", list);
 		return "theme/themeTitles";
 	}
+	//後台頁面  新增主題(暫時)
+	@RequestMapping("theme/titleManagement")
+	public String test(){
+		return "theme/titleManagement";
+	}
+
 
 	// 新增主題用 產生空白表單 預設讀取GET方法
 	@RequestMapping(value = "/theme/addTheme", method = RequestMethod.GET)
@@ -54,14 +57,14 @@ public class ThemeTitleController {
 		themeService.addThemeTitle(tb);
 		// 將上傳檔案移到指定資料夾
 		try {
-			//File imageFolder = new File("c:/test/image", "images");//資料夾位置
-			//將圖片存到Tomcat下的資料夾，但圖片不會顯示在左邊專案.....
+			// File imageFolder = new File("c:/test/image", "images");//資料夾位置
+			// 將圖片存到Tomcat下的資料夾，但圖片不會顯示在左邊專案.....
 			File imageFolder = new File("C:\\sts-bundle\\tomcat8\\webapps\\Traveler\\WEB-INF", "images");
 			if (!imageFolder.exists()) {
 				imageFolder.mkdirs();
 			}
-			//File file = new File(imageFolder, tb.getTitleId() + ext);講義寫法
-			File file = new File(imageFolder, "themeTitle-"+tb.getTitleId()+ext);//(位置，名稱)		
+			// File file = new File(imageFolder, tb.getTitleId() + ext);講義寫法
+			File file = new File(imageFolder, "themeTitle-" + tb.getTitleId() + ext);// (位置，名稱)
 			titleImage.transferTo(file);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -69,4 +72,5 @@ public class ThemeTitleController {
 		}
 		return "redirect:themeTitles";
 	}
+
 }

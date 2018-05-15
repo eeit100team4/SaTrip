@@ -177,32 +177,7 @@ float:right;
 		
 		
 		
-<div class="d2">
-    <section>
-		<div>
-			<h1 style="text =align: center">主題維護</h1>
-		</div>
-	</section>
-
-	<hr width='3'>
-
-	<section>
-		<form:form method="POST" modelAttribute="themeBean" enctype="multipart/form-data" >
-		   <fieldset>
-				<label>新增主題名稱</label>
-				<form:input  path="titleName" type="text" />		
-						
-				<br>
-				<label>新增主題圖片</label>
-				<form:input  path="titleImage" type="file"  />			
-													
-				<div>					
-				<input type="submit" value="送出" />
-				</div>
-			</fieldset>
-		</form:form>		
-	</section>
-</div>
+<div class="d2">這裡是管理介面</div>
 		
 		<footer>
 		<p>TRAVEL &nbsp; Tel:(02)2222-8888 &nbsp;

@@ -8,7 +8,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>themeTitles</title>
 <!--從首頁點選主題旅遊時產生的頁面 -->
-
 </head>
 <body>
 <ul class="fh5co-sub-menu">
@@ -22,9 +21,8 @@
     <p>
     <b style='font-size:16px;'>${theme.titleName}</b>
     </p>
- </div>
+  </div>
  </c:forEach>
 </div>
-
 </body>
 </html>
