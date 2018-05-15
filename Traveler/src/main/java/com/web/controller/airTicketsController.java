@@ -179,8 +179,8 @@ public class airTicketsController {
 	
 	@RequestMapping("/finishPage")
 	public String toTest2(Model model) {
-		Integer price = eps.getExtraPrice();
-		model.addAttribute("price",price);
+//		Integer price = eps.getExtraPrice();
+//		model.addAttribute("price",price);
 		return"airTickets/finishPage";
 	}	
 	
