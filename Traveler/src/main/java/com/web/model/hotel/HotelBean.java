@@ -8,15 +8,15 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
-
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
-
 import javax.xml.bind.annotation.XmlTransient;
 
 import org.springframework.web.multipart.MultipartFile;
+
+
 
 
 
@@ -46,6 +46,22 @@ public class HotelBean implements Serializable {
 
 	public void setProductImage(MultipartFile productImage) {
 		this.productImage = productImage;
+	}
+	
+	
+	
+	@ManyToOne
+	@JoinColumn(name="room_no", referencedColumnName="room_id", insertable=false, updatable=false) 
+	private HotelRoomBean hotelRoomBean;
+	
+	
+
+	public HotelRoomBean getHotelRoomBean() {
+		return hotelRoomBean;
+	}
+
+	public void setHotelRoomBean(HotelRoomBean hotelRoomBean) {
+		this.hotelRoomBean = hotelRoomBean;
 	}
 
 	public HotelBean(Integer hotel_id, String country, String city, String name, Blob coverImage, String file_name,
@@ -144,9 +160,5 @@ public class HotelBean implements Serializable {
 	
 	
 
-	
-	
-	
-	
 
 }

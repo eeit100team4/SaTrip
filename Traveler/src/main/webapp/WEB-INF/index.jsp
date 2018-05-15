@@ -137,7 +137,7 @@
 										
 									</ul></li>
 								<li><a href="flight.html">航班</a></li>
-								<li><a href="_Hotel/HotelIndex">Hotel</a></li>
+								<li><a href="_Hotel/DisplayHotel">Hotel</a></li>
 								<li><a href="car.html">Car</a></li>
 								<li><a href="contactus/contactusopinion">客戶服務</a></li>
 							

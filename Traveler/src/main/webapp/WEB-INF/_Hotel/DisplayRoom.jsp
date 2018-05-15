@@ -8,7 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>DisplayHotel</title>
+<title>DisplayRoom</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
 <meta name="keywords"
@@ -164,7 +164,7 @@
 						<!-- START #fh5co-menu-wrap -->
 						<nav id="fh5co-menu-wrap" role="navigation">
 							<ul class="sf-menu" id="fh5co-primary-menu">
-								<li></i><a href=""><i class="fas fa-plane"></i>機票</a></li>
+								<li></i><a href="index"><i class="fas fa-plane"></i>機票</a></li>
 								<li><a href="_Hotel/hotel"><i class="fas fa-home"></i>飯店</a></li>
 								<li class="theme/themeTitles"><a href="hotel.html"><i
 										class="fas fa-globe"></i>旅遊</a></li>
@@ -195,9 +195,7 @@
 				<!-- --------A別人的網站-----------------------------------------------------------------------------------------------	 -->
 <!-- 				<article> -->
 					<div class="col-md-2 col-md-offset-1">
-						
-						
-						
+		
 					</div>
 
 
@@ -205,34 +203,43 @@
 					<!-- 老師的範例暫用 -->
 				
 				
-	<div class="row">
-			<c:forEach var='product' items='${hotels}'>
-				<div class="col-sm-6 col-md-3" style="width: 360px; height: 360px">
-					<div class="thumbnail" style="width: 320px; height: 340px">
-						<img width='250' height='200' 
-     						src="<c:url value='/getPic/${product.hotel_id}' />" />
-						<div class="caption">
-							<p>
-								<b style='font-size: 16px;'>${product.hotel_id}</b>
-							</p>
-							<p>${product.country}</p>
-							<p>${product.city}</p>
-							<p>${product.name}</p>
-							<p>${product.hotelRoomBean.room_id}</p>
-							<p>${product.hotelRoomBean.occupancy}</p>
-<%-- 							<p>目前在庫數量: ${product.stock}本</p> --%>
-							<p>
-								<a href="<spring:url value='product?id=${product.hotel_id}' />"   
-									class="btn btn-primary"> <span
-									class="glyphicon-info-sigh glyphicon"></span>詳細資料	
-								</a>
-								<a href="DisplayRoom">超連結</a>
-							</p>
+					<section>
+						<div>
+							<div class="container" style="text-align: center">
+								<h2>房間資料</h2>
+							</div>
 						</div>
-					</div>
-				</div>
-			</c:forEach>
-		</div>
+					</section>
+					<section class="container">
+						<div class="row">
+							<div class="col-md-5">
+								<h3>${product.country}</h3>
+								<p>作者: ${product.city}</p>
+								<p>單價: ${product.name}</p>
+<%-- 								<c:choose> --%>
+<%-- 									<c:when test='${product.discount != 1.0 }'> --%>
+<!-- 										<p> -->
+<%-- 											折扣: ${product.discountStr} &nbsp;&nbsp; 實售: <font color='red'>${product.price*product.discount}元</font> --%>
+<!-- 										</p> -->
+<%-- 									</c:when> --%>
+<%-- 									<c:otherwise> --%>
+<!-- 										<p>&nbsp;</p> -->
+<%-- 									</c:otherwise> --%>
+<%-- 								</c:choose> --%>
+<%-- 								<p>書商: ${product.hotelRoomBean.occupancy}</p> --%>
+<%-- 								<p>書籍分類: ${product.category}</p> --%>
+								<p>
+									<strong>商品編號: </strong> <span class='label label-warning'>
+										${product.room_} </span>
+								</p>
+								<p>
+									</a> <a href='#' class='btn btn-warning btn-large'> <span
+										class='glyphicon-shopping-cart glyphicon'></span> 加入購物車
+									</a>
+								</p>
+							</div>
+						</div>
+					</section>
 
 
 					<!-- -------------------------------------------------------------------------------------------------------	 -->
