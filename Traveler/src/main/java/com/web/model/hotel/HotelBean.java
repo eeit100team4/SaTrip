@@ -1,4 +1,3 @@
-
 ﻿package com.web.model.hotel;
 
 import java.io.Serializable;
@@ -18,8 +17,6 @@ import javax.persistence.Transient;
 import javax.xml.bind.annotation.XmlTransient;
 
 import org.springframework.web.multipart.MultipartFile;
-
-
 
 @Entity
 @Table(name = "Hotel")

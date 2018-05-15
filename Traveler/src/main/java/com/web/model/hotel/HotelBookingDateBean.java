@@ -1,4 +1,3 @@
-
 package com.web.model.hotel;
 
 import java.io.Serializable;
