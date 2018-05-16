@@ -239,4 +239,6 @@ public class MemberBean implements Serializable {
 				+ ", passportNumber=" + passportNumber + ", registerTime=" + registerTime + "]";
 	}
 
+	
+	
 }
