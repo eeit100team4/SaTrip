@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-	
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -23,12 +23,11 @@
 	src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
 	integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
 	crossorigin="anonymous"></script>
-	
-	
+
+
 <title>Insert title here</title>
 
 <style>
-        
 * {
 	margin: 0;
 	padding: 0;
@@ -37,7 +36,6 @@
 /* #allpage { */
 /* 	margin: 0 auto; */
 /* } */
-
 .menu {
 	overflow: auto;
 	width: 100%;
@@ -50,8 +48,6 @@
 	overflow: auto;
 	width: 100%;
 	list-style-type: none;
-
-
 }
 
 .menu li {
@@ -63,9 +59,8 @@
 
 .me li {
 	float: left;
-    width: 15em; 
+	width: 15em;
 	/*為了讓連結區域能依字型大小的變化自動放大,因此在指定width屬性時採用em為單位*/
-	
 }
 
 .menu li a {
@@ -88,15 +83,15 @@
 	text-align: center;
 }
 
- .menu li a:hover { 
-	color: #FFFFFF; 
- 	background-color: #AA7700; 
- } 
-  .me li a:hover { 
-	color: #FFFFFF; 
- 	background-color: #AA7700; 
- }
+.menu li a:hover {
+	color: #FFFFFF;
+	background-color: #AA7700;
+}
 
+.me li a:hover {
+	color: #FFFFFF;
+	background-color: #AA7700;
+}
 
 /* .content { */
 /* 	overflow: auto; */
@@ -108,12 +103,9 @@
 /* 	float: right; */
 /* 	width: 20%; */
 /* } */
-
 .list1 {
 	list-style: decimal inside;
 }
-
-
 
 footer {
 	width: 100%;
@@ -129,17 +121,16 @@ footer {
 .d1 {
 	background-color: #FF8800;
 	width: 20%;
-	height:630px;
-	float:left;
+	height: 630px;
+	float: left;
 }
 
-.d2{
-background-color: #FFFFFF;
-width: 80%;
-height:630px;
-float:right;
+.d2 {
+	background-color: #FFFFFF;
+	width: 80%;
+	height: 630px;
+	float: right;
 }
-
 </style>
 
 <!-- Modernizr JS -->
@@ -181,216 +172,255 @@ float:right;
 
 
 <script>
+	function entry() {
+		alert("doubleclick");
 
-function entry(){
-	alert("doubleclick");
-	
-}
+	}
 
-
-
-$("#name").blur(function(){
-	alert("blur");
-// 	  $("name").attr("background-color","#D6D6FF").attr("readonly",true);
+	$("#name").blur(function() {
+		alert("blur");
+		// 	  $("name").attr("background-color","#D6D6FF").attr("readonly",true);
 	});
 
-$(document).ready(function(){
-		$("input").attr("readonly",true);
-	
-	  $("input").dblclick(function(){
-	    $(this).css("background-color","#FFFFCC");
-	    $(this).attr("readonly",false);
-	  });
-	  $("input").blur(function(){
-	    $(this).css("background-color","#FFFFF").attr("readonly",true);;
-	  });
-	});
-function geust(){
-	$("#guestInfo").slideToggle(); 
-}
+	$(document).ready(function() {
+		$("input").attr("readonly", true);
 
+		$("input").dblclick(function() {
+			$(this).css("background-color", "#FFFFCC");
+			$(this).attr("readonly", false);
+			$(this).keypress(function(e) {
+				// 	    	  console.log(e.which);
+				if (e.which == 13) {
+					$(this).blur();
+				}
+			})
+		});
+		$("input").blur(function() {
+			$(this).css("background-color", "#FFFFF").attr("readonly", true);
+			;
+		});
+	});
+
+	function geust() {$("#guestInfo").slideToggle();}
 </script>
 
 <script>
-var orderId=${bean.orderID};
+	var orderId = ${bean.orderID};
 
+	function update() {
 
+		var data = new FormData(document.querySelector("form"));
+		console.log(data);
+		$.ajax({
+			url : orderId,
+			type : 'POST',
+			data : data,
+			//enctype: "multipart/form-data",
+			contentType : false,
+			processData : false,
+			success : function(responce) {
+				alert("修改完成");
+				window.location.assign(orderId);
+			},
+			error : function() {
+				alert("error");
+			}
 
-
-function update(){
-	console.log(data);
-	var data = new FormData(document.querySelector("form"));
-$.ajax({
-	url : "update/"+orderId,
-	type : 'POST',
-	data : data,
-	//enctype: "multipart/form-data",
-	contentType : false,
-	processData : false,
-	success : function(responce) {
-		alert(responce);
-		alert("ok");
-		window.location.assign(responce);
-	},
-	error:function(){
-		alert("error");
+		});
 	}
-
-});
-}
 </script>
 
 </head>
 <body>
 	<div id="allpage">
-		<header>		
-		 <nav>		
+		<header> <nav>
 		<ul class="menu">
-	    	<li cless="le"><a href="index.html"><img src='/Traveler/images//icon_index.png' height="25px" width="25px"/>TRAVEL後台管理系統</a></li>
-					<li><a href="airTickets/back/list"><img src='/Traveler/images//icon_air.png' height="25px" width="25px"/>機票管理</a></li>
-					<li><a href="index.html"><img src='/Traveler/images//icon_hotel.png' height="25px" width="25px"/>飯店管理</a></li>
-					<li><a href="index.html"><img src='/Traveler/images//icon_traveler.png' height="25px" width="25px"/>主題旅遊管理</a></li>
-					<li><a href="index.html"><img src='/Traveler/images//icon_vip.png' height="25px" width="25px"/>會員管理</a></li>
-					<li><a href="commlist"><img src='/Traveler/images//icon_comm.png' height="25px" width="25px"/>紅利管理</a></li>
-					<li><a href="index.html"><img src='/Traveler/images//icon_support.png' height="25px" width="25px"/>客服管理</a></li>
-					<li><a href="index.html"><img src='/Traveler/images//icon_login.png' height="25px" width="25px"/>登入</a></li> <!--登出-->
+			<li cless="le"><a href="/Traveler/backStage"><img
+					src='/Traveler/images//icon_index.png' height="25px" width="25px" />TRAVEL後台管理系統</a></li>
+			<li><a href="/Traveler/airTickets/back/list"><img
+					src='/Traveler/images//icon_air.png' height="25px" width="25px" />機票管理</a></li>
+			<li><a href="index.html"><img
+					src='/Traveler/images//icon_hotel.png' height="25px" width="25px" />飯店管理</a></li>
+			<li><a href="index.html"><img
+					src='/Traveler/images//icon_traveler.png' height="25px"
+					width="25px" />主題旅遊管理</a></li>
+			<li><a href="index.html"><img
+					src='/Traveler/images//icon_vip.png' height="25px" width="25px" />會員管理</a></li>
+			<li><a href="commlist"><img
+					src='/Traveler/images//icon_comm.png' height="25px" width="25px" />紅利管理</a></li>
+			<li><a href="index.html"><img
+					src='/Traveler/images//icon_support.png' height="25px" width="25px" />客服管理</a></li>
+			<li><a href="index.html"><img
+					src='/Traveler/images//icon_login.png' height="25px" width="25px" />登入</a></li>
+			<!--登出-->
 		</ul>
 
 		</nav> </header>
-	
-<div class="d1"> 
-<h2 style="text-align:center">機票管理</h2>
-<ul class="me">
-<li><a href="index.html">查詢會員訂單</a></li>
-<li><a href="index.html">航班統計報表</a></li>
 
-</ul>
+		<div class="d1">
+			<h2 style="text-align: center">機票管理</h2>
+			<ul class="me">
+				<li><a href="index.html">查詢會員訂單</a></li>
+				<li><a href="index.html">航班統計報表</a></li>
+
+			</ul>
 
 		</div>
-		
-		
-		
-		
-		
-<div class="d2">
-<ul class="list-group">
-    <li class="list-group-item">訂單編號：${bean.orderID}</li>
-    <li class="list-group-item">去程 :${bean.depDate} ${bean.depT} ${bean.depC} (機型 ${bean.depNum}) ~ ${bean.depDate} ${bean.arrT}  ${bean.arrC}</li>
-    <li class="list-group-item">回程 :${bean.returnDate} ${bean.returnTime} ${bean.arrC} (機型 ${bean.returnNum}) ~ ${bean.returnDate} ${bean.returnArrTime}  ${bean.depC} </li>
-    <li class="list-group-item">航空公司：(${bean.airline})</li>
-    <li class="list-group-item">總價格： ${bean.price}</li>
-    <li class="list-group-item">紅利點數：${bean.redPoint}</li>
-    <li class="list-group-item">付款狀態：${bean.checkpay}</li>
-</ul>
-  <button type="button" style="margin:10px;" class="btn btn-default btn-sm" id="guest" onclick="geust()">聯絡人&旅客資訊</button>
-  <div id="guestInfo" style="display:none">
-<!--  	<div class="text-left" style="width: 50%;height:auto; margin: 0px auto; border: 1px orange solid"> -->
- 	<div class="text-left" style="width: 90%;height:auto; margin: 20px;padding-left:2px ;border: 1px orange solid">
-	<form>
-	<div class="text-center" style="margin:5px;background:orange"><strong>聯絡人</strong></div>
-  <div class="form-row">
-    <div class="col-md-4 mb-3">
-        <label for="contactName" class="lab">姓名</label>
-        <input type="text" name="contactName" id="contactName"  maxlength="10" value="${bean.guestBean.contactName}">
-    </div>
-    <div class="col-md-4 mb-3">
-        <label for="contactPhone" class="lab">手機</label>
-        <input type="text" name="contactPhone" id="contactPhone" maxlength="10" value="${bean.guestBean.contactPhone}">
-    </div>
-    <div class="col-md-4 mb-3">
-        <label for="contactIdCard" class="lab">身分證字號</label>
-        <input  type="text" name="contactIdCard" id="contactIdCard" maxlength="10" value="${bean.guestBean.contactIdCard}">
-    </div>
-  </div>
-  <div class="form-row">
-    <div class="col-md-5 col-md-offset-1 mb-3">
-       <label for="contactAddress"  class="lab">地址</label>
-       <input   type="text" name="contactAddress" id="contactAddress" size="45" value="${bean.guestBean.contactAddress}">
-    </div>
-      <div class="col-md-5 col-md-offset-1	 mb-3">
-        <label for="" class="lab">E-mail</label>
-        <input type="text" name="contactEmail" id="contactEmail" size="45" value="${bean.guestBean.contactEmail}">
-      </div>
-  </div>
- <div class="text-center" style="margin:5px;background:orange"><strong>旅客一</strong></div>
-  <div class="form-row">
-    <div class="col-md-4 mb-3">
-        <label for="guestOneName" class="lab">姓名</label>
-        <input type="text" name="guestOneName" id="guestOneName"  value="${bean.guestBean.guestOneName}">
-    </div>
-      <div class="col-md-4 mb-3">
-        <label for="guestOneLastName" class="lab">英文姓</label>
-        <input type="text" name="guestOneLastName" id="guestOneLastName" maxlength="10" value="${bean.guestBean.guestOneLastName}">
-      </div>
-      <div class="col-md-4 mb-3">
-         <label for="guestOneFirstName" class="lab">英文名</label>
-         <input type="text" name="guestOneFirstName" id="guestOneFirstName" maxlength="10" value="${bean.guestBean.guestOneFirstName}">
-      </div>
-  </div>
-    <div class="form-row">
-    <div class="col-md-4 mb-3">
-          <label for="guestOneBirth" class="lab">生日</label>
-          <input type="text" name="guestOneBirth" id="guestOneBirth"  value="${bean.guestBean.guestOneBirth}">
-    </div>
-       <div class="col-md-4 mb-3">
-         <label for="guestOnepassportNum" class="lab">護照號碼</label>
-         <input type="text" name=guestOnepassportNum id="guestOnepassportNum" value="${bean.guestBean.guestOnepassportNum}">
-      </div>
-      <div class="col-md-4  mb-3">
-         <label class="lab">性別</label>
-         <input type="text" name="guestOneGender"   id="guestOneGender" value="${bean.guestBean.guestOneGender}">
-      </div>
-  </div>
-  <div class="text-center" style="margin:5px;background:orange"><strong>旅客二</strong></div>
- <div class="form-row">
-    <div class="col-md-4 mb-3">
-        <label for="guestTwoName" class="lab">姓名</label>
-        <input type="text" name="guestTwoName" id="guestTwoName" value="${bean.guestBean.guestTwoName}" >
-    </div>
-      <div class="col-md-4 mb-3">
-        <label for="guestTwoLastName" class="lab">英文姓</label>
-        <input type="text" name="guestTwoLastName" id="guestTwoLastName" maxlength="10" value="${bean.guestBean.guestTwoLastName}">
-      </div>
-      <div class="col-md-4 mb-3">
-         <label for="guestTwoFirstName" class="lab">英文名</label>
-         <input type="text" name="guestTwoFirstName" id="guestTwoFirstName" maxlength="10" value="${bean.guestBean.guestTwoFirstName}">
-      </div>
-  </div>
-    <div class="form-row">
-    <div class="col-md-4 mb-3">
-          <label for="guestTwoBirth" class="lab">生日</label>
-          <input type="text" name="guestTwoBirth" id="guestTwoBirth"  value="${bean.guestBean.guestTwoBirth}">
-    </div>
-      <div class="col-md-4 mb-3">
-         <label for="guestTwopassportNum" class="lab">護照號碼</label>
-         <input type="text" name=guestTwopassportNum id="guestTwopassportNum" value="${bean.guestBean.guestTwopassportNum}">
-      </div>
-      <div class="col-md-4  mb-3">
-         <label class="lab">性別</label>
-         <input type="text" name="guestTwoGender"   id="guestTwoGender" value="${bean.guestBean.guestTwoGender}">
-      </div>
-  </div>
-      			  <input type="hidden" name="_method" value="post" /> 
-		       <div class="sub text-center">
-	          <input type="hidden" name="orderID" value="${bean.orderID}" /> 
-	          <input type="hidden" name="guestId" value="${bean.guestId}" /> 
-	          <button type="button" class="btn btn-warning"    onclick="update()">修改</button>
-            </div>
-</form>
+
+
+
+
+
+		<div class="d2">
+			<ul class="list-group">
+				<li class="list-group-item">訂單編號：${bean.orderID}</li>
+				<li class="list-group-item">去程 :${bean.depDate} ${bean.depT}
+					${bean.depC} (機型 ${bean.depNum}) ~ <c:if test="${bean.arrTnextDay==null}">${bean.depDate}</c:if>${bean.arrTnextDay} ${bean.arrT}
+					${bean.arrC}</li>
+				<li class="list-group-item">回程 :${bean.returnDate}
+					${bean.returnTime} ${bean.arrC} (機型 ${bean.returnNum}) ~
+					<c:if test="${returnArrTnextDay==null}">${bean.returnDate}</c:if>${bean.returnArrTnextDay} ${bean.returnArrTime} ${bean.depC}</li>
+				<li class="list-group-item">航空公司：(${bean.airline})</li>
+				<li class="list-group-item">總價格：NT$ ${bean.price} <c:if test="${bean.bonus!=null}">(extra ${bean.bonus})</c:if></li>
+				<li class="list-group-item">紅利點數：${bean.redPoint} 點</li>
+				<li class="list-group-item">付款狀態：${bean.checkpay}</li>
+			</ul>
+			<button type="button" style="margin: 10px;"
+				class="btn btn-default btn-sm" id="guest" onclick="geust()">聯絡人&旅客資訊</button>
+			<div id="guestInfo" style="display: none">
+				<!--  	<div class="text-left" style="width: 50%;height:auto; margin: 0px auto; border: 1px orange solid"> -->
+				<div class="text-left"
+					style="width: 90%; height: auto; margin: 20px; padding-left: 2px; border: 1px orange solid">
+					<form>
+						<div class="text-center" style="margin: 5px; background: orange">
+							<strong>聯絡人</strong>
+						</div>
+						<div class="form-row">
+							<div class="col-md-4 mb-3">
+								<label for="contactName" class="lab">姓名</label> <input
+									type="text" name="contactName" id="contactName" maxlength="10"
+									value="${bean.guestBean.contactName}">
+							</div>
+							<div class="col-md-4 mb-3">
+								<label for="contactPhone" class="lab">手機</label> <input
+									type="text" name="contactPhone" id="contactPhone"
+									maxlength="10" value="${bean.guestBean.contactPhone}">
+							</div>
+							<div class="col-md-4 mb-3">
+								<label for="contactIdCard" class="lab">身分證字號</label> <input
+									type="text" name="contactIdCard" id="contactIdCard"
+									maxlength="10" value="${bean.guestBean.contactIdCard}">
+							</div>
+						</div>
+						<div class="form-row">
+							<div class="col-md-5 col-md-offset-1 mb-3">
+								<label for="contactAddress" class="lab">地址</label> <input
+									type="text" name="contactAddress" id="contactAddress" size="45"
+									value="${bean.guestBean.contactAddress}">
+							</div>
+							<div class="col-md-5 col-md-offset-1	 mb-3">
+								<label for="" class="lab">E-mail</label> <input type="text"
+									name="contactEmail" id="contactEmail" size="45"
+									value="${bean.guestBean.contactEmail}">
+							</div>
+						</div>
+						<div class="text-center" style="margin: 5px; background: orange">
+							<strong>旅客一</strong>
+						</div>
+						<div class="form-row">
+							<div class="col-md-4 mb-3">
+								<label for="guestOneName" class="lab">姓名</label> <input
+									type="text" name="guestOneName" id="guestOneName"
+									value="${bean.guestBean.guestOneName}">
+							</div>
+							<div class="col-md-4 mb-3">
+								<label for="guestOneLastName" class="lab">英文姓</label> <input
+									type="text" name="guestOneLastName" id="guestOneLastName"
+									maxlength="10" value="${bean.guestBean.guestOneLastName}">
+							</div>
+							<div class="col-md-4 mb-3">
+								<label for="guestOneFirstName" class="lab">英文名</label> <input
+									type="text" name="guestOneFirstName" id="guestOneFirstName"
+									maxlength="10" value="${bean.guestBean.guestOneFirstName}">
+							</div>
+						</div>
+						<div class="form-row">
+							<div class="col-md-4 mb-3">
+								<label for="guestOneBirth" class="lab">生日</label> <input
+									type="text" name="guestOneBirth" id="guestOneBirth"
+									value="${bean.guestBean.guestOneBirth}">
+							</div>
+							<div class="col-md-4 mb-3">
+								<label for="guestOnepassportNum" class="lab">護照號碼</label> <input
+									type="text" name=guestOnepassportNum id="guestOnepassportNum"
+									value="${bean.guestBean.guestOnepassportNum}">
+							</div>
+							<div class="col-md-4  mb-3">
+								<label class="lab">性別</label> <input type="text"
+									name="guestOneGender" id="guestOneGender"
+									value="${bean.guestBean.guestOneGender}">
+							</div>
+						</div>
+					<c:if test="${bean.person==2}">
+						<div class="text-center" style="margin: 5px; background: orange">
+							<strong>旅客二</strong>
+						</div>
+						<div class="form-row">
+							<div class="col-md-4 mb-3">
+								<label for="guestTwoName" class="lab">姓名</label> <input
+									type="text" name="guestTwoName" id="guestTwoName"
+									value="${bean.guestBean.guestTwoName}">
+							</div>
+							<div class="col-md-4 mb-3">
+								<label for="guestTwoLastName" class="lab">英文姓</label> <input
+									type="text" name="guestTwoLastName" id="guestTwoLastName"
+									maxlength="10" value="${bean.guestBean.guestTwoLastName}">
+							</div>
+							<div class="col-md-4 mb-3">
+								<label for="guestTwoFirstName" class="lab">英文名</label> <input
+									type="text" name="guestTwoFirstName" id="guestTwoFirstName"
+									maxlength="10" value="${bean.guestBean.guestTwoFirstName}">
+							</div>
+						</div>
+						<div class="form-row">
+							<div class="col-md-4 mb-3">
+								<label for="guestTwoBirth" class="lab">生日</label> <input
+									type="text" name="guestTwoBirth" id="guestTwoBirth"
+									value="${bean.guestBean.guestTwoBirth}">
+							</div>
+							<div class="col-md-4 mb-3">
+								<label for="guestTwopassportNum" class="lab">護照號碼</label> <input
+									type="text" name=guestTwopassportNum id="guestTwopassportNum"
+									value="${bean.guestBean.guestTwopassportNum}">
+							</div>
+							<div class="col-md-4  mb-3">
+								<label class="lab">性別</label> <input type="text"
+									name="guestTwoGender" id="guestTwoGender"
+									value="${bean.guestBean.guestTwoGender}">
+							</div>
+						</div>
+					</c:if>
+						<input type="hidden" name="_method" value="post" />
+						<div class="sub text-center">
+							<input type="hidden" name="orderID" value="${bean.orderID}" /> <input
+								type="hidden" name="guestId" value="${bean.guestId}" />
+							<button type="button" class="btn btn-warning" onclick="update()">修改</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+
+
+
+
+
 	</div>
-  </div>
-</div>
-
-
-
-		
-
-	</div>
-<!-- 		<footer id="Footer" > -->
-<!-- 		<p>TRAVEL &nbsp; Tel:(02)2222-8888 &nbsp; -->
-<!-- 			台北市復興南路一段390號 &nbsp; &copy; 2014 All Rights Reserved Quality Art -->
-<!-- 			Technology CO.</p> -->
-<!-- 		</footer> -->
+	<!-- 		<footer id="Footer" > -->
+	<!-- 		<p>TRAVEL &nbsp; Tel:(02)2222-8888 &nbsp; -->
+	<!-- 			台北市復興南路一段390號 &nbsp; &copy; 2014 All Rights Reserved Quality Art -->
+	<!-- 			Technology CO.</p> -->
+	<!-- 		</footer> -->
 </body>
 
 </html>

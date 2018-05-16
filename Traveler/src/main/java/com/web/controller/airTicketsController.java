@@ -71,6 +71,15 @@ public class airTicketsController {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		
+		String dep = request.getParameter("dept");
+		String arr = request.getParameter("arrv");
+		Integer extraP = eps.getExtraPrice(dep, arr);
+		if(extraP!=null) {
+			System.out.println("加價!!!!");
+			model.addAttribute("extraPrice",extraP);
+		}
+		
 		model.addAttribute("result", result);
 		model.addAttribute("depDate", request.getParameter("depDate"));
 		model.addAttribute("reDate", request.getParameter("reDate"));
@@ -154,14 +163,6 @@ public class airTicketsController {
 		return "airTickets/error";
 	}
 
-	// 測試PDF功能
-	// @RequestMapping("/pdfTest")
-	// public String testPdf() throws DocumentException, IOException {
-	// System.out.println("產生PDF");
-	// pdf.pdfProduce(os.selectOneByOrderId("201805100044"));
-	// return "airTickets/test2";
-	// }
-
 //	 測試下載
 	@RequestMapping(value = "/download")
 	public ResponseEntity<byte[]> download() throws IOException {
@@ -177,12 +178,18 @@ public class airTicketsController {
 		return null;
 	}
 	
-	@RequestMapping("/finishPage")
+	@RequestMapping("/pricetest")
 	public String toTest2(Model model) {
-//		Integer price = eps.getExtraPrice();
-//		model.addAttribute("price",price);
+	    Integer price = eps.getExtraPrice("TPE", "HND");
+		System.out.println(price);
 		return"airTickets/finishPage";
 	}	
+	
+
+	 @RequestMapping("/finishPage")
+	 public String testPdf() throws DocumentException, IOException {
+	 return "airTickets/finishPage";
+	 }
 	
 
 }

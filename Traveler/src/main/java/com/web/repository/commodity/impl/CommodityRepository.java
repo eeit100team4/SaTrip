@@ -64,6 +64,15 @@ public class CommodityRepository implements CommodityDAO {
 		
 	}
 	
+	
+	@Override
+	public void addCommodityA(CommodityBean bean) {
+		Session session = factory.getCurrentSession();
+				
+		session.saveOrUpdate(bean);
+		
+	}
+	
 	//列出單筆商品
 	@Override
 	public CommodityBean getCommodityById(int commodityid) {

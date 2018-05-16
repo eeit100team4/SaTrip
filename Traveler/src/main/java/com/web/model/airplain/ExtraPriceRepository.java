@@ -13,10 +13,10 @@ public class ExtraPriceRepository {
 	SessionFactory sessionFactory;
 	
 
-	public Integer selectByid() {
+	public Integer selectByid(String dept ,String arrv) {
 		Query<ExtraPriceBean> query = sessionFactory.getCurrentSession()
-				      .createQuery("FROM ExtraPriceBean WHERE id=?",ExtraPriceBean.class);
-			query.setParameter(0, 2);
+				      .createQuery("FROM ExtraPriceBean WHERE dept=? AND arrv=?",ExtraPriceBean.class);
+		    query.setParameter(0,dept).setParameter(1,arrv);
 		ExtraPriceBean q = query.uniqueResult();
 		return q.getExtraPrice();
 	}
