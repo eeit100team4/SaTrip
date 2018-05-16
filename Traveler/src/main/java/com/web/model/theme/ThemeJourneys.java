@@ -30,7 +30,7 @@ public class ThemeJourneys implements Serializable{
 	//報名截止日
 	private Timestamp deadline;
 	//建立日期
-	private Timestamp createDate;
+	private Timestamp createTimestamp;
 	//價格
 	private Integer price;
 	//航空公司名
@@ -40,13 +40,13 @@ public class ThemeJourneys implements Serializable{
 	//回程班機編號
 	private String returnPlaneId;
 	//出發-起飛-日期
-	private Timestamp goStartDate;
+	private Timestamp goStartTimestamp;
 	//出發-起飛-時
 	private String goStartHour;
 	//出發-起飛-分
 	private String goStartMinute;
 	//出發-抵達-日期
-	private Timestamp goEndDate;
+	private Timestamp goEndTimestamp;
 	//出發-抵達-時
 	private String goEndHour;
 	//出發-抵達-分
@@ -56,13 +56,13 @@ public class ThemeJourneys implements Serializable{
 	//出發-抵達-機場
 	private String goEndWhere;
 	//返回-起飛-日期
-	private Timestamp returnStartDate;
+	private Timestamp returnStartTimestamp;
     //返回-起飛-時
 	private String returnStartHour;
 	//返回-起飛-分
 	private String returnStartMinute;
 	//返回-抵達-日期
-	private Timestamp returnEndDate;
+	private Timestamp returnEndTimestamp;
 	//返回-抵達-時
 	private String returnEndHour;
 	//返回-抵達-分
@@ -85,12 +85,12 @@ public class ThemeJourneys implements Serializable{
 	}
 	//帶參數建構子 //放入FK的表格
 	public ThemeJourneys(Integer journeyId, Integer productId, Timestamp setOut,
-			Timestamp returnDay, Timestamp deadline, Timestamp createDate, 
+			Timestamp returnDay, Timestamp deadline, Timestamp createTimestamp, 
 			Integer price, String companyName, String goPlaneId, String returnPlaneId, 
-			Timestamp goStartDate, String goStartHour, String goStartMinute, 
-			Timestamp goEndDate, String goEndHour, String goEndMinute, 
-			String goStartWhere, String goEndWhere, Timestamp returnStartDate, 
-			String returnStartHour, String returnStartMinute, Timestamp returnEndDate, 
+			Timestamp goStartTimestamp, String goStartHour, String goStartMinute, 
+			Timestamp goEndTimestamp, String goEndHour, String goEndMinute, 
+			String goStartWhere, String goEndWhere, Timestamp returnStartTimestamp, 
+			String returnStartHour, String returnStartMinute, Timestamp returnEndTimestamp, 
 			String returnEndHour, String returnEndMinute, String returnStartWhere, 
 			String returnEndWhere, ThemeProducts themeProducts) {
 		this.journeyId = journeyId;
@@ -98,26 +98,26 @@ public class ThemeJourneys implements Serializable{
 		this.setOut = setOut;
 		this.returnDay = returnDay;
 		this.deadline = deadline;
-		this.createDate = createDate;
+		this.createTimestamp = createTimestamp;
 		this.price = price;
 		
 		this.companyName = companyName;
 		this.goPlaneId = goPlaneId;
 		this.returnPlaneId = returnPlaneId;
 		
-		this.goStartDate = goStartDate;
+		this.goStartTimestamp = goStartTimestamp;
 		this.goStartHour = goStartHour;
 		this.goStartMinute = goStartMinute;
-		this.goEndDate = goEndDate;
+		this.goEndTimestamp = goEndTimestamp;
 		this.goEndHour = goEndHour;
 		this.goEndMinute = goEndMinute;
 		this.goStartWhere = goStartWhere;
 		this.goEndWhere = goEndWhere;
 		
-		this.returnStartDate = returnStartDate;
+		this.returnStartTimestamp = returnStartTimestamp;
 		this.returnStartHour = returnStartHour;
 		this.returnStartMinute = returnStartMinute;
-		this.returnEndDate = returnEndDate;
+		this.returnEndTimestamp = returnEndTimestamp;
 		this.returnEndHour = returnEndHour;
 		this.returnEndMinute = returnEndMinute;
 		this.returnStartWhere = returnStartWhere;
@@ -167,11 +167,11 @@ public class ThemeJourneys implements Serializable{
 		this.deadline = deadline;
 	}
 	//建立日期
-	public Timestamp getCreateDate() {
-		return createDate;
+	public Timestamp getCreateTimestamp() {
+		return createTimestamp;
 	}
-	public void setCreateDate(Timestamp createDate) {
-		this.createDate = createDate;
+	public void setCreateTimestamp(Timestamp createTimestamp) {
+		this.createTimestamp = createTimestamp;
 	}
 	//價格
 	public Integer getPrice() {
@@ -202,11 +202,11 @@ public class ThemeJourneys implements Serializable{
 		this.returnPlaneId = returnPlaneId;
 	}
 	//出發-起飛-日期
-	public Timestamp getGoStartDate() {
-		return goStartDate;
+	public Timestamp getGoStartTimestamp() {
+		return goStartTimestamp;
 	}
-	public void setGoStartDate(Timestamp goStartDate) {
-		this.goStartDate = goStartDate;
+	public void setGoStartTimestamp(Timestamp goStartTimestamp) {
+		this.goStartTimestamp = goStartTimestamp;
 	}
 	//出發-起飛-時
 	public String getGoStartHour() {
@@ -223,11 +223,11 @@ public class ThemeJourneys implements Serializable{
 		this.goStartMinute = goStartMinute;
 	}
 	//出發-抵達-日期
-	public Timestamp getGoEndDate() {
-		return goEndDate;
+	public Timestamp getGoEndTimestamp() {
+		return goEndTimestamp;
 	}
-	public void setGoEndDate(Timestamp goEndDate) {
-		this.goEndDate = goEndDate;
+	public void setGoEndTimestamp(Timestamp goEndTimestamp) {
+		this.goEndTimestamp = goEndTimestamp;
 	}
 	//出發-抵達-時
 	public String getGoEndHour() {
@@ -258,11 +258,11 @@ public class ThemeJourneys implements Serializable{
 		this.goEndWhere = goEndWhere;
 	}
 	//返回-起飛-日期
-	public Timestamp getReturnStartDate() {
-		return returnStartDate;
+	public Timestamp getReturnStartTimestamp() {
+		return returnStartTimestamp;
 	}
-	public void setReturnStartDate(Timestamp returnStartDate) {
-		this.returnStartDate = returnStartDate;
+	public void setReturnStartTimestamp(Timestamp returnStartTimestamp) {
+		this.returnStartTimestamp = returnStartTimestamp;
 	}
 	//返回-起飛-時
 	public String getReturnStartHour() {
@@ -279,11 +279,11 @@ public class ThemeJourneys implements Serializable{
 		this.returnStartMinute = returnStartMinute;
 	}
 	//返回-抵達-日期
-	public Timestamp getReturnEndDate() {
-		return returnEndDate;
+	public Timestamp getReturnEndTimestamp() {
+		return returnEndTimestamp;
 	}
-	public void setReturnEndDate(Timestamp returnEndDate) {
-		this.returnEndDate = returnEndDate;
+	public void setReturnEndTimestamp(Timestamp returnEndTimestamp) {
+		this.returnEndTimestamp = returnEndTimestamp;
 	}
 	//返回-抵達-時
 	public String getReturnEndHour() {
@@ -316,13 +316,13 @@ public class ThemeJourneys implements Serializable{
 	@Override
 	public String toString() {//加入FK表格
 		return "ThemeJourneys [journeyId=" + journeyId + ", productId=" + productId + ", setOut=" + setOut
-				+ ", returnDay=" + returnDay + ", deadline=" + deadline + ", createDate=" + createDate + ", price="
+				+ ", returnDay=" + returnDay + ", deadline=" + deadline + ", createTimestamp=" + createTimestamp + ", price="
 				+ price + ", companyName=" + companyName + ", goPlaneId=" + goPlaneId + ", returnPlaneId="
-				+ returnPlaneId + ", goStartDate=" + goStartDate + ", goStartHour=" + goStartHour + ", goStartMinute="
-				+ goStartMinute + ", goEndDate=" + goEndDate + ", goEndHour=" + goEndHour + ", goEndMinute="
-				+ goEndMinute + ", goStartWhere=" + goStartWhere + ", goEndWhere=" + goEndWhere + ", returnStartDate="
-				+ returnStartDate + ", returnStartHour=" + returnStartHour + ", returnStartMinute=" + returnStartMinute
-				+ ", returnEndDate=" + returnEndDate + ", returnEndHour=" + returnEndHour + ", returnEndMinute="
+				+ returnPlaneId + ", goStartTimestamp=" + goStartTimestamp + ", goStartHour=" + goStartHour + ", goStartMinute="
+				+ goStartMinute + ", goEndTimestamp=" + goEndTimestamp + ", goEndHour=" + goEndHour + ", goEndMinute="
+				+ goEndMinute + ", goStartWhere=" + goStartWhere + ", goEndWhere=" + goEndWhere + ", returnStartTimestamp="
+				+ returnStartTimestamp + ", returnStartHour=" + returnStartHour + ", returnStartMinute=" + returnStartMinute
+				+ ", returnEndTimestamp=" + returnEndTimestamp + ", returnEndHour=" + returnEndHour + ", returnEndMinute="
 				+ returnEndMinute + ", returnStartWhere=" + returnStartWhere + ", returnEndWhere=" + returnEndWhere
 				+ ", themeProducts=" + themeProducts + "]";
 	}
