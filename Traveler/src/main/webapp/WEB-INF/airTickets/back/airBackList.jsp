@@ -27,6 +27,32 @@
 
 <title>Insert title here</title>
 
+<script src="/Traveler/js/jquery.min.js"></script>
+<!-- jQuery Easing -->
+<script src="/Traveler/js/jquery.easing.1.3.js"></script>
+<!-- Bootstrap -->
+<script src="/Traveler/js/bootstrap.min.js"></script>
+<!-- Waypoints -->
+<script src="/Traveler/js/jquery.waypoints.min.js"></script>
+<script src="/Traveler/js/sticky.js"></script>
+
+<!-- Stellar -->
+<script src="/Traveler/js/jquery.stellar.min.js"></script>
+<!-- Superfish -->
+<script src="/Traveler/js/hoverIntent.js"></script>
+<script src="/Traveler/js/superfish.js"></script>
+<!-- Magnific Popup -->
+<script src="/Traveler/js/jquery.magnific-popup.min.js"></script>
+<script src="/Traveler/js/magnific-popup-options.js"></script>
+<!-- Date Picker -->
+<script src="/Traveler/js/bootstrap-datepicker.min.js"></script>
+<!-- CS Select -->
+<script src="/Traveler/js/classie.js"></script>
+<script src="/Traveler/js/selectFx.js"></script>
+
+<!-- Main JS -->
+<script src="/Traveler/js/main.js"></script>
+
 <style>
 * {
 	margin: 0;
@@ -132,8 +158,81 @@ footer {
 	float: right;
 }
 </style>
+<script>
+function extraPrice(){
+	$(".d2").empty();
+	$(".d2").html("<div><h2>調整EXTRA價格</h2><select  id='dept' name='dept' class='secDep' style='color: blue;''><option selected='selected'>選擇出發地</option><option>TPE</option></select></div>");
+	$(".d2").append("<div><select onchange='myFunction()' name='arrv'  id='arrv'><option selected='selected'>選擇目的地</option><option>HND</option><option>NRT</option></select></div><div id='show'><div>");
+	
+}
+
+function modify(){
+	alert("修改");
+}	
+
+var dept;
+var arrv;
+var id;
+var extraPrice;
+function myFunction(){
+	dept=$("#dept").val();
+	arrv=$("#arrv").val();
+	
+	var data= new FormData();
+	data.append("dept",dept);
+	data.append("arrv",arrv);
+
+	
+	$.ajax({
+		url : 'extra',
+		type : 'POST',
+		data : data,
+		enctype: "multipart/form-data",
+		contentType : false,
+		processData : false,
+		success : function(responce) {
+			$("#show").empty();		
+			id=responce.pkId;
+			$("#show").append("<div><input id='update' type='text' value="+responce.extraPrice+" ><button type='button' class='btn' onclick='modify()'>修改</button></div>");
+// 			window.location.assign(responce);
+		},
+		error:function(){
+			alert("error");
+		}
+
+	});
+}
+	
+function modify(){
+	extraPrice =$("#update").val();
+	var data2= new FormData();
+	data2.append("id",id);
+	data2.append("dept",dept);
+	data2.append("arrv",arrv);
+	data2.append("extraPrice",extraPrice);
+	
+	alert(dept+","+arrv+","+extraPrice);
+	
+	$.ajax({
+		url : 'updateExtra',
+		type : 'POST',
+		data : data2,
+		enctype: "multipart/form-data",
+		contentType : false,
+		processData : false,
+		success : function(responce) {
+			alert(responce);
+		},
+		error:function(){
+			alert("error");
+		}
+
+	});
+}	
 
 
+
+</script>
 
 </head>
 <body>
@@ -165,7 +264,8 @@ footer {
 			<h2 style="text-align: center">機票管理</h2>
 			<ul class="me">
 				<li><a href="searchAll">查詢訂單</a></li>
-				<li><a href="*">調整extra價格</a></li>
+				<li><button type="button" class="btn" onclick="extraPrice()">調整extra價格</button></li>
+<!-- 				<li><a href="*">調整extra價格</a></li> -->
 
 			</ul>
 
@@ -182,8 +282,9 @@ footer {
 
 			<h2>調整價格</h2>
 			<h2>列出目前最低價廣告</h2>
-
-
+		</div>
+		<div class="d3">
+		
 		</div>
 
 

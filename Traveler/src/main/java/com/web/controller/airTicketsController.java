@@ -28,6 +28,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.Gson;
 import com.itextpdf.text.DocumentException;
+import com.web.model.airplain.ExtraPriceBean;
 import com.web.model.airplain.GuestBean;
 import com.web.model.airplain.OrderDetailsBean;
 import com.web.service.airplain.BFMService;
@@ -74,7 +75,8 @@ public class airTicketsController {
 		
 		String dep = request.getParameter("dept");
 		String arr = request.getParameter("arrv");
-		Integer extraP = eps.getExtraPrice(dep, arr);
+		ExtraPriceBean epBean  = eps.getExtraPrice(dep, arr);
+		Integer extraP=epBean.getExtraPrice();
 		if(extraP!=null) {
 			System.out.println("加價!!!!");
 			model.addAttribute("extraPrice",extraP);
@@ -180,7 +182,8 @@ public class airTicketsController {
 	
 	@RequestMapping("/pricetest")
 	public String toTest2(Model model) {
-	    Integer price = eps.getExtraPrice("TPE", "HND");
+	    ExtraPriceBean epBean = eps.getExtraPrice("TPE", "HND");
+	    Integer price = epBean.getExtraPrice();
 		System.out.println(price);
 		return"airTickets/finishPage";
 	}	

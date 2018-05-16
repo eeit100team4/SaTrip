@@ -181,11 +181,15 @@ footer {
 		alert("blur");
 		// 	  $("name").attr("background-color","#D6D6FF").attr("readonly",true);
 	});
-
+	
+	
+	var before;
 	$(document).ready(function() {
 		$("input").attr("readonly", true);
 
 		$("input").dblclick(function() {
+			 before = $(this).val();
+			console.log(before);
 			$(this).css("background-color", "#FFFFCC");
 			$(this).attr("readonly", false);
 			$(this).keypress(function(e) {
@@ -196,8 +200,12 @@ footer {
 			})
 		});
 		$("input").blur(function() {
-			$(this).css("background-color", "#FFFFF").attr("readonly", true);
-			;
+			var after = $(this).val();
+			if(after==before){
+			$(this).css("background-color", "#FFFFFF").attr("readonly", true);
+			}else{
+				$(this).css("background-color", "#FFFFCC").attr("readonly", true);
+			}
 		});
 	});
 
