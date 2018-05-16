@@ -64,19 +64,14 @@ public class ContactusController {
 		session.setAttribute("aa", contactus2);
 		return "redirect:/contactus/InsertOpinionSuccess";
 	}
-	@RequestMapping(path="/update/{pkid}")
-	public String update(@ModelAttribute("contactusBean")ContactusBean contactus2
-			,@PathVariable Integer pkid) {
-		contactusService.update(contactus2);
-		return "redirect:/feedbackopinion";
-	}
-	
+
 	@RequestMapping("/update/feedback")
 	public String updateFeedback(Model model) {
+		System.out.println("feedback");
 		contactusService.updateAllFeedback();
-		return "redirect:/feedbackopinion";
+		return "redirect:/contactus/feedbackopinion";
+		
 	}
-	
 	
 	@RequestMapping("contactus/feedbackopinion")
 	public String list2(Model model) {
