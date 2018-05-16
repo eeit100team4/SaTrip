@@ -52,14 +52,14 @@ public class airTicketsBackController {
 		return "/airTickets/back/backtest";
 	}
 	
-	@RequestMapping(value="/selectOne/update/{orderID}" ,method = RequestMethod.POST)
+	@RequestMapping(value="/selectOne/{orderID}" ,method = RequestMethod.POST)
 	@ResponseBody
 	public String updateGuestInfo(GuestBean guestBean,OrderDetailsBean orderBean,Model model) {
 		System.out.println("前"+guestBean);
 		guestBean.setId(orderBean.getGuestId());
 		gs.update(guestBean);
 			System.out.println("後"+guestBean);
-		return "/airTickets/back/here";
+		return "OK";
 	}
 
 	@RequestMapping("/here")

@@ -29,11 +29,13 @@ public class OrderDetailsBean {
 	private String depT;
 	private String depDate;
 	private String depC;
+	private String arrTnextDay;
 	private String arrT;
 	private String returnDate;
 	private String arrC;
 	private String returnTime;
 	private String returnArrTime;
+	private String returnArrTnextDay;
 	private Integer price;
 	private String airline;
 	private String depNum;
@@ -65,6 +67,22 @@ public class OrderDetailsBean {
 
 
 
+
+	public String getArrTnextDay() {
+		return arrTnextDay;
+	}
+
+	public void setArrTnextDay(String arrTnextDay) {
+		this.arrTnextDay = arrTnextDay;
+	}
+
+	public String getReturnArrTnextDay() {
+		return returnArrTnextDay;
+	}
+
+	public void setReturnArrTnextDay(String returnArrTnextDay) {
+		this.returnArrTnextDay = returnArrTnextDay;
+	}
 
 	public Date getOrderDay() {
 		return orderDay;
