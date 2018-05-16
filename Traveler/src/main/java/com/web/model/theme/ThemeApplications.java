@@ -38,6 +38,8 @@ public class ThemeApplications implements Serializable {
 	
 	//FK的表格
 	private ThemeJourneys themeJourneys;
+	private ThemeTitles themeTitles;
+	private ThemeProducts themeProducts;
 	
 	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="journeyId",referencedColumnName="journeyId", insertable=false, updatable=false)
@@ -50,7 +52,8 @@ public class ThemeApplications implements Serializable {
 	
 	//帶參數建構子 //加入FK表格
 	public ThemeApplications(Integer applicationId, Integer journeyId, String name, Integer cellPhone, Integer people,
-			String callTime, String location, Timestamp applicationDate, ThemeJourneys themeJourneys) {
+			String callTime, String location, Timestamp applicationDate, ThemeJourneys themeJourneys, 
+			ThemeProducts themeProducts, ThemeTitles themeTitles) {
 		super();
 		this.applicationId = applicationId;
 		this.journeyId = journeyId;
@@ -61,6 +64,8 @@ public class ThemeApplications implements Serializable {
 		this.location = location;
 		this.applicationDate = applicationDate;
 		this.themeJourneys = themeJourneys;
+		this.themeProducts = themeProducts;
+		this.themeTitles = themeTitles;
 	}
 	//空建構子
 	public ThemeApplications() {
@@ -123,7 +128,8 @@ public class ThemeApplications implements Serializable {
 	public String toString() {
 		return "ThemeApplications [applicationId=" + applicationId + ", journeyId=" + journeyId + ", name=" + name
 				+ ", cellPhone=" + cellPhone + ", people=" + people + ", callTime=" + callTime + ", location="
-				+ location + ", applicationDate=" + applicationDate + ", themeJourneys=" + themeJourneys + "]";
+				+ location + ", applicationDate=" + applicationDate + ", themeJourneys=" + themeJourneys + ", themeProducts=" 
+				+ themeProducts  + ", themeTitles=" + themeTitles + "]";
 	}
 	
 	

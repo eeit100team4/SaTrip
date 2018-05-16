@@ -176,7 +176,7 @@ text-align:center;
                                                    感謝您!
                </div>
                <div class='form-group'>
-               	<input type="submit" id='btnAdd' class="btn btn-primary">送出</button>
+               	<input type="submit" id='btnAdd' class="btn btn-primary">送出</input>
                	</div>
 		</fieldest>
 		</form:form>

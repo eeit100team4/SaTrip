@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.web.model.contactus.ContactusBean;
-import com.web.model.theme.ThemeBean;
+import com.web.model.theme.ThemeTitles;
 import com.web.repository.contactus.ContactusRepository;
 import com.web.service.contactus.ContactusService;
 
@@ -37,10 +37,10 @@ public class ContactusServiceImpl implements ContactusService {
 		contactusRepository.update(contactus);
 	}
 
-	@Override
-	public void updateAllFeedback() {
-		List<ContactusBean> allFeedback=contactusRepository.getAllFeedback();
-	}
+//	@Override
+//	public void updateAllFeedback() {
+//		List<ContactusBean> allFeedback=contactusRepository.getAllFeedback();
+//	}
 
 	
 

@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 	
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -183,7 +184,7 @@ float:right;
     <p>
     <b style='font-size:16px;'>商品名稱:${products.productName}</b><br>
     <b style='font-size:16px;'>國家:${products.country}</b><br>
-    <b style='font-size:16px;'>種類:${products.themeBean.titleName}</b><br>
+    <b style='font-size:16px;'>種類:${products.themeTitles.titleName}</b><br>
     <b style='font-size:16px;'>住宿:${products.hotelName}</b><br>
     </p>
   </div>

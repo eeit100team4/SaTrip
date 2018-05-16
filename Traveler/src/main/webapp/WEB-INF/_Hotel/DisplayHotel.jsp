@@ -168,7 +168,7 @@
 								<li><a href="_Hotel/hotel"><i class="fas fa-home"></i>飯店</a></li>
 								<li class="theme/themeTitles"><a href="hotel.html"><i
 										class="fas fa-globe"></i>旅遊</a></li>
-								<li><a href="car.html"><i
+								<li><a href="commlistfront"><i
 										class="fas fa-cart-arrow-down"></i>紅利商品</a></li>
 								<li><a href="blog.html"><i class="fas fa-phone-square"></i>客服中心</a></li>
 								<li><a href="contact.html"><i
