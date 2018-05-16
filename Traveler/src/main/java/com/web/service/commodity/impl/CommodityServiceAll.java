@@ -36,6 +36,8 @@ public class CommodityServiceAll implements CommodityService {
 		
 	}
 	
+	
+	
 	@Override
 	public CommodityBean getCommodityById(int commodityid) {
 		
@@ -57,5 +59,8 @@ public class CommodityServiceAll implements CommodityService {
 		commoditydao.update(bean);
 	}
 	
-
+	@Override
+	public void addCommodityA(CommodityBean bean) {
+	    commoditydao.addCommodityA(bean);
+	}
 }

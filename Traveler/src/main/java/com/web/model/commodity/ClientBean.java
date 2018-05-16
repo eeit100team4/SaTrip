@@ -17,6 +17,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.web.model.member.MemberBean;
+
 @XmlRootElement
 @Entity
 @Table(name ="Client")

@@ -2,8 +2,9 @@ package com.web.service.commodity;
 
 import java.util.List;
 
-import com.web.store.model.commodity.ClientBean;
-import com.web.store.model.commodity.MemberBean;
+import com.web.model.commodity.ClientBean;
+import com.web.model.member.MemberBean;
+
 
 public interface ClientService {
 

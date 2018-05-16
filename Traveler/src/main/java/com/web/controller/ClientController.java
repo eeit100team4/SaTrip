@@ -18,11 +18,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.web.store.model.commodity.ClientBean;
-import com.web.store.model.commodity.CommodityBean;
-import com.web.store.model.commodity.MemberBean;
-import com.web.store.service.commodity.ClientService;
-import com.web.store.service.commodity.CommodityService;
+import com.web.model.commodity.ClientBean;
+import com.web.model.commodity.CommodityBean;
+import com.web.model.member.MemberBean;
+import com.web.service.commodity.ClientService;
+import com.web.service.commodity.CommodityService;
 
 @Controller
 public class ClientController {
@@ -101,7 +101,6 @@ public class ClientController {
 			Integer finalQuantity=CommQuantity-CliQuantity;
 			ctb.setQuantity(finalQuantity);
 			commodityservice.addCommodityA(ctb);
-			
 		}else {
 			 throw new Exception("點數or數量不足");
 		}

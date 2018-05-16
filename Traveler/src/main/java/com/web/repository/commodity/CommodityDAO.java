@@ -21,7 +21,7 @@ public interface CommodityDAO {
 
 	 void update(CommodityBean bean);
 	 
-	 
+	 void addCommodityA(CommodityBean bean);
 	 
 //	void delete(String title);
 	}

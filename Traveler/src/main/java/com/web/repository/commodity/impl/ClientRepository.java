@@ -9,11 +9,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 
-import com.web.store.model.commodity.ClientBean;
-import com.web.store.model.commodity.CommodityBean;
-import com.web.store.model.commodity.MemberBean;
-import com.web.store.repository.commodity.ClientDAO;
-import com.web.store.repository.commodity.CommodityDAO;
+import com.web.model.commodity.ClientBean;
+import com.web.model.commodity.CommodityBean;
+import com.web.model.member.MemberBean;
+import com.web.repository.commodity.ClientDAO;
+import com.web.repository.commodity.CommodityDAO;
 
 @Repository
 @SuppressWarnings("unchecked") // 抑制單類型的警告
