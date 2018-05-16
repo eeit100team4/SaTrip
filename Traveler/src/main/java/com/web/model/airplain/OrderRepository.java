@@ -3,6 +3,8 @@ package com.web.model.airplain;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.OrderBy;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
@@ -73,10 +75,20 @@ public class OrderRepository {
 	public List<OrderDetailsBean> getAll(){
 		List<OrderDetailsBean> list=null;
 		session = factory.getCurrentSession();
-		String hql="FROM OrderDetailsBean";
+		String hql="FROM OrderDetailsBean ORDER BY guestId asc";
 		Query query = session.createQuery(hql);
 		List<OrderDetailsBean> result = query.list();
 		return result;
+	}
+	
+	public int update(OrderDetailsBean orderBean) {
+		Integer id = orderBean.getID();
+		session=factory.getCurrentSession();
+		if(id!=null) {
+			session.update(orderBean);
+			return 1;
+		}
+		return 0;
 	}
 
 

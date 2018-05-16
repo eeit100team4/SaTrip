@@ -106,7 +106,7 @@
 <script src="/Traveler/js/main.js"></script>
 
 
-<script src="/Traveler/js/airplain	/airSearch.js"></script>
+<script src="/Traveler/js/airplain/airSearch.js"></script>
 <script src="/Traveler/js/jquery-ui.min.js"></script>
 <link rel="stylesheet" href="/Traveler/js/jquery-ui.min.css">
 
@@ -132,12 +132,13 @@
 								<li><a href="theme/themeTitles" class="fh5co-sub-ddown">主題旅遊</a>
 									<!-- 下面這塊ul以後會刪掉 -->
 									<ul class="fh5co-sub-menu">
-										<li><a href="#">Family</a></li>
-										<li><a href="#">CSS3 &amp; HTML5</a></li>
-										
+										<li><a href="theme/titles">抓title</a></li>
+										<li><a href="theme/products">顯示全產品</a></li>
+										<li><a href="theme/journeys">顯示全行程</a></li>
+										<li><a href="theme/applications">顯示全報名表</a></li>
 									</ul></li>
 								<li><a href="flight.html">航班</a></li>
-								<li><a href="_Hotel/HotelIndex">Hotel</a></li>
+								<li><a href="_Hotel/DisplayHotel">Hotel</a></li>
 								<li><a href="car.html">Car</a></li>
 								<li><a href="contactus/contactusopinion">客戶服務</a></li>
 							

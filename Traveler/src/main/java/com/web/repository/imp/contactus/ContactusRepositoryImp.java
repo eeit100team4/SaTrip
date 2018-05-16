@@ -50,6 +50,28 @@ public class ContactusRepositoryImp implements ContactusRepository {
 	
 	}
 
+	
+
+	@Override
+	public List<ContactusBean> getAllFeedback() {
+		String hql="FROM ContactusBean";
+		Session session = null;
+		List<ContactusBean> list = new ArrayList<>();
+		session = factory.getCurrentSession();
+		list = session.createQuery(hql).getResultList();
+		return list;
+	}
+
+//	@Override
+//	public void updateFeedback(int pkid, int newQuantity) {
+//		String hql = "UPDATE ContactusBean SET feedback= :newQuantity WHERE pkid=:id";
+//		Session session =factory.getCurrentSession();
+//		int n = session.createQuery(hql)
+//				.setParameter("newQuantity", newQuantity)
+//				.setParameter("pkid", pkid)
+//				.executeUpdate();
+//	}
+
 
 	
 

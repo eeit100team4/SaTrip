@@ -135,7 +135,7 @@ footer {
 
 .d2{
 background-color: #FFFFFF;
-width: 80%;
+width: 70%;
 height:630px;
 float:right;
 }
@@ -163,10 +163,10 @@ float:right;
 		</nav> </header>
 	
 <div class="d1"> 
-<h2 style="text-align:center">機票管理</h2>
+<h2 style="text-align:center">客服管理</h2>
 <ul class="me">
-<li><a href="index.html">查詢會員訂單</a></li>
-<li><a href="index.html">航班統計報表</a></li>
+<li><a href="feedbackopinion">回覆留言</a></li>
+<li><a href="contactuspie">統計報表</a></li>
 
 </ul>
 
@@ -176,17 +176,55 @@ float:right;
 		
 		
 		
-<div class="d2">		<p style=color:black>姓名:${aa.name}</p>
-							<p style=color:black>性別:${aa.sex}</p>
-							<p style=color:black>年齡:${aa.age}</p>
-							<p style=color:black>連絡電話:${aa.phone}</p>
-							<p style=color:black>電子信箱:${aa.email}</p>
-							<p style=color:black>所在地:${aa.address}</p>
-							<p style=color:black>意見類別:${aa.opinion}</p>
-							<p style=color:black>意見內容:${aa.comment}</p>
+<div class="d2">		
+							<form:form action="feedbackopinion" modelAttribute="contactusBean"  enctype='multipart/form-data'>
 							<div class='form-group'>
-						<label for='feedback'>回覆欄:</label>
-						<form:textarea cols="40" rows="5"  id="feedback" path='feedback'></form:textarea>
+							<table border='1px'>
+							<tr>
+							<td style=color:black>姓名:</td>
+							<td>${aa.name}</td>
+							</tr>
+							<tr>
+							<td style=color:black>性別:</td>
+							<td>${aa.sex}</td>
+							</tr>
+							<tr>
+							<td style=color:black>年齡:</td>
+							<td>${aa.age}</td>
+							</tr>
+							<tr>
+							<td style=color:black>連絡電話:</td>
+							<td>${aa.phone}</td>
+							</tr>
+							<tr>
+							<td style=color:black>電子信箱:</td>
+							<td>${aa.email}</td>
+							</tr>
+							<tr>
+							<td style=color:black>所在地:</td>
+							<td>${aa.address}</td>
+							</tr>
+							<tr>
+							<td style=color:black>意見類別:</td>
+							<td>${aa.opinion}</td>
+							</tr>
+							<tr>
+							<td style=color:black>意見內容:</td>
+							<td>${aa.comment}</td>
+							</tr>	
+							</div>
+							<div class='form-group'>
+							<tr>
+						<td><label for='feedback'>回覆欄:</label></td>
+						<td><form:textarea cols="40" rows="5"  id="feedback" path='feedback'></form:textarea></td>
+						</tr>
+						<tr>
+						<div class='form-group'>
+               	<input type="submit" id='btnAdd' class="btn btn-primary"/>
+               	</div>
+               	</tr>
+						</form:form>
+						</table>
 						</div>
 </div>
 		

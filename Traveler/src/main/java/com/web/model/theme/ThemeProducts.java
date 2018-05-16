@@ -2,10 +2,13 @@ package com.web.model.theme;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -98,7 +101,20 @@ public class ThemeProducts implements Serializable{
 	private String lunch3;
 	private String dinner3;
 	
-	//帶參數建構子
+	//FK的表格
+	private ThemeTitles themeTitles;
+	//FK
+	@ManyToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name="titleId" ,referencedColumnName="titleId", insertable=false, updatable=false)
+    public ThemeTitles getThemeTitles() {
+		return themeTitles;
+	}
+	public void setThemeTitles(ThemeTitles themeTitles) {
+		this.themeTitles = themeTitles;
+	}
+
+	
+	//帶參數建構子  //FK的表格也放入
 	public ThemeProducts(Integer productId, Integer titleId, String productName, 
 			String country, String hotelName, String adImageName, String title1, 
 			String fileName1, String descriTitle1, String description1, 
@@ -106,7 +122,7 @@ public class ThemeProducts implements Serializable{
 			String fileName2, String descriTitle2, String description2, 
 			String breakfast2, String lunch2, String dinner2, String title3, 
 			String fileName3, String descriTitle3, String description3, 
-			String breakfast3, String lunch3, String dinner3) {
+			String breakfast3, String lunch3, String dinner3, ThemeTitles themeTitles) {
 		this.productId = productId;
 		this.titleId = titleId;
 		this.productName = productName;
@@ -137,6 +153,8 @@ public class ThemeProducts implements Serializable{
 		this.breakfast3 = breakfast3;
 		this.lunch3 = lunch3;
 		this.dinner3 = dinner3;	
+		//FK的表格
+		this.themeTitles = themeTitles;
 	}
 	//空建構子
 	public ThemeProducts() {
@@ -150,6 +168,7 @@ public class ThemeProducts implements Serializable{
 		this.productId = productId;
 	}
 	//FK
+	@Transient
 	public Integer getTitleId() {   
 		return titleId;
 	}
@@ -311,7 +330,7 @@ public class ThemeProducts implements Serializable{
 		this.dinner3 = dinner3;
 	}
 	@Override
-	public String toString() {
+	public String toString() {//加入FK表格
 		return "ThemeProducts [productId=" + productId + ",titleId=" + titleId + 
 				", productName=" + productName + ", country=" + country + 
 				", hotelName=" + hotelName + ", adImageName=" + adImageName +
@@ -324,6 +343,6 @@ public class ThemeProducts implements Serializable{
 				", dinner2=" + dinner2 + ", title3=" + title3 + 
 				", fileName3=" + fileName3 +", descriTitle3=" + descriTitle3 + 
 				", description3=" + description3 + ", breakfast3=" + breakfast3 + 
-				", lunch3=" + lunch3 + ", dinner3=" + dinner3 + "]";
+				", lunch3=" + lunch3 + ", dinner3=" + dinner3 + ", themeTitles=" + themeTitles + "]";
 	}
 }
