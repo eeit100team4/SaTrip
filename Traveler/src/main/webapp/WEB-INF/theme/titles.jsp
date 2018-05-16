@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -16,7 +17,8 @@
 <div style="text-align:center">
  <h1>請挑選<h1>
   <c:forEach var='titleName' items='${titleList}'>
-     <a href="/${titleName}">${titleName}</a>
+     <img src="/Traveler/images/themeTitle-${titleName}.png">
+     <a href="products/${titleName}">${titleName}</a><br>
      <br>
   </c:forEach>
 </div>

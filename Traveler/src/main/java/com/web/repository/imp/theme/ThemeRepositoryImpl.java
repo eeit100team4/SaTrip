@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.web.model.theme.ThemeTitles;
+import com.web.model.theme.ThemeApplications;
 import com.web.model.theme.ThemeJourneys;
 import com.web.model.theme.ThemeProducts;
 import com.web.repository.theme.ThemeRepository;
@@ -43,14 +44,15 @@ public class ThemeRepositoryImpl implements ThemeRepository {
 		list = session.createQuery(hql).getResultList();
 		return list;
 	}
-	//依title抓產品
+	//依title抓產品 //要抓外部表格的titleName(HQL做修改)
 	public List<ThemeProducts> getProductsByTitle(String titleName){
-		String hql = "FROM ThemeProducts WHERE titleName = :titleName ";
+		String hql = "FROM ThemeProducts tt WHERE tt.themeTitles.titleName  = :titleName ";
 		List<ThemeProducts> list = new ArrayList<>();
 		Session session = factory.getCurrentSession();
 		list = session.createQuery(hql).setParameter("titleName",titleName).getResultList();
 		return list;
 	}
+	
 	//顯示所有商品資料
 	@Override
 	@SuppressWarnings("unchecked")
@@ -62,6 +64,7 @@ public class ThemeRepositoryImpl implements ThemeRepository {
 		list = session.createQuery(hql).getResultList();
 		return list;
 	}
+	
 	//顯示所有行程內容
 	@Override
 	@SuppressWarnings("unchecked")
@@ -69,6 +72,18 @@ public class ThemeRepositoryImpl implements ThemeRepository {
 		String hql = "FROM ThemeJourneys";
 		Session session = null;
 		List<ThemeJourneys> list = new ArrayList<>();
+		session = factory.getCurrentSession();
+		list = session.createQuery(hql).getResultList();
+		return list;
+	}
+	
+	//顯示所有報名資料
+	@Override
+	@SuppressWarnings("unchecked")
+	public List<ThemeApplications> getAllApplications(){
+		String hql = "FROM ThemeApplications";
+		Session session = null;
+		List<ThemeApplications> list = new ArrayList<>();
 		session = factory.getCurrentSession();
 		list = session.createQuery(hql).getResultList();
 		return list;

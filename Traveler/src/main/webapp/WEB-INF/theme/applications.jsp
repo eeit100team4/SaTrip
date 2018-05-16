@@ -26,7 +26,7 @@
 	crossorigin="anonymous"></script>
 	
 	
-<title>管理主題旅遊</title>
+<title>Insert title here</title>
 
 <style>
         
@@ -151,7 +151,7 @@ float:right;
 		<header>		
 		 <nav>		
 		<ul class="menu">
-	    	<li cless="le"><a href="index.html"><img src='/Traveler/images//icon_index.png' height="25px" width="25px"/>TRAVEL後台管理系統</a></li>
+	    	<li class="le"><a href="index.html"><img src='/Traveler/images//icon_index.png' height="25px" width="25px"/>TRAVEL後台管理系統</a></li>
 					<li><a href="airTickets/back/list"><img src='/Traveler/images//icon_air.png' height="25px" width="25px"/>機票管理</a></li>
 					<li><a href="index.html"><img src='/Traveler/images//icon_hotel.png' height="25px" width="25px"/>飯店管理</a></li>
 					<li><a href="../theme/management"><img src='/Traveler/images//icon_traveler.png' height="25px" width="25px"/>主題旅遊管理</a></li>
@@ -170,51 +170,28 @@ float:right;
 <li><a href="productManagement">商品資料</a></li>
 <li><a href="journeyManagement">行程內容</a></li>
 <li><a href="applicationManagement">報名表單</a></li>
+
 </ul>
 
 		</div>
-		
-		
-		
-		
-		
-<div class="d2"><section>
-		<div>
-			<h1 style="text =align: center">主題維護</h1>
-		</div>
-	</section>
 
-	<hr width='3'>
+		
+		
+		
+<div class="d2">
+<c:forEach var='applications' items='${applications}'>
+  <div style="width:300px; height:200px; float: left; ">
+    <p>
+    <b style='font-size:16px;'>類型:${applications.themeJourneys.themeProducts.themeTitles.titleName}</b><br>
+    <b style='font-size:16px;'>商品名稱:${applications.themeJourneys.themeProducts.productName}</b><br>
+    <b style='font-size:16px;'>出發日期:<fmt:formatDate value="${applications.themeJourneys.setOut}" pattern="yyyy/MM/dd" /></b><br>
+    <b style='font-size:16px;'>報名人:${applications.name}</b><br>
+    
+    </p>
+  </div>
+ </c:forEach>
 
-	<section>
-		<form:form method="POST" modelAttribute="themeBean" enctype="multipart/form-data" >
-		   <fieldset>
-				<label>新增主題</label>
-				<form:input  path="titleName" type="text" />		
-						
-				<br>
-				<label>新增圖片</label>
-				<form:input  path="titleImage" type="file"  />			
-													
-				<div>					
-				<input type="submit" value="送出" />
-				</div>
-			</fieldset>
-			<fieldset>
-				<label>修改主題</label>
-				<form:input  path="titleName" type="text" />		
-						
-				<br>
-				<label>修改圖片</label>
-				<form:input  path="titleImage" type="file"  />			
-													
-				<div>					
-				<input type="submit" value="送出" />
-				</div>
-			</fieldset>
-		</form:form>		
-	</section>
-	</div>
+</div>
 		
 		<footer>
 		<p>TRAVEL &nbsp; Tel:(02)2222-8888 &nbsp;
@@ -223,5 +200,6 @@ float:right;
 		</footer>
 	</div>
 </body>
+
 
 </html>

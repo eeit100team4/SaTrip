@@ -23,6 +23,7 @@ public class ThemeController {
 		model.addAttribute("themeTitles", list);
 		return "theme/themeTitles";
 	}
+	
 	//叫出各title，顯示在網頁
 	@RequestMapping("/theme/titles")
 	public String getTitleList(Model model) {

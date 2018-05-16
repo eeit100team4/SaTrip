@@ -3,6 +3,7 @@ package com.web.repository.theme;
 import java.util.List;
 
 import com.web.model.theme.ThemeTitles;
+import com.web.model.theme.ThemeApplications;
 import com.web.model.theme.ThemeJourneys;
 import com.web.model.theme.ThemeProducts;
 
@@ -24,4 +25,7 @@ public interface ThemeRepository {
 	
 	//顯示所有行程內容
 	List<ThemeJourneys> getAllJourneys();
+	
+	//顯示所有報名表資料
+	List<ThemeApplications> getAllApplications();
 }

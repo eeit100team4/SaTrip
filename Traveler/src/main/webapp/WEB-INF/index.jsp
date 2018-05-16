@@ -135,6 +135,7 @@
 										<li><a href="theme/titles">抓title</a></li>
 										<li><a href="theme/products">顯示全產品</a></li>
 										<li><a href="theme/journeys">顯示全行程</a></li>
+										<li><a href="theme/applications">顯示全報名表</a></li>
 									</ul></li>
 								<li><a href="flight.html">航班</a></li>
 								<li><a href="_Hotel/DisplayHotel">Hotel</a></li>
