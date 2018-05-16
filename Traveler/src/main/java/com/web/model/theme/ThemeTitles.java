@@ -19,7 +19,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Entity
 @Table(name="ThemeTitles")
 @XmlRootElement
-public class ThemeBean implements Serializable {
+public class ThemeTitles implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private Integer titleId ;
 	private String  titleName;
@@ -37,14 +37,14 @@ public class ThemeBean implements Serializable {
 		this.titleImage = titleImage;
 	}
 	//帶參數建構子
-	public ThemeBean(Integer titleId, String titleName, String fileName){
+	public ThemeTitles(Integer titleId, String titleName, String fileName){
 	this.titleId = titleId;
 	this.titleName = titleName;
 	this.fileName = fileName;
 	
 }
 	//空建構子
-	public ThemeBean() {
+	public ThemeTitles() {
 	}
 	@Id//指定PK鍵
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -68,7 +68,7 @@ public class ThemeBean implements Serializable {
 	}
 	@Override
 	public String toString() {
-		return "ThemeBean [titleId=" + titleId + ", titleName=" + titleName + ", fileName=" + fileName + "]";
+		return "ThemeTitles [titleId=" + titleId + ", titleName=" + titleName + ", fileName=" + fileName + "]";
 	}
 	
 }

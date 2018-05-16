@@ -195,14 +195,12 @@ $("#name").blur(function(){
 	});
 
 $(document).ready(function(){
-		$("input").attr("readonly",true);
-	
 	  $("input").dblclick(function(){
 	    $(this).css("background-color","#FFFFCC");
 	    $(this).attr("readonly",false);
 	  });
 	  $("input").blur(function(){
-	    $(this).css("background-color","#FFFFF").attr("readonly",true);;
+	    $(this).css("background-color","#D6D6FF").attr("readonly",true);;
 	  });
 	});
 function geust(){
@@ -221,7 +219,7 @@ function update(){
 	console.log(data);
 	var data = new FormData(document.querySelector("form"));
 $.ajax({
-	url : "update/"+orderId,
+	url : 'http://localhost:8080/Traveler/airTickets/back/selectOne/tt/tt',
 	type : 'POST',
 	data : data,
 	//enctype: "multipart/form-data",
@@ -230,7 +228,7 @@ $.ajax({
 	success : function(responce) {
 		alert(responce);
 		alert("ok");
-		window.location.assign(responce);
+// 		window.location.assign(responce);
 	},
 	error:function(){
 		alert("error");
@@ -284,99 +282,41 @@ $.ajax({
 </ul>
   <button type="button" style="margin:10px;" class="btn btn-default btn-sm" id="guest" onclick="geust()">聯絡人&旅客資訊</button>
   <div id="guestInfo" style="display:none">
-<!--  	<div class="text-left" style="width: 50%;height:auto; margin: 0px auto; border: 1px orange solid"> -->
- 	<div class="text-left" style="width: 90%;height:auto; margin: 20px;padding-left:2px ;border: 1px orange solid">
-	<form>
-	<div class="text-center" style="margin:5px;background:orange"><strong>聯絡人</strong></div>
-  <div class="form-row">
-    <div class="col-md-4 mb-3">
-        <label for="contactName" class="lab">姓名</label>
-        <input type="text" name="contactName" id="contactName"  maxlength="10" value="${bean.guestBean.contactName}">
-    </div>
-    <div class="col-md-4 mb-3">
-        <label for="contactPhone" class="lab">手機</label>
-        <input type="text" name="contactPhone" id="contactPhone" maxlength="10" value="${bean.guestBean.contactPhone}">
-    </div>
-    <div class="col-md-4 mb-3">
-        <label for="contactIdCard" class="lab">身分證字號</label>
-        <input  type="text" name="contactIdCard" id="contactIdCard" maxlength="10" value="${bean.guestBean.contactIdCard}">
-    </div>
-  </div>
-  <div class="form-row">
-    <div class="col-md-5 col-md-offset-1 mb-3">
-       <label for="contactAddress"  class="lab">地址</label>
-       <input   type="text" name="contactAddress" id="contactAddress" size="45" value="${bean.guestBean.contactAddress}">
-    </div>
-      <div class="col-md-5 col-md-offset-1	 mb-3">
-        <label for="" class="lab">E-mail</label>
-        <input type="text" name="contactEmail" id="contactEmail" size="45" value="${bean.guestBean.contactEmail}">
-      </div>
-  </div>
- <div class="text-center" style="margin:5px;background:orange"><strong>旅客一</strong></div>
-  <div class="form-row">
-    <div class="col-md-4 mb-3">
-        <label for="guestOneName" class="lab">姓名</label>
-        <input type="text" name="guestOneName" id="guestOneName"  value="${bean.guestBean.guestOneName}">
-    </div>
-      <div class="col-md-4 mb-3">
-        <label for="guestOneLastName" class="lab">英文姓</label>
-        <input type="text" name="guestOneLastName" id="guestOneLastName" maxlength="10" value="${bean.guestBean.guestOneLastName}">
-      </div>
-      <div class="col-md-4 mb-3">
-         <label for="guestOneFirstName" class="lab">英文名</label>
-         <input type="text" name="guestOneFirstName" id="guestOneFirstName" maxlength="10" value="${bean.guestBean.guestOneFirstName}">
-      </div>
-  </div>
-    <div class="form-row">
-    <div class="col-md-4 mb-3">
-          <label for="guestOneBirth" class="lab">生日</label>
-          <input type="text" name="guestOneBirth" id="guestOneBirth"  value="${bean.guestBean.guestOneBirth}">
-    </div>
-       <div class="col-md-4 mb-3">
-         <label for="guestOnepassportNum" class="lab">護照號碼</label>
-         <input type="text" name=guestOnepassportNum id="guestOnepassportNum" value="${bean.guestBean.guestOnepassportNum}">
-      </div>
-      <div class="col-md-4  mb-3">
-         <label class="lab">性別</label>
-         <input type="text" name="guestOneGender"   id="guestOneGender" value="${bean.guestBean.guestOneGender}">
-      </div>
-  </div>
-  <div class="text-center" style="margin:5px;background:orange"><strong>旅客二</strong></div>
- <div class="form-row">
-    <div class="col-md-4 mb-3">
-        <label for="guestTwoName" class="lab">姓名</label>
-        <input type="text" name="guestTwoName" id="guestTwoName" value="${bean.guestBean.guestTwoName}" >
-    </div>
-      <div class="col-md-4 mb-3">
-        <label for="guestTwoLastName" class="lab">英文姓</label>
-        <input type="text" name="guestTwoLastName" id="guestTwoLastName" maxlength="10" value="${bean.guestBean.guestTwoLastName}">
-      </div>
-      <div class="col-md-4 mb-3">
-         <label for="guestTwoFirstName" class="lab">英文名</label>
-         <input type="text" name="guestTwoFirstName" id="guestTwoFirstName" maxlength="10" value="${bean.guestBean.guestTwoFirstName}">
-      </div>
-  </div>
-    <div class="form-row">
-    <div class="col-md-4 mb-3">
-          <label for="guestTwoBirth" class="lab">生日</label>
-          <input type="text" name="guestTwoBirth" id="guestTwoBirth"  value="${bean.guestBean.guestTwoBirth}">
-    </div>
-      <div class="col-md-4 mb-3">
-         <label for="guestTwopassportNum" class="lab">護照號碼</label>
-         <input type="text" name=guestTwopassportNum id="guestTwopassportNum" value="${bean.guestBean.guestTwopassportNum}">
-      </div>
-      <div class="col-md-4  mb-3">
-         <label class="lab">性別</label>
-         <input type="text" name="guestTwoGender"   id="guestTwoGender" value="${bean.guestBean.guestTwoGender}">
-      </div>
-  </div>
-      			  <input type="hidden" name="_method" value="post" /> 
+ 	<div class="text-left" style="width: 50%;height:auto; margin: 0px auto; border: 1px orange solid">
+		<form id="myform"  enctype="multipart/form-data" >
+
+			<fieldset>
+        	<h2><legend class="label label-warning">聯絡人資訊</legend></h2>
+            <div class="st1">
+                <label onclick="return false" for="contactName" class="lab">姓名</label>
+                <input type="text" name="contactName" id="contactName" size="10" value="${bean.guestBean.contactName}">
+            </div>
+            <div class="st1">
+                <label for="contactIdCard" class="lab">身分證字號</label>
+                <input  type="text" name="contactIdCard" id="contactIdCard" maxlength="10" value="${bean.guestBean.contactIdCard}">
+            </div>
+             <div class="st1">
+                <label for="contactPhone" class="lab">手機</label>
+                <input type="text" name="contactPhone" id="contactPhone" maxlength="10" value="${bean.guestBean.contactPhone}">
+            </div>
+            <div class="st1">
+                <label for="contactAddress"  class="lab">地址</label>
+                <input   type="text" name="contactAddress" id="contactAddress" value="${bean.guestBean.contactAddress}">
+            </div>
+            <div class="st1">
+                <label for="" class="lab">E-mail</label>
+                <input type="text" name="contactEmail" id="contactEmail" value="${bean.guestBean.contactEmail}">
+            </div>
+        </fieldset>
+    
+    			  <input type="hidden" name="_method" value="post" /> 
 		       <div class="sub text-center">
 	          <input type="hidden" name="orderID" value="${bean.orderID}" /> 
 	          <input type="hidden" name="guestId" value="${bean.guestId}" /> 
 	          <button type="button" class="btn btn-warning"    onclick="update()">修改</button>
             </div>
-</form>
+			
+		</form>
 	</div>
   </div>
 </div>

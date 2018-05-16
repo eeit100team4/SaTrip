@@ -83,6 +83,9 @@ public class ThemeJourneys implements Serializable{
 	public void setThemeProducts(ThemeProducts themeProducts) {
 		this.themeProducts = themeProducts;
 	}
+	//FK的表格
+	private ThemeTitles themeTitles;
+	
 	//帶參數建構子 //放入FK的表格
 	public ThemeJourneys(Integer journeyId, Integer productId, Timestamp setOut,
 			Timestamp returnDay, Timestamp deadline, Timestamp createTimestamp, 
@@ -92,7 +95,7 @@ public class ThemeJourneys implements Serializable{
 			String goStartWhere, String goEndWhere, Timestamp returnStartTimestamp, 
 			String returnStartHour, String returnStartMinute, Timestamp returnEndTimestamp, 
 			String returnEndHour, String returnEndMinute, String returnStartWhere, 
-			String returnEndWhere, ThemeProducts themeProducts) {
+			String returnEndWhere, ThemeProducts themeProducts, ThemeTitles themeTitles) {
 		this.journeyId = journeyId;
 		this.productId = productId;
 		this.setOut = setOut;
@@ -124,6 +127,7 @@ public class ThemeJourneys implements Serializable{
 		this.returnEndWhere = returnEndWhere;
 		//FK的表格
 		this.themeProducts = themeProducts;
+		this.themeTitles = themeTitles;
 	}
 	//空建構子
 	public ThemeJourneys() {	
@@ -324,7 +328,7 @@ public class ThemeJourneys implements Serializable{
 				+ returnStartTimestamp + ", returnStartHour=" + returnStartHour + ", returnStartMinute=" + returnStartMinute
 				+ ", returnEndTimestamp=" + returnEndTimestamp + ", returnEndHour=" + returnEndHour + ", returnEndMinute="
 				+ returnEndMinute + ", returnStartWhere=" + returnStartWhere + ", returnEndWhere=" + returnEndWhere
-				+ ", themeProducts=" + themeProducts + "]";
+				+ ", themeProducts=" + themeProducts + ", themeTitles=" + themeTitles + "]";
 	}
 	
 }

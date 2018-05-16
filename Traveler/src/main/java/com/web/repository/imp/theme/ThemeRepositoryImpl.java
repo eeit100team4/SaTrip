@@ -8,7 +8,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.web.model.theme.ThemeBean;
+import com.web.model.theme.ThemeTitles;
 import com.web.model.theme.ThemeJourneys;
 import com.web.model.theme.ThemeProducts;
 import com.web.repository.theme.ThemeRepository;
@@ -20,24 +20,24 @@ public class ThemeRepositoryImpl implements ThemeRepository {
 	//顯示所有種類名稱
 	@Override
 	@SuppressWarnings("unchecked")
-	public List<ThemeBean> getTitles() {
-		String hql = "FROM ThemeBean";
+	public List<ThemeTitles> getTitles() {
+		String hql = "FROM ThemeTitles";
 		Session session = null;
-		List<ThemeBean>list = new ArrayList<>();
+		List<ThemeTitles>list = new ArrayList<>();
 		session = factory.getCurrentSession();
 		list = session.createQuery(hql).getResultList();
 		return list;
 	}
 	//新增主題到第一個表格
 	@Override
-	public void addThemeTitle(ThemeBean Theme){
+	public void addThemeTitle(ThemeTitles Theme){
 		Session session = factory.getCurrentSession();
 		session.save(Theme);
 	}
 	//分類查詢 從固定title查該title下商品資料
 	//找出所有title
 	public List<String> getAllTitles(){
-		String hql = "SELECT DISTINCT titleName FROM ThemeBean";
+		String hql = "SELECT DISTINCT titleName FROM ThemeTitles";
 		Session session = factory.getCurrentSession();
 		List<String> list = new ArrayList<>();
 		list = session.createQuery(hql).getResultList();

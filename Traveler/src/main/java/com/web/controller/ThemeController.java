@@ -7,7 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import com.web.model.theme.ThemeBean;
+import com.web.model.theme.ThemeTitles;
 import com.web.model.theme.ThemeProducts;
 import com.web.service.theme.ThemeService;
 
@@ -19,7 +19,7 @@ public class ThemeController {
 	// 從首頁點選主題旅遊時的dispatcher
 	@RequestMapping("theme/themeTitles")
 	public String list(Model model) {
-		List<ThemeBean> list = themeService.getTitles();
+		List<ThemeTitles> list = themeService.getTitles();
 		model.addAttribute("themeTitles", list);
 		return "theme/themeTitles";
 	}

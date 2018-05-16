@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.web.model.theme.ThemeBean;
+import com.web.model.theme.ThemeTitles;
 import com.web.model.theme.ThemeJourneys;
 import com.web.model.theme.ThemeProducts;
 import com.web.service.theme.ThemeService;
@@ -27,14 +27,14 @@ public class ThemeBackController {
 	// 新增主題用 產生空白表單 預設讀取GET方法
 	@RequestMapping(value = "/theme/titleManagement", method = RequestMethod.GET)
 	public String getAddNewThemeForm(Model model) {
-		ThemeBean tb = new ThemeBean();
+		ThemeTitles tb = new ThemeTitles();
 		model.addAttribute("themeBean", tb);
 		return "theme/titleManagement";
 	}
 
 	// 新增主題用 傳入表單上的資訊，在原來頁面新增內容，在JSP裡指定POST方法
 	@RequestMapping(value = "/theme/titleManagement", method = RequestMethod.POST)
-	public String processAddNewThemeForm(@ModelAttribute("themeBean") ThemeBean tb, HttpServletRequest request) {
+	public String processAddNewThemeForm(@ModelAttribute("themeBean") ThemeTitles tb, HttpServletRequest request) {
 		// 寫入圖片檔跟檔名
 		MultipartFile titleImage = tb.getTitleImage();
 		String originalFilename = titleImage.getOriginalFilename();

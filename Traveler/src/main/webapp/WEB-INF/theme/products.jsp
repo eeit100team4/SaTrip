@@ -183,7 +183,7 @@ float:right;
     <p>
     <b style='font-size:16px;'>商品名稱:${products.productName}</b><br>
     <b style='font-size:16px;'>國家:${products.country}</b><br>
-    <b style='font-size:16px;'>種類:${products.themeBean.titleName}</b><br>
+    <b style='font-size:16px;'>種類:${products.themeTitles.titleName}</b><br>
     <b style='font-size:16px;'>住宿:${products.hotelName}</b><br>
     </p>
   </div>

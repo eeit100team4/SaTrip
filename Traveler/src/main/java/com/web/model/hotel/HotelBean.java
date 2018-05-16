@@ -129,7 +129,7 @@ public class HotelBean implements Serializable {
 	public void setFile_name(String file_name) {
 		this.file_name = file_name;
 	}
-
+ 
 	public String getAddress() {
 		return address;
 	}

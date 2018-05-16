@@ -7,7 +7,7 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.web.model.theme.ThemeBean;
+import com.web.model.theme.ThemeTitles;
 import com.web.model.theme.ThemeJourneys;
 import com.web.model.theme.ThemeProducts;
 import com.web.repository.theme.ThemeRepository;
@@ -21,12 +21,12 @@ public class ThemeServiceImpl implements ThemeService {
 	//查詢第一個表格(多筆)
 	@Transactional
 	@Override
-	public List<ThemeBean> getTitles() {		
+	public List<ThemeTitles> getTitles() {		
 		return themeRepository.getTitles();		
 	}
 	@Transactional
 	@Override
-	public void addThemeTitle(ThemeBean Theme) {
+	public void addThemeTitle(ThemeTitles Theme) {
 		themeRepository.addThemeTitle(Theme);
 	}
 	//分類查詢 從固定title查該title下商品資料
