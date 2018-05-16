@@ -151,7 +151,7 @@ float:right;
 		<header>		
 		 <nav>		
 		<ul class="menu">
-	    	<li cless="le"><a href="index.html"><img src='/Traveler/images//icon_index.png' height="25px" width="25px"/>TRAVEL後台管理系統</a></li>
+	    	<li class="le"><a href="index.html"><img src='/Traveler/images//icon_index.png' height="25px" width="25px"/>TRAVEL後台管理系統</a></li>
 					<li><a href="airTickets/back/list"><img src='/Traveler/images//icon_air.png' height="25px" width="25px"/>機票管理</a></li>
 					<li><a href="index.html"><img src='/Traveler/images//icon_hotel.png' height="25px" width="25px"/>飯店管理</a></li>
 					<li><a href="../theme/management"><img src='/Traveler/images//icon_traveler.png' height="25px" width="25px"/>主題旅遊管理</a></li>
@@ -182,8 +182,11 @@ float:right;
 <c:forEach var='journeys' items='${journeys}'>
   <div style="width:300px; height:200px; float: left; ">
     <p>
-    <b style='font-size:16px;'>出發時間	<fmt:formatDate value="${journeys.setOut}" pattern="yyyy-MM-dd" /></b><br>
-
+    <b style='font-size:16px;'>商品類型<br>${journeys.themeProducts.themeTitles.titleName}</b><br>
+    <b style='font-size:16px;'>商品名稱<br>${journeys.themeProducts.productName}</b><br>
+    <b style='font-size:16px;'>出發日<br>	<fmt:formatDate value="${journeys.setOut}" pattern="yyyy/MM/dd" /></b><br>
+    <b style='font-size:16px;'>返回日<br>	<fmt:formatDate value="${journeys.returnDay}" pattern="yyyy/MM/dd" /></b><br>
+    
     </p>
   </div>
  </c:forEach>
@@ -197,5 +200,6 @@ float:right;
 		</footer>
 	</div>
 </body>
+
 
 </html>

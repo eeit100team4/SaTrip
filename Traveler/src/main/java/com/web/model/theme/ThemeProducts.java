@@ -102,15 +102,15 @@ public class ThemeProducts implements Serializable{
 	private String dinner3;
 	
 	//FK的表格
-	private ThemeBean themeBean;
+	private ThemeTitles themeTitles;
 	//FK
 	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="titleId" ,referencedColumnName="titleId", insertable=false, updatable=false)
-    public ThemeBean getThemeBean() {
-		return themeBean;
+    public ThemeTitles getThemeTitles() {
+		return themeTitles;
 	}
-	public void setThemeBean(ThemeBean themeBean) {
-		this.themeBean = themeBean;
+	public void setThemeTitles(ThemeTitles themeTitles) {
+		this.themeTitles = themeTitles;
 	}
 
 	
@@ -122,7 +122,7 @@ public class ThemeProducts implements Serializable{
 			String fileName2, String descriTitle2, String description2, 
 			String breakfast2, String lunch2, String dinner2, String title3, 
 			String fileName3, String descriTitle3, String description3, 
-			String breakfast3, String lunch3, String dinner3, ThemeBean themeBean) {
+			String breakfast3, String lunch3, String dinner3, ThemeTitles themeTitles) {
 		this.productId = productId;
 		this.titleId = titleId;
 		this.productName = productName;
@@ -154,7 +154,7 @@ public class ThemeProducts implements Serializable{
 		this.lunch3 = lunch3;
 		this.dinner3 = dinner3;	
 		//FK的表格
-		this.themeBean = themeBean;
+		this.themeTitles = themeTitles;
 	}
 	//空建構子
 	public ThemeProducts() {
@@ -343,6 +343,6 @@ public class ThemeProducts implements Serializable{
 				", dinner2=" + dinner2 + ", title3=" + title3 + 
 				", fileName3=" + fileName3 +", descriTitle3=" + descriTitle3 + 
 				", description3=" + description3 + ", breakfast3=" + breakfast3 + 
-				", lunch3=" + lunch3 + ", dinner3=" + dinner3 + ", themeBean=" + themeBean + "]";
+				", lunch3=" + lunch3 + ", dinner3=" + dinner3 + ", themeTitles=" + themeTitles + "]";
 	}
 }
