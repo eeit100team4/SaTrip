@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 	
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -181,7 +182,7 @@ float:right;
 <c:forEach var='journeys' items='${journeys}'>
   <div style="width:300px; height:200px; float: left; ">
     <p>
-    <b style='font-size:16px;'>出發時間${journeys.setOut}</b><br>
+    <b style='font-size:16px;'>出發時間	<fmt:formatDate value="${journeys.setOut}" pattern="yyyy-MM-dd" /></b><br>
 
     </p>
   </div>

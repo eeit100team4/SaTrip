@@ -11,7 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity
+//@Entity
 @Table(name = "Order")
 public class HotelOrderBean implements Serializable {
 	private static final long serialVersionUID = 1L;
