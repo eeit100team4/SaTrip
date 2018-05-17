@@ -111,7 +111,97 @@
 var extraPrice=null;
 <c:if test="${extraPrice!=null}">var extraPrice = ${extraPrice};</c:if>
 var emp = ${result};
-alert(emp);
+
+
+//往前往後一天搜尋
+
+function addDays(date, days) {
+	  var result = new Date(date);
+	  result.setDate(result.getDate() + days);
+	  return result;
+	}
+	
+function dateToString(date){
+	
+	  var temp = new Date(date);
+	  var yyyy=temp.getFullYear();
+	  var MM=("0"+(temp.getMonth()+1)).slice(-2);
+	  var dd=("0"+temp.getDate()).slice(-2);
+	  var result =(yyyy+"-"+MM+"-"+dd);
+	  return result;
+	// alert(dDate.getFullYear()+"-"+(dDate.getMonth()+1)+"-"+dDate.getDate());
+}	
+
+var depCode='${dep}';
+var arrCode='${arr}';
+var depDateTemp='${depDate}';
+var reDateTemp='${reDate}';
+var personTemp='${psg}';
+
+var dDateBefore = new Date(depDateTemp);
+var rDateBefore = new Date(reDateTemp);
+
+
+//讀取中畫面
+function slow() {
+	$("#all").css("filter", "opacity(40%)");
+	$("#img1").css("position", "absolute").css("left", "40%").css("top",
+			"40%").css("display", "inline").css("filter", "opacity(100%)");
+}
+
+//導向重新搜尋葉面方法
+function post(URL, PARAMS) { 
+    var temp = document.createElement("form"); 
+    temp.action = URL; 
+    temp.method = "post"; 
+    temp.style.display = "none"; 
+    for (var x in PARAMS) { 
+      var opt = document.createElement("textarea"); 
+      opt.name = x; 
+      opt.value = PARAMS[x]; // alert(opt.name) 
+      temp.appendChild(opt); 
+      }
+    document.body.appendChild(temp); 
+    temp.submit(); return temp; 
+  }
+//往前
+function reSearchAdvance(){
+	var dDateAfter=dateToString(addDays(dDateBefore,-1));
+	var rDateAfter=dateToString(addDays(rDateBefore,-1));
+
+var reSend = {};
+	reSend.dept= depCode;
+	reSend.arrv=arrCode;
+	reSend.depDate=dDateAfter;
+	reSend.reDate=rDateAfter;
+	reSend.psg=personTemp;
+	console.log(reSend);
+	slow();
+	post("reSend",reSend);
+	
+}
+
+//往後
+function reSeatchPostpone(){
+	var dDateAfter=dateToString(addDays(dDateBefore,1));
+	var rDateAfter=dateToString(addDays(rDateBefore,1));
+
+	var reSend = {};
+		reSend.dept= depCode;
+		reSend.arrv=arrCode;
+		reSend.depDate=dDateAfter;
+		reSend.reDate=rDateAfter;
+		reSend.psg=personTemp;
+		console.log(reSend);
+		slow();
+		post("reSend",reSend);
+	
+}
+//往前往後搜尋結束
+
+
+
+
 //照飛行時間排序
 // var data = emp.OTA_AirLowFareSearchRS.PricedItineraries.PricedItinerary;
 //  data.sort(function(a,b){
@@ -174,11 +264,12 @@ padding:20px;　//DIV區塊內距，參閱：CSS padding 內距。
 float:left;
 }
 .divv2{
+font-size:15px;
 border: 1px solid orange ; 
 background-color: white;
 width:15%;
 /* line-height:446%; */
- line-height:445%; 
+ line-height:475%; 
 align:center;
 padding:20px;
 float:left;
@@ -449,6 +540,7 @@ function list(){
 	$(document).ready(function(){
 
 		show();
+		console.log(depCode+","+arrCode+","+depDateTemp+","+reDateTemp+","+personTemp);
 	})
 	
 	<!-- 傳送選擇航班資料回SERVER 開始-->
@@ -680,7 +772,7 @@ $("#mwt_mwt_slider_scroll").animate( { left:'-'+w+'px' }, 600 ,'swing');
 
 			<!-- end:header-top -->
 
-			<div class="fh5co-hero">
+			<div id="all" class="fh5co-hero">
 
 				<!-- 	背景暖色系樣式			<div class="fh5co-overlay"></div> -->
 				<div class="fh5co-cover" data-stellar-background-ratio="0.5"
@@ -731,8 +823,8 @@ $("#mwt_mwt_slider_scroll").animate( { left:'-'+w+'px' }, 600 ,'swing');
 <!-- <div class="btn-group-vertical"> -->
   <button type="button" class="btn-xs btn-primary " onclick='sortByPrice()'>找低價</button>
   <button type="button" class="btn-xs btn-primary" onclick='sortByTime()'>早出發</button>
-  <button type="button" class="btn-xs btn-primary" onclick='sortAirline()'>提早一天</button>
-  <button type="button" class="btn-xs btn-primary" onclick=''>延後一天</button>
+  <button type="button" class="btn-xs btn-primary" onclick='reSearchAdvance()'>提早一天</button>
+  <button type="button" class="btn-xs btn-primary" onclick='reSeatchPostpone()'>延後一天</button>
 <!--   <button type="button" class="btn-xs ">Sony</button> -->
 <!-- </div> -->
 </div>
@@ -770,6 +862,13 @@ $("#mwt_mwt_slider_scroll").animate( { left:'-'+w+'px' }, 600 ,'swing');
 		</div>
 		<!-- END fh5co-wrapper -->
 
+	</div>
+	
+		<div id="img1" style="display: none">
+		<h1>
+			<strong>重新搜尋中......</strang>
+		</h1>
+		<img alt="" src="/Traveler/images/airplain.gif" widtg=200px height=150px />
 	</div>
 </body>
 </html>
