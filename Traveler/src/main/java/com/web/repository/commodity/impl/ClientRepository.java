@@ -33,7 +33,7 @@ public class ClientRepository implements ClientDAO {
 		List<ClientBean> list = new ArrayList<>();
 		session = factory.getCurrentSession();
 		list = session.createQuery(hql).getResultList();
-
+		
 		return list;
 	}
 	
@@ -101,6 +101,7 @@ public class ClientRepository implements ClientDAO {
 			List<MemberBean> list = new ArrayList<>();
 			session = factory.getCurrentSession();
 			list = session.createQuery(hql).getResultList();
+			
 
 			return list;
 		}
