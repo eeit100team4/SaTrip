@@ -104,9 +104,7 @@ public class ClientController {
 		}else {
 			 throw new Exception("點數or數量不足");
 		}
-
-		
-		
+	
 		cb.setComId(ctb.getCommodityid());
 		cb.setPoint(Allpoint);
 		cb.setMemId(mb.getMemberId());
