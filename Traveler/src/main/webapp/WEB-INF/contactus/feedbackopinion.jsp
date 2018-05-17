@@ -166,7 +166,8 @@ float:right;
 <h2 style="text-align:center">客服管理</h2>
 <ul class="me">
 <li><a href="feedbackopinion">回覆留言</a></li>
-<li><a href="contactuspie">統計報表</a></li>
+<li><a href="StatisticsReport">統計報表</a></li>
+<li><a href="contactuspie"></a>
 
 </ul>
 
@@ -177,7 +178,6 @@ float:right;
 		
 		
 <div class="d2">		
-							<form:form method='POST' action="feedbackopinion" modelAttribute="contactusBean"  enctype='multipart/form-data'>
 							<div class='form-group'>
 							<table border='1px'>
 							<tr>
@@ -216,14 +216,15 @@ float:right;
 							<div class='form-group'>
 							<tr>
 						<td><label for='feedback'>回覆欄:</label></td>
-						<td><form:textarea cols="40" rows="5"  id="feedback" path='feedback'></form:textarea></td>
+						<td><textarea cols="40" rows="5"  id="feedback" path='feedback'></textarea></td>
 						</tr>
 						<tr>
 						<div class='form-group'>
-               	<input type="submit" id='btnAdd' class="btn btn-primary"/>
+               	<input type="submit" id='btnAdd' class="btn btn-primary" value='修改'/>
+               	</div>
                	</div>
                	</tr>
-						</form:form>
+						
 						</table>
 						</div>
 </div>
