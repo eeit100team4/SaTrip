@@ -168,8 +168,8 @@
 						<nav id="fh5co-menu-wrap" role="navigation">
 							<ul class="sf-menu" id="fh5co-primary-menu"  style="background-color:black"   >
 								<li ></i><a href=""><i class="fas fa-plane"></i><font color="orange">機票</font></a></li>
-								<li><a href="_Hotel/hotel"><i class="fas fa-home"></i><font color="orange">飯店</font></a></li>
-								<li class="theme/themeTitles"><a  href="hotel.html"><i
+								<li><a href="_Hotel/DisplayHotel"><i class="fas fa-home"></i><font color="orange">飯店</font></a></li>
+								<li class="fas fa-theme"><a  href="theme/themeTitles"><i
 										class="fas fa-globe"></i><font color="orange">旅遊</font></a></li>
 								<li><a href="car.html"><i
 										class="fas fa-cart-arrow-down"></i><font color="orange">紅利商品</font></a></li>
@@ -213,23 +213,24 @@
 				
 			<c:forEach var='product' items='${hotels}'>
 						<!-- Project One -->
-			      <div class="row" >	
-			      	<div class="col-xl-2"></div>		   
-			        <div class="col-xl-4" style="text-align: right;">
-			        	   <img width='600' height='250'	src="<c:url value='/getPic/${product.hotel_id}' />" />
+				<div class="row " >	
+						    	
+			      		   
+				        <div class="col-xl-6" class="w3-card w3-yellow" style="text-align: right" >
+				        	   <img  width='700' height='250'	src="<c:url value='/getPic/${product.hotel_id}' />" />
+				        </div>
+				        
+				        <div class="col-xl-6" style="text-align: left" >
+				          <h2><span style = "font-weight:bold;color:blue;">${product.name}</span></h2>
+				          <p>${product.country}${product.city}</p>						
+				          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium veniam exercitationem expedita laborum at voluptate. Labore, voluptates totam at aut nemo deserunt rem magni pariatur quos perspiciatis atque eveniet unde.</p>
+				          <a class="btn btn-primary" href="#">選擇</a>
+				    
 			        </div>
-			        <div class="col-xl-3" style="text-align: left;" >
-			          <h2><span style = "font-weight:bold;color:blue;">${product.name}</span></h2>
-			          <p>${product.country}---${product.city}</p>						
-			          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium veniam exercitationem expedita laborum at voluptate. Labore, voluptates totam at aut nemo deserunt rem magni pariatur quos perspiciatis atque eveniet unde.</p>
-
-			          <a class="btn btn-primary" href="#">選擇</a>
-			        </div>
-			        <div class="col-xl-1"></div>
-			      </div>
+			   </div>
 			      <!-- /.row -->
 			      <p></p>
-			     <hr>
+			     
 			 </c:forEach>			     
 		
 			

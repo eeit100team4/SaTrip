@@ -26,12 +26,18 @@ public class HibernateHotelRepository implements HotelRepository {
 	}
 
 	@Override
-	public HotelBean getProductById(int productId) {
-		HotelBean hb = null;
-		Session session = factory.getCurrentSession();
-		hb = session.get(HotelBean.class, productId);
+	public HotelBean getHotelById(int hotel_id) {
+		HotelBean hb = null;		
+		hb= factory.getCurrentSession().get(HotelBean.class, hotel_id);
 		return hb;
 	}
+
+
+	
+
+	
+
+	
 
 	
 

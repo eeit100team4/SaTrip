@@ -17,14 +17,18 @@ public class HotelServiceImpl implements HotelService {
 	@Transactional
 	@Override
 	public List<HotelBean> getAllHotels() {
+		
 		return hotelRepository.getAllHotels();
 	}
 	@Transactional
 	@Override
-	public HotelBean getProductById(int productId) {
-		// TODO Auto-generated method stub
-		return hotelRepository.getProductById(productId);
+	public HotelBean getHotelById(int hotel_id) {
+		return hotelRepository.getHotelById(hotel_id);
 	}
+	
+	
+	
+	
 	
 	
 	
