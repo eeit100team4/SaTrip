@@ -253,6 +253,32 @@ function reSeatchPostpone(){
 
 
 </script>
+<!--簡易篩選功能-->
+<script>
+function test(){
+	for(var i=0;i<50;i++){
+		
+	var k=$("#"+i).parents("tbody").find("tr:eq(0)").children("td:eq(4)").children("span:eq(0)").text();
+	if(k>20000){
+		$("#"+i).parents("table").parent("div").parent("div").css("display","none");
+	}
+	}
+	alert("oK");
+}
+
+
+function CLOnly(){
+	for(var i=0;i<50;i++){
+		
+	var k=$("#"+i).parents("table").parent("div").prev("div").text();
+	if(!k.match("中華航空")){
+		$("#"+i).parents("table").parent("div").parent("div").css("display","none");
+	}
+	}
+	alert("oK");
+}
+
+</script>
 
 <!--  -->
 
@@ -567,7 +593,7 @@ function list(){
 					returnArrTnextDay =returnArrTime.substring(10,0);
 					returnArrTime=returnArrTime.substring(11)+" (隔日)";
 				}
-				var airline=$("#"+k).parents("table").parent("div").prev("div").text();                                //航班
+				var airline=$("#"+k).parents("table").parent("div").prev("div").text();  //航空公司                              //航班
 				var depNum=$("#"+k).parents("tbody").find("tr:eq(0)").children("td:eq(2)").children("div:eq(2)").text(); //去程機型
 				var returnNum=$("#"+k).parents("tbody").find("tr:eq(2)").children("td:eq(2)").children("div:eq(2)").text(); //回程機型
 				
@@ -825,6 +851,8 @@ $("#mwt_mwt_slider_scroll").animate( { left:'-'+w+'px' }, 600 ,'swing');
   <button type="button" class="btn-xs btn-primary" onclick='sortByTime()'>早出發</button>
   <button type="button" class="btn-xs btn-primary" onclick='reSearchAdvance()'>提早一天</button>
   <button type="button" class="btn-xs btn-primary" onclick='reSeatchPostpone()'>延後一天</button>
+  <button type="button" class="btn-xs btn-primary" onclick='test()'>兩萬以下</button>
+  <button type="button" class="btn-xs btn-primary" onclick='CLOnly()'>華航限定</button>
 <!--   <button type="button" class="btn-xs ">Sony</button> -->
 <!-- </div> -->
 </div>
