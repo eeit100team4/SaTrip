@@ -44,6 +44,11 @@ public class ContactusServiceImpl implements ContactusService {
 		List<ContactusBean> allFeedback=contactusRepository.getAllFeedback();
 	}
 
+	@Override
+	public List<ContactusBean> getAllFeedback() {
+		return contactusRepository.getAllFeedback();
+	}
+
 	
 
 }

@@ -118,6 +118,7 @@
 
 
 </head>
+<body>
 <header id="fh5co-header-section" class="sticky-banner">
 				<div class="container">
 					<div class="nav-header">
@@ -148,21 +149,24 @@
 					</div>
 				</div>
 			</header>
-
-<c:forEach var='products' items='${products}'>
+			<div id="allpage">
+	<div class="d2">
+	<h1>詳細資訊</h1>
+<c:forEach var='details' items='${details}'>
   <div style="width:300px; height:200px; float: left; ">
     <p>
-    <b style='font-size:16px;'>商品名稱:${products.productName}</b><br>
-    <b style='font-size:16px;'>國家:${products.country}</b><br>
-    <b style='font-size:16px;'>種類:${products.themeTitles.titleName}</b><br>
-    <b style='font-size:16px;'>住宿:${products.hotelName}</b><br>
-    <a href="${products.themeTitles.titleName}/${products.productName}">查看出團日期</a>
+    <b style='font-size:16px;'>商品名稱<br>${details.themeProducts.productName}</b><br>
+    <b style='font-size:16px;'>商品種類<br>${details.themeProducts.themeTitles.titleName}</b><br>
+    <b style='font-size:16px;'>出發日<br>	<fmt:formatDate value="${details.setOut}" pattern="yyyy/MM/dd" /></b><br>
+    <b style='font-size:16px;'>返回日<br>	<fmt:formatDate value="${details.returnDay}" pattern="yyyy/MM/dd" /></b><br>
+    
+    
     </p>
   </div>
  </c:forEach>
 
 </div>
-			<div class="row">
+<div class="row">
 				<div class="col-md-6 col-md-offset-3 text-center">
 					<p class="fh5co-social-icons">
 						<a href="#"><i class="icon-twitter2"></i></a> <a href="#"><i

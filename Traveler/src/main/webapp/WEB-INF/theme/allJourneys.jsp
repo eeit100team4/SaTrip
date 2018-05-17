@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 	
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -135,7 +136,7 @@ footer {
 
 .d2{
 background-color: #FFFFFF;
-width: 70%;
+width: 80%;
 height:630px;
 float:right;
 }
@@ -150,10 +151,10 @@ float:right;
 		<header>		
 		 <nav>		
 		<ul class="menu">
-	    	<li cless="le"><a href="index.html"><img src='/Traveler/images//icon_index.png' height="25px" width="25px"/>TRAVEL後台管理系統</a></li>
+	    	<li class="le"><a href="index.html"><img src='/Traveler/images//icon_index.png' height="25px" width="25px"/>TRAVEL後台管理系統</a></li>
 					<li><a href="airTickets/back/list"><img src='/Traveler/images//icon_air.png' height="25px" width="25px"/>機票管理</a></li>
 					<li><a href="index.html"><img src='/Traveler/images//icon_hotel.png' height="25px" width="25px"/>飯店管理</a></li>
-					<li><a href="index.html"><img src='/Traveler/images//icon_traveler.png' height="25px" width="25px"/>主題旅遊管理</a></li>
+					<li><a href="../theme/management"><img src='/Traveler/images//icon_traveler.png' height="25px" width="25px"/>主題旅遊管理</a></li>
 					<li><a href="index.html"><img src='/Traveler/images//icon_vip.png' height="25px" width="25px"/>會員管理</a></li>
 					<li><a href="commlist"><img src='/Traveler/images//icon_comm.png' height="25px" width="25px"/>紅利管理</a></li>
 					<li><a href="feedbackopinion"><img src='/Traveler/images//icon_support.png' height="25px" width="25px"/>客服管理</a></li>
@@ -163,70 +164,33 @@ float:right;
 		</nav> </header>
 	
 <div class="d1"> 
-<h2 style="text-align:center">客服管理</h2>
+<h2 style="text-align:center">旅遊管理項目</h2>
 <ul class="me">
-<li><a href="feedbackopinion">回覆留言</a></li>
-<li><a href="StatisticsReport">統計報表</a></li>
-<li><a href="contactuspie"></a>
+<li><a href="titleManagement">主題種類</a></li>
+<li><a href="productManagement">商品資料</a></li>
+<li><a href="journeyManagement">行程內容</a></li>
+<li><a href="applicationManagement">報名表單</a></li>
 
 </ul>
 
 		</div>
+
 		
 		
 		
-		
-		
-<div class="d2">		
-							<div class='form-group'>
-							<table border='1px'>
-							<tr>
-							<td style=color:black>姓名:</td>
-							<td>${aa.name}</td>
-							</tr>
-							<tr>
-							<td style=color:black>性別:</td>
-							<td>${aa.sex}</td>
-							</tr>
-							<tr>
-							<td style=color:black>年齡:</td>
-							<td>${aa.age}</td>
-							</tr>
-							<tr>
-							<td style=color:black>連絡電話:</td>
-							<td>${aa.phone}</td>
-							</tr>
-							<tr>
-							<td style=color:black>電子信箱:</td>
-							<td>${aa.email}</td>
-							</tr>
-							<tr>
-							<td style=color:black>所在地:</td>
-							<td>${aa.address}</td>
-							</tr>
-							<tr>
-							<td style=color:black>意見類別:</td>
-							<td>${aa.opinion}</td>
-							</tr>
-							<tr>
-							<td style=color:black>意見內容:</td>
-							<td>${aa.comment}</td>
-							</tr>	
-							</div>
-							<div class='form-group'>
-							<tr>
-						<td><label for='feedback'>回覆欄:</label></td>
-						<td><textarea cols="40" rows="5"  id="feedback" path='feedback'></textarea></td>
-						</tr>
-						<tr>
-						<div class='form-group'>
-               	<input type="submit" id='btnAdd' class="btn btn-primary" value='修改'/>
-               	</div>
-               	</div>
-               	</tr>
-						
-						</table>
-						</div>
+<div class="d2">
+<c:forEach var='journeys' items='${journeys}'>
+  <div style="width:300px; height:200px; float: left; ">
+    <p>
+    <b style='font-size:16px;'>商品類型<br>${journeys.themeProducts.themeTitles.titleName}</b><br>
+    <b style='font-size:16px;'>商品名稱<br>${journeys.themeProducts.productName}</b><br>
+    <b style='font-size:16px;'>出發日<br>	<fmt:formatDate value="${journeys.setOut}" pattern="yyyy/MM/dd" /></b><br>
+    <b style='font-size:16px;'>返回日<br>	<fmt:formatDate value="${journeys.returnDay}" pattern="yyyy/MM/dd" /></b><br>
+    
+    </p>
+  </div>
+ </c:forEach>
+
 </div>
 		
 		<footer>
@@ -236,5 +200,6 @@ float:right;
 		</footer>
 	</div>
 </body>
+
 
 </html>

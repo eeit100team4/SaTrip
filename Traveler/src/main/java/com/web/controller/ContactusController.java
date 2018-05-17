@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.web.model.commodity.CommodityBean;
 import com.web.model.contactus.ContactusBean;
 import com.web.service.contactus.ContactusService;
 
@@ -65,13 +66,32 @@ public class ContactusController {
 		return "redirect:/contactus/InsertOpinionSuccess";
 	}
 
-	@RequestMapping("/update/feedback")
-	public String updateFeedback(Model model) {
-		System.out.println("feedback");
-		contactusService.updateAllFeedback();
-		return "redirect:/contactus/feedbackopinion";
+//	@RequestMapping("/update/feedback")
+//	public String updateFeedback(Model model) {
+//		System.out.println("feedback");
+//		contactusService.updateAllFeedback();
+//		return "redirect:/contactus/feedbackopinion";
+//		
+//	}
+	@RequestMapping(value="/update")
+	public String updateform(Model model,
+			@ModelAttribute("ContactusBean") ContactusBean contactus) {
+		List<ContactusBean>  list = contactusService.getAllFeedback();
+		model.addAttribute("contactus", list);
+		return "/contactus/feedbackopinion";		
 		
 	}
+//	@RequestMapping(value="contactus/feedbackopinion",method=RequestMethod.POST)
+//	public String updateForm(@ModelAttribute("contactusBean")ContactusBean contactus,
+//			BindingResult result, HttpSession session) {
+//		System.out.println("ENTER POST");
+//		System.out.println(contactus);
+////		session.setAttribute("abc", contactus);
+//		contactusService.addCustomerOpinion(contactus);
+//		session.setAttribute("aa", contactus);
+//		return "redirect:/contactus/feedbackopinion";
+//	}
+
 	
 	@RequestMapping("contactus/feedbackopinion")
 	public String list2(Model model) {
@@ -79,8 +99,14 @@ public class ContactusController {
 		model.addAttribute("contactus", list2);
 		return "contactus/feedbackopinion";
 	}
-	@RequestMapping("contactus/contactuspie")
+	@RequestMapping("contactus/StatisticsReport")
 	public String list3(Model model) {
+		List<ContactusBean> list3=contactusService.getAllContactus();
+		model.addAttribute("contactus", list3);
+		return "contactus/StatisticsReport";
+	}
+	@RequestMapping("contactus/contactuspie")
+	public String list4(Model model) {
 		List<ContactusBean> list3=contactusService.getAllContactus();
 		model.addAttribute("contactus", list3);
 		return "contactus/contactuspie";

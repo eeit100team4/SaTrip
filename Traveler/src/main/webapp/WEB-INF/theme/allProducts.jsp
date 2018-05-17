@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 	
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -153,7 +154,7 @@ float:right;
 	    	<li cless="le"><a href="index.html"><img src='/Traveler/images//icon_index.png' height="25px" width="25px"/>TRAVEL後台管理系統</a></li>
 					<li><a href="airTickets/back/list"><img src='/Traveler/images//icon_air.png' height="25px" width="25px"/>機票管理</a></li>
 					<li><a href="index.html"><img src='/Traveler/images//icon_hotel.png' height="25px" width="25px"/>飯店管理</a></li>
-					<li><a href="index.html"><img src='/Traveler/images//icon_traveler.png' height="25px" width="25px"/>主題旅遊管理</a></li>
+					<li><a href="../theme/management"><img src='/Traveler/images//icon_traveler.png' height="25px" width="25px"/>主題旅遊管理</a></li>
 					<li><a href="index.html"><img src='/Traveler/images//icon_vip.png' height="25px" width="25px"/>會員管理</a></li>
 					<li><a href="commlist"><img src='/Traveler/images//icon_comm.png' height="25px" width="25px"/>紅利管理</a></li>
 					<li><a href="feedbackopinion"><img src='/Traveler/images//icon_support.png' height="25px" width="25px"/>客服管理</a></li>
@@ -163,79 +164,32 @@ float:right;
 		</nav> </header>
 	
 <div class="d1"> 
-<h2 style="text-align:center">客服管理</h2>
+<h2 style="text-align:center">旅遊管理項目</h2>
 <ul class="me">
-<li><a href="feedbackopinion">回覆留言</a></li>
-<li><a href="StatisticsReport">統計報表</a></li>
+<li><a href="titleManagement">主題種類</a></li>
+<li><a href="productManagement">商品資料</a></li>
+<li><a href="journeyManagement">行程內容</a></li>
+<li><a href="applicationManagement">報名表單</a></li>
 
 </ul>
 
 		</div>
-		
-		
-		
-		
-		
-<div class="d2">		
-<script src="https://code.highcharts.com/highcharts.js"></script>
-<!-- <script src="https://code.highcharts.com/modules/exporting.js"></script> -->
-<script src="https://code.highcharts.com/modules/export-data.js"></script>
 
-<div id="container" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
+		
+		
+		
+<div class="d2">
+<c:forEach var='products' items='${products}'>
+  <div style="width:300px; height:200px; float: left; ">
+    <p>
+    <b style='font-size:16px;'>商品名稱:${products.productName}</b><br>
+    <b style='font-size:16px;'>國家:${products.country}</b><br>
+    <b style='font-size:16px;'>種類:${products.themeTitles.titleName}</b><br>
+    <b style='font-size:16px;'>住宿:${products.hotelName}</b><br>
+    </p>
+  </div>
+ </c:forEach>
 
-
-<script>
-Highcharts.chart('container', {
-    chart: {
-        plotBackgroundColor: null,
-        plotBorderWidth: null,
-        plotShadow: false,
-        type: 'pie'
-    },
-    title: {
-        text: '一月份國人出國目的地統計(亞洲區)'
-    },
-    tooltip: {
-        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-    },
-    plotOptions: {
-        pie: {
-            allowPointSelect: true,
-            cursor: 'pointer',
-            dataLabels: {
-                enabled: true,
-                format: '<b>{point.name}</b>: {point.percentage:.1f} %',
-                style: {
-                    color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
-                }
-            }
-        }
-    },
-    series: [{
-        name: 'Brands',
-        colorByPoint: true,
-        data: [{
-            name: '日本',
-            y: 61.41,
-            sliced: true,
-            selected: true
-        }, {
-            name: '韓國',
-            y: 11.84
-        }, {
-            name: '香港',
-            y: 10.85
-        }, {
-            name: '大陸',
-            y: 4.67
-        }, {
-            name: '泰國',
-            y: 4.18
-        
-        }]
-    }]
-});
-</script>
 </div>
 		
 		<footer>

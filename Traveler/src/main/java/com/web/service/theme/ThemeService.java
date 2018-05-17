@@ -13,12 +13,6 @@ public interface ThemeService {
 	
 	void addThemeTitle(ThemeTitles theme);
 	
-	//分類查詢 從固定title查該title下商品資料
-	//找出所有title
-	List<String> getAllTitles();
-	//依title抓產品
-	List<ThemeProducts> getProductsByTitle(String titleName);
-	
 	//顯示所有商品資料
 	List<ThemeProducts> getAllProducts();
 	
@@ -27,5 +21,20 @@ public interface ThemeService {
 	
 	//顯示所有報名表內容
 	List<ThemeApplications> getAllApplications();
+	
+	//分類查詢 從固定title查該title下商品資料
+	//找出所有title
+	List<String> getAllTitles();
+	//依title抓產品
+	List<ThemeProducts> getProductsByTitle(String titleName);
+	
+	//分類查詢 從固定商品下查出團日期資料
+	//找出所有商品
+	List<String> getAllProductName();
+	//依商品名稱抓出團日期
+	List<ThemeJourneys> getJourneysByProduct(String productName);
+	
+	//依行程編號抓出detail
+	List<ThemeJourneys> getDetailsByJourneyId(Integer journeyId);
 }
 

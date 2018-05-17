@@ -15,8 +15,12 @@ public class ExtraPriceService {
 	@Autowired
 	ExtraPriceRepository epr;
 
-	public Integer getExtraPrice(String dept,String arrv) {
+	public ExtraPriceBean getExtraPrice(String dept,String arrv) {
 		return epr.selectByid(dept,arrv);
+	}
+	
+	public void updateExtraPrice(ExtraPriceBean epBean) {
+		epr.updateExtraPrice(epBean);
 	}
 	
 }
