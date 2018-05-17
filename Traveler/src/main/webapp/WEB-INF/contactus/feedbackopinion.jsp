@@ -178,6 +178,7 @@ float:right;
 		
 <div class="d2">		
 							<form:form method='POST' action="feedbackopinion" modelAttribute="contactusBean"  enctype='multipart/form-data'>
+							<div class='form-group'>
 							<table border='1px'>
 							<tr>
 							<td style=color:black>姓名:</td>
@@ -211,15 +212,17 @@ float:right;
 							<td style=color:black>意見內容:</td>
 							<td>${aa.comment}</td>
 							</tr>	
-							
+							</div>
 							<div class='form-group'>
 							<tr>
 						<td><label for='feedback'>回覆欄:</label></td>
 						<td><form:textarea cols="40" rows="5"  id="feedback" path='feedback'></form:textarea></td>
 						</tr>
+						<tr>
 						<div class='form-group'>
-               	<input type="submit" id='btnAdd' class="btn btn-primary"></button>
+               	<input type="submit" id='btnAdd' class="btn btn-primary"/>
                	</div>
+               	</tr>
 						</form:form>
 						</table>
 						</div>

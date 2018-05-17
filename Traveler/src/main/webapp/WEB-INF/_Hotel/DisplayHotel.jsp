@@ -147,13 +147,16 @@
 
 <!-- -------------------------------------------------------------------------------------------------------	 -->
 
+
+
+</style>
 </head>
 <body>
 	<div id="fh5co-wrapper">
 		<div id="fh5co-page">
 
 			<!-- end:header-top -->
-			<header id="fh5co-header-section" class="sticky-banner">
+			<header id="fh5co-header-section" class="sticky-banner" style="background-color: black;">
 				<div class="container">
 					<div class="nav-header">
 						<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle dark"><i></i></a>
@@ -163,23 +166,23 @@
 						<!-- -------------------------------------------------------------------------------------------------------	 -->
 						<!-- START #fh5co-menu-wrap -->
 						<nav id="fh5co-menu-wrap" role="navigation">
-							<ul class="sf-menu" id="fh5co-primary-menu">
-								<li></i><a href=""><i class="fas fa-plane"></i>機票</a></li>
-								<li><a href="_Hotel/hotel"><i class="fas fa-home"></i>飯店</a></li>
-								<li class="theme/themeTitles"><a href="hotel.html"><i
-										class="fas fa-globe"></i>旅遊</a></li>
+							<ul class="sf-menu" id="fh5co-primary-menu"  style="background-color:black"   >
+								<li ></i><a href=""><i class="fas fa-plane"></i><font color="orange">機票</font></a></li>
+								<li><a href="_Hotel/hotel"><i class="fas fa-home"></i><font color="orange">飯店</font></a></li>
+								<li class="theme/themeTitles"><a  href="hotel.html"><i
+										class="fas fa-globe"></i><font color="orange">旅遊</font></a></li>
 								<li><a href="car.html"><i
-										class="fas fa-cart-arrow-down"></i>紅利商品</a></li>
-								<li><a href="blog.html"><i class="fas fa-phone-square"></i>客服中心</a></li>
+										class="fas fa-cart-arrow-down"></i><font color="orange">紅利商品</font></a></li>
+								<li><a href="blog.html"><i class="fas fa-phone-square"></i><font color="orange">客服中心</font></a></li>
 								<li><a href="contact.html"><i
-										class="far fa-user-circle"></i>登入/註冊</a></li>
+										class="far fa-user-circle"></i><font color="orange">登入/註冊</font></a></li>
 							</ul>
 						</nav>
 					</div>
 				</div>
 			</header>
 			
-				<hr style="height: 1px; border: none; color: #333; background-color: #333;">
+				
 			<!-- -------------------------------------------------------------------------------------------------------	 -->
 			<!-- ____________上欄位整行____________↓ -->
 
@@ -190,49 +193,92 @@
 <!-- 			</div> -->
 			<!-- ____________主要布局____________↓ -->
 			<div class="container-fluid">
+			
 
 				<!-- ____________左邊欄位____________↓ -->
 				<!-- --------A別人的網站-----------------------------------------------------------------------------------------------	 -->
 <!-- 				<article> -->
-					<div class="col-md-2 col-md-offset-1">
+<!-- 					<div class="col-md-2 col-md-offset-1"> -->
 						
 						
 						
-					</div>
+<!-- 					</div> -->
 
 
 					<!-- -------------------------------------------------------------------------------------------------------	 -->
-					<!-- 老師的範例暫用 -->
+					
+					
+	
+					
 				
-				
-	<div class="row">
 			<c:forEach var='product' items='${hotels}'>
-				<div class="col-sm-6 col-md-3" style="width: 360px; height: 360px">
-					<div class="thumbnail" style="width: 320px; height: 340px">
-						<img width='250' height='200' 
-     						src="<c:url value='/getPic/${product.hotel_id}' />" />
-						<div class="caption">
-							<p>
-								<b style='font-size: 16px;'>${product.hotel_id}</b>
-							</p>
-							<p>${product.country}</p>
-							<p>${product.city}</p>
-							<p>${product.name}</p>
-							<p>${product.hotelRoomBean.room_id}</p>
-							<p>${product.hotelRoomBean.occupancy}</p>
-<%-- 							<p>目前在庫數量: ${product.stock}本</p> --%>
-							<p>
-								<a href="<spring:url value='product?id=${product.hotel_id}' />"   
-									class="btn btn-primary"> <span
-									class="glyphicon-info-sigh glyphicon"></span>詳細資料	
-								</a>
-								<a href="DisplayRoom">超連結</a>
-							</p>
-						</div>
-					</div>
-				</div>
-			</c:forEach>
-		</div>
+						<!-- Project One -->
+			      <div class="row" >	
+			      	<div class="col-xl-2"></div>		   
+			        <div class="col-xl-4" style="text-align: right;">
+			        	   <img width='600' height='250'	src="<c:url value='/getPic/${product.hotel_id}' />" />
+			        </div>
+			        <div class="col-xl-3" style="text-align: left;" >
+			          <h2><span style = "font-weight:bold;color:blue;">${product.name}</span></h2>
+			          <p>${product.country}---${product.city}</p>						
+			          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium veniam exercitationem expedita laborum at voluptate. Labore, voluptates totam at aut nemo deserunt rem magni pariatur quos perspiciatis atque eveniet unde.</p>
+
+			          <a class="btn btn-primary" href="#">選擇</a>
+			        </div>
+			        <div class="col-xl-1"></div>
+			      </div>
+			      <!-- /.row -->
+			      <p></p>
+			     <hr>
+			 </c:forEach>			     
+		
+			
+		</div>	
+			
+			
+	
+				
+				
+		
+	     
+	    
+	  
+			
+	
+	
+	
+	
+	
+	
+	
+<!-- 	<div class="row"> -->
+<%-- 			<c:forEach var='product' items='${hotels}'> --%>
+<!-- 				<div class="col-sm-6 col-md-3" style="width: 360px; height: 360px"> -->
+<!-- 					<div class="thumbnail" style="width: 320px; height: 340px"> -->
+<!-- 						<img width='250' height='200'  -->
+<%--      						src="<c:url value='/getPic/${product.hotel_id}' />" /> --%>
+<!-- 						<div class="caption"> -->
+<!-- 							<p> -->
+<%-- 								<b style='font-size: 16px;'>${product.hotel_id}</b> --%>
+<!-- 							</p> -->
+<%-- 							<p>${product.country}</p> --%>
+<%-- 							<p>${product.city}</p> --%>
+<%-- 							<p>${product.name}</p> --%>
+<%-- 							<p>${product.hotelRoomBean.room_id}</p> --%>
+<%-- 							<p>${product.hotelRoomBean.occupancy}</p> --%>
+<%--  							<p>目前在庫數量: ${product.stock}本</p>  --%>
+<!-- 							<p> -->
+<%-- 								<a href="<spring:url value='product?id=${product.hotel_id}' />"    --%>
+<!-- 									class="btn btn-primary"> <span -->
+<!-- 									class="glyphicon-info-sigh glyphicon"></span>詳細資料	 -->
+<!-- 								</a> -->
+<!-- 								<a href="DisplayRoom">超連結</a> -->
+<!-- 							</p> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
+<!-- 				</div> -->
+<%-- 			</c:forEach> --%>
+<!-- 		</div> -->
 
 
 					<!-- -------------------------------------------------------------------------------------------------------	 -->
@@ -253,10 +299,10 @@
 <!-- 						</div> -->
 <!-- 						<hr> -->
 
+<!-- 						</div> -->
 <!-- 					</div> -->
+<!-- 				</aside> -->
 <!-- 			</div> -->
-<!-- 			</aside> -->
-			
 			<!-- ____________主要布局____________↑ -->
 
 
@@ -337,4 +383,3 @@
 			</footer>
 </body>
 </html>
-

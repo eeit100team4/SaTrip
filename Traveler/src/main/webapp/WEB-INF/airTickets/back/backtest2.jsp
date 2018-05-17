@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-	
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -23,12 +23,11 @@
 	src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
 	integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
 	crossorigin="anonymous"></script>
-	
-	
+
+
 <title>Insert title here</title>
 
 <style>
-        
 * {
 	margin: 0;
 	padding: 0;
@@ -37,7 +36,6 @@
 /* #allpage { */
 /* 	margin: 0 auto; */
 /* } */
-
 .menu {
 	overflow: auto;
 	width: 100%;
@@ -50,8 +48,6 @@
 	overflow: auto;
 	width: 100%;
 	list-style-type: none;
-
-
 }
 
 .menu li {
@@ -63,9 +59,8 @@
 
 .me li {
 	float: left;
-    width: 15em; 
+	width: 15em;
 	/*為了讓連結區域能依字型大小的變化自動放大,因此在指定width屬性時採用em為單位*/
-	
 }
 
 .menu li a {
@@ -88,15 +83,15 @@
 	text-align: center;
 }
 
- .menu li a:hover { 
-	color: #FFFFFF; 
- 	background-color: #AA7700; 
- } 
-  .me li a:hover { 
-	color: #FFFFFF; 
- 	background-color: #AA7700; 
- }
+.menu li a:hover {
+	color: #FFFFFF;
+	background-color: #AA7700;
+}
 
+.me li a:hover {
+	color: #FFFFFF;
+	background-color: #AA7700;
+}
 
 /* .content { */
 /* 	overflow: auto; */
@@ -108,12 +103,9 @@
 /* 	float: right; */
 /* 	width: 20%; */
 /* } */
-
 .list1 {
 	list-style: decimal inside;
 }
-
-
 
 footer {
 	width: 100%;
@@ -129,17 +121,16 @@ footer {
 .d1 {
 	background-color: #FF8800;
 	width: 20%;
-	height:630px;
-	float:left;
+	height: 630px;
+	float: left;
 }
 
-.d2{
-background-color: #FFFFFF;
-width: 80%;
-height:630px;
-float:right;
+.d2 {
+	background-color: #FFFFFF;
+	width: 80%;
+	height: 630px;
+	float: right;
 }
-
 </style>
 
 <!-- Modernizr JS -->
@@ -181,156 +172,176 @@ float:right;
 
 
 <script>
+	function entry() {
+		alert("doubleclick");
 
-function entry(){
-	alert("doubleclick");
-	
-}
+	}
 
-
-
-$("#name").blur(function(){
-	alert("blur");
-// 	  $("name").attr("background-color","#D6D6FF").attr("readonly",true);
+	$("#name").blur(function() {
+		alert("blur");
+		// 	  $("name").attr("background-color","#D6D6FF").attr("readonly",true);
 	});
 
-$(document).ready(function(){
-	  $("input").dblclick(function(){
-	    $(this).css("background-color","#FFFFCC");
-	    $(this).attr("readonly",false);
-	  });
-	  $("input").blur(function(){
-	    $(this).css("background-color","#D6D6FF").attr("readonly",true);;
-	  });
+	$(document).ready(function() {
+		$("input").dblclick(function() {
+			$(this).css("background-color", "#FFFFCC");
+			$(this).attr("readonly", false);
+		});
+		$("input").blur(function() {
+			$(this).css("background-color", "#D6D6FF").attr("readonly", true);
+			;
+		});
 	});
-function geust(){
-	$("#guestInfo").slideToggle(); 
-}
-
+	function geust() {
+		$("#guestInfo").slideToggle();
+	}
 </script>
 
 <script>
-var orderId=${bean.orderID};
+	var orderId = $
+	{
+		bean.orderID
+	};
 
+	function update() {
+		console.log(data);
+		var data = new FormData(document.querySelector("form"));
+		$
+				.ajax({
+					url : 'http://localhost:8080/Traveler/airTickets/back/selectOne/tt/tt',
+					type : 'POST',
+					data : data,
+					//enctype: "multipart/form-data",
+					contentType : false,
+					processData : false,
+					success : function(responce) {
+						alert(responce);
+						alert("ok");
+						// 		window.location.assign(responce);
+					},
+					error : function() {
+						alert("error");
+					}
 
-
-
-function update(){
-	console.log(data);
-	var data = new FormData(document.querySelector("form"));
-$.ajax({
-	url : 'http://localhost:8080/Traveler/airTickets/back/selectOne/tt/tt',
-	type : 'POST',
-	data : data,
-	//enctype: "multipart/form-data",
-	contentType : false,
-	processData : false,
-	success : function(responce) {
-		alert(responce);
-		alert("ok");
-// 		window.location.assign(responce);
-	},
-	error:function(){
-		alert("error");
+				});
 	}
-
-});
-}
 </script>
 
 </head>
 <body>
 	<div id="allpage">
-		<header>		
-		 <nav>		
-		<ul class="menu">
-	    	<li cless="le"><a href="index.html"><img src='/Traveler/images//icon_index.png' height="25px" width="25px"/>TRAVEL後台管理系統</a></li>
-					<li><a href="airTickets/back/list"><img src='/Traveler/images//icon_air.png' height="25px" width="25px"/>機票管理</a></li>
-					<li><a href="index.html"><img src='/Traveler/images//icon_hotel.png' height="25px" width="25px"/>飯店管理</a></li>
-					<li><a href="index.html"><img src='/Traveler/images//icon_traveler.png' height="25px" width="25px"/>主題旅遊管理</a></li>
-					<li><a href="index.html"><img src='/Traveler/images//icon_vip.png' height="25px" width="25px"/>會員管理</a></li>
-					<li><a href="commlist"><img src='/Traveler/images//icon_comm.png' height="25px" width="25px"/>紅利管理</a></li>
-					<li><a href="index.html"><img src='/Traveler/images//icon_support.png' height="25px" width="25px"/>客服管理</a></li>
-					<li><a href="index.html"><img src='/Traveler/images//icon_login.png' height="25px" width="25px"/>登入</a></li> <!--登出-->
+		<header> <nav>
+	<ul class="menu">
+			<li cless="le"><a href="/Traveler/backStage"><img
+					src='/Traveler/images//icon_index.png' height="25px" width="25px" />TRAVEL後台管理系統</a></li>
+			<li><a href="/Traveler/airTickets/back/list"><img
+					src='/Traveler/images//icon_air.png' height="25px" width="25px" />機票管理</a></li>
+			<li><a href="index.html"><img
+					src='/Traveler/images//icon_hotel.png' height="25px" width="25px" />飯店管理</a></li>
+			<li><a href="index.html"><img
+					src='/Traveler/images//icon_traveler.png' height="25px"
+					width="25px" />主題旅遊管理</a></li>
+			<li><a href="index.html"><img
+					src='/Traveler/images//icon_vip.png' height="25px" width="25px" />會員管理</a></li>
+			<li><a href="commlist"><img
+					src='/Traveler/images//icon_comm.png' height="25px" width="25px" />紅利管理</a></li>
+			<li><a href="index.html"><img
+					src='/Traveler/images//icon_support.png' height="25px" width="25px" />客服管理</a></li>
+			<li><a href="index.html"><img
+					src='/Traveler/images//icon_login.png' height="25px" width="25px" />登入</a></li>
+			<!--登出-->
 		</ul>
 
 		</nav> </header>
-	
-<div class="d1"> 
-<h2 style="text-align:center">機票管理</h2>
-<ul class="me">
-<li><a href="index.html">查詢會員訂單</a></li>
-<li><a href="index.html">航班統計報表</a></li>
 
-</ul>
+		<div class="d1">
+			<h2 style="text-align: center">機票管理</h2>
+			<ul class="me">
+				<li><a href="index.html">查詢會員訂單</a></li>
+				<li><a href="index.html">航班統計報表</a></li>
+
+			</ul>
 
 		</div>
-		
-		
-		
-		
-		
-<div class="d2">
-<ul class="list-group">
-    <li class="list-group-item">訂單編號：${bean.orderID}</li>
-    <li class="list-group-item">去程 :${bean.depDate} ${bean.depT} ${bean.depC} (機型 ${bean.depNum}) ~ ${bean.depDate} ${bean.arrT}  ${bean.arrC}</li>
-    <li class="list-group-item">回程 :${bean.returnDate} ${bean.returnTime} ${bean.arrC} (機型 ${bean.returnNum}) ~ ${bean.returnDate} ${bean.returnArrTime}  ${bean.depC} </li>
-    <li class="list-group-item">航空公司：(${bean.airline})</li>
-    <li class="list-group-item">總價格： ${bean.price}</li>
-    <li class="list-group-item">紅利點數：${bean.redPoint}</li>
-    <li class="list-group-item">付款狀態：${bean.checkpay}</li>
-</ul>
-  <button type="button" style="margin:10px;" class="btn btn-default btn-sm" id="guest" onclick="geust()">聯絡人&旅客資訊</button>
-  <div id="guestInfo" style="display:none">
- 	<div class="text-left" style="width: 50%;height:auto; margin: 0px auto; border: 1px orange solid">
-		<form id="myform"  enctype="multipart/form-data" >
 
-			<fieldset>
-        	<h2><legend class="label label-warning">聯絡人資訊</legend></h2>
-            <div class="st1">
-                <label onclick="return false" for="contactName" class="lab">姓名</label>
-                <input type="text" name="contactName" id="contactName" size="10" value="${bean.guestBean.contactName}">
-            </div>
-            <div class="st1">
-                <label for="contactIdCard" class="lab">身分證字號</label>
-                <input  type="text" name="contactIdCard" id="contactIdCard" maxlength="10" value="${bean.guestBean.contactIdCard}">
-            </div>
-             <div class="st1">
-                <label for="contactPhone" class="lab">手機</label>
-                <input type="text" name="contactPhone" id="contactPhone" maxlength="10" value="${bean.guestBean.contactPhone}">
-            </div>
-            <div class="st1">
-                <label for="contactAddress"  class="lab">地址</label>
-                <input   type="text" name="contactAddress" id="contactAddress" value="${bean.guestBean.contactAddress}">
-            </div>
-            <div class="st1">
-                <label for="" class="lab">E-mail</label>
-                <input type="text" name="contactEmail" id="contactEmail" value="${bean.guestBean.contactEmail}">
-            </div>
-        </fieldset>
-    
-    			  <input type="hidden" name="_method" value="post" /> 
-		       <div class="sub text-center">
-	          <input type="hidden" name="orderID" value="${bean.orderID}" /> 
-	          <input type="hidden" name="guestId" value="${bean.guestId}" /> 
-	          <button type="button" class="btn btn-warning"    onclick="update()">修改</button>
-            </div>
-			
-		</form>
+
+
+
+
+		<div class="d2">
+			<ul class="list-group">
+				<li class="list-group-item">訂單編號：${bean.orderID}</li>
+				<li class="list-group-item">去程 :${bean.depDate} ${bean.depT}
+					${bean.depC} (機型 ${bean.depNum}) ~ ${bean.depDate} ${bean.arrT}
+					${bean.arrC}</li>
+				<li class="list-group-item">回程 :${bean.returnDate}
+					${bean.returnTime} ${bean.arrC} (機型 ${bean.returnNum}) ~
+					${bean.returnDate} ${bean.returnArrTime} ${bean.depC}</li>
+				<li class="list-group-item">航空公司：(${bean.airline})</li>
+				<li class="list-group-item">總價格： ${bean.price}</li>
+				<li class="list-group-item">紅利點數：${bean.redPoint}</li>
+				<li class="list-group-item">付款狀態：${bean.checkpay}</li>
+			</ul>
+			<button type="button" style="margin: 10px;"
+				class="btn btn-default btn-sm" id="guest" onclick="geust()">聯絡人&旅客資訊</button>
+			<div id="guestInfo" style="display: none">
+				<div class="text-left"
+					style="width: 50%; height: auto; margin: 0px auto; border: 1px orange solid">
+					<form id="myform" enctype="multipart/form-data">
+
+						<fieldset>
+							<h2>
+								<legend class="label label-warning">聯絡人資訊</legend>
+							</h2>
+							<div class="st1">
+								<label onclick="return false" for="contactName" class="lab">姓名</label>
+								<input type="text" name="contactName" id="contactName" size="10"
+									value="${bean.guestBean.contactName}">
+							</div>
+							<div class="st1">
+								<label for="contactIdCard" class="lab">身分證字號</label> <input
+									type="text" name="contactIdCard" id="contactIdCard"
+									maxlength="10" value="${bean.guestBean.contactIdCard}">
+							</div>
+							<div class="st1">
+								<label for="contactPhone" class="lab">手機</label> <input
+									type="text" name="contactPhone" id="contactPhone"
+									maxlength="10" value="${bean.guestBean.contactPhone}">
+							</div>
+							<div class="st1">
+								<label for="contactAddress" class="lab">地址</label> <input
+									type="text" name="contactAddress" id="contactAddress"
+									value="${bean.guestBean.contactAddress}">
+							</div>
+							<div class="st1">
+								<label for="" class="lab">E-mail</label> <input type="text"
+									name="contactEmail" id="contactEmail"
+									value="${bean.guestBean.contactEmail}">
+							</div>
+						</fieldset>
+
+						<input type="hidden" name="_method" value="post" />
+						<div class="sub text-center">
+							<input type="hidden" name="orderID" value="${bean.orderID}" /> <input
+								type="hidden" name="guestId" value="${bean.guestId}" />
+							<button type="button" class="btn btn-warning" onclick="update()">修改</button>
+						</div>
+
+					</form>
+				</div>
+			</div>
+		</div>
+
+
+
+
+
 	</div>
-  </div>
-</div>
-
-
-
-		
-
-	</div>
-<!-- 		<footer id="Footer" > -->
-<!-- 		<p>TRAVEL &nbsp; Tel:(02)2222-8888 &nbsp; -->
-<!-- 			台北市復興南路一段390號 &nbsp; &copy; 2014 All Rights Reserved Quality Art -->
-<!-- 			Technology CO.</p> -->
-<!-- 		</footer> -->
+	<!-- 		<footer id="Footer" > -->
+	<!-- 		<p>TRAVEL &nbsp; Tel:(02)2222-8888 &nbsp; -->
+	<!-- 			台北市復興南路一段390號 &nbsp; &copy; 2014 All Rights Reserved Quality Art -->
+	<!-- 			Technology CO.</p> -->
+	<!-- 		</footer> -->
 </body>
 
 </html>

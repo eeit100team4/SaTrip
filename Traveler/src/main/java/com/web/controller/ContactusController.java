@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.web.model.commodity.CommodityBean;
 import com.web.model.contactus.ContactusBean;
 import com.web.service.contactus.ContactusService;
 
@@ -64,19 +65,34 @@ public class ContactusController {
 		session.setAttribute("aa", contactus2);
 		return "redirect:/contactus/InsertOpinionSuccess";
 	}
-	@RequestMapping(path="/update/{pkid}")
-	public String update(@ModelAttribute("contactusBean")ContactusBean contactus2
-			,@PathVariable Integer pkid) {
-		contactusService.update(contactus2);
-		return "redirect:/feedbackopinion";
+
+//	@RequestMapping("/update/feedback")
+//	public String updateFeedback(Model model) {
+//		System.out.println("feedback");
+//		contactusService.updateAllFeedback();
+//		return "redirect:/contactus/feedbackopinion";
+//		
+//	}
+	@RequestMapping(value="/update")
+	public String updateform(Model model,
+			@ModelAttribute("ContactusBean") ContactusBean contactus) {
+		
+		List<ContactusBean>  list = contactusService.getAllFeedback();
+		model.addAttribute("contactus", list);
+		return "/contactus/feedbackopinion";		
+		
 	}
-	
-	@RequestMapping("/update/feedback")
-	public String updateFeedback(Model model) {
-		contactusService.updateAllFeedback();
-		return "redirect:/feedbackopinion";
+	@RequestMapping(value="contactus/feedbackopinion",method=RequestMethod.POST)
+	public String updateForm(@ModelAttribute("contactusBean")ContactusBean contactus,
+			BindingResult result, HttpSession session) {
+		System.out.println("ENTER POST");
+		System.out.println(contactus);
+//		session.setAttribute("abc", contactus);
+		contactusService.addCustomerOpinion(contactus);
+		session.setAttribute("aa", contactus);
+		return "redirect:/contactus/feedbackopinion";
 	}
-	
+
 	
 	@RequestMapping("contactus/feedbackopinion")
 	public String list2(Model model) {

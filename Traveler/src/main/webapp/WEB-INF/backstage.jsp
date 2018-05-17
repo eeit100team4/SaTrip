@@ -150,7 +150,8 @@ float:right;
 		<header>		
 		 <nav>		
 		<ul class="menu">
-	    	<li cless="le"><a href="index.html"><img src='/Traveler/images//icon_index.png' height="25px" width="25px"/>TRAVEL後台管理系統</a></li>
+	    	<li cless="le">
+	    	<a href="index.html"><img src='/Traveler/images//icon_index.png' height="25px" width="25px"/>TRAVEL後台管理系統</a></li>
 					<li><a href="airTickets/back/list"><img src='/Traveler/images//icon_air.png' height="25px" width="25px"/>機票管理</a></li>
 					<li><a href="index.html"><img src='/Traveler/images//icon_hotel.png' height="25px" width="25px"/>飯店管理</a></li>
 					<li><a href="theme/management"><img src='/Traveler/images//icon_traveler.png' height="25px" width="25px"/>主題旅遊管理</a></li>
@@ -162,21 +163,21 @@ float:right;
 
 		</nav> </header>
 	
-<div class="d1"> 
-<h2 style="text-align:center">機票管理</h2>
-<ul class="me">
-<li><a href="index.html">查詢會員訂單</a></li>
-<li><a href="index.html">航班統計報表</a></li>
+<!-- <div class="d1">  -->
+<!-- <h2 style="text-align:center">機票管理</h2> -->
+<!-- <ul class="me"> -->
+<!-- <li><a href="index.html">查詢會員訂單</a></li> -->
+<!-- <li><a href="index.html">航班統計報表</a></li> -->
 
-</ul>
+<!-- </ul> -->
 
-		</div>
+<!-- 		</div> -->
 		
 		
 		
 		
 		
-<div class="d2">這裡是管理介面</div>
+<div class="d2"><h2 style="color:blue;width:60%;margin:0px auto;">歡迎登入</h2></div>
 		
 		<footer>
 		<p>TRAVEL &nbsp; Tel:(02)2222-8888 &nbsp;

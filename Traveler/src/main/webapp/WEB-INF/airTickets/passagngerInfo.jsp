@@ -126,13 +126,21 @@ margin:20px
 $(document).ready(function(){
 	var beanJSON=${bean};
 	$("#depC").text(beanJSON.depC);
+	if(beanJSON.arrTnextDay==null){
 	$("#depDate").text(beanJSON.depDate+" "+beanJSON.depT+" ~ "+beanJSON.depDate+" "+beanJSON.arrT);
+	}else{
+		$("#depDate").text(beanJSON.depDate+" "+beanJSON.depT+" ~ "+beanJSON.arrTnextDay+" "+beanJSON.arrT);	
+	}
 	$("#arrC").text(beanJSON.arrC);
 	$("#airline").text(beanJSON.airline);
 	$("#depNum").text(beanJSON.depNum);
 	
 	$("#redepC").text(beanJSON.arrC);
+	if(beanJSON.returnArrTnextDay==null){
 	$("#returnDate").text(beanJSON.returnDate+" "+beanJSON.returnTime+" ~ "+beanJSON.returnDate+" "+beanJSON.returnArrTime);
+	}else{
+		$("#returnDate").text(beanJSON.returnDate+" "+beanJSON.returnTime+" ~ "+beanJSON.returnArrTnextDay+" "+beanJSON.returnArrTime);	
+	}
 	$("#rearrC").text(beanJSON.depC);
 	$("#reairline").text(beanJSON.airline);
 // 	$("#person").text(beanJSON.person);

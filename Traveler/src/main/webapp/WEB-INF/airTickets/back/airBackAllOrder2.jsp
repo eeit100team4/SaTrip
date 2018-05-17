@@ -165,6 +165,12 @@ footer {
 		$(".spann").find("td").find("table").find("th").css("text-align","center").css("color","orange").attr("onclick","ale()");;
 		
 	}
+	
+	function selectOne(){
+	var id= $("#one").val();
+	window.location.assign("selectOne/"+id);
+	}
+	
 </script>
 
 </head>
@@ -173,9 +179,9 @@ footer {
 	<div id="allpage">
 		<header> <nav>
 		<ul class="menu">
-			<li cless="le"><a href="index.html"><img
+			<li cless="le"><a href="/Traveler/backStage"><img
 					src='/Traveler/images//icon_index.png' height="25px" width="25px" />TRAVEL後台管理系統</a></li>
-			<li><a href="airTickets/back/list"><img
+			<li><a href="/Traveler/airTickets/back/list"><img
 					src='/Traveler/images//icon_air.png' height="25px" width="25px" />機票管理</a></li>
 			<li><a href="index.html"><img
 					src='/Traveler/images//icon_hotel.png' height="25px" width="25px" />飯店管理</a></li>
@@ -205,7 +211,7 @@ footer {
 
 		</div>
 		<div class="d2">
-			<h2 class="text-center">所有訂單</h2>
+			<div class="text-center" ><input id="one" type="text" placeholder="查詢指定訂單" /><button class="btn" type="button" onclick="selectOne()"> go</button></div>
 			<!-- 			<table class="table" class="table table-sm table-hover"> -->
 			<!-- 				<thead> -->
 
@@ -221,10 +227,10 @@ footer {
 			<table id="tbb" class="table table-hover">
 				<thead>
 					<tr>
-						<th scope="col">訂單編號</th>
-						<th scope="col">會員編號</th>
-						<th scope="col">下訂日期</th>
-						<th scope="col">總價</th>
+						<th scope="col" width="100px;">訂單編號</th>
+						<th scope="col" width="200px;" >會員編號</th>
+						<th scope="col" width="300px;" >訂單時間</th>
+						<th scope="col" width="200px;">總價</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -232,7 +238,7 @@ footer {
 						<tr>
 							<th scope="row"><a href="selectOne/${order.orderID}">${order.orderID}</a></th>
 							<td>會員ID</td>
-							<td>2018-05-15</td>
+							<td>${order.orderDay}</td>
 							<td>${order.price}</td>
 						</tr>
 					</c:forEach>

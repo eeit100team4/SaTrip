@@ -75,7 +75,7 @@ public class OrderRepository {
 	public List<OrderDetailsBean> getAll(){
 		List<OrderDetailsBean> list=null;
 		session = factory.getCurrentSession();
-		String hql="FROM OrderDetailsBean ORDER BY guestId asc";
+		String hql="FROM OrderDetailsBean ORDER BY ID desc";
 		Query query = session.createQuery(hql);
 		List<OrderDetailsBean> result = query.list();
 		return result;

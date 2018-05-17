@@ -37,9 +37,16 @@ public class ContactusServiceImpl implements ContactusService {
 		contactusRepository.update(contactus);
 	}
 
+
+
 	@Override
 	public void updateAllFeedback() {
 		List<ContactusBean> allFeedback=contactusRepository.getAllFeedback();
+	}
+
+	@Override
+	public List<ContactusBean> getAllFeedback() {
+		return contactusRepository.getAllFeedback();
 	}
 
 	

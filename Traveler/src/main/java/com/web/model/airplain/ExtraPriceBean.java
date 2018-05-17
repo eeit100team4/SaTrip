@@ -8,25 +8,36 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name="extra")
+@Table(name="extraPirce")
 public class ExtraPriceBean {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+	private String dept;
+	private String arrv;
 	private Integer extraPrice;
-	
-	
-	
 	@Override
 	public String toString() {
-		return "ExtraPrice [id=" + id + ", extraPrice=" + extraPrice + "]";
+		return "ExtraPriceBean [id=" + id + ", dept=" + dept + ", arrv=" + arrv + ", extraPrice=" + extraPrice + "]";
 	}
 	public Integer getId() {
 		return id;
 	}
 	public void setId(Integer id) {
 		this.id = id;
+	}
+	public String getDept() {
+		return dept;
+	}
+	public void setDept(String dept) {
+		this.dept = dept;
+	}
+	public String getArrv() {
+		return arrv;
+	}
+	public void setArrv(String arrv) {
+		this.arrv = arrv;
 	}
 	public Integer getExtraPrice() {
 		return extraPrice;
@@ -36,4 +47,5 @@ public class ExtraPriceBean {
 	}
 	
 	
+
 }
