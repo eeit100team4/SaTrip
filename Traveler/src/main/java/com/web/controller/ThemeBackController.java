@@ -81,19 +81,19 @@ public class ThemeBackController {
 	}
 	
 	//顯示全部商品資料
-	@RequestMapping("theme/products")
+	@RequestMapping("theme/allProducts")
 	public String productList(Model model) {
 		List<ThemeProducts> list = themeService.getAllProducts();
 		model.addAttribute("products", list);
-		return "theme/products";	
+		return "theme/allProducts";	
 	}
 	
 	//顯示全部行程內容
-	@RequestMapping("theme/journeys")
+	@RequestMapping("theme/allJourneys")
 	public String journeyList(Model model) {
 		List<ThemeJourneys> list = themeService.getAllJourneys();
 		model.addAttribute("journeys", list);
-		return "theme/journeys";	
+		return "theme/allJourneys";	
 	}
 
 	//顯示全部報名表內容
