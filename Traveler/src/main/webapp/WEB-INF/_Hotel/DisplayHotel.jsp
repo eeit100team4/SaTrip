@@ -142,14 +142,15 @@
 
 <!-- --------A別人的網站-----------------------------------------------------------------------------------------------	 -->
 
-
+ 
+    
 
 
 <!-- -------------------------------------------------------------------------------------------------------	 -->
 
 
 
-</style>
+	
 </head>
 <body>
 	<div id="fh5co-wrapper">
@@ -167,15 +168,12 @@
 						<!-- START #fh5co-menu-wrap -->
 						<nav id="fh5co-menu-wrap" role="navigation">
 							<ul class="sf-menu" id="fh5co-primary-menu"  style="background-color:black"   >
-								<li ></i><a href=""><i class="fas fa-plane"></i><font color="orange">機票</font></a></li>
+								<li ><a href=""><i class="fas fa-plane"></i><font color="orange">機票</font></a></li>
 								<li><a href="_Hotel/DisplayHotel"><i class="fas fa-home"></i><font color="orange">飯店</font></a></li>
-								<li class="fas fa-theme"><a  href="theme/themeTitles"><i
-										class="fas fa-globe"></i><font color="orange">旅遊</font></a></li>
-								<li><a href="car.html"><i
-										class="fas fa-cart-arrow-down"></i><font color="orange">紅利商品</font></a></li>
+								<li ><a href="theme/themeTitlesl"><i class="fas fa-globe"></i><font color="orange">旅遊</font></a></li>
+								<li><a href="car.html"><i class="fas fa-cart-arrow-down"></i><font color="orange">紅利商品</font></a></li>
 								<li><a href="blog.html"><i class="fas fa-phone-square"></i><font color="orange">客服中心</font></a></li>
-								<li><a href="contact.html"><i
-										class="far fa-user-circle"></i><font color="orange">登入/註冊</font></a></li>
+								<li><a href="contact.html"><i class="far fa-user-circle"></i><font color="orange">登入/註冊</font></a></li>
 							</ul>
 						</nav>
 					</div>
@@ -213,17 +211,17 @@
 				
 			<c:forEach var='product' items='${hotels}'>
 						<!-- Project One -->
-				<div class="row " >	
-						    	
+				<div class="row " >		    	
 			      		   
 				        <div class="col-xl-6" class="w3-card w3-yellow" style="text-align: right" >
-				        	   <img  width='700' height='250'	src="<c:url value='/getPic/${product.hotel_id}' />" />
+				        	   <img  width='600' height='300'	src="<c:url value='/getPic/${product.hotel_id}' />" />
 				        </div>
 				        
 				        <div class="col-xl-6" style="text-align: left" >
-				          <h2><span style = "font-weight:bold;color:blue;">${product.name}</span></h2>
+				          <h1><span style = "font-weight:bold;color:blue;">${product.name}</span></h1>
 				          <p>${product.country}${product.city}</p>						
-				          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium veniam exercitationem expedita laborum at voluptate. Labore, voluptates totam at aut nemo deserunt rem magni pariatur quos perspiciatis atque eveniet unde.</p>
+				          <p><h6>地址：&nbsp;${product.address}</h6></p>
+				          <p><font color="red"><h2>Price:&nbsp;&nbsp;${product.hotelRoomBean.price}</h2></font></p>						
 				          <a class="btn btn-primary" href="#">選擇</a>
 				    
 			        </div>

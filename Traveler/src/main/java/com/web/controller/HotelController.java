@@ -2,9 +2,15 @@ package com.web.controller;
 
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
+import java.security.Timestamp;
 import java.sql.Blob;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletResponse;
@@ -13,16 +19,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.CacheControl;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.web.model.hotel.HotelBean;
+import com.web.model.hotel.HotelBookingDateBean;
+import com.web.repository.hotel.HotelBookingDateRepository;
+import com.web.repository.hotel.impl.HibernateHotelBookingDateRepository;
 import com.web.service.hotel.HotelService;
 
 @Controller
@@ -33,6 +40,8 @@ public class HotelController {
 
 	@Autowired
 	ServletContext context;
+
+	
 
 	// 顯示HotelIndex
 	@RequestMapping("/_Hotel/HotelIndex")
@@ -53,6 +62,24 @@ public class HotelController {
 	public String getProductById(Model model) {
 		return "_Hotel/DisplayRoom";
 	}
+
+	@RequestMapping("/_Hotel/adsf")
+	public String getProductByIds(Model model) throws ParseException {
+		// '2018/06/01' and '2018/06/05'
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss.SSS");
+		Date parsedDate = dateFormat.parse("2018-06-01 00:00:00.000");
+		java.sql.Timestamp startTime = new java.sql.Timestamp(parsedDate.getTime());
+		
+		Date parsedDate1 = dateFormat.parse("2018-06-05 00:00:00.000");
+		java.sql.Timestamp endTime = new java.sql.Timestamp(parsedDate1.getTime());
+
+//		hotelService.getHotelsByDateTime(startTime, endTime);
+
+		System.out.println("================"+hotelService.getHotelsByDateTime(startTime, endTime).size());
+		return "_Hotel/adsf";
+	}
+	
+	
 
 	// 取的Hotel照片(顯示照片)----(在同一個應用系統裡，對於命名相同(getPicure)dispatcher無法辨識)
 	@RequestMapping(value = "/getPic/{hotel_id}", method = RequestMethod.GET)
