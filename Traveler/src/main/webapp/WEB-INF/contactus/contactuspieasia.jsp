@@ -193,7 +193,7 @@ Highcharts.chart('container', {
         type: 'pie'
     },
     title: {
-        text: '一月份國人出國目的地統計(亞洲區)'
+        text: '1~3月份國人出國目的地統計(亞洲區)'
     },
     tooltip: {
         pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
@@ -215,27 +215,63 @@ Highcharts.chart('container', {
         name: 'Brands',
         colorByPoint: true,
         data: [{
-            name: '日本',
-            y: 61.41,
+            name: '香港',
+            y: 412631,
             sliced: true,
             selected: true
         }, {
-            name: '韓國',
-            y: 11.84
-        }, {
-            name: '香港',
-            y: 10.85
+            name: '澳門 ',
+            y: 145445
         }, {
             name: '大陸',
-            y: 4.67
+            y: 916722
+        }, {
+            name: '日本',
+            y: 1147797
+        }, {
+            name: '韓國',
+            y: 249373
+        }, {
+            name: '新加坡',
+            y: 94411
+        }, {
+            name: '馬來西亞',
+            y: 81267
         }, {
             name: '泰國',
-            y: 4.18
-        
+            y: 163539
+        }, {
+            name: '菲律賓',
+            y: 60953
+        }, {
+            name: '印尼',
+            y: 44721
+        }, {
+            name: '汶淶',
+            y: 272
+        }, {
+            name: '越南',
+            y: 155676
+        }, {
+            name: '緬甸',
+            y: 7519
+        }, {
+            name: '柬埔寨',
+            y: 25870
+        }, {
+            name: '阿拉伯聯合大公國 ',
+            y: 16370
+        }, {
+            name: '土耳其',
+            y: 18966
+        }, {
+            name: '亞洲其他地區',
+            y: 18642
         }]
     }]
 });
 </script>
+
 </div>
 		
 		<footer>

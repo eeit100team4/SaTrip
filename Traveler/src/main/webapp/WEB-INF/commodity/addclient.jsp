@@ -108,7 +108,7 @@
 
 
 	<div class="do">
-		<form:form method='POST' action='/woodstock/addclientpath'
+		<form:form method='POST' action='/Traveler/addclientpath'
 			modelAttribute="Client" enctype="multipart/form-data">
 <input type="hidden" name="commid" value="${Client.commodityBean.commodityid}">
 			<legend style="align: center">您兌換商品為</legend>

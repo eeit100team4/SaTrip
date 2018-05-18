@@ -66,16 +66,15 @@ public class ContactusController {
 		return "redirect:/contactus/InsertOpinionSuccess";
 	}
 
-//	@RequestMapping("/update/feedback")
-//	public String updateFeedback(Model model) {
-//		System.out.println("feedback");
-//		contactusService.updateAllFeedback();
-//		return "redirect:/contactus/feedbackopinion";
-//		
-//	}
-	@RequestMapping(value="/update")
+	@RequestMapping("/update/feedback")
+	public String updateFeedback(Model model) {
+		contactusService.updateAllFeedback();
+		return "redirect:/contactus/feedbackopinion";
+		
+	}
+	@RequestMapping(value="/update/feedbackopinion")
 	public String updateform(Model model,
-			@ModelAttribute("ContactusBean") ContactusBean contactus) {
+			@ModelAttribute("contactusBean") ContactusBean contactus) {
 		List<ContactusBean>  list = contactusService.getAllFeedback();
 		model.addAttribute("contactus", list);
 		return "/contactus/feedbackopinion";		
@@ -95,20 +94,19 @@ public class ContactusController {
 	
 	@RequestMapping("contactus/feedbackopinion")
 	public String list2(Model model) {
-		List<ContactusBean> list2=contactusService.getAllContactus();
-		model.addAttribute("contactus", list2);
 		return "contactus/feedbackopinion";
 	}
 	@RequestMapping("contactus/StatisticsReport")
 	public String list3(Model model) {
-		List<ContactusBean> list3=contactusService.getAllContactus();
-		model.addAttribute("contactus", list3);
+		
 		return "contactus/StatisticsReport";
 	}
-	@RequestMapping("contactus/contactuspie")
+	@RequestMapping("contactus/contactuspieasia")
 	public String list4(Model model) {
-		List<ContactusBean> list3=contactusService.getAllContactus();
-		model.addAttribute("contactus", list3);
-		return "contactus/contactuspie";
+		return "contactus/contactuspieasia";
+	}
+	@RequestMapping("contactus/contactuspieage")
+	public String list5(Model model) {
+		return "contactus/contactuspieage";
 	}
 }

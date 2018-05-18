@@ -181,18 +181,17 @@ float:right;
 <!-- <script src="https://code.highcharts.com/modules/exporting.js"></script> -->
 <script src="https://code.highcharts.com/modules/export-data.js"></script>
 
-<div id="container" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
+<!-- <div id="container" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div> -->
 
 
 
 <span style="font-size:13px;"></span>
 <select id="choose" onchange="TheConfirmBox()">
-<!-- 		/*顯示「哈囉，這是我的筆記實作」這句話，並把它放在第一位，但不讓它可被點選*/ -->
 	<option disabled=disabled selected=selected>請選擇</option>
-	<optgroup label="亞洲區">
-		<option value="http://localhost:8080/Traveler/contactus/contactuspie">一月份</option>
-<!-- 		<option value="http://www.w3schools.com/">W3Schools</option> -->
-	</optgroup>
+<!-- 	<optgroup label="亞洲區"> -->
+		<option value="http://localhost:8080/Traveler/contactus/contactuspieasia">1~3月份國人出國目的地統計</option>
+		<option value="http://localhost:8080/Traveler/contactus/contactuspieage">1~3月份國人出國年齡地統計</option>
+<!-- 	</optgroup> -->
 <!-- 	<optgroup label="群組標籤2"> -->
 <!-- 		<option value="http://blog.yam.com/dllee">dllee</option> -->
 <!-- 		<option value="https://tw.yahoo.com/">Yahoo奇摩</option> -->
