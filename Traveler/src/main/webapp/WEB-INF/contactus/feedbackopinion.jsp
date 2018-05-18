@@ -167,7 +167,10 @@ float:right;
 <ul class="me">
 <li><a href="feedbackopinion">回覆留言</a></li>
 <li><a href="StatisticsReport">統計報表</a></li>
-<li><a href="contactuspie"></a>
+<li><a href="contactuspieasia"></a>
+<li><a href="contactuspieage"></a>
+
+
 
 </ul>
 
@@ -178,55 +181,53 @@ float:right;
 		
 		
 <div class="d2">		
-							<div class='form-group'>
-							<table border='1px'>
-							<tr>
-							<td style=color:black>姓名:</td>
-							<td>${aa.name}</td>
-							</tr>
-							<tr>
-							<td style=color:black>性別:</td>
-							<td>${aa.sex}</td>
-							</tr>
-							<tr>
-							<td style=color:black>年齡:</td>
-							<td>${aa.age}</td>
-							</tr>
-							<tr>
-							<td style=color:black>連絡電話:</td>
-							<td>${aa.phone}</td>
-							</tr>
-							<tr>
-							<td style=color:black>電子信箱:</td>
-							<td>${aa.email}</td>
-							</tr>
-							<tr>
-							<td style=color:black>所在地:</td>
-							<td>${aa.address}</td>
-							</tr>
-							<tr>
-							<td style=color:black>意見類別:</td>
-							<td>${aa.opinion}</td>
-							</tr>
-							<tr>
-							<td style=color:black>意見內容:</td>
-							<td>${aa.comment}</td>
-							</tr>	
+				<form:form  action="feedbackopinion" modelAttribute="contactusBean"  enctype='multipart/form-data'>
+						 <fieldest>
+						 <div class='form-group'>
+						 <label for='name'>姓名:</label>
+						 <form:input id='name' path='name' type='text' value='${aa.name}'/>
+						 </div>
+						 <div class='form-group'>
+						 <label for='sex'>性別:</label>
+						 <form:input id='sex' path='sex' type='text' value='${aa.sex}'/>
+						 </div>
+						 <div class='form-group'>
+						 <label for='age'>年齡:</label>
+						 <form:input id='age' path='age' type='text' value='${aa.age}'/>
+						 </div>
+						 <div class='form-group'>
+						 <label for='phone'>連絡電話:</label>
+						 <form:input id='phone' path='phone' type='text' value='${aa.phone}'/>
+						 </div>
+						 <div class='form-group'>
+						 <label for='email'>電子信箱:</label>
+						 <form:input id='email' path='email' type='text' value='${aa.email}'/>
+						 </div>
+						 <div class='form-group'>
+						 <label for='address'>所在地:</label>						 
+						 <form:input id='address' path='address' type='text' value='${aa.address}'/>
+						 </div>
+						 <div class="form-group">
+								<label for='opinion'>意見類別:</label>
+								<form:input id='opinion' path='opinion' type='text' value='${aa.opinion}'/>
 							</div>
 							<div class='form-group'>
-							<tr>
-						<td><label for='feedback'>回覆欄:</label></td>
-						<td><textarea cols="40" rows="5"  id="feedback" path='feedback'></textarea></td>
-						</tr>
-						<tr>
-						<div class='form-group'>
-               	<input type="submit" id='btnAdd' class="btn btn-primary" value='修改'/>
-               	</div>
-               	</div>
-               	</tr>
-						
-						</table>
+						<label for='comment'>意見欄:</label>
+						<form:input cols="40" rows="5"  id="comment" path='comment' value='${aa.comment}'></form:input>
 						</div>
+					    <div class='form-group'>
+					    <label for='feedback'>回覆欄:</label>
+					    <form:textarea cols='40' rows='5' id='feedback' path='feedback'></form:textarea>
+					    </div>
+               <div class='form-group'>
+               	<input type="submit" id='btnAdd' class="btn btn-primary" value="回覆"></input>
+               	</div>
+		</fieldest>
+		</form:form>
+               	
+						
+						
+						
 </div>
 		
 		<footer>
