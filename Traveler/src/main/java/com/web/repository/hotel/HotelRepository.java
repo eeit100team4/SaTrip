@@ -8,6 +8,6 @@ public interface HotelRepository {
 	
 	List<HotelBean> getAllHotels();
 	
-	HotelBean getProductById(int productId);
+	HotelBean getHotelById(int hotel_id);
 	
 }

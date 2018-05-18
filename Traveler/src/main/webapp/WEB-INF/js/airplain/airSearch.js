@@ -158,6 +158,6 @@ var xmlhttp;
 //	讀取中畫面
 	function slow() {
 		$("#all").css("filter", "opacity(40%)");
-		$("#img1").css("position", "absolute").css("left", "50%").css("top",
-				"50%").css("display", "inline").css("filter", "opacity(100%)");
+		$("#img1").css("position", "absolute").css("left", "40%").css("top",
+				"40%").css("display", "inline").css("filter", "opacity(100%)");
 	}

@@ -9,9 +9,13 @@ import org.springframework.stereotype.Service;
 @Service
 public class BFMService {
 
-	public String BFMservice(HttpServletRequest request) throws UnsupportedEncodingException {
+	public String BFMservice(HttpServletRequest request)  {
 		
-		request.setCharacterEncoding("UTF-8");
+		try {
+			request.setCharacterEncoding("UTF-8");
+		} catch (UnsupportedEncodingException e1) {
+			e1.printStackTrace();
+		}
 		
 		String dep = request.getParameter("dept");
 		String arr = request.getParameter("arrv");
@@ -28,7 +32,8 @@ public class BFMService {
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.err.println("查詢錯誤");
+			return null;
 		}
-		return result;
+		return null;
 	}
 }

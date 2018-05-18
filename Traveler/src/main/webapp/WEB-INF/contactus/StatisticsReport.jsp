@@ -184,57 +184,36 @@ float:right;
 <div id="container" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
 
 
+
+<span style="font-size:13px;"></span>
+<select id="choose" onchange="TheConfirmBox()">
+<!-- 		/*顯示「哈囉，這是我的筆記實作」這句話，並把它放在第一位，但不讓它可被點選*/ -->
+	<option disabled=disabled selected=selected>請選擇</option>
+	<optgroup label="亞洲區">
+		<option value="http://localhost:8080/Traveler/contactus/contactuspie">一月份</option>
+<!-- 		<option value="http://www.w3schools.com/">W3Schools</option> -->
+	</optgroup>
+<!-- 	<optgroup label="群組標籤2"> -->
+<!-- 		<option value="http://blog.yam.com/dllee">dllee</option> -->
+<!-- 		<option value="https://tw.yahoo.com/">Yahoo奇摩</option> -->
+<!-- 	</optgroup> -->
+<!-- 	<option disabled=disabled value="https://tw.yahoo.com/">歡迎給予指導！</option> -->
+</select>
+<span id="check" style="color:red;"></span><br>
 <script>
-Highcharts.chart('container', {
-    chart: {
-        plotBackgroundColor: null,
-        plotBorderWidth: null,
-        plotShadow: false,
-        type: 'pie'
-    },
-    title: {
-        text: '一月份國人出國目的地統計(亞洲區)'
-    },
-    tooltip: {
-        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-    },
-    plotOptions: {
-        pie: {
-            allowPointSelect: true,
-            cursor: 'pointer',
-            dataLabels: {
-                enabled: true,
-                format: '<b>{point.name}</b>: {point.percentage:.1f} %',
-                style: {
-                    color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
-                }
-            }
-        }
-    },
-    series: [{
-        name: 'Brands',
-        colorByPoint: true,
-        data: [{
-            name: '日本',
-            y: 61.41,
-            sliced: true,
-            selected: true
-        }, {
-            name: '韓國',
-            y: 11.84
-        }, {
-            name: '香港',
-            y: 10.85
-        }, {
-            name: '大陸',
-            y: 4.67
-        }, {
-            name: '泰國',
-            y: 4.18
-        
-        }]
-    }]
-});
+	function TheConfirmBox() {
+		var noteToMe;
+		/*取得id為choose的選單裡剛剛所點擊的連結的名稱*/
+		var whichUserChoose=choose.options[choose.selectedIndex].text;
+		if (confirm("Hello！你確定要前往"+whichUserChoose+"?") == true){
+			noteToMe = "你選取想前往"+whichUserChoose+"！";
+			window.location.assign(choose.options[choose.selectedIndex].value);
+		}else{
+			noteToMe = "你按了取消喔！";
+		}
+		document.getElementById("check").innerHTML = noteToMe;
+	}
+	
 </script>
 </div>
 		
