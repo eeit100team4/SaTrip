@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 	
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -150,34 +151,46 @@ float:right;
 		<header>		
 		 <nav>		
 		<ul class="menu">
-	    	<li cless="le">
-	    	<a href="index.html"><img src='/Traveler/images//icon_index.png' height="25px" width="25px"/>TRAVEL後台管理系統</a></li>
+	    	<li cless="le"><a href="index.html"><img src='/Traveler/images//icon_index.png' height="25px" width="25px"/>TRAVEL後台管理系統</a></li>
 					<li><a href="airTickets/back/list"><img src='/Traveler/images//icon_air.png' height="25px" width="25px"/>機票管理</a></li>
 					<li><a href="index.html"><img src='/Traveler/images//icon_hotel.png' height="25px" width="25px"/>飯店管理</a></li>
-					<li><a href="theme/management"><img src='/Traveler/images//icon_traveler.png' height="25px" width="25px"/>主題旅遊管理</a></li>
+					<li><a href="../theme/management"><img src='/Traveler/images//icon_traveler.png' height="25px" width="25px"/>主題旅遊管理</a></li>
 					<li><a href="index.html"><img src='/Traveler/images//icon_vip.png' height="25px" width="25px"/>會員管理</a></li>
 					<li><a href="commlist"><img src='/Traveler/images//icon_comm.png' height="25px" width="25px"/>紅利管理</a></li>
-					<li><a href="contactus/feedbackopinion"><img src='/Traveler/images//icon_support.png' height="25px" width="25px"/>客服管理</a></li>
+					<li><a href="feedbackopinion"><img src='/Traveler/images//icon_support.png' height="25px" width="25px"/>客服管理</a></li>
 					<li><a href="index.html"><img src='/Traveler/images//icon_login.png' height="25px" width="25px"/>登入</a></li> <!--登出-->
 		</ul>
 
 		</nav> </header>
 	
-<!-- <div class="d1">  -->
-<!-- <h2 style="text-align:center">機票管理</h2> -->
-<!-- <ul class="me"> -->
-<!-- <li><a href="index.html">查詢會員訂單</a></li> -->
-<!-- <li><a href="index.html">航班統計報表</a></li> -->
+<div class="d1"> 
+<h2 style="text-align:center">旅遊管理項目</h2>
+<ul class="me">
+<li><a href="titleManagement">主題種類</a></li>
+<li><a href="productManagement">商品資料</a></li>
+<li><a href="journeyManagement">行程內容</a></li>
+<li><a href="applicationManagement">報名表單</a></li>
 
-<!-- </ul> -->
+</ul>
 
-<!-- 		</div> -->
+		</div>
+
 		
 		
 		
-		
-		
-<div class="d2"><h2 style="color:blue;width:60%;margin:0px auto;">歡迎登入</h2></div>
+<div class="d2">
+<c:forEach var='products' items='${products}'>
+  <div style="width:300px; height:200px; float: left; ">
+    <p>
+    <b style='font-size:16px;'>商品名稱:${products.productName}</b><br>
+    <b style='font-size:16px;'>國家:${products.country}</b><br>
+    <b style='font-size:16px;'>種類:${products.themeTitles.titleName}</b><br>
+    <b style='font-size:16px;'>住宿:${products.hotelName}</b><br>
+    </p>
+  </div>
+ </c:forEach>
+
+</div>
 		
 		<footer>
 		<p>TRAVEL &nbsp; Tel:(02)2222-8888 &nbsp;

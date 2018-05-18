@@ -214,11 +214,11 @@ function showInfo(){
 								</tr>
 								<tr class="warning">
 									<td class="cor-lg-2" >去程</td>
-									<td class="col-lg-10">${orderList.depDate} ${orderList.depT} ${orderList.depC} --> ${orderList.depDate} ${orderList.arrT}  ${orderList.arrC}</td>
+									<td class="col-lg-10">${orderList.depDate} ${orderList.depT} ${orderList.depC} ~ <c:if test="${orderList.arrTnextDay!=null}">${orderList.depDate}</c:if>${orderList.arrTnextDay} ${orderList.arrT}  ${orderList.arrC}</td>
 								</tr>
 								<tr class="warning">
 									<td>回程</td>
-									<td>${orderList.returnDate} ${orderList.returnTime} ${orderList.arrC} --> ${orderList.returnDate} ${orderList.returnArrTime}  ${orderList.depC}</td>
+									<td>${orderList.returnDate} ${orderList.returnTime} ${orderList.arrC} ~  <c:if test="${orderList.returnArrTnextDay!=null}">${orderList.returnDate}</c:if>${orderList.returnArrTnextDay}  ${orderList.returnArrTime}  ${orderList.depC}</td>
 								</tr>
 								<tr class="warning">
 									<td>航空公司</td>

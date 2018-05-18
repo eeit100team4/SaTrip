@@ -177,7 +177,7 @@ float:right;
 		
 		
 <div class="d2">		
-							<form:form action="feedbackopinion" modelAttribute="contactusBean"  enctype='multipart/form-data'>
+							<form:form method='POST' action="feedbackopinion" modelAttribute="contactusBean"  enctype='multipart/form-data'>
 							<div class='form-group'>
 							<table border='1px'>
 							<tr>

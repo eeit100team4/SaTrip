@@ -194,78 +194,43 @@
 				<!-- ____________左邊欄位____________↓ -->
 				<!-- --------A別人的網站-----------------------------------------------------------------------------------------------	 -->
 <!-- 				<article> -->
+
 					<div class="col-md-2 col-md-offset-1">
 		
 					</div>
 
 
-					<!-- -------------------------------------------------------------------------------------------------------	 -->
-					<!-- 老師的範例暫用 -->
-				
-				
-					<section>
-						<div>
-							<div class="container" style="text-align: center">
-								<h2>房間資料</h2>
-							</div>
-						</div>
-					</section>
-					<section class="container">
-						<div class="row">
-							<div class="col-md-5">
-								<h3>${product.country}</h3>
-								<p>作者: ${product.city}</p>
-								<p>單價: ${product.name}</p>
-<%-- 								<c:choose> --%>
-<%-- 									<c:when test='${product.discount != 1.0 }'> --%>
-<!-- 										<p> -->
-<%-- 											折扣: ${product.discountStr} &nbsp;&nbsp; 實售: <font color='red'>${product.price*product.discount}元</font> --%>
-<!-- 										</p> -->
-<%-- 									</c:when> --%>
-<%-- 									<c:otherwise> --%>
-<!-- 										<p>&nbsp;</p> -->
-<%-- 									</c:otherwise> --%>
-<%-- 								</c:choose> --%>
-<%-- 								<p>書商: ${product.hotelRoomBean.occupancy}</p> --%>
-<%-- 								<p>書籍分類: ${product.category}</p> --%>
-								<p>
-									<strong>商品編號: </strong> <span class='label label-warning'>
-										${product.room_} </span>
-								</p>
-								<p>
-									</a> <a href='#' class='btn btn-warning btn-large'> <span
-										class='glyphicon-shopping-cart glyphicon'></span> 加入購物車
-									</a>
-								</p>
-							</div>
-						</div>
-					</section>
-
-
-					<!-- -------------------------------------------------------------------------------------------------------	 -->
-
-
-<!-- 				</article> -->
-				<!-- ____________右邊欄位____________↓ -->
-<!-- 				<aside> -->
-<!-- 					<div class="col-sm-8"> -->
-<!-- 						<div class="panel panel-primary"> -->
-<!-- 							<div class="panel-heading">Raspberry Pi 加入成功 裝置 1</div> -->
-<!-- 							<div class="panel-body">這裡是數據內容</div> -->
-<!-- 						</div> -->
-<!-- 						<br> -->
-<!-- 						<div class="panel panel-primary"> -->
-<!-- 							<div class="panel-heading">Raspberry Pi 加入成功 裝置 2</div> -->
-<!-- 							<div class="panel-body">這裡是數據內容</div> -->
-<!-- 						</div> -->
-<!-- 						<hr> -->
-
-<!-- 					</div> -->
-<!-- 			</div> -->
-<!-- 			</aside> -->
+			<!-- -------------------------------------------------------------------------------------------------------	 -->
+			<div class="row" >
+			<c:forEach var='product' items='${hotels}'>
+			<div class="col-sm-8">
+			 	
+			<div class="panel panel-danger">
+						
+            <div class="panel-heading">${product.name}</div>
+            
+            <div class="panel-body">
+	            <div class="col-md-7" >           
+		            <img width='600' height='250'	src="<c:url value='/getPic/${product.hotel_id}' />" /> </div>
+	             </div>
+	             <div class="col-md-5"> 
+					          <h3>Project One</h3>
+					          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium veniam exercitationem expedita laborum at voluptate. Labore, voluptates totam at aut nemo deserunt rem magni pariatur quos perspiciatis atque eveniet unde.</p>
+					          
+					        </div>
+            </div>
+            <div class="panel-footer">
+            
+            <button class="btn btn-default btn-block"><a class="btn btn-primary" href="">View Project</a></button>
+                        
+            </div>
+            </div>          
+            </div>
+            </c:forEach>
+            </div>
 			
 			<!-- ____________主要布局____________↑ -->
-
+			</div>
 
 
 			<!-- -------------------------------------------------------------------------------------------------------	 -->

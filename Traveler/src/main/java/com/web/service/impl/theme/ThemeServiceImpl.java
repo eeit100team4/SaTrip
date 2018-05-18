@@ -30,19 +30,7 @@ public class ThemeServiceImpl implements ThemeService {
 	public void addThemeTitle(ThemeTitles Theme) {
 		themeRepository.addThemeTitle(Theme);
 	}
-	//分類查詢 從固定title查該title下商品資料
-	//找出所有title
-	@Transactional
-	@Override
-	public List<String> getAllTitles(){
-		return themeRepository.getAllTitles();	
-	}
-	//依title抓產品
-	@Transactional
-	@Override
-	public List<ThemeProducts> getProductsByTitle(String titleName){
-		return themeRepository.getProductsByTitle(titleName);		
-	}
+	
 	//顯示所有商品資料
 	@Transactional
 	@Override
@@ -61,4 +49,42 @@ public class ThemeServiceImpl implements ThemeService {
 	public List<ThemeApplications> getAllApplications(){
 		return themeRepository.getAllApplications();		
 	}
+	
+	//分類查詢 從固定title查該title下商品資料
+	//找出所有title
+	@Transactional
+	@Override
+	public List<String> getAllTitles(){
+		return themeRepository.getAllTitles();	
+	}
+	//依title抓產品
+	@Transactional
+	@Override
+	public List<ThemeProducts> getProductsByTitle(String titleName){
+		return themeRepository.getProductsByTitle(titleName);		
+	}
+	
+	//分類查詢 從固定商品下查出團日期資料
+	//找出所有商品
+	@Transactional
+	@Override
+	public List<String> getAllProductName(){
+		return themeRepository.getAllProductName();
+	}
+	
+	//依商品名稱抓出團日期
+	@Transactional
+	@Override
+	public List<ThemeJourneys> getJourneysByProduct(String productName){
+		return themeRepository.getJourneysByProduct(productName);
+	}
+	
+	 //依行程編號抓出detail
+	@Transactional
+	@Override
+	public List<ThemeJourneys> getDetailsByJourneyId(Integer journeyId){
+		return themeRepository.getDetailsByJourneyId(journeyId);
+		
+	}
 }
+

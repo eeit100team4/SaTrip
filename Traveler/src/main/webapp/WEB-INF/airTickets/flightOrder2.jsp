@@ -108,9 +108,9 @@
 
 
 <script>
-var extraPrice=null;
-<c:if test="${extraPrice!=null}">var extraPrice = ${extraPrice};</c:if>
+var extraPrice = ${extraPrice};
 var emp = ${result};
+var emp2 = ${result};
 alert(emp);
 //照飛行時間排序
 // var data = emp.OTA_AirLowFareSearchRS.PricedItineraries.PricedItinerary;
@@ -216,12 +216,12 @@ function list(){
          var cellPrice=$("<span style='font-size:25px;color:red'></span>").text(value.AirItineraryPricingInfo[0].PTC_FareBreakdowns.PTC_FareBreakdown[0].PassengerFare.TotalFare.Amount+extraPrice);
             var td5=$("<td></td>").append(cell10,cellPrice);
             
-            var row1=$("<tr ></tr>").append(td1,td2,td3,td4,td5);
+            var row1=$("<tr></tr>").append(td1,td2,td3,td4,td5);
             
             
             var cellR1=$("<div></div>").text(value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[0].DepartureDateTime);
             var cellR2=$("<div></div>").text(value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[0].DepartureAirport.LocationCode);
-            var tdR1=$("<td width='35%' align='center' valign='middle'></td>").append(cellR1,cellR2);
+            var tdR1=$("<td width='20%' align='center' valign='middle'></td>").append(cellR1,cellR2);
             
             var cellR4=$("<div></div>").html("<img src=/Traveler/images/arrow.png>");
             var tdR2=$("<td width='10%' align='center' valign='middle'></td>").append(cellR4);
@@ -229,10 +229,10 @@ function list(){
             var cellR5=$("<div></div>").text(value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[0].ArrivalDateTime);
             var cellR6=$("<div></div>").text(value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[0].ArrivalAirport.LocationCode);
             var cellRH=$("<div hidden='hidden'></div>").text(value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[0].Equipment[0].AirEquipType);
-            var tdR3=$("<td width='35%' align='center' valign='middle'></td>").append(cellR5,cellR6,cellRH);
+            var tdR3=$("<td width='20%' align='center' valign='middle'></td>").append(cellR5,cellR6,cellRH);
             
             var cellR7=$("<span></span>").text(value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[0].ElapsedTime+"分鐘");
-            var tdR4=$("<td  width='20%' align='center' valign='middle'></td>").append(cellR7);
+            var tdR4=$("<td  width='50%' align='center' valign='middle'></td>").append(cellR7);
             
             var cellR10=$("<div></div>").html("<button align=center style='top:50% ' type='button' class='btn btn_yell' id="+name+" onclick='sendDetails()'>訂位</button>");
             var tdR5=$("<td></td>").append(cellR10);
@@ -355,48 +355,6 @@ function list(){
 		}
 	
 	
-	 function show2(){
-		 	var res=JSON.stringify(emp);
-		 	var str = emp.OTA_AirLowFareSearchRS.PricedItineraries.PricedItinerary[0].AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].DepartureDateTime;
-		 	var str2 = emp.OTA_AirLowFareSearchRS.PricedItineraries.PricedItinerary[0].AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[0].DepartureDateTime;
-		 	var te=JSON.stringify(str);
-		 	var te2=JSON.stringify(str2);
-		 	var ss = str.substring(0, 11);
-		 	var ss2 = str2.substring(0, 11);
-		 	var xmlDoc
-		 	 var xmlhttp;
-				if (window.XMLHttpRequest) { // code for IE7+, Firefox, Chrome, Opera, Safari
-					xmlhttp = new XMLHttpRequest();
-				} else { // code for IE6, IE5
-					xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-				}
-				//等待
-				// document.getElementById("myDiv").innerHTML="讀取中...";   
-				//載入
-				xmlhttp.open("GET", "/Traveler/xml/CITYcode2.xml", true);
-				//處理
-				xmlhttp.onload=function(){
-					 xmlDoc = xmlhttp.responseXML;
-						var totalNum=$(xmlDoc).find("T").find("D").length;
-						for(var i=0;i<totalNum;i++){
-						var	D = $(xmlDoc).find("T").find("C").eq(i).text();
-						var	C = $(xmlDoc).find("T").find("D").eq(i).text();
-			 				res=res.replace(new RegExp(C,"g"),D);
-						}
-						te=te.substring(te.length-4,te.length);
-					 	res=res.replace(new RegExp(ss,"g"),"").replace(new RegExp(ss2,"g"),"").replace(new RegExp(te,"g"),"\"");
-					 	emp=JSON.parse(res);
-					 list();
-//					 page();
-				}
-				//設定表頭
-				xmlhttp.setRequestHeader("Content-Type",
-						"application/x-www-form-urlencoded;charset=utf-8")
-				//傳送
-				xmlhttp.send();
-				
-	 }
-	
 	
 	
 			 function show(){
@@ -428,8 +386,7 @@ function list(){
 	 				 				res=res.replace(new RegExp(C,"g"),D);
 	 							}
 								te=te.substring(te.length-4,te.length);
-// 								te2=te2.substring(te2.length-4,te2.length);
-							 	res=res.replace(new RegExp(ss,"g"),"").replace(new RegExp(ss2,"g"),"").replace(new RegExp(te,"g"),"\"").replace(new RegExp(te2,"g"),"\"");
+							 	res=res.replace(new RegExp(ss,"g"),"").replace(new RegExp(ss2,"g"),"").replace(new RegExp(te,"g"),"\"");
 							 	emp=JSON.parse(res);
 							 list();
 // 							 page();
@@ -459,22 +416,12 @@ function list(){
 				var depT=$("#"+k).parents("tbody").find("tr:eq(0)").children("td:eq(0)").children("div:eq(0)").text(); //去程出發時間
 				var depC=$("#"+k).parents("tbody").find("tr:eq(0)").children("td:eq(0)").children("div:eq(1)").text(); //去程出發地
 				var arrT=$("#"+k).parents("tbody").find("tr:eq(0)").children("td:eq(2)").children("div:eq(0)").text(); //去程抵達時間
-				var arrTnextDay=null;
-				if(arrT.length>8){
-					arrTnextDay=arrT.substring(10,0);
-					arrT=arrT.substring(11)+" (隔日)";
-				}
 				var arrC=$("#"+k).parents("tbody").find("tr:eq(0)").children("td:eq(2)").children("div:eq(1)").text(); //去程目的地
 				var price=$("#"+k).parents("tbody").find("tr:eq(0)").children("td:eq(4)").children("span:eq(0)").text(); //總價格
 				var person=${psg};//人數
 				var returnDate=$("#"+k).parents("tbody").find("tr:eq(2)").children("td:eq(0)").children("div:eq(0)").text(); //回程出發日期
 				var returnTime=$("#"+k).parents("tbody").find("tr:eq(2)").children("td:eq(0)").children("div:eq(0)").text(); //回程出發時間
 				var returnArrTime=$("#"+k).parents("tbody").find("tr:eq(2)").children("td:eq(2)").children("div:eq(0)").text(); //回程抵達時間
-				var returnArrTnextDay=null;
-				if(returnArrTime.length>8){
-					returnArrTnextDay =returnArrTime.substring(10,0);
-					returnArrTime=returnArrTime.substring(11)+" (隔日)";
-				}
 				var airline=$("#"+k).parents("table").parent("div").prev("div").text();                                //航班
 				var depNum=$("#"+k).parents("tbody").find("tr:eq(0)").children("td:eq(2)").children("div:eq(2)").text(); //去程機型
 				var returnNum=$("#"+k).parents("tbody").find("tr:eq(2)").children("td:eq(2)").children("div:eq(2)").text(); //回程機型
@@ -482,8 +429,6 @@ function list(){
 				var priceInt=parseInt(price);
 				var personInt=parseInt(person);
 				var priceTotal=priceInt*personInt;
-				
-				<c:if test="${extraPrice!=null}">var bonus=${extraPrice};</c:if>
 // 				console.log(k);
 // 				console.log("去程時間:"+depT);
 // 				console.log("去程出發地:"+depC);
@@ -495,7 +440,7 @@ function list(){
 // 				console.log("回程機型:"+returnNum);
 				var depDate="${depDate}";
 				var returnDate="${reDate}";			
-				var sendDet =JSON.stringify({"depT":depT,"depDate":depDate,"depC":depC,"arrT":arrT,"returnDate":returnDate,"arrC":arrC,"returnTime":returnTime,"returnArrTime":returnArrTime,"price":priceTotal,"airline":airline,"depNum":depNum,"returnNum":returnNum,"person":person,"returnArrTnextDay":returnArrTnextDay,"arrTnextDay":arrTnextDay,"bonus":bonus});
+				var sendDet =JSON.stringify({"depT":depT,"depDate":depDate,"depC":depC,"arrT":arrT,"returnDate":returnDate,"arrC":arrC,"returnTime":returnTime,"returnArrTime":returnArrTime,"price":priceTotal,"airline":airline,"depNum":depNum,"returnNum":returnNum,"person":person});
 				$.ajax({
 				    type : "post",
 				    url : "booking",
