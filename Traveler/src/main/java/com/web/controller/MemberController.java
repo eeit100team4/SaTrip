@@ -46,26 +46,26 @@ public class MemberController {
 	@Autowired
 	ServletContext context;
 	
-	@RequestMapping("/changePwd")
+	@RequestMapping("/member/changePwd")
 	public String changePwd(HttpServletRequest request, HttpServletResponse response, Model model) {
 		HttpSession session = request.getSession();
 		MemberBean mb = (MemberBean) session.getAttribute("LoginOK");
 		model.addAttribute("memberId", mb.getMemberId());
-		return "changePwd";
+		return "/member/changePwd";
 	}
 
-	@RequestMapping("/changePwd.do")
+	@RequestMapping("/member/changePwd.do")
 	public String changePwd(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		System.out.println("doChangePwd");
 
-		String succPage = "updateSuccess";
-		String errPage = "changePwd";
+		String succPage = "/member/updateSuccess";
+		String errPage = "/member/changePwd";
 
 		HttpSession session = request.getSession();
 		MemberBean mb = (MemberBean) session.getAttribute("LoginOK");
 
 		if (mb == null) {
-			return "login";  //如果未登入，mb=null時，就導頁至登入畫面
+			return "/member/login";  //如果未登入，mb=null時，就導頁至登入畫面
 		}
 		request.setCharacterEncoding("UTF-8");
 		// 準備存放錯誤訊息的 List 物件
@@ -121,42 +121,42 @@ public class MemberController {
 		return succPage;
 	}
 
-	@RequestMapping("/updateMember")
+	@RequestMapping("/member/updateMember")
 	public String updateMember(HttpServletRequest request, HttpServletResponse response, Model model) {
 		HttpSession session = request.getSession();
 		MemberBean mb = (MemberBean) session.getAttribute("LoginOK");
 		model.addAttribute("welcomeNm", mb.getMemberId());
 		model.addAttribute("member", mb);
 		model.addAttribute("function", "update");
-		return "saveMember";
+		return "/member/saveMember";
 	}
 
-	@RequestMapping("/members")
+	@RequestMapping("/member/members")
 	public String list(Model model) {
 		List<MemberBean> list = memberService.getAllMembers();
 		model.addAttribute("members", list);
-		return "members";
+		return "/member/members";
 	}
 
-	@RequestMapping("/member")
+	@RequestMapping("/member/member")
 	public String getMemberById(@RequestParam("memberId") String memberId, Model model) {
 		model.addAttribute("member", memberService.getMemberById(memberId));
-		return "member";
+		return "/member/member";
 	}
 
-	@RequestMapping("/register")
+	@RequestMapping("/member/register")
 	public String register(Model model) {
 		System.out.println("register");
 		model.addAttribute("function", "add");
-		return "saveMember";
+		return "/member/saveMember";
 	}
 
-	@RequestMapping("/saveMember.do")
+	@RequestMapping("/member/saveMember.do")
 	public String doSaveMember(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		System.out.println("doSaveMember");
 
-		String succPage = "success";
-		String errPage = "saveMember";
+		String succPage = "/member/success";
+		String errPage = "/member/saveMember";
 
 		request.setCharacterEncoding("UTF-8");
 		// 準備存放錯誤訊息的 List 物件
@@ -217,8 +217,8 @@ public class MemberController {
 			}
 		} else {
 			// 更新時的驗證
-			succPage = "updateSuccess";
-			errPage = "saveMember";
+			succPage = "/member/updateSuccess";
+			errPage = "/member/saveMember";
 		}
 		// 共用時的驗證
 		if (gender == null || gender.trim().length() == 0) {
@@ -302,7 +302,7 @@ public class MemberController {
 		}
 	}
 	
-	 @RequestMapping(value = "/getPicture/{memberId}", method = RequestMethod.GET)
+	 @RequestMapping(value = "/member/getPicture/{memberId}", method = RequestMethod.GET)
 	 public ResponseEntity<byte[]> getPicture(HttpServletResponse resp,
 	 @PathVariable String memberId) {
 	 MemberBean bean = memberService.getMemberById(memberId);
@@ -320,7 +320,7 @@ public class MemberController {
 	 }
 	 } else {
 	 InputStream is =
-	 context.getResourceAsStream("/resources/images/bigHead.png");
+	 context.getResourceAsStream("/WEB-INF/images/member/bigHead.png");
 	 ByteArrayOutputStream baos = new ByteArrayOutputStream();
 	 byte[] b = new byte[8192];
 	 try {

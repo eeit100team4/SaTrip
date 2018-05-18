@@ -28,21 +28,13 @@ import com.web.model.member.MemberBean;
 import com.web.service.member.GlobalService;
 import com.web.service.member.MemberService;
 
-
-
-//import com.web.traveler.Utils.DateUtils;
-//import com.web.traveler.Utils.SendMailTLS;
-//import com.web.traveler.model.MemberBean;
-//import com.web.traveler.service.GlobalService;
-//import com.web.traveler.service.MemberService;
-
 @Controller
 public class LoginController {
 
 	@Autowired
 	MemberService memberService;
 
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	@RequestMapping(value = "/member/login", method = RequestMethod.GET)
 	public String getLoginPage(HttpServletRequest request, HttpServletResponse response, Model model) {
 		// List<MemberBean> list = memberService.getAllMembers();
 		// model.addAttribute("members", list);
@@ -54,10 +46,10 @@ public class LoginController {
 		String rememberMe = (String) session.getAttribute("rememberMe");
 		System.out.println(
 				"timeOut=" + timeOut + "memberId=" + memberId + "password=" + password + "rememberMe=" + rememberMe);
-		return "login";
+		return "/member/login";
 	}
 
-	@RequestMapping(value = "/login.do", method = RequestMethod.POST)
+	@RequestMapping(value = "/member/login.do", method = RequestMethod.POST)
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
@@ -120,7 +112,7 @@ public class LoginController {
 		// *****************************************************
 		// 如果errorMsgMap不是空的，表示有錯誤，交棒給login.jsp
 		if (!errorMsgMap.isEmpty()) {
-			 RequestDispatcher rd=request.getRequestDispatcher("login");
+			 RequestDispatcher rd=request.getRequestDispatcher("/member/login");
 			 rd.forward(request, response);
 //			return "login";
 		}
@@ -151,22 +143,23 @@ public class LoginController {
 				System.out.println("to requestURI=" + requestURI);
 //				return requestURI;
 			} else {
-				 response.sendRedirect("memberIndex");
+				System.out.println("request.getContextPath()=" + request.getContextPath());
+				 response.sendRedirect(request.getContextPath()+"/member/memberIndex");
 				System.out.println("to index");
 //				return "index";
 			}
 		} else {
 			// 如果errorMsgMap不是空的，表示有錯誤，交棒給login.jsp
-			 RequestDispatcher rd=request.getRequestDispatcher("login.jsp");
+			 RequestDispatcher rd=request.getRequestDispatcher("/member/login.jsp");
 			 rd.forward(request, response);
 			System.out.println("to login");
 //			return "login";
 		}
 	}
 
-	@RequestMapping(value = "/queryPwd", method = RequestMethod.GET)
+	@RequestMapping(value = "/member/queryPwd", method = RequestMethod.GET)
 	public String queryPwd() {
-		return "queryPwd";
+		return "/member/queryPwd";
 	}
 
 	@RequestMapping(value = "/queryPwd.do", method = RequestMethod.POST)
@@ -209,7 +202,7 @@ public class LoginController {
 		// *****************************************************
 		// 如果errorMsgMap不是空的，表示有錯誤，交棒給login.jsp
 		if (!errorMsgMap.isEmpty()) {
-			return "queryPwd";
+			return "/member/queryPwd";
 		}
 		// 4.進行Business Logic運算
 		
@@ -234,16 +227,16 @@ public class LoginController {
 			// RequestDispatcher rd=request.getRequestDispatcher("...");
 			// rd.forward(request,response);
 			System.out.println("to index");
-			return "index";
+			return "/member/index";
 		} else {
 			// 如果errorMsgMap不是空的，表示有錯誤，交棒給login.jsp
 			System.out.println("to queryPwd");
-			return "queryPwd";
+			return "/member/queryPwd";
 		}
 	}
 	
 	//登出
-	@RequestMapping(value = "/logout.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/member/logout.do", method = RequestMethod.GET)
 	protected void logout(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
