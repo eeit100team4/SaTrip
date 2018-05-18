@@ -172,6 +172,25 @@ footer {
 	}
 	
 </script>
+<script>
+function dat(){
+	
+
+var num=$("#tbo").find("tr").length;
+var nowD= (Date.parse(new Date())).valueOf();
+var aDay=1000*60*60*24;
+
+for(var k=0;k<=num;k++){
+	var test= $("#tbo").find("tr:eq("+k+")").find("td:eq(1)").text();
+	var date =(Date.parse( new Date(test))).valueOf();
+	if((nowD-date)<aDay){
+		$("#tbo").find("tr:eq("+k+")").find("img")display","inline");
+	}
+}
+
+}
+</script>
+
 
 </head>
 
@@ -208,7 +227,7 @@ footer {
 				<li><a href="index.html">航班統計報表</a></li>
 
 			</ul>
-
+			<button class="btn" onclick="dat()">dat</button>
 		</div>
 		<div class="d2">
 			<div class="text-center" ><input id="one" type="text" placeholder="查詢指定訂單" /><button class="btn" type="button" onclick="selectOne()"> go</button></div>
@@ -227,16 +246,16 @@ footer {
 			<table id="tbb" class="table table-hover">
 				<thead>
 					<tr>
-						<th scope="col" width="100px;">訂單編號</th>
-						<th scope="col" width="200px;" >會員編號</th>
+						<th scope="col" width="300px;">訂單編號</th>
+						<th scope="col" width="300px;" >會員編號</th>
 						<th scope="col" width="300px;" >訂單時間</th>
 						<th scope="col" width="200px;">總價</th>
 					</tr>
 				</thead>
-				<tbody>
+				<tbody id="tbo">
 					<c:forEach  var="order" items="${list}">
 						<tr>
-							<th scope="row"><a href="selectOne/${order.orderID}">${order.orderID}</a></th>
+							<th scope="row"><img style="display:none" src="/Traveler/images/new.png" /><a href="selectOne/${order.orderID}">${order.orderID}</a></th>
 							<td>會員ID</td>
 							<td>${order.orderDay}</td>
 							<td>${order.price}</td>
