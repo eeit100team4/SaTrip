@@ -5,15 +5,19 @@ import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.web.model.airplain.OrderDetailsBean;
 import com.web.model.hotel.HotelBean;
 import com.web.repository.hotel.HotelRepository;
 @Repository
 public class HibernateHotelRepository implements HotelRepository {
 	@Autowired
 	SessionFactory factory;
+	
+	Session session = null;
 	
 	@Override
 	@SuppressWarnings("unchecked")
@@ -32,6 +36,18 @@ public class HibernateHotelRepository implements HotelRepository {
 		return hb;
 	}
 
+//	@OVERRIDE
+//	PUBLIC LIST<HOTELBEAN> GETALLHOTELS(STRING COUNTRY, STRING CITY, STRING NAME, STRING ADDRESS) {
+//		SESSION = FACTORY.GETCURRENTSESSION();
+//		QUERY<ORDERDETAILSBEAN> QUERY = SESSION.CREATEQUERY("FROM HOTEL WHERE COUNTRY=:COUNTRY AND CITY=:CITY AND NAME=:NAME AND ADDRESS=:ADDRESS",
+//				ORDERDETAILSBEAN.CLASS);
+//		QUERY.SETPARAMETER("ORDERID", ORDERID);
+//		// STRING HQL = "FROM ORDERDETAILSBEAN WHERE ORDERID=" + ORDERID;
+//		ORDERDETAILSBEAN RESULT = QUERY.UNIQUERESULT();
+//		RETURN RESULT;
+//	}
+	
+	
 
 	
 
