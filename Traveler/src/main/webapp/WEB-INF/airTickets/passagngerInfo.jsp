@@ -402,7 +402,7 @@ function sendGuest(){
             </div>
             <div class="st1">
                 <label for="guestOneBirth" class="lab">生日</label>
-                <input type="text" name="guestOneBirth" id="guestOneBirth" placeholder="yyyy-MM-dd">
+                <input type="text" name="guestOneBirth" id="guestOneBirth" placeholder="YYYY-MM-DD">
             </div>
             <div class="st1">
                 <label class="lab">性別</label>
@@ -434,7 +434,7 @@ function sendGuest(){
             </div>
             <div class="st1">
                 <label for="guestTwoBirth" class="lab">生日</label>
-                <input type="text" name="guestTwoBirth" id="guestTwoBirth" placeholder="yyyy-MM-dd">
+                <input type="text" name="guestTwoBirth" id="guestTwoBirth" placeholder="YYYY-MM-DD">
             </div>
             <div class="st1">
                 <label class="lab">性別</label>

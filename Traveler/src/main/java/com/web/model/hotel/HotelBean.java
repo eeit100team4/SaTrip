@@ -53,8 +53,6 @@ public class HotelBean implements Serializable {
 	@ManyToOne
 	@JoinColumn(name="room_no", referencedColumnName="room_id", insertable=false, updatable=false) 
 	private HotelRoomBean hotelRoomBean;
-	
-	
 
 	public HotelRoomBean getHotelRoomBean() {
 		return hotelRoomBean;
@@ -63,6 +61,9 @@ public class HotelBean implements Serializable {
 	public void setHotelRoomBean(HotelRoomBean hotelRoomBean) {
 		this.hotelRoomBean = hotelRoomBean;
 	}
+	
+	
+	
 
 	public HotelBean(Integer hotel_id, String country, String city, String name, Blob coverImage, String file_name,
 			String address, Integer room_no, MultipartFile productImage) {

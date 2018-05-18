@@ -268,15 +268,34 @@ function test(){
 
 
 function CLOnly(){
+	var all=[];
+	for(var d=0;d<50;d++){
+	$("#"+d).parents("table").parent("div").parent("div").css("display","none");
+	}
+	for(var k=0;k<2;k++){
+		if($("#checkbox").find('input:checkbox:eq('+k+')').prop("checked")){
+			var name=$("#checkbox").find('input:checkbox:eq('+k+')').attr('checked', 'false').val();
+			all.push(name);
+		}
+	}
+	
 	for(var i=0;i<50;i++){
-		
-	var k=$("#"+i).parents("table").parent("div").prev("div").text();
-	if(!k.match("中華航空")){
-		$("#"+i).parents("table").parent("div").parent("div").css("display","none");
+		var na=$("#"+i).parents("table").parent("div").prev("div").text();
+		for(var a=0;a<all.length;a++){
+		if(na.match(all[a])){
+			$("#"+i).parents("table").parent("div").parent("div").css("display","inline");
+		}
+		}
+		}
+	
+	if(all.length==0){
+		for(var d=0;d<50;d++){
+			$("#"+d).parents("table").parent("div").parent("div").css("display","inline");
+			}
 	}
-	}
-	alert("oK");
 }
+
+
 
 </script>
 
@@ -440,6 +459,10 @@ function list(){
 			 $("#ticketResult").empty();
 			 list();
 // 			 page();
+				for(var k=0;k<2;k++){
+					$("#checkbox").find('input:checkbox:eq('+k+')').prop("checked",false);
+					
+				}
 			
 		}
 		
@@ -851,10 +874,15 @@ $("#mwt_mwt_slider_scroll").animate( { left:'-'+w+'px' }, 600 ,'swing');
   <button type="button" class="btn-xs btn-primary" onclick='sortByTime()'>早出發</button>
   <button type="button" class="btn-xs btn-primary" onclick='reSearchAdvance()'>提早一天</button>
   <button type="button" class="btn-xs btn-primary" onclick='reSeatchPostpone()'>延後一天</button>
-  <button type="button" class="btn-xs btn-primary" onclick='test()'>兩萬以下</button>
-  <button type="button" class="btn-xs btn-primary" onclick='CLOnly()'>華航限定</button>
+<!--   <button type="button" class="btn-xs btn-primary" onclick='test()'>兩萬以下</button> -->
+<!--   <button type="button" class="btn-xs btn-primary" onclick='CLOnly()'>華航限定</button> -->
 <!--   <button type="button" class="btn-xs ">Sony</button> -->
 <!-- </div> -->
+<form id="checkbox" action="/action_page.php">
+  <input type="checkbox" name="a" value="中華航空" onclick="CLOnly()" > 中華航空<br>
+  <input type="checkbox" name="b" value="日本航空" onclick="CLOnly()">日本航空<br>
+  <input type="submit" value="Submit">
+</form>
 </div>
 </div>
 
