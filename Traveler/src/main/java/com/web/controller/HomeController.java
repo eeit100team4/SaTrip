@@ -44,4 +44,9 @@ public class HomeController {
 			return xxx + "Index";
 		}
 	 
+<<<<<<< HEAD
 }
+=======
+}
+
+>>>>>>> branch 'master' of https://github.com/eeit100team4/Traveler.git

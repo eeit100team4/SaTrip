@@ -214,7 +214,7 @@ footer {
 							</div>
 							
 							
-							<button type="submit" class="btn btn-primary" id='btnAdd'>送出</button>
+							<button type="submit" class="btn btn-warning" id='btnAdd'>送出</button>
 						</form:form>
 					</div><!-- d1 --> 
 				 <!-- </div>  form-row -->   
