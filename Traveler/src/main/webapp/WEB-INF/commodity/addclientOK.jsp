@@ -1,18 +1,36 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>DisplayHotel</title>
+<title>Order completed</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
 <meta name="keywords"
 	content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
 <meta name="author" content="FREEHTML5.CO" />
-
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+	integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+	integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+	crossorigin="anonymous"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+	integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+	crossorigin="anonymous"></script>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
 <!-- -------------------------------------------------------------------------------------------------------	 -->
 <!-- (原廠設定)Place favicon.ico and apple-touch-icon.png in the root directory -->
 <link rel="shortcut icon" href="/Traveler/images/LeftTopCorner.ico">
@@ -139,17 +157,25 @@
 
 <!-- --------A別人的網站-----------------------------------------------------------------------------------------------	 -->
 
-
-
-
 <!-- -------------------------------------------------------------------------------------------------------	 -->
+<style>
+.dx {
+	width: 1200px;
+	height: 800px;
+	margin: auto;
+}
 
+.df {
+	width: 1200px;
+	margin: auto;
+}
+</style>
 <title>Insert title here</title>
 </head>
 <body>
 
-<div id="fh5co-wrapper">
-		<div id="fh5co-page">
+<!-- 	<div id="fh5co-wrapper"> -->
+<!-- 		<div id="fh5co-page"> -->
 
 			<!-- end:header-top -->
 			<header id="fh5co-header-section" class="sticky-banner">
@@ -157,34 +183,73 @@
 					<div class="nav-header">
 						<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle dark"><i></i></a>
 						<h1 id="fh5co-logo">
-							<a href="index.html"><i class="fas fa-dove "></i>Traveler</a>
+							<a href=""><i class="icon-airplane"></i>Travel</a>
 						</h1>
-						<!-- -------------------------------------------------------------------------------------------------------	 -->
 						<!-- START #fh5co-menu-wrap -->
 						<nav id="fh5co-menu-wrap" role="navigation">
-							<ul class="sf-menu" id="fh5co-primary-menu">
-								<li></i><a href=""><i class="fas fa-plane"></i>機票</a></li>
-								<li><a href="_Hotel/hotel"><i class="fas fa-home"></i>飯店</a></li>
-								<li class="theme/themeTitles"><a href="hotel.html"><i
-										class="fas fa-globe"></i>旅遊</a></li>
-								<li><a href="commlistfront"><i
-										class="fas fa-cart-arrow-down"></i>紅利商品</a></li>
-								<li><a href="blog.html"><i class="fas fa-phone-square"></i>客服中心</a></li>
-								<li><a href="contact.html"><i
-										class="far fa-user-circle"></i>登入/註冊</a></li>
-							</ul>
-						</nav>
+					<ul class="sf-menu" id="fh5co-primary-menu">
+						<li><a href="" ><i class="fas fa-plane"></i>機票</a></li>
+						<li><a href="_Hotel/hotel"><i class="fas fa-home"></i>飯店</a></li>
+						<li class="theme/themeTitles"><a href="hotel.html"><i
+								class="fas fa-globe"></i>旅遊</a></li>
+						<li><a href="commlistfront"><i
+								class="fas fa-cart-arrow-down"></i>紅利商品</a></li>
+						<li><a href="blog.html"><i class="fas fa-phone-square"></i>客服中心</a></li>
+						<li><a href="contact.html"><i class="far fa-user-circle"></i>登出</a></li>
+					</ul>
+					</nav>
 					</div>
 				</div>
 			</header>
-			
-			<div class="carousel-item">
-  <img src="..." alt="...">
-  <div class="carousel-caption d-none d-md-block">
-    <h5>...</h5>
-    <p>...</p>
-  </div>
-</div>
-<h1>恭喜!!!資料有到資料庫囉~~</h1>
+
+<!-- 			<div class="carousel-item"> -->
+<!-- 				<img src="themeTitle-登山.png" alt=""> -->
+<!-- 				<div class="carousel-caption d-none d-md-block"> -->
+<!-- 					<h5>QQQQQQ</h5> -->
+<!-- 					<p>...</p> -->
+<!-- 				</div> -->
+<!-- 			</div> -->
+
+			<div id="fh5co-blog-section" class="fh5co-section-gray">
+				<div class="df">
+					<h1 style="text-align: center">兌換成功</h1>
+					<h2 style="text-align: center">商品將在10個工作天內寄送，感謝您的兌換</h2>
+					<a href="commlistfront"><p style="text-align: center">點我回紅利兌換</p></a>
+				</div>
+				<div class="dx">
+					<div id="carouselExampleIndicators" class="carousel slide"
+						data-ride="carousel">
+						<ol class="carousel-indicators">
+							<li data-target="#carouselExampleIndicators" data-slide-to="0"
+								class="active"></li>
+							<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+							<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+						</ol>
+						<div class="carousel-inner">
+							<div class="carousel-item active">
+								<img height=800px class="d-block w-100"
+									src="/Traveler/images//disney.jpg" alt="First slide">
+							</div>
+							<div class="carousel-item">
+								<img height=800px class="d-block w-100"
+									src="/Traveler/images//sakura_1.jpg" alt="Second slide">
+							</div>
+							<div class="carousel-item">
+								<img height=800px class="d-block w-100"
+									src="/Traveler/images//sukii.jpg" alt="Third slide">
+							</div>
+						</div>
+						<a class="carousel-control-prev" href="#carouselExampleIndicators"
+							role="button" data-slide="prev"> <span
+							class="carousel-control-prev-icon" aria-hidden="true"></span> <span
+							class="sr-only">Previous</span>
+						</a> <a class="carousel-control-next"
+							href="#carouselExampleIndicators" role="button" data-slide="next">
+							<span class="carousel-control-next-icon" aria-hidden="true"></span>
+							<span class="sr-only">Next</span>
+						</a>
+					</div>
+				</div>
+			</div>
 </body>
 </html>
