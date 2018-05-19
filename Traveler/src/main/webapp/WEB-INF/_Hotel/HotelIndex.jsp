@@ -184,7 +184,7 @@
 		<div id="fh5co-page">
 
 			<!-- end:header-top -->
-			<header id="fh5co-header-section" class="sticky-banner" style="background-color: black;">
+			<header id="fh5co-header-section" class="sticky-banner" >
 				<div class="container">
 					<div class="nav-header">
 						<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle dark"><i></i></a>
@@ -194,11 +194,11 @@
 						<!-- -------------------------------------------------------------------------------------------------------	 -->
 						<!-- START #fh5co-menu-wrap -->
 						<nav id="fh5co-menu-wrap" role="navigation">
-							<ul class="sf-menu" id="fh5co-primary-menu"  style="background-color:black"   >
+							<ul class="sf-menu" id="fh5co-primary-menu"    >
 								<li ><a href=""><i class="fas fa-plane"></i><font color="orange">機票</font></a></li>
 								<li><a href="_Hotel/DisplayHotel"><i class="fas fa-home"></i><font color="orange">飯店</font></a></li>
 								<li ><a href="theme/themeTitlesl"><i class="fas fa-globe"></i><font color="orange">旅遊</font></a></li>
-								<li><a href="car.html"><i class="fas fa-cart-arrow-down"></i><font color="orange">紅利商品</font></a></li>
+								<li><a href="car.html"><i class=	"fas fa-cart-arrow-down"></i><font color="orange">紅利商品</font></a></li>
 								<li><a href="blog.html"><i class="fas fa-phone-square"></i><font color="orange">客服中心</font></a></li>
 								<li><a href="contact.html"><i class="far fa-user-circle"></i><font color="orange">登入/註冊</font></a></li>
 							</ul>
