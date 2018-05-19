@@ -1,5 +1,8 @@
+
 ﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -142,7 +145,13 @@
 								<li><a href="commlistfront">Car</a></li>
 								<li><a href="contactus/contactusopinion">客戶服務</a></li>
 							
-								<li><a href="contact.html">Contact</a></li>
+								<li><a href='member/login'>註冊/登入</a>
+							<!--	<c:choose>
+									<c:when test="${userName!=null}">您好，${userName}  <a href='member/logout.do'> 登出</a>
+									</c:when>
+								<c:otherwise><a href='member/register'>註冊</a>/<a href='member/login'>登入</a></c:otherwise>
+								</c:choose>-->
+								</li>
 							</ul>
 						</nav>
 					</div>
@@ -471,11 +480,3 @@
 </body>
 </html>
 
-<<<<<<< HEAD
-=======
-
-
-
-
-
->>>>>>> branch 'master' of https://github.com/eeit100team4/Traveler.git
