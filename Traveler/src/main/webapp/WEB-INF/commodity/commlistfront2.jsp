@@ -185,6 +185,8 @@ padding-left:20px;
 }
 </style>
 
+
+
 <title>Insert title here</title>
 </head>
 <body>
@@ -202,7 +204,7 @@ padding-left:20px;
 								<li ><a href=""><i class="fas fa-plane"></i><font color="orange">機票</font></a></li>
 								<li><a href="_Hotel/DisplayHotel"><i class="fas fa-home"></i><font color="orange">飯店</font></a></li>
 								<li><a href="theme/themeTitlesl"><i class="fas fa-globe"></i><font color="orange">旅遊</font></a></li>
-								<li><a href="commlistfront"><i class="fas fa-cart-arrow-down"></i><font color="orange">紅利商品</font></a></li>
+								<li><a href="/Traveler/commlistfront"><i class="fas fa-cart-arrow-down"></i><font color="orange">紅利商品</font></a></li>
 								<li><a href="blog.html"><i class="fas fa-phone-square"></i><font color="orange">客服中心</font></a></li>
 								<li><a href="contact.html"><i class="far fa-user-circle"></i><font color="orange">登入/註冊</font></a></li>
 							</ul>
@@ -218,11 +220,11 @@ padding-left:20px;
 				<div
 					class="col-md-8 col-md-offset-2 text-center heading-section animate-box">
 					<h3>紅利商品</h3>
-					<span class="sp1"><a href="commlist/1"> 迪士尼海洋 </a> </span>
-					<span class="sp1"><a href="commlist/2"> 迪士尼樂園 </a> </span>
-					<span class="sp1"><a href="commlist/3"> 環球影城電影 </a> </span>	
-					<span class="sp1"><a href="commlist/4"> 環球影城動畫 </a> </span>	
-					<span class="sp1"><a href="commlist/5"> 禮券 </a> </span>		
+					<span class="sp1"><a href="1"> 迪士尼海洋 </a> </span>
+					<span class="sp1"><a href="2"> 迪士尼樂園 </a> </span>
+					<span class="sp1"><a href="3"> 環球影城電影 </a> </span>	
+					<span class="sp1"><a href="4"> 環球影城動畫 </a> </span>	
+					<span class="sp1"><a href="5"> 禮券 </a> </span>		
                
 				</div>
 			</div>
@@ -249,7 +251,7 @@ padding-left:20px;
 									<h3 style="text-align:center">兌換點數 :${comm.point}點</h3>
 									
 									<div style="padding-left:100px">
-									<a class="btn btn-warning" href="tsuikaClient/${comm.commodityid}" role="button">兌換</a>
+									<a class="btn btn-warning" href="/Traveler/tsuikaClient/${comm.commodityid}" role="button">兌換</a>
                                    
 									</div>
 									

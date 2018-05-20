@@ -204,11 +204,11 @@ footer {
 							<div class="form-group">
 								<label for='kind'>種類:</label>
 								<form:select path="kind">
-									<form:option value="電影" lable="" />
-									<form:option value="海洋" lable="" />
-									<form:option value="樂園" lable="" />
-									<form:option value="禮券" lable="" />
-									<form:option value="動畫" lable="" />
+									<form:option value="1" >海洋</form:option>
+									<form:option value="2" >樂園</form:option>
+									<form:option value="3" >電影</form:option>
+									<form:option value="4" >動畫</form:option>
+									<form:option value="5" >禮券</form:option>
 								</form:select>
 							</div>
 							
