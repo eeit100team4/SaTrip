@@ -256,6 +256,7 @@ height:270px;
 					</div>
 
 				</fieldset>
+				<hr>
 
 			</form:form>
 

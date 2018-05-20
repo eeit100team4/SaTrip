@@ -2,8 +2,6 @@ package com.web.service.theme;
 
 import java.util.List;
 
-import org.hibernate.Session;
-
 import com.web.model.theme.ThemeTitles;
 import com.web.model.theme.ThemeApplications;
 import com.web.model.theme.ThemeJourneys;
@@ -39,7 +37,7 @@ public interface ThemeService {
 	//依行程編號抓出detail
 	ThemeJourneys getDetailsByJourneyId(Integer journeyId);
 	
-	//報名 在欄位輸入報名資料
+	//報名申請表
 	void addApplications(ThemeApplications application);
 				
 }

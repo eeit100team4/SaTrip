@@ -1,23 +1,16 @@
 package com.web.controller;
 
-import java.nio.channels.SeekableByteChannel;
-import java.util.Enumeration;
 import java.util.List;
 
-import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
-import javax.servlet.http.HttpSessionContext;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.HttpMediaTypeNotSupportedException;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.web.model.theme.ThemeTitles;
 import com.web.model.theme.ThemeApplications;
 import com.web.model.theme.ThemeJourneys;
 import com.web.model.theme.ThemeProducts;
@@ -101,12 +94,12 @@ public class ThemeController {
 		System.out.println("sss"+tt.getJourneyId());
 		ta.setJourneyId(tt.getJourneyId());
 		System.out.println("fornt"+ta);
-		themeService.addApplications(ta);
-	
-		
+		themeService.addApplications(ta);		
 		return "theme/finishPage";
 	}
 	
-	
-	
+	@RequestMapping("theme/test")
+	public String test(){
+		return "theme/test";
+	}
 }

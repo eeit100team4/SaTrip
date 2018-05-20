@@ -8,7 +8,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
@@ -33,6 +35,22 @@ public class HotelRoomBean implements Serializable {
 	private Double price;
 	private Integer pic_no;
 	private Integer booking_no;
+	
+	
+	
+	@ManyToOne
+	@JoinColumn(name="booking_no", referencedColumnName="booking_id", insertable=false, updatable=false) 
+	private HotelBookingDateBean hotelBookingDateBean;
+
+	public HotelBookingDateBean getHotelBookingDateBean() {
+		return hotelBookingDateBean;
+	}
+
+	public void setHotelBookingDateBean(HotelBookingDateBean hotelBookingDateBean) {
+		this.hotelBookingDateBean = hotelBookingDateBean;
+	}
+
+	
 
 	public HotelRoomBean(Integer hotel_no, Integer room_id, String occupancy, Integer stock, Double discount,
 			Double price, Integer pic_no, Integer booking_no, String priceStr) {

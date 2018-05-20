@@ -74,6 +74,7 @@ public class ThemeRepositoryImpl implements ThemeRepository {
 	
 	//分類查詢 從固定title查該title下商品資料
 	//找出所有title
+	@SuppressWarnings("unchecked")
 	public List<String> getAllTitles(){
 		String hql = "SELECT DISTINCT titleName FROM ThemeTitles";
 		Session session = factory.getCurrentSession();
@@ -82,6 +83,7 @@ public class ThemeRepositoryImpl implements ThemeRepository {
 		return list;
 	}
 	//依title抓產品 //要抓外部表格的titleName(HQL做修改)
+	@SuppressWarnings("unchecked")
 	public List<ThemeProducts> getProductsByTitle(String titleName){
 		String hql = "FROM ThemeProducts tt WHERE tt.themeTitles.titleName  = :titleName ";
 		List<ThemeProducts> list = new ArrayList<>();
@@ -92,6 +94,7 @@ public class ThemeRepositoryImpl implements ThemeRepository {
 	
 	//分類查詢 從固定商品下查出團日期資料
 	//找出所有商品
+	@SuppressWarnings("unchecked")
 	public List<String> getAllProductName(){
 		String hql = "SELECT DISTINCT productName FROM ThemeProducts";
 		Session session = factory.getCurrentSession();
@@ -101,6 +104,7 @@ public class ThemeRepositoryImpl implements ThemeRepository {
 	}
 	
 	//依商品名稱抓出團日期
+	@SuppressWarnings("unchecked")
 	public List<ThemeJourneys> getJourneysByProduct(String productName){
 		String hql = "FROM ThemeJourneys tt WHERE tt.themeProducts.productName  = :productName ";
 		List<ThemeJourneys> list = new ArrayList<>();

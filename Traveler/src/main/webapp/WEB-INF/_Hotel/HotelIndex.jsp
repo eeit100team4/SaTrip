@@ -8,10 +8,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>hotelIndex</title>
+<title>DisplayHotel</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description"content="Free HTML5 Template by FREEHTML5.CO" />
-<meta name="keywords"content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
+<meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
+<meta name="keywords"
+	content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
 <meta name="author" content="FREEHTML5.CO" />
 
 
@@ -22,26 +23,26 @@
 <link
 	href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300'
 	rel='stylesheet' type='text/css'>
-<!-- (原廠設定) -->	
+<!-- (原廠設定) -->
 <link
 	href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"
 	rel="stylesheet">
-<!-- (原廠設定) -->	
+<!-- (原廠設定) -->
 <link rel="stylesheet"
 	href="https://use.fontawesome.com/releases/v5.0.9/css/all.css"
 	integrity="sha384-5SOiIsAziJl6AWe0HWRKTXlfcSHKmYV4RBF18PPJ173Kzn7jzMyFuTtk8JA7QQG1"
 	crossorigin="anonymous">
-<!-- (原廠設定) -->	
+<!-- (原廠設定) -->
 <link rel="stylesheet"
 	href="https://use.fontawesome.com/releases/v5.0.9/css/solid.css"
 	integrity="sha384-29Ax2Ao1SMo9Pz5CxU1KMYy+aRLHmOu6hJKgWiViCYpz3f9egAJNwjnKGgr+BXDN"
 	crossorigin="anonymous">
-<!-- (原廠設定) -->	
+<!-- (原廠設定) -->
 <link rel="stylesheet"
 	href="https://use.fontawesome.com/releases/v5.0.9/css/regular.css"
 	integrity="sha384-seionXF7gEANg+LFxIOw3+igh1ZAWgHpNR8SvE64G/Zgmjd918dTL55e8hOy7P4T"
 	crossorigin="anonymous">
-<!-- (原廠設定) -->	
+<!-- (原廠設定) -->
 <link rel="stylesheet"
 	href="https://use.fontawesome.com/releases/v5.0.9/css/brands.css"
 	integrity="sha384-ATC/oZittI09GYIoscTZKDdBr/kI3lCwzw3oBMnOYCPVNJ4i7elNlCxSgLfdfFbl"
@@ -70,12 +71,20 @@
 <!--(額外補足)Bootstrap 網頁的基本結構-->
 <link rel="stylesheet" href="/Traveler/css/bootstrap.min.css">
 <link rel="stylesheet" href="/Traveler/css/bootstrap-theme.min.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-	
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+<link
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+	rel="stylesheet">
+<link rel="stylesheet"
+	href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+
 <!-- -------------------------------------------------------------------------------------------------------	 -->
 <!-- jQuery -->
 <!-- (原廠設定) -->
@@ -108,14 +117,22 @@
 <!--[if lt IE 9]>
 	<script src="js/respond.min.js"></script>
 	<![endif]-->
-	
-<!-- -------------------------------------------------------------------------------------------------------	 -->	
+
+<!-- -------------------------------------------------------------------------------------------------------	 -->
 <!--(額外補足)Bootstrap 網頁的基本結構-->
-<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script
+	src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+	integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+	crossorigin="anonymous"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+	integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+	crossorigin="anonymous"></script>
 
 <!-- (有問題的)Bootstrap 網頁的基本結構 -->
 <!-- <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script> -->
@@ -123,34 +140,72 @@
 <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> -->
 <!-- <script src="http://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js"></script> -->
 <!-- -------------------------------------------------------------------------------------------------------	 -->
+<link rel="stylesheet"
+	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="/resources/demos/style.css">
 
-	</head>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+	$(function() {
+		var dateFormat = "mm/dd/yy", from = $("#from").datepicker({
+			defaultDate : "+1w",
+			changeMonth : true,
+			numberOfMonths : 1
+		}).on("change", function() {
+			to.datepicker("option", "minDate", getDate(this));
+		}), to = $("#to").datepicker({
+			defaultDate : "+1w",
+			changeMonth : true,
+			numberOfMonths : 1
+		}).on("change", function() {
+			from.datepicker("option", "maxDate", getDate(this));
+		});
 
-	<body>
-		<div id="fh5co-wrapper">
+		function getDate(element) {
+			var date;
+			try {
+				date = $.datepicker.parseDate(dateFormat, element.value);
+			} catch (error) {
+				date = null;
+			}
+
+			return date;
+		}
+	});
+</script>
+<!-- -------------------------------------------------------------------------------------------------------	 -->
+
+
+
+
+</head>
+<body>
+	<div id="fh5co-wrapper">
 		<div id="fh5co-page">
-		
+
 			<!-- end:header-top -->
-		<header id="fh5co-header-section" class="sticky-banner">
-			<div class="container">
-				<div class="nav-header">
-					<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle dark"><i></i></a>
-					<h1 id="fh5co-logo"><a href="index.html"><i class="fas fa-dove "></i>Traveler</a></h1>
-					
-					<!-- START #fh5co-menu-wrap -->
-					<nav id="fh5co-menu-wrap" role="navigation">
-						<ul class="sf-menu" id="fh5co-primary-menu">
-							<li></i><a href="index"><i class="fas fa-plane"></i>機票</a></li>							
-							<li><a href="_Hotel/hotel"><i class="fas fa-home"></i>飯店</a></li>
-							<li class="theme/themeTitles"><a href="hotel.html"><i class="fas fa-globe"></i>旅遊</a></li>
-							<li><a href="car.html"><i class="fas fa-cart-arrow-down"></i>紅利商品</a></li>
-							<li><a href="blog.html"><i class="fas fa-phone-square"></i>客服中心</a></li>
-							<li><a href="contact.html"><i class="far fa-user-circle"></i>登入/註冊</a></li>
-						</ul>
-					</nav>
+			<header id="fh5co-header-section" class="sticky-banner" >
+				<div class="container">
+					<div class="nav-header">
+						<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle dark"><i></i></a>
+						<h1 id="fh5co-logo">
+							<a href="index.html"><i class="fas fa-dove "></i>Traveler</a>
+						</h1>
+						<!-- -------------------------------------------------------------------------------------------------------	 -->
+						<!-- START #fh5co-menu-wrap -->
+						<nav id="fh5co-menu-wrap" role="navigation">
+							<ul class="sf-menu" id="fh5co-primary-menu"    >
+								<li ><a href=""><i class="fas fa-plane"></i><font color="orange">機票</font></a></li>
+								<li><a href="_Hotel/DisplayHotel"><i class="fas fa-home"></i><font color="orange">飯店</font></a></li>
+								<li ><a href="theme/themeTitlesl"><i class="fas fa-globe"></i><font color="orange">旅遊</font></a></li>
+								<li><a href="car.html"><i class=	"fas fa-cart-arrow-down"></i><font color="orange">紅利商品</font></a></li>
+								<li><a href="blog.html"><i class="fas fa-phone-square"></i><font color="orange">客服中心</font></a></li>
+								<li><a href="contact.html"><i class="far fa-user-circle"></i><font color="orange">登入/註冊</font></a></li>
+							</ul>
+						</nav>
+					</div>
 				</div>
-			</div>
-		</header>
+			</header>
 
 		<!-- end:header-top -->
 	
@@ -166,86 +221,87 @@
 
 								  <!-- Nav tabs -->
 								   <ul class="nav nav-tabs" role="tablist">
-								      <li role="presentation">								      	
-										    <a href="#flights" aria-controls="flights" role="tab" data-toggle="tab"><i class="fas fa-plane"></i>機票</a>
-								      </li>									  
+<!-- 								      <li role="presentation">								      	 -->
+<!-- 										    <a href="#flights" aria-controls="flights" role="tab" data-toggle="tab"><i class="fas fa-plane"></i>機票</a> -->
+<!-- 								      </li>									   -->
 									  
-									  <li role="presentation" class="active">															
-											<a href="#hotels" aria-controls="hotels" role="tab" data-toggle="tab"><i class="fas fa-home"></i>飯店</a>
-									  </li>
+										  <li role="presentation" class="active">															
+												<a href="#hotels" aria-controls="hotels" role="tab" data-toggle="tab"><i class="fas fa-home"></i>飯店</a>
+										  </li>
 								   </ul>
 
 								   <!-- Tab panes -->
 									<div class="tab-content">
-									 <div role="tabpanel" class="tab-pane" id="flights">
-										<div class="row">
-											<div class="col-xxs-12 col-xs-6 mt">
-												<div class="input-field">
-													<label for="from">出發地:</label>
-													<input type="text" class="form-control" id="from-place" placeholder="台北, 台灣"/>
-												</div>
-											</div>
-											<div class="col-xxs-12 col-xs-6 mt">
-												<div class="input-field">
-													<label for="from">目的地:</label>
-													<input type="text" class="form-control" id="to-place" placeholder="東京, 日本"/>
-												</div>
-											</div>
-											<div class="col-xxs-12 col-xs-6 mt alternate">
-												<div class="input-field">
-													<label for="date-start">出發日期:</label>
-													<input type="text" class="form-control" id="date-start" placeholder="06-01-2018"/>
-												</div>
-											</div>
-											<div class="col-xxs-12 col-xs-6 mt alternate">
-												<div class="input-field">
-													<label for="date-end">回程日期:</label>
-													<input type="text" class="form-control" id="date-end" placeholder="06-06-2018"/>
-												</div>
-											</div>
-											<div class="col-sm-12 mt">
-												<section>
-													<label for="class">座位:</label>
-													<select class="cs-select cs-skin-border">
-														<option value="" disabled selected>經濟艙</option>
-														<option value="economy">經濟艙</option>
-														<option value="first">頭等艙</option>
-														<option value="business">商務艙</option>
-													</select>
-												</section>
-											</div>
-											<div class="col-xxs-12 col-xs-6 mt">
-												<section>
-													<label for="class">成人:</label>
-													<select class="cs-select cs-skin-border">
-														<option value="" disabled selected>1位</option>
-														<option value="1">1位</option>
-														<option value="2">2位</option>
-														<option value="3">3位</option>
-														<option value="4">4位</option>
-													</select>
-												</section>
-											</div>
-											<div class="col-xxs-12 col-xs-6 mt">
-												<section>
-													<label for="class">小孩:</label>
-													<select class="cs-select cs-skin-border">
-														<option value="" disabled selected>1位</option>
-														<option value="1">1位</option>
-														<option value="2">2位</option>
-														<option value="3">3位</option>
-														<option value="4">4位</option>
-													</select>
-												</section>
-											</div>
-											<div class="col-xs-12">
-												<input type="submit" class="btn btn-primary btn-block" value="搜尋">
-											</div>
-										</div>
-									 </div>
+<!-- 									 <div role="tabpanel" class="tab-pane" id="flights"> -->
+<!-- 										<div class="row"> -->
+<!-- 											<div class="col-xxs-12 col-xs-6 mt"> -->
+<!-- 												<div class="input-field"> -->
+<!-- 													<label for="from">出發地:</label> -->
+<!-- 													<input type="text" class="form-control" id="from-place" placeholder="台北, 台灣"/> -->
+<!-- 												</div> -->
+<!-- 											</div> -->
+<!-- 											<div class="col-xxs-12 col-xs-6 mt"> -->
+<!-- 												<div class="input-field"> -->
+<!-- 													<label for="from">目的地:</label> -->
+<!-- 													<input type="text" class="form-control" id="to-place" placeholder="東京, 日本"/> -->
+<!-- 												</div> -->
+<!-- 											</div> -->
+<!-- 											<div class="col-xxs-12 col-xs-6 mt alternate"> -->
+<!-- 												<div class="input-field"> -->
+<!-- 													<label for="date-start">出發日期:</label> -->
+<!-- 													<input type="text" class="form-control" id="datepicker" placeholder="06-01-2018"/> -->
+<!-- 												</div> -->
+<!-- 											</div> -->
+<!-- 											<div class="col-xxs-12 col-xs-6 mt alternate"> -->
+<!-- 												<div class="input-field"> -->
+<!-- 													<label for="date-end">回程日期:</label> -->
+<!-- 													<input type="text" class="form-control" id="datepicker" placeholder="06-06-2018"/> -->
+<!-- 												</div> -->
+<!-- 											</div> -->
+<!-- 											<div class="col-sm-12 mt"> -->
+<!-- 												<section> -->
+<!-- 													<label for="class">座位:</label> -->
+<!-- 													<select class="cs-select cs-skin-border"> -->
+<!-- 														<option value="" disabled selected>經濟艙</option> -->
+<!-- 														<option value="economy">經濟艙</option> -->
+<!-- 														<option value="first">頭等艙</option> -->
+<!-- 														<option value="business">商務艙</option> -->
+<!-- 													</select> -->
+<!-- 												</section> -->
+<!-- 											</div> -->
+<!-- 											<div class="col-xxs-12 col-xs-6 mt"> -->
+<!-- 												<section> -->
+<!-- 													<label for="class">成人:</label> -->
+<!-- 													<select class="cs-select cs-skin-border"> -->
+<!-- 														<option value="" disabled selected>1位</option> -->
+<!-- 														<option value="1">1位</option> -->
+<!-- 														<option value="2">2位</option> -->
+<!-- 														<option value="3">3位</option> -->
+<!-- 														<option value="4">4位</option> -->
+<!-- 													</select> -->
+<!-- 												</section> -->
+<!-- 											</div> -->
+<!-- 											<div class="col-xxs-12 col-xs-6 mt"> -->
+<!-- 												<section> -->
+<!-- 													<label for="class">小孩:</label> -->
+<!-- 													<select class="cs-select cs-skin-border"> -->
+<!-- 														<option value="" disabled selected>1位</option> -->
+<!-- 														<option value="1">1位</option> -->
+<!-- 														<option value="2">2位</option> -->
+<!-- 														<option value="3">3位</option> -->
+<!-- 														<option value="4">4位</option> -->
+<!-- 													</select> -->
+<!-- 												</section> -->
+<!-- 											</div> -->
+<!-- 											<div class="col-xs-12"> -->
+<!-- 												<input type="submit" class="btn btn-primary btn-block" value="搜尋"> -->
+<!-- 											</div> -->
+<!-- 										</div> -->
+<!-- 									 </div> -->
 
 									 <div role="tabpanel" class="tab-pane active" id="hotels">
 									 	<div class="row">
+									 		<form action="" method="get">
 											<div class="col-xxs-12 col-xs-12 mt">
 												<div class="input-field">
 													
@@ -256,13 +312,13 @@
 											<div class="col-xxs-12 col-xs-6 mt alternate">
 												<div class="input-field">
 													<label for="date-start">入住日期:</label>
-													<input type="text" class="form-control" id="date-start" placeholder="06-01-2018"/>
+													<input type="text" class="form-control" id="from" placeholder="06-01-2018"/>
 												</div>
 											</div>
 											<div class="col-xxs-12 col-xs-6 mt alternate">
 												<div class="input-field">
 													<label for="date-end">退房日期:</label>
-													<input type="text" class="form-control" id="date-end" placeholder="06-06-2018"/>
+													<input type="text" class="form-control" id="to" placeholder="06-06-2018"/>
 												</div>
 											</div>
 											<div class="col-sm-12 mt">
@@ -303,6 +359,7 @@
 											<div class="col-xs-12">
 												<input type="submit" class="btn btn-primary btn-block" value="搜尋">
 											</div>
+											</form>
 										</div>
 									 </div>
 
@@ -543,7 +600,7 @@
 	</div>
 	<!-- (原廠設定)END fh5co-page -->
 
-	</div>
+<!-- 	</div> -->
 	<!-- (原廠設定)END fh5co-wrapper -->
 
 	

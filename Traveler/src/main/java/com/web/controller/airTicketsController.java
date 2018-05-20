@@ -6,6 +6,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
@@ -58,35 +60,43 @@ public class airTicketsController {
 	ServletContext servletContext;
 	@Autowired
 	ExtraPriceService eps;
-	
 
 	String sess = null;
 
 	// 呼叫BFM的API
 	@RequestMapping("/BFMS")
-	public String getOrder(HttpServletRequest request, Model model) throws UnsupportedEncodingException {
+	public String getOrder(HttpServletRequest request, Model model) {
+
 		String result = bfmService.BFMservice(request);
-		// 產生PDF標題圖片
-		try {
-			pdf.imgProduce(servletContext);
-		} catch (IOException e) {
-			e.printStackTrace();
+
+		if (result == null) {
+			System.out.println("壞查詢");
+			return "redirect:/index";
+		} else {
+			// 產生PDF標題圖片
+			try {
+				pdf.imgProduce(servletContext);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			String dep = request.getParameter("dept");
+			String arr = request.getParameter("arrv");
+			ExtraPriceBean epBean = eps.getExtraPrice(dep, arr);
+			Integer extraP = epBean.getExtraPrice();
+			if (extraP != null) {
+				System.out.println("加價");
+				// map.put("extraPrice", extraP);
+				model.addAttribute("extraPrice", extraP);
+			}
+
+			model.addAttribute("result", result);
+			model.addAttribute("depDate", request.getParameter("depDate"));
+			model.addAttribute("reDate", request.getParameter("reDate"));
+			model.addAttribute("dep", request.getParameter("dept"));
+			model.addAttribute("arr", request.getParameter("arrv"));
+			model.addAttribute("psg", request.getParameter("psg"));
+			return "airTickets/flightOrder";
 		}
-		
-		String dep = request.getParameter("dept");
-		String arr = request.getParameter("arrv");
-		ExtraPriceBean epBean  = eps.getExtraPrice(dep, arr);
-		Integer extraP=epBean.getExtraPrice();
-		if(extraP!=null) {
-			System.out.println("加價!!!!");
-			model.addAttribute("extraPrice",extraP);
-		}
-		
-		model.addAttribute("result", result);
-		model.addAttribute("depDate", request.getParameter("depDate"));
-		model.addAttribute("reDate", request.getParameter("reDate"));
-		model.addAttribute("psg", request.getParameter("psg"));
-		return "airTickets/flightOrder";
 	}
 
 	// 將前端的訂單JSON字串傳入後由GSON轉為BEAN，寫入DB，將ORDERID存在SESSION層級中
@@ -98,7 +108,7 @@ public class airTicketsController {
 		int id = os.addOrder(odb);
 		String orderid = os.selectOneById(id);
 		session.setAttribute("orderID", orderid);
-		System.out.println("將ORDERID存入SESSION orderId="+orderid);
+		System.out.println("將ORDERID存入SESSION orderId=" + orderid);
 		return orderid;
 	}
 
@@ -117,9 +127,9 @@ public class airTicketsController {
 	// 將前端輸入的旅客資訊以formdata傳到後台，直接用bean接收後做處裡
 	@RequestMapping(value = "/show/guest", method = RequestMethod.POST)
 	public @ResponseBody String addGuest(GuestBean guestBean, Model model) {
-//		 int resultId = gs.addGuest(guestBean);
-//		 String orderId = (String) session.getAttribute(sess);
-//		 os.updateByOrderId(orderId, resultId);
+		// int resultId = gs.addGuest(guestBean);
+		// String orderId = (String) session.getAttribute(sess);
+		// os.updateByOrderId(orderId, resultId);
 		session.setAttribute("guestBean", guestBean);
 		return "/Traveler/airTickets/ticktesCheckOut";
 	}
@@ -154,7 +164,7 @@ public class airTicketsController {
 		os.updateByOrderId(orderId, resultId);
 		if (orderId != null) {
 			os.updateCheckPayByOrderId(orderId);
-			
+
 			System.out.println("歐富寶測試");
 			System.out.println("產生PDF");
 			pdf.pdfProduce(os.selectOneByOrderId(orderId));
@@ -165,7 +175,7 @@ public class airTicketsController {
 		return "airTickets/error";
 	}
 
-//	 測試下載
+	// 測試下載
 	@RequestMapping(value = "/download")
 	public ResponseEntity<byte[]> download() throws IOException {
 		String orderId = (String) session.getAttribute("orderID");
@@ -179,20 +189,39 @@ public class airTicketsController {
 		}
 		return null;
 	}
-	
+
 	@RequestMapping("/pricetest")
 	public String toTest2(Model model) {
-	    ExtraPriceBean epBean = eps.getExtraPrice("TPE", "HND");
-	    Integer price = epBean.getExtraPrice();
+		ExtraPriceBean epBean = eps.getExtraPrice("TPE", "HND");
+		Integer price = epBean.getExtraPrice();
 		System.out.println(price);
-		return"airTickets/finishPage";
-	}	
-	
+		return "airTickets/finishPage";
+	}
 
-	 @RequestMapping("/finishPage")
-	 public String testPdf() throws DocumentException, IOException {
-	 return "airTickets/finishPage";
-	 }
-	
+	@RequestMapping("/finishPage")
+	public String testPdf() throws DocumentException, IOException {
+		return "airTickets/finishPage";
+	}
+
+	@RequestMapping(value = "reSend", method = RequestMethod.POST)
+	public String reSendTest(HttpServletRequest request, Model model) throws IOException {
+		String result = bfmService.BFMservice(request);
+
+		String dep = request.getParameter("dept");
+		String arr = request.getParameter("arrv");
+		ExtraPriceBean epBean = eps.getExtraPrice(dep, arr);
+		Integer extraP = epBean.getExtraPrice();
+		if (extraP != null) {
+			model.addAttribute("extraPrice", extraP);
+		}
+
+		model.addAttribute("result", result);
+		model.addAttribute("depDate", request.getParameter("depDate"));
+		model.addAttribute("reDate", request.getParameter("reDate"));
+		model.addAttribute("dep", request.getParameter("dept"));
+		model.addAttribute("arr", request.getParameter("arrv"));
+		model.addAttribute("psg", request.getParameter("psg"));
+		return "airTickets/flightOrder";
+	}
 
 }

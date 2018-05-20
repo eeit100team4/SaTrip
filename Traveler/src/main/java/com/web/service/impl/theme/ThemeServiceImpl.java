@@ -83,14 +83,13 @@ public class ThemeServiceImpl implements ThemeService {
 	@Transactional
 	@Override
 	public ThemeJourneys getDetailsByJourneyId(Integer journeyId){
-		return themeRepository.getDetailsByJourneyId(journeyId);
-		
+		return themeRepository.getDetailsByJourneyId(journeyId);	
 	}
 	
+	//報名申請表
 	@Transactional
 	@Override
 	public void addApplications(ThemeApplications application) {
 		themeRepository.addApplications(application); 
 	}
 }
-

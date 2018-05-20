@@ -111,7 +111,97 @@
 var extraPrice=null;
 <c:if test="${extraPrice!=null}">var extraPrice = ${extraPrice};</c:if>
 var emp = ${result};
-alert(emp);
+
+
+//往前往後一天搜尋
+
+function addDays(date, days) {
+	  var result = new Date(date);
+	  result.setDate(result.getDate() + days);
+	  return result;
+	}
+	
+function dateToString(date){
+	
+	  var temp = new Date(date);
+	  var yyyy=temp.getFullYear();
+	  var MM=("0"+(temp.getMonth()+1)).slice(-2);
+	  var dd=("0"+temp.getDate()).slice(-2);
+	  var result =(yyyy+"-"+MM+"-"+dd);
+	  return result;
+	// alert(dDate.getFullYear()+"-"+(dDate.getMonth()+1)+"-"+dDate.getDate());
+}	
+
+var depCode='${dep}';
+var arrCode='${arr}';
+var depDateTemp='${depDate}';
+var reDateTemp='${reDate}';
+var personTemp='${psg}';
+
+var dDateBefore = new Date(depDateTemp);
+var rDateBefore = new Date(reDateTemp);
+
+
+//讀取中畫面
+function slow() {
+	$("#all").css("filter", "opacity(40%)");
+	$("#img1").css("position", "absolute").css("left", "40%").css("top",
+			"40%").css("display", "inline").css("filter", "opacity(100%)");
+}
+
+//導向重新搜尋葉面方法
+function post(URL, PARAMS) { 
+    var temp = document.createElement("form"); 
+    temp.action = URL; 
+    temp.method = "post"; 
+    temp.style.display = "none"; 
+    for (var x in PARAMS) { 
+      var opt = document.createElement("textarea"); 
+      opt.name = x; 
+      opt.value = PARAMS[x]; // alert(opt.name) 
+      temp.appendChild(opt); 
+      }
+    document.body.appendChild(temp); 
+    temp.submit(); return temp; 
+  }
+//往前
+function reSearchAdvance(){
+	var dDateAfter=dateToString(addDays(dDateBefore,-1));
+	var rDateAfter=dateToString(addDays(rDateBefore,-1));
+
+var reSend = {};
+	reSend.dept= depCode;
+	reSend.arrv=arrCode;
+	reSend.depDate=dDateAfter;
+	reSend.reDate=rDateAfter;
+	reSend.psg=personTemp;
+	console.log(reSend);
+	slow();
+	post("reSend",reSend);
+	
+}
+
+//往後
+function reSeatchPostpone(){
+	var dDateAfter=dateToString(addDays(dDateBefore,1));
+	var rDateAfter=dateToString(addDays(rDateBefore,1));
+
+	var reSend = {};
+		reSend.dept= depCode;
+		reSend.arrv=arrCode;
+		reSend.depDate=dDateAfter;
+		reSend.reDate=rDateAfter;
+		reSend.psg=personTemp;
+		console.log(reSend);
+		slow();
+		post("reSend",reSend);
+	
+}
+//往前往後搜尋結束
+
+
+
+
 //照飛行時間排序
 // var data = emp.OTA_AirLowFareSearchRS.PricedItineraries.PricedItinerary;
 //  data.sort(function(a,b){
@@ -163,6 +253,51 @@ alert(emp);
 
 
 </script>
+<!--簡易篩選功能-->
+<script>
+function test(){
+	for(var i=0;i<50;i++){
+		
+	var k=$("#"+i).parents("tbody").find("tr:eq(0)").children("td:eq(4)").children("span:eq(0)").text();
+	if(k>20000){
+		$("#"+i).parents("table").parent("div").parent("div").css("display","none");
+	}
+	}
+	alert("oK");
+}
+
+
+function CLOnly(){
+	var all=[];
+	for(var d=0;d<50;d++){
+	$("#"+d).parents("table").parent("div").parent("div").css("display","none");
+	}
+	for(var k=0;k<2;k++){
+		if($("#checkbox").find('input:checkbox:eq('+k+')').prop("checked")){
+			var name=$("#checkbox").find('input:checkbox:eq('+k+')').attr('checked', 'false').val();
+			all.push(name);
+		}
+	}
+	
+	for(var i=0;i<50;i++){
+		var na=$("#"+i).parents("table").parent("div").prev("div").text();
+		for(var a=0;a<all.length;a++){
+		if(na.match(all[a])){
+			$("#"+i).parents("table").parent("div").parent("div").css("display","inline");
+		}
+		}
+		}
+	
+	if(all.length==0){
+		for(var d=0;d<50;d++){
+			$("#"+d).parents("table").parent("div").parent("div").css("display","inline");
+			}
+	}
+}
+
+
+
+</script>
 
 <!--  -->
 
@@ -174,11 +309,12 @@ padding:20px;　//DIV區塊內距，參閱：CSS padding 內距。
 float:left;
 }
 .divv2{
+font-size:15px;
 border: 1px solid orange ; 
 background-color: white;
 width:15%;
 /* line-height:446%; */
- line-height:445%; 
+ line-height:475%; 
 align:center;
 padding:20px;
 float:left;
@@ -323,6 +459,10 @@ function list(){
 			 $("#ticketResult").empty();
 			 list();
 // 			 page();
+				for(var k=0;k<2;k++){
+					$("#checkbox").find('input:checkbox:eq('+k+')').prop("checked",false);
+					
+				}
 			
 		}
 		
@@ -449,6 +589,7 @@ function list(){
 	$(document).ready(function(){
 
 		show();
+		console.log(depCode+","+arrCode+","+depDateTemp+","+reDateTemp+","+personTemp);
 	})
 	
 	<!-- 傳送選擇航班資料回SERVER 開始-->
@@ -475,7 +616,7 @@ function list(){
 					returnArrTnextDay =returnArrTime.substring(10,0);
 					returnArrTime=returnArrTime.substring(11)+" (隔日)";
 				}
-				var airline=$("#"+k).parents("table").parent("div").prev("div").text();                                //航班
+				var airline=$("#"+k).parents("table").parent("div").prev("div").text();  //航空公司                              //航班
 				var depNum=$("#"+k).parents("tbody").find("tr:eq(0)").children("td:eq(2)").children("div:eq(2)").text(); //去程機型
 				var returnNum=$("#"+k).parents("tbody").find("tr:eq(2)").children("td:eq(2)").children("div:eq(2)").text(); //回程機型
 				
@@ -648,39 +789,10 @@ $("#mwt_mwt_slider_scroll").animate( { left:'-'+w+'px' }, 600 ,'swing');
 	<div id="fh5co-wrapper">
 		<div id="fh5co-page">
 
-			<header id="fh5co-header-section" class="sticky-banner">
-				<div class="container">
-					<div class="nav-header">
-						<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle dark"><i></i></a>
-						<h1 id="fh5co-logo">
-							<a href="index"><i class="icon-airplane"></i>Travel</a>
-						</h1>
-						<!-- START #fh5co-menu-wrap -->
-						<nav id="fh5co-menu-wrap" role="navigation">
-							<ul class="sf-menu" id="fh5co-primary-menu">
-								<li class="active"><a href="index">Home</a></li>
-								<li><a href="vacation.html" class="fh5co-sub-ddown">Vacations</a>
-									<ul class="fh5co-sub-menu">
-										<li><a href="#">Family</a></li>
-										<li><a href="#">CSS3 &amp; HTML5</a></li>
-										<li><a href="#">Angular JS</a></li>
-										<li><a href="#">Node JS</a></li>
-										<li><a href="#">Django &amp; Python</a></li>
-									</ul></li>
-								<li><a href="flight.html">航班</a></li>
-								<li><a href="hotel.html">Hotel</a></li>
-								<li><a href="car.html">Car</a></li>
-								<li><a href="blog.html">Blog</a></li>
-								<li><a href="contact.html">Contact</a></li>
-							</ul>
-						</nav>
-					</div>
-				</div>
-			</header>
-
+	<%@ include file="../frontStageHeader.jsp" %>
 			<!-- end:header-top -->
 
-			<div class="fh5co-hero">
+			<div id="all" class="fh5co-hero">
 
 				<!-- 	背景暖色系樣式			<div class="fh5co-overlay"></div> -->
 				<div class="fh5co-cover" data-stellar-background-ratio="0.5"
@@ -731,10 +843,17 @@ $("#mwt_mwt_slider_scroll").animate( { left:'-'+w+'px' }, 600 ,'swing');
 <!-- <div class="btn-group-vertical"> -->
   <button type="button" class="btn-xs btn-primary " onclick='sortByPrice()'>找低價</button>
   <button type="button" class="btn-xs btn-primary" onclick='sortByTime()'>早出發</button>
-  <button type="button" class="btn-xs btn-primary" onclick='sortAirline()'>提早一天</button>
-  <button type="button" class="btn-xs btn-primary" onclick=''>延後一天</button>
+  <button type="button" class="btn-xs btn-primary" onclick='reSearchAdvance()'>提早一天</button>
+  <button type="button" class="btn-xs btn-primary" onclick='reSeatchPostpone()'>延後一天</button>
+<!--   <button type="button" class="btn-xs btn-primary" onclick='test()'>兩萬以下</button> -->
+<!--   <button type="button" class="btn-xs btn-primary" onclick='CLOnly()'>華航限定</button> -->
 <!--   <button type="button" class="btn-xs ">Sony</button> -->
 <!-- </div> -->
+<form id="checkbox" action="/action_page.php">
+  <input type="checkbox" name="a" value="中華航空" onclick="CLOnly()" > 中華航空<br>
+  <input type="checkbox" name="b" value="日本航空" onclick="CLOnly()">日本航空<br>
+  <input type="submit" value="Submit">
+</form>
 </div>
 </div>
 
@@ -770,6 +889,13 @@ $("#mwt_mwt_slider_scroll").animate( { left:'-'+w+'px' }, 600 ,'swing');
 		</div>
 		<!-- END fh5co-wrapper -->
 
+	</div>
+	
+		<div id="img1" style="display: none">
+		<h1>
+			<strong>重新搜尋中......</strang>
+		</h1>
+		<img alt="" src="/Traveler/images/airplain.gif" widtg=200px height=150px />
 	</div>
 </body>
 </html>

@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
@@ -151,6 +150,7 @@
 			</header>
 			
 			<section>
+		<div style="text-align:center">
 		<form:form method="POST" modelAttribute="application"  >
 		   <fieldset>
 				<label>姓名</label>
@@ -175,7 +175,8 @@
 				<input type="submit" value="送出報名申請表" />
 				</div>
 			</fieldset>
-		</form:form>		
+		</form:form>
+		</div>		
 	</section>
 	
 			<div class="row">

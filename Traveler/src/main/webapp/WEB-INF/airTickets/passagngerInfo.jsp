@@ -255,37 +255,7 @@ function sendGuest(){
 <body>
 	<div id="fh5co-wrapper">
 		<div id="fh5co-page">
-
-			<header id="fh5co-header-section" class="sticky-banner">
-				<div class="container">
-					<div class="nav-header">
-						<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle dark"><i></i></a>
-						<h1 id="fh5co-logo">
-							<a href="/Traveler"><i class="icon-airplane"></i>Travel</a>
-						</h1>
-						<!-- START #fh5co-menu-wrap -->
-						<nav id="fh5co-menu-wrap" role="navigation">
-							<ul class="sf-menu" id="fh5co-primary-menu">
-								<li class="active"><a href="/Traveler">Home</a></li>
-								<li><a href="vacation.html" class="fh5co-sub-ddown">Vacations</a>
-									<ul class="fh5co-sub-menu">
-										<li><a href="#">Family</a></li>
-										<li><a href="#">CSS3 &amp; HTML5</a></li>
-										<li><a href="#">Angular JS</a></li>
-										<li><a href="#">Node JS</a></li>
-										<li><a href="#">Django &amp; Python</a></li>
-									</ul></li>
-								<li><a href="flight.html">航班</a></li>
-								<li><a href="hotel.html">Hotel</a></li>
-								<li><a href="car.html">Car</a></li>
-								<li><a href="blog.html">Blog</a></li>
-								<li><a href="contact.html">Contact</a></li>
-							</ul>
-						</nav>
-					</div>
-				</div>
-			</header>
-
+	<%@ include file="../frontStageHeader.jsp" %>
 			<!-- end:header-top -->
 
 			<div>
@@ -402,7 +372,7 @@ function sendGuest(){
             </div>
             <div class="st1">
                 <label for="guestOneBirth" class="lab">生日</label>
-                <input type="text" name="guestOneBirth" id="guestOneBirth" placeholder="yyyy-MM-dd">
+                <input type="text" name="guestOneBirth" id="guestOneBirth" placeholder="YYYY-MM-DD">
             </div>
             <div class="st1">
                 <label class="lab">性別</label>
@@ -434,7 +404,7 @@ function sendGuest(){
             </div>
             <div class="st1">
                 <label for="guestTwoBirth" class="lab">生日</label>
-                <input type="text" name="guestTwoBirth" id="guestTwoBirth" placeholder="yyyy-MM-dd">
+                <input type="text" name="guestTwoBirth" id="guestTwoBirth" placeholder="YYYY-MM-DD">
             </div>
             <div class="st1">
                 <label class="lab">性別</label>

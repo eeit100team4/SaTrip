@@ -1,5 +1,6 @@
 package com.web.controller;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -48,7 +49,14 @@ public class airTicketsBackController {
 	@RequestMapping("/searchAll")
 	public String searchAll(Model model) {
 		List<OrderDetailsBean> allOrder = os.getAllOrder();
+//		 Date date = new Date();
+//		boolean newOrder=false;
+//		if((date.getTime()-bean.getOrderDay().getTime())<=(2*3600*24)) {
+//			newOrder=true;
+//		}
 		model.addAttribute("list", allOrder);
+//		model.addAttribute("date", date);
+		
 		return "airTickets/back/airBackAllOrder2";
 	}
 

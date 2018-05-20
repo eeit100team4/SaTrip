@@ -172,6 +172,27 @@ footer {
 	}
 	
 </script>
+<script>
+//顯示最新訂單的ICON
+function dat(){
+	
+
+var num=$("#tbo").find("tr").length;
+var nowD= (Date.parse(new Date())).valueOf();
+var aDay=1000*60*60*24;
+
+for(var k=0;k<3;k++){
+	var test= $("#tbo").find("tr:eq("+k+")").find("td:eq(1)").text();
+	var date =(Date.parse( new Date(test))).valueOf();
+	alert((nowD-date)<aDay);
+	if((nowD-date)>aDay){
+		var visibity=$("#tbo").find("tr:eq("+k+")").find("img").css("visibility", "visible");
+	}
+}
+
+}
+</script>
+
 
 </head>
 
@@ -208,10 +229,12 @@ footer {
 				<li><a href="index.html">航班統計報表</a></li>
 
 			</ul>
-
+			<button class="btn" onclick="dat()">dat</button>
 		</div>
 		<div class="d2">
-			<div class="text-center" ><input id="one" type="text" placeholder="查詢指定訂單" /><button class="btn" type="button" onclick="selectOne()"> go</button></div>
+			<div class="text-left" >
+			<span style="margin-left:20px;">本日新訂單：</span><span id="newTotal" style="margin-right:250px;">&nbsp10</span>
+			<input id="one" type="text" placeholder="查詢指定訂單" /><button class="btn" type="button" onclick="selectOne()"> go</button></div>
 			<!-- 			<table class="table" class="table table-sm table-hover"> -->
 			<!-- 				<thead> -->
 
@@ -227,16 +250,16 @@ footer {
 			<table id="tbb" class="table table-hover">
 				<thead>
 					<tr>
-						<th scope="col" width="100px;">訂單編號</th>
-						<th scope="col" width="200px;" >會員編號</th>
-						<th scope="col" width="300px;" >訂單時間</th>
-						<th scope="col" width="200px;">總價</th>
+						<th style="padding-left:60px;" scope="col" width="300px;">訂單編號</th>
+						<th scope="col" width="300px;" >會員編號</th>
+						<th style="padding-left:80px;" scope="col" width="300px;" >訂單時間</th>
+						<th scope="col" width="200px;">總價(NT.)</th>
 					</tr>
 				</thead>
-				<tbody>
+				<tbody id="tbo">
 					<c:forEach  var="order" items="${list}">
 						<tr>
-							<th scope="row"><a href="selectOne/${order.orderID}">${order.orderID}</a></th>
+							<th scope="row"><img style="visibility:hidden" src="/Traveler/images/new.png" /><a href="selectOne/${order.orderID}">${order.orderID}</a></th>
 							<td>會員ID</td>
 							<td>${order.orderDay}</td>
 							<td>${order.price}</td>

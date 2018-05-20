@@ -19,22 +19,22 @@ import org.hibernate.annotations.DynamicUpdate;
 public class MemberBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	String memberId;
-	String password;
-	String gender;
-	String chineseLastName;
-	String chineseFirstName;
-	String englishLastName;
-	String englishFirstName;
-	Date birthday;
-	String email;
-	String mobile;
-	String phoneNumber;
-	String address;
-	double point;
-	String passportNumber;
-	Timestamp registerTime;
-	Blob memberImage;
+	private String memberId;
+	private String password;
+	private String gender;
+	private String chineseLastName;
+	private String chineseFirstName;
+	private String englishLastName;
+	private String englishFirstName;
+	private Date birthday;
+	private String email;
+	private String mobile;
+	private String phoneNumber;
+	private String address;
+	private double point;
+	private String passportNumber;
+	private Timestamp registerTime;
+	private Blob memberImage;
 
 	public MemberBean() {
 		super();
@@ -239,6 +239,4 @@ public class MemberBean implements Serializable {
 				+ ", passportNumber=" + passportNumber + ", registerTime=" + registerTime + "]";
 	}
 
-	
-	
 }
