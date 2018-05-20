@@ -227,10 +227,10 @@ padding-left:20px;
 				</div>
 			</header>
 
-	<div id="fh5co-blog-section" class="fh5co-section-gray">
+	<div id="fh5co-blog-section" class="fh5co-section-gray"  style="background-image: url(../images/contactus.jpg)">
 
-		<div class="container">
-			<div class="row">
+		<div class="container" >
+			<div class="row" >
 				<div
 					class="col-md-8 col-md-offset-2 text-center heading-section animate-box">
 					<h3>紅利商品</h3>
@@ -256,8 +256,8 @@ padding-left:20px;
 																	
 								<div class="prod-title">
 								<div style= "padding-left:50px;padding-bottom:30px;">
-									<img width='180' height='180' 
-										src="<c:url value='/getPicture/${comm.commodityid}'/>" />
+									<img width='180' height='180' id='img1'
+										src="<c:url value='/getPicture/${comm.commodityid}'/>"  onMouseOver="this.width=this.width*1.2;this.height=this.height*1.2" onMouseOut="this.width=this.width/1.2;this.height=this.height/1.2" />
 									</div>	
                                     <h2 style="text-align:center">${comm.name}</h2>
 <!-- 										<span class="posted_by">Sep. 15th</span>  -->
@@ -298,6 +298,15 @@ padding-left:20px;
 				</div>
 			</div>
 	</footer>
+
+
+<!-- <script> -->
+
+// document.addEventLisener(DOMCont )
+
+
+<!-- </script> -->
+
 
 
 </body>
