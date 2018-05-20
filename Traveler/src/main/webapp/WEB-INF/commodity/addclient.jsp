@@ -140,7 +140,7 @@
 	href="https://use.fontawesome.com/releases/v5.0.9/css/fontawesome.css"
 	integrity="sha384-Lyz+8VfV0lv38W729WFAmn77iH5OSroyONnUva4+gYaQTic3iI2fnUKtDSpbVf0J"
 	crossorigin="anonymous">
-	
+
 <!-- (原廠設定)Animate.css -->
 <link rel="stylesheet" href="/Traveler/css/animate.css">
 
@@ -164,14 +164,52 @@
 <link rel="stylesheet" href="/Traveler/css/cs-skin-border.css">
 <link rel="stylesheet" href="/Traveler/css/style.css">
 
-
-
 <style>
+
 .do {
-	border: 2px solid black;
-	width: 50%;
-	margin: auto;
+	height: 1100px;
+	padding-top: 20px;
+	width: auto;
 }
+
+.do1 {
+	border: 2px solid #DDDDDD;
+	width: 35%;
+	height: 980px;
+	margin: auto;
+	padding-top: 20px;
+	border-radius:20px;
+}
+
+.do2 {
+	width: 35%;
+	margin: auto;
+	
+}
+
+.do3 {
+	width: 35%;
+	margin: auto;
+	padding-top:15px;
+}
+
+.do4 {
+	width: 80%;
+	margin: 20px;
+	
+}
+
+.le{
+text-align:center;
+color:#FF5511;
+font-size:2em;
+font-weight:900
+
+
+}
+
+
+
 </style>
 
 
@@ -179,122 +217,135 @@
 <title></title>
 </head>
 <body>
-	 <header id="fh5co-header-section" class="sticky-banner" style="background-color: black;">
-				<div class="container">
-					<div class="nav-header">
-						<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle dark"><i></i></a>
-						<h1 id="fh5co-logo">
-							<a href="index.html"><i class="fas fa-dove "></i>Traveler</a>
-						</h1>
-						<!-- -------------------------------------------------------------------------------------------------------	 -->
-						<!-- START #fh5co-menu-wrap -->
-						<nav id="fh5co-menu-wrap" role="navigation">
-							<ul class="sf-menu" id="fh5co-primary-menu"  style="background-color:black"   >
-								<li ><a href=""><i class="fas fa-plane"></i><font color="orange">機票</font></a></li>
-								<li><a href="_Hotel/DisplayHotel"><i class="fas fa-home"></i><font color="orange">飯店</font></a></li>
-								<li><a href="theme/themeTitlesl"><i class="fas fa-globe"></i><font color="orange">旅遊</font></a></li>
-								<li><a href="car.html"><i class="fas fa-cart-arrow-down"></i><font color="orange">紅利商品</font></a></li>
-								<li><a href="blog.html"><i class="fas fa-phone-square"></i><font color="orange">客服中心</font></a></li>
-								<li><a href="contact.html"><i class="far fa-user-circle"></i><font color="orange">登入/註冊</font></a></li>
-							</ul>
-						</nav>
-					</div>
-				</div>
-			</header>
+	<header id="fh5co-header-section" class="sticky-banner"
+		style="background-color: black;">
+	<div class="container">
+		<div class="nav-header">
+			<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle dark"><i></i></a>
+			<h1 id="fh5co-logo">
+				<a href="index.html"><i class="fas fa-dove "></i>Traveler</a>
+			</h1>
+			<!-- -------------------------------------------------------------------------------------------------------	 -->
+			<!-- START #fh5co-menu-wrap -->
+			<nav id="fh5co-menu-wrap" role="navigation">
+			<ul class="sf-menu" id="fh5co-primary-menu"
+				style="background-color: black">
+				<li><a href=""><i class="fas fa-plane"></i><font
+						color="orange">機票</font></a></li>
+				<li><a href="_Hotel/DisplayHotel"><i class="fas fa-home"></i><font
+						color="orange">飯店</font></a></li>
+				<li><a href="theme/themeTitlesl"><i class="fas fa-globe"></i><font
+						color="orange">旅遊</font></a></li>
+				<li><a href="car.html"><i class="fas fa-cart-arrow-down"></i><font
+						color="orange">紅利商品</font></a></li>
+				<li><a href="blog.html"><i class="fas fa-phone-square"></i><font
+						color="orange">客服中心</font></a></li>
+				<li><a href="contact.html"><i class="far fa-user-circle"></i><font
+						color="orange">登入/註冊</font></a></li>
+			</ul>
+			</nav>
+		</div>
+	</div>
+	</header>
 
 
 	<div class="do">
-		<form:form method='POST' action='/Traveler/addclientpath'
-			modelAttribute="Client" enctype="multipart/form-data">
-<input type="hidden" name="commid" value="${Client.commodityBean.commodityid}">
-			<legend style="align: center">您兌換商品為</legend>
-			<div>
-				<img width='200' height='200'
-					src="<c:url value='/getPicture/${Client.commodityBean.commodityid}'/>" />
-				<div>${Client.commodityBean.name}</div>
-			</div>
-
-			<div>商品點數:${Client.commodityBean.point}</div>
-
-			<div>
-				<div>會員點數:${Client.memberBean.point}</div>
-
-			</div>
-
-			<div>
-				<label for='quantity'>數量:</label>
-				<div>
-					<form:select path="cliquantity" id="quantity">
-						<form:option value="1" lable="" />
-						<form:option value="2" lable="" />
-						<form:option value="3" lable="" />
-						<form:option value="4" lable="" />
-					</form:select>
+		<div class="do1">
+			<form:form method='POST' action='/Traveler/addclientpath'
+				modelAttribute="Client" enctype="multipart/form-data">
+				<input type="hidden" name="commid"
+					value="${Client.commodityBean.commodityid}">
+								
+				<legend class="le">您兌換商品為:</legend>
+				<div class="do2">
+					<img width='200' height='200'
+						src="<c:url value='/getPicture/${Client.commodityBean.commodityid}'/>" />
+					<p style="color:#888888;font-size:1.3em;font-weight:900">${Client.commodityBean.name}</p>
 				</div>
-			</div>
-
-
-			<div>
-				<label for='clientname'>收件人姓名:</label>
-				<div>
-					<form:input type="text" id="clientname" name='clientname' path="clientname"
-						value='${Client.memberBean.chineseLastName}${Client.memberBean.chineseFirstName}' />
+				<div class="do4">
+					<p style="color:blue;font-size:1.3em;font-weight:900 ">商品點數:${Client.commodityBean.point}</p>
 				</div>
-			</div>
+				<div class="do4">
+					<p style="color:red;font-size:1.3em;font-weight:900">會員點數:${Client.memberBean.point}</p>
 
-			<div>
-				<label for='clientaddr'>寄送地址:</label>
-				<div>
-					<form:input type="text" id="clientaddr" name='clientaddr'
-						path="clientaddr" value='${Client.memberBean.address}' />
 				</div>
-			</div>
 
-			<div>
-				<label for='clienttel'>電話:</label>
-				<div>
-					<form:input type="text" id="clienttel" name='clienttel'
-						path="clienttel" value='${Client.memberBean.mobile}' />
+				<div class="do4">
+					<label for='quantity'>數量:</label>
+					<div>
+						<form:select path="cliquantity" id="quantity" >
+							<form:option value="1" lable="" />
+							<form:option value="2" lable="" />
+							<form:option value="3" lable="" />
+							<form:option value="4" lable="" />
+						</form:select>
+					</div>
 				</div>
-			</div>
 
 
-			<div>
-				<label for='Transport'>寄送方式:</label>
-				<div>
-					<form:select path="clitransport" id="Transport">
-						<form:option value="郵局" lable="" />
-						<form:option value="黑貓宅急便" lable="" />
-					</form:select>
+				<div class="form-group col-md-10">
+					<label for='clientname'>收件人姓名:</label>
+					<div>
+						<form:input type="text" id="clientname" name='clientname'
+							path="clientname" class="form-control"
+							value='${Client.memberBean.chineseLastName}${Client.memberBean.chineseFirstName}' 
+							/>
+					</div>
 				</div>
-			</div>
+
+				<div class="form-group col-md-10">
+					<label for='clientaddr'>寄送地址:</label>
+					<div>
+						<form:input type="text" id="clientaddr" name='clientaddr' class="form-control"
+							path="clientaddr" value='${Client.memberBean.address}'  />
+					</div>
+				</div>
+
+				<div class="form-group col-md-10">
+					<label for='clienttel'>電話:</label>
+					<div>
+						<form:input type="text" id="clienttel" name='clienttel' class="form-control"
+							path="clienttel" value='${Client.memberBean.mobile}' />
+					</div>
+				</div>
 
 
-			<button type="submit" class="btn btn-primary" id='cliAdd'>送出</button>
-		</form:form>
+				<div class="do4">
+					<label for='Transport'>寄送方式:</label>
+					<div>
+						<form:select path="clitransport" id="Transport">
+							<form:option value="郵局" lable="" />
+							<form:option value="黑貓宅急便" lable="" />
+						</form:select>
+					</div>
+				</div>
 
+				<div class="do3" >
+					<button type="submit" class="btn btn-primary" id='cliAdd'>送出</button>
+				</div>
+			</form:form>
+		</div>
 	</div>
 
 
-<footer>
-			<div class="row" style="background-color:black">
-				<div class="col-md-6 col-md-offset-3 text-center">
-					<p class="fh5co-social-icons" style="padding-top:20px">
-						<a href="#"><i class="icon-twitter2" ></i></a> <a href="#"><i
-							class="icon-facebook2"></i></a> <a href="#"><i
-							class="icon-instagram"></i></a> <a href="#"><i
-							class="icon-dribbble2"></i></a> <a href="#"><i
-							class="icon-youtube"></i></a>
-					</p>
-					<p>
-						Copyright 2016 Free Html5 <a href="#">Module</a>. All Rights
-						Reserved. <br>Made with <i class="icon-heart3"></i> by <a
-							href="http://freehtml5.co/" target="_blank">Freehtml5.co</a> /
-						Demo Images: <a href="https://unsplash.com/" target="_blank">Unsplash</a>
-					</p>
-				</div>
-			</div>
-	
+	<footer>
+	<div class="row" style="background-color: black">
+		<div class="col-md-6 col-md-offset-3 text-center">
+			<p class="fh5co-social-icons" style="padding-top: 20px">
+				<a href="#"><i class="icon-twitter2"></i></a> <a href="#"><i
+					class="icon-facebook2"></i></a> <a href="#"><i
+					class="icon-instagram"></i></a> <a href="#"><i
+					class="icon-dribbble2"></i></a> <a href="#"><i class="icon-youtube"></i></a>
+			</p>
+			<p>
+				Copyright 2016 Free Html5 <a href="#">Module</a>. All Rights
+				Reserved. <br>Made with <i class="icon-heart3"></i> by <a
+					href="http://freehtml5.co/" target="_blank">Freehtml5.co</a> / Demo
+				Images: <a href="https://unsplash.com/" target="_blank">Unsplash</a>
+			</p>
+		</div>
+	</div>
+
 	</footer>
 
 

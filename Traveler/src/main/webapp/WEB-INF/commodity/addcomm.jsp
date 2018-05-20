@@ -12,6 +12,7 @@
 <meta name="keywords"
 	content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
 <meta name="author" content="FREEHTML5.CO" />
+
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
 	integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
@@ -27,6 +28,10 @@
 	src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
 	integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
 	crossorigin="anonymous"></script>
+
+
+
+
 <title>Insert title here</title>
 <style>
 * {
@@ -107,14 +112,14 @@ footer {
 .d1 {
 	background-color: #FF8800;
 	width: 20%;
-	height: 630px;
+	height: 650px;
 	float: left;
 }
 
 .d2 {
 	background-color: #FFFFFF;
 	width: 80%;
-	height: 630px;
+	height: 580px;
 	float: right;
 }
 .d3 {
