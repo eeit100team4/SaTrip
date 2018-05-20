@@ -77,7 +77,7 @@ public class CommodityController {
 		List<CommodityBean> list=commodityservice.getCommodityByKind(kind);
 		model.addAttribute("commlist", list);
 		
-		return "commodity/commlist";
+		return "commodity/commlistfront2";
 	}
 	
 	

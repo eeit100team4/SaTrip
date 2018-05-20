@@ -176,9 +176,14 @@
 <link rel="stylesheet" href="/Traveler/css/cs-select.css">
 <link rel="stylesheet" href="/Traveler/css/cs-skin-border.css">
 <link rel="stylesheet" href="/Traveler/css/style.css">
+<style>
+.sp1{
+font-size:1.5em;
+font-weight:900;
+padding-left:20px;
 
-
-
+}
+</style>
 
 <title>Insert title here</title>
 </head>
@@ -197,7 +202,7 @@
 								<li ><a href=""><i class="fas fa-plane"></i><font color="orange">機票</font></a></li>
 								<li><a href="_Hotel/DisplayHotel"><i class="fas fa-home"></i><font color="orange">飯店</font></a></li>
 								<li><a href="theme/themeTitlesl"><i class="fas fa-globe"></i><font color="orange">旅遊</font></a></li>
-								<li><a href="car.html"><i class="fas fa-cart-arrow-down"></i><font color="orange">紅利商品</font></a></li>
+								<li><a href="commlistfront"><i class="fas fa-cart-arrow-down"></i><font color="orange">紅利商品</font></a></li>
 								<li><a href="blog.html"><i class="fas fa-phone-square"></i><font color="orange">客服中心</font></a></li>
 								<li><a href="contact.html"><i class="far fa-user-circle"></i><font color="orange">登入/註冊</font></a></li>
 							</ul>
@@ -213,9 +218,11 @@
 				<div
 					class="col-md-8 col-md-offset-2 text-center heading-section animate-box">
 					<h3>紅利商品</h3>
-					<span><a href=""> qq </a> </span>
-					<span> ww </span>
-					<span> rr </span>		
+					<span class="sp1"><a href="commlist/1"> 迪士尼海洋 </a> </span>
+					<span class="sp1"><a href="commlist/2"> 迪士尼樂園 </a> </span>
+					<span class="sp1"><a href="commlist/3"> 環球影城電影 </a> </span>	
+					<span class="sp1"><a href="commlist/4"> 環球影城動畫 </a> </span>	
+					<span class="sp1"><a href="commlist/5"> 禮券 </a> </span>		
                
 				</div>
 			</div>
