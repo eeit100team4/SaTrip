@@ -118,7 +118,10 @@
 </head>
 <body>
 	<%@ include file="/WEB-INF/frontStageHeader.jsp"%>
-	
+
+<div style="text-align:center">
+<H1>主題旅遊報名申請</H1>
+</div>	
 <section>
 	<div style="text-align:center">
 		<form:form method="POST" modelAttribute="application"  >
