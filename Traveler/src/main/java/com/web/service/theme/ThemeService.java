@@ -2,6 +2,8 @@ package com.web.service.theme;
 
 import java.util.List;
 
+import org.hibernate.Session;
+
 import com.web.model.theme.ThemeTitles;
 import com.web.model.theme.ThemeApplications;
 import com.web.model.theme.ThemeJourneys;
@@ -9,7 +11,7 @@ import com.web.model.theme.ThemeProducts;
 
 public interface ThemeService {
 	//介面 顯示全部主題
-	List<ThemeTitles> getTitles();
+	//List<ThemeTitles> getTitles();
 	
 	void addThemeTitle(ThemeTitles theme);
 	
@@ -35,6 +37,10 @@ public interface ThemeService {
 	List<ThemeJourneys> getJourneysByProduct(String productName);
 	
 	//依行程編號抓出detail
-	List<ThemeJourneys> getDetailsByJourneyId(Integer journeyId);
+	ThemeJourneys getDetailsByJourneyId(Integer journeyId);
+	
+	//報名 在欄位輸入報名資料
+	void addApplications(ThemeApplications application);
+				
 }
 

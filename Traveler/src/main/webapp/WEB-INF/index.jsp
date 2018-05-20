@@ -129,10 +129,9 @@
 						<nav id="fh5co-menu-wrap" role="navigation">
 							<ul class="sf-menu" id="fh5co-primary-menu">
 								<li class="active"><a href="">Home</a></li>
-								<li><a href="theme/themeTitles" class="fh5co-sub-ddown">主題旅遊</a>
+								<li><a href="theme/titles" class="fh5co-sub-ddown">主題旅遊</a>
 									<!-- 下面這塊ul以後會刪掉 -->
 									<ul class="fh5co-sub-menu">
-										<li><a href="theme/titles">抓title</a></li>
 										<li><a href="theme/allProducts">顯示全產品</a></li>
 										<li><a href="theme/allJourneys">顯示全行程</a></li>
 										<li><a href="theme/applications">顯示全報名表</a></li>

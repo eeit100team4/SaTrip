@@ -19,12 +19,12 @@ public class ThemeServiceImpl implements ThemeService {
 	
 	@Autowired
 	private ThemeRepository themeRepository;
-	//查詢第一個表格(多筆)
-	@Transactional
-	@Override
-	public List<ThemeTitles> getTitles() {		
-		return themeRepository.getTitles();		
-	}
+//	//查詢第一個表格(多筆)
+//	@Transactional
+//	@Override
+//	public List<ThemeTitles> getTitles() {		
+//		return themeRepository.getTitles();		
+//	}
 	@Transactional
 	@Override
 	public void addThemeTitle(ThemeTitles Theme) {
@@ -82,9 +82,15 @@ public class ThemeServiceImpl implements ThemeService {
 	 //依行程編號抓出detail
 	@Transactional
 	@Override
-	public List<ThemeJourneys> getDetailsByJourneyId(Integer journeyId){
+	public ThemeJourneys getDetailsByJourneyId(Integer journeyId){
 		return themeRepository.getDetailsByJourneyId(journeyId);
 		
+	}
+	
+	@Transactional
+	@Override
+	public void addApplications(ThemeApplications application) {
+		themeRepository.addApplications(application); 
 	}
 }
 

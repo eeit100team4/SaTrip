@@ -18,17 +18,17 @@ public class ThemeRepositoryImpl implements ThemeRepository {
 	@Autowired
 	SessionFactory factory;
 	
-	//顯示所有種類名稱
-	@Override
-	@SuppressWarnings("unchecked")
-	public List<ThemeTitles> getTitles() {
-		String hql = "FROM ThemeTitles";
-		Session session = null;
-		List<ThemeTitles>list = new ArrayList<>();
-		session = factory.getCurrentSession();
-		list = session.createQuery(hql).getResultList();
-		return list;
-	}
+//	//顯示所有種類名稱
+//	@Override
+//	@SuppressWarnings("unchecked")
+//	public List<ThemeTitles> getTitles() {
+//		String hql = "FROM ThemeTitles";
+//		Session session = null;
+//		List<ThemeTitles>list = new ArrayList<>();
+//		session = factory.getCurrentSession();
+//		list = session.createQuery(hql).getResultList();
+//		return list;
+//	}
 	//新增主題到第一個表格
 	@Override
 	public void addThemeTitle(ThemeTitles Theme){
@@ -110,12 +110,18 @@ public class ThemeRepositoryImpl implements ThemeRepository {
 	}
 	
 	//依行程編號抓出detail
-	public List<ThemeJourneys> getDetailsByJourneyId(Integer journeyId){
+	public ThemeJourneys getDetailsByJourneyId(Integer journeyId){
 		String hql = "FROM ThemeJourneys where journeyId = :journeyId";
-		List<ThemeJourneys> list = new ArrayList<>();
 		Session session = factory.getCurrentSession();
-		list = session.createQuery(hql).setParameter("journeyId",journeyId).getResultList();
-		return list;
+		ThemeJourneys themeJourneys = (ThemeJourneys) session.createQuery(hql).setParameter("journeyId",journeyId).uniqueResult();
+		return themeJourneys;
 	}
 	
+	//報名 在欄位輸入報名資料
+	@Override
+	public void addApplications(ThemeApplications application) {
+	Session session = factory.getCurrentSession();
+	System.out.println(application);
+	session.saveOrUpdate(application);
+		}	
 }

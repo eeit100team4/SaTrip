@@ -8,10 +8,10 @@ import com.web.model.theme.ThemeJourneys;
 import com.web.model.theme.ThemeProducts;
 
 public interface ThemeRepository {
-	//顯示所有種類名稱
-	List<ThemeTitles> getTitles();
+//	//顯示所有種類名稱
+//	List<ThemeTitles> getTitles();
 	
-	//介面(新增主題到第一個表格)
+	//介面(新增主題到第一個表格) 
 	void addThemeTitle(ThemeTitles theme);
 	
 	//顯示所有商品資料
@@ -35,6 +35,9 @@ public interface ThemeRepository {
 	//依商品名稱抓出團日期
 	List<ThemeJourneys> getJourneysByProduct(String productName);
 	
-	//依行程編號抓出detail
-	List<ThemeJourneys> getDetailsByJourneyId(Integer journeyId);
+	//依行程編號抓出一筆detail
+	ThemeJourneys getDetailsByJourneyId(Integer journeyId);
+	
+	//報名 在欄位輸入報名資料
+	void addApplications(ThemeApplications application);
 }

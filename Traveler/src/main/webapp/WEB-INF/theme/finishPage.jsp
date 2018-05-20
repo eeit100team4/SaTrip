@@ -149,24 +149,10 @@
 					</div>
 				</div>
 			</header>
-			<div id="allpage">
-	<div class="d2">
-	<h1>詳細資訊</h1>
-
-  <div style="width:300px; height:200px; float: left; ">
-    <p>
-    <b style='font-size:16px;'>商品名稱<br>${details.themeProducts.productName}</b><br>
-    <b style='font-size:16px;'>商品種類<br>${details.themeProducts.themeTitles.titleName}</b><br>
-    <b style='font-size:16px;'>出發日<br>	<fmt:formatDate value="${details.setOut}" pattern="yyyy/MM/dd" /></b><br>
-    <b style='font-size:16px;'>返回日<br>	<fmt:formatDate value="${details.returnDay}" pattern="yyyy/MM/dd" /></b><br>
-    <a href="${details.journeyId}/application">報名</a>
-    
-    </p>
-  </div>
-
-
-</div>
-<div class="row">
+			<H1>報名完成</H1>
+			
+			
+			<div class="row">
 				<div class="col-md-6 col-md-offset-3 text-center">
 					<p class="fh5co-social-icons">
 						<a href="#"><i class="icon-twitter2"></i></a> <a href="#"><i
@@ -205,4 +191,3 @@
 
 </body>
 </html>
-
