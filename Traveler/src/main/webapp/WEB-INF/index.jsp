@@ -117,6 +117,7 @@
 <body>
 	<div id="fh5co-wrapper">
 		<div id="fh5co-page">
+
 			<%@ include file="frontStageHeader.jsp" %>
 			<!-- end:header-top -->
 			<div  id="all"  class="fh5co-hero">

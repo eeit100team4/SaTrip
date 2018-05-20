@@ -171,7 +171,7 @@
 							<ul class="sf-menu" id="fh5co-primary-menu"  style="background-color:black"   >
 								<li ><a href=""><i class="fas fa-plane"></i><font color="orange">機票</font></a></li>
 								<li><a href="_Hotel/DisplayHotel"><i class="fas fa-home"></i><font color="orange">飯店</font></a></li>
-								<li><a href="theme/themeTitlesl"><i class="fas fa-globe"></i><font color="orange">旅遊</font></a></li>
+								<li><a href="theme/titles"><i class="fas fa-globe"></i><font color="orange">旅遊</font></a></li>
 								<li><a href="car.html"><i class="fas fa-cart-arrow-down"></i><font color="orange">紅利商品</font></a></li>
 								<li><a href="blog.html"><i class="fas fa-phone-square"></i><font color="orange">客服中心</font></a></li>
 								<li><a href="contact.html"><i class="far fa-user-circle"></i><font color="orange">登入/註冊</font></a></li>

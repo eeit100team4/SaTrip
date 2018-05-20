@@ -9,7 +9,7 @@ import com.web.model.theme.ThemeProducts;
 
 public interface ThemeService {
 	//介面 顯示全部主題
-	List<ThemeTitles> getTitles();
+	//List<ThemeTitles> getTitles();
 	
 	void addThemeTitle(ThemeTitles theme);
 	
@@ -35,6 +35,10 @@ public interface ThemeService {
 	List<ThemeJourneys> getJourneysByProduct(String productName);
 	
 	//依行程編號抓出detail
-	List<ThemeJourneys> getDetailsByJourneyId(Integer journeyId);
+	ThemeJourneys getDetailsByJourneyId(Integer journeyId);
+	
+	//報名申請表
+	void addApplications(ThemeApplications application);
+				
 }
 

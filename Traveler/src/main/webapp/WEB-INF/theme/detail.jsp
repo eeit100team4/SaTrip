@@ -119,17 +119,16 @@
 <body>
 	<%@ include file="/WEB-INF/frontStageHeader.jsp"%>
 	
-<c:forEach var='journeys' items='${journeys}'>
-  <div style="text-align:center">
+<div style="text-align:center">
+  <h1>詳細資訊</h1>
     <p>
-    <b style='font-size:16px;'>商品類型<br>${journeys.themeProducts.themeTitles.titleName}</b><br>
-    <b style='font-size:16px;'>商品名稱<br>${journeys.themeProducts.productName}</b><br>
-    <b style='font-size:16px;'>出發日<br>	<fmt:formatDate value="${journeys.setOut}" pattern="yyyy/MM/dd" /></b><br>
-    <b style='font-size:16px;'>返回日<br>	<fmt:formatDate value="${journeys.returnDay}" pattern="yyyy/MM/dd" /></b><br>
-    <a href="${journeys.themeProducts.productName}/${journeys.journeyId}">查看詳細內容</a>   
+    <b style='font-size:16px;'>商品名稱<br>${detail.themeProducts.productName}</b><br>
+    <b style='font-size:16px;'>商品種類<br>${detail.themeProducts.themeTitles.titleName}</b><br>
+    <b style='font-size:16px;'>出發日<br>	<fmt:formatDate value="${detail.setOut}" pattern="yyyy/MM/dd" /></b><br>
+    <b style='font-size:16px;'>返回日<br>	<fmt:formatDate value="${detail.returnDay}" pattern="yyyy/MM/dd" /></b><br>
+    <a href="${detail.journeyId}/application">報名</a>    
     </p>
-  </div>
-</c:forEach>
+</div>
 	
 	<%@ include file="/WEB-INF/frontStageFooter.jsp"%>
 </body>

@@ -13,10 +13,10 @@
 							<ul class="sf-menu" id="fh5co-primary-menu">
 							<li><a href="/Traveler"><i class="fas fa-plane"></i><font color="orange">機票</font></a></li>
 							<li><a href="/Traveler/_Hotel/DisplayHotel"><i class="fas fa-home"></i><font color="orange">飯店</font></a></li>
-								<li><a href="/Traveler/theme/themeTitles" class="fh5co-sub-ddown"><i class="fas fa-globe"></i><font color="orange">主題旅遊</font></a>
+								<li><a href="/Traveler/theme/titles" class="fh5co-sub-ddown"><i class="fas fa-globe"></i><font color="orange">主題旅遊</font></a>
 									<!-- 下面這塊ul以後會刪掉 -->
 									<ul class="fh5co-sub-menu">
-										<li><a href="/Traveler/theme/titles">抓title</a></li>
+									    <li><a href="/Traveler/theme/titles">測試頁</a></li>
 										<li><a href="/Traveler/theme/allProducts">顯示全產品</a></li>
 										<li><a href="/Traveler/theme/allJourneys">顯示全行程</a></li>
 										<li><a href="/Traveler/theme/applications">顯示全報名表</a></li>
