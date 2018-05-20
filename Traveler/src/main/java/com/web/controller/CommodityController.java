@@ -72,7 +72,7 @@ public class CommodityController {
 	}
 	
 	//依類型顯示該類型商品
-	@RequestMapping(value="/commlist/{kinds}")
+	@RequestMapping(value="/comm/{kinds}")
 	public String getCommodityByKind(@PathVariable("kinds") String kind,Model model) {
 		List<CommodityBean> list=commodityservice.getCommodityByKind(kind);
 		model.addAttribute("commlist", list);
