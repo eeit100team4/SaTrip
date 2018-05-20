@@ -123,9 +123,11 @@
   <h1>詳細資訊</h1>
     <p>
     <b style='font-size:16px;'>商品名稱<br>${detail.themeProducts.productName}</b><br>
-    <b style='font-size:16px;'>商品種類<br>${detail.themeProducts.themeTitles.titleName}</b><br>
-    <b style='font-size:16px;'>出發日<br>	<fmt:formatDate value="${detail.setOut}" pattern="yyyy/MM/dd" /></b><br>
-    <b style='font-size:16px;'>返回日<br>	<fmt:formatDate value="${detail.returnDay}" pattern="yyyy/MM/dd" /></b><br>
+    <b style='font-size:16px;'>出團日期<br><fmt:formatDate value="${detail.setOut}" pattern="yyyy/MM/dd" /></b><br>
+    <b style='font-size:16px;'>報名截止日<br><fmt:formatDate value="${detail.deadline}" pattern="yyyy/MM/dd" /></b><br>
+    <b style='font-size:16px;'>旅遊國家<br>${detail.themeProducts.country}</b><br>
+    <b style='font-size:16px;'>標準團費<br>${detail.price}</b><br>
+    
     <a href="${detail.journeyId}/application">報名</a>    
     </p>
 </div>

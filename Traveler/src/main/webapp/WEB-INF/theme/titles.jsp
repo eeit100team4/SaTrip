@@ -120,7 +120,7 @@
 	<%@ include file="/WEB-INF/frontStageHeader.jsp"%>
 	
 <div style="text-align:center">
- <h1>請挑選</h1>
+ <h1>請挑選主題</h1>
   <c:forEach var='titleName' items='${titleList}'>
      <img src="/Traveler/images/themeTitle-${titleName}.png">
      <a href="products/${titleName}">${titleName}</a><br>
