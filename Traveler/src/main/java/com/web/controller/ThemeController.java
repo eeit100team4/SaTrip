@@ -70,11 +70,11 @@ public class ThemeController {
 	public String getDetailsByJourneyId(@PathVariable("journeyId") Integer journeyId, Model model) {
 	ThemeJourneys list = themeService.getDetailsByJourneyId(journeyId);
 	System.out.println(list);
-	model.addAttribute("details", list);
+	model.addAttribute("detail", list);
 	session.setAttribute("test", list);
 		
 	System.out.println("qqq"+list);//測試	
-	return "theme/details";
+	return "theme/detail";
 	}
 	
 	//產生空白表單已填入報名資訊

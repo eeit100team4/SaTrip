@@ -14,8 +14,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>Travel &mash; 100% Free Fully Responsive HTML5 Template
-	by FREEHTML5.co</title>
+<title>Travel &mash; 100% Free Fully Responsive HTML5 Template by FREEHTML5.co</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
 <meta name="keywords"
@@ -113,44 +112,15 @@
 <script src="/Traveler/js/jquery-ui.min.js"></script>
 <link rel="stylesheet" href="/Traveler/js/jquery-ui.min.css">
 
-	
-
+<!-- 連結旁邊的小ICON套件  -->	
+<script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
 
 </head>
 <body>
-<header id="fh5co-header-section" class="sticky-banner">
-				<div class="container">
-					<div class="nav-header">
-						<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle dark"><i></i></a>
-						<h1 id="fh5co-logo">
-							<a href=""><i class="icon-airplane"></i>Traveler</a>
-						</h1>
-						<!-- START #fh5co-menu-wrap -->
-						<nav id="fh5co-menu-wrap" role="navigation">
-							<ul class="sf-menu" id="fh5co-primary-menu">
-								<li class="active"><a href="">Home</a></li>
-								<li><a href="theme/themeTitles" class="fh5co-sub-ddown">主題旅遊</a>
-									<!-- 下面這塊ul以後會刪掉 -->
-									<ul class="fh5co-sub-menu">
-										<li><a href="theme/titles">抓title</a></li>
-										<li><a href="theme/allProducts">顯示全產品</a></li>
-										<li><a href="theme/journeys">顯示全行程</a></li>
-										<li><a href="theme/applications">顯示全報名表</a></li>
-									</ul></li>
-								<li><a href="flight.html">航班</a></li>
-								<li><a href="_Hotel/DisplayHotel">Hotel</a></li>
-								<li><a href="car.html">Car</a></li>
-								<li><a href="contactus/contactusopinion">客戶服務</a></li>
-							
-								<li><a href="contact.html">Contact</a></li>
-							</ul>
-						</nav>
-					</div>
-				</div>
-			</header>
-			
-			<section>
-		<div style="text-align:center">
+	<%@ include file="/WEB-INF/frontStageHeader.jsp"%>
+	
+<section>
+	<div style="text-align:center">
 		<form:form method="POST" modelAttribute="application"  >
 		   <fieldset>
 				<label>姓名</label>
@@ -176,46 +146,9 @@
 				</div>
 			</fieldset>
 		</form:form>
-		</div>		
-	</section>
+	</div>		
+</section>
 	
-			<div class="row">
-				<div class="col-md-6 col-md-offset-3 text-center">
-					<p class="fh5co-social-icons">
-						<a href="#"><i class="icon-twitter2"></i></a> <a href="#"><i
-							class="icon-facebook2"></i></a> <a href="#"><i
-							class="icon-instagram"></i></a> <a href="#"><i
-							class="icon-dribbble2"></i></a> <a href="#"><i
-							class="icon-youtube"></i></a>
-					</p>
-					<p>
-						Copyright 2016 Free Html5 <a href="#">Module</a>. All Rights
-						Reserved. <br>Made with <i class="icon-heart3"></i> by <a
-							href="http://freehtml5.co/" target="_blank">Freehtml5.co</a> /
-						Demo Images: <a href="https://unsplash.com/" target="_blank">Unsplash</a>
-					</p>
-				</div>
-			</div>
-		</div>
-	</div>
-	</footer>
-
-
-
-	</div>
-	<!-- END fh5co-page -->
-
-	</div>
-	<!-- END fh5co-wrapper -->
-
-	<div id="img1" style="display: none">
-		<h1>
-			<strong>搜尋中......</strang>
-		</h1>
-		<img alt="" src="images/airplain.gif" widtg=200px height=150px />
-	</div>
-
-
+	<%@ include file="/WEB-INF/frontStageFooter.jsp"%>
 </body>
 </html>
-			
