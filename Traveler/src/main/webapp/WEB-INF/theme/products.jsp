@@ -118,7 +118,9 @@
 </head>
 <body>
 	<%@ include file="/WEB-INF/frontStageHeader.jsp"%>
-	
+<div style="text-align:center">
+<H1>主題下相關商品</H1>
+</div>
 <c:forEach var='products' items='${products}'>
   <div style="text-align:center">
     <p>
@@ -126,6 +128,23 @@
     <b style='font-size:16px;'>國家:${products.country}</b><br>
     <b style='font-size:16px;'>種類:${products.themeTitles.titleName}</b><br>
     <b style='font-size:16px;'>住宿:${products.hotelName}</b><br>
+    <b style='font-size:16px;'>Day1:${products.title1}</b><br>
+    <b style='font-size:16px;'>Day1內標:${products.descriTitle1}</b>
+    <b style='font-size:16px;'>Day1內容:${products.description1}</b><br>
+    <b style='font-size:16px;'>早餐1:${products.breakfast1}</b>
+    <b style='font-size:16px;'>中餐1:${products.lunch1}</b>
+    <b style='font-size:16px;'>晚餐1:${products.dinner1}</b>
+    <b style='font-size:16px;'>Day2:${products.title1}</b><br>
+    <b style='font-size:16px;'>Day2內標:${products.descriTitle1}</b>
+    <b style='font-size:16px;'>Day2內容:${products.description1}</b><br>
+    <b style='font-size:16px;'>早餐2:${products.breakfast1}</b>
+    <b style='font-size:16px;'>中餐2:${products.lunch1}</b>
+    <b style='font-size:16px;'>晚餐2:${products.dinner1}</b><b style='font-size:16px;'>Day1:${products.title1}</b><br>
+    <b style='font-size:16px;'>Day3內標:${products.descriTitle1}</b>
+    <b style='font-size:16px;'>Day3內容:${products.description1}</b><br>
+    <b style='font-size:16px;'>早餐3:${products.breakfast1}</b>
+    <b style='font-size:16px;'>中餐3:${products.lunch1}</b>
+    <b style='font-size:16px;'>晚餐3:${products.dinner1}</b>
     <a href="${products.themeTitles.titleName}/${products.productName}">查看出團日期</a>
     </p>
   </div>

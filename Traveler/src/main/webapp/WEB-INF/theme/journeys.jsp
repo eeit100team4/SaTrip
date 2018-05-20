@@ -118,14 +118,18 @@
 </head>
 <body>
 	<%@ include file="/WEB-INF/frontStageHeader.jsp"%>
-	
+
+<div style="text-align:center">
+<H1>出發日期</H1>
+</div>	
 <c:forEach var='journeys' items='${journeys}'>
   <div style="text-align:center">
     <p>
-    <b style='font-size:16px;'>商品類型<br>${journeys.themeProducts.themeTitles.titleName}</b><br>
+    <b style='font-size:16px;'>出發日<br><fmt:formatDate value="${journeys.setOut}" pattern="yyyy/MM/dd" /></b><br>
+    <b style='font-size:16px;'>返回日<br><fmt:formatDate value="${journeys.returnDay}" pattern="yyyy/MM/dd" /></b><br>
     <b style='font-size:16px;'>商品名稱<br>${journeys.themeProducts.productName}</b><br>
-    <b style='font-size:16px;'>出發日<br>	<fmt:formatDate value="${journeys.setOut}" pattern="yyyy/MM/dd" /></b><br>
-    <b style='font-size:16px;'>返回日<br>	<fmt:formatDate value="${journeys.returnDay}" pattern="yyyy/MM/dd" /></b><br>
+    <b style='font-size:16px;'>航空公司<br>${journeys.companyName}</b><br>
+    <b style='font-size:16px;'>價格<br>${journeys.price}</b><br>
     <a href="${journeys.themeProducts.productName}/${journeys.journeyId}">查看詳細內容</a>   
     </p>
   </div>
