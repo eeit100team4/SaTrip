@@ -1,6 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -12,8 +12,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>Travel &mash; 100% Free Fully Responsive HTML5 Template
-	by FREEHTML5.co</title>
+<title>Travel &mash; 100% Free Fully Responsive HTML5 Template by FREEHTML5.co</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
 <meta name="keywords"
@@ -46,7 +45,7 @@
 <meta name="twitter:card" content="" />
 
 <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-<link rel="shortcut icon" href="/Traveler/images/favicon.ico">
+<link rel="shortcut icon" href="images/favicon.ico">
 
 <!--<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>-->
 
@@ -105,94 +104,21 @@
 
 <!-- Main JS -->
 <script src="/Traveler/js/main.js"></script>
-<script>
-
-function homepage(){
-	window.location.assign("/Traveler/");
-}
-
-</script>
-<style>
-.det1{
-width:340px;
-margin:10px;
-padding:10px;
-}
-.det2{
-background-color:orange;
-color:white;
-}
 
 
-</style>
+<script src="/Traveler/js/airplain/airSearch.js"></script>
+<script src="/Traveler/js/jquery-ui.min.js"></script>
+<link rel="stylesheet" href="/Traveler/js/jquery-ui.min.css">
+
+<!-- 連結旁邊的小ICON套件  -->	
+<script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
+
 </head>
-<body
-	style="background-image: url(/Traveler/images/cover_bg_1.jpg); background-attachment: fixed;">
-	<div id="fh5co-wrapper">
-		<div id="fh5co-page">
-
-			<%@ include file="../frontStageHeader.jsp" %>
-
-			<!-- end:header-top -->
-
-			<div class="fh5co-hero">
-
-				<!-- 	背景暖色系樣式			<div class="fh5co-overlay"></div> -->
-				<div class="fh5co-cover" data-stellar-background-ratio="0.5">
-
-					<div>
-
-						<div class="main123">
-							<div class="item123">
-								<div align="center">
-									<div class="det1">
-										<h3 class="det2" >已付款完成</h3>
-										<h3 class="det2">系統已寄出明細至您的信箱</h3>
-										<a style="color:blue" href="/Traveler/airTickets/download">點擊下載<img src="/Traveler/images/pdfIcon.png" alt="" height="16" width="16"  ></a>
-									</div>
-									<div style="margin:20px;">
-									<button type="button" class="btn-xs btn-warning " onclick="homepage()">回首頁</button>
-									</div>
-								</div>
-								<div id=ticketResult></div>
-							</div>
-						</div>
-
-
-
-
-
-						<div class="row">
-							<div class="col-md-6 col-md-offset-3 text-center">
-								<p class="fh5co-social-icons">
-									<a href="#"><i class="icon-twitter2"></i></a> <a href="#"><i
-										class="icon-facebook2"></i></a> <a href="#"><i
-										class="icon-instagram"></i></a> <a href="#"><i
-										class="icon-dribbble2"></i></a> <a href="#"><i
-										class="icon-youtube"></i></a>
-								</p>
-								<p>
-									Copyright 2016 Free Html5 <a href="#">Module</a>. All Rights
-									Reserved. <br>Made with <i class="icon-heart3"></i> by <a
-										href="http://freehtml5.co/" target="_blank">Freehtml5.co</a> /
-									Demo Images: <a href="https://unsplash.com/" target="_blank">Unsplash</a>
-								</p>
-							</div>
-						</div>
-					</div>
-				</div>
-				</footer>
-
-
-
-			</div>
-			<!-- END fh5co-page -->
-
-		</div>
-		<!-- END fh5co-wrapper -->
-
-	</div>
+<body>
+	<%@ include file="/WEB-INF/frontStageHeader.jsp"%>
+	
+				<!--  網頁內容 -->
+	
+	<%@ include file="/WEB-INF/frontStageFooter.jsp"%>
 </body>
 </html>
-
-
