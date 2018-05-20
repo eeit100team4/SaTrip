@@ -1,30 +1,28 @@
 package com.web.service.airplain;
 
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.charset.Charset;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.servlet.ServletContext;
-import javax.servlet.http.HttpServletRequest;
 
-import org.springframework.http.HttpRequest;
+import org.hibernate.bytecode.enhance.internal.tracker.SimpleFieldTracker;
 import org.springframework.stereotype.Service;
 
-import com.itextpdf.text.Anchor;
-import com.itextpdf.text.BaseColor;
+import com.fasterxml.jackson.databind.util.ObjectBuffer;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
-import com.itextpdf.text.Font;
-import com.itextpdf.text.Image;
+import com.itextpdf.text.FontFactory;
 import com.itextpdf.text.PageSize;
-import com.itextpdf.text.Paragraph;
-import com.itextpdf.text.Phrase;
-import com.itextpdf.text.pdf.BaseFont;
-import com.itextpdf.text.pdf.PdfPCell;
-import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
+import com.itextpdf.tool.xml.XMLWorkerFontProvider;
+import com.itextpdf.tool.xml.XMLWorkerHelper;
 import com.web.model.airplain.OrderDetailsBean;
 
 @Service
@@ -32,7 +30,7 @@ public class PdfProduceService {
 
 	Document document = null;
 
-	public void pdfProduce(OrderDetailsBean odbean) throws DocumentException, IOException {
+	public void pdfProduce(OrderDetailsBean odBean) throws DocumentException, IOException {
 
 		document = new Document(PageSize.A4, 50, 50, 25, 50);
 
@@ -40,79 +38,116 @@ public class PdfProduceService {
 		// PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream(go));
 		try {
 			PdfWriter.getInstance(document, out);
+			PdfWriter pdfWriter = PdfWriter.getInstance(document, new FileOutputStream("c://temp//testpdf2.pdf"));
 			document.open();
-			// begin
-			// 將字體轉成中文
-			BaseFont bfChinese = BaseFont.createFont("C:/Windows/Fonts/kaiu.ttf", BaseFont.IDENTITY_H,
-					BaseFont.NOT_EMBEDDED);
-			Font font = new Font(bfChinese, 14, Font.BOLD, new BaseColor(255, 153, 153));
-			Font font2 = new Font(bfChinese, 20, Font.BOLD, new BaseColor(100, 100, 100));
+			//將下訂時間統一格式
+			SimpleDateFormat sdf = new SimpleDateFormat("YYYY-MM-dd hh:mm:ss");
+			String orderDay=sdf.format(odBean.getOrderDay());
+			Date date = new Date();
+			String rightNow = sdf.format(date);
+			//判定回程抵達時間是否跨日
+			String arrtNextDay=null;
+			if(odBean.getReturnArrTnextDay()==null) {
+				arrtNextDay=odBean.getReturnDate();
+			}else {
+				arrtNextDay=odBean.getReturnArrTnextDay();
+			}
+			//HTML內容
+			String part1 = "<html>\r\n" + 
+					"<head>\r\n" + 
+					"<title>Insert title here</title>\r\n" + 
+					"</head >\r\n" + 
+					"<body STYLE=\"font-family: mingliu; font-size:10pt\">\r\n" + 
+					"<div STYLE=\"margin:0px auto\">\r\n" + 
+					"<DIV class=\"title\" style=\"font-size:80px;color:orange\">&nbsp;&nbsp;&nbsp;<img  src=\"c:/pdf/AIRPLAIN.jpg\" height=\"80\" width=\"80\" /> TRAVELER</DIV>\r\n" + 
+					"\r\n" + 
+					"<p STYLE=\"color:red\">感謝您在Traveler訂購本次機票，請確認您的行程內容與相關條款</p>\r\n" + 
+					"</div>\r\n" + 
+					"<p>\r\n" + 
+					"<h1 class=\"country\" style=\"color:#AAAAAA\">訂單資料</h1>\r\n" + 
+					"</p>\r\n" + 
+					"<table>\r\n" + 
+					"<!--<tr class=\"movierow\"><th class=\"column1\"></th><th class=\"column2\">行程</th><th class=\"column3\">航空公司</th></tr>-->\r\n" + 
+					"<tr class=\"movierow\"><td class=\"column1\">行程聯絡人：</td><td class=\"column2\">"+odBean.getGuestBean().getContactName()+"</td></tr>\r\n" + 
+					"<tr class=\"movierow\"><td class=\"column1\">訂單編號：</td><td class=\"column2\">"+odBean.getOrderID()+"</td></tr>\r\n" + 
+					"<tr class=\"movierow\"><td class=\"column1\">電話號碼：</td><td class=\"column2\">"+odBean.getGuestBean().getContactPhone()+"</td></tr>\r\n" + 
+					"<tr class=\"movierow\"><td class=\"column1\">電子郵件：</td><td class=\"column2\">"+odBean.getGuestBean().getContactEmail()+"</td></tr>\r\n" + 
+					"<tr class=\"movierow\"><td class=\"column1\">訂購日期：</td><td class=\"column2\">"+orderDay+"</td></tr>\r\n" +
+					"<tr class=\"movierow\"><td class=\"column1\">發送時間：</td><td class=\"column2\">"+rightNow+"</td></tr>\r\n" + 
+					"</table>\r\n" + 
+					"\r\n" + 
+					"<p>\r\n" + 
+					"<h2 class=\"country\" style=\"color:#AAAAAA\">行程內容</h2>\r\n" + 
+					"</p>\r\n" + 
+					"<table>\r\n" +
+					"<tr class=\"movierow\"><td class=\"column1\">去程：</td></tr>\r\n" + 
+					"<tr><td class=\"column2\">"+odBean.getDepDate()+" "+odBean.getDepT()+" "+odBean.getDepC()+" "+odBean.getAirline()+"("+odBean.getDepNum()+")"+" ~ "+odBean.getDepDate()+" "+odBean.getArrT()+" "+odBean.getArrC()+"</td></tr>"+
+					"<tr class=\"movierow\"><td class=\"column1\">回程：</td></tr>\r\n" + 
+					"<tr><td class=\"column2\">"+odBean.getReturnDate()+" "+odBean.getReturnTime()+" "+odBean.getArrC()+" "+odBean.getAirline()+"("+odBean.getReturnNum()+")"+" ~ "+arrtNextDay+" "+odBean.getReturnArrTime()+" "+odBean.getDepC()+"</td></tr>"+
+					"</table>\r\n" + 
+					"<hr />\r\n" + 
+					"<p>\r\n" + 
+					"<h2 class=\"country\" style=\"color:#AAAAAA\">旅客名單</h2>\r\n" + 
+					"</p>\r\n" + 
+					"<table class=\"table3\">\r\n" + 
+					"<tr><th colspan='2'  width=\"150px\" align=\"center\">姓名</th><th colspan='3'align=\"center\" width=\"100px;\">護照號碼</th><th colspan='3' width=\"100px\" align=\"center\">性別</th></tr>\r\n" + 
+					"<tr><td  colspan='2' width=\"150px\" align=\"center\" >"+odBean.getGuestBean().getGuestOneFirstName()+"\\"+odBean.getGuestBean().getGuestOneLastName()+"</td><td colspan='3' align=\"center\" width=\"100px;\">"+odBean.getGuestBean().getGuestOnepassportNum()+"</td><td align=\"center\" colspan='3' width=\"150px;\">成人"+odBean.getGuestBean().getGuestOneGender()+"</td></tr>\r\n";  
+					String part2="<tr><td  colspan='2' width=\"300px\" align=\"center\" >"+odBean.getGuestBean().getGuestTwoFirstName()+"\\"+odBean.getGuestBean().getGuestTwoLastName()+"</td><td colspan='3' align=\"center\" width=\"100px;\">"+odBean.getGuestBean().getGuestTwopassportNum()+"</td><td align=\"center\" colspan='3' width=\"150px;\">成人"+odBean.getGuestBean().getGuestTwoGender()+"</td></tr>\r\n"; 
+					String part3="</table>\r\n" + 
+					"<hr />\r\n" + 
+					"\r\n" + 
+					"<p>\r\n" + 
+					"<h2 class=\"country\" style=\"color:#AAAAAA\">費用明細</h2>\r\n" + 
+					"</p>\r\n" + 
+					"<table>\r\n" + 
+					"<tr class=\"movierow\"><td class=\"column1\">價格/人：</td><td class=\"column2\">"+(odBean.getPrice()/odBean.getPerson())+"</td></tr>\r\n" + 
+					"<tr class=\"movierow\"><td class=\"column1\">人數：</td><td class=\"column2\" align=\"center\">"+odBean.getPerson()+"</td></tr>\r\n" + 
+					"<tr class=\"movierow\"><td class=\"column1\">合計：</td><td class=\"column2\"  style=\"font-weight:bold;\">NT."+odBean.getPrice()+"</td></tr>\r\n" + 
+					"</table>\r\n" + 
+					"<hr />\r\n" + 
+					"<div STYLE=\"border:1px solid black\">\r\n" + 
+					"<p>如有疑問請洽Traveler客服人員或線上客服 tel:(02)8888-7777  e-mail:callmemaybe@iii.org.tw</p>\r\n" + 
+					"</div>\r\n" + 
+					"\r\n" + 
+					"\r\n" + 
+					"</body>\r\n" + 
+					"</html>";
+					
+			String total=null;
+			//判定旅客人數
+			if(odBean.getPerson().intValue()==1) {
+				total=part1+part3;
+			}else {
+				total=part1+part2+part3;
+			}
+					
+					
+			// 中文字型檔路徑
 
-			// 匯入圖片
-			Image image2 = Image.getInstance("c:/pdf/TravelerTitle.png");
-			image2.scaleAbsolute(269f, 100f);
-			document.add(image2);
+			String fontPath = "C:/Windows/Fonts/kaiu.ttf";
 
-			// // table1
-			PdfPTable table1 = new PdfPTable(1);
-			table1.setWidthPercentage(100);
-			PdfPCell cell = new PdfPCell();
-			Paragraph p = new Paragraph();
-			// p.add(new Chunk(image2, 0, 0));
-			// p.add(new Phrase("訂單編號：2018XXXXXXX", font));
-			p.add(new Phrase("訂單編號" + odbean.getOrderID(), font));
+			// 自訂字型物件
 
-			Paragraph p3 = new Paragraph();
-			// p3.add(new Phrase("去程：台北桃園機場 2018XXXXXXX XX:XX ~ 台北桃園機場 2018XXXXXXX XX:XX",
-			// font));
-			p3.add(new Phrase("去程：" + odbean.getDepC() + " " + odbean.getDepDate() + " " + odbean.getDepT() + "~"
-					+ odbean.getArrC() + " " + odbean.getDepDate() + " " + odbean.getArrT(), font));
-			p3.setSpacingBefore(10f);
+			XMLWorkerFontProvider fontImp = new XMLWorkerFontProvider(fontPath);
 
-			Paragraph p4 = new Paragraph();
-			p4.add(new Phrase("回程：" + odbean.getArrC() + " " + odbean.getReturnDate() + " " + odbean.getReturnTime()
-					+ "~" + odbean.getDepC() + " " + odbean.getReturnDate() + " " + odbean.getReturnArrTime(), font));
-			p4.setSpacingBefore(10f);
-			p4.setSpacingAfter(10f);
-			;
+			FontFactory.setFontImp(fontImp);
 
-			Paragraph para1 = new Paragraph();
-			Anchor anchorTarget2 = new Anchor("機票訂購確認單", font2);
-			para1.setSpacingBefore(10f);
-			para1.add(anchorTarget2);
+			// 註冊FontFactory，定義Font Alias Name = mingliu
 
-			cell.addElement(p);
-			cell.addElement(p3);
-			cell.addElement(p4);
-			table1.addCell(cell);
-			table1.setSpacingBefore(20f);
+			FontFactory.register(fontPath, "mingliu");
 
-			// // table2 旅客資訊
-			PdfPTable table2 = new PdfPTable(1);
-			table2.setWidthPercentage(40);
-			table2.setHorizontalAlignment(10);
+			// Check是否註冊字型成功
 
-			PdfPCell cell21 = new PdfPCell();
+			System.out.println("IS mingliu?===" + FontFactory.isRegistered("mingliu"));
 
-			Paragraph p21 = new Paragraph();
-			p21.add(new Phrase("旅客1：" + odbean.getGuestBean().getGuestOneLastName()
-					+ odbean.getGuestBean().getGuestOneFirstName() + "性別" + odbean.getGuestBean().getGuestOneGender(),
-					font));
-			p21.setSpacingBefore(10f);
+			// Initial HTML轉換物件
 
-			Paragraph p22 = new Paragraph();
-			p22.add(new Phrase("旅客2：GAY FOOTER" + "性別+", font));
-			p22.setSpacingBefore(10f);
-			p22.setSpacingAfter(10f);
+			XMLWorkerHelper worker = XMLWorkerHelper.getInstance();
 
-			cell21.addElement(p21);
-			cell21.addElement(p22);
-			table2.addCell(cell21);
-			table2.setSpacingBefore(20f);
-
-			document.add(para1);
-			document.add(table1);
-			document.add(table2);
+			// worker.parseXHtml(pdfWriter, document, new
+			// FileInputStream("C:/pdf/NewFile.html"),Charset.forName("UTF8"),fontImp);
+			worker.parseXHtml(pdfWriter, document, new ByteArrayInputStream(total.getBytes()), Charset.forName("UTF8"),
+					fontImp);
 
 		} finally {
 			System.out.println(document);
@@ -120,16 +155,14 @@ public class PdfProduceService {
 		}
 		// 寫出PDF
 		byte[] pdf = out.toByteArray();
-		FileOutputStream fos = new FileOutputStream("c:/OrderPDF/" + odbean.getOrderID() + ".pdf");
+		FileOutputStream fos = new FileOutputStream("c:/OrderPDF/" + odBean.getOrderID() + ".pdf");
 		fos.write(pdf);
 		fos.flush();
 		fos.close();
 
 	}
 
-	
-	
-	public void imgProduce(ServletContext servletContext ) throws IOException {
+	public void imgProduce(ServletContext servletContext) throws IOException {
 		InputStream is = servletContext.getResourceAsStream("/WEB-INF/images/TravelerTitle.png");
 		FileOutputStream fos = null;
 		File file = new File("c:/OrderPDF");

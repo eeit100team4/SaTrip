@@ -459,6 +459,7 @@ function list(){
 			 $("#ticketResult").empty();
 			 list();
 // 			 page();
+				//取消篩選CHECKBOX
 				for(var k=0;k<2;k++){
 					$("#checkbox").find('input:checkbox:eq('+k+')').prop("checked",false);
 					
@@ -476,6 +477,7 @@ function list(){
 			 $("#ticketResult").empty();
 			 list();
 // 			 page();
+
 		}
 	
 	
@@ -492,6 +494,11 @@ function list(){
 			 $("#ticketResult").empty();
 			 list();
 // 			 page();
+				//取消篩選CHECKBOX
+				for(var k=0;k<2;k++){
+					$("#checkbox").find('input:checkbox:eq('+k+')').prop("checked",false);
+					
+				}
 		}
 	
 	
@@ -852,7 +859,6 @@ $("#mwt_mwt_slider_scroll").animate( { left:'-'+w+'px' }, 600 ,'swing');
 <form id="checkbox" action="/action_page.php">
   <input type="checkbox" name="a" value="中華航空" onclick="CLOnly()" > 中華航空<br>
   <input type="checkbox" name="b" value="日本航空" onclick="CLOnly()">日本航空<br>
-  <input type="submit" value="Submit">
 </form>
 </div>
 </div>

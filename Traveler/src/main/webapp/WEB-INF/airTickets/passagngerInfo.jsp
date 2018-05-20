@@ -260,8 +260,8 @@ function sendGuest(){
 
 			<div>
 
-				<div class="text-center">
-					<table class="table">
+				<div class="text-center" >
+					<table class="table" >
 						<thead class="thead-dark">
 							<tr >
 								<th class="text-center" scope="col">去程</th>
