@@ -37,8 +37,8 @@ public class PdfProduceService {
 		ByteArrayOutputStream out = new ByteArrayOutputStream();
 		// PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream(go));
 		try {
-			PdfWriter.getInstance(document, out);
-			PdfWriter pdfWriter = PdfWriter.getInstance(document, new FileOutputStream("c://temp//testpdf2.pdf"));
+//			PdfWriter.getInstance(document, out);
+			PdfWriter pdfWriter = PdfWriter.getInstance(document, out);
 			document.open();
 			//將下訂時間統一格式
 			SimpleDateFormat sdf = new SimpleDateFormat("YYYY-MM-dd hh:mm:ss");
@@ -91,8 +91,8 @@ public class PdfProduceService {
 					"</p>\r\n" + 
 					"<table class=\"table3\">\r\n" + 
 					"<tr><th colspan='2'  width=\"150px\" align=\"center\">姓名</th><th colspan='3'align=\"center\" width=\"100px;\">護照號碼</th><th colspan='3' width=\"100px\" align=\"center\">性別</th></tr>\r\n" + 
-					"<tr><td  colspan='2' width=\"150px\" align=\"center\" >"+odBean.getGuestBean().getGuestOneFirstName()+"\\"+odBean.getGuestBean().getGuestOneLastName()+"</td><td colspan='3' align=\"center\" width=\"100px;\">"+odBean.getGuestBean().getGuestOnepassportNum()+"</td><td align=\"center\" colspan='3' width=\"150px;\">成人"+odBean.getGuestBean().getGuestOneGender()+"</td></tr>\r\n";  
-					String part2="<tr><td  colspan='2' width=\"300px\" align=\"center\" >"+odBean.getGuestBean().getGuestTwoFirstName()+"\\"+odBean.getGuestBean().getGuestTwoLastName()+"</td><td colspan='3' align=\"center\" width=\"100px;\">"+odBean.getGuestBean().getGuestTwopassportNum()+"</td><td align=\"center\" colspan='3' width=\"150px;\">成人"+odBean.getGuestBean().getGuestTwoGender()+"</td></tr>\r\n"; 
+					"<tr><td  colspan='2' width=\"150px\" align=\"center\" >"+odBean.getGuestBean().getGuestOneFirstName()+"/"+odBean.getGuestBean().getGuestOneLastName()+"</td><td colspan='3' align=\"center\" width=\"100px;\">"+odBean.getGuestBean().getGuestOnepassportNum()+"</td><td align=\"center\" colspan='3' width=\"150px;\">成人"+odBean.getGuestBean().getGuestOneGender()+"</td></tr>\r\n";  
+					String part2="<tr><td  colspan='2' width=\"300px\" align=\"center\" >"+odBean.getGuestBean().getGuestTwoFirstName()+"/"+odBean.getGuestBean().getGuestTwoLastName()+"</td><td colspan='3' align=\"center\" width=\"100px;\">"+odBean.getGuestBean().getGuestTwopassportNum()+"</td><td align=\"center\" colspan='3' width=\"150px;\">成人"+odBean.getGuestBean().getGuestTwoGender()+"</td></tr>\r\n"; 
 					String part3="</table>\r\n" + 
 					"<hr />\r\n" + 
 					"\r\n" + 
@@ -155,7 +155,13 @@ public class PdfProduceService {
 		}
 		// 寫出PDF
 		byte[] pdf = out.toByteArray();
-		FileOutputStream fos = new FileOutputStream("c:/OrderPDF/" + odBean.getOrderID() + ".pdf");
+		File file = new File("c:/OrderPDF/" + odBean.getOrderID() + ".pdf");
+		FileOutputStream fos =null;
+		if(file.exists()) {
+			 fos = new FileOutputStream("c:/OrderPDF/" + odBean.getOrderID()+"_new" + ".pdf");
+		}else {
+		 fos = new FileOutputStream("c:/OrderPDF/" + odBean.getOrderID() + ".pdf");
+		}
 		fos.write(pdf);
 		fos.flush();
 		fos.close();

@@ -228,7 +228,28 @@ footer {
 			processData : false,
 			success : function(responce) {
 				alert("修改完成");
-				window.location.assign(orderId);
+// 				window.location.assign(orderId);
+			},
+			error : function() {
+				alert("error");
+			}
+
+		});
+	}
+	
+	function sendPDF(){
+		var data2 = new FormData();
+		data2.append("orderId",orderId);
+		$.ajax({
+			url : 'PDF/sendPDF',
+			type : 'POST',
+			data : data2,
+			//enctype: "multipart/form-data",
+			contentType : false,
+			processData : false,
+			success : function(responce) {
+				alert("寄發完成");
+// 				window.location.assign(orderId);
 			},
 			error : function() {
 				alert("error");
@@ -413,6 +434,7 @@ footer {
 							<input type="hidden" name="orderID" value="${bean.orderID}" /> <input
 								type="hidden" name="guestId" value="${bean.guestId}" />
 							<button type="button" class="btn btn-warning" onclick="update()">修改</button>
+							<button type="button" class="btn btn-Primary" onclick="sendPDF()">寄發PDF</button>
 						</div>
 					</form>
 				</div>
