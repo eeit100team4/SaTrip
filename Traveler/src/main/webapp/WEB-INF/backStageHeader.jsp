@@ -13,17 +13,17 @@
 			<nav id="fh5co-menu-wrap" role="navigation">
 			<ul class="sf-menu" id="fh5co-primary-menu"
 				style="background-color: black">
-				<li><a href=""><i class="fas fa-plane"></i><font
+				<li><a href="/Traveler/airTickets/back/list"><i class="fas fa-plane"></i><font
 						color="orange">機票</font></a></li>
 				<li><a href="_Hotel/DisplayHotel"><i class="fas fa-home"></i><font
 						color="orange">飯店</font></a></li>
 				<li><a href="theme/titles"><i class="fas fa-globe"></i><font
 						color="orange">旅遊</font></a></li>
-				<li><a href="car.html"><i class="fas fa-cart-arrow-down"></i><font
+				<li><a href="/Traveler/commlist"><i class="fas fa-cart-arrow-down"></i><font
 						color="orange">紅利商品</font></a></li>
-				<li><a href="blog.html"><i class="fas fa-phone-square"></i><font
+				<li><a href="/Traveler/contactus/feedbackopinion"><i class="fas fa-phone-square"></i><font
 						color="orange">客服中心</font></a></li>
-					<li><a href="blog.html"><i class="fas fa-phone-square"></i><font
+					<li><a href="/Traveler/"><i class="fas fa-phone-square"></i><font
 						color="orange">登出</font></a></li>
 			</ul>
 			</nav>

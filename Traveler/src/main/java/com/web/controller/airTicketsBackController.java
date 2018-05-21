@@ -62,6 +62,7 @@ public class airTicketsBackController {
 //		if((date.getTime()-bean.getOrderDay().getTime())<=(2*3600*24)) {
 //			newOrder=true;
 //		}
+		System.out.println("測試");
 		model.addAttribute("list", allOrder);
 //		model.addAttribute("date", date);
 		
