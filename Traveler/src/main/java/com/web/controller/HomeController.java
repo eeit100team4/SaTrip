@@ -12,9 +12,9 @@ public class HomeController {
 	 return "index";
 	 }
 	 
-	 @RequestMapping({"/backStage"})
+	 @RequestMapping({"/backStageForm"})
 	 public String backStage() {
-	 return "backstage";
+	 return "backStageForm";
 	 }
 	 
 }
