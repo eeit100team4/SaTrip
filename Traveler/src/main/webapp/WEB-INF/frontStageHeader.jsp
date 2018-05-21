@@ -14,7 +14,7 @@
 						<nav id="fh5co-menu-wrap" role="navigation">
 							<ul class="sf-menu" id="fh5co-primary-menu">
 							<li><a href="/Traveler"><i class="fas fa-plane"></i><font color="orange">機票</font></a></li>
-							<li><a href="/Traveler/_Hotel/DisplayHotel"><i class="fas fa-home"></i><font color="orange">飯店</font></a></li>
+							<li><a href="/Traveler/_Hotel/SelectHotel"><i class="fas fa-home"></i><font color="orange">飯店</font></a></li>
 								<li><a href="/Traveler/theme/titles" class="fh5co-sub-ddown"><i class="fas fa-globe"></i><font color="orange">主題旅遊</font></a>
 									<!-- 下面這塊ul以後會刪掉 -->
 									<ul class="fh5co-sub-menu">

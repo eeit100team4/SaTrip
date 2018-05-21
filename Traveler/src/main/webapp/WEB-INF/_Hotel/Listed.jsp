@@ -115,6 +115,8 @@
 
 <!-- 連結旁邊的小ICON套件  -->	
 <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
+
+
 <script>
 var target="${location}";
 
@@ -125,12 +127,12 @@ $(document).ready(function(){
 })
 function test(){
 		
-// $("#option").find("table:eq(1)").css("display","none");
+// 爬樹順序 0,3 $("#option").find("table:eq(1)").css("display","none");
 var length= $("#option").find("table").length;
 for(var x=0;x<length;x++){
-	var ta= $("#option").find("table:eq(1)").find("td:eq(1)").text();
-	var city= $("#option").find("table:eq("+x+")").find("td:eq(2)").text();
-	if(!target.match(ta+city)){
+	var city= $("#option").find("table:eq(1)").find("td:eq(1)").text();
+	var country= $("#option").find("table:eq("+x+")").find("td:eq(4)").text();	
+	if(!target.match(city+country)){
 		$("#option").find("table:eq("+x+")").css("display","none");
 	}
 	
@@ -138,37 +140,98 @@ for(var x=0;x<length;x++){
 
 }
 </script>
+
+
+
 </head>
 <body>
 		<%@ include file="/WEB-INF/frontStageHeader.jsp"%>
 
-		<div id="option">
-		
-		<c:forEach  var="hotelInfo" items="${hotels}">
-		
-		<table class="table table-dark">
-			  <thead>
-			    <tr>
-			      <th scope="col">照片</th>
-			      <th scope="col">國家</th>
-			      <th scope="col">城市</th>
-			      <th scope="col">飯店</th>
-			      <th scope="col">房號</th>			      
-			    </tr>
-			  </thead>
-			  <tbody>
-			    <tr>			      		      
-			      <td><img width='600' height='300' src="<c:url value='/getPic/${hotelInfo.hotel_id}' />" /></td>
-			      <td>${hotelInfo.country}</td>
-			      <td>${hotelInfo.city}</td>
-			      <td>${hotelInfo.name}</td>
-			      <td>${hotelInfo.room_no}</td>			      
-			      <td>${hotelInfo.room_no}</td>			      			      
-			    </tr>
-		 	  </tbody>
-	    </table>			
-		</c:forEach>
-</div>
+					<main role="main" class="container mt-2">
+			<div class="row">
+			<div class="col-md-3">			
+<%-- 				<%@ include file="/WEB-INF/hotelPartials/Search.jsp"%>	 --%>
+			<div class="col-md-9">
+				<div class="card">
+					<div class="card-header"></div>
+					<div class="card-body">
+						<div id="option">		
+						<c:forEach  var="hotelInfo" items="${hotels}">			
+						<table class="simpleTable">							  
+							  <thead>
+							    <tr>
+							      <th>本日優惠</th>
+							      <th></th>
+							      <th></th>
+							    </tr>
+							  </thead>	
+							  <tbody>							  
+							  	<tr>
+							      <td>${hotelInfo.city}-${hotelInfo.name}</td>
+							      <td></td>
+							      <td>${hotelInfo.hotelRoomBean.price}</td>
+							    </tr>
+							    <tr>
+							      <td>${hotelInfo.country}</td>
+							      <td></td>
+							      <td><input type="submit" class="btn btn-primary btn-block" value="搜尋"></td>
+							    </tr>
+							    <tr>
+							      <td><img width='600' height='300' src="<c:url value='/getPic/${hotelInfo.hotel_id}' />" /></td>
+							      <td></td>
+							      <td></td>
+							    </tr>
+						 	  </tbody>
+					    </table>			
+						</c:forEach>					
+					 </div>
+					</div>
+				</div>	
+				</div>				
+			</div>
+			</div>
+			</div>
+		</main>
+
+
+
+
+			
+
+
+
+
+
+
+
+
+
+<!-- 記得爬樹 -->
+<!-- 		<div id="option">		 -->
+<%-- 			<c:forEach  var="hotelInfo" items="${hotels}">			 --%>
+<!-- 			<table class="table table-dark"> -->
+<!-- 				  <thead> -->
+<!-- 				    <tr> -->
+<!-- 				      <th scope="col">照片</th> -->
+<!-- 				      <th scope="col">國家</th> -->
+<!-- 				      <th scope="col">城市</th> -->
+<!-- 				      <th scope="col">飯店</th> -->
+<!-- 				      <th scope="col">房號</th>			       -->
+<!-- 				    </tr> -->
+<!-- 				  </thead> -->
+<!-- 				  <tbody> -->
+<!-- 				    <tr>			      		       -->
+<%-- 				      <td><img width='600' height='300' src="<c:url value='/getPic/${hotelInfo.hotel_id}' />" /></td> --%>
+<%-- 				      <td>${hotelInfo.country}</td> --%>
+<%-- 				      <td>${hotelInfo.city}</td> --%>
+<%-- 				      <td>${hotelInfo.name}</td> --%>
+<%-- 				      <td>${hotelInfo.room_no}</td>			       --%>
+<%-- 				      <td>${hotelInfo.room_no}</td>			      			       --%>
+<!-- 				    </tr> -->
+<!-- 			 	  </tbody> -->
+<!-- 		    </table>			 -->
+<%-- 			</c:forEach> --%>
+<!-- 		</div> -->
 
 
 	

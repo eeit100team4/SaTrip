@@ -243,29 +243,29 @@
 											<div class="col-xxs-12 col-xs-12 mt">
 												<div class="input-field">
 													<label for="from">目的地:</label>
-													<input type="text" class="form-control"  name="location" id="from-place" placeholder="東京, 日本"/>
+													<input type="text" class="form-control"  name="location" id="from-place" placeholder=""/>
 												</div>
 											</div>
 											<div class="col-xxs-12 col-xs-6 mt alternate">
 												<div class="input-field">
 													<label for="date-start">入住日期:</label>
-													<input type="text" class="form-control" name="start" id="from" placeholder="2018-05-06"/>
+													<input type="text" class="form-control" name="start" id="from" placeholder=""/>
 												</div>
 											</div>
 											<div class="col-xxs-12 col-xs-6 mt alternate">
 												<div class="input-field">
 													<label for="date-end">退房日期:</label>
-													<input type="text" class="form-control" name="end" id="to" placeholder="06-06-2018"/>
+													<input type="text" class="form-control" name="end" id="to" placeholder=""/>
 												</div>
 											</div>
 											<div class="col-sm-12 mt">
 												<section>
 													<label for="class">客房</label>
 													<select class="cs-select cs-skin-border">
-														<option value="" disabled selected  style="color:orange;">1間客房，1位成人</option>
-														<option value="economy" style="color:orange;">1間客房，2位成人</option>
-														<option value="first" style="color:orange;">1間客房，3位成人</option>
-														<option value="business" style="color:orange;">更多選項...</option>
+														<option value="" disabled selected  >1間客房，1位成人</option>
+														<option value="economy" >1間客房，2位成人</option>
+														<option value="first" >1間客房，3位成人</option>
+														<option value="business" >更多選項...</option>
 													</select>
 												</section>
 											</div>											

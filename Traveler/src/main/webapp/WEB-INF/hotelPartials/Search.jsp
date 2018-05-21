@@ -1,8 +1,5 @@
-
-
-
-
-
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 
 <div class="resp-col aside" id="slidePanel">
     <div id="filters" class="filters">
@@ -196,9 +193,6 @@
                         </div>
                     </fieldset>
                     <fieldset class="checkbox-filters filter-collapsed" data-filter-name="welcome-rewards" id="filter-welcome-rewards">
-                        <h3 role="button" tabindex="0" aria-expanded="false" aria-controls="filter-welcome-rewards-contents">
-                            <span class="hr-live-text">Hotels.com™ Rewards</span>
-                        </h3>
                         <div id="filter-welcome-rewards-contents" class="filter-contents">
                             <ul>
                                 <li class="">
