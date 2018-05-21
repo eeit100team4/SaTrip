@@ -181,8 +181,31 @@ float:right;
 <!-- <script src="https://code.highcharts.com/modules/exporting.js"></script> -->
 <script src="https://code.highcharts.com/modules/export-data.js"></script>
 
-<div id="container" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
 
+<div id="container" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
+<span style="font-size:13px;"></span>
+<select id="choose" onchange="TheConfirmBox()">
+	<option disabled=disabled selected=selected>請選擇</option>
+<!-- 	<optgroup label="亞洲區"> -->
+		<option value="http://localhost:8080/Traveler/contactus/contactuspieasia">1~3月份國人出國目的地統計</option>
+		<option value="http://localhost:8080/Traveler/contactus/contactuspieage">1~3月份國人出國年齡地統計</option>
+</select>
+<span id="check" style="color:red;"></span><br>
+<script>
+	function TheConfirmBox() {
+		var noteToMe;
+		/*取得id為choose的選單裡剛剛所點擊的連結的名稱*/
+		var whichUserChoose=choose.options[choose.selectedIndex].text;
+		if (confirm("Hello！你確定要前往"+whichUserChoose+"?") == true){
+			noteToMe = "你選取想前往"+whichUserChoose+"！";
+			window.location.assign(choose.options[choose.selectedIndex].value);
+		}else{
+			noteToMe = "你按了取消喔！";
+		}
+		document.getElementById("check").innerHTML = noteToMe;
+	}
+	
+</script>
 
 <script>
 Highcharts.chart('container', {

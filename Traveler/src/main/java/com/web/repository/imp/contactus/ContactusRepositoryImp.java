@@ -8,6 +8,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.web.model.commodity.CommodityBean;
 import com.web.model.contactus.ContactusBean;
 import com.web.repository.contactus.ContactusRepository;
 

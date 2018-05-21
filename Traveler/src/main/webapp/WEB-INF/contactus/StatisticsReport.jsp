@@ -185,18 +185,12 @@ float:right;
 
 
 
-<span style="font-size:13px;"></span>
+<span style="font-size:30px;">Traveler統計統計報表:</span>
 <select id="choose" onchange="TheConfirmBox()">
 	<option disabled=disabled selected=selected>請選擇</option>
 <!-- 	<optgroup label="亞洲區"> -->
 		<option value="http://localhost:8080/Traveler/contactus/contactuspieasia">1~3月份國人出國目的地統計</option>
 		<option value="http://localhost:8080/Traveler/contactus/contactuspieage">1~3月份國人出國年齡地統計</option>
-<!-- 	</optgroup> -->
-<!-- 	<optgroup label="群組標籤2"> -->
-<!-- 		<option value="http://blog.yam.com/dllee">dllee</option> -->
-<!-- 		<option value="https://tw.yahoo.com/">Yahoo奇摩</option> -->
-<!-- 	</optgroup> -->
-<!-- 	<option disabled=disabled value="https://tw.yahoo.com/">歡迎給予指導！</option> -->
 </select>
 <span id="check" style="color:red;"></span><br>
 <script>
