@@ -21,11 +21,7 @@
 						color="orange">旅遊</font></a></li>
 				<li><a href="/Traveler/commlist"><i class="fas fa-cart-arrow-down"></i><font
 						color="orange">紅利商品</font></a></li>
-<<<<<<< HEAD
 				<li><a href="/Traveler/contactus/feedbackopinion"><i class="fas fa-phone-square"></i><font
-=======
-				<li><a href="contactus/feedbackopinion"><i class="fas fa-phone-square"></i><font
->>>>>>> branch 'master' of https://github.com/eeit100team4/Traveler.git
 						color="orange">客服中心</font></a></li>
 					<li><a href="/Traveler/"><i class="fas fa-phone-square"></i><font
 						color="orange">登出</font></a></li>
