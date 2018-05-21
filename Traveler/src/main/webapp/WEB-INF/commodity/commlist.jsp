@@ -177,7 +177,7 @@ footer {
 				<tbody>
 					<c:forEach var='comm' items='${commlist}'>
 						<tr>
-							<th scope="row">${comm.commodityid}</th>
+							<td scope="row">${comm.commodityid}</td>
 							<td><img width='180' height='180'
 								src="<c:url value='/getPicture/${comm.commodityid}'/>" /></td>
 							<td>${comm.name}</td>
