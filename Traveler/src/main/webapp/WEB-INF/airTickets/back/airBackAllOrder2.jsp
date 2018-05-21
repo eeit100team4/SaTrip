@@ -139,6 +139,14 @@ $(document).ready(function(){
 $( document ).ready(function(){
 		page();
 		dat();
+		//進入直接FOCUS在查詢單筆
+		$("#one").focus();
+		//enter直接查詢
+		$("#one").keypress(function(e) {
+			if (e.which == 13) {
+				selectOne();
+			}
+		})
 // 		pagecolor();
 	});
 	function ale(){
@@ -308,7 +316,7 @@ function searchAll(){
 				<div class="d2">
 			<div class="text-left" >
 			<span style="margin-left:20px;">本日新訂單：</span><span id="newTotal" style="margin-right:250px;"></span>
-			<input id="one" type="text" placeholder="查詢指定訂單" /><button class="btn" type="button" onclick="selectOne()"> go</button></div>
+			<input id="one" style="margin:10px;" type="text" placeholder="查詢指定訂單" /><button class="btn-info btn-sm" type="button" onclick="selectOne()"> go</button></div>
 			<!-- 			<table class="table" class="table table-sm table-hover"> -->
 			<!-- 				<thead> -->
 

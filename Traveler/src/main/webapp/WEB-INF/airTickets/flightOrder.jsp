@@ -653,7 +653,8 @@ function list(){
 // 				    dataType:"json",
 				    success : function(response) {
 				    	var forword=response+"";
-				    	alert(forword);
+				    	//測試用ALERT
+// 				    	alert(forword);
 				        window.location.assign("show/"+forword);
 				    },
 				    error : function() {
@@ -799,7 +800,7 @@ $("#mwt_mwt_slider_scroll").animate( { left:'-'+w+'px' }, 600 ,'swing');
 	<%@ include file="../frontStageHeader.jsp" %>
 			<!-- end:header-top -->
 
-			<div id="all" class="fh5co-hero">
+			<div id="all" class="fh5co-hero" style="color:black;">
 
 				<!-- 	背景暖色系樣式			<div class="fh5co-overlay"></div> -->
 				<div class="fh5co-cover" data-stellar-background-ratio="0.5"

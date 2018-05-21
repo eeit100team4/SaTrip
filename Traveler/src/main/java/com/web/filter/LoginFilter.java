@@ -10,14 +10,14 @@ import javax.servlet.http.*;
 import com.web.model.member.MemberBean;
 
 
-//@WebFilter(
-//		urlPatterns = { "/*" }, 
-//		initParams = { 
-//				@WebInitParam(name = "mustLogin1", value = "/airTickets/booking"), 
+@WebFilter(
+		urlPatterns = { "/*" }, 
+		initParams = { 
+				@WebInitParam(name = "mustLogin1", value = "/airTickets/show/*"), 
 //				@WebInitParam(name = "mustLogin2", value = "/_04_ShoppingCart/*"), 
 //				@WebInitParam(name = "mustLogin3", value = "/_05_orderProcess/*"),
 //				@WebInitParam(name = "mustLogin4", value = "/_20_productMaintain/*")				
-//		})
+		})
 public class LoginFilter implements Filter {
 	Collection<String> url = new ArrayList<String>();
 	String servletPath;

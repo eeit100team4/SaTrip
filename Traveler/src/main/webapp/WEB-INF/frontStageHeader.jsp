@@ -6,9 +6,9 @@
 		<header id="fh5co-header-section" class="sticky-banner">
 				<div class="container">
 					<div class="nav-header">
-						<a href="/Traveler" class="js-fh5co-nav-toggle fh5co-nav-toggle dark"><i></i></a>
+						<a href="/Traveler/" class="js-fh5co-nav-toggle fh5co-nav-toggle dark"><i></i></a>
 						<h1 id="fh5co-logo">
-							<a href=""><i class="icon-airplane"></i>Traveler</a>
+							<a href="/Traveler/"><i class="icon-airplane"></i>Traveler</a>
 						</h1>
 						<!-- START #fh5co-menu-wrap -->
 						<nav id="fh5co-menu-wrap" role="navigation">

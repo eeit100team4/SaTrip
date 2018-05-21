@@ -5,9 +5,9 @@
 		style="background-color: black;">
 	<div class="container">
 		<div class="nav-header">
-			<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle dark"><i></i></a>
+			<a href="/Traveler/backStageForm/" class="js-fh5co-nav-toggle fh5co-nav-toggle dark"><i></i></a>
 			<h1 id="fh5co-logo" style="color:orange;">
-				<a href="index.html"><i class="fas fa-dove "></i>Traveler</a>&nbsp;管理員
+				<a href="/Traveler/backStageForm/"><i class="fas fa-dove "></i>Traveler</a>&nbsp;管理員
 			</h1>
 			<!-- START #fh5co-menu-wrap -->
 			<nav id="fh5co-menu-wrap" role="navigation">
