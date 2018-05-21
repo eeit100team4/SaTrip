@@ -23,98 +23,156 @@
 	src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
 	integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
 	crossorigin="anonymous"></script>
-<title>Insert title here</title>
 
+<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+<link rel="shortcut icon" href="/Traveler/images/favicon.ico">
+
+<!--<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>-->
+
+<!-- Animate.css -->
+<link rel="stylesheet" href="/Traveler/css/animate.css">
+<!-- Icomoon Icon Fonts-->
+<link rel="stylesheet" href="/Traveler/css/icomoon.css">
+<!-- Bootstrap  -->
+<link rel="stylesheet" href="/Traveler/css/bootstrap.css">
+<!-- Superfish -->
+<link rel="stylesheet" href="/Traveler/css/superfish.css">
+<!-- Magnific Popup -->
+<link rel="stylesheet" href="/Traveler/css/magnific-popup.css">
+<!-- Date Picker -->
+<link rel="stylesheet" href="/Traveler/css/bootstrap-datepicker.min.css">
+<!-- CS Select -->
+<link rel="stylesheet" href="/Traveler/css/cs-select.css">
+<link rel="stylesheet" href="/Traveler/css/cs-skin-border.css">
+
+<link rel="stylesheet" href="/Traveler/css/style.css">
+
+
+<!-- Modernizr JS -->
+<script src="/Traveler/js/modernizr-2.6.2.min.js"></script>
+<!-- FOR IE9 below -->
+<!--[if lt IE 9]>
+	<script src="/Traveler/js/respond.min.js"></script>
+	<![endif]-->
+
+
+<!-- jQuery -->
+
+
+<script src="/Traveler/js/jquery.min.js"></script>
+<!-- jQuery Easing -->
+<script src="/Traveler/js/jquery.easing.1.3.js"></script>
+<!-- Bootstrap -->
+<script src="/Traveler/js/bootstrap.min.js"></script>
+<!-- Waypoints -->
+<script src="/Traveler/js/jquery.waypoints.min.js"></script>
+<script src="/Traveler/js/sticky.js"></script>
+
+<!-- Stellar -->
+<script src="/Traveler/js/jquery.stellar.min.js"></script>
+<!-- Superfish -->
+<script src="/Traveler/js/hoverIntent.js"></script>
+<script src="/Traveler/js/superfish.js"></script>
+<!-- Magnific Popup -->
+<script src="/Traveler/js/jquery.magnific-popup.min.js"></script>
+<script src="/Traveler/js/magnific-popup-options.js"></script>
+<!-- Date Picker -->
+<script src="/Traveler/js/bootstrap-datepicker.min.js"></script>
+<!-- CS Select -->
+<script src="/Traveler/js/classie.js"></script>
+<script src="/Traveler/js/selectFx.js"></script>
+
+<!-- Main JS -->
+<script src="/Traveler/js/main.js"></script>
+<!-- 連結旁邊的小ICON套件  -->	
+<script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
+
+<!-- 測試側邊 -->
 <style>
-* {
-	margin: 0;
-	padding: 0;
+#mwt_mwt_slider_scroll
+{
+top: 95px;
+left:0px; 
+width:200px;
+position:fixed; 
+z-index:9999;
 }
 
-/* #allpage { */
-/* 	margin: 0 auto; */
-/* } */
-.menu {
-	overflow: auto;
-	width: 100%;
-	list-style-type: none;
-	background-color: #FF8800;
-	border-bottom: 3px solid #cccccc;
+#mwt_slider_content{
+/* background:#FF8800; */
+ background:#FF8800; 
+text-align:center;
+padding-top:20px;
 }
 
-.me {
-	overflow: auto;
-	width: 100%;
-	list-style-type: none;
+#mwt_fb_tab {
+position:absolute;
+top:20px;
+right:-24px;
+width:24px;
+background:#FF8800;
+color:#ffffff;
+font-family:Arial, Helvetica, sans-serif;
+text-align:center;
+padding:9px 0;
+
+-moz-border-radius-topright:10px;
+-moz-border-radius-bottomright:10px;
+-webkit-border-top-right-radius:10px;
+-webkit-border-bottom-right-radius:10px;
 }
-
-.menu li {
-	float: left;
-	width: 11em;
-	/*為了讓連結區域能依字型大小的變化自動放大,因此在指定width屬性時採用em為單位*/
-	border-right: 1px solid #cccccc;
+#mwt_fb_tab span {
+display:block;
+height:12px;
+padding:1px 0;
+line-height:12px;
+text-transform:uppercase;
+font-size:12px;
 }
+</style>
+<script type='text/javascript'>
+$(document).ready(function(){
+	$("#mwt_mwt_slider_scroll").animate({ left:'0px' }, 600 ,'swing');
+	$('#mwt_slider_content').css('height', ($(window).height() - 20) + 'px' );
+})
+// $(function(){
+// var w = $("#mwt_slider_content").width();
+// $('#mwt_slider_content').css('height', ($(window).height() - 20) + 'px' ); //將區塊自動撐滿畫面高度
 
-.me li {
-	float: left;
-	width: 15em;
-	/*為了讓連結區域能依字型大小的變化自動放大,因此在指定width屬性時採用em為單位*/
+// $("#mwt_fb_tab").mouseover(function(){ //滑鼠滑入時
+// if ($("#mwt_mwt_slider_scroll").css('left') == '-'+w+'px')
+// {
+// $("#mwt_mwt_slider_scroll").animate({ left:'0px' }, 600 ,'swing');
+// }
+// });
+
+
+// $("#mwt_slider_content").mouseleave(function(){　//滑鼠離開後
+// $("#mwt_mwt_slider_scroll").animate( { left:'-'+w+'px' }, 600 ,'swing');
+// });
+// });
+
+</script>
+<style>
+html,body{
+margin:0;
+padding:0;
+height:100%;
 }
-
-.menu li a {
-	display: block;
-	width: 100%;
-	line-height: 3em;
-	/*讓文字上下空出適當的空白,不用padding屬性,直接將行Box的高度設的高一些*/
-	color: #333333;
-	text-decoration: none;
-	text-align: center;
+.wrapper{
+min-height:100%;
+margin-bottom:0px;
 }
-
-.me li a {
-	display: block;
-	width: 100%;
-	line-height: 3em;
-	/*讓文字上下空出適當的空白,不用padding屬性,直接將行Box的高度設的高一些*/
-	color: #333333;
-	text-decoration: none;
-	text-align: center;
+.footer .push{
+margin-bottom:0px;
 }
+</style>
+<style>
 
-.menu li a:hover {
-	color: #FFFFFF;
-	background-color: #AA7700;
-}
-
-.me li a:hover {
-	color: #FFFFFF;
-	background-color: #AA7700;
-}
-
-/* .content { */
-/* 	overflow: auto; */
-/* 	width: 100%; */
-/* 	padding-bottom: 20px; */
-/* } */
-
-/* aside { */
-/* 	float: right; */
-/* 	width: 20%; */
-/* } */
 .list1 {
 	list-style: decimal inside;
 }
 
-footer {
-	width: 100%;
-	clear: both;
-	line-height: 2.5em;
-	text-align: center;
-	color: #ffffff;
-	background-color: #FFBB00;
-	/*             border-bottom-right-radius: 15px; */
-	/*             border-bottom-left-radius: 15px; */
-}
 
 .d1 {
 	background-color: #FF8800;
@@ -123,13 +181,6 @@ footer {
 	float: left;
 }
 
-.d2 {
-	background-color: #FFFFFF;
-	width: 80%;
-	height: 5000px;
-	float: right;
-	
-}
 
 .dx {
 	border: 1.5px solid #AAAAAA;
@@ -173,38 +224,19 @@ height:270px;
 }
 </style>
 
+<title>Insert title here</title>
 
 
 </head>
 <body>
 	<div id="allpage">
-		<header> <nav>
-		<ul class="menu">
-		<li cless="le">	<a href="index.html"><img src='images/icon_index.png' height="25px" width="25px"/>TRAVEL後台管理系統</a></li>
-					<li><a href="index.html"><img src='images/icon_air.png' height="25px" width="25px"/>機票管理</a></li>
-					<li><a href="index.html"><img src='images/icon_hotel.png' height="25px" width="25px"/>飯店管理</a></li>
-					<li><a href="index.html"><img src='images/icon_traveler.png' height="25px" width="25px"/>主題旅遊管理</a></li>
-					<li><a href="index.html"><img src='images/icon_vip.png' height="25px" width="25px"/>會員管理</a></li>
-					<li><a href="index.html"><img src='images/icon_comm.png' height="25px" width="25px"/>紅利管理</a></li>
-					<li><a href="index.html"><img src='images/icon_support.png' height="25px" width="25px"/>客服管理</a></li>
-					<li><a href="index.html"><img src='images/icon_logout.png' height="25px" width="25px"/>登出</a></li> <!--登入-->
-			<!--登出-->
-		</ul>
+		<%@ include file="/WEB-INF/backStageHeader.jsp" %>
 
-		</nav> </header>
+<!--=========================要放的東西  =====================-->
+		
 
-
-		<div class="d1">
-			<h2 style="text-align: center">紅利管理</h2>
-			<ul class="me">
-				<li><a href="commlist">商品清單</a></li>
-				<li><a href="tsuika">新增商品訂單</a></li>
-                <li><a href="henkou">修改商品</a></li>
-			</ul>
-		</div>
-
-		<div class="d2">
-
+	
+<div class="container" style="padding-top:20px">
 <c:forEach var='comm' items='${commlist}'>
 		<div class="ds">
 
@@ -251,8 +283,9 @@ height:270px;
 									type='text' value='${comm.point}' />
 							</div>
 						</div>
-
+                            
 						<input type="submit" class="btn btn-warning" value="修改">
+					
 					</div>
 
 				</fieldset>
@@ -262,16 +295,26 @@ height:270px;
 
 		</div>
 	</c:forEach>
-
-
-
-		</div>
-
-		<footer>
-		<p>TRAVEL &nbsp; Tel:(02)2222-8888 &nbsp; 台北市復興南路一段390號 &nbsp;
-			&copy; 2014 All Rights Reserved Quality Art Technology CO.</p>
-		</footer>
+</div>
+	
+		
+<!-- =========側邊欄位開始============ -->	
+<div id="mwt_mwt_slider_scroll">
+<div id="mwt_slider_content" >
+<div><h2 style="text-align: center;color:black">紅利管理</h2></div>
+ <div><h3><a style="color:#444444" href="commlist">商品清單</a></h3></div>
+ <div><h3><a style="color:#444444" href="tsuika">新增商品訂單</a></h3></div>
+ <div><h3><a style="color:#444444" href="henkou">修改商品</a></h3></div>
+  <div><h3><a style="color:#444444" href="ClientLists">兌換清單</a></h3></div>
+</div>
+</div>
+<!-- =========側邊欄位結束============ -->		
+		
+		
 	</div>
+	
+	<%@ include file="/WEB-INF/backStageFooter.jsp" %>
+	
 </body>
 
 </html>
