@@ -168,7 +168,7 @@ public class airTicketsController {
 			System.out.println("歐富寶測試");
 			System.out.println("產生PDF");
 			pdf.pdfProduce(os.selectOneByOrderId(orderId));
-			emailService.sendEmail(orderId);
+			emailService.sendTest(orderId);
 			System.out.println("寄信測試");
 			return "redirect:finishPage";
 		}

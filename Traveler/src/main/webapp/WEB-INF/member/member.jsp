@@ -25,6 +25,7 @@ table {
 }
 </style>
 </head>
+<script type="text/javascript" src='<c:url value="/js/utils/Traveler.Utils.js"/>'></script>
 <body>
 	<section>
 	<div class="jumbotron" >
@@ -44,9 +45,7 @@ table {
 			<p>手機：${member.mobile}</p>
 			<p>mail：${member.email}</p>
 			<p>紅利：${member.point}</p>
-			<a href="<spring:url value='./members'/>" class="btn btn-default">
-				<span class="glyphicon-hand-left glyphicon"></span>返回
-			</a>
+			<input type="button" value="上一頁" onclick="goBack()">
 		</div>
 	</div>
 	<%-- 		</c:forEach> --%> 

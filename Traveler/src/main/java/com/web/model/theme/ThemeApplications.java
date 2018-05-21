@@ -25,10 +25,8 @@ public class ThemeApplications implements Serializable {
 	private Integer journeyId;
 	//姓名
 	private String name;
-	//性別
-	private String gender;
 	//電話
-	private String cellPhone;
+	private Integer cellPhone;
 	//人數
 	private Integer people;
 	//可連絡時段
@@ -53,14 +51,13 @@ public class ThemeApplications implements Serializable {
 	}
 	
 	//帶參數建構子 //加入FK表格
-	public ThemeApplications(Integer applicationId, Integer journeyId, String name, String gender, String cellPhone, Integer people,
+	public ThemeApplications(Integer applicationId, Integer journeyId, String name, Integer cellPhone, Integer people,
 			String callTime, String location, Timestamp applicationDate, ThemeJourneys themeJourneys, 
 			ThemeProducts themeProducts, ThemeTitles themeTitles) {
 		super();
 		this.applicationId = applicationId;
 		this.journeyId = journeyId;
 		this.name = name;
-		this.gender = gender;
 		this.cellPhone = cellPhone;
 		this.people = people;
 		this.callTime = callTime;
@@ -84,6 +81,7 @@ public class ThemeApplications implements Serializable {
 		this.applicationId = applicationId;
 	}
 	//FK
+	@Transient
 	public Integer getJourneyId() {
 		return journeyId;
 	}
@@ -96,16 +94,10 @@ public class ThemeApplications implements Serializable {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getGender() {
-		return gender;
-	}
-	public void setGender(String gender) {
-		this.gender = gender;
-	}
-	public String getCellPhone() {
+	public Integer getCellPhone() {
 		return cellPhone;
 	}
-	public void setCellPhone(String cellPhone) {
+	public void setCellPhone(Integer cellPhone) {
 		this.cellPhone = cellPhone;
 	}
 	public Integer getPeople() {
@@ -135,7 +127,7 @@ public class ThemeApplications implements Serializable {
 	@Override
 	public String toString() {
 		return "ThemeApplications [applicationId=" + applicationId + ", journeyId=" + journeyId + ", name=" + name
-				+ ", gender=" + gender + ", cellPhone=" + cellPhone + ", people=" + people + ", callTime=" + callTime + ", location="
+				+ ", cellPhone=" + cellPhone + ", people=" + people + ", callTime=" + callTime + ", location="
 				+ location + ", applicationDate=" + applicationDate + ", themeJourneys=" + themeJourneys + ", themeProducts=" 
 				+ themeProducts  + ", themeTitles=" + themeTitles + "]";
 	}

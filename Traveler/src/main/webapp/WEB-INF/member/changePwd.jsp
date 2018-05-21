@@ -16,6 +16,8 @@ table {
 	border-collapse: collapse;
 }
 </style>
+<script type="text/javascript" src='<c:url value="/js/utils/Traveler.Utils.js"/>'></script>
+<script type="text/javascript" src='<c:url value="/js/member.js"/>'></script>
 </head>
 
 <body onload="javascript:document.changePasswordForm.oldPassword.focus();">
@@ -39,33 +41,31 @@ table {
 						<td width="120" height="40" align="right">*舊密碼:</td>
 						<td width="600" height="40" align="left"><input id='oldPassword'
 							style="text-align: left" name="oldPassword" type="password" size="30"
-							placeholder="至少6個字須含英文、數字、特殊字元"> <!--                              	     <p>(1.不可空白，2.至少6個字且必須包含英文字母、數字、特殊字元[!@#$%^&*])</p> -->
+							placeholder="須與登入密碼一致"> <!--                              	     <p>(1.不可空白，2.至少6個字且必須包含英文字母、數字、特殊字元[!@#$%^&*])</p> -->
 							<div style="color: #ff0000; font-size =60%; display: inline;">${errorMsg.oldPassword}</div>
 						</td>
 					</tr>
 					<tr bgcolor='#F5F5F5'>
 						<td width="120" height="40" align="right">*密碼:</td>
-						<td width="600" height="40" align="left"><input id='password'
-							style="text-align: left" name="password" type="password" size="30"
-							placeholder="至少6個字須含英文、數字、特殊字元"> <!--                              	     <p>(1.不可空白，2.至少6個字且必須包含英文字母、數字、特殊字元[!@#$%^&*])</p> -->
-							<div style="color: #ff0000; font-size =60%; display: inline;">${errorMsg.password}</div>
+						<td width="600" height="40" align="left">
+						<input id='password' style="text-align: left" name="password" type="password" size="30"
+							placeholder="至少6個字須含英文和數字"  onblur="chkPwd()">
+							<div id="errMsgPwd" style="color: #ff0000; font-size =60%; display: inline;">${errorMsg.password}</div>
 						</td>
 					</tr>
 					<tr bgcolor='#F5F5F5'>
 						<td width="120" height="40" align="right">*確認密碼:</td>
-						<td width="600" height="40" align="left"><input
-							id='chkPassword' style="text-align: left" name="chkPassword" type="password" size="30">
-							<div style="color: #ff0000; font-size =60%; display: inline;">${errorMsg.chkPassword}</div>
+						<td width="600" height="40" align="left">
+						<input id='chkPassword' style="text-align: left" name="chkPassword" type="password" size="30"
+						placeholder="須與密碼欄一致"  onblur="chkChkPwd()">
+							<div id="errMsgChkPwd" style="color: #ff0000; font-size =60%; display: inline;">${errorMsg.chkPassword}</div>
 						</td>
 					</tr>
 					<br>
 					<tr bgcolor='#F5F5F5'>
 						<td height="50" colspan="2" align="center">
-						<a href="<spring:url value='member/memberIndex'/>" class="btn btn-default">
-							<span class="glyphicon-hand-left glyphicon"></span>首頁
-							</a>
-							<input
-							type="submit" value="送出">
+						<input type="button" value="上一頁" onclick="goBack()">
+						<input type="submit" value="送出">
 						</td>
 					</tr>
 
