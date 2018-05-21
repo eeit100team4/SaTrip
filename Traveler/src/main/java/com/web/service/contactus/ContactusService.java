@@ -18,6 +18,7 @@ public interface ContactusService {
 	List<ContactusBean> getAllFeedback();
 	void addCustomerOpinion(ContactusBean contactus);
 	void updateAllFeedback();
+	void update(ContactusBean contactus);
 	void updateCustomerOpinion(ContactusBean contactus);
   
 }

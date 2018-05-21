@@ -21,7 +21,7 @@
 						color="orange">旅遊</font></a></li>
 				<li><a href="/Traveler/commlist"><i class="fas fa-cart-arrow-down"></i><font
 						color="orange">紅利商品</font></a></li>
-				<li><a href="blog.html"><i class="fas fa-phone-square"></i><font
+				<li><a href="contactus/feedbackopinion"><i class="fas fa-phone-square"></i><font
 						color="orange">客服中心</font></a></li>
 					<li><a href="blog.html"><i class="fas fa-phone-square"></i><font
 						color="orange">登出</font></a></li>

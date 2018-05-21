@@ -50,6 +50,9 @@ public class ContactusServiceImpl implements ContactusService {
 	}
 
 	@Override
+	public void update(ContactusBean contactus) {
+		contactusRepository.update(contactus);
+	}
 	public void updateCustomerOpinion(ContactusBean contactus) {
 		contactusRepository.update(contactus);
 	}
