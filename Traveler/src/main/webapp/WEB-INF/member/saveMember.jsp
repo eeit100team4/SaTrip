@@ -66,11 +66,7 @@ table {
 					<tr bgcolor='#F5F5F5'>
 						<td width="120" height="40" align="right">*性別:</td>
 						<td width="600" height="40" align="left">
-<<<<<<< HEAD
 						<select id="gender" name="gender" style="text-align: left" onchange="chkGender()">
-=======
-						<select id="gender" name="gender" style="text-align: left" onblur="chkGender()">
->>>>>>> branch 'master' of https://github.com/eeit100team4/Traveler.git
 								<option value="" ${(function == 'add')?"selected":""}>請選擇</option>
 								<option value="male" ${(member.gender == 'male')?"selected":""}>男</option>
 								<option value="female" ${(member.gender == 'female')?"selected":""}>女</option>
@@ -82,9 +78,9 @@ table {
 					<tr bgcolor='#F5F5F5'>
 						<td width="120" height="40" align="right">*密碼:</td>
 						<td width="600" height="40" align="left">
-							<input id='password' style="text-align: left" name="password" value="${param.password}" 
-									type="password" size="30" placeholder="至少6個字須含英文、數字" onblur="chkPwd()"> <!--                              	     <p>(1.不可空白，2.至少6個字且必須包含英文字母、數字、特殊字元[!@#$%^&*])</p> -->
-							<div id="errMsgPwd" style="color: #ff0000; font-size =60%; display: inline;">${errorMsg.password}</div>
+						<input id='password' style="text-align: left" name="password" value="${param.password}" 
+									type="password" size="30" placeholder="至少6個字須含英文、數字" onblur="chkPwd()">
+						<div id="errMsgPwd" style="color: #ff0000; font-size =60%; display: inline;">${errorMsg.password}</div>
 						</td>
 					</tr>
 					<tr bgcolor='#F5F5F5'>
@@ -109,32 +105,19 @@ table {
 						<td width="600" height="40" align="left">*中文
 						<input id="chineseLastName" name="chineseLastName" 
 							value="${(function == 'add')?param.chineseLastName:member.chineseLastName}"	
-<<<<<<< HEAD
 							type="text" size="10" placeholder="姓" onblur="chkName(value)">
 						<input id="chineseFirstName" name="chineseFirstName" 
 							value="${(function == 'add')?param.chineseFirstName:member.chineseFirstName}"
 							type="text" size="10" placeholder="名" onblur="chkName(value)">
 							<div  id="errMsgName" style="color: #ff0000; font-size =60%; display: inline;">${errorMsg.name}</div>
 							<p></p>&nbsp&nbsp英文
-=======
-							type="text" size="20" placeholder="姓" onblur="chkName(value)">
-						<input id="chineseFirstName" name="chineseFirstName" 
-							value="${(function == 'add')?param.chineseFirstName:member.chineseFirstName}"
-							type="text" size="20" placeholder="名" onblur="chkName(value)"><p></p>&nbsp&nbsp英文
->>>>>>> branch 'master' of https://github.com/eeit100team4/Traveler.git
 						<input id="englishLastName" name="englishLastName" 
 							value="${(function == 'add')?param.englishLastName:member.englishLastName}"
 							type="text" size="20" placeholder="姓Last Name">
 						<input name="englishFirstName" value="${(function == 'add')?param.englishFirstName:member.englishFirstName}"
 							type="text" size="20" placeholder="名First Name">
-<<<<<<< HEAD
-=======
-							<div  id="errMsgName" style="color: #ff0000; font-size =60%; display: inline;">${errorMsg.name}</div>
->>>>>>> branch 'master' of https://github.com/eeit100team4/Traveler.git
 						</td>
 					</tr>
-
-
 					<tr bgcolor='#F5F5F5'>
 						<td width="120" height="40" align="right">*聯絡Email:</td>
 						<td width="600" height="40" align="left">
@@ -148,8 +131,7 @@ table {
 						<input id="mobile" name="mobile" value="${(function == 'add')?param.mobile:member.mobile}" type="text" size="30" onblur="chkMobile()">
 							<div  id="errMsgMobile" style="color: #ff0000; font-size =60%; display: inline;">${errorMsg.mobile}</div>
 						</td>
-					</tr>
-				
+					</tr>				
 					<tr bgcolor='#F5F5F5'>
 						<td width="120" height="40" align="right">市話:</td>
 						<td width="600" height="40" align="left"><input
@@ -157,8 +139,7 @@ table {
 							size="30">
 							<div  id="errMsgPhoneNumber" style="color: #ff0000; font-size =60%; display: inline;">${errorMsg.phoneNumber}</div>
 						</td>
-					</tr>
-					</tr>
+					</tr>				
 					<tr bgcolor='#F5F5F5'>
 						<td width="120" height="40" align="right">地址:</td>
 						<td width="600" height="40" align="left"><input
