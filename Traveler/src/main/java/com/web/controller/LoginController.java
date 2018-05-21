@@ -48,6 +48,21 @@ public class LoginController {
 				"timeOut=" + timeOut + "memberId=" + memberId + "password=" + password + "rememberMe=" + rememberMe);
 		return "/member/login";
 	}
+	
+	@RequestMapping(value = "/member/login", method = RequestMethod.POST)
+	public String getLoginPage2(HttpServletRequest request, HttpServletResponse response, Model model){
+		// List<MemberBean> list = memberService.getAllMembers();
+		// model.addAttribute("members", list);
+		HttpSession session = request.getSession();
+		session.removeAttribute("memberId");
+		String timeOut = (String) session.getAttribute("timeOut");
+		String memberId = (String) session.getAttribute("memberId");
+		String password = (String) session.getAttribute("password");
+		String rememberMe = (String) session.getAttribute("rememberMe");
+		System.out.println(
+				"timeOut=" + timeOut + "memberId=" + memberId + "password=" + password + "rememberMe=" + rememberMe);
+		return "/member/login";
+	}
 
 	@RequestMapping(value = "/member/login.do", method = RequestMethod.POST)
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
