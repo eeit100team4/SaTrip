@@ -34,8 +34,8 @@ public class LoginController {
 	@Autowired
 	MemberService memberService;
 
-	@RequestMapping(value = "/member/login")
-	public String getLoginPage(HttpServletRequest request, HttpServletResponse response, Model model) {
+	@RequestMapping(value = "/member/login", method = RequestMethod.GET)
+	public String getLoginPage(HttpServletRequest request, HttpServletResponse response, Model model){
 		// List<MemberBean> list = memberService.getAllMembers();
 		// model.addAttribute("members", list);
 		HttpSession session = request.getSession();

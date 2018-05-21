@@ -120,52 +120,7 @@
 	<div id="fh5co-wrapper">
 		<div id="fh5co-page">
 
-			<header id="fh5co-header-section" class="sticky-banner">
-				<div class="container">
-					<div class="nav-header">
-						<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle dark"><i></i></a>
-						<h1 id="fh5co-logo">
-							<a href=""><i class="icon-airplane"></i>Traveler</a>
-						</h1>
-						<!-- START #fh5co-menu-wrap -->
-						<nav id="fh5co-menu-wrap" role="navigation">
-							<ul class="sf-menu" id="fh5co-primary-menu">
-								<li class="active"><a href="">Home</a></li>
-								<li><a href="theme/themeTitles" class="fh5co-sub-ddown">主題旅遊</a>
-									<!-- 下面這塊ul以後會刪掉 -->
-									<ul class="fh5co-sub-menu">
-										<li><a href="theme/titles">抓title</a></li>
-										<li><a href="theme/allProducts">顯示全產品</a></li>
-										<li><a href="theme/allJourneys">顯示全行程</a></li>
-										<li><a href="theme/applications">顯示全報名表</a></li>
-									</ul></li>
-								<li><a href="flight.html">航班</a></li>
-								<li><a href="_Hotel/DisplayHotel">Hotel</a></li>
-								<li><a href="commlistfront">Car</a></li>
-								<li><a href="contactus/contactusopinion">客戶服務</a></li>
-								<c:choose>
-									<c:when test="${userName!=null}">
-									<!-- 登入後 -->
-									<li><a href='' class="fh5co-sub-ddown">會員專區</a>
-										<ul class="fh5co-sub-menu">
-											<li><a href='member/updateMember'>修改會員資料</a></li>
-											<li><a href='member/changePwd'>修改密碼</a></li>
-											<li><a href='member/members'>查詢所有會員資料</a></li>
-											<li><a href='member/logout.do'>登出</a></li>
-										</ul>
-									</li>
-									</c:when>
-									<c:otherwise>
-										<!-- 登入前 -->
-										<li><a href='member/login'>註冊/登入</a></li>
-									</c:otherwise>
-								</c:choose>
-								
-							</ul>
-						</nav>
-					</div>
-				</div>
-			</header>
+	<%@ include file="/WEB-INF/frontStageHeader.jsp" %>
 
 			<!-- end:header-top -->
 
@@ -189,6 +144,23 @@
 											<li role="presentation"><a href="#packages"
 												aria-controls="packages" role="tab" data-toggle="tab">主題旅遊</a>
 											</li>
+							<c:choose>
+									<c:when test="${userName!=null}">
+									<!-- 登入後 -->
+								<li><a href=''><i class="far fa-user-circle"></i><font color="orange">會員專區</font></a>
+									<ul class="fh5co-sub-menu">
+											<li><a href='member/updateMember'>修改會員資料</a></li>
+											<li><a href='member/changePwd'>修改密碼</a></li>
+											<li><a href='member/members'>查詢所有會員資料</a></li>
+											<li><a href='member/logout.do'>登出</a></li>
+									</ul>
+								</li>
+								</c:when>
+									<c:otherwise>
+										<!-- 登入前 -->
+										<li><a href='member/login'><i class="far fa-user-circle"></i><font color="orange">註冊/登入</a></li>
+									</c:otherwise>
+								</c:choose>
 										</ul>
 
 										<!-- Tab panes -->
