@@ -181,23 +181,7 @@
 						color="orange">紅利商品</font></a></li>
 				<li><a href="blog.html"><i class="fas fa-phone-square"></i><font
 						color="orange">客服中心</font></a></li>
-				<c:choose>
-									<c:when test="${userName!=null}">
-									<!-- 登入後 -->
-								<li><a href=''><i class="far fa-user-circle"></i><font color="orange">會員專區</font></a>
-									<ul class="fh5co-sub-menu">
-											<li><a href='member/updateMember'>修改會員資料</a></li>
-											<li><a href='member/changePwd'>修改密碼</a></li>
-											<li><a href='member/members'>查詢所有會員資料</a></li>
-											<li><a href='member/logout.do'>登出</a></li>
-									</ul>
-								</li>
-								</c:when>
-									<c:otherwise>
-										<!-- 登入前 -->
-										<li><a href='member/login'><i class="far fa-user-circle"></i><font color="orange">註冊/登入</a></li>
-									</c:otherwise>
-								</c:choose>
+				
 			</ul>
 			</nav>
 		</div>
