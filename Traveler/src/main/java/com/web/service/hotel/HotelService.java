@@ -4,7 +4,10 @@ import java.sql.Timestamp;
 import java.util.List;
 import java.util.Set;
 
+import javax.servlet.http.HttpServletRequest;
+
 import com.web.model.hotel.HotelBean;
+import com.web.model.hotel.HotelRoomBean;
 
 public interface HotelService {
 	
@@ -14,6 +17,15 @@ public interface HotelService {
 	List<HotelBean> getAllHotels();
 
 	HotelBean getHotelById(int hotel_id);
+	
+	HotelBean insertHotel(HotelBean hotelBean);
+	
+	HotelBean udpateHotel(HotelBean hotelBean);
+	
+	boolean deleteHotel(int hotel_id);
+
+	
+	
 		
 	
 }

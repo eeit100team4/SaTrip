@@ -1,11 +1,11 @@
 package com.web.service.hotel.impl;
 
 import java.sql.Timestamp;
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -28,6 +28,9 @@ public class HotelServiceImpl implements HotelService {
 
 	@Autowired
 	private HotelRoomRepository hotelRoomRepository;
+
+	@Autowired
+	SessionFactory factory;
 
 	@Transactional
 	@Override
@@ -63,6 +66,25 @@ public class HotelServiceImpl implements HotelService {
 		System.out.println(hotelSet);
 
 		return hotelSet;
+	}
+	@Transactional
+	@Override
+	public HotelBean insertHotel(HotelBean hotelBean) {
+
+		return hotelRepository.insertHotel(hotelBean);
+	}
+	@Transactional
+	@Override
+	public HotelBean udpateHotel(HotelBean hotelBean) {
+		
+		return  hotelRepository.udpateHotel(hotelBean);
+	}
+	@Transactional
+	@Override
+	public boolean deleteHotel(int hotel_id) {
+		
+		return hotelRepository.deleteHotel(hotel_id);
+
 	}
 
 }

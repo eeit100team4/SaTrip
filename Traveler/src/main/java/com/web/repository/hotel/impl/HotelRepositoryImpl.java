@@ -11,9 +11,10 @@ import org.springframework.stereotype.Repository;
 
 import com.web.model.airplain.OrderDetailsBean;
 import com.web.model.hotel.HotelBean;
+import com.web.model.hotel.HotelRoomBean;
 import com.web.repository.hotel.HotelRepository;
 @Repository
-public class HibernateHotelRepository implements HotelRepository {
+public class HotelRepositoryImpl implements HotelRepository {
 	@Autowired
 	SessionFactory factory;
 	
@@ -35,6 +36,44 @@ public class HibernateHotelRepository implements HotelRepository {
 		hb= factory.getCurrentSession().get(HotelBean.class, hotel_id);
 		return hb;
 	}
+
+	@Override
+	public HotelBean insertHotel(HotelBean hotelBean) {
+		Session session = factory.getCurrentSession();		
+		session.save(hotelBean);
+		return hotelBean;
+	}
+
+	@Override
+	public HotelBean udpateHotel(HotelBean hotelBean) {
+		Session session = factory.getCurrentSession();
+		HotelBean hb = session.get(HotelBean.class, hotelBean.getHotel_id());
+		session.save(hb);
+		return hb;
+	}	
+	
+	@Override
+	public boolean deleteHotel(int hotel_id) {
+		Session session = factory.getCurrentSession();
+		HotelBean hb = session.get(HotelBean.class, hotel_id);
+		if (hb != null) {
+			session.delete(hb);
+			return true;
+		}
+		return false;
+	}
+
+	
+	
+	
+
+	
+	
+
+	
+	
+	
+	
 
 //	@OVERRIDE
 //	PUBLIC LIST<HOTELBEAN> GETALLHOTELS(STRING COUNTRY, STRING CITY, STRING NAME, STRING ADDRESS) {

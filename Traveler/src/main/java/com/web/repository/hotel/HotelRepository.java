@@ -6,20 +6,15 @@ import com.web.model.hotel.HotelBean;
 import com.web.model.hotel.HotelRoomBean;
 
 public interface HotelRepository {
-	
+
 	List<HotelBean> getAllHotels();
-	
+
 	HotelBean getHotelById(int hotel_id);
-	
-//	List<HotelBean> getAllHotels(String country, String city, String name, String address);
-	
-	
-	
-//	void addHotel(HotelBean hotel_id);
-//	HotelRoomBean getHotelByID(int room_id);
-//	List<HotelRoomBean> getHotelList();
-//	
-	
-	
-	
+
+	HotelBean insertHotel(HotelBean hotelBean);
+
+	HotelBean udpateHotel(HotelBean hotelBean);
+
+	boolean deleteHotel(int hotel_id);
+
 }

@@ -15,7 +15,7 @@ import com.web.model.hotel.HotelBookingDateBean;
 import com.web.repository.hotel.HotelBookingDateRepository;
 @Repository
 @Transactional
-public class HibernateHotelBookingDateRepository implements HotelBookingDateRepository {
+public class HotelBookingDateRepositoryImpl implements HotelBookingDateRepository {
 	@Autowired
 	SessionFactory factory;
 	
