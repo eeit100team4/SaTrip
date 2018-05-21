@@ -13,7 +13,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,6 +24,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.web.model.commodity.CommodityBean;
 import com.web.model.contactus.ContactusBean;
+
+import com.web.repository.contactus.ContactusRepository;
+
 import com.web.model.member.MemberBean;
 import com.web.service.contactus.ContactusService;
 
@@ -69,6 +74,10 @@ public class ContactusController {
 		return "redirect:/contactus/InsertOpinionSuccess";
 	}
 
+//	@RequestMapping(value="contactus/feedbackopinion")
+//	public String update(Model model,
+//			@ModelAttribute("contactusBean") ContactusBean contactus) {
+//		List<ContactusBean>  list = contactusService.getAllContactus();
 
 //	@RequestMapping(value="/update/{feedback}",method=RequestMethod.PUT)
 //	public String updateform(HttpServletRequest request, HttpServletResponse response,HttpSession session, Model model,
@@ -89,6 +98,7 @@ public class ContactusController {
 	public String updateForm(Model model,
 			@ModelAttribute("contactusBean") ContactusBean contactus,BindingResult result, HttpSession session) {
 //		List<ContactusBean>  list = contactusService.getAllFeedback();
+
 //		model.addAttribute("contactus", list);
 		contactusService.updateCustomerOpinion(contactus);
 		session.setAttribute("aa", contactus);
@@ -96,6 +106,12 @@ public class ContactusController {
 		
 	}
 	
+	@RequestMapping(path= "/feedbackopinion/{pkid}" ,method=RequestMethod.POST)
+	public String updateForm(@ModelAttribute("contactusBean") ContactusBean contactus,
+			@PathVariable Integer pkid) {
+		contactusService.updateContactusBean(contactus);
+		return "redirect:/feedbackopinion";
+	}
 	@RequestMapping("/update/feedbackopinion")
 	public String updateFeedback(Model model) {
 		contactusService.getAllFeedback();
@@ -120,9 +136,11 @@ public class ContactusController {
 //		return "/contactus/feedbackopinion";
 //	}
 	
-
+	
 	@RequestMapping("contactus/feedbackopinion")
 	public String list2(Model model) {
+		List<ContactusBean>  list = contactusService.getAllContactus();
+		model.addAttribute("contactus", list);
 		List<ContactusBean> list2=contactusService.getAllContactus();
 		model.addAttribute("contactus", list2);
 		return "contactus/feedbackopinion";
@@ -132,6 +150,7 @@ public class ContactusController {
 		
 		return "contactus/StatisticsReport";
 	}
+	
 	@RequestMapping("contactus/contactuspieasia")
 	public String list4(Model model) {
 		return "contactus/contactuspieasia";
@@ -139,5 +158,10 @@ public class ContactusController {
 	@RequestMapping("contactus/contactuspieage")
 	public String list5(Model model) {
 		return "contactus/contactuspieage";
+	}
+	@RequestMapping("contactus/selectopinion")
+	public String list6(Model model) {
+		
+		return "contactus/selectopinion";
 	}
 }

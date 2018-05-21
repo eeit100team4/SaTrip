@@ -5,7 +5,7 @@ import java.util.List;
 
 import com.web.model.hotel.HotelBookingDateBean;
 
-public interface HotelBookingDatingService {
+public interface HotelBookingDatieService {
 
 	List<HotelBookingDateBean> getByDateTime(Timestamp startTime,Timestamp endTime);
 	

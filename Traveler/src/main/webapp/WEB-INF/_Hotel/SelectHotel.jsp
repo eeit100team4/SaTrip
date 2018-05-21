@@ -1,153 +1,123 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 
 <!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>DisplayHotel</title>
+<title>Travel &mash; 100% Free Fully Responsive HTML5 Template by FREEHTML5.co</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
 <meta name="keywords"
 	content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
 <meta name="author" content="FREEHTML5.CO" />
 
+<!-- 
+	//////////////////////////////////////////////////////
 
-<!-- -------------------------------------------------------------------------------------------------------	 -->
-<!-- (原廠設定)Place favicon.ico and apple-touch-icon.png in the root directory -->
-<link rel="shortcut icon" href="/Traveler/images/LeftTopCorner.ico">
-<!-- (原廠設定) -->
-<link
-	href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300'
-	rel='stylesheet' type='text/css'>
-<!-- (原廠設定) -->
-<link
-	href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"
-	rel="stylesheet">
-<!-- (原廠設定) -->
-<link rel="stylesheet"
-	href="https://use.fontawesome.com/releases/v5.0.9/css/all.css"
-	integrity="sha384-5SOiIsAziJl6AWe0HWRKTXlfcSHKmYV4RBF18PPJ173Kzn7jzMyFuTtk8JA7QQG1"
-	crossorigin="anonymous">
-<!-- (原廠設定) -->
-<link rel="stylesheet"
-	href="https://use.fontawesome.com/releases/v5.0.9/css/solid.css"
-	integrity="sha384-29Ax2Ao1SMo9Pz5CxU1KMYy+aRLHmOu6hJKgWiViCYpz3f9egAJNwjnKGgr+BXDN"
-	crossorigin="anonymous">
-<!-- (原廠設定) -->
-<link rel="stylesheet"
-	href="https://use.fontawesome.com/releases/v5.0.9/css/regular.css"
-	integrity="sha384-seionXF7gEANg+LFxIOw3+igh1ZAWgHpNR8SvE64G/Zgmjd918dTL55e8hOy7P4T"
-	crossorigin="anonymous">
-<!-- (原廠設定) -->
-<link rel="stylesheet"
-	href="https://use.fontawesome.com/releases/v5.0.9/css/brands.css"
-	integrity="sha384-ATC/oZittI09GYIoscTZKDdBr/kI3lCwzw3oBMnOYCPVNJ4i7elNlCxSgLfdfFbl"
-	crossorigin="anonymous">
-<!-- (原廠設定) -->
-<link rel="stylesheet"
-	href="https://use.fontawesome.com/releases/v5.0.9/css/fontawesome.css"
-	integrity="sha384-Lyz+8VfV0lv38W729WFAmn77iH5OSroyONnUva4+gYaQTic3iI2fnUKtDSpbVf0J"
-	crossorigin="anonymous">
-<!-- (原廠設定)Animate.css -->
+	FREE HTML5 TEMPLATE 
+	DESIGNED & DEVELOPED by FREEHTML5.CO
+		
+	Website: 		http://freehtml5.co/
+	Email: 			info@freehtml5.co
+	Twitter: 		http://twitter.com/fh5co
+	Facebook: 		https://www.facebook.com/fh5co
+
+	//////////////////////////////////////////////////////
+	 -->
+
+<!-- Facebook and Twitter integration -->
+<meta property="og:title" content="" />
+<meta property="og:image" content="" />
+<meta property="og:url" content="" />
+<meta property="og:site_name" content="" />
+<meta property="og:description" content="" />
+<meta name="twitter:title" content="" />
+<meta name="twitter:image" content="" />
+<meta name="twitter:url" content="" />
+<meta name="twitter:card" content="" />
+
+<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+<link rel="shortcut icon" href="images/favicon.ico">
+
+<!--<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>-->
+
+<!-- Animate.css -->
 <link rel="stylesheet" href="/Traveler/css/animate.css">
-<!-- (原廠設定)Icomoon Icon Fonts-->
+<!-- Icomoon Icon Fonts-->
 <link rel="stylesheet" href="/Traveler/css/icomoon.css">
-<!-- (原廠設定)Bootstrap  -->
+<!-- Bootstrap  -->
 <link rel="stylesheet" href="/Traveler/css/bootstrap.css">
-<!-- (原廠設定)Superfish -->
+<!-- Superfish -->
 <link rel="stylesheet" href="/Traveler/css/superfish.css">
-<!-- (原廠設定)Magnific Popup -->
+<!-- Magnific Popup -->
 <link rel="stylesheet" href="/Traveler/css/magnific-popup.css">
-<!-- (原廠設定)Date Picker -->
+<!-- Date Picker -->
 <link rel="stylesheet" href="/Traveler/css/bootstrap-datepicker.min.css">
-<!-- (原廠設定)CS Select -->
+<!-- CS Select -->
 <link rel="stylesheet" href="/Traveler/css/cs-select.css">
 <link rel="stylesheet" href="/Traveler/css/cs-skin-border.css">
-<link rel="stylesheet" href="/Traveler/css/style.css">
-<!--(額外補足)Bootstrap 網頁的基本結構-->
-<link rel="stylesheet" href="/Traveler/css/bootstrap.min.css">
-<link rel="stylesheet" href="/Traveler/css/bootstrap-theme.min.css">
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
-<link
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
-	rel="stylesheet">
-<link rel="stylesheet"
-	href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-	crossorigin="anonymous">
 
-<!-- -------------------------------------------------------------------------------------------------------	 -->
-<!-- jQuery -->
-<!-- (原廠設定) -->
-<script src="/Traveler/js/jquery.min.js"></script>
-<!-- (原廠設定)jQuery Easing -->
-<script src="/Traveler/js/jquery.easing.1.3.js"></script>
-<!-- (原廠設定)Bootstrap -->
-<script src="/Traveler/js/bootstrap.min.js"></script>
-<!-- (原廠設定)Waypoints -->
-<script src="/Traveler/js/jquery.waypoints.min.js"></script>
-<script src="/Traveler/js/sticky.js"></script>
-<!-- (原廠設定)Stellar -->
-<script src="/Traveler/js/jquery.stellar.min.js"></script>
-<!-- (原廠設定)Superfish -->
-<script src="/Traveler/js/hoverIntent.js"></script>
-<script src="/Traveler/js/superfish.js"></script>
-<!-- (原廠設定)Magnific Popup -->
-<script src="/Traveler/js/jquery.magnific-popup.min.js"></script>
-<script src="/Traveler/js/magnific-popup-options.js"></script>
-<!-- (原廠設定)Date Picker -->
-<script src="/Traveler/js/bootstrap-datepicker.min.js"></script>
-<!-- (原廠設定)CS Select -->
-<script src="/Traveler/js/classie.js"></script>
-<script src="/Traveler/js/selectFx.js"></script>
-<!-- (原廠設定)Main JS -->
-<script src="/Traveler/js/main.js"></script>
-<!-- (原廠設定)Modernizr JS -->
+<link rel="stylesheet" href="/Traveler/css/style.css">
+
+
+<!-- Modernizr JS -->
 <script src="/Traveler/js/modernizr-2.6.2.min.js"></script>
 <!-- FOR IE9 below -->
 <!--[if lt IE 9]>
-	<script src="js/respond.min.js"></script>
+	<script src="/Traveler/js/respond.min.js"></script>
 	<![endif]-->
 
-<!-- -------------------------------------------------------------------------------------------------------	 -->
-<!--(額外補足)Bootstrap 網頁的基本結構-->
-<script
-	src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-	integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-	crossorigin="anonymous"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-	integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-	crossorigin="anonymous"></script>
 
-<!-- (有問題的)Bootstrap 網頁的基本結構 -->
-<!-- <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script> -->
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
-<!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> -->
-<!-- <script src="http://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js"></script> -->
-<!-- -------------------------------------------------------------------------------------------------------	 -->
-<link rel="stylesheet"
-	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<link rel="stylesheet" href="/resources/demos/style.css">
+<!-- jQuery -->
 
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<script src="/Traveler/js/jquery.min.js"></script>
+<!-- jQuery Easing -->
+<script src="/Traveler/js/jquery.easing.1.3.js"></script>
+<!-- Bootstrap -->
+<script src="/Traveler/js/bootstrap.min.js"></script>
+<!-- Waypoints -->
+<script src="/Traveler/js/jquery.waypoints.min.js"></script>
+<script src="/Traveler/js/sticky.js"></script>
+
+<!-- Stellar -->
+<script src="/Traveler/js/jquery.stellar.min.js"></script>
+<!-- Superfish -->
+<script src="/Traveler/js/hoverIntent.js"></script>
+<script src="/Traveler/js/superfish.js"></script>
+<!-- Magnific Popup -->
+<script src="/Traveler/js/jquery.magnific-popup.min.js"></script>
+<script src="/Traveler/js/magnific-popup-options.js"></script>
+<!-- Date Picker -->
+<script src="/Traveler/js/bootstrap-datepicker.min.js"></script>
+<!-- CS Select -->
+<script src="/Traveler/js/classie.js"></script>
+<script src="/Traveler/js/selectFx.js"></script>
+
+<!-- Main JS -->
+<script src="/Traveler/js/main.js"></script>
+
+
+<script src="/Traveler/js/airplain/airSearch.js"></script>
+<script src="/Traveler/js/jquery-ui.min.js"></script>
+<link rel="stylesheet" href="/Traveler/js/jquery-ui.min.css">
+
+<!-- 連結旁邊的小ICON套件  -->	
+<script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
+
+
+
 <script>
 	$(function() {
-		var dateFormat = "mm/dd/yy", from = $("#from").datepicker({
+		var dateFormat = "yyyy/MM/dd", from = $("#from").datepicker({
 			defaultDate : "+1w",
 			changeMonth : true,
 			numberOfMonths : 1
@@ -173,43 +143,11 @@
 		}
 	});
 </script>
-<!-- -------------------------------------------------------------------------------------------------------	 -->
-
-
-
-
 </head>
 <body>
-	<div id="fh5co-wrapper">
-		<div id="fh5co-page">
-
-			<!-- end:header-top -->
-			<header id="fh5co-header-section" class="sticky-banner" >
-				<div class="container">
-					<div class="nav-header">
-						<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle dark"><i></i></a>
-						<h1 id="fh5co-logo">
-							<a href="index.html"><i class="fas fa-dove "></i>Traveler</a>
-						</h1>
-						<!-- -------------------------------------------------------------------------------------------------------	 -->
-						<!-- START #fh5co-menu-wrap -->
-						<nav id="fh5co-menu-wrap" role="navigation">
-							<ul class="sf-menu" id="fh5co-primary-menu"    >
-								<li ><a href=""><i class="fas fa-plane"></i><font color="orange">機票</font></a></li>
-								<li><a href="_Hotel/DisplayHotel"><i class="fas fa-home"></i><font color="orange">飯店</font></a></li>
-								<li ><a href="theme/themeTitlesl"><i class="fas fa-globe"></i><font color="orange">旅遊</font></a></li>
-								<li><a href="car.html"><i class=	"fas fa-cart-arrow-down"></i><font color="orange">紅利商品</font></a></li>
-								<li><a href="blog.html"><i class="fas fa-phone-square"></i><font color="orange">客服中心</font></a></li>
-								<li><a href="contact.html"><i class="far fa-user-circle"></i><font color="orange">登入/註冊</font></a></li>
-							</ul>
-						</nav>
-					</div>
-				</div>
-			</header>
-
-		<!-- end:header-top -->
+	<%@ include file="/WEB-INF/frontStageHeader.jsp"%>
 	
-		<div class="fh5co-hero">
+				<div class="fh5co-hero">
 			<!-- <div class="fh5co-overlay"></div> -->
 			<div class="fh5co-cover" data-stellar-background-ratio="0.5" style="background-image: url(/Traveler/images/T1.jpg);">
 				<div class="desc">
@@ -301,61 +239,36 @@
 
 									 <div role="tabpanel" class="tab-pane active" id="hotels">
 									 	<div class="row">
-									 		<form action="" method="get">
+									 		<form action="Listed" method="get">
 											<div class="col-xxs-12 col-xs-12 mt">
 												<div class="input-field">
-													
 													<label for="from">目的地:</label>
-													<input type="text" class="form-control" id="from-place" placeholder="東京, 日本"/>
+													<input type="text" class="form-control"  name="location" id="from-place" placeholder="東京, 日本"/>
 												</div>
 											</div>
 											<div class="col-xxs-12 col-xs-6 mt alternate">
 												<div class="input-field">
 													<label for="date-start">入住日期:</label>
-													<input type="text" class="form-control" id="from" placeholder="06-01-2018"/>
+													<input type="text" class="form-control" name="start" id="from" placeholder="2018-05-06"/>
 												</div>
 											</div>
 											<div class="col-xxs-12 col-xs-6 mt alternate">
 												<div class="input-field">
 													<label for="date-end">退房日期:</label>
-													<input type="text" class="form-control" id="to" placeholder="06-06-2018"/>
+													<input type="text" class="form-control" name="end" id="to" placeholder="06-06-2018"/>
 												</div>
 											</div>
 											<div class="col-sm-12 mt">
 												<section>
-													<label for="class">房間:</label>
+													<label for="class">客房</label>
 													<select class="cs-select cs-skin-border">
-														<option value="" disabled selected>雙人房</option>
-														<option value="economy">單人房</option>
-														<option value="first">三人房</option>
-														<option value="business">四人房</option>
+														<option value="" disabled selected  style="color:orange;">1間客房，1位成人</option>
+														<option value="economy" style="color:orange;">1間客房，2位成人</option>
+														<option value="first" style="color:orange;">1間客房，3位成人</option>
+														<option value="business" style="color:orange;">更多選項...</option>
 													</select>
 												</section>
-											</div>
-											<div class="col-xxs-12 col-xs-6 mt">
-												<section>
-													<label for="class">成人:</label>
-													<select class="cs-select cs-skin-border">
-														<option value="" disabled selected>1位</option>
-														<option value="1">1位</option>
-														<option value="2">2位</option>
-														<option value="3">3位</option>
-														<option value="4">4位</option>
-													</select>
-												</section>
-											</div>
-											<div class="col-xxs-12 col-xs-6 mt">
-												<section>
-													<label for="class">小孩:</label>
-													<select class="cs-select cs-skin-border">
-														<option value="" disabled selected>1位</option>
-														<option value="1">1位</option>
-														<option value="2">2位</option>
-														<option value="3">3位</option>
-														<option value="4">4位</option>
-													</select>
-												</section>
-											</div>
+											</div>											
 											<div class="col-xs-12">
 												<input type="submit" class="btn btn-primary btn-block" value="搜尋">
 											</div>
@@ -514,97 +427,6 @@
 			</div>
 		</div>
 	</div>
-		
-	
-	
-	
-	
-	
-	
-	<footer>
-			<div id="footer">
-				<div class="container">
-					<div class="row row-bottom-padded-md">
-						<div class="col-md-2 col-sm-2 col-xs-12 fh5co-footer-link">
-							<h3>About Travel</h3>
-							<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-						</div>
-						<div class="col-md-2 col-sm-2 col-xs-12 fh5co-footer-link">
-							
-							<h3>Top Flights Routes</h3>
-							<ul>
-								<li><a href="#">Manila flights</a></li>
-								<li><a href="#">Dubai flights</a></li>
-								<li><a href="#">Bangkok flights</a></li>
-								<li><a href="#">Tokyo Flight</a></li>
-								<li><a href="#">New York Flights</a></li>
-							</ul>
-						</div>
-						<div class="col-md-2 col-sm-2 col-xs-12 fh5co-footer-link">
-							<h3>Top Hotels</h3>
-							<ul>
-								<li><a href="#">Boracay Hotel</a></li>
-								<li><a href="#">Dubai Hotel</a></li>
-								<li><a href="#">Singapore Hotel</a></li>
-								<li><a href="#">Manila Hotel</a></li>
-							</ul>
-						</div>
-						<div class="col-md-2 col-sm-2 col-xs-12 fh5co-footer-link">
-							<h3>Interest</h3>
-							<ul>
-								<li><a href="#">Beaches</a></li>
-								<li><a href="#">Family Travel</a></li>
-								<li><a href="#">Budget Travel</a></li>
-								<li><a href="#">Food &amp; Drink</a></li>
-								<li><a href="#">Honeymoon and Romance</a></li>
-							</ul>
-						</div>
-						<div class="col-md-2 col-sm-2 col-xs-12 fh5co-footer-link">
-							<h3>Best Places</h3>
-							<ul>
-								<li><a href="#">Boracay Beach</a></li>
-								<li><a href="#">Dubai</a></li>
-								<li><a href="#">Singapore</a></li>
-								<li><a href="#">Hongkong</a></li>
-							</ul>
-						</div>
-						<div class="col-md-2 col-sm-2 col-xs-12 fh5co-footer-link">
-							<h3>Affordable</h3>
-							<ul>
-								<li><a href="#">Food &amp; Drink</a></li>
-								<li><a href="#">Fare Flights</a></li>
-							</ul>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-6 col-md-offset-3 text-center">
-							<p class="fh5co-social-icons">
-								<a href="#"><i class="icon-twitter2"></i></a>
-								<a href="#"><i class="icon-facebook2"></i></a>
-								<a href="#"><i class="icon-instagram"></i></a>
-								<a href="#"><i class="icon-dribbble2"></i></a>
-								<a href="#"><i class="icon-youtube"></i></a>
-							</p>
-							<p>Copyright 2016 Free Html5 <a href="#">Module</a>. All Rights Reserved. <br>Made with <i class="icon-heart3"></i> by <a href="http://freehtml5.co/" target="_blank">Freehtml5.co</a> / Demo Images: <a href="https://unsplash.com/" target="_blank">Unsplash</a></p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</footer>
-
-
-
-
-	
-
-	</div>
-	<!-- (原廠設定)END fh5co-page -->
-
-<!-- 	</div> -->
-	<!-- (原廠設定)END fh5co-wrapper -->
-
-	
-
-	</body>
+	<%@ include file="/WEB-INF/frontStageFooter.jsp"%>
+</body>
 </html>
-

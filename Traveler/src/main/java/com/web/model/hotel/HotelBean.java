@@ -33,7 +33,7 @@ public class HotelBean implements Serializable {
 	private String name;
 	private Blob coverImage;
 	private String file_name;
-	private String address;
+	private String introduction;
 	private Integer room_no;
 		
 	@Transient
@@ -66,7 +66,7 @@ public class HotelBean implements Serializable {
 	
 
 	public HotelBean(Integer hotel_id, String country, String city, String name, Blob coverImage, String file_name,
-			String address, Integer room_no, MultipartFile productImage) {
+			String introduction, Integer room_no, MultipartFile productImage) {
 		super();
 		this.hotel_id = hotel_id;
 		this.country = country;
@@ -74,7 +74,7 @@ public class HotelBean implements Serializable {
 		this.name = name;
 		this.coverImage = coverImage;
 		this.file_name = file_name;
-		this.address = address;
+		this.introduction = introduction;
 		this.room_no = room_no;
 		this.productImage = productImage;
 	}
@@ -131,12 +131,12 @@ public class HotelBean implements Serializable {
 		this.file_name = file_name;
 	}
  
-	public String getAddress() {
-		return address;
+	public String getintroduction() {
+		return introduction;
 	}
 
-	public void setAddress(String address) {
-		this.address = address;
+	public void setintroduction(String introduction) {
+		this.introduction = introduction;
 	}
 
 	public Integer getRoom_no() {
@@ -154,7 +154,7 @@ public class HotelBean implements Serializable {
 	@Override
 	public String toString() {
 		return "HotelBean [hotel_id=" + hotel_id + ", country=" + country + ", city=" + city + ", name=" + name
-				+ ", coverImage=" + coverImage + ", file_name=" + file_name + ", address=" + address + ", room_no="
+				+ ", coverImage=" + coverImage + ", file_name=" + file_name + ", introduction=" + introduction + ", room_no="
 				+ room_no + ", productImage=" + productImage + "]";
 	}
 	
