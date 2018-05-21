@@ -135,11 +135,13 @@ footer {
 
 .d2{
 background-color: #FFFFFF;
-width: 80%;
+width: 70%;
 height:630px;
 float:right;
 }
-
+/* table{ */
+/* border:1px solid black; */
+/* } */
 </style>
 
 
@@ -156,7 +158,7 @@ float:right;
 					<li><a href="index.html"><img src='/Traveler/images//icon_traveler.png' height="25px" width="25px"/>主題旅遊管理</a></li>
 					<li><a href="index.html"><img src='/Traveler/images//icon_vip.png' height="25px" width="25px"/>會員管理</a></li>
 					<li><a href="commlist"><img src='/Traveler/images//icon_comm.png' height="25px" width="25px"/>紅利管理</a></li>
-					<li><a href="selectopinion"><img src='/Traveler/images//icon_support.png' height="25px" width="25px"/>客服管理</a></li>
+					<li><a href="feedbackopinion"><img src='/Traveler/images//icon_support.png' height="25px" width="25px"/>客服管理</a></li>
 					<li><a href="index.html"><img src='/Traveler/images//icon_login.png' height="25px" width="25px"/>登入</a></li> <!--登出-->
 		</ul>
 
@@ -168,6 +170,10 @@ float:right;
 <li><a href="selectopinion">查看留言</a></li>
 <li><a href="feedbackopinion">回覆留言</a></li>
 <li><a href="StatisticsReport">統計報表</a></li>
+<li><a href="contactuspieasia"></a>
+<li><a href="contactuspieage"></a>
+
+
 
 </ul>
 
@@ -178,37 +184,90 @@ float:right;
 		
 		
 <div class="d2">		
-<script src="https://code.highcharts.com/highcharts.js"></script>
-<!-- <script src="https://code.highcharts.com/modules/exporting.js"></script> -->
-<script src="https://code.highcharts.com/modules/export-data.js"></script>
-
-<!-- <div id="container" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div> -->
-
-
-
-<span style="font-size:30px;">Traveler統計報表:</span>
-<select id="choose" onchange="TheConfirmBox()">
-	<option disabled=disabled selected=selected>請選擇</option>
-<!-- 	<optgroup label="亞洲區"> -->
-		<option value="http://localhost:8080/Traveler/contactus/contactuspieasia">1~3月份國人出國目的地統計</option>
-		<option value="http://localhost:8080/Traveler/contactus/contactuspieage">1~3月份國人出國年齡地統計</option>
-</select>
-<span id="check" style="color:red;"></span><br>
-<script>
-	function TheConfirmBox() {
-		var noteToMe;
-		/*取得id為choose的選單裡剛剛所點擊的連結的名稱*/
-		var whichUserChoose=choose.options[choose.selectedIndex].text;
-		if (confirm("Hello！你確定要前往"+whichUserChoose+"?") == true){
-			noteToMe = "你選取想前往"+whichUserChoose+"！";
-			window.location.assign(choose.options[choose.selectedIndex].value);
-		}else{
-			noteToMe = "你按了取消喔！";
-		}
-		document.getElementById("check").innerHTML = noteToMe;
-	}
-	
-</script>
+				<form action="feedbackopinion" modelAttribute="contactusBean"  enctype='multipart/form-data'>
+						 <fieldest>
+<!-- 						 <div class='form-group'> -->
+<!-- 						 <label for='name'>姓名:</label> -->
+<%-- 						 <form:input id='name' path='name' type='text' value='${aa.name}'/> --%>
+<!-- 						 </div> -->
+<!-- 						 <div class='form-group'> -->
+<!-- 						 <label for='sex'>性別:</label> -->
+<%-- 						 <form:input id='sex' path='sex' type='text' value='${aa.sex}'/> --%>
+<!-- 						 </div> -->
+<!-- 						 <div class='form-group'> -->
+<!-- 						 <label for='age'>年齡:</label> -->
+<%-- 						 <form:input id='age' path='age' type='text' value='${aa.age}'/> --%>
+<!-- 						 </div> -->
+<!-- 						 <div class='form-group'> -->
+<!-- 						 <label for='phone'>連絡電話:</label> -->
+<%-- 						 <form:input id='phone' path='phone' type='text' value='${aa.phone}'/> --%>
+<!-- 						 </div> -->
+<!-- 						 <div class='form-group'> -->
+<!-- 						 <label for='email'>電子信箱:</label> -->
+<%-- 						 <form:input id='email' path='email' type='text' value='${aa.email}'/> --%>
+<!-- 						 </div> -->
+<!-- 						 <div class='form-group'> -->
+<!-- 						 <label for='address'>所在地:</label>						  -->
+<%-- 						 <form:input id='address' path='address' type='text' value='${aa.address}'/> --%>
+<!-- 						 </div> -->
+<!-- 						 <div class="form-group"> -->
+<!-- 								<label for='opinion'>意見類別:</label> -->
+<%-- 								<form:input id='opinion' path='opinion' type='text' value='${aa.opinion}'/> --%>
+<!-- 							</div> -->
+<!-- 							<div class='form-group'> -->
+<!-- 						<label for='comment'>意見欄:</label> -->
+<%-- 						<form:input cols="40" rows="5"  id="comment" path='comment' value='${aa.comment}'></form:input> --%>
+<!-- 						</div> -->
+						<table>
+						<tr>
+						
+<!-- 						<td><label for='name'>姓名:</label> -->
+						<p id='name'type='text' value='${aa.name}'/>姓名:${aa.name}</td>
+						</tr>
+						<tr>
+<!-- 						<td><label for='sex'>性別:</label> -->
+						<p id='sex' type='text' value='${aa.sex}'/>性別:${aa.sex}</td>
+						</tr>
+						<tr>
+<!-- 						<td><label for='age'>年齡:</label> -->
+						<p id='age' type='text' value='${aa.age}'/>年齡:${aa.age}</td>
+						</tr>
+						<tr>
+<!-- 						<td><label for='phone'>連絡電話:</label> -->
+						<p id='phone'  type='text' value='${aa.phone}'/>連絡電話:${aa.phone}</td>
+						</tr>
+						<tr>
+<!-- 						<td><label for='email'>電子信箱:</label> -->
+						<p id='email' type='text' value='${aa.email}'/>電子信箱:${aa.email}</td>
+						</tr>
+						<tr>
+<!-- 						<td><label for='address'>所在地:</label> -->
+						<p id='address' type='text' value='${aa.address}'/>所在地:${aa.address}</td>
+						</tr>
+						<tr>
+<!-- 						<td><label for='opinion'>意見類別:</label> -->
+						<p id='opinion'type='text' value='${aa.opinion}'/>意見類別:${aa.opinion}</td>
+						</tr>
+						<tr>
+						<td>
+<!-- 					    <label for='comment'>意見欄:</label>  -->
+					    <p cols="40" rows="5"  id="comment"  value='${aa.comment}'>意見欄:${aa.comment}</p>
+					    </td>
+					    </tr>
+					    <tr>
+					    <td>
+					     <label for='feedback'>回覆欄:</label>
+					    <p cols="40" rows="5"  id="feedback"  value='${aa.feedback}'></p>
+						</td>
+						</tr>
+						</table>
+					    
+		</fieldest>
+		</form>
+               	
+						
+						
+						
 </div>
 		
 		<footer>
