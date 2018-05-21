@@ -22,7 +22,7 @@ body {
   position: relative;
   border-radius: 5px;
   background-color: #f2f2f2;
-  padding: 20px 0 30px 0;
+  padding: 10px 0 1px 0;
 } 
 
 /* style inputs and link buttons */
@@ -139,6 +139,7 @@ input[type=submit]:hover {
 }
 </style>
 <script src='https://www.google.com/recaptcha/api.js'></script>
+<script src="https://apis.google.com/js/platform.js" defer async="true"></script>
 </head>
 <body onLoad="setFocusToUserId()" style="background: #EBFFEB;">
 <div style="margin:auto;width:30%" >
@@ -147,11 +148,21 @@ input[type=submit]:hover {
   <div class="row">
   	<h2 >Login </h2>
   	<div class="col-md-4" >
-        <input type="text" name="memberId" placeholder="身份證字號" required>
-        <input type="password" name="password" placeholder="Password" required>
-                <div style="align=center;">
+        <input id="errorMsgMap" type="text" name="memberId" placeholder="身份證字號" required>${ErrorMsgMap.AccountEmptyError}</Font></small></TD>
+        <input id="errorMsgMap" type="password" name="password" placeholder="Password" required>
+<%--         <div id="errorMsgMap" style="color: #ff0000; font-size =60%; display: inline;">${ErrorMsgMap.LoginError}</div> --%>
+        <div style="align=center;">
+                <input type="checkbox"	name="rememberMe"
+				<c:if test='${sessionScope.rememberMe==true}'>checked='checked'</c:if>
+						value="true" style="width:10%">記住密碼
+    	<TR height='10'>
+             <TD align="CENTER" colspan='2'>&nbsp;<Font color='red' size="-1">${ErrorMsgMap.LoginError}&nbsp;</Font></TD>
+         </TR>
     	<div class="g-recaptcha col" data-sitekey="6LecRlkUAAAAAAjw-yatNu-zJHfZhcqVmg10Ce9b" style="width:304px"></div>
-    	</div>
+    </div>
+    	 
+			
+		
         <input type="submit" value="Login">
 <!--    <div class="col-md-8"></div>      -->
 
@@ -174,9 +185,9 @@ input[type=submit]:hover {
   </form>
   </div>
 <!-- </div> -->
-<!-- <div style="width:70%"align="center"> -->
+<!-- <div style="width:70%"align="center"> style="padding:center-->
 
-<div class="bottom-container" style="padding:center;margin-bottom: 0px">
+<div class="bottom-container" style="padding:0 0 1px 0;;margin-bottom: 0px">
   <div class="row">
     <div class="col">
       <a href="<spring:url value='/member/register'/>" style="color:white" class="btn">Sign up</a>

@@ -17,9 +17,7 @@ import javax.xml.bind.DatatypeConverter;
 
 import com.web.service.member.GlobalService;
 
-
-
-@WebFilter("/_02_login/login.jsp")
+@WebFilter("/member/login")
 public class FindUserPassword implements Filter {
 
 	String requestURI;
@@ -32,7 +30,7 @@ public class FindUserPassword implements Filter {
 
 	public void doFilter(ServletRequest request, ServletResponse response,
 			FilterChain chain) throws IOException, ServletException {
-		// 執行_02_login/login.jsp前先執行本程式
+		// 執行/login.jsp前先執行本程式
 		if (request instanceof HttpServletRequest
 				&& response instanceof HttpServletResponse) {
 			HttpServletRequest req = (HttpServletRequest) request;

@@ -1,4 +1,5 @@
-﻿ <%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 
@@ -12,7 +13,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>Travel &mash; 100% Free Fully Responsive HTML5 Template by FREEHTML5.co</title>
+<title>Travel &mash; 100% Free Fully Responsive HTML5 Template
+	by FREEHTML5.co</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
 <meta name="keywords"
@@ -110,16 +112,18 @@
 <script src="/Traveler/js/jquery-ui.min.js"></script>
 <link rel="stylesheet" href="/Traveler/js/jquery-ui.min.css">
 
-<!-- 連結旁邊的小ICON套件  -->	
-<script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
+	
+
 
 </head>
 <body>
 	<div id="fh5co-wrapper">
 		<div id="fh5co-page">
 
-			<%@ include file="frontStageHeader.jsp" %>
+	<%@ include file="/WEB-INF/frontStageHeader.jsp" %>
+
 			<!-- end:header-top -->
+
 			<div  id="all"  class="fh5co-hero">
 <!-- 				<div class="fh5co-overlay"></div> -->
 				<div class="fh5co-cover" data-stellar-background-ratio="0.5"
@@ -140,6 +144,7 @@
 											<li role="presentation"><a href="#packages"
 												aria-controls="packages" role="tab" data-toggle="tab">主題旅遊</a>
 											</li>
+							
 										</ul>
 
 										<!-- Tab panes -->
@@ -396,12 +401,37 @@
 				</div>
 
 			</div>
+
+
+
+
+			<div class="row">
+				<div class="col-md-6 col-md-offset-3 text-center">
+					<p class="fh5co-social-icons">
+						<a href="#"><i class="icon-twitter2"></i></a> <a href="#"><i
+							class="icon-facebook2"></i></a> <a href="#"><i
+							class="icon-instagram"></i></a> <a href="#"><i
+							class="icon-dribbble2"></i></a> <a href="#"><i
+							class="icon-youtube"></i></a>
+					</p>
+					<p>
+						Copyright 2016 Free Html5 <a href="#">Module</a>. All Rights
+						Reserved. <br>Made with <i class="icon-heart3"></i> by <a
+							href="http://freehtml5.co/" target="_blank">Freehtml5.co</a> /
+						Demo Images: <a href="https://unsplash.com/" target="_blank">Unsplash</a>
+					</p>
+				</div>
+			</div>
 		</div>
 	</div>
+	</footer>
 
 
+
+	</div>
 	<!-- END fh5co-page -->
-				<%@ include file="frontStageFooter.jsp" %>
+
+	</div>
 	<!-- END fh5co-wrapper -->
 
 	<div id="img1" style="display: none">

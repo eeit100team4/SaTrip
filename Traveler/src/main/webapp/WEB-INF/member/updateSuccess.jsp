@@ -6,21 +6,18 @@
 <html>
 <head>
 
-<title>修改資料成功</title>
+<title>資料修改資料成功</title>
 </head>
-<body class='center'>
-<h1 >會員修改資料成功</h1>
+<body>
+<div  style="margin:auto" align="center">
+<h1>會員資料修改成功</h1>
 
-<Font color='blue' >親愛的 ${param.chineseLastName}${param.chineseFirstName} 會員您好，您輸入的資料已經修改完畢</font>
-
-<a href="<spring:url value='./memberIndex'/>" class="btn btn-default">
+<Font color='blue' >親愛的 ${chineseLastName}${chineseFirstName} 會員您好，您輸入的資料已經成功修改完畢</font>
+<br><h3>
+<a href="<spring:url value='/'/>" class="btn btn-default">
 	<span class="glyphicon-hand-left glyphicon"></span>
-	會員首頁	</a>
-
-
-<div>
+	回首頁	</a></h3>
 <br>
-
 </div>
 </body>
 </html>
