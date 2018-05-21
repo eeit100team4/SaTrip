@@ -82,12 +82,12 @@ public class airTicketsController {
 			String dep = request.getParameter("dept");
 			String arr = request.getParameter("arrv");
 			ExtraPriceBean epBean = eps.getExtraPrice(dep, arr);
-			Integer extraP = epBean.getExtraPrice();
-			if (extraP != null) {
-				System.out.println("加價");
-				// map.put("extraPrice", extraP);
-				model.addAttribute("extraPrice", extraP);
-			}
+//			Integer extraP = epBean.getExtraPrice();
+//			if (extraP != null) {
+//				System.out.println("加價");
+//				// map.put("extraPrice", extraP);
+//				model.addAttribute("extraPrice", extraP);
+//			}
 
 			model.addAttribute("result", result);
 			model.addAttribute("depDate", request.getParameter("depDate"));
@@ -168,7 +168,7 @@ public class airTicketsController {
 			System.out.println("歐富寶測試");
 			System.out.println("產生PDF");
 			pdf.pdfProduce(os.selectOneByOrderId(orderId));
-			emailService.sendEmail(orderId);
+			emailService.sendTest(orderId);
 			System.out.println("寄信測試");
 			return "redirect:finishPage";
 		}

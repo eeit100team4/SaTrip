@@ -15,6 +15,7 @@ table {
 	border-collapse: collapse;
 }
 </style>
+<script type="text/javascript" src='<c:url value="/js/utils/Traveler.Utils.js"/>'></script>
 </head>
 <body>
 	<section>
@@ -50,9 +51,7 @@ table {
 				</div>
 			</div>
 		</c:forEach>
-			<a href="<spring:url value='./memberIndex'/>" class="btn btn-default">
-				<span class="glyphicon-hand-left glyphicon"></span>上一頁
-			</a>
+			<input type="button" value="上一頁" onclick="goBack()">
 	</div>
 	</section>
 </body>

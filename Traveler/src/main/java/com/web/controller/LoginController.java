@@ -35,7 +35,7 @@ public class LoginController {
 	MemberService memberService;
 
 	@RequestMapping(value = "/member/login", method = RequestMethod.GET)
-	public String getLoginPage(HttpServletRequest request, HttpServletResponse response, Model model) {
+	public String getLoginPage(HttpServletRequest request, HttpServletResponse response, Model model){
 		// List<MemberBean> list = memberService.getAllMembers();
 		// model.addAttribute("members", list);
 		HttpSession session = request.getSession();
@@ -144,13 +144,13 @@ public class LoginController {
 //				return requestURI;
 			} else {
 				System.out.println("request.getContextPath()=" + request.getContextPath());
-				 response.sendRedirect(request.getContextPath()+"/member/memberIndex");
+				 response.sendRedirect(request.getContextPath()+"/");
 				System.out.println("to index");
 //				return "index";
 			}
 		} else {
 			// 如果errorMsgMap不是空的，表示有錯誤，交棒給login.jsp
-			 RequestDispatcher rd=request.getRequestDispatcher("/member/login.jsp");
+			 RequestDispatcher rd=request.getRequestDispatcher("/member/login");
 			 rd.forward(request, response);
 			System.out.println("to login");
 //			return "login";
@@ -162,7 +162,7 @@ public class LoginController {
 		return "/member/queryPwd";
 	}
 
-	@RequestMapping(value = "/queryPwd.do", method = RequestMethod.POST)
+	@RequestMapping(value = "/member/queryPwd.do", method = RequestMethod.POST)
 	protected String queryPwd(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
@@ -227,11 +227,11 @@ public class LoginController {
 			// RequestDispatcher rd=request.getRequestDispatcher("...");
 			// rd.forward(request,response);
 			System.out.println("to index");
-			return "/member/index";
+			return "/member/sendMailSuccess";
 		} else {
 			// 如果errorMsgMap不是空的，表示有錯誤，交棒給login.jsp
 			System.out.println("to queryPwd");
-			return "/member/queryPwd";
+			return "/";
 		}
 	}
 	

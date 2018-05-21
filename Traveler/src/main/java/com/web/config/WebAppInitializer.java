@@ -6,6 +6,8 @@ import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.filter.HiddenHttpMethodFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
+import com.web.filter.LoginFilter;
+
 
 
 
@@ -31,8 +33,7 @@ public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServlet
 	protected Filter[] getServletFilters() {
 		CharacterEncodingFilter characterEncodingFilter = new CharacterEncodingFilter();
 		characterEncodingFilter.setEncoding("UTF-8");
-		return new Filter[] {characterEncodingFilter,new HiddenHttpMethodFilter()};
+		return new Filter[] {characterEncodingFilter,new HiddenHttpMethodFilter(),new LoginFilter()};
 	}
-
-		
+			
 }

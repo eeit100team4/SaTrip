@@ -11,8 +11,8 @@
 <!-- <link rel='stylesheet' href='/Traveler/css/styles.css' type="text/css"/> -->
 </head>
 <body>
-	<h1 style="text-align:center">Traveler</h1>
 	<div style="text-align:right">
+	<h1 style="text-align:center">Traveler會員功能</h1>
 	<c:choose>
 			<c:when test="${userName!=null}">您好${userName}  <a href='./logout.do'>登出</a></c:when>
 			<c:otherwise><a href='member/register'>註冊</a>/<a href='member/login'>登入</a></c:otherwise>
@@ -46,7 +46,6 @@
     		</td>
 		</tr>
 	</table>
-
 
 </body>
 </html>
