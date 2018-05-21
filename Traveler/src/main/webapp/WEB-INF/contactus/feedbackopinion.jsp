@@ -139,7 +139,9 @@ width: 70%;
 height:630px;
 float:right;
 }
-
+/* table{ */
+/* border:1px solid black; */
+/* } */
 </style>
 
 
@@ -181,44 +183,84 @@ float:right;
 		
 		
 <div class="d2">		
-				<form:form  action="feedbackopinion" modelAttribute="contactusBean"  enctype='multipart/form-data'>
+				<form:form  method='POST' action="feedbackopinion/${pkid}" modelAttribute="contactusBean"  enctype='multipart/form-data'>
 						 <fieldest>
-						 <div class='form-group'>
-						 <label for='name'>姓名:</label>
-						 <form:input id='name' path='name' type='text' value='${aa.name}'/>
-						 </div>
-						 <div class='form-group'>
-						 <label for='sex'>性別:</label>
-						 <form:input id='sex' path='sex' type='text' value='${aa.sex}'/>
-						 </div>
-						 <div class='form-group'>
-						 <label for='age'>年齡:</label>
-						 <form:input id='age' path='age' type='text' value='${aa.age}'/>
-						 </div>
-						 <div class='form-group'>
-						 <label for='phone'>連絡電話:</label>
-						 <form:input id='phone' path='phone' type='text' value='${aa.phone}'/>
-						 </div>
-						 <div class='form-group'>
-						 <label for='email'>電子信箱:</label>
-						 <form:input id='email' path='email' type='text' value='${aa.email}'/>
-						 </div>
-						 <div class='form-group'>
-						 <label for='address'>所在地:</label>						 
-						 <form:input id='address' path='address' type='text' value='${aa.address}'/>
-						 </div>
-						 <div class="form-group">
-								<label for='opinion'>意見類別:</label>
-								<form:input id='opinion' path='opinion' type='text' value='${aa.opinion}'/>
-							</div>
-							<div class='form-group'>
-						<label for='comment'>意見欄:</label>
-						<form:input cols="40" rows="5"  id="comment" path='comment' value='${aa.comment}'></form:input>
-						</div>
-					    <div class='form-group'>
+<!-- 						 <div class='form-group'> -->
+<!-- 						 <label for='name'>姓名:</label> -->
+<%-- 						 <form:input id='name' path='name' type='text' value='${aa.name}'/> --%>
+<!-- 						 </div> -->
+<!-- 						 <div class='form-group'> -->
+<!-- 						 <label for='sex'>性別:</label> -->
+<%-- 						 <form:input id='sex' path='sex' type='text' value='${aa.sex}'/> --%>
+<!-- 						 </div> -->
+<!-- 						 <div class='form-group'> -->
+<!-- 						 <label for='age'>年齡:</label> -->
+<%-- 						 <form:input id='age' path='age' type='text' value='${aa.age}'/> --%>
+<!-- 						 </div> -->
+<!-- 						 <div class='form-group'> -->
+<!-- 						 <label for='phone'>連絡電話:</label> -->
+<%-- 						 <form:input id='phone' path='phone' type='text' value='${aa.phone}'/> --%>
+<!-- 						 </div> -->
+<!-- 						 <div class='form-group'> -->
+<!-- 						 <label for='email'>電子信箱:</label> -->
+<%-- 						 <form:input id='email' path='email' type='text' value='${aa.email}'/> --%>
+<!-- 						 </div> -->
+<!-- 						 <div class='form-group'> -->
+<!-- 						 <label for='address'>所在地:</label>						  -->
+<%-- 						 <form:input id='address' path='address' type='text' value='${aa.address}'/> --%>
+<!-- 						 </div> -->
+<!-- 						 <div class="form-group"> -->
+<!-- 								<label for='opinion'>意見類別:</label> -->
+<%-- 								<form:input id='opinion' path='opinion' type='text' value='${aa.opinion}'/> --%>
+<!-- 							</div> -->
+<!-- 							<div class='form-group'> -->
+<!-- 						<label for='comment'>意見欄:</label> -->
+<%-- 						<form:input cols="40" rows="5"  id="comment" path='comment' value='${aa.comment}'></form:input> --%>
+<!-- 						</div> -->
+						<table>
+						<tr>
+						
+						<td><label for='name'>姓名:</label>
+						<form:input id='name' path='name' type='text' value='${aa.name}'/></td>
+						</tr>
+						<tr>
+						<td><label for='sex'>性別:</label>
+						<form:input id='sex' path='sex' type='text' value='${aa.sex}'/></td>
+						</tr>
+						<tr>
+						<td><label for='age'>年齡:</label>
+						<form:input id='age' path='age' type='text' value='${aa.age}'/></td>
+						</tr>
+						<tr>
+						<td><label for='phone'>連絡電話:</label>
+						<form:input id='phone' path='phone' type='text' value='${aa.phone}'/></td>
+						</tr>
+						<tr>
+						<td><label for='email'>電子信箱:</label>
+						<form:input id='email' path='email' type='text' value='${aa.email}'/></td>
+						</tr>
+						<tr>
+						<td><label for='address'>所在地:</label>
+						<form:input id='address' path='address' type='text' value='${aa.address}'/></td>
+						</tr>
+						<tr>
+						<td><label for='opinion'>意見類別:</label>
+						<form:input id='opinion' path='opinion' type='text' value='${aa.opinion}'/></td>
+						</tr>
+						<tr>
+						<td>
+					    <label for='comment'>意見欄:</label> 
+					    <form:input cols="40" rows="5"  id="comment" path='comment' value='${aa.comment}'></form:input>
+					    </td>
+					    </tr>
+					    <tr>
+					    <td>
 					    <label for='feedback'>回覆欄:</label>
-					    <form:textarea cols='40' rows='5' id='feedback' path='feedback'></form:textarea>
-					    </div>
+					    <form:textarea cols="40" rows="5"  id="feedback" path='feedback' value='${aa.feedback}'></form:textarea>
+					    </td>
+					    </tr>
+						</table>
+					    
                <div class='form-group'>
                	<input type="submit" id='btnAdd' class="btn btn-primary" value="回覆"></input>
                	</div>

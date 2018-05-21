@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.hibernate.Session;
@@ -17,9 +18,11 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.web.model.commodity.CommodityBean;
 import com.web.model.contactus.ContactusBean;
+import com.web.model.member.MemberBean;
 import com.web.service.contactus.ContactusService;
 
 
@@ -66,34 +69,62 @@ public class ContactusController {
 		return "redirect:/contactus/InsertOpinionSuccess";
 	}
 
-	@RequestMapping("/update/feedback")
+
+//	@RequestMapping(value="/update/{feedback}",method=RequestMethod.PUT)
+//	public String updateform(HttpServletRequest request, HttpServletResponse response,HttpSession session, Model model,
+//			@ModelAttribute("contactusBean") ContactusBean contactus2) {
+//		List<ContactusBean>  list = contactusService.getAllFeedback();
+////		model.addAttribute("aa", list);
+//		session.setAttribute("aa", contactus2);
+//		return "/contactus/feedbackopinion";		
+//	}
+	@RequestMapping(value="contactus/feedbackopinion/{pkid}",method=RequestMethod.GET)
+	public String updateForm(@ModelAttribute("contactusBean")ContactusBean contactus2,Model model) {
+		System.out.println("enter");		
+		model.addAttribute("contactusBean",contactus2);
+		return "contactus/feedbackopinion";
+	}
+
+	@RequestMapping(value="contactus/feedbackopinion/{pkid}",method=RequestMethod.POST)
+	public String updateForm(Model model,
+			@ModelAttribute("contactusBean") ContactusBean contactus,BindingResult result, HttpSession session) {
+//		List<ContactusBean>  list = contactusService.getAllFeedback();
+//		model.addAttribute("contactus", list);
+		contactusService.updateCustomerOpinion(contactus);
+		session.setAttribute("aa", contactus);
+		return "contactus/feedbackopinion";		
+		
+	}
+	
+	@RequestMapping("/update/feedbackopinion")
 	public String updateFeedback(Model model) {
-		contactusService.updateAllFeedback();
-		return "redirect:/contactus/feedbackopinion";
-		
+		contactusService.getAllFeedback();
+		return "redirect:/contactus/feedbackopinion";	
 	}
-	@RequestMapping(value="/update/feedbackopinion")
-	public String updateform(Model model,
-			@ModelAttribute("contactusBean") ContactusBean contactus) {
-		List<ContactusBean>  list = contactusService.getAllFeedback();
-		model.addAttribute("contactus", list);
-		return "/contactus/feedbackopinion";		
-		
-	}
-//	@RequestMapping(value="contactus/feedbackopinion",method=RequestMethod.POST)
-//	public String updateForm(@ModelAttribute("contactusBean")ContactusBean contactus,
+	
+//	@RequestMapping(value= "/feedbackopinion",method=RequestMethod.POST)
+//	public String update(@ModelAttribute("contactusBean") ContactusBean contactus,
 //			BindingResult result, HttpSession session) {
-//		System.out.println("ENTER POST");
-//		System.out.println(contactus);
-////		session.setAttribute("abc", contactus);
-//		contactusService.addCustomerOpinion(contactus);
+//		contactusService.updateContactusBean(contactus);
 //		session.setAttribute("aa", contactus);
 //		return "redirect:/contactus/feedbackopinion";
 //	}
-
 	
+//	@RequestMapping("/contactus/updateFeedback")
+//	public String updateMember(HttpServletRequest request, HttpServletResponse response, Model model) {
+//		HttpSession session = request.getSession();
+//		ContactusBean contactus = (ContactusBean) session.getAttribute("");
+//		model.addAttribute("aa", contactus.getPkid());
+////		model.addAttribute("member", contactus);
+////		model.addAttribute("function", "update");
+//		return "/contactus/feedbackopinion";
+//	}
+	
+
 	@RequestMapping("contactus/feedbackopinion")
 	public String list2(Model model) {
+		List<ContactusBean> list2=contactusService.getAllContactus();
+		model.addAttribute("contactus", list2);
 		return "contactus/feedbackopinion";
 	}
 	@RequestMapping("contactus/StatisticsReport")

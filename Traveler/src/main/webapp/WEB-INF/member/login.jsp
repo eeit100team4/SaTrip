@@ -148,6 +148,7 @@ input[type=submit]:hover {
   <div class="row">
   	<h2 >Login </h2>
   	<div class="col-md-4" >
+<<<<<<< HEAD
         <input id="errorMsgMap" type="text" name="memberId" placeholder="身份證字號" required>${ErrorMsgMap.AccountEmptyError}</Font></small></TD>
         <input id="errorMsgMap" type="password" name="password" placeholder="Password" required>
 <%--         <div id="errorMsgMap" style="color: #ff0000; font-size =60%; display: inline;">${ErrorMsgMap.LoginError}</div> --%>
@@ -158,6 +159,14 @@ input[type=submit]:hover {
     	<TR height='10'>
              <TD align="CENTER" colspan='2'>&nbsp;<Font color='red' size="-1">${ErrorMsgMap.LoginError}&nbsp;</Font></TD>
          </TR>
+=======
+        <input type="text" name="memberId" placeholder="身份證字號" required>
+        <input type="password" name="password" placeholder="Password" required>
+                <div style="align=center;">
+                <input type="checkbox"	name="rememberMe"
+				<c:if test='${sessionScope.rememberMe==true}'>checked='checked'</c:if>
+						value="true" style="width:10%">記住密碼
+>>>>>>> branch 'master' of https://github.com/eeit100team4/Traveler.git
     	<div class="g-recaptcha col" data-sitekey="6LecRlkUAAAAAAjw-yatNu-zJHfZhcqVmg10Ce9b" style="width:304px"></div>
     </div>
     	 

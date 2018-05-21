@@ -1,6 +1,5 @@
 package com.web.service.airplain;
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -23,7 +22,7 @@ public class SendEmailService {
 	
 	Properties props =new Properties();
 	String RECIPIENT=null;
-	public  void sendEmail(String fileName)  {
+	public  void sendTest(String fileName)  {
 		try {
 			props.load(new FileInputStream("c:/pdf/BFM.properties"));
 		} catch (IOException e) {
@@ -47,36 +46,6 @@ public class SendEmailService {
 		}
 	}
 	
-	
-	
-	public  void sendNewEmail(String fileName)  {
-		try {
-			props.load(new FileInputStream("c:/pdf/BFM.properties"));
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		File file = new File("c:/OrderPDF/"+fileName+".pdf");
-		   System.out.println("進入寄信SERVICE");
-		if(file.exists()) {
-			fileName=fileName+"_new";
-		}
-		
-		RECIPIENT="asally1110@gmail.com";
-		String from = props.getProperty("Email_USER_NAME");
-		String pass = props.getProperty("Email_PASSWORD");
-		String[] to = { RECIPIENT }; // list of recipient email addresses
-		String subject = "Traveler機票訂單";
-		StringBuffer sb= new StringBuffer();
-		sb.append("<h3 style='color:red'>");
-		sb.append("Traveler重新寄發明細</h3>");
-		String body = sb.toString() ;
-
-		try {
-			sendFromGMail(from, pass, to, subject, body,fileName);
-		} catch (UnsupportedEncodingException e) {
-			e.printStackTrace();
-		}
-	}
 	
 	
 
@@ -116,7 +85,6 @@ public class SendEmailService {
 	        MimeBodyPart filePart1 = new MimeBodyPart();
 	        MimeBodyPart filePart2 = new MimeBodyPart();
 	        // 檔案位置
-	     
 	        try {
 				filePart1.attachFile("c:/OrderPDF/"+fileName+".pdf");
 			} catch (IOException e) {

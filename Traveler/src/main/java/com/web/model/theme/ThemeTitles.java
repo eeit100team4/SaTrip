@@ -1,8 +1,6 @@
 package com.web.model.theme;
 
 import java.io.Serializable;
-import java.sql.Blob;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,8 +11,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
 import org.springframework.web.multipart.MultipartFile;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 //裡面裝了主題旅遊名稱跟流水號的設定
 @Entity
 @Table(name="ThemeTitles")

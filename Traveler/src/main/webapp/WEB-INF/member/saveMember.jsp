@@ -66,7 +66,11 @@ table {
 					<tr bgcolor='#F5F5F5'>
 						<td width="120" height="40" align="right">*性別:</td>
 						<td width="600" height="40" align="left">
+<<<<<<< HEAD
 						<select id="gender" name="gender" style="text-align: left" onchange="chkGender()">
+=======
+						<select id="gender" name="gender" style="text-align: left" onblur="chkGender()">
+>>>>>>> branch 'master' of https://github.com/eeit100team4/Traveler.git
 								<option value="" ${(function == 'add')?"selected":""}>請選擇</option>
 								<option value="male" ${(member.gender == 'male')?"selected":""}>男</option>
 								<option value="female" ${(member.gender == 'female')?"selected":""}>女</option>
@@ -105,17 +109,28 @@ table {
 						<td width="600" height="40" align="left">*中文
 						<input id="chineseLastName" name="chineseLastName" 
 							value="${(function == 'add')?param.chineseLastName:member.chineseLastName}"	
+<<<<<<< HEAD
 							type="text" size="10" placeholder="姓" onblur="chkName(value)">
 						<input id="chineseFirstName" name="chineseFirstName" 
 							value="${(function == 'add')?param.chineseFirstName:member.chineseFirstName}"
 							type="text" size="10" placeholder="名" onblur="chkName(value)">
 							<div  id="errMsgName" style="color: #ff0000; font-size =60%; display: inline;">${errorMsg.name}</div>
 							<p></p>&nbsp&nbsp英文
+=======
+							type="text" size="20" placeholder="姓" onblur="chkName(value)">
+						<input id="chineseFirstName" name="chineseFirstName" 
+							value="${(function == 'add')?param.chineseFirstName:member.chineseFirstName}"
+							type="text" size="20" placeholder="名" onblur="chkName(value)"><p></p>&nbsp&nbsp英文
+>>>>>>> branch 'master' of https://github.com/eeit100team4/Traveler.git
 						<input id="englishLastName" name="englishLastName" 
 							value="${(function == 'add')?param.englishLastName:member.englishLastName}"
 							type="text" size="20" placeholder="姓Last Name">
 						<input name="englishFirstName" value="${(function == 'add')?param.englishFirstName:member.englishFirstName}"
 							type="text" size="20" placeholder="名First Name">
+<<<<<<< HEAD
+=======
+							<div  id="errMsgName" style="color: #ff0000; font-size =60%; display: inline;">${errorMsg.name}</div>
+>>>>>>> branch 'master' of https://github.com/eeit100team4/Traveler.git
 						</td>
 					</tr>
 

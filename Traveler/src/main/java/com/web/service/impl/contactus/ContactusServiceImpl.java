@@ -33,7 +33,7 @@ public class ContactusServiceImpl implements ContactusService {
 
 	
 	@Override
-	public void update(ContactusBean contactus) {
+	public void updateContactusBean(ContactusBean contactus) {
 		contactusRepository.update(contactus);
 	}
 
@@ -48,6 +48,13 @@ public class ContactusServiceImpl implements ContactusService {
 	public List<ContactusBean> getAllFeedback() {
 		return contactusRepository.getAllFeedback();
 	}
+
+	@Override
+	public void updateCustomerOpinion(ContactusBean contactus) {
+		contactusRepository.update(contactus);
+	}
+
+	
 
 	
 

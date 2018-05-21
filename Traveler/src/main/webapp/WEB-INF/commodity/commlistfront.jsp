@@ -227,7 +227,7 @@ padding-left:20px;
 				</div>
 			</header>
 
-	<div id="fh5co-blog-section" class="fh5co-section-gray"  style="background-image: url(../images/contactus.jpg)">
+	<div id="fh5co-blog-section" class="fh5co-section-gray" >
 
 		<div class="container" >
 			<div class="row" >
@@ -263,6 +263,7 @@ padding-left:20px;
 <!-- 										<span class="posted_by">Sep. 15th</span>  -->
 <!-- 								<span class="comment"><a href="">QQQQQ<i class="icon-bubble2"></i></a></span> -->
 									<h3 style="text-align:center">兌換點數 :${comm.point}點</h3>
+									<h3 style="text-align:center">剩餘數量:${comm.quantity}個</h3>
 									
 									<div style="padding-left:100px">
 									<a class="btn btn-warning" href="tsuikaClient/${comm.commodityid}" role="button">兌換</a>
@@ -302,7 +303,7 @@ padding-left:20px;
 
 <!-- <script> -->
 
-// document.addEventLisener(DOMCont )
+<!-- // document.addEventLisener(DOMCont ) -->
 
 
 <!-- </script> -->

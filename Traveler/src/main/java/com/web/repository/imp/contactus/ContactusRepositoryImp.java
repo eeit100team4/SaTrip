@@ -8,6 +8,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.web.model.commodity.CommodityBean;
 import com.web.model.contactus.ContactusBean;
 import com.web.repository.contactus.ContactusRepository;
 
@@ -60,6 +61,20 @@ public class ContactusRepositoryImp implements ContactusRepository {
 		session = factory.getCurrentSession();
 		list = session.createQuery(hql).getResultList();
 		return list;
+	}
+
+	@Override
+	public void updateCustomerOpinion(ContactusBean contactus) {
+		int pkid = contactus.getPkid();
+		String name = contactus.getName();
+		String feedback = contactus.getFeedback();
+		
+		Session session = factory.getCurrentSession();
+		ContactusBean contactus2 = session.get(ContactusBean.class, pkid);
+	
+		contactus2.setName(name);
+		contactus2.setFeedback(feedback);
+		session.save(contactus2);
 	}
 
 //	@Override
