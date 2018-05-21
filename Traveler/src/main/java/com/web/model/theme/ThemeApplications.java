@@ -36,7 +36,7 @@ public class ThemeApplications implements Serializable {
 	//服務據點
 	private String location;
 	//報名日期
-	private Timestamp applicationDate;
+	private String extra;
 	
 	//FK的表格
 	private ThemeJourneys themeJourneys;
@@ -54,7 +54,7 @@ public class ThemeApplications implements Serializable {
 	
 	//帶參數建構子 //加入FK表格
 	public ThemeApplications(Integer applicationId, Integer journeyId, String name, String gender, String cellPhone, Integer people,
-			String callTime, String location, Timestamp applicationDate, ThemeJourneys themeJourneys, 
+			String callTime, String location, String extra, ThemeJourneys themeJourneys, 
 			ThemeProducts themeProducts, ThemeTitles themeTitles) {
 		super();
 		this.applicationId = applicationId;
@@ -65,7 +65,7 @@ public class ThemeApplications implements Serializable {
 		this.people = people;
 		this.callTime = callTime;
 		this.location = location;
-		this.applicationDate = applicationDate;
+		this.extra = extra;
 		this.themeJourneys = themeJourneys;
 		this.themeProducts = themeProducts;
 		this.themeTitles = themeTitles;
@@ -126,17 +126,17 @@ public class ThemeApplications implements Serializable {
 	public void setLocation(String location) {
 		this.location = location;
 	}
-	public Timestamp getApplicationDate() {
-		return applicationDate;
+	public String getExtra() {
+		return extra;
 	}
-	public void setApplicationDate(Timestamp applicationDate) {
-		this.applicationDate = applicationDate;
+	public void setExtra(String extra) {
+		this.extra = extra;
 	}
 	@Override
 	public String toString() {
 		return "ThemeApplications [applicationId=" + applicationId + ", journeyId=" + journeyId + ", name=" + name
 				+ ", gender=" + gender + ", cellPhone=" + cellPhone + ", people=" + people + ", callTime=" + callTime + ", location="
-				+ location + ", applicationDate=" + applicationDate + ", themeJourneys=" + themeJourneys + ", themeProducts=" 
+				+ location + ", extra=" + extra + ", themeJourneys=" + themeJourneys + ", themeProducts=" 
 				+ themeProducts  + ", themeTitles=" + themeTitles + "]";
 	}
 	

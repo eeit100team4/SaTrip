@@ -22,9 +22,9 @@ public class HomeController {
 //	 return "index";
 //	 }
 	 
-	 @RequestMapping({"/backStage"})
+	 @RequestMapping({"/backStageForm"})
 	 public String backStage() {
-	 return "backstage";
+	 return "backStageForm";
 	 }
 	 
 	 @RequestMapping({ "/", "/index" })
@@ -40,23 +40,6 @@ public class HomeController {
 				model.addAttribute("userName", userName);
 			}
 			return "index";
-		}
-	 
-	 @RequestMapping(value = "{xxx}/{xxx}Index", method = RequestMethod.GET)
-		public String findOwner(@PathVariable String xxx, HttpServletRequest request, HttpServletResponse response,
-				Model model) {
-			System.out.println("xxx="+xxx+"Index");
-			HttpSession session = request.getSession();
-			MemberBean mb = (MemberBean) session.getAttribute("LoginOK");
-			System.out.println("mb=" + mb);
-			if (mb != null) {// 未避免使用者尚未登入，造成nullPointException
-				String cFirstName = mb.getChineseFirstName();
-				String eFirstName = mb.getEnglishFirstName();
-				// 看是否有中文名字，有則show中文名，沒有則show英文
-				String userName = (StringUtils.isNotEmpty(cFirstName)) ? cFirstName : eFirstName;
-				model.addAttribute("userName", userName);
-			}
-			return xxx + "/" + xxx + "Index";
 		}
 	 
 }

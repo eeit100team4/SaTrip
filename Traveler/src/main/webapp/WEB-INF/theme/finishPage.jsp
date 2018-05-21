@@ -118,9 +118,12 @@
 </head>
 <body>
 	<%@ include file="/WEB-INF/frontStageHeader.jsp"%>
-	
+<div style="text-align:center">	
 <H1>報名完成</H1>
-	
+</div>
+<div style="text-align:center">	
+<a href="index">回首頁</a>
+</div>	
 	<%@ include file="/WEB-INF/frontStageFooter.jsp"%>
 </body>
 </html>

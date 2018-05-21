@@ -3,6 +3,7 @@ package com.web.controller;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -71,8 +72,7 @@ public class ThemeController {
 	ThemeJourneys list = themeService.getDetailsByJourneyId(journeyId);
 	System.out.println(list);
 	model.addAttribute("detail", list);
-	session.setAttribute("test", list);
-		
+	session.setAttribute("test", list);		
 	System.out.println("qqq"+list);//測試	
 	return "theme/detail";
 	}

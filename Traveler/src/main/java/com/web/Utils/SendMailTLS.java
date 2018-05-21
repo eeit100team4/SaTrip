@@ -4,7 +4,6 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
-import javax.crypto.spec.SecretKeySpec;
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.PasswordAuthentication;
@@ -12,9 +11,10 @@ import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
-
-
 public class SendMailTLS {
+//	public static void main(String[] args) {
+//		sendQueryPwdMail("h6300kimo@gmil.com","abc");
+//	}
 	public static void sendQueryPwdMail(String email, String chkPw) {
 		try {
 			Message message = new MimeMessage(getSession());
@@ -31,7 +31,7 @@ public class SendMailTLS {
 				+"\n提醒您！"
 				+"\nTraveler旅遊網不會以電話通知更改付款方式或要求改以ATM重新轉帳。"
 				+"\n亦不會委託廠商以電話通知變更付款方式或要求提供ATM匯款帳號。"
-				+"\nTraveler網:http://localhost:8080/springLabs2/login");
+				+"\nTraveler網:http://localhost:8080/Traveler/");
 			Transport.send(message);
 			System.out.println("Done");
 		} catch (MessagingException e) {
@@ -51,8 +51,9 @@ public class SendMailTLS {
 		RECIPIENT="asally1110@gmail.com";
 		String username = props.getProperty("Email_USER_NAME");
 		String password = props.getProperty("Email_PASSWORD");
-		String[] to = { RECIPIENT };
-
+//		String[] to = { RECIPIENT };
+//		System.out.println("username="+username);
+//		System.out.println("password="+password);
 		Properties props = new Properties();
 		props.put("mail.smtp.auth", "true");
 		props.put("mail.smtp.starttls.enable", "true");

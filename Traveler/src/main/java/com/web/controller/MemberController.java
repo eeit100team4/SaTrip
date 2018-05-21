@@ -85,12 +85,13 @@ public class MemberController {
 			errorMsg.put("oldPassword", "舊密碼欄必須輸入");
 		} else {
 			String encodePassword = GlobalService.encryptString(oldPassword);
-			String sessionEncodePwd = GlobalService.encryptString(mb.getPassword());
-			if (encodePassword.equals(sessionEncodePwd)) {
+			String sessionEncodePwd = mb.getPassword();
+			if (!encodePassword.equals(sessionEncodePwd)) {
 				errorMsg.put("oldPassword", "舊密碼輸入錯誤");
-			} else {
-
-			}
+			} 
+		}
+		if(password.equals(oldPassword)) {
+			errorMsg.put("password", "新密碼必須和舊密碼不同");
 		}
 		if (password == null || password.trim().length() == 0) {
 			errorMsg.put("password", "密碼欄必須輸入");
@@ -271,7 +272,6 @@ public class MemberController {
 				// englishFirstName, bdate, email, mobile, phoneNumber, address,
 				// passportNumber);
 				mb.setGender(gender);
-				mb.setGender(gender);
 				mb.setChineseLastName(chineseLastName);
 				mb.setChineseFirstName(chineseFirstName);
 				mb.setEnglishLastName(englishLastName);
@@ -284,6 +284,8 @@ public class MemberController {
 				mb.setPassportNumber(passportNumber);
 
 				memberService.updateMember(mb);
+				request.setAttribute("chineseLastName", chineseLastName);
+				request.setAttribute("chineseFirstName", chineseFirstName);
 			} catch (Exception e) {
 				errorMsg.put("memberId", "儲存資料時發生錯誤，請檢查，例外=" + e.getMessage());
 				e.printStackTrace();

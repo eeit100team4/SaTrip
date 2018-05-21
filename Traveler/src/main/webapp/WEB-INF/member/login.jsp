@@ -22,7 +22,7 @@ body {
   position: relative;
   border-radius: 5px;
   background-color: #f2f2f2;
-  padding: 20px 0 30px 0;
+  padding: 10px 0 1px 0;
 } 
 
 /* style inputs and link buttons */
@@ -150,8 +150,14 @@ input[type=submit]:hover {
         <input type="text" name="memberId" placeholder="身份證字號" required>
         <input type="password" name="password" placeholder="Password" required>
                 <div style="align=center;">
+                <input type="checkbox"	name="rememberMe"
+				<c:if test='${sessionScope.rememberMe==true}'>checked='checked'</c:if>
+						value="true" style="width:10%">記住密碼
     	<div class="g-recaptcha col" data-sitekey="6LecRlkUAAAAAAjw-yatNu-zJHfZhcqVmg10Ce9b" style="width:304px"></div>
-    	</div>
+    </div>
+    	 
+			
+		
         <input type="submit" value="Login">
 <!--    <div class="col-md-8"></div>      -->
 
@@ -174,9 +180,9 @@ input[type=submit]:hover {
   </form>
   </div>
 <!-- </div> -->
-<!-- <div style="width:70%"align="center"> -->
+<!-- <div style="width:70%"align="center"> style="padding:center-->
 
-<div class="bottom-container" style="padding:center;margin-bottom: 0px">
+<div class="bottom-container" style="padding:0 0 1px 0;;margin-bottom: 0px">
   <div class="row">
     <div class="col">
       <a href="<spring:url value='/member/register'/>" style="color:white" class="btn">Sign up</a>

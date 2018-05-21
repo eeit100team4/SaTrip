@@ -34,6 +34,7 @@ import com.web.service.commodity.CommodityService;
 
 
 
+//@SessionAttributes("CommodityBean")
 @Controller
 public class CommodityController {
 
@@ -44,13 +45,16 @@ public class CommodityController {
 	@Autowired
 	ServletContext context; 
 	
+	
 
-	//列出商品清單 
+	
 	@RequestMapping(value="/commlist")
 	public String list(Model model) {
 		List<CommodityBean>  list = commodityservice.getAllData();
 		model.addAttribute("commlist", list);
+		
 
+	
 		return "commodity/commlist";
 	}
 	
@@ -65,12 +69,12 @@ public class CommodityController {
 	}
 	
 	//依類型顯示該類型商品
-	@RequestMapping(value="/comm/{kinds}")
+	@RequestMapping(value="/commlist/{kinds}")
 	public String getCommodityByKind(@PathVariable("kinds") String kind,Model model) {
 		List<CommodityBean> list=commodityservice.getCommodityByKind(kind);
 		model.addAttribute("commlist", list);
 		
-		return "commodity/commlistfront2";
+		return "commodity/commlist";
 	}
 	
 	
@@ -167,9 +171,8 @@ public class CommodityController {
 		return responseEntity;
 	
 	}
-	
 
-	//修改頁面中取出資料庫的資料放在表單裡
+	
 	@RequestMapping(value="/henkou")
 	public String updateform(Model model,
 			@ModelAttribute("CommodityBean") CommodityBean cb) {
@@ -180,19 +183,19 @@ public class CommodityController {
 		
 	}
 	
-	//修改資料
+	//Cb2 原本資料庫裡的  cb是使用者輸入的
 	@RequestMapping(path= "/update/{commodityid}" )
 	public String update(@ModelAttribute("CommodityBean") CommodityBean cb,
 			@PathVariable Integer commodityid
 			) {
 
 
+
 		commodityservice.update(cb);
 
+	
 		
 		return "redirect:/commlist";
 	}
 	
-	
-
-}
+}	

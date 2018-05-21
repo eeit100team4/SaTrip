@@ -26,6 +26,31 @@
 <head>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="/Traveler/js/jquery.min.js"></script>
+<!-- jQuery Easing -->
+<script src="/Traveler/js/jquery.easing.1.3.js"></script>
+<!-- Bootstrap -->
+<script src="/Traveler/js/bootstrap.min.js"></script>
+<!-- Waypoints -->
+<script src="/Traveler/js/jquery.waypoints.min.js"></script>
+<script src="/Traveler/js/sticky.js"></script>
+
+<!-- Stellar -->
+<script src="/Traveler/js/jquery.stellar.min.js"></script>
+<!-- Superfish -->
+<script src="/Traveler/js/hoverIntent.js"></script>
+<script src="/Traveler/js/superfish.js"></script>
+<!-- Magnific Popup -->
+<script src="/Traveler/js/jquery.magnific-popup.min.js"></script>
+<script src="/Traveler/js/magnific-popup-options.js"></script>
+<!-- Date Picker -->
+<script src="/Traveler/js/bootstrap-datepicker.min.js"></script>
+<!-- CS Select -->
+<script src="/Traveler/js/classie.js"></script>
+<script src="/Traveler/js/selectFx.js"></script>
+
+<!-- Main JS -->
+<script src="/Traveler/js/main.js"></script>
 </head>
 
 
@@ -140,8 +165,9 @@ footer {
 
 <script src="/Traveler/js/airplain/jquery-tablepage.js"></script>
 <script>
-	$(document).ready(function(){
+$( document ).ready(function(){
 		page();
+		dat();
 // 		pagecolor();
 	});
 	function ale(){
@@ -175,8 +201,7 @@ footer {
 <script>
 //顯示最新訂單的ICON
 function dat(){
-	
-
+var sum=0;
 var num=$("#tbo").find("tr").length;
 var nowD= (Date.parse(new Date())).valueOf();
 var aDay=1000*60*60*24;
@@ -184,13 +209,15 @@ var aDay=1000*60*60*24;
 for(var k=0;k<3;k++){
 	var test= $("#tbo").find("tr:eq("+k+")").find("td:eq(1)").text();
 	var date =(Date.parse( new Date(test))).valueOf();
-	alert((nowD-date)<aDay);
-	if((nowD-date)>aDay){
+	if((nowD-date)<aDay){
 		var visibity=$("#tbo").find("tr:eq("+k+")").find("img").css("visibility", "visible");
+		sum+=1;
 	}
 }
-
+$("#newTotal").empty().append(sum);
 }
+//顯示當日訂單
+
 </script>
 
 
@@ -229,11 +256,11 @@ for(var k=0;k<3;k++){
 				<li><a href="index.html">航班統計報表</a></li>
 
 			</ul>
-			<button class="btn" onclick="dat()">dat</button>
+			<button class="btn" onclick="">dat</button>
 		</div>
 		<div class="d2">
 			<div class="text-left" >
-			<span style="margin-left:20px;">本日新訂單：</span><span id="newTotal" style="margin-right:250px;">&nbsp10</span>
+			<span style="margin-left:20px;">本日新訂單：</span><span id="newTotal" style="margin-right:250px;"></span>
 			<input id="one" type="text" placeholder="查詢指定訂單" /><button class="btn" type="button" onclick="selectOne()"> go</button></div>
 			<!-- 			<table class="table" class="table table-sm table-hover"> -->
 			<!-- 				<thead> -->

@@ -41,4 +41,3 @@ public interface ThemeService {
 	void addApplications(ThemeApplications application);
 				
 }
-

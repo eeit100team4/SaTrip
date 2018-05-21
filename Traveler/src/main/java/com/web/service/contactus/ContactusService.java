@@ -13,10 +13,10 @@ public interface ContactusService {
 
 	
 	
-	void update(ContactusBean contactus);
+	void updateContactusBean(ContactusBean contactus);
 	List<ContactusBean> getAllContactus();
 	List<ContactusBean> getAllFeedback();
 	void addCustomerOpinion(ContactusBean contactus);
 	void updateAllFeedback();
-	
+  
 }

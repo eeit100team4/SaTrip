@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- 連結旁邊的小ICON套件  -->	
+<script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
 		<header id="fh5co-header-section" class="sticky-banner">
 				<div class="container">
 					<div class="nav-header">
@@ -25,14 +27,23 @@
 								
 								<li><a href="/Traveler/commlistfront"><i class=	"fas fa-cart-arrow-down"></i><font color="orange">紅利商品</font></a></li>
 								<li><a href="/Traveler/contactus/contactusopinion"><i class="fas fa-phone-square"></i><font color="orange">客服中心</font></a></li>
-							
-								<li><a href='/Traveler/member/login'><i class="far fa-user-circle"></i><font color="orange">登入/註冊</font></a>
-							<!--	<c:choose>
-									<c:when test="${userName!=null}">您好，${userName}  <a href='member/logout.do'> 登出</a>
-									</c:when>
-								<c:otherwise><a href='member/register'>註冊</a>/<a href='member/login'>登入</a></c:otherwise>
-								</c:choose>-->
+							<c:choose>
+									<c:when test="${userName!=null}">
+									<!-- 登入後 -->
+								<li><a href=''><i class="far fa-user-circle"></i><font color="orange">會員專區</font></a>
+									<ul class="fh5co-sub-menu">
+											<li><a href='member/updateMember'>修改會員資料</a></li>
+											<li><a href='member/changePwd'>修改密碼</a></li>
+											<li><a href='member/members'>查詢所有會員資料</a></li>
+											<li><a href='member/logout.do'>登出</a></li>
+									</ul>
 								</li>
+								</c:when>
+									<c:otherwise>
+										<!-- 登入前 -->
+										<li><a href='member/login'><i class="far fa-user-circle"></i><font color="orange">註冊/登入</a></li>
+									</c:otherwise>
+								</c:choose>
 							</ul>
 						</nav>
 					</div>
