@@ -25,8 +25,10 @@ public class ThemeApplications implements Serializable {
 	private Integer journeyId;
 	//姓名
 	private String name;
+	//性別
+	private String gender;
 	//電話
-	private Integer cellPhone;
+	private String cellPhone;
 	//人數
 	private Integer people;
 	//可連絡時段
@@ -34,7 +36,7 @@ public class ThemeApplications implements Serializable {
 	//服務據點
 	private String location;
 	//報名日期
-	private Timestamp applicationDate;
+	private String extra;
 	
 	//FK的表格
 	private ThemeJourneys themeJourneys;
@@ -51,18 +53,19 @@ public class ThemeApplications implements Serializable {
 	}
 	
 	//帶參數建構子 //加入FK表格
-	public ThemeApplications(Integer applicationId, Integer journeyId, String name, Integer cellPhone, Integer people,
-			String callTime, String location, Timestamp applicationDate, ThemeJourneys themeJourneys, 
+	public ThemeApplications(Integer applicationId, Integer journeyId, String name, String gender, String cellPhone, Integer people,
+			String callTime, String location, String extra, ThemeJourneys themeJourneys, 
 			ThemeProducts themeProducts, ThemeTitles themeTitles) {
 		super();
 		this.applicationId = applicationId;
 		this.journeyId = journeyId;
 		this.name = name;
+		this.gender = gender;
 		this.cellPhone = cellPhone;
 		this.people = people;
 		this.callTime = callTime;
 		this.location = location;
-		this.applicationDate = applicationDate;
+		this.extra = extra;
 		this.themeJourneys = themeJourneys;
 		this.themeProducts = themeProducts;
 		this.themeTitles = themeTitles;
@@ -81,7 +84,6 @@ public class ThemeApplications implements Serializable {
 		this.applicationId = applicationId;
 	}
 	//FK
-	@Transient
 	public Integer getJourneyId() {
 		return journeyId;
 	}
@@ -94,10 +96,16 @@ public class ThemeApplications implements Serializable {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public Integer getCellPhone() {
+	public String getGender() {
+		return gender;
+	}
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+	public String getCellPhone() {
 		return cellPhone;
 	}
-	public void setCellPhone(Integer cellPhone) {
+	public void setCellPhone(String cellPhone) {
 		this.cellPhone = cellPhone;
 	}
 	public Integer getPeople() {
@@ -118,17 +126,17 @@ public class ThemeApplications implements Serializable {
 	public void setLocation(String location) {
 		this.location = location;
 	}
-	public Timestamp getApplicationDate() {
-		return applicationDate;
+	public String getExtra() {
+		return extra;
 	}
-	public void setApplicationDate(Timestamp applicationDate) {
-		this.applicationDate = applicationDate;
+	public void setExtra(String extra) {
+		this.extra = extra;
 	}
 	@Override
 	public String toString() {
 		return "ThemeApplications [applicationId=" + applicationId + ", journeyId=" + journeyId + ", name=" + name
-				+ ", cellPhone=" + cellPhone + ", people=" + people + ", callTime=" + callTime + ", location="
-				+ location + ", applicationDate=" + applicationDate + ", themeJourneys=" + themeJourneys + ", themeProducts=" 
+				+ ", gender=" + gender + ", cellPhone=" + cellPhone + ", people=" + people + ", callTime=" + callTime + ", location="
+				+ location + ", extra=" + extra + ", themeJourneys=" + themeJourneys + ", themeProducts=" 
 				+ themeProducts  + ", themeTitles=" + themeTitles + "]";
 	}
 	

@@ -2,12 +2,16 @@ package com.web.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import com.web.model.theme.ThemeTitles;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+import com.web.model.theme.ThemeApplications;
 import com.web.model.theme.ThemeJourneys;
 import com.web.model.theme.ThemeProducts;
 import com.web.service.theme.ThemeService;
@@ -16,14 +20,16 @@ import com.web.service.theme.ThemeService;
 public class ThemeController {
 	@Autowired
 	ThemeService themeService;
+	@Autowired
+	HttpSession session;
 
-	// 從首頁點選主題旅遊時的dispatcher
-	@RequestMapping("theme/themeTitles")
-	public String list(Model model) {
-		List<ThemeTitles> list = themeService.getTitles();
-		model.addAttribute("themeTitles", list);
-		return "theme/themeTitles";
-	}
+//	// 從首頁點選主題旅遊時的dispatcher 
+//	@RequestMapping("theme/themeTitles")
+//	public String list(Model model) {
+//		List<ThemeTitles> list = themeService.getTitles();
+//		model.addAttribute("themeTitles", list);
+//		return "theme/themeTitles";
+//	}
 	
 	//叫出各title，顯示在網頁
 	@RequestMapping("/theme/titles")
@@ -62,12 +68,37 @@ public class ThemeController {
 	//依行程編號抓出detail
 	@RequestMapping("/theme/products/{titleName}/{productName}/{journeyId}")
 	public String getDetailsByJourneyId(@PathVariable("journeyId") Integer journeyId, Model model) {
-	List<ThemeJourneys> list = themeService.getDetailsByJourneyId(journeyId);
-	model.addAttribute("details", list);
+	ThemeJourneys list = themeService.getDetailsByJourneyId(journeyId);
+	System.out.println(list);
+	model.addAttribute("detail", list);
+	session.setAttribute("test", list);		
 	System.out.println("qqq"+list);//測試	
-	return "theme/details";
+	return "theme/detail";
 	}
 	
+	//產生空白表單已填入報名資訊
+	@RequestMapping(value = "/theme/products/{titleName}/{productName}/{journeyId}/application", method = RequestMethod.GET)
+	public String getAddNewApplicationForm(Model model) {
+		ThemeApplications ta = new ThemeApplications();
+		model.addAttribute("application", ta);
+		System.out.println("aaaaaaaa"+ta);
+		ThemeJourneys aa = (ThemeJourneys) session.getAttribute("test");
+		model.addAttribute("testt",aa);
+		return "theme/application";
+	}
+	//表單填完送出後跳到finishPage
+	@RequestMapping(value = "/theme/products/{titleName}/{productName}/{journeyId}/application", method = RequestMethod.POST)
+	public String processAddNewApplicationForm(@ModelAttribute("application") ThemeApplications ta) {
+		ThemeJourneys tt =(ThemeJourneys) session.getAttribute("test");
+		System.out.println("sss"+tt.getJourneyId());
+		ta.setJourneyId(tt.getJourneyId());
+		System.out.println("fornt"+ta);
+		themeService.addApplications(ta);		
+		return "theme/finishPage";
+	}
 	
-	
+	@RequestMapping("theme/test")
+	public String test(){
+		return "theme/test";
+	}
 }
