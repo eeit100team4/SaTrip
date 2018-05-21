@@ -22,7 +22,7 @@ body {
   position: relative;
   border-radius: 5px;
   background-color: #f2f2f2;
-  padding: 10px 0 1px 0;
+  padding: 1px 0 0 0;
 } 
 
 /* style inputs and link buttons */
@@ -148,10 +148,9 @@ input[type=submit]:hover {
   <div class="row">
   	<h2 >Login </h2>
   	<div class="col-md-4" >
-<<<<<<< HEAD
-        <input id="errorMsgMap" type="text" name="memberId" placeholder="身份證字號" required>${ErrorMsgMap.AccountEmptyError}</Font></small></TD>
-        <input id="errorMsgMap" type="password" name="password" placeholder="Password" required>
-<%--         <div id="errorMsgMap" style="color: #ff0000; font-size =60%; display: inline;">${ErrorMsgMap.LoginError}</div> --%>
+        <input type="text" name="memberId" placeholder="身份證字號" required></Font></small></TD>
+        <input type="password" name="password" placeholder="Password" required>
+<%--         <div id="errorMsgMap"  font-size =30%; display: inline;">${ErrorMsgMap.LoginError}</div> --%>
         <div style="align=center;">
                 <input type="checkbox"	name="rememberMe"
 				<c:if test='${sessionScope.rememberMe==true}'>checked='checked'</c:if>
@@ -159,14 +158,6 @@ input[type=submit]:hover {
     	<TR height='10'>
              <TD align="CENTER" colspan='2'>&nbsp;<Font color='red' size="-1">${ErrorMsgMap.LoginError}&nbsp;</Font></TD>
          </TR>
-=======
-        <input type="text" name="memberId" placeholder="身份證字號" required>
-        <input type="password" name="password" placeholder="Password" required>
-                <div style="align=center;">
-                <input type="checkbox"	name="rememberMe"
-				<c:if test='${sessionScope.rememberMe==true}'>checked='checked'</c:if>
-						value="true" style="width:10%">記住密碼
->>>>>>> branch 'master' of https://github.com/eeit100team4/Traveler.git
     	<div class="g-recaptcha col" data-sitekey="6LecRlkUAAAAAAjw-yatNu-zJHfZhcqVmg10Ce9b" style="width:304px"></div>
     </div>
     	 
@@ -181,22 +172,18 @@ input[type=submit]:hover {
 <!--       <div class="vl"> -->
 <!--         <span class="vl-innertext">or</span> -->
 <!--       </div> -->
-  	<div class="col-md-4">
+  	<div class="col-md-4" padding="0 0 1px 0">
         <a href="#" class="fb btn">
           	<i class="fa fa-facebook fa-fw"></i> Login with Facebook
         </a>
         <a href="#" class="google btn">
         	<i class="fa fa-google fa-fw"></i> Login with Google+
         </a>
-
     </div>
     </div>    
   </form>
   </div>
-<!-- </div> -->
-<!-- <div style="width:70%"align="center"> style="padding:center-->
-
-<div class="bottom-container" style="padding:0 0 1px 0;;margin-bottom: 0px">
+<div class="bottom-container" margin-bottom: 0px">
   <div class="row">
     <div class="col">
       <a href="<spring:url value='/member/register'/>" style="color:white" class="btn">Sign up</a>
