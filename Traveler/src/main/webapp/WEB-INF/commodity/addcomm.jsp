@@ -161,6 +161,7 @@ footer {
 				<li><a href="commlist">商品清單</a></li>
 				<li><a href="tsuika">新增商品訂單</a></li>
                 <li><a href="henkou">修改商品</a></li>
+                <li><a href="ClientLists">兌換清單</a></li>
 			</ul>
 		</div>
 

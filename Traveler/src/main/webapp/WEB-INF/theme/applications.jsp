@@ -185,20 +185,10 @@ float:right;
     <b style='font-size:16px;'>商品名稱:${applications.themeJourneys.themeProducts.productName}</b><br>
     <b style='font-size:16px;'>出發日期:<fmt:formatDate value="${applications.themeJourneys.setOut}" pattern="yyyy/MM/dd" /></b><br>
     <b style='font-size:16px;'>報名人:${applications.name}</b><br>
+    <b style='font-size:16px;'>連絡電話:${applications.cellPhone}</b><br>
+    <b style='font-size:16px;'>備註:${applications.extra}</b><br>
+    
     
     </p>
   </div>
  </c:forEach>
-
-</div>
-		
-		<footer>
-		<p>TRAVEL &nbsp; Tel:(02)2222-8888 &nbsp;
-			台北市復興南路一段390號 &nbsp; &copy; 2014 All Rights Reserved Quality Art
-			Technology CO.</p>
-		</footer>
-	</div>
-</body>
-
-
-</html>

@@ -28,11 +28,12 @@ public class CommodityRepository implements CommodityDAO {
 		Session session = null;
 		List<CommodityBean> list = new ArrayList<>();
 		session = factory.getCurrentSession();
-		list = session.createQuery(hql).getResultList();
-		
-		return list;
-		
+		list = session.createQuery(hql).getResultList();		
+		return list;		
 	}
+	
+	
+	
 
 	//列出所有商品種類
 	@Override

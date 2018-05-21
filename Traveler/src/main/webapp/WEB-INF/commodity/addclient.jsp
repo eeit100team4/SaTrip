@@ -73,9 +73,7 @@
 	<script src="/Traveler/js/respond.min.js"></script>
 	<![endif]-->
 
-
 <!-- jQuery -->
-
 
 <script src="/Traveler/js/jquery.min.js"></script>
 <!-- jQuery Easing -->
@@ -173,12 +171,13 @@
 }
 
 .do1 {
-	border: 2px solid #DDDDDD;
+	border: 3px solid 	#ffa042;
 	width: 35%;
 	height: 980px;
 	margin: auto;
 	padding-top: 20px;
 	border-radius:20px;
+	background-color:#FFFFFF;
 }
 
 .do2 {
@@ -208,46 +207,50 @@ font-weight:900
 
 }
 
-
-
 </style>
-
-
 
 <title></title>
 </head>
 <body>
-	<header id="fh5co-header-section" class="sticky-banner"
-		style="background-color: black;">
-	<div class="container">
-		<div class="nav-header">
-			<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle dark"><i></i></a>
-			<h1 id="fh5co-logo">
-				<a href="index.html"><i class="fas fa-dove "></i>Traveler</a>
-			</h1>
-			<!-- -------------------------------------------------------------------------------------------------------	 -->
-			<!-- START #fh5co-menu-wrap -->
-			<nav id="fh5co-menu-wrap" role="navigation">
-			<ul class="sf-menu" id="fh5co-primary-menu"
-				style="background-color: black">
-				<li><a href=""><i class="fas fa-plane"></i><font
-						color="orange">機票</font></a></li>
-				<li><a href="_Hotel/DisplayHotel"><i class="fas fa-home"></i><font
-						color="orange">飯店</font></a></li>
-				<li><a href="theme/themeTitlesl"><i class="fas fa-globe"></i><font
-						color="orange">旅遊</font></a></li>
-				<li><a href="car.html"><i class="fas fa-cart-arrow-down"></i><font
-						color="orange">紅利商品</font></a></li>
-				<li><a href="blog.html"><i class="fas fa-phone-square"></i><font
-						color="orange">客服中心</font></a></li>
-				<li><a href="contact.html"><i class="far fa-user-circle"></i><font
-						color="orange">登入/註冊</font></a></li>
-			</ul>
-			</nav>
-		</div>
-	</div>
-	</header>
+	<header id="fh5co-header-section" class="sticky-banner">
+				<div class="container">
+					<div class="nav-header">
+						<a href="/Traveler" class="js-fh5co-nav-toggle fh5co-nav-toggle dark"><i></i></a>
+						<h1 id="fh5co-logo">
+							<a href=""><i class="icon-airplane"></i>Traveler</a>
+						</h1>
+						<!-- START #fh5co-menu-wrap -->
+						<nav id="fh5co-menu-wrap" role="navigation">
+							<ul class="sf-menu" id="fh5co-primary-menu">
+							<li><a href="/Traveler"><i class="fas fa-plane"></i><font color="orange">機票</font></a></li>
+							<li><a href="/Traveler/_Hotel/DisplayHotel"><i class="fas fa-home"></i><font color="orange">飯店</font></a></li>
+								<li><a href="/Traveler/theme/themeTitles" class="fh5co-sub-ddown"><i class="fas fa-globe"></i><font color="orange">主題旅遊</font></a>
+									<!-- 下面這塊ul以後會刪掉 -->
+									<ul class="fh5co-sub-menu">
+										<li><a href="/Traveler/theme/titles">抓title</a></li>
+										<li><a href="/Traveler/theme/allProducts">顯示全產品</a></li>
+										<li><a href="/Traveler/theme/allJourneys">顯示全行程</a></li>
+										<li><a href="/Traveler/theme/applications">顯示全報名表</a></li>
+									</ul>
+									</li>
+								
+								<li><a href="/Traveler/commlistfront"><i class=	"fas fa-cart-arrow-down"></i><font color="orange">紅利商品</font></a></li>
+								<li><a href="/Traveler/contactus/contactusopinion"><i class="fas fa-phone-square"></i><font color="orange">客服中心</font></a></li>
+							
+								<li><a href='/Traveler/member/login'><i class="far fa-user-circle"></i><font color="orange">登入/註冊</font></a>
+							<!--	<c:choose>
+									<c:when test="${userName!=null}">您好，${userName}  <a href='member/logout.do'> 登出</a>
+									</c:when>
+								<c:otherwise><a href='member/register'>註冊</a>/<a href='member/login'>登入</a></c:otherwise>
+								</c:choose>-->
+								</li>
+							</ul>
+						</nav>
+					</div>
+				</div>
+			</header>
 
+  <div id="fh5co-blog-section" class="fh5co-section-gray" >
 
 	<div class="do">
 		<div class="do1">
@@ -326,32 +329,28 @@ font-weight:900
 			</form:form>
 		</div>
 	</div>
-
-
-	<footer>
-	<div class="row" style="background-color: black">
-		<div class="col-md-6 col-md-offset-3 text-center">
-			<p class="fh5co-social-icons" style="padding-top: 20px">
-				<a href="#"><i class="icon-twitter2"></i></a> <a href="#"><i
-					class="icon-facebook2"></i></a> <a href="#"><i
-					class="icon-instagram"></i></a> <a href="#"><i
-					class="icon-dribbble2"></i></a> <a href="#"><i class="icon-youtube"></i></a>
-			</p>
-			<p>
-				Copyright 2016 Free Html5 <a href="#">Module</a>. All Rights
-				Reserved. <br>Made with <i class="icon-heart3"></i> by <a
-					href="http://freehtml5.co/" target="_blank">Freehtml5.co</a> / Demo
-				Images: <a href="https://unsplash.com/" target="_blank">Unsplash</a>
-			</p>
-		</div>
 	</div>
 
+	<footer style="padding-top:15px">
+			<div class="row">
+				<div class="col-md-6 col-md-offset-3 text-center">
+					<p class="fh5co-social-icons">
+						<a href="#"><i class="icon-twitter2"></i></a> <a href="#"><i
+							class="icon-facebook2"></i></a> <a href="#"><i
+							class="icon-instagram"></i></a> <a href="#"><i
+							class="icon-dribbble2"></i></a> <a href="#"><i
+							class="icon-youtube"></i></a>
+					</p>
+					<p>
+						Copyright 2016 Free Html5 <a href="#">Module</a>. All Rights
+						Reserved. <br>Made with <i class="icon-heart3"></i> by <a
+							href="http://freehtml5.co/" target="_blank">Freehtml5.co</a> /
+						Demo Images: <a href="https://unsplash.com/" target="_blank">Unsplash</a>
+					</p>
+				</div>
+			</div>
 	</footer>
 
-
-
 </body>
-
-
 
 </html>

@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
@@ -42,6 +41,7 @@ public class ThemeBackController {
 		tb.setFileName(originalFilename);
 		// 讀取圖片副檔名
 		String ext = originalFilename.substring(originalFilename.lastIndexOf("."));
+		@SuppressWarnings("unused")
 		String rootDirectory = request.getSession().getServletContext().getRealPath("/");
 
 		themeService.addThemeTitle(tb);
@@ -60,7 +60,7 @@ public class ThemeBackController {
 			e.printStackTrace();
 			throw new RuntimeException("檔案上傳發生異常: " + e.getMessage());
 		}
-		return "redirect:themeTitles";
+		return "redirect:titles";
 	}
 	//後台頁面  連結到主題管理頁
 	@RequestMapping("theme/management")

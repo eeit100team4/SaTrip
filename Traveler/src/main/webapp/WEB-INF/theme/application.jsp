@@ -126,6 +126,9 @@
 	<div style="text-align:center">
 		<form:form method="POST" modelAttribute="application"  >
 		   <fieldset>
+		   <b style='font-size:16px;'>商品名稱<br>${test.themeProducts.productName}</b><br>
+		   <b style='font-size:16px;'>出發日期<br><fmt:formatDate value="${test.setOut}" pattern="yyyy/MM/dd" /></b><br>
+		   <b style='font-size:16px;'>標準團費<br>${test.price}</b><br>		   
 				<label>姓名</label>
 				<form:input  path="name" type="text" />
 				<br>
@@ -143,6 +146,9 @@
 				<br>			
 				<label>服務據點</label>
 				<form:input  path="location" type="text" />
+				<br>
+				<label>備註</label>
+				<form:input  path="extra" type="text" />
 				<br>											
 				<div>					
 				<input type="submit" value="送出報名申請表" />
