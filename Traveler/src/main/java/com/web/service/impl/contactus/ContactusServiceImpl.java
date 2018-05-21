@@ -49,6 +49,11 @@ public class ContactusServiceImpl implements ContactusService {
 		return contactusRepository.getAllFeedback();
 	}
 
+	@Override
+	public void updateCustomerOpinion(ContactusBean contactus) {
+		contactusRepository.update(contactus);
+	}
+
 	
 
 	

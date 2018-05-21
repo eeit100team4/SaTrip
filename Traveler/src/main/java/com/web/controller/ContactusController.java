@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.web.model.commodity.CommodityBean;
 import com.web.model.contactus.ContactusBean;
+import com.web.model.member.MemberBean;
 import com.web.service.contactus.ContactusService;
 
 
@@ -77,16 +78,23 @@ public class ContactusController {
 //		session.setAttribute("aa", contactus2);
 //		return "/contactus/feedbackopinion";		
 //	}
+	@RequestMapping(value="contactus/feedbackopinion/{pkid}",method=RequestMethod.GET)
+	public String updateForm(@ModelAttribute("contactusBean")ContactusBean contactus2,Model model) {
+		System.out.println("enter");		
+		model.addAttribute("contactusBean",contactus2);
+		return "contactus/feedbackopinion";
+	}
 
-//	@RequestMapping(value="/feedback",method=RequestMethod.POST)
-//	public String updateForm(Model model,
-//			@ModelAttribute("contactusBean") ContactusBean contactus) {
-//		
+	@RequestMapping(value="contactus/feedbackopinion/{pkid}",method=RequestMethod.POST)
+	public String updateForm(Model model,
+			@ModelAttribute("contactusBean") ContactusBean contactus,BindingResult result, HttpSession session) {
 //		List<ContactusBean>  list = contactusService.getAllFeedback();
 //		model.addAttribute("contactus", list);
-//		return "contactus/feedbackopinion";		
-//		
-//	}
+		contactusService.updateCustomerOpinion(contactus);
+		session.setAttribute("aa", contactus);
+		return "contactus/feedbackopinion";		
+		
+	}
 	
 	@RequestMapping("/update/feedbackopinion")
 	public String updateFeedback(Model model) {
@@ -94,17 +102,29 @@ public class ContactusController {
 		return "redirect:/contactus/feedbackopinion";	
 	}
 	
-	@RequestMapping(path= "/update/{pkid}" )
-	public String update(@ModelAttribute("contactusBean") ContactusBean contactus,
-			@PathVariable Integer pkid
-			) {
-		contactusService.updateContactusBean(contactus);
-		return "redirect:/contactus/feedbackopinion";
-	}
+//	@RequestMapping(value= "/feedbackopinion",method=RequestMethod.POST)
+//	public String update(@ModelAttribute("contactusBean") ContactusBean contactus,
+//			BindingResult result, HttpSession session) {
+//		contactusService.updateContactusBean(contactus);
+//		session.setAttribute("aa", contactus);
+//		return "redirect:/contactus/feedbackopinion";
+//	}
+	
+//	@RequestMapping("/contactus/updateFeedback")
+//	public String updateMember(HttpServletRequest request, HttpServletResponse response, Model model) {
+//		HttpSession session = request.getSession();
+//		ContactusBean contactus = (ContactusBean) session.getAttribute("");
+//		model.addAttribute("aa", contactus.getPkid());
+////		model.addAttribute("member", contactus);
+////		model.addAttribute("function", "update");
+//		return "/contactus/feedbackopinion";
+//	}
 	
 
 	@RequestMapping("contactus/feedbackopinion")
 	public String list2(Model model) {
+		List<ContactusBean> list2=contactusService.getAllContactus();
+		model.addAttribute("contactus", list2);
 		return "contactus/feedbackopinion";
 	}
 	@RequestMapping("contactus/StatisticsReport")
