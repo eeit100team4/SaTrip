@@ -1,5 +1,6 @@
 package com.web.controller;
 
+import java.io.IOException;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.itextpdf.text.DocumentException;
 import com.web.model.airplain.ExtraPriceBean;
 import com.web.model.airplain.GuestBean;
 import com.web.model.airplain.OrderDetailsBean;
@@ -25,6 +27,8 @@ import com.web.service.airplain.BFMService;
 import com.web.service.airplain.ExtraPriceService;
 import com.web.service.airplain.GuestService;
 import com.web.service.airplain.OrderService;
+import com.web.service.airplain.PdfProduceService;
+import com.web.service.airplain.SendEmailService;
 
 @Controller
 @RequestMapping("/airTickets/back")
@@ -40,6 +44,10 @@ public class airTicketsBackController {
 	GuestService gs;
 	@Autowired
 	ExtraPriceService eps;
+	@Autowired
+	PdfProduceService pdfService;
+	@Autowired
+	SendEmailService sendEmailService;
 
 	@RequestMapping("/list")
 	public String backList() {
@@ -101,6 +109,16 @@ public class airTicketsBackController {
 	public String updateExtraPrice(ExtraPriceBean epBean) {
 		System.out.println(epBean);
 		eps.updateExtraPrice(epBean);
+		return "OK";
+
+	}
+	
+	@RequestMapping(value="/selectOne/PDF/sendPDF",method=RequestMethod.POST)
+	@ResponseBody
+	public String sendPDF(@RequestParam("orderId") String orderId) throws DocumentException, IOException {
+		OrderDetailsBean odBean = os.selectOneByOrderId(orderId);
+		pdfService.pdfProduce(odBean);
+		sendEmailService.sendNewEmail(orderId);
 		return "OK";
 
 	}
