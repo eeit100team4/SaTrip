@@ -87,36 +87,35 @@ public class ContactusController {
 //		session.setAttribute("aa", contactus2);
 //		return "/contactus/feedbackopinion";		
 //	}
-	@RequestMapping(value="contactus/feedbackopinion/{pkid}",method=RequestMethod.GET)
+	@RequestMapping(value="contactus/feedbackopinion",method=RequestMethod.GET)
 	public String updateForm(@ModelAttribute("contactusBean")ContactusBean contactus2,Model model) {
-		System.out.println("enter");		
 		model.addAttribute("contactusBean",contactus2);
 		return "contactus/feedbackopinion";
 	}
 
 	@RequestMapping(value="contactus/feedbackopinion/{pkid}",method=RequestMethod.POST)
 	public String updateForm(Model model,
-			@ModelAttribute("contactusBean") ContactusBean contactus,BindingResult result, HttpSession session) {
+			@ModelAttribute("contactusBean") ContactusBean contactus,BindingResult result, 
+			HttpSession session) {
 //		List<ContactusBean>  list = contactusService.getAllFeedback();
-
 //		model.addAttribute("contactus", list);
 		contactusService.updateCustomerOpinion(contactus);
 		session.setAttribute("aa", contactus);
 		return "contactus/feedbackopinion";		
 		
 	}
-	
-	@RequestMapping(path= "/feedbackopinion/{pkid}" ,method=RequestMethod.POST)
-	public String updateForm(@ModelAttribute("contactusBean") ContactusBean contactus,
-			@PathVariable Integer pkid) {
-		contactusService.updateContactusBean(contactus);
-		return "redirect:/feedbackopinion";
-	}
-	@RequestMapping("/update/feedbackopinion")
-	public String updateFeedback(Model model) {
-		contactusService.getAllFeedback();
-		return "redirect:/contactus/feedbackopinion";	
-	}
+//	
+//	@RequestMapping(path= "/feedbackopinion/{pkid}" ,method=RequestMethod.POST)
+//	public String updateForm(@ModelAttribute("contactusBean") ContactusBean contactus,
+//			@PathVariable Integer pkid) {
+//		contactusService.updateContactusBean(contactus);
+//		return "redirect:/feedbackopinion";
+//	}
+//	@RequestMapping("/update/feedbackopinion")
+//	public String updateFeedback(Model model) {
+//		contactusService.getAllFeedback();
+//		return "redirect:/contactus/feedbackopinion";	
+//	}
 	
 //	@RequestMapping(value= "/feedbackopinion",method=RequestMethod.POST)
 //	public String update(@ModelAttribute("contactusBean") ContactusBean contactus,
@@ -126,21 +125,10 @@ public class ContactusController {
 //		return "redirect:/contactus/feedbackopinion";
 //	}
 	
-//	@RequestMapping("/contactus/updateFeedback")
-//	public String updateMember(HttpServletRequest request, HttpServletResponse response, Model model) {
-//		HttpSession session = request.getSession();
-//		ContactusBean contactus = (ContactusBean) session.getAttribute("");
-//		model.addAttribute("aa", contactus.getPkid());
-////		model.addAttribute("member", contactus);
-////		model.addAttribute("function", "update");
-//		return "/contactus/feedbackopinion";
-//	}
 	
 	
 	@RequestMapping("contactus/feedbackopinion")
 	public String list2(Model model) {
-		List<ContactusBean>  list = contactusService.getAllContactus();
-		model.addAttribute("contactus", list);
 		List<ContactusBean> list2=contactusService.getAllContactus();
 		model.addAttribute("contactus", list2);
 		return "contactus/feedbackopinion";

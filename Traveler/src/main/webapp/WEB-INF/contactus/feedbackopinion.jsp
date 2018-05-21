@@ -158,7 +158,7 @@ float:right;
 					<li><a href="index.html"><img src='/Traveler/images//icon_traveler.png' height="25px" width="25px"/>主題旅遊管理</a></li>
 					<li><a href="index.html"><img src='/Traveler/images//icon_vip.png' height="25px" width="25px"/>會員管理</a></li>
 					<li><a href="commlist"><img src='/Traveler/images//icon_comm.png' height="25px" width="25px"/>紅利管理</a></li>
-					<li><a href="feedbackopinion"><img src='/Traveler/images//icon_support.png' height="25px" width="25px"/>客服管理</a></li>
+					<li><a href="selectopinion"><img src='/Traveler/images//icon_support.png' height="25px" width="25px"/>客服管理</a></li>
 					<li><a href="index.html"><img src='/Traveler/images//icon_login.png' height="25px" width="25px"/>登入</a></li> <!--登出-->
 		</ul>
 
@@ -167,6 +167,7 @@ float:right;
 <div class="d1"> 
 <h2 style="text-align:center">客服管理</h2>
 <ul class="me">
+<li><a href="selectopinion">查看留言</a></li>
 <li><a href="feedbackopinion">回覆留言</a></li>
 <li><a href="StatisticsReport">統計報表</a></li>
 <li><a href="contactuspieasia"></a>
@@ -183,7 +184,8 @@ float:right;
 		
 		
 <div class="d2">		
-				<form:form  method='POST' action="feedbackopinion/${pkid}" modelAttribute="contactusBean"  enctype='multipart/form-data'>
+
+				<form:form  method='POST' action="feedbackopinion/${aa.pkid}" modelAttribute="contactusBean"  enctype='multipart/form-data'>
 						 <fieldest>
 <!-- 						 <div class='form-group'> -->
 <!-- 						 <label for='name'>姓名:</label> -->
@@ -256,7 +258,7 @@ float:right;
 					    <tr>
 					    <td>
 					    <label for='feedback'>回覆欄:</label>
-					    <form:textarea cols="40" rows="5"  id="feedback" path='feedback' value='${aa.feedback}'></form:textarea>
+					    <form:input cols="40" rows="5"  id="feedback" path='feedback' value='${aa.feedback}'></form:input>
 					    </td>
 					    </tr>
 						</table>
