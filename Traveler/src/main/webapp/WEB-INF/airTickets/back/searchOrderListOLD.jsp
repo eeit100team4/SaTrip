@@ -2,46 +2,136 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>	
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>Traveler</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
-<meta name="keywords"
-	content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
-<meta name="author" content="FREEHTML5.CO" />
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+	integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
+	crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+	integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
+	integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+	crossorigin="anonymous"></script>
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
+	integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
+	crossorigin="anonymous"></script>
 
 
+<title>Insert title here</title>
 
-<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-<link rel="shortcut icon" href="/Traveler/images/favicon.ico">
+<style>
+* {
+	margin: 0;
+	padding: 0;
+}
 
-<!--<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>-->
+/* #allpage { */
+/* 	margin: 0 auto; */
+/* } */
+.menu {
+	overflow: auto;
+	width: 100%;
+	list-style-type: none;
+	background-color: #FF8800;
+	border-bottom: 3px solid #cccccc;
+}
 
-<!-- Animate.css -->
-<link rel="stylesheet" href="/Traveler/css/animate.css">
-<!-- Icomoon Icon Fonts-->
-<link rel="stylesheet" href="/Traveler/css/icomoon.css">
-<!-- Bootstrap  -->
-<link rel="stylesheet" href="/Traveler/css/bootstrap.css">
-<!-- Superfish -->
-<link rel="stylesheet" href="/Traveler/css/superfish.css">
-<!-- Magnific Popup -->
-<link rel="stylesheet" href="/Traveler/css/magnific-popup.css">
-<!-- Date Picker -->
-<link rel="stylesheet" href="/Traveler/css/bootstrap-datepicker.min.css">
-<!-- CS Select -->
-<link rel="stylesheet" href="/Traveler/css/cs-select.css">
-<link rel="stylesheet" href="/Traveler/css/cs-skin-border.css">
+.me {
+	overflow: auto;
+	width: 100%;
+	list-style-type: none;
+}
 
-<link rel="stylesheet" href="/Traveler/css/style.css">
+.menu li {
+	float: left;
+	width: 11em;
+	/*為了讓連結區域能依字型大小的變化自動放大,因此在指定width屬性時採用em為單位*/
+	border-right: 1px solid #cccccc;
+}
 
+.me li {
+	float: left;
+	width: 15em;
+	/*為了讓連結區域能依字型大小的變化自動放大,因此在指定width屬性時採用em為單位*/
+}
+
+.menu li a {
+	display: block;
+	width: 100%;
+	line-height: 3em;
+	/*讓文字上下空出適當的空白,不用padding屬性,直接將行Box的高度設的高一些*/
+	color: #333333;
+	text-decoration: none;
+	text-align: center;
+}
+
+.me li a {
+	display: block;
+	width: 100%;
+	line-height: 3em;
+	/*讓文字上下空出適當的空白,不用padding屬性,直接將行Box的高度設的高一些*/
+	color: #333333;
+	text-decoration: none;
+	text-align: center;
+}
+
+.menu li a:hover {
+	color: #FFFFFF;
+	background-color: #AA7700;
+}
+
+.me li a:hover {
+	color: #FFFFFF;
+	background-color: #AA7700;
+}
+
+/* .content { */
+/* 	overflow: auto; */
+/* 	width: 100%; */
+/* 	padding-bottom: 20px; */
+/* } */
+
+/* aside { */
+/* 	float: right; */
+/* 	width: 20%; */
+/* } */
+.list1 {
+	list-style: decimal inside;
+}
+
+footer {
+	width: 100%;
+	clear: both;
+	line-height: 2.5em;
+	text-align: center;
+	color: #ffffff;
+	background-color: #FFBB00;
+	/*             border-bottom-right-radius: 15px; */
+	/*             border-bottom-left-radius: 15px; */
+}
+
+.d1 {
+	background-color: #FF8800;
+	width: 20%;
+	height: 630px;
+	float: left;
+}
+
+.d2 {
+	background-color: #FFFFFF;
+	width: 80%;
+	height: 630px;
+	float: right;
+}
+</style>
 
 <!-- Modernizr JS -->
 <script src="/Traveler/js/modernizr-2.6.2.min.js"></script>
@@ -79,59 +169,7 @@
 
 <!-- Main JS -->
 <script src="/Traveler/js/main.js"></script>
-<!-- 連結旁邊的小ICON套件  -->	
-<script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
 
-<!-- 測試側邊 -->
-<style>
-#mwt_mwt_slider_scroll
-{
-top: 95px;
-left:0px; 
-width:200px;
-position:fixed; 
-z-index:9999;
-}
-
-#mwt_slider_content{
-/* background:#FF8800; */
- background:#FF8800; 
-text-align:center;
-padding-top:20px;
-}
-
-#mwt_fb_tab {
-position:absolute;
-top:20px;
-right:-24px;
-width:24px;
-background:#FF8800;
-color:#ffffff;
-font-family:Arial, Helvetica, sans-serif;
-text-align:center;
-padding:9px 0;
-
--moz-border-radius-topright:10px;
--moz-border-radius-bottomright:10px;
--webkit-border-top-right-radius:10px;
--webkit-border-bottom-right-radius:10px;
-}
-#mwt_fb_tab span {
-display:block;
-height:12px;
-padding:1px 0;
-line-height:12px;
-text-transform:uppercase;
-font-size:12px;
-}
-</style>
-<script type='text/javascript'>
-$(document).ready(function(){
-	$("#mwt_mwt_slider_scroll").animate({ left:'0px' }, 600 ,'swing');
-	$('#mwt_slider_content').css('height', ($(window).height() - 20) + 'px' );
-})
-
-</script>
 
 <script>
 	function entry() {
@@ -220,120 +258,49 @@ $(document).ready(function(){
 		});
 	}
 </script>
-<style>
-html,body{
-margin:0;
-padding:0;
-height:100%;
-}
-.wrapper{
-min-height:100%;
-margin-bottom:0px;
-}
-.footer .push{
-margin-bottom:0px;
-}
-</style>
 
-<script>
-function extraPrice(){
-	$(".d2").empty();
-	$(".d2").html("<div><h2>調整EXTRA價格</h2><select  id='dept' name='dept' class='secDep' style='color: blue;''><option selected='selected'>選擇出發地</option><option>TPE</option></select></div>");
-	$(".d2").append("<div><select onchange='myFunction()' name='arrv'  id='arrv'><option selected='selected'>選擇目的地</option><option>HND</option><option>NRT</option></select></div><div id='show'><div>");
-	
-}
-
-function modify(){
-	alert("修改");
-}	
-
-var dept;
-var arrv;
-var id;
-var extraPrice;
-function myFunction(){
-	dept=$("#dept").val();
-	arrv=$("#arrv").val();
-	
-	var data= new FormData();
-	data.append("dept",dept);
-	data.append("arrv",arrv);
-
-	
-	$.ajax({
-		url : 'extra',
-		type : 'POST',
-		data : data,
-		enctype: "multipart/form-data",
-		contentType : false,
-		processData : false,
-		success : function(responce) {
-			$("#show").empty();		
-			id=responce.pkId;
-			$("#show").append("<div><input id='update' type='text' value="+responce.extraPrice+" ><button type='button' class='btn' onclick='modify()'>修改</button></div>");
-// 			window.location.assign(responce);
-		},
-		error:function(){
-			alert("error");
-		}
-
-	});
-}
-	
-function modify(){
-	extraPrice =$("#update").val();
-	var data2= new FormData();
-	data2.append("id",id);
-	data2.append("dept",dept);
-	data2.append("arrv",arrv);
-	data2.append("extraPrice",extraPrice);
-	
-	alert(dept+","+arrv+","+extraPrice);
-	
-	$.ajax({
-		url : 'updateExtra',
-		type : 'POST',
-		data : data2,
-		enctype: "multipart/form-data",
-		contentType : false,
-		processData : false,
-		success : function(responce) {
-			alert(responce);
-		},
-		error:function(){
-			alert("error");
-		}
-
-	});
-}	
-
-function searchAll(){
-	window.location.assign("searchAll");
-}
-
-</script>
-
-<title>Insert title here</title>
 </head>
 <body>
+	<div id="allpage">
+		<header> <nav>
+		<ul class="menu">
+			<li cless="le"><a href="/Traveler/backStage"><img
+					src='/Traveler/images//icon_index.png' height="25px" width="25px" />TRAVEL後台管理系統</a></li>
+			<li><a href="/Traveler/airTickets/back/list"><img
+					src='/Traveler/images//icon_air.png' height="25px" width="25px" />機票管理</a></li>
+			<li><a href="index.html"><img
+					src='/Traveler/images//icon_hotel.png' height="25px" width="25px" />飯店管理</a></li>
+			<li><a href="index.html"><img
+					src='/Traveler/images//icon_traveler.png' height="25px"
+					width="25px" />主題旅遊管理</a></li>
+			<li><a href="index.html"><img
+					src='/Traveler/images//icon_vip.png' height="25px" width="25px" />會員管理</a></li>
+			<li><a href="commlist"><img
+					src='/Traveler/images//icon_comm.png' height="25px" width="25px" />紅利管理</a></li>
+			<li><a href="index.html"><img
+					src='/Traveler/images//icon_support.png' height="25px" width="25px" />客服管理</a></li>
+			<li><a href="index.html"><img
+					src='/Traveler/images//icon_login.png' height="25px" width="25px" />登入</a></li>
+			<!--登出-->
+		</ul>
 
-	<%@ include file="/WEB-INF/backStageHeader.jsp" %>
+		</nav> </header>
 
-	<!--=========================要放的東西  =====================-->
-	
-	<!-- =========側邊欄位開始============ -->	
-<div id="mwt_mwt_slider_scroll">
-<div id="mwt_slider_content"   >
-<div><h2 style="text-align: center">機票管理</h2></div>
- <div><button style="margin:10px;" type="button" class="btn" onclick="searchAll()">查詢訂單</button></div>
- <div><button type="button" class="btn" onclick="extraPrice()">調整extra價格</button></div>
-</div>
-</div>
-<!-- =========側邊欄位結束============ -->
-	
-	
-	<div style="margin:0px auto; width:800px;" class="content text-center">
-	<div class="d2 " style="">
+		<div class="d1">
+			<h2 style="text-align: center">機票管理</h2>
+			<ul class="me">
+				<li><a href="index.html">查詢會員訂單</a></li>
+				<li><a href="index.html">航班統計報表</a></li>
+
+			</ul>
+
+		</div>
+
+
+
+
+
+		<div class="d2">
 			<ul class="list-group">
 				<li class="list-group-item">訂單編號：${bean.orderID}</li>
 				<li class="list-group-item">去程 :${bean.depDate} ${bean.depT}
@@ -348,7 +315,7 @@ function searchAll(){
 				<li class="list-group-item">付款狀態：${bean.checkpay}</li>
 			</ul>
 			<button type="button" style="margin: 10px;"
-				class="btn-info btn-sm" id="guest" onclick="geust()">聯絡人&旅客資訊</button>
+				class="btn btn-default btn-sm" id="guest" onclick="geust()">聯絡人&旅客資訊</button>
 			<div id="guestInfo" style="display: none">
 				<!--  	<div class="text-left" style="width: 50%;height:auto; margin: 0px auto; border: 1px orange solid"> -->
 				<div class="text-left"
@@ -357,8 +324,7 @@ function searchAll(){
 						<div class="text-center" style="margin: 5px; background: orange">
 							<strong>聯絡人</strong>
 						</div>
-						<div>
-						<div class="form-row" style="background: white">
+						<div class="form-row">
 							<div class="col-md-4 mb-3">
 								<label for="contactName" class="lab">姓名</label> <input
 									type="text" name="contactName" id="contactName" maxlength="10"
@@ -376,20 +342,19 @@ function searchAll(){
 							</div>
 						</div>
 						<div class="form-row">
-							<div class="col-md-6  mb-3">
+							<div class="col-md-5 col-md-offset-1 mb-3">
 								<label for="contactAddress" class="lab">地址</label> <input
-									type="text" name="contactAddress" id="contactAddress" size="40"
+									type="text" name="contactAddress" id="contactAddress" size="45"
 									value="${bean.guestBean.contactAddress}">
 							</div>
 							<div class="col-md-5 col-md-offset-1	 mb-3">
 								<label for="" class="lab">E-mail</label> <input type="text"
-									name="contactEmail" id="contactEmail" size="30"
+									name="contactEmail" id="contactEmail" size="45"
 									value="${bean.guestBean.contactEmail}">
 							</div>
 						</div>
-						</div>
-						<div class="text-center" >
-							<div><h4 style="margin: 5px;">旅客一</h4></div>
+						<div class="text-center" style="margin: 5px; background: orange">
+							<strong>旅客一</strong>
 						</div>
 						<div class="form-row">
 							<div class="col-md-4 mb-3">
@@ -465,27 +430,27 @@ function searchAll(){
 						</div>
 					</c:if>
 						<input type="hidden" name="_method" value="post" />
-						<div class="sub text-center" style="margin-top:50px;margin-bottom:10px">
+						<div class="sub text-center">
 							<input type="hidden" name="orderID" value="${bean.orderID}" /> <input
 								type="hidden" name="guestId" value="${bean.guestId}" />
-							<button type="button" class="btn-xs btn-warning" onclick="update()">修改</button>
-							<button type="button" class="btn-xs btn-Primary" onclick="sendPDF()">寄發PDF</button>
+							<button type="button" class="btn btn-warning" onclick="update()">修改</button>
+							<button type="button" class="btn btn-Primary" onclick="sendPDF()">寄發PDF</button>
 						</div>
 					</form>
 				</div>
 			</div>
 		</div>
-		</div>
-	
-
-	<!--  ========================================================== -->
 
 
 
 
-	<%@ include file="/WEB-INF/backStageFooter.jsp" %>
 
-
-
+	</div>
+	<!-- 		<footer id="Footer" > -->
+	<!-- 		<p>TRAVEL &nbsp; Tel:(02)2222-8888 &nbsp; -->
+	<!-- 			台北市復興南路一段390號 &nbsp; &copy; 2014 All Rights Reserved Quality Art -->
+	<!-- 			Technology CO.</p> -->
+	<!-- 		</footer> -->
 </body>
+
 </html>

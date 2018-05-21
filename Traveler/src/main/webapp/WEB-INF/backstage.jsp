@@ -154,7 +154,7 @@ float:right;
 	    	<a href="index.html"><img src='/Traveler/images//icon_index.png' height="25px" width="25px"/>TRAVEL後台管理系統</a></li>
 					<li><a href="airTickets/back/list"><img src='/Traveler/images//icon_air.png' height="25px" width="25px"/>機票管理</a></li>
 					<li><a href="index.html"><img src='/Traveler/images//icon_hotel.png' height="25px" width="25px"/>飯店管理</a></li>
-					<li><a href="theme/management"><img src='/Traveler/images//icon_traveler.png' height="25px" width="25px"/>主題旅遊管理</a></li>
+					<li><a href=""><img src='/Traveler/images//icon_traveler.png' height="25px" width="25px"/>主題旅遊管理</a></li>
 					<li><a href="index.html"><img src='/Traveler/images//icon_vip.png' height="25px" width="25px"/>會員管理</a></li>
 					<li><a href="commlist"><img src='/Traveler/images//icon_comm.png' height="25px" width="25px"/>紅利管理</a></li>
 					<li><a href="contactus/feedbackopinion"><img src='/Traveler/images//icon_support.png' height="25px" width="25px"/>客服管理</a></li>

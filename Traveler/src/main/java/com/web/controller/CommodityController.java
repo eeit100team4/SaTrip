@@ -33,8 +33,6 @@ import com.web.model.commodity.CommodityBean;
 import com.web.service.commodity.CommodityService;
 
 
-
-//@SessionAttributes("CommodityBean")
 @Controller
 public class CommodityController {
 
@@ -46,15 +44,12 @@ public class CommodityController {
 	ServletContext context; 
 	
 	
-
 	
 	@RequestMapping(value="/commlist")
 	public String list(Model model) {
 		List<CommodityBean>  list = commodityservice.getAllData();
 		model.addAttribute("commlist", list);
-		
-
-	
+			
 		return "commodity/commlist";
 	}
 	
@@ -189,11 +184,8 @@ public class CommodityController {
 			@PathVariable Integer commodityid
 			) {
 
-
-
 		commodityservice.update(cb);
 
-	
 		
 		return "redirect:/commlist";
 	}
