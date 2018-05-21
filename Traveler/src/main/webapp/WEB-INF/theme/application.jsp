@@ -121,14 +121,14 @@
 
 <div style="text-align:center">
 <H1>主題旅遊報名申請</H1>
+<b style='font-size:16px;'>${test.themeProducts.productName}</b><br>
+<b style='font-size:16px;'>出發日期<fmt:formatDate value="${test.setOut}" pattern="yyyy/MM/dd" /></b><br>
+<b style='font-size:16px;'>標準團費${test.price}</b><br>		   
 </div>	
 <section>
 	<div style="text-align:center">
 		<form:form method="POST" modelAttribute="application"  >
-		   <fieldset>
-		   <b style='font-size:16px;'>商品名稱<br>${test.themeProducts.productName}</b><br>
-		   <b style='font-size:16px;'>出發日期<br><fmt:formatDate value="${test.setOut}" pattern="yyyy/MM/dd" /></b><br>
-		   <b style='font-size:16px;'>標準團費<br>${test.price}</b><br>		   
+		   <fieldset>		   
 				<label>姓名</label>
 				<form:input  path="name" type="text" />
 				<br>
