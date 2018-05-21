@@ -46,10 +46,7 @@ public class CommodityController {
 	ServletContext context; 
 	
 	
-//	@RequestMapping("/")
-//	public String home() {
-//		return "index";
-//	}
+
 	
 	@RequestMapping(value="/commlist")
 	public String list(Model model) {
@@ -174,16 +171,7 @@ public class CommodityController {
 		return responseEntity;
 	
 	}
-	
-//	@RequestMapping("/ma")
-//	public String updateform2(Model model ) {
-		
-//		CommodityBean cb=new CommodityBean();
-//		
-//		model.addAttribute("CommodityBean", cb);
-		
-//		return "forward:/QQ2";
-//	}
+
 	
 	@RequestMapping(value="/henkou")
 	public String updateform(Model model,
@@ -201,8 +189,7 @@ public class CommodityController {
 			@PathVariable Integer commodityid
 			) {
 
-//		CommodityBean cb2 =commodityservice.getCommodityById(commodityid);
-	
+
 
 		commodityservice.update(cb);
 
@@ -211,9 +198,4 @@ public class CommodityController {
 		return "redirect:/commlist";
 	}
 	
-	
-
-	
-	
-
-}
+}	

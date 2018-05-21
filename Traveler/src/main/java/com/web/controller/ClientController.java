@@ -79,7 +79,7 @@ public class ClientController {
 //			                     @RequestParam("memberId") String memberId,
 			                     @RequestParam("commid")  Integer commodityid,
 			                    Model model) 
-			                     throws Exception  {
+			                     {
 
 		CommodityBean ctb = commodityservice.getCommodityById(commodityid);
 		MemberBean mb=clientservice.getMemberById("1");
@@ -102,7 +102,8 @@ public class ClientController {
 			ctb.setQuantity(finalQuantity);
 			commodityservice.addCommodityA(ctb);
 		}else {
-			 throw new Exception("點數or數量不足");
+//			 throw new Exception("點數or數量不足");
+			 return "commodity/error";
 		}
 	
 		cb.setComId(ctb.getCommodityid());
@@ -112,7 +113,31 @@ public class ClientController {
 		clientservice.addClient(cb);
 		 			
 		return "commodity/addclientOK";
+	
+		
 	}
 
+	
+	//後台顯示商品兌換清單
+		@RequestMapping("/ClientLists")
+		public String listClient(
+				                  Model model) {
+			List<ClientBean>  list = clientservice.getAllData();
+			model.addAttribute("ClientLists", list);
+			
+			
+//			
+//			CommodityBean ctb = commodityservice.getCommodityById(commodityid);
+//			MemberBean mb=clientservice.getMemberById("1");	
+			
+			
+			
+			
+		
+			return "commodity/CliList";
+		}
+	
+	
+	
 	
 }

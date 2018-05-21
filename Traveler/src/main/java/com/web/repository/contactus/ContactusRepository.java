@@ -12,4 +12,6 @@ public interface ContactusRepository {
 	List<ContactusBean> getAllContactus();
 //	void updateFeedback(int pkid, int newQuantity);
 	List<ContactusBean> getAllFeedback();
+	void updateCustomerOpinion(ContactusBean contactus);
+
 }

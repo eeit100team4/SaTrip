@@ -185,7 +185,7 @@ float:right;
 
 
 
-<span style="font-size:30px;">Traveler統計統計報表:</span>
+<span style="font-size:30px;">Traveler統計報表:</span>
 <select id="choose" onchange="TheConfirmBox()">
 	<option disabled=disabled selected=selected>請選擇</option>
 <!-- 	<optgroup label="亞洲區"> -->

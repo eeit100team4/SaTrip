@@ -183,7 +183,7 @@ float:right;
 		
 		
 <div class="d2">		
-				<form:form  action="feedbackopinion" modelAttribute="contactusBean"  enctype='multipart/form-data'>
+				<form:form  method='POST' action="feedbackopinion/${pkid}" modelAttribute="contactusBean"  enctype='multipart/form-data'>
 						 <fieldest>
 <!-- 						 <div class='form-group'> -->
 <!-- 						 <label for='name'>姓名:</label> -->
@@ -256,7 +256,7 @@ float:right;
 					    <tr>
 					    <td>
 					    <label for='feedback'>回覆欄:</label>
-					    <form:textarea cols="40" rows="5"  id="feedback" path='feedback'></form:textarea>
+					    <form:textarea cols="40" rows="5"  id="feedback" path='feedback' value='${aa.feedback}'></form:textarea>
 					    </td>
 					    </tr>
 						</table>

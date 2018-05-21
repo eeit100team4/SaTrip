@@ -33,7 +33,8 @@ public class ClientBean {
 	
 	@Column(name = "quantity")
 	private Integer cliquantity;
-	@DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")  
+	
+	@Column(name = "clidate")
 	private Date date=new Date();	
 	private String memId;
 	
@@ -98,9 +99,6 @@ public class ClientBean {
 	public void setComId(Integer comId) {
 		this.comId = comId;
 	}
-
-	
-	
 
 	
 
