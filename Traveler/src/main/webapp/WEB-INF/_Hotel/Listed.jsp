@@ -130,12 +130,12 @@ function test(){
 // 爬樹順序 0,3 $("#option").find("table:eq(1)").css("display","none");
 var length= $("#option").find("table").length;
 for(var x=0;x<length;x++){
-	var city= $("#option").find("table:eq(1)").find("td:eq(1)").text();
-	var country= $("#option").find("table:eq("+x+")").find("td:eq(4)").text();	
-	if(!target.match(city+country)){
+	var country= $("#option").find("table:eq(1)").find("tbody").find("tr:eq(1)").find("td:eq(0)").text();
+	var city= $("#option").find("table:eq("+x+")").find("tbody").find("tr:eq(0)").find("td:eq(0)").text();	
+	if(!target.match(country+city)){
 		$("#option").find("table:eq("+x+")").css("display","none");
-	}
-	
+		alert(country+city);
+	}	
 }
 
 }
@@ -167,8 +167,8 @@ for(var x=0;x<length;x++){
 							  </thead>	
 							  <tbody>							  
 							  	<tr>
-							      <td>${hotelInfo.city}-${hotelInfo.name}</td>
-							      <td></td>
+							      <td>${hotelInfo.city}</td>
+							      <td>${hotelInfo.name}</td>
 							      <td>${hotelInfo.hotelRoomBean.price}</td>
 							    </tr>
 							    <tr>

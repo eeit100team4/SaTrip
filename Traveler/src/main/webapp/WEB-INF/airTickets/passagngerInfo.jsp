@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -244,9 +244,11 @@ function sendGuest(){
 </script>
 
 <script>
+var birthday="<fmt:formatDate value="${memberBean.birthday}" pattern="yyyy-MM-dd" />";
  $(document).ready(function(){
+	  $("#guestOneBirth").val(birthday); 
     $("#button").click(function(){
-        
+     
     })
  })
 </script>
@@ -334,46 +336,46 @@ function sendGuest(){
         	<h2><legend class="label label-warning">聯絡人資訊</legend></h2>
             <div class="st1">
                 <label onclick="return false" for="contactName" class="lab">姓名</label>
-                <input type="text" name="contactName" id="contactName" size="10" autofocus autocomplete="off">
+                <input type="text" name="contactName" id="contactName" size="10" value="${memberBean.chineseLastName}${memberBean.chineseFirstName}" autofocus autocomplete="off">
             </div>
             <div class="st1">
-                <label for="contactIdCard" class="lab">身分證字號</label>
-                <input  type="text" name="contactIdCard" id="contactIdCard" maxlength="10">
+                <label for="contactIdCard" class="lab" >身分證字號</label>
+                <input  type="text" name="contactIdCard" id="contactIdCard" maxlength="10" value="${memberBean.memberId}">
             </div>
              <div class="st1">
                 <label for="contactPhone" class="lab">手機</label>
-                <input type="text" name="contactPhone" id="contactPhone" maxlength="10">
+                <input type="text" name="contactPhone" id="contactPhone" maxlength="10" value="${memberBean.mobile}">
             </div>
             <div class="st1">
                 <label for="contactAddress"  class="lab">地址</label>
-                <input   type="text" name="contactAddress" id="contactAddress">
+                <input   type="text" name="contactAddress" id="contactAddress" value="${memberBean.address}">
             </div>
             <div class="st1">
                 <label for="" class="lab">E-mail</label>
-                <input type="text" name="contactEmail" id="contactEmail">
+                <input type="text" name="contactEmail" id="contactEmail" value="${memberBean.email}">
             </div>
         </fieldset>
                 <fieldset>
                   <h2><legend class="label label-warning">旅客一資料</legend></h2>
 			      <div class="st1">
                 <label for="guestOneName" class="lab">姓名</label>
-                <input type="text" name="guestOneName" id="guestOneName" size="10" autofocus autocomplete="off">
+                <input type="text" name="guestOneName" id="guestOneName" size="10" autofocus autocomplete="off" value="${memberBean.chineseLastName}${memberBean.chineseFirstName}" >
             </div>
             <div class="st1">
                 <label for="guestOneLastName" class="lab">英文姓</label>
-                <input type="text" name="guestOneLastName" id="guestOneLastName" maxlength="10">
+                <input type="text" name="guestOneLastName" id="guestOneLastName" maxlength="10" value="${memberBean.englishLastName}">
             </div>
              <div class="st1">
                 <label for="guestOneFirstName" class="lab">英文名</label>
-                <input type="text" name="guestOneFirstName" id="guestOneFirstName" maxlength="10">
+                <input type="text" name="guestOneFirstName" id="guestOneFirstName" maxlength="10" value="${memberBean.englishFirstName}" >
             </div>
             <div class="st1">
                 <label for="guestOnepassportNum" class="lab">護照號碼</label>
-                <input type="text" name=guestOnepassportNum id="guestOnepassportNum">
+                <input type="text" name=guestOnepassportNum id="guestOnepassportNum" value="${memberBean.passportNumber}" >
             </div>
             <div class="st1">
                 <label for="guestOneBirth" class="lab">生日</label>
-                <input type="text" name="guestOneBirth" id="guestOneBirth" placeholder="YYYY-MM-DD">
+                <input type="text" name="guestOneBirth" id="guestOneBirth" placeholder="YYYY-MM-DD"  pattern="yyyy-MM-dd" />
             </div>
             <div class="st1">
                 <label class="lab">性別</label>
