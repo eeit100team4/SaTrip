@@ -37,19 +37,12 @@
 								</c:when>
 									<c:otherwise>
 										<!-- 登入前 -->
-										<li><a href='/Traveler/backStageForm'><i class="far fa-user-circle"></i><font color="orange">管理專區</a></li>
+										<li><a href='/Traveler/backStageForm' style="color:orange"><i class="far fa-user-circle"></i>管理專區</a></li>
 										<ul class="fh5co-sub-menu">
 											<li><a href='/Traveler/member/login'>登入</a></li>
 										</ul>
 									</c:otherwise>
 								</c:choose>
-			
-			
-			
-			
-			
-			
-			
 			</ul>
 			</nav>
 		</div>

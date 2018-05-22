@@ -25,12 +25,14 @@ import com.itextpdf.text.DocumentException;
 import com.web.model.airplain.ExtraPriceBean;
 import com.web.model.airplain.GuestBean;
 import com.web.model.airplain.OrderDetailsBean;
+import com.web.model.member.MemberBean;
 import com.web.service.airplain.BFMService;
 import com.web.service.airplain.ExtraPriceService;
 import com.web.service.airplain.GuestService;
 import com.web.service.airplain.OrderService;
 import com.web.service.airplain.PdfProduceService;
 import com.web.service.airplain.SendEmailService;
+import com.web.service.member.MemberService;
 
 @Controller
 @RequestMapping("/airTickets/back")
@@ -50,6 +52,8 @@ public class airTicketsBackController {
 	PdfProduceService pdfService;
 	@Autowired
 	SendEmailService sendEmailService;
+	@Autowired
+	MemberService memberService;
 
 	@RequestMapping("/list")
 	public String backList() {
@@ -98,13 +102,11 @@ public class airTicketsBackController {
 	@RequestMapping(value="/extra",method=RequestMethod.POST)
 	@ResponseBody
 	public Map getExtraPrice(@RequestParam("dept") String dept, @RequestParam("arrv") String arrv) {
-		System.out.println(dept + "," + arrv);
-		ExtraPriceBean result = eps.getExtraPrice(dept, arrv);
+		 ExtraPriceBean result = eps.selectByidGetBean(dept, arrv);
 		Map<String,Integer> map = new HashMap<>();
 		map.put("pkId",result.getId());
 		map.put("extraPrice", result.getExtraPrice());
 		return map;
-
 	}
 	
 	@RequestMapping(value="/updateExtra",method=RequestMethod.POST)
@@ -120,8 +122,10 @@ public class airTicketsBackController {
 	@ResponseBody
 	public String sendPDF(@RequestParam("orderId") String orderId) throws DocumentException, IOException {
 		OrderDetailsBean odBean = os.selectOneByOrderId(orderId);
+		//取得此張訂單的會員EMAIL
+		String memberEmail = memberService.getMemberById(odBean.getMemberId()).getEmail();
 		pdfService.pdfProduce(odBean);
-		sendEmailService.sendNewEmail(orderId);
+		sendEmailService.sendNewEmail(orderId,memberEmail);
 		return "OK";
 
 	}
