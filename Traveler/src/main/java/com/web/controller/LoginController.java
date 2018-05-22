@@ -257,6 +257,9 @@ public class LoginController {
 		request.setCharacterEncoding("UTF-8");
 		HttpSession session = request.getSession();
 		session.removeAttribute("LoginOK");
-		response.sendRedirect(response.encodeRedirectURL(request.getContextPath()));
+		session.removeAttribute("requestURI");
+//		response.sendRedirect(response.encodeRedirectURL(request.getContextPath()));
+		 response.sendRedirect(request.getContextPath()+"/");
+
 	}
 }

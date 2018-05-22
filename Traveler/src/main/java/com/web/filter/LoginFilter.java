@@ -14,8 +14,8 @@ import com.web.model.member.MemberBean;
 		urlPatterns = { "/*" }, 
 		initParams = { 
 				@WebInitParam(name = "mustLogin1", value = "/airTickets/show/*"), 
-//				@WebInitParam(name = "mustLogin2", value = "/_04_ShoppingCart/*"), 
-//				@WebInitParam(name = "mustLogin3", value = "/_05_orderProcess/*"),
+				@WebInitParam(name = "mustLogin2", value = "/contactus/"), 
+				@WebInitParam(name = "mustLogin3", value = "/commlistfront"),
 //				@WebInitParam(name = "mustLogin4", value = "/_20_productMaintain/*")				
 		})
 public class LoginFilter implements Filter {

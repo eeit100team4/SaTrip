@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 	<header id="fh5co-header-section" class="sticky-banner"
 		style="background-color: black;">
@@ -23,8 +25,31 @@
 						color="orange">紅利商品</font></a></li>
 				<li><a href="/Traveler/contactus/selectopinion"><i class="fas fa-phone-square"></i><font
 						color="orange">客服中心</font></a></li>
-					<li><a href="/Traveler/"><i class="fas fa-phone-square"></i><font
-						color="orange">登出</font></a></li>
+			<c:choose>
+									<c:when test="${LoginOK!=null}">
+									<!-- 登入後 -->
+								<li><a href="/Traveler/backStageForm"><i class="far fa-user-circle"></i><font color="orange">管理會員專區</font></a>
+									<ul class="fh5co-sub-menu">
+											<li><a href='/Traveler/member/members'>查詢所有會員資料</a></li>
+											<li><a href='/Traveler/member/logout.do'>登出</a></li>
+									</ul>
+								</li>
+								</c:when>
+									<c:otherwise>
+										<!-- 登入前 -->
+										<li><a href='/Traveler/backStageForm'><i class="far fa-user-circle"></i><font color="orange">管理專區</a></li>
+										<ul class="fh5co-sub-menu">
+											<li><a href='/Traveler/member/login'>登入</a></li>
+										</ul>
+									</c:otherwise>
+								</c:choose>
+			
+			
+			
+			
+			
+			
+			
 			</ul>
 			</nav>
 		</div>

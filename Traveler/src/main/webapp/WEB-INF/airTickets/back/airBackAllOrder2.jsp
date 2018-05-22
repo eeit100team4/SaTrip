@@ -184,8 +184,9 @@ var sum=0;
 var num=$("#tbo").find("tr").length;
 var nowD= (Date.parse(new Date())).valueOf();
 var aDay=1000*60*60*24;
+var number=$("#tbb").find("tr").length;
 
-for(var k=0;k<3;k++){
+for(var k=0;k<number;k++){
 	var test= $("#tbo").find("tr:eq("+k+")").find("td:eq(1)").text();
 	var date =(Date.parse( new Date(test))).valueOf();
 	if((nowD-date)<aDay){
@@ -333,16 +334,16 @@ function searchAll(){
 				<thead>
 					<tr>
 						<th style="padding-left:60px;" scope="col" width="300px;">訂單編號</th>
-						<th scope="col" width="300px;" >會員編號</th>
+						<th scope="col" width="300px;" class="text-center" >會員編號</th>
 						<th style="padding-left:80px;" scope="col" width="300px;" >訂單時間</th>
-						<th scope="col" width="200px;">總價(NT.)</th>
+						<th scope="col" width="200px;" class="text-center">總價(NT.)</th>
 					</tr>
 				</thead>
 				<tbody id="tbo">
 					<c:forEach  var="order" items="${list}">
 						<tr>
 							<th scope="row"><img style="visibility:hidden" src="/Traveler/images/new.png" /><a href="selectOne/${order.orderID}">${order.orderID}</a></th>
-							<td>會員ID</td>
+							<td>${order.memberId}</td>
 							<td>${order.orderDay}</td>
 							<td>${order.price}</td>
 						</tr>

@@ -2,6 +2,7 @@ package com.web.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -29,6 +30,7 @@ import com.itextpdf.text.DocumentException;
 import com.web.model.airplain.ExtraPriceBean;
 import com.web.model.airplain.GuestBean;
 import com.web.model.airplain.OrderDetailsBean;
+import com.web.model.member.MemberBean;
 import com.web.service.airplain.BFMService;
 import com.web.service.airplain.ExtraPriceService;
 import com.web.service.airplain.GuestService;
@@ -62,7 +64,6 @@ public class airTicketsController {
 	// 呼叫BFM的API
 	@RequestMapping("/BFMS")
 	public String getOrder(HttpServletRequest request, Model model) {
-
 		String result = bfmService.BFMservice(request);
 
 		if (result == null) {
@@ -78,6 +79,7 @@ public class airTicketsController {
 			String dep = request.getParameter("dept");
 			String arr = request.getParameter("arrv");
 			ExtraPriceBean epBean = eps.getExtraPrice(dep, arr);
+			System.out.println(epBean);
 			Integer extraP = epBean.getExtraPrice();
 			if (extraP != null) {
 				System.out.println("加價");
@@ -101,8 +103,10 @@ public class airTicketsController {
 	public String test(@RequestBody String order, Model model) {
 		Gson gs = new Gson();
 		OrderDetailsBean odb = gs.fromJson(order, OrderDetailsBean.class);
+
 		int id = os.addOrder(odb);
 		String orderid = os.selectOneById(id);
+		
 		session.setAttribute("orderID", orderid);
 		System.out.println("將ORDERID存入SESSION orderId=" + orderid);
 		return orderid;
@@ -112,11 +116,17 @@ public class airTicketsController {
 	@RequestMapping(method = RequestMethod.GET, value = "/show/{orId}")
 	public String getOrder(@PathVariable("orId") String orId, Model model) {
 		OrderDetailsBean obean = os.selectOneByOrderId(orId);
+		MemberBean member = (MemberBean) session.getAttribute("LoginOK");
+		obean.setMemberId(member.getMemberId());
+		os.update(obean);
+		System.out.println("寫入會員ID完成");
 		Integer personNum = obean.getPerson();
 		Gson gson = new Gson();
 		String jsonInString = gson.toJson(obean);
 		model.addAttribute("bean", jsonInString);
+		model.addAttribute("memberBean", member);
 		model.addAttribute("personNum", personNum);
+		System.out.println(member);
 		return "airTickets/passagngerInfo";
 	}
 
@@ -151,12 +161,14 @@ public class airTicketsController {
 
 	// 信用卡付款之後將table中的checkpay設為"已付款"，再導向付款完的view
 	@RequestMapping("/checkOK")
-	public String testOpay() throws DocumentException, IOException {
+	public String testOpay() throws DocumentException, IOException, SQLException {
 		String orderId = (String) session.getAttribute("orderID");
 		// 將旅客資訊存入DB
 		GuestBean guestBean = (GuestBean) session.getAttribute("guestBean");
 		int resultId = gs.addGuest(guestBean);
-
+		//將紅利存入會員
+		os.setPointToMember(orderId);
+		
 		os.updateByOrderId(orderId, resultId);
 		if (orderId != null) {
 			os.updateCheckPayByOrderId(orderId);
