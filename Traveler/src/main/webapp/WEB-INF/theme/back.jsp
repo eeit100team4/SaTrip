@@ -44,7 +44,6 @@
 <!-- 手風琴 -->
 <link rel="stylesheet" href="/Traveler/css/astyle.css" type="text/css"/>
 
-
 <!-- Modernizr JS -->
 <script src="/Traveler/js/modernizr-2.6.2.min.js"></script>
 <!-- FOR IE9 below -->
@@ -83,6 +82,7 @@
 <script src="/Traveler/js/main.js"></script>
 <!-- 連結旁邊的小ICON套件  -->	
 <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
+
 <!-- 手風琴 -->
 <script type="text/javascript" src="jquery-1.10.2.min.js"></script>
 <script type="text/javascript">
@@ -231,17 +231,10 @@ margin-bottom:0px;
 	
 	
 	
-<div style="margin-left:300px; margin-top:10px;width:900px;" class="content text-center">
 	
- <c:forEach var='theme' items='${themeTitles}'>
-  <div style="width:300px; height:200px; float: left; ">
-    <img src="/Traveler/images/themeTitle-${theme.titleId}.png">
-    <p>
-    <b style='font-size:16px;'>${theme.titleName}</b>
-    </p>
-  </div>
- </c:forEach>
-</div>
+		<div class="content text-center">
+		<h2>放內容的地方</h2>
+		
 		
 		</div>
 

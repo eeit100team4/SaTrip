@@ -199,18 +199,6 @@ float:right;
 				<input type="submit" value="送出" />
 				</div>
 			</fieldset>
-			<fieldset>
-				<label>修改主題</label>
-				<form:input  path="titleName" type="text" />		
-						
-				<br>
-				<label>修改圖片</label>
-				<form:input  path="titleImage" type="file"  />			
-													
-				<div>					
-				<input type="submit" value="送出" />
-				</div>
-			</fieldset>
 		</form:form>		
 	</section>
 	</div>
