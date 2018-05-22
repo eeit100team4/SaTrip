@@ -49,8 +49,13 @@ public class ClientController {
 	public String listFront(Model model) {
 		List<CommodityBean>  list = commodityservice.getAllData();
 		model.addAttribute("commlist", list);
-	
-		return "commodity/commlistfront";
+		
+		if(session==null) {
+			return"/member/login";
+		}else {
+			return "commodity/commlistfront";
+		}
+		
 	}
 		
 
@@ -124,15 +129,7 @@ public class ClientController {
 				                  Model model) {
 			List<ClientBean>  list = clientservice.getAllData();
 			model.addAttribute("ClientLists", list);
-			
-			
-//			
-//			CommodityBean ctb = commodityservice.getCommodityById(commodityid);
-//			MemberBean mb=clientservice.getMemberById("1");	
-			
-			
-			
-			
+	
 		
 			return "commodity/CliList";
 		}

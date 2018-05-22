@@ -28,7 +28,11 @@
 									</li>
 								
 								<li><a href="/Traveler/commlistfront"><i class=	"fas fa-cart-arrow-down"></i><font color="orange">紅利商品</font></a></li>
-								<li><a href="/Traveler/contactus/contactusopinion"><i class="fas fa-phone-square"></i><font color="orange">客服中心</font></a></li>
+								<li><a href="/Traveler/contactus/contactusopinion"><i class="fas fa-phone-square"></i><font color="orange">客服中心</font></a>
+							<ul class="fh5co-sub-menu">
+								<li><a href="/Traveler/contactus/InsertOpinionSuccess">查看回覆</a></li>
+								<li><a href="mailto:asally1110@gmail.com">客服信箱</a></li>
+						</ul></li>
 							<c:choose>
 									<c:when test="${LoginOK!=null}">
 									<!-- 登入後 -->

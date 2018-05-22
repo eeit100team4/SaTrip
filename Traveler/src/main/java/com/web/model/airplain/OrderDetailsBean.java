@@ -25,7 +25,7 @@ public class OrderDetailsBean {
 	private Integer ID;
 	@Column(name="orderID",insertable=false)
 	private String orderID;
-	private Integer memberId;
+	private String memberId;
 	private String depT;
 	private String depDate;
 	private String depC;
@@ -124,11 +124,15 @@ public class OrderDetailsBean {
 		this.orderID = orderID;
 	}
 
-	public Integer getMemberId() {
+
+	
+	
+
+	public String getMemberId() {
 		return memberId;
 	}
 
-	public void setMemberId(Integer memberId) {
+	public void setMemberId(String memberId) {
 		this.memberId = memberId;
 	}
 
@@ -264,12 +268,15 @@ public class OrderDetailsBean {
 	@Override
 	public String toString() {
 		return "OrderDetailsBean [ID=" + ID + ", orderID=" + orderID + ", memberId=" + memberId + ", depT=" + depT
-				+ ", depDate=" + depDate + ", depC=" + depC + ", arrT=" + arrT + ", returnDate=" + returnDate
-				+ ", arrC=" + arrC + ", returnTime=" + returnTime + ", returnArrTime=" + returnArrTime + ", price="
-				+ price + ", airline=" + airline + ", depNum=" + depNum + ", returnNum=" + returnNum + ", person="
-				+ person + ", bonus=" + bonus + ", guestId=" + guestId + ", checkpay=" + checkpay + ", redPoint="
-				+ redPoint + ", guestBean=" + guestBean + "]";
+				+ ", depDate=" + depDate + ", depC=" + depC + ", arrTnextDay=" + arrTnextDay + ", arrT=" + arrT
+				+ ", returnDate=" + returnDate + ", arrC=" + arrC + ", returnTime=" + returnTime + ", returnArrTime="
+				+ returnArrTime + ", returnArrTnextDay=" + returnArrTnextDay + ", price=" + price + ", airline="
+				+ airline + ", depNum=" + depNum + ", returnNum=" + returnNum + ", person=" + person + ", bonus="
+				+ bonus + ", guestId=" + guestId + ", checkpay=" + checkpay + ", redPoint=" + redPoint + ", orderDay="
+				+ orderDay + ", guestBean=" + guestBean + "]";
 	}
+
+
 
 
 
