@@ -77,13 +77,13 @@ public class airTicketsController {
 			}
 			String dep = request.getParameter("dept");
 			String arr = request.getParameter("arrv");
-			ExtraPriceBean epBean = eps.getExtraPrice(dep, arr);
-			Integer extraP = epBean.getExtraPrice();
-			if (extraP != null) {
-				System.out.println("加價");
-				// map.put("extraPrice", extraP);
-				model.addAttribute("extraPrice", extraP);
-			}
+//			ExtraPriceBean epBean = eps.getExtraPrice(dep, arr);
+//			Integer extraP = epBean.getExtraPrice();
+//			if (extraP != null) {
+//				System.out.println("加價");
+//				// map.put("extraPrice", extraP);
+//				model.addAttribute("extraPrice", extraP);
+//			}
 
 			model.addAttribute("result", result);
 			model.addAttribute("depDate", request.getParameter("depDate"));

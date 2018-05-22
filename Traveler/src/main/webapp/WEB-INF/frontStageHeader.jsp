@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <!-- 連結旁邊的小ICON套件  -->	
 <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
@@ -32,16 +34,16 @@
 									<!-- 登入後 -->
 								<li><a href=''><i class="far fa-user-circle"></i><font color="orange">會員專區</font></a>
 									<ul class="fh5co-sub-menu">
-											<li><a href='member/updateMember'>修改會員資料</a></li>
-											<li><a href='member/changePwd'>修改密碼</a></li>
-											<li><a href='member/members'>查詢所有會員資料</a></li>
-											<li><a href='member/logout.do'>登出</a></li>
+											<li><a href='/Traveler/member/updateMember'>修改會員資料</a></li>
+											<li><a href='/Traveler/member/changePwd'>修改密碼</a></li>
+											<li><a href='/Traveler/member/members'>查詢所有會員資料</a></li>
+											<li><a href='/Traveler/member/logout.do'>登出</a></li>
 									</ul>
 								</li>
 								</c:when>
 									<c:otherwise>
 										<!-- 登入前 -->
-										<li><a href='member/login'><i class="far fa-user-circle"></i><font color="orange">註冊/登入</a></li>
+										<li><a href='/Traveler/member/login'><i class="far fa-user-circle"></i><font color="orange">註冊/登入</a></li>
 									</c:otherwise>
 								</c:choose>
 							</ul>
