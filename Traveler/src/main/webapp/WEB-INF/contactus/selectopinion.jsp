@@ -147,8 +147,9 @@ height:50px;
 td{
 border:1px solid black;
 /* text-align:center; */
-border:2px #ccc solid;border-radius:10px;width:360px;height:60px
-
+border:2px #ccc solid;border-radius:10px;width:360px;height:60px;
+color:black;
+font-family:微軟正黑;
 }
 
 </style>
