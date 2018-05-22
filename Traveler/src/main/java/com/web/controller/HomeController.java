@@ -21,7 +21,7 @@ public class HomeController {
 	 }
 	 
 	 
-	 @RequestMapping({ "/", "/index" })
+	 @RequestMapping("/")
 		public String index(HttpServletRequest request, HttpServletResponse response, Model model) {
 			HttpSession session = request.getSession();
 			MemberBean mb = (MemberBean) session.getAttribute("LoginOK");
