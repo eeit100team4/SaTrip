@@ -38,7 +38,8 @@ public class ContactusController {
 	ContactusService contactusService;
 	@Autowired
 	SessionFactory factory;
-	
+	@Autowired
+	HttpSession session;
 	
 	@RequestMapping("contactus/contactusopinion")
 	public String list(Model model) {
@@ -66,6 +67,7 @@ public class ContactusController {
 	@RequestMapping(value="contactus/InsertOpinionSuccess",method=RequestMethod.POST)
 	public String processAddNewContactusForm(@ModelAttribute("contactusBean")ContactusBean contactus2,
 			BindingResult result, HttpSession session) {
+		MemberBean mb = (MemberBean) session.getAttribute("LoginOK");
 		System.out.println("ENTER POST");
 		System.out.println(contactus2);
 //		session.setAttribute("abc", contactus);
@@ -97,6 +99,7 @@ public class ContactusController {
 	public String updateForm(Model model,
 			@ModelAttribute("contactusBean") ContactusBean contactus,BindingResult result, 
 			HttpSession session) {
+		MemberBean mb = (MemberBean) session.getAttribute("LoginOK");
 //		List<ContactusBean>  list = contactusService.getAllFeedback();
 //		model.addAttribute("contactus", list);
 		contactusService.updateCustomerOpinion(contactus);
@@ -152,6 +155,7 @@ public class ContactusController {
 	
 	@RequestMapping("contactus/selectopinion")
 	public String list6(Model model) {
+		MemberBean mb = (MemberBean) session.getAttribute("LoginOK");
 		List<ContactusBean> list2=contactusService.getAllContactus();
 		model.addAttribute("contactus", list2);
 		return "contactus/selectopinion";

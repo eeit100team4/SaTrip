@@ -70,12 +70,13 @@
 </head>
 <style>
 table{
-border:1px solid black;
+padding:5px;
 }
 p{
 color:black;
 }
-th{
+td{
+border:1px solid #ccc;
 color:black;
 }
 </style>
@@ -107,7 +108,7 @@ color:black;
 						<li><a href="car.html">Car</a></li>
 						<li class="active"><a href="contactusopinion">客戶服務</a>
 						<ul class="fh5co-sub-menu">
-								<li><a href="Traveler/contactus/InsertOpinionSuccess">查看回覆</a></li>
+								<li><a href="/Traveler/contactus/InsertOpinionSuccess">查看回覆</a></li>
 						<li><a href="mailto:asally1110@gmail.com">客服信箱</a></li>
 						</ul></li>
 						<li><a href="contact.html">Contact</a></li>
@@ -127,19 +128,69 @@ color:black;
 						<div class="container">
 							<div class="row">
 								<div class="col-sm-5 col-md-5">
-								<div class="tabulation animate-box">
+<!-- 								<div class="tabulation animate-box"> -->
 								<section class='container'>
 							
-							<p style=color:black>姓名:${aa.name}</p>
-							<p style=color:black>性別:${aa.sex}</p>
-							<p style=color:black>年齡:${aa.age}</p>
-							<p style=color:black>連絡電話:${aa.phone}</p>
-							<p style=color:black>電子信箱:${aa.email}</p>
-							<p style=color:black>所在地:${aa.address}</p>
-							<p style=color:black>意見類別:${aa.opinion}</p>
-							<p style=color:black>意見內容:${aa.comment}</p>
-							<p style=color:black>回覆內容:${aa.feedback}</p>
+<%-- 							<p style=color:black>姓名:${aa.name}</p> --%>
+<%-- 							<p style=color:black>性別:${aa.sex}</p> --%>
+<%-- 							<p style=color:black>年齡:${aa.age}</p> --%>
+<%-- 							<p style=color:black>連絡電話:${aa.phone}</p> --%>
+<%-- 							<p style=color:black>電子信箱:${aa.email}</p> --%>
+<%-- 							<p style=color:black>所在地:${aa.address}</p> --%>
+<%-- 							<p style=color:black>意見類別:${aa.opinion}</p> --%>
+<%-- 							<p style=color:black>意見內容:${aa.comment}</p> --%>
+<%-- 							<p style=color:black>回覆內容:${aa.feedback}</p> --%>
+<div class="container" style="padding-top:80px;padding-left:150px">
+				<form action="feedbackopinion" modelAttribute="contactusBean"  enctype='multipart/form-data'>
+						 <fieldest>
+						
+						 <table class="tabulation animate-box" style="border:2px #ccc solid;border-radius:10px;width:500px;
+						 background-color:#eee;color:black;">
+<!-- 						<table> -->
+						 <tr>
+						<td scope="row" style="width:100px;">姓名:</td>
+						<td>${aa.name}</td>
+						</tr>
+						<tr>
+						<td scope="row" style="width:100px;">性別:</td>
+						<td>${aa.sex}</td>
+						</tr>
+						<tr>
+						<td scope="row" style="width:100px;">年齡:</td>
+						<td>${aa.age}</td>
+						</tr>
+						<tr>
+						<td scope="row" style="width:100px;">連絡電話:</td>
+						<td>${aa.phone}</td>
+						</tr>
+						<tr>
+						<td scope="row" style="width:100px;">電子信箱:</td>
+						<td>${aa.email}</td>
+						</tr>
+						<tr>
+						<td scope="row" style="width:100px;">所在地:</td>
+						<td>${aa.address}</td>
+						</tr>
+						<tr>
+						<td scope="row" style="width:100px;">意見類別:</td>
+						<td>${aa.opinion}</td>
+						</tr>
+						<tr>
+						<td scope="row" style="width:100px;">意見欄:</td>
+					    <td>${aa.comment}</td>
+					    </tr>
+					    <tr>
+					    <td scope="row" style="width:100px;">回覆欄:</td>
+					    <td>${aa.feedback}</td>
+						</tr>
+						</table>
+					    
 
+		</fieldest>
+		</form>
+               </div>
+						
+						
 							
 						
 					
@@ -148,7 +199,7 @@ color:black;
 							</div>
 						</div>
 					</div>
-				</div>
+<!-- 				</div> -->
 			</div>
 		</div>
 
