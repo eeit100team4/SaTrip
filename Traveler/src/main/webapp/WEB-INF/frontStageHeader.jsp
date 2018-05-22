@@ -32,7 +32,7 @@
 								<li><a href="mailto:asally1110@gmail.com">客服信箱</a></li>
 						</ul></li>
 							<c:choose>
-									<c:when test="${userName!=null}">
+									<c:when test="${LoginOK!=null}">
 									<!-- 登入後 -->
 								<li><a href=''><i class="far fa-user-circle"></i><font color="orange">會員專區</font></a>
 									<ul class="fh5co-sub-menu">

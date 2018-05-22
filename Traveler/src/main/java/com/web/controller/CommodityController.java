@@ -11,6 +11,7 @@ import java.util.List;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.sql.rowset.serial.SerialBlob;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +37,8 @@ import com.web.service.commodity.CommodityService;
 @Controller
 public class CommodityController {
 
+	@Autowired
+	HttpSession session;
 	
 	@Autowired
 	CommodityService commodityservice;
@@ -49,7 +52,8 @@ public class CommodityController {
 	public String list(Model model) {
 		List<CommodityBean>  list = commodityservice.getAllData();
 		model.addAttribute("commlist", list);
-			
+		
+		
 		return "commodity/commlist";
 	}
 	
@@ -64,12 +68,12 @@ public class CommodityController {
 	}
 	
 	//依類型顯示該類型商品
-	@RequestMapping(value="/commlist/{kinds}")
+	@RequestMapping(value="/comm/{kinds}")
 	public String getCommodityByKind(@PathVariable("kinds") String kind,Model model) {
 		List<CommodityBean> list=commodityservice.getCommodityByKind(kind);
 		model.addAttribute("commlist", list);
 		
-		return "commodity/commlist";
+		return "commodity/commlistfront2";
 	}
 	
 	
