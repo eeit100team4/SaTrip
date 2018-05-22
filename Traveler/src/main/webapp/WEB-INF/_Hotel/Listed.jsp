@@ -133,8 +133,7 @@ for(var x=0;x<length;x++){
 	var country= $("#option").find("table:eq(1)").find("tbody").find("tr:eq(1)").find("td:eq(0)").text();
 	var city= $("#option").find("table:eq("+x+")").find("tbody").find("tr:eq(0)").find("td:eq(0)").text();	
 	if(!target.match(country+city)){
-		$("#option").find("table:eq("+x+")").css("display","none");
-		alert(country+city);
+		$("#option").find("table:eq("+x+")").css("display","none");	
 	}	
 }
 

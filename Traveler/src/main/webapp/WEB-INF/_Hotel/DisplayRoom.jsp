@@ -293,18 +293,17 @@
 			</div>
 
 			<div class="col-4">
-
-
-
+				<form action="DisplayRoom" method="get">
 				<div class="card ">
 					<h5 class="card-header bg-danger" style="color: aliceblue">特別優惠：</h5>
 					<div class="card-body">
 						<h3 class="card-title">我們只剩3間</h3>
 						<h1 class="card-title" style="color: red">NT：4450</h1>
 						<p class="card-text"></p>
-						<a href="#" class="btn btn-primary">立即訂房</a>
+						<a href="#" class="btn btn-primary" name="">立即訂房</a>
 					</div>
 				</div>
+				</form>
 				<br> <br>
 				<iframe class="card-img-top"
 					src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28923.59812832985!2d121.52704234187426!3d25.01880619934078!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442ac841a02a5bd%3A0xac9f4b19c3406b05!2z6Ie65YyX5biC56uL5ZyW5pu46aSoIOe4vemkqA!5e0!3m2!1szh-TW!2stw!4v1526958557360"
