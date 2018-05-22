@@ -263,7 +263,6 @@ function test(){
 		$("#"+i).parents("table").parent("div").parent("div").css("display","none");
 	}
 	}
-	alert("oK");
 }
 //不認識的航空不顯示
 function noShow(){
@@ -487,7 +486,6 @@ function list(){
 			 data.sort(function(a,b){	
 				 return (a.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].DepartureAirport.LocationCode)-(b.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].DepartureAirport.LocationCode)
 				  })
-			 alert("intin");
 			 $("#ticketResult").empty();
 			 list();
 // 			 page();
@@ -617,7 +615,7 @@ function list(){
 			
 			delay().then(function(){
 				show();     // 顯示 1
-				  return delay(10); // 延遲ㄧ秒
+				  return delay(100); // 延遲ㄧ秒
 				}).then(function(){
 					noShow();   // 顯示 2
 				  return delay(10); // 延遲一秒
