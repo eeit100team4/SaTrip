@@ -14,7 +14,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>Travel &mash; 100% Free Fully Responsive HTML5 Template by FREEHTML5.co</title>
+<title>Traveler</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
 <meta name="keywords"
@@ -47,7 +47,7 @@
 <meta name="twitter:card" content="" />
 
 <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-<link rel="shortcut icon" href="images/favicon.ico">
+<link rel="shortcut icon" href="/Traveler/images/LeftTopCorner.ico">
 
 <!--<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>-->
 
@@ -111,6 +111,15 @@
 <script src="/Traveler/js/airplain/airSearch.js"></script>
 <script src="/Traveler/js/jquery-ui.min.js"></script>
 <link rel="stylesheet" href="/Traveler/js/jquery-ui.min.css">
+<!--  -->
+<!-- 載入樣式 -->
+<link rel="stylesheet"   href="/Traveler/css/jquery.dataTables.css">
+<!-- Themeroller的主題 -->
+<link rel="stylesheet"   href="/Traveler/css/jquery.dataTables_themeroller.css">
+<!-- 載入jQuery  -->
+<script type="text/javascript" src="/Traveler/js/jquery.js"></script>
+<!-- 載入DataTables  -->
+<script type="text/javascript" src="/Traveler/js/jquery.dataTables.js"></script>
 
 <!-- 連結旁邊的小ICON套件  -->	
 <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
@@ -118,37 +127,29 @@
 </head>
 <body>
 	<%@ include file="/WEB-INF/frontStageHeader.jsp"%>
-<div style="text-align:center">
-<H1>主題下相關商品</H1>
-</div>
-<c:forEach var='products' items='${products}'>
-  <div style="text-align:center">
-    <p>
-    <b style='font-size:16px;'>商品名稱:${products.productName}</b><br>
-    <b style='font-size:16px;'>國家:${products.country}</b><br>
-    <b style='font-size:16px;'>種類:${products.themeTitles.titleName}</b><br>
-    <b style='font-size:16px;'>住宿:${products.hotelName}</b><br>
-    <b style='font-size:16px;'>Day1:${products.title1}</b><br>
-    <b style='font-size:16px;'>Day1內標:${products.descriTitle1}</b>
-    <b style='font-size:16px;'>Day1內容:${products.description1}</b><br>
-    <b style='font-size:16px;'>早餐1:${products.breakfast1}</b>
-    <b style='font-size:16px;'>中餐1:${products.lunch1}</b>
-    <b style='font-size:16px;'>晚餐1:${products.dinner1}</b>
-    <b style='font-size:16px;'>Day2:${products.title1}</b><br>
-    <b style='font-size:16px;'>Day2內標:${products.descriTitle1}</b>
-    <b style='font-size:16px;'>Day2內容:${products.description1}</b><br>
-    <b style='font-size:16px;'>早餐2:${products.breakfast1}</b>
-    <b style='font-size:16px;'>中餐2:${products.lunch1}</b>
-    <b style='font-size:16px;'>晚餐2:${products.dinner1}</b><b style='font-size:16px;'>Day1:${products.title1}</b><br>
-    <b style='font-size:16px;'>Day3內標:${products.descriTitle1}</b>
-    <b style='font-size:16px;'>Day3內容:${products.description1}</b><br>
-    <b style='font-size:16px;'>早餐3:${products.breakfast1}</b>
-    <b style='font-size:16px;'>中餐3:${products.lunch1}</b>
-    <b style='font-size:16px;'>晚餐3:${products.dinner1}</b>
-    <a href="${products.themeTitles.titleName}/${products.productName}">查看出團日期</a>
-    </p>
-  </div>
-</c:forEach>
+<table id="datatable">
+ <thead>
+  <tr>
+   <th></th>
+   <th>國家</th>
+   <th>類型</th>
+   <th>商品名稱</th>
+   <th>住宿飯店</th>
+   <th></th>
+  </tr>
+ </thead>
+ <c:forEach var='products' items='${products}'>
+ <tbody>
+  <tr>
+   <th>${products.productId}</th>
+   <th>${products.country}</th>
+   <th>${products.themeTitles.titleName}</th>
+   <th>${products.productName}</th>
+   <th>${products.hotelName}</th>
+   <th><a href="${products.themeTitles.titleName}/${products.productName}">查看出團日期</a></th>
+ </tbody>
+ </c:forEach>
+</table>
 	
 	<%@ include file="/WEB-INF/frontStageFooter.jsp"%>
 </body>

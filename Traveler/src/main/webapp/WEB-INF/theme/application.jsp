@@ -181,10 +181,7 @@
 <div class="container">
 			<div class="row">
 				<div class="col-sm-offset-3 span9">
-					<h1>主題旅遊報名申請</h1>
-                    <b style='font-size:16px;'>&nbsp;${test.themeProducts.productName}</b>&nbsp;&nbsp;&nbsp;
-                    <b style='font-size:16px;'>出發日期<fmt:formatDate value="${test.setOut}" pattern="yyyy/MM/dd" /></b>&nbsp;&nbsp;&nbsp;
-                    <b style='font-size:16px;'>標準團費${test.price}</b>&nbsp;&nbsp;&nbsp;
+					<h1>主題旅遊報名申請</h1>             
                     <br>
 				</div>
 			</div>
@@ -201,36 +198,54 @@
   <div class="col-sm-3 controls">
    <input type="text" id="name" name="name" placeholder="例:王大明" class="form-control">
   </div>
+  
+  <b style='font-size:16px;'>&nbsp;&nbsp;&nbsp;&nbsp;${test.themeProducts.productName}</b>
+
 </div>
 <div class="form-group">
  <label for="gender" class="col-sm-3 control-label">稱謂</label>
   <div class="col-sm-3 controls">
    <input type="text" id="gender" name="gender" placeholder="先生、小姐" class="form-control">
   </div>
+  
+  <b style='font-size:16px;'>&nbsp;&nbsp;&nbsp;&nbsp;國家:${test.themeProducts.country}</b>
+
 </div>
 <div class="form-group">
  <label for="cellPhone" class="col-sm-3 control-label">連絡電話</label>
   <div class="col-sm-3 controls">
    <input type="text" id="cellPhone" name="cellPhone" placeholder="例:0912345678" class="form-control">
   </div>
+  
+  <b style='font-size:16px;'>&nbsp;&nbsp;&nbsp;&nbsp;出發日期:<fmt:formatDate value="${test.setOut}" pattern="yyyy/MM/dd" /></b>
+
 </div>
 <div class="form-group">
  <label for="people" class="col-sm-3 control-label">人數</label>
   <div class="col-sm-3 controls">
    <input type="text" id="people" name="people" placeholder="1-20人" class="form-control">
   </div>
+  
+  <b style='font-size:16px;'>&nbsp;&nbsp;&nbsp;&nbsp;返回日期:<fmt:formatDate value="${test.returnDay}" pattern="yyyy/MM/dd" /></b>
+
 </div>
 <div class="form-group">
  <label for="callTime" class="col-sm-3 control-label">可連絡時段</label>
   <div class="col-sm-3 controls">
    <input type="text" id="callTime" name="callTime" placeholder="早上、下午、晚上" class="form-control">
   </div>
+  
+  <b style='font-size:16px;'>&nbsp;&nbsp;&nbsp;&nbsp;航空公司:${test.companyName}</b>
+
 </div>
 <div class="form-group">
  <label for="location" class="col-sm-3 control-label">服務據點</label>
   <div class="col-sm-3 controls">
    <input type="text" id="location" name="location" placeholder="台北、台中、高雄" class="form-control">
   </div>
+  
+  <b style='font-size:16px;'>&nbsp;&nbsp;&nbsp;&nbsp;標準團費:${test.price}</b>
+  
 </div>
 <div class="form-group">
  <label for="extra" class="col-sm-3 control-label">備註事項</label>

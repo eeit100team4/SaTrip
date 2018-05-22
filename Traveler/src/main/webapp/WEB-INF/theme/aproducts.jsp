@@ -68,8 +68,7 @@
 <link rel="stylesheet" href="/Traveler/css/cs-skin-border.css">
 
 <link rel="stylesheet" href="/Traveler/css/style.css">
-<!-- 聯絡表單 -->
-<link href="css/bootstrap.min.css" rel="stylesheet">
+
 
 <!-- Modernizr JS -->
 <script src="/Traveler/js/modernizr-2.6.2.min.js"></script>
@@ -116,53 +115,40 @@
 <!-- 連結旁邊的小ICON套件  -->	
 <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
 
-<!-- 聯絡表單 -->
-<!-- jQuery -->
-<script src="js/jquery-1.11.0.min.js"></script>
-<!-- Twitter Boostrap -->
-<script src="js/bootstrap.min.js"></script>
 </head>
 <body>
 	<%@ include file="/WEB-INF/frontStageHeader.jsp"%>
-
 <div style="text-align:center">
-<H1>主題旅遊報名申請</H1>
-<b style='font-size:16px;'>${test.themeProducts.productName}</b><br>
-<b style='font-size:16px;'>出發日期<fmt:formatDate value="${test.setOut}" pattern="yyyy/MM/dd" /></b><br>
-<b style='font-size:16px;'>標準團費${test.price}</b><br>		   
-</div>	
-<section>
-	<div style="text-align:center">
-		<form:form method="POST" modelAttribute="application"  >
-		   <fieldset>		   
-				<label>姓名</label>
-				<form:input  path="name" type="text" />
-				<br>
-				<label>稱謂</label>
-				<form:input  path="gender" type="text" />				
-				<br>
-				<label>連絡電話</label>
-				<form:input  path="cellPhone" type="text" />
-				<br>			
-				<label>報名人數</label>
-				<form:input  path="people" type="text" />
-				<br>			
-				<label>聯絡時段</label>
-				<form:input  path="callTime" type="text" />
-				<br>			
-				<label>服務據點</label>
-				<form:input  path="location" type="text" />
-				<br>
-				<label>備註</label>
-				<form:input  path="extra" type="text" />
-				<br>											
-				<div>					
-				<input type="submit" value="送出報名申請表" />
-				</div>
-			</fieldset>
-		</form:form>
-	</div>		
-</section>
+<H1>主題下相關商品</H1>
+</div>
+<c:forEach var='products' items='${products}'>
+  <div style="text-align:center">
+    <p>
+    <b style='font-size:16px;'>商品名稱:${products.productName}</b><br>
+    <b style='font-size:16px;'>國家:${products.country}</b><br>
+    <b style='font-size:16px;'>種類:${products.themeTitles.titleName}</b><br>
+    <b style='font-size:16px;'>住宿:${products.hotelName}</b><br>
+    <b style='font-size:16px;'>Day1:${products.title1}</b><br>
+    <b style='font-size:16px;'>Day1內標:${products.descriTitle1}</b>
+    <b style='font-size:16px;'>Day1內容:${products.description1}</b><br>
+    <b style='font-size:16px;'>早餐1:${products.breakfast1}</b>
+    <b style='font-size:16px;'>中餐1:${products.lunch1}</b>
+    <b style='font-size:16px;'>晚餐1:${products.dinner1}</b>
+    <b style='font-size:16px;'>Day2:${products.title1}</b><br>
+    <b style='font-size:16px;'>Day2內標:${products.descriTitle1}</b>
+    <b style='font-size:16px;'>Day2內容:${products.description1}</b><br>
+    <b style='font-size:16px;'>早餐2:${products.breakfast1}</b>
+    <b style='font-size:16px;'>中餐2:${products.lunch1}</b>
+    <b style='font-size:16px;'>晚餐2:${products.dinner1}</b><b style='font-size:16px;'>Day1:${products.title1}</b><br>
+    <b style='font-size:16px;'>Day3內標:${products.descriTitle1}</b>
+    <b style='font-size:16px;'>Day3內容:${products.description1}</b><br>
+    <b style='font-size:16px;'>早餐3:${products.breakfast1}</b>
+    <b style='font-size:16px;'>中餐3:${products.lunch1}</b>
+    <b style='font-size:16px;'>晚餐3:${products.dinner1}</b>
+    <a href="${products.themeTitles.titleName}/${products.productName}">查看出團日期</a>
+    </p>
+  </div>
+</c:forEach>
 	
 	<%@ include file="/WEB-INF/frontStageFooter.jsp"%>
 </body>
