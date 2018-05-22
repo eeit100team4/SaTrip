@@ -145,7 +145,7 @@ color:black;
 						 <fieldest>
 						
 						 <table class="tabulation animate-box" style="border:2px #ccc solid;border-radius:10px;width:500px;
-						 background-color:#eee;color:black;">
+						 background-color:#eee;color:black;height:500px;">
 <!-- 						<table> -->
 						 <tr>
 						<td scope="row" style="width:100px;">姓名:</td>

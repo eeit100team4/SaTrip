@@ -230,7 +230,7 @@ span.price {
 			            </div>
 			          </div>			
 			          <div class="col-50">
-			            <h3>Payment</h3>
+			            <h3>付款資訊</h3>
 			            <label for="fname">Accepted Cards</label>
 			            <div class="icon-container">
 			              <i class="fa fa-cc-visa" style="color:navy;"></i>
@@ -239,7 +239,16 @@ span.price {
 			              <i class="fa fa-cc-discover" style="color:orange;"></i>
 			            </div>
 			            <label for="cname">信用卡種類</label>
-			            <input type="text" id="cname" name="cardname" placeholder="John More Doe">
+			            <form>
+							<select name="cars">
+							<option value="volvo">American Express</option>
+							<option value="saab">JCB</option>
+							<option value="fiat">MasterCard</option>
+							<option value="audi" placeholder="Visa" disabled selected>Visa</option>
+						</select>
+						</form>
+						
+			           
 			            <label for="ccnum">信用卡號</label>				            
 			            <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444">
 			            <label for="expmonth">Exp Month</label>

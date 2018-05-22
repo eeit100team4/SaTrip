@@ -78,6 +78,11 @@
 <script src="/Traveler/js/main.js"></script>
 <!-- 連結旁邊的小ICON套件  -->	
 <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
+<!-- Bootstrap -->
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
+<!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> -->
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script> -->
+<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> -->
 
 <!-- 測試側邊 -->
 <style>
@@ -146,19 +151,122 @@ $(document).ready(function(){
 
 </script>
 <style>
-html,body{
-margin:0;
-padding:0;
-height:100%;
+        
+* {
+	margin: 0;
+	padding: 0;
 }
-.wrapper{
-min-height:100%;
-margin-bottom:0px;
+
+/* #allpage { */
+/* 	margin: 0 auto; */
+/* } */
+
+.menu {
+	overflow: auto;
+	width: 100%;
+	list-style-type: none;
+	background-color: #FF8800;
+	border-bottom: 3px solid #cccccc;
 }
-.footer .push{
-margin-bottom:0px;
+
+.me {
+	overflow: auto;
+	width: 100%;
+	list-style-type: none;
+
+
 }
+
+.menu li {
+	float: left;
+	width: 11em;
+	/*為了讓連結區域能依字型大小的變化自動放大,因此在指定width屬性時採用em為單位*/
+	border-right: 1px solid #cccccc;
+}
+
+.me li {
+	float: left;
+    width: 15em; 
+	/*為了讓連結區域能依字型大小的變化自動放大,因此在指定width屬性時採用em為單位*/
+	
+}
+
+.menu li a {
+	display: block;
+	width: 100%;
+	line-height: 3em;
+	/*讓文字上下空出適當的空白,不用padding屬性,直接將行Box的高度設的高一些*/
+	color: #333333;
+	text-decoration: none;
+	text-align: center;
+}
+
+.me li a {
+	display: block;
+	width: 100%;
+	line-height: 3em;
+	/*讓文字上下空出適當的空白,不用padding屬性,直接將行Box的高度設的高一些*/
+	color: #333333;
+	text-decoration: none;
+	text-align: center;
+}
+
+ .menu li a:hover { 
+	color: #FFFFFF; 
+ 	background-color: #AA7700; 
+ } 
+  .me li a:hover { 
+	color: #FFFFFF; 
+ 	background-color: #AA7700; 
+ }
+
+
+/* .content { */
+/* 	overflow: auto; */
+/* 	width: 100%; */
+/* 	padding-bottom: 20px; */
+/* } */
+
+/* aside { */
+/* 	float: right; */
+/* 	width: 20%; */
+/* } */
+
+.list1 {
+	list-style: decimal inside;
+}
+
+
+
+footer {
+	width: 100%;
+	clear: both;
+	line-height: 2.5em;
+	text-align: center;
+	color: #ffffff;
+	background-color: #FFBB00;
+	/*             border-bottom-right-radius: 15px; */
+	/*             border-bottom-left-radius: 15px; */
+}
+
+.d1 {
+	background-color: #FF8800;
+	width: 20%;
+	height:630px;
+	float:left;
+}
+
+.d2{
+background-color: #FFFFFF;
+width: 80%;
+height:630px;
+float:right;
+}
+
 </style>
+
+
+
 
 <title>Insert title here</title>
 </head>
@@ -170,11 +278,24 @@ margin-bottom:0px;
 	
 	<!-- =========側邊欄位開始============ -->	
 <div id="mwt_mwt_slider_scroll">
-<div id="mwt_slider_content"   >
- <div>模擬按鈕連結</div>
- <div>模擬按鈕連結</div>
- <div>模擬按鈕連結</div>
-</div>
+	<div id="mwt_slider_content"   >
+		<div id="nav">			 
+			 <ul >
+				  <li >
+				   	<a class="btn btn-primary"href="ShowAllHotels"><font color="white">查詢飯店資訊</font></a>
+				  </li>
+				  <li >
+				   	<a class="btn btn-primary"href="InsertHotel"><font color="white">新增飯店資訊</font></a>			   
+				  </li>
+				  <li >
+				   <a class="btn btn-primary"href="UpdateHotel"><font color="white">修改飯店資訊</font></a>				   
+				  </li>
+				  <li >
+				   	<a class="btn btn-primary"href="DeleteHotel"><font color="white">刪除飯店資訊</font> </a>			   
+				  </li>
+			 </ul>
+		</div>
+	</div>
 </div>
 <!-- =========側邊欄位結束============ -->
 	
@@ -192,7 +313,7 @@ margin-bottom:0px;
 
 
 
-	<%@ include file="/WEB-INF/backStageFooter.jsp" %>
+<%-- 	<%@ include file="/WEB-INF/backStageFooter.jsp" %> --%>
 
 
 
