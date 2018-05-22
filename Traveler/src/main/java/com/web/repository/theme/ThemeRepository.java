@@ -8,8 +8,8 @@ import com.web.model.theme.ThemeJourneys;
 import com.web.model.theme.ThemeProducts;
 
 public interface ThemeRepository {
-//	//顯示所有種類名稱
-//	List<ThemeTitles> getTitles();
+	//顯示所有種類名稱
+	List<ThemeTitles> getTitles();
 	
 	//介面(新增主題到第一個表格) 
 	void addThemeTitle(ThemeTitles theme);

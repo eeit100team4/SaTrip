@@ -69,7 +69,7 @@
 
 <link rel="stylesheet" href="/Traveler/css/style.css">
 <!-- 聯絡表單 -->
-<link href="/Traveler/css/bootstrap.min.css" rel="stylesheet">
+<link href="css/bootstrap.min.css" rel="stylesheet">
 
 <!-- Modernizr JS -->
 <script src="/Traveler/js/modernizr-2.6.2.min.js"></script>
@@ -98,7 +98,7 @@
 <script src="/Traveler/js/superfish.js"></script>
 <!-- Magnific Popup -->
 <script src="/Traveler/js/jquery.magnific-popup.min.js"></script>
-<!-- <script src="/Traveler/js/magnific-popup-options.js"></script> -->
+<script src="/Traveler/js/magnific-popup-options.js"></script>
 <!-- Date Picker -->
 <script src="/Traveler/js/bootstrap-datepicker.min.js"></script>
 <!-- CS Select -->
@@ -118,137 +118,52 @@
 
 <!-- 聯絡表單 -->
 <!-- jQuery -->
-<script src="/Traveler/js/jquery-1.11.0.min.js"></script>
+<script src="js/jquery-1.11.0.min.js"></script>
 <!-- Twitter Boostrap -->
-<script src="/Traveler/js/bootstrap.min.js"></script>
-<!-- zip2addr plugin -->
-<script src="/Traveler/js/jquery.zip2addr.js"></script>
-<script>
- $(function(){
-	 //jQuery validation Plugin 的Twitter BootStrap3對應
-// 	 $.validator.setDefaults({
-// 		 highlight:function(element){
-// 			 $(element).closest('.form-group').addClass('has-error');
-// 		 },
-// 		 errorElement:  'span',
-// 		 errorClass:   'help-block',
-// 		 errorPlacement: function(error, element){
-// 			 if(element.parent('.controls').length){
-// 				 error.insertAfter(element.parent());
-// 			 }else{
-// 				 error.insertAfter(element);
-// 			 }
-// 		 }
-// 	 });
-	// jQuery Validation Plugin的套用
-// 		$('#form').validate({
-// 			/**
-// 			 * validate 規則設定
-// 			 */
-// 			rules: {
-// 				name:     "required",
-// 				gender:    "required",
-// 				cellPhone:    "required",
-// 				people:    "required",
-// 				callTime:    "required",
-// 				location:    "required",
-// 				extra:    {
-// 					maxlength: 500
-// 				}
-			  
-// 			},
-// 			/**
-// 			 * validate 訊息設定
-// 			 */
-// 			messages: {
-// 				name:     "請輸入姓名。",
-// 				gender:     "請選擇稱謂。",
-// 				cellPhone:     "請輸入電話。",
-// 				people:     "請選擇人數。",
-// 				callTime:     "請選擇可連絡時段。",
-// 				location:     "請選擇服務據點。",				
-// 				extra:     {
-// 					maxlength: jQuery.format("備註事項請輸入 {0} 字以内。")
-// 				},
-// 			}
-		
-//  });
- });
-</script>
+<script src="js/bootstrap.min.js"></script>
 </head>
 <body>
 	<%@ include file="/WEB-INF/frontStageHeader.jsp"%>
-<div class="container">
-			<div class="row">
-				<div class="col-sm-offset-3 span9">
-					<h1>主題旅遊報名申請</h1>
-                    <b style='font-size:16px;'>&nbsp;${test.themeProducts.productName}</b>&nbsp;&nbsp;&nbsp;
-                    <b style='font-size:16px;'>出發日期<fmt:formatDate value="${test.setOut}" pattern="yyyy/MM/dd" /></b>&nbsp;&nbsp;&nbsp;
-                    <b style='font-size:16px;'>標準團費${test.price}</b>&nbsp;&nbsp;&nbsp;
-                    <br>
+
+<div style="text-align:center">
+<H1>主題旅遊報名申請</H1>
+<b style='font-size:16px;'>${test.themeProducts.productName}</b><br>
+<b style='font-size:16px;'>出發日期<fmt:formatDate value="${test.setOut}" pattern="yyyy/MM/dd" /></b><br>
+<b style='font-size:16px;'>標準團費${test.price}</b><br>		   
+</div>	
+<section>
+	<div style="text-align:center">
+		<form:form method="POST" modelAttribute="application"  >
+		   <fieldset>		   
+				<label>姓名</label>
+				<form:input  path="name" type="text" />
+				<br>
+				<label>稱謂</label>
+				<form:input  path="gender" type="text" />				
+				<br>
+				<label>連絡電話</label>
+				<form:input  path="cellPhone" type="text" />
+				<br>			
+				<label>報名人數</label>
+				<form:input  path="people" type="text" />
+				<br>			
+				<label>聯絡時段</label>
+				<form:input  path="callTime" type="text" />
+				<br>			
+				<label>服務據點</label>
+				<form:input  path="location" type="text" />
+				<br>
+				<label>備註</label>
+				<form:input  path="extra" type="text" />
+				<br>											
+				<div>					
+				<input type="submit" value="送出報名申請表" />
 				</div>
-			</div>
-		</div>	
-		
-<div class="container">
- <div class="row">
-  <div class="span12">
-
-    <!-- 程式碼開始 -->
-    <form:form method="POST" modelAttribute="application" class="form-horizontal" role="form" id="form" >
-<div class="form-group">
- <label for="name" class="col-sm-3 control-label">聯絡人姓名</label>
-  <div class="col-sm-3 controls">
-   <input type="text" id="name" name="name" placeholder="例:王大明" class="form-control">
-  </div>
-</div>
-<div class="form-group">
- <label for="gender" class="col-sm-3 control-label">稱謂</label>
-  <div class="col-sm-3 controls">
-   <input type="text" id="gender" name="gender" placeholder="先生、小姐" class="form-control">
-  </div>
-</div>
-<div class="form-group">
- <label for="cellPhone" class="col-sm-3 control-label">連絡電話</label>
-  <div class="col-sm-3 controls">
-   <input type="text" id="cellPhone" name="cellPhone" placeholder="例:0912345678" class="form-control">
-  </div>
-</div>
-<div class="form-group">
- <label for="people" class="col-sm-3 control-label">人數</label>
-  <div class="col-sm-3 controls">
-   <input type="text" id="people" name="people" placeholder="1-20人" class="form-control">
-  </div>
-</div>
-<div class="form-group">
- <label for="callTime" class="col-sm-3 control-label">可連絡時段</label>
-  <div class="col-sm-3 controls">
-   <input type="text" id="callTime" name="callTime" placeholder="早上、下午、晚上" class="form-control">
-  </div>
-</div>
-<div class="form-group">
- <label for="location" class="col-sm-3 control-label">服務據點</label>
-  <div class="col-sm-3 controls">
-   <input type="text" id="location" name="location" placeholder="台北、台中、高雄" class="form-control">
-  </div>
-</div>
-<div class="form-group">
- <label for="extra" class="col-sm-3 control-label">備註事項</label>
-  <div class="col-sm-6 controls">
-   <textarea class="form-control" rows="3" id="extra" name="extra" placeholder="請輸入500字以內"></textarea>
-  </div>
-</div>
-<div class="form-group">
- <div class="col-sm-offset-3 col-sm-6">
-  <button type="submit" class="btn" btn-primary btn-lg btn-block">送出報名表</button>
- </div>
-</div>
-     </form:form>
-   
-  </div>
- </div>
-</div>
-
+			</fieldset>
+		</form:form>
+	</div>		
+</section>
+	
 	<%@ include file="/WEB-INF/frontStageFooter.jsp"%>
 </body>
 </html>
