@@ -233,13 +233,12 @@ margin-bottom:0px;
 	
 	
         <div class="content text-center">
-		<h2>放內容的地方</h2>
-<div class="d2">
- <section>
+<div style="color:black">
+
   <div>
-   <h1 style="text =align: center">主題維護</h1>
+   <h1 style="text-align: center">主題維護</h1>
   </div>
- </section>
+
 
 <hr width='3'>
 
@@ -247,18 +246,19 @@ margin-bottom:0px;
 	<form:form method="POST" modelAttribute="themeBean" enctype="multipart/form-data" >
 	 <fieldset>
 	  <label>新增主題</label>
-	   <form:input  path="titleName" type="text" />		
-						
+	   <form:input  path="titleName" type="text"/>								
 		<br>
-		<label>新增圖片</label>
-		<form:input  path="titleImage" type="file"  />			
-													
+		<br>
+		<label>新增圖片</label><br>
+		<form:input  style="margin:0 auto;" path="titleImage" type="file"/>	
+		<br>
+		<br>															
 		<div>					
-		<input type="submit" value="送出" />
+		<input type="submit" value="送出"/>
 		</div>
 	  </fieldset>
 	</form:form>		
-	</section>
+</section>	
 </div>
 		
 </div>

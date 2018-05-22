@@ -29,7 +29,7 @@ public class RootAppcConfig {
 		} catch (PropertyVetoException e) {
 			e.printStackTrace();
 		}
-		ds.setJdbcUrl("jdbc:sqlserver://localhost:1433;DatabaseName=Traveler");
+		ds.setJdbcUrl("jdbc:sqlserver://localhost;DatabaseName=Traveler");
 		ds.setInitialPoolSize(4);
 		ds.setMaxPoolSize(8);
 

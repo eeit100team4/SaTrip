@@ -28,7 +28,7 @@
 								<li><a href="/Traveler/commlistfront"><i class=	"fas fa-cart-arrow-down"></i><font color="orange">紅利商品</font></a></li>
 								<li><a href="/Traveler/contactus/contactusopinion"><i class="fas fa-phone-square"></i><font color="orange">客服中心</font></a></li>
 							<c:choose>
-									<c:when test="${userName!=null}">
+									<c:when test="${LoginOK!=null}">
 									<!-- 登入後 -->
 								<li><a href=''><i class="far fa-user-circle"></i><font color="orange">會員專區</font></a>
 									<ul class="fh5co-sub-menu">
@@ -41,7 +41,7 @@
 								</c:when>
 									<c:otherwise>
 										<!-- 登入前 -->
-										<li><a href='member/login'><i class="far fa-user-circle"></i><font color="orange">註冊/登入</a></li>
+										<li><a href='member/login' style="color:orange"><i class="far fa-user-circle"></i>註冊/登入</a></li>
 									</c:otherwise>
 								</c:choose>
 							</ul>

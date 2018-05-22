@@ -217,6 +217,7 @@ function sendGuest(){
 
 	
 	var data = new FormData(document.querySelector("form"));
+// 	var data = new FormData(document.fform);
 	console.log(data);
 	$.ajax({
 		url : 'guest',
@@ -327,7 +328,7 @@ function sendGuest(){
 					</div>
 					  
 	<div class="text-left" style="width: 50%;height:auto; margin: 0px auto; border: 1px orange solid">
-		<form id="myform"  enctype="multipart/form-data" >
+		<form id="myform"  name="fform" enctype="multipart/form-data" >
 
 			<fieldset>
         	<h2><legend class="label label-warning">聯絡人資訊</legend></h2>
