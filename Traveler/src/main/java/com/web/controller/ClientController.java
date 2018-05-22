@@ -2,7 +2,7 @@ package com.web.controller;
 
 
 
-import java.util.Date;
+
 import java.util.List;
 
 import javax.servlet.ServletContext;
@@ -36,8 +36,7 @@ public class ClientController {
 	@Autowired
 	ClientService clientservice;
 	
-//	@Autowired
-//	MemberService memberservice;
+
 	
 	
 	@Autowired
@@ -50,11 +49,8 @@ public class ClientController {
 		List<CommodityBean>  list = commodityservice.getAllData();
 		model.addAttribute("commlist", list);
 		
-		if(session==null) {
-			return"/member/login";
-		}else {
 			return "commodity/commlistfront";
-		}
+		
 		
 	}
 		
@@ -63,13 +59,14 @@ public class ClientController {
 //	new空白的ClientBean給表單
 	@RequestMapping(value="/tsuikaClient/{commodityid}",method=RequestMethod.GET)
 	public String insertClientForm(
-			@PathVariable("commodityid") Integer commodityid,
-//			@RequestParam("memberId") String memberId,
+			@PathVariable("commodityid") Integer commodityid,		
 			Model model) {
 
 		ClientBean cb=new ClientBean();
 		CommodityBean ctb = commodityservice.getCommodityById(commodityid);
-		MemberBean mb=clientservice.getMemberById("1");
+		MemberBean mb = (MemberBean) session.getAttribute("LoginOK");	
+		String memberId=mb.getMemberId();
+		 mb=clientservice.getMemberById(memberId);
          cb.setCommodityBean(ctb);
          cb.setMemberBean(mb);
         model.addAttribute("Client",cb);
@@ -80,14 +77,15 @@ public class ClientController {
 
 
 	@RequestMapping(value="/addclientpath", method=RequestMethod.POST)
-	public  String addclientform(@ModelAttribute("Client") ClientBean cb ,
-//			                     @RequestParam("memberId") String memberId,
+	public  String addclientform(@ModelAttribute("Client") ClientBean cb ,			                   
 			                     @RequestParam("commid")  Integer commodityid,
 			                    Model model) 
 			                     {
 
 		CommodityBean ctb = commodityservice.getCommodityById(commodityid);
-		MemberBean mb=clientservice.getMemberById("1");
+		MemberBean mb = (MemberBean) session.getAttribute("LoginOK");	
+		String memberId=mb.getMemberId();
+		mb=clientservice.getMemberById(memberId);
      
 		Double compoint =ctb.getPoint(); //單個商品點數		
 		Double mempoint=mb.getPoint();  //會員點數		
@@ -121,20 +119,14 @@ public class ClientController {
 	
 		
 	}
-
 	
 	//後台顯示商品兌換清單
 		@RequestMapping("/ClientLists")
-		public String listClient(
-				                  Model model) {
+		public String listClient( Model model) {
 			List<ClientBean>  list = clientservice.getAllData();
 			model.addAttribute("ClientLists", list);
-	
-		
+			
 			return "commodity/CliList";
 		}
-	
-	
-	
-	
+		
 }

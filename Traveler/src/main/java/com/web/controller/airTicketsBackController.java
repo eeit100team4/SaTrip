@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.annotation.Resources;
 import javax.servlet.http.HttpSession;
 import javax.swing.plaf.synth.SynthSpinnerUI;
 
@@ -14,6 +15,7 @@ import org.springframework.context.annotation.Conditional;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -122,6 +124,19 @@ public class airTicketsBackController {
 		sendEmailService.sendNewEmail(orderId);
 		return "OK";
 
+	}
+	
+	//查詢是否有訂單
+	@RequestMapping(value = "/selectOne/check", method = RequestMethod.POST)
+	@ResponseBody
+	public String selectOneCheck(@RequestParam("orderId") String orderID) {
+		OrderDetailsBean bean = os.selectOneByOrderId(orderID);
+		System.out.println(bean);
+		if(bean==null) {
+			return "noAnswer";
+		}
+		System.out.println(orderID);
+		return "exist";
 	}
 
 }

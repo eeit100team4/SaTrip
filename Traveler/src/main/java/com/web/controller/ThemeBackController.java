@@ -25,15 +25,15 @@ public class ThemeBackController {
 	ThemeService themeService;
 
 	// 新增主題用 產生空白表單 預設讀取GET方法
-	@RequestMapping(value = "/theme/titleManagement", method = RequestMethod.GET)
+	@RequestMapping(value = "/theme/addTitle", method = RequestMethod.GET)
 	public String getAddNewThemeForm(Model model) {
 		ThemeTitles tb = new ThemeTitles();
 		model.addAttribute("themeBean", tb);
-		return "theme/titleManagement";
+		return "theme/addTitle";
 	}
 
 	// 新增主題用 傳入表單上的資訊，在原來頁面新增內容，在JSP裡指定POST方法
-	@RequestMapping(value = "/theme/titleManagement", method = RequestMethod.POST)
+	@RequestMapping(value = "/theme/addTitle", method = RequestMethod.POST)
 	public String processAddNewThemeForm(@ModelAttribute("themeBean") ThemeTitles tb, HttpServletRequest request) {
 		// 寫入圖片檔跟檔名
 		MultipartFile titleImage = tb.getTitleImage();
@@ -60,13 +60,19 @@ public class ThemeBackController {
 			e.printStackTrace();
 			throw new RuntimeException("檔案上傳發生異常: " + e.getMessage());
 		}
-		return "redirect:titles";
+		return "redirect:themeTitles";
 	}
 	//後台頁面  連結到主題管理頁
-	@RequestMapping("theme/management")
+	@RequestMapping("theme/back")
+	public String back(){
+		return "theme/back";
+	}
+	//後台頁面  連結
+	@RequestMapping("theme/titleManagement")
 	public String title(){
-		return "theme/management";
-	}//後台頁面  連結
+		return "theme/titleManagement";
+	}
+	//後台頁面  連結
 	@RequestMapping("theme/productManagement")
 	public String product(){
 		return "theme/productManagement";

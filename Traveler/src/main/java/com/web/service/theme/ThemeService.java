@@ -9,7 +9,7 @@ import com.web.model.theme.ThemeProducts;
 
 public interface ThemeService {
 	//介面 顯示全部主題
-	//List<ThemeTitles> getTitles();
+	List<ThemeTitles> getTitles();
 	
 	void addThemeTitle(ThemeTitles theme);
 	

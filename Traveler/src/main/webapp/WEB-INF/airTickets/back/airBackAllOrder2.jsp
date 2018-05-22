@@ -173,8 +173,35 @@ $( document ).ready(function(){
 	
 	function selectOne(){
 	var id= $("#one").val();
-	window.location.assign("selectOne/"+id);
+	var data={};
+	  data.orderId=id;
+	$.ajax({
+		url : 'selectOne/check',
+		type : 'POST',
+		data : data,
+// 		enctype: "multipart/form-data",
+// 		contentType : false,
+// 		processData : false,
+		success : function(responce) {
+			if("exist".match(responce)){
+				window.location.assign("selectOne/"+id);
+			};
+			if("noAnswer".match(responce)){
+				$("#side").empty().text("查無訂單");
+				}
+			
+		},
+		error:function(){
+			alert("TT");
+		}
+
+	});
 	}
+	
+	
+	
+	
+	
 	
 </script>
 <script>
@@ -317,7 +344,7 @@ function searchAll(){
 				<div class="d2">
 			<div class="text-left" >
 			<span style="margin-left:20px;">本日新訂單：</span><span id="newTotal" style="margin-right:250px;"></span>
-			<input id="one" style="margin:10px;" type="text" placeholder="查詢指定訂單" /><button class="btn-info btn-sm" type="button" onclick="selectOne()"> go</button></div>
+			<input id="one" style="margin:10px;" type="text" placeholder="查詢指定訂單" /><button class="btn-info btn-sm" type="button" onclick="selectOne()"> go</button><span id="side"></span></div>
 			<!-- 			<table class="table" class="table table-sm table-hover"> -->
 			<!-- 				<thead> -->
 
