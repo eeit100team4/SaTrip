@@ -24,7 +24,7 @@ public class CommodityRepository implements CommodityDAO {
 	//列出所有商品資料
 	@Override
 	public List<CommodityBean> getAllData() {		
-		String hql = "FROM CommodityBean";
+		String hql = "FROM CommodityBean order by commodityid desc";
 		Session session = null;
 		List<CommodityBean> list = new ArrayList<>();
 		session = factory.getCurrentSession();
@@ -32,6 +32,16 @@ public class CommodityRepository implements CommodityDAO {
 		return list;		
 	}
 	
+	//改寫上面的 HQL改SQL  但是失敗中
+//	@Override
+//	public List<CommodityBean> getAllData() {		
+//		String sql = "select * FROM CommodityBean order by commodityid desc";
+//		Session session = null;
+//	     session = factory.getCurrentSession();
+//		List<CommodityBean> list = session.createNativeQuery(sql,CommodityBean.class)
+//				.getResultList();
+//		return list;		
+//	}
 	
 	
 
