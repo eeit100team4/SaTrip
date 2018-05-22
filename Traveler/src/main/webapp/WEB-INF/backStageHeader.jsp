@@ -19,7 +19,7 @@
 						color="orange">機票</font></a></li>
 				<li><a href="_Hotel/DisplayHotel"><i class="fas fa-home"></i><font
 						color="orange">飯店</font></a></li>
-				<li><a href="theme/titles"><i class="fas fa-globe"></i><font
+				<li><a href="/Traveler/theme/back"><i class="fas fa-globe"></i><font
 						color="orange">旅遊</font></a></li>
 				<li><a href="/Traveler/commlist"><i class="fas fa-cart-arrow-down"></i><font
 						color="orange">紅利商品</font></a></li>

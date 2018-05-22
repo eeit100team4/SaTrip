@@ -18,17 +18,17 @@ public class ThemeRepositoryImpl implements ThemeRepository {
 	@Autowired
 	SessionFactory factory;
 	
-//	//顯示所有種類名稱
-//	@Override
-//	@SuppressWarnings("unchecked")
-//	public List<ThemeTitles> getTitles() {
-//		String hql = "FROM ThemeTitles";
-//		Session session = null;
-//		List<ThemeTitles>list = new ArrayList<>();
-//		session = factory.getCurrentSession();
-//		list = session.createQuery(hql).getResultList();
-//		return list;
-//	}
+	//顯示所有種類名稱
+	@Override
+	@SuppressWarnings("unchecked")
+	public List<ThemeTitles> getTitles() {
+		String hql = "FROM ThemeTitles";
+		Session session = null;
+		List<ThemeTitles>list = new ArrayList<>();
+		session = factory.getCurrentSession();
+		list = session.createQuery(hql).getResultList();
+		return list;
+	}
 	//新增主題到第一個表格
 	@Override
 	public void addThemeTitle(ThemeTitles Theme){

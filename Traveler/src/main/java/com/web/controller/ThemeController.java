@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.web.model.theme.ThemeApplications;
 import com.web.model.theme.ThemeJourneys;
 import com.web.model.theme.ThemeProducts;
+import com.web.model.theme.ThemeTitles;
 import com.web.service.theme.ThemeService;
 
 @Controller
@@ -24,13 +25,13 @@ public class ThemeController {
 	@Autowired
 	HttpSession session;
 
-//	// 從首頁點選主題旅遊時的dispatcher 
-//	@RequestMapping("theme/themeTitles")
-//	public String list(Model model) {
-//		List<ThemeTitles> list = themeService.getTitles();
-//		model.addAttribute("themeTitles", list);
-//		return "theme/themeTitles";
-//	}
+	// 從首頁點選主題旅遊時的dispatcher 
+	@RequestMapping("theme/themeTitles")
+	public String list(Model model) {
+		List<ThemeTitles> list = themeService.getTitles();
+		model.addAttribute("themeTitles", list);
+		return "theme/themeTitles";
+	}
 	
 	//叫出各title，顯示在網頁
 	@RequestMapping("/theme/titles")

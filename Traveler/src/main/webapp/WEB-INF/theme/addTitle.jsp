@@ -44,7 +44,6 @@
 <!-- 手風琴 -->
 <link rel="stylesheet" href="/Traveler/css/astyle.css" type="text/css"/>
 
-
 <!-- Modernizr JS -->
 <script src="/Traveler/js/modernizr-2.6.2.min.js"></script>
 <!-- FOR IE9 below -->
@@ -83,8 +82,9 @@
 <script src="/Traveler/js/main.js"></script>
 <!-- 連結旁邊的小ICON套件  -->	
 <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
+
 <!-- 手風琴 -->
-<script type="text/javascript" src="/Traveler/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="/Traveler/js/jquery-1.10.2.min.js"></script>
 <script type="text/javascript">
 $(function(){
 	$("ul.subs").hide();
@@ -231,19 +231,37 @@ margin-bottom:0px;
 	
 	
 	
-<div style="margin-left:300px; margin-top:10px;width:900px;" class="content text-center">
 	
- <c:forEach var='theme' items='${themeTitles}'>
-  <div style="width:300px; height:200px; float: left; ">
-    <img src="/Traveler/images/themeTitle-${theme.titleId}.png">
-    <p>
-    <b style='font-size:16px;'>${theme.titleName}</b>
-    </p>
+        <div class="content text-center">
+<div style="color:black">
+
+  <div>
+   <h1 style="text-align: center">主題維護</h1>
   </div>
- </c:forEach>
+
+
+<hr width='3'>
+
+<section>
+	<form:form method="POST" modelAttribute="themeBean" enctype="multipart/form-data" >
+	 <fieldset>
+	  <label>新增主題</label>
+	   <form:input  path="titleName" type="text"/>								
+		<br>
+		<br>
+		<label>新增圖片</label><br>
+		<form:input  style="margin:0 auto;" path="titleImage" type="file"/>	
+		<br>
+		<br>															
+		<div>					
+		<input type="submit" value="送出"/>
+		</div>
+	  </fieldset>
+	</form:form>		
+</section>	
 </div>
 		
-
+</div>
 
 	<!--  ========================================================== -->
 
