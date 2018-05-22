@@ -87,13 +87,13 @@ public class ContactusController {
 //		session.setAttribute("aa", contactus2);
 //		return "/contactus/feedbackopinion";		
 //	}
-	@RequestMapping(value="contactus/feedbackopinion",method=RequestMethod.GET)
-	public String updateForm(@ModelAttribute("contactusBean")ContactusBean contactus2,Model model) {
-		model.addAttribute("contactusBean",contactus2);
-		return "contactus/feedbackopinion";
-	}
+//	@RequestMapping(value="contactus/feedbackopinion/{pkid}",method=RequestMethod.GET)
+//	public String updateForm(@ModelAttribute("contactusBean")ContactusBean contactus,Model model) {
+//		model.addAttribute("contactusBean",contactus);
+//		return "contactus/feedbackopinion";
+//	}
 
-	@RequestMapping(value="contactus/feedbackopinion/{pkid}",method=RequestMethod.POST)
+	@RequestMapping(value="contactus/feedbackopinion/{pkid}")
 	public String updateForm(Model model,
 			@ModelAttribute("contactusBean") ContactusBean contactus,BindingResult result, 
 			HttpSession session) {
@@ -101,7 +101,7 @@ public class ContactusController {
 //		model.addAttribute("contactus", list);
 		contactusService.updateCustomerOpinion(contactus);
 		session.setAttribute("aa", contactus);
-		return "contactus/feedbackopinion";		
+		return "contactus/selectopinion";		
 		
 	}
 //	
@@ -133,6 +133,7 @@ public class ContactusController {
 		model.addAttribute("contactus", list2);
 		return "contactus/feedbackopinion";
 	}
+	
 	@RequestMapping("contactus/StatisticsReport")
 	public String list3(Model model) {
 		
@@ -147,9 +148,12 @@ public class ContactusController {
 	public String list5(Model model) {
 		return "contactus/contactuspieage";
 	}
+	
+	
 	@RequestMapping("contactus/selectopinion")
 	public String list6(Model model) {
-		
+		List<ContactusBean> list2=contactusService.getAllContactus();
+		model.addAttribute("contactus", list2);
 		return "contactus/selectopinion";
 	}
 }
