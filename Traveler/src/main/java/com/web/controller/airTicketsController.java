@@ -124,7 +124,9 @@ public class airTicketsController {
 		Gson gson = new Gson();
 		String jsonInString = gson.toJson(obean);
 		model.addAttribute("bean", jsonInString);
+		model.addAttribute("memberBean", member);
 		model.addAttribute("personNum", personNum);
+		System.out.println(member);
 		return "airTickets/passagngerInfo";
 	}
 

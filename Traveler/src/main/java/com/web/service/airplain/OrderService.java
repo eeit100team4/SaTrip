@@ -59,7 +59,9 @@ public class OrderService {
 	public void setPointToMember(String orderId) throws SQLException {
 		OrderDetailsBean ordBean = or.selectOneByOrderId(orderId);
 		MemberBean member = memberDAO.getMemberById(ordBean.getMemberId());
-		member.setPoint(ordBean.getRedPoint());
+		double originPoint = member.getPoint();
+		double newPoint = originPoint+ordBean.getRedPoint();
+		member.setPoint(newPoint);
 		memberDAO.updateMember(member);
 		
 	}
