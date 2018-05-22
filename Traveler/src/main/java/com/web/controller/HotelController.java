@@ -34,11 +34,13 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.web.model.hotel.HotelBean;
 import com.web.model.hotel.HotelBookingDateBean;
+import com.web.model.hotel.HotelOrderBean;
 import com.web.model.hotel.HotelRoomBean;
 import com.web.repository.hotel.HotelBookingDateRepository;
 import com.web.repository.hotel.HotelRoomRepository;
 import com.web.repository.hotel.impl.HotelBookingDateRepositoryImpl;
 import com.web.service.hotel.HotelBookingDatieService;
+import com.web.service.hotel.HotelOrderService;
 import com.web.service.hotel.HotelRoomService;
 import com.web.service.hotel.HotelService;
 
@@ -55,6 +57,8 @@ public class HotelController {
 
 	@Autowired
 	ServletContext context;
+	@Autowired
+	HotelOrderService hotelOrderService; 
 
 	
 
@@ -81,10 +85,8 @@ public class HotelController {
 	//篩選扭送出呈現Hotel畫面 
 	@RequestMapping("/_Hotel/Listed")
 	public String getProductByIds(@RequestParam("start") String start, @RequestParam("end") String end,@RequestParam("location") String location, Model model) throws ParseException {
-		// '2018/06/01' and '2018/06/05'		
-						
-		
-		
+		// '2018/06/01' and '2018/06/05'	
+				
 		SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");		
 		Date parsedDate = dateFormat.parse(start);
 		java.sql.Timestamp startTime = new java.sql.Timestamp(parsedDate.getTime());
@@ -137,12 +139,6 @@ public class HotelController {
 		ResponseEntity<byte[]> responseEntity = new ResponseEntity<>(media, headers, HttpStatus.OK);
 		return responseEntity;
 	}
-	
-	
-	
-		
-		
-	
 	
 	
 	
@@ -203,7 +199,18 @@ public class HotelController {
 //	}
 
 	
-	
-	
+//	@RequestMapping("/_Hotel/OrderRoom")
+//	public String saveOrderBean(@RequestParam()) {
+//		HotelOrderBean hotelOrderBean=new HotelOrderBean(); 
+//		hotelOrderBean.setHotel_name(hotel_name);
+//		hotelOrderBean.setRm_no(rm_no);
+//		hotelOrderBean.setOrder_date(order_date);
+//		hotelOrderBean.setMember_no(member_no);
+//		hotelOrderBean.setTotalAmount(totalAmount);
+//		hotelOrderService.saveHotelOrderBean(hotelOrderBean);
+//		
+//		return "_Hotel/OrderRoom";
+//	}
+//	
 
 }

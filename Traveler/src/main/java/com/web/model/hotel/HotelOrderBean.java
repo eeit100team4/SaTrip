@@ -22,20 +22,20 @@ public class HotelOrderBean implements Serializable {
 	private String hotel_name;
 	private String cancelTag;
 	private String invoiceTitle;
-	private String account;
+	private String member_no;
 	private Timestamp order_date;
 	private Timestamp booking_date;
 	private Integer rm_no;
 	@Column(columnDefinition="decimal(12, 1)")
 	private Double totalAmount;
-	public HotelOrderBean(Integer order_id, String hotel_name, String cancelTag, String invoiceTitle, String account,
+	public HotelOrderBean(Integer order_id, String hotel_name, String cancelTag, String invoiceTitle, String member_no,
 			Timestamp order_date, Timestamp booking_date, Integer rm_no, Double totalAmount) {
 		super();
 		this.order_id = order_id;
 		this.hotel_name = hotel_name;
 		this.cancelTag = cancelTag;
 		this.invoiceTitle = invoiceTitle;
-		this.account = account;
+		this.member_no = member_no;
 		this.order_date = order_date;
 		this.booking_date = booking_date;
 		this.rm_no = rm_no;
@@ -68,12 +68,14 @@ public class HotelOrderBean implements Serializable {
 	public void setInvoiceTitle(String invoiceTitle) {
 		this.invoiceTitle = invoiceTitle;
 	}
-	public String getAccount() {
-		return account;
+	
+	public String getMember_no() {
+		return member_no;
 	}
-	public void setAccount(String account) {
-		this.account = account;
+	public void setMember_no(String member_no) {
+		this.member_no = member_no;
 	}
+	
 	public Timestamp getOrder_date() {
 		return order_date;
 	}
