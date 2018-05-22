@@ -17,7 +17,7 @@
 				style="background-color: black">
 				<li><a href="/Traveler/airTickets/back/list"><i class="fas fa-plane"></i><font
 						color="orange">機票</font></a></li>
-				<li><a href="_Hotel/DisplayHotel"><i class="fas fa-home"></i><font
+				<li><a href="/Traveler/_Hotel/End/HotelEnd"><i class="fas fa-home"></i><font
 						color="orange">飯店</font></a></li>
 				<li><a href="/Traveler/theme/back"><i class="fas fa-globe"></i><font
 						color="orange">旅遊</font></a></li>
