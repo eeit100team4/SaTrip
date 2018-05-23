@@ -15,7 +15,6 @@
 <meta name="author" content="FREEHTML5.CO" />
 
 
-
 <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 <link rel="shortcut icon" href="/Traveler/images/favicon.ico">
 
@@ -265,7 +264,8 @@ float:right;
 
 </style>
 
-
+<link rel="stylesheet"
+	href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
 
 
 <title>Insert title here</title>
@@ -297,15 +297,83 @@ float:right;
 		</div>
 	</div>
 </div>
-<!-- =========側邊欄位結束============ -->
+<!-- =========側邊欄位結束============ -->	
 	
-	
-	
-	
-		<div class="content text-center">
-		<h2>放內容的地方</h2>
+		<div class="container-fluid">
+				
+<%-- 					<c:forEach  var="hotelInfo" items="${hotels}">			 --%>
+<!-- 						<table class="simpleTable">							   -->
+<!-- 							  <thead> -->
+<!-- 							    <tr> -->
+<%-- 							      <th><img width='600' height='300' src="<c:url value='/getPic/${hotelInfo.hotel_id}' />" /></th> --%>
+<!-- 							      <th></th> -->
+<!-- 							      <th></th> -->
+<!-- 							    </tr> -->
+<!-- 							  </thead>	 -->
+<!-- 							  <tbody> -->
+<!-- 							    <tr> -->
+<%-- 							      <td><h1>${hotelInfo.name}</h1></td>							       --%>
+<!-- 							      <td></td> -->
+<%-- 							      <td width="200px"><h1><font color="red">NT：${hotelInfo.hotelRoomBean.price}</font></h1></td> --%>
+<!-- 							    </tr> -->
+<!-- 							    <tr>							      -->
+<%-- 							      <td><h4>${hotelInfo.country}</h4></td> --%>
+<!-- 							      <td></td>							       -->
+<!-- 							      <td></td> -->
+<!-- 							    </tr> -->
+<!-- 							    <tr>							     							       -->
+<%-- 							      <td><h4>${hotelInfo.city}</h4></td> --%>
+<!-- 							      <td></td>							       -->
+<!-- 							      <td><a class="btn btn-primary"href="DisplayRoom"><font color="white"><h4><font color="white">選擇</font></h4></font></a></td> -->
+<!-- 							    </tr> -->
+<!-- 						 	  </tbody> -->
+<!-- 					    </table>			 -->
+<%-- 						</c:forEach> --%>
+
+			
+<!-- 		</div> -->
 		
 		
+		
+		<section class="container">
+			<div class="row">
+			<c:forEach  var="hotelInfo" items="${hotels}">	
+			
+			
+			
+			<div class="col-sm-6 col-md-3" style="width: 360px; height: 360px">
+					<div class="thumbnail" style="width: 320px; height: 340px">
+					 <th><img width='300' height='250' src="<c:url value='/getPic/${hotelInfo.hotel_id}' />" /></th>						
+						<div class="caption">
+							<p>
+								<b style='font-size: 16px;'>${hotelInfo.name}</b>
+							</p>
+							<p>${hotelInfo.country}</p>
+							<p>${hotelInfo.city}</p>
+							<p><font color="red">NT：${hotelInfo.hotelRoomBean.price}</font></p>
+<%-- 							<p>目前在庫數量: ${product.stock}本</p> --%>
+<!-- 							<p> -->
+<%-- 								<a href="<spring:url value='product?id=${product.bookId}' />"    --%>
+<!-- 									class="btn btn-primary"> <span -->
+<!-- 									class="glyphicon-info-sigh glyphicon"></span>詳細資料 -->
+<!-- 								</a> -->
+								
+<%-- 								<a href="<spring:url value='product.xml?id=${product.bookId}' />"    --%>
+<!-- 									class="btn btn-primary"> <span -->
+<!-- 									class="glyphicon-info-sigh glyphicon"></span>XML -->
+<!-- 								</a> -->
+								
+<%-- 								<a href="<spring:url value='product.json?id=${product.bookId}' />"    --%>
+<!-- 									class="btn btn-primary"> <span -->
+<!-- 									class="glyphicon-info-sigh glyphicon"></span>JSON -->
+<!-- 								</a> -->
+<!-- 							</p> -->
+						</div>
+					</div>
+				</div>
+				</c:forEach>
+			</div>			
+		</section>
 		</div>
 
 	<!--  ========================================================== -->
