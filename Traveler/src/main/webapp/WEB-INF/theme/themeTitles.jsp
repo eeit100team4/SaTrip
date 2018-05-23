@@ -235,7 +235,7 @@ margin-bottom:0px;
 	
  <c:forEach var='theme' items='${themeTitles}'>
   <div style="width:300px; height:200px; float: left; ">
-    <img src="/Traveler/images/themeTitle-${theme.titleId}.png">
+    <img src="/Traveler/images/themeTitle-${theme.titleName}.png">
     <p>
     <b style='font-size:16px;'>${theme.titleName}</b>
     </p>
