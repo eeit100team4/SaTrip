@@ -235,8 +235,8 @@
 							</td>
 							<td><h4>累積 </h4><br><h4>兌換</h4>
 							</td>
-							<td><h4 style="color:red">NT:5000</h4></td>
-							<td><input type="submit" class="" value="訂房"></td>
+							<td><h4 style="color:red">NT:5,000</h4></td>
+							<td><a href="OrderRoom" class="btn btn-primary" name="">訂房</a></td>
 						</tr>
 						<tr style="width: 180px">
 							<th scope="row"><img src="../images/hotelPic/korFRA2.jpg"
@@ -245,8 +245,8 @@
 							</td>
 							<td><h4>累積 </h4><br><h4>兌換</h4>
 							</td>
-							<td><h4 style="color:red">NT:6800</h4></td>
-							<td><input type="submit" class="" value="訂房"></td>
+							<td><h4 style="color:red">NT:6,800</h4></td>
+							<td><a href="OrderRoom" class="btn btn-primary" name="">訂房</a></td>
 						</tr>
 						<tr style="width: 180px">
 							<th scope="row"><img src="../images/hotelPic/korFRA2.jpg"
@@ -255,8 +255,8 @@
 							</td>
 							<td><h4>累積 </h4><br><h4>兌換</h4>
 							</td>
-							<td><h4 style="color:red">NT:6500</h4></td>
-							<td><input type="submit" class="" value="訂房"></td>
+							<td><h4 style="color:red">NT:6,500</h4></td>
+							<td><a href="OrderRoom" class="btn btn-primary" name="">訂房</a></td>
 						</tr>
 						<tr style="width: 180px">
 							<th scope="row"><img src="../images/hotelPic/korFRA2.jpg"
@@ -265,8 +265,8 @@
 							</td>
 							<td><h4>累積 </h4><br><h4>兌換</h4>
 							</td>
-							<td><h4 style="color:red">NT:9500</h4></td>
-							<td><input type="submit" class="" value="訂房"></td>
+							<td><h4 style="color:red">NT:9,500</h4></td>
+							<td><a href="OrderRoom" class="btn btn-primary" name="">訂房</a></td>
 						</tr>
 						<tr style="width: 180px">
 							<th scope="row"><img src="../images/hotelPic/korFRA2.jpg"
@@ -275,8 +275,8 @@
 							</td>
 							<td><h4>累積 </h4><br><h4>兌換</h4>
 							</td>
-							<td><h4 style="color:red">NT:8500</h4></td>
-							<td><input type="submit" class="" value="訂房"></td>
+							<td><h4 style="color:red">NT:8,500</h4></td>
+							<td><a href="OrderRoom" class="btn btn-primary" name="">訂房</a></td>
 						</tr>
 						<tr style="width: 180px">
 							<th scope="row"><img src="../images/hotelPic/korFRA2.jpg"
@@ -285,8 +285,8 @@
 							</td>
 							<td><h4>累積 </h4><br><h4>兌換</h4>
 							</td>
-							<td><h4 style="color:red">NT:7500</h4></td>
-							<td><input type="submit" class="" value="訂房"></td>
+							<td><h4 style="color:red">NT:7,500</h4></td>
+							<td><a href="OrderRoom" class="btn btn-primary" name="">訂房</a></td>
 						</tr>
 					</tbody>
 				</table>
@@ -298,7 +298,7 @@
 					<h5 class="card-header bg-danger" style="color: aliceblue">特別優惠：</h5>
 					<div class="card-body">
 						<h3 class="card-title">我們只剩3間</h3>
-						<h1 class="card-title" style="color: red">NT：4450</h1>
+						<h1 class="card-title" style="color: red">NT：4,450</h1>
 						<p class="card-text"></p>
 						<a href="OrderRoom" class="btn btn-primary" name="">立即訂房</a>
 					</div>
