@@ -120,20 +120,64 @@
 <script type="text/javascript" src="/Traveler/js/jquery.js"></script>
 <!-- 載入DataTables  -->
 <script type="text/javascript" src="/Traveler/js/jquery.dataTables.js"></script>
-
+<!-- 動態表格 -->
+<script>
+			(function() {
+				$(function() {
+					$('#datatable').dataTable({
+						"oLanguage": {
+						    "sSearch": "搜尋:",
+						    "sLengthMenu": "顯示件數 ：_MENU_",
+						    "sInfo": "_TOTAL_件中，從第_START_件顯示到第_END_件",
+						    "sInfoFiltered": " ( _MAX_件中搜尋 )",
+						    "sZeroRecords": "找無資料。",
+						    "sInfoEmpty": "0 件",
+						    "oPaginate": {
+						        "sFirst": "最初",
+						        "sLast": "最後",
+						        "sPrevious": "上一頁",
+						        "sNext": "下一頁"
+						    }
+						},
+						"iDisplayLength" : 10,
+					});
+				});
+			})();
+</script>
 <!-- 連結旁邊的小ICON套件  -->	
 <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
+<style>
+			* {
+				font-family:      'Lucida Grande', 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', Meiryo, 'メイリオ', sans-serif;
+				font-size:        98.5%;
+			}
+			h1 {
+				font-size:        46px;
+				margin-bottom:    12px;
+			}
+			.container {
+				width:            800px;
+				margin:           auto;
+			}
+			iframe {
+				border: solid 1px #000;
+			}
+		</style>
 
 </head>
 <body>
 	<%@ include file="/WEB-INF/frontStageHeader.jsp"%>
+<div class="container">
+		<div>
+			<h2 style="margin-top: 40px">搜尋主題商品</h2>				
+		</div>
 <table id="datatable">
  <thead>
   <tr>
-   <th></th>
-   <th>國家</th>
+   <th>商品編號</th>
+   <th>&nbsp;&nbsp;國家</th>
    <th>類型</th>
-   <th>商品名稱</th>
+   <th>&nbsp;&nbsp;商品名稱</th>
    <th>住宿飯店</th>
    <th></th>
   </tr>
@@ -141,16 +185,17 @@
  <c:forEach var='products' items='${products}'>
  <tbody>
   <tr>
-   <th>${products.productId}</th>
-   <th>${products.country}</th>
-   <th>${products.themeTitles.titleName}</th>
-   <th>${products.productName}</th>
-   <th>${products.hotelName}</th>
+   <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${products.productId}</th>
+   <th>&nbsp;&nbsp;&nbsp;&nbsp;${products.country}</th>
+   <th>&nbsp;&nbsp;${products.themeTitles.titleName}</th>
+   <th>&nbsp;&nbsp;&nbsp;&nbsp;${products.productName}</th>
+   <th>&nbsp;&nbsp;${products.hotelName}</th>
    <th><a href="${products.themeTitles.titleName}/${products.productName}">查看出團日期</a></th>
  </tbody>
  </c:forEach>
 </table>
-	
+</div>
+	<br><br><br><br><br>
 	<%@ include file="/WEB-INF/frontStageFooter.jsp"%>
 </body>
 </html>

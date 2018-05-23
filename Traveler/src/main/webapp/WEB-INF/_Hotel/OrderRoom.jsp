@@ -145,7 +145,7 @@
   padding: 0 16px;
 }
 
-.container {
+.container1 {
   background-color: #f2f2f2;
   padding: 5px 20px 15px 20px;
   border: 1px solid lightgrey;
@@ -208,13 +208,14 @@ span.price {
 </head>
 <body>
 	<%@ include file="/WEB-INF/frontStageHeader.jsp"%>
+		<br>
 		<div class="container">
 		
 		  <div class="row">
-		    <div class="col-sm">
-		      One of three columns
+		    <div class="col-xl">
+		      
 		    </div>
-		    <div class="col-sm">		    
+		    <div class="col-xl">		    
 			  <div class="col-75">
 			    <div class="container">
 			      <form action="/action_page.php">			
@@ -252,7 +253,7 @@ span.price {
 			            <label for="ccnum">信用卡號</label>				            
 			            <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444">
 			            <label for="expmonth">Exp Month</label>
-			            <input type="text" id="expmonth" name="expmonth" placeholder="September">			
+			            <input type="text" id="expmonth" name="expmonth" placeholder="9">			
 			            <div class="row">
 			              <div class="col-50">
 			                <label for="expyear">Exp Year</label>
@@ -267,14 +268,15 @@ span.price {
 			        </div>
 			        <label>
 			          <input type="checkbox" checked="checked" name="sameadr"> Shipping address same as billing
-			        </label>
-			        <input type="submit" value="Continue to checkout" class="btn">
+			        </label> <!-- 			        <input type="submit" value="Continue to checkout" class="btn"> -->
+
+			         <a href="OrderFinish" class="btn ">確認送出</a>
 			      </form>
 			    </div>
 			  </div>
 		    </div>
-		    <div class="col-sm">
-		      One of three columns
+		    <div class="col-xl">
+		      
 		    </div>
 		  </div>									
 			</div>			
