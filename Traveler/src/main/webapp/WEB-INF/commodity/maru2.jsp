@@ -1,29 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>	
-	
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
-	integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
-	crossorigin="anonymous">
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-	integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-	crossorigin="anonymous"></script>
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
-	integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
-	crossorigin="anonymous"></script>
-<script
-	src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
-	integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
-	crossorigin="anonymous"></script>
-	
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Traveler</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
+<meta name="keywords"
+	content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
+<meta name="author" content="FREEHTML5.CO" />
+
+
+
 <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 <link rel="shortcut icon" href="/Traveler/images/favicon.ico">
 
@@ -166,92 +158,133 @@ margin-bottom:0px;
 .footer .push{
 margin-bottom:0px;
 }
-</style>	
-	
-<title>Insert title here</title>
-
-<style>
-
-.list1 {
-	list-style: decimal inside;
-}
-
-
-.d1 {
-	background-color: #FF8800;
-	width: 20%;
-	height:5000px; 
-	float: left;
-}
-
-.d2 {
-	background-color: #FFFFFF;
-	width: 80%;
-	height: auto;
-	float: right;
-}
 </style>
 
-
-
+<title>Insert title here</title>
 </head>
 <body>
-	
-		
+
 	<%@ include file="/WEB-INF/backStageHeader.jsp" %>
 
-<!--=========================要放的東西  =====================-->
+	<!--=========================要放的東西  =====================-->
+		<div class="container" style="padding-top:80px;padding-left:150px">
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<!-- <script src="https://code.highcharts.com/modules/exporting.js"></script> -->
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
 
-<div class="row no-gutters">
-		<div class="container">
+<div id="container" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
+<span style="font-size:13px;"></span>
+<select id="choose" onchange="TheConfirmBox()">
+	<option disabled=disabled selected=selected>請選擇</option>
+<!-- 	<optgroup label="亞洲區"> -->
+		<option value="http://localhost:8080/Traveler/contactus/contactuspieasia">1~3月份國人出國目的地統計</option>
+		<option value="http://localhost:8080/Traveler/contactus/contactuspieage">1~3月份國人出國年齡地統計</option>
+</select>
+<span id="check" style="color:red;"></span><br>
+<script>
+	function TheConfirmBox() {
+		var noteToMe;
+		/*取得id為choose的選單裡剛剛所點擊的連結的名稱*/
+		var whichUserChoose=choose.options[choose.selectedIndex].text;
+		if (confirm("Hello！你確定要前往"+whichUserChoose+"?") == true){
+			noteToMe = "你選取想前往"+whichUserChoose+"！";
+			window.location.assign(choose.options[choose.selectedIndex].value);
+		}else{
+			noteToMe = "你按了取消喔！";
+		}
+		document.getElementById("check").innerHTML = noteToMe;
+	}
 	
-			<table class="table table-hover">
-				<thead>
-					<tr>
-						<th scope="col">編號</th>
-						<th scope="col">圖片</th>
-						<th scope="col">名稱</th>
-						
-						<th scope="col">點數</th>
-						<th scope="col">價格</th>
-						<th scope="col">數量</th>
-					</tr>
-				</thead>
-				<tbody>
-					<c:forEach var='comm' items='${commlist}'>
-						<tr>
-							<td scope="row">${comm.commodityid}</td>
-							<td><img width='180' height='180'
-								src="<c:url value='/getPicture/${comm.commodityid}'/>" /></td>
-							<td>${comm.name}</td>
-						
-							<td>${comm.point}</td>
-							<td>${comm.price}</td>
-							<td>${comm.quantity}</td>
-						</tr>
+</script>
 
-					</c:forEach>
-				</tbody>
-			</table>
-		</div>
-		</div>
-<!-- =========側邊欄位開始============ -->	
+<script>
+Highcharts.chart('container', {
+    chart: {
+        plotBackgroundColor: null,
+        plotBorderWidth: null,
+        plotShadow: false,
+        type: 'pie'
+    },
+    title: {
+        text: '1~3月份國人出國年齡統計(亞洲區)'
+    },
+    tooltip: {
+        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+    },
+    plotOptions: {
+        pie: {
+            allowPointSelect: true,
+            cursor: 'pointer',
+            dataLabels: {
+                enabled: true,
+                format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                style: {
+                    color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                }
+            }
+        }
+    },
+    series: [{
+        name: 'Brands',
+        colorByPoint: true,
+        data: [{
+            name: '12歲以下',
+            y: 267190,
+            sliced: true,
+            selected: true
+        }, {
+            name: '13至19歲 ',
+            y: 141979
+        }, {
+            name: '20至29歲',
+            y: 520927
+        }, {
+            name: '30至39歲',
+            y: 763344
+        }, {
+            name: '40至49歲',
+            y: 759121
+        }, {
+            name: '50至59歲',
+            y: 616449
+        }, {
+            name: '60至65歲',
+            y: 262736
+        }, {
+            name: '66歲以上',
+            y: 228351
+        }]
+    }]
+});
+</script>
+	
+	<!-- =========側邊欄位開始============ -->	
 <div id="mwt_mwt_slider_scroll">
-<div id="mwt_slider_content" >
-<div><h2 style="text-align: center;color:black">紅利管理</h2></div>
- <div><h3><a style="color:#444444" href="commlist">商品清單</a></h3></div>
- <div><h3><a style="color:#444444" href="tsuika">新增商品訂單</a></h3></div>
- <div><h3><a style="color:#444444" href="henkou">修改商品</a></h3></div>
-  <div><h3><a style="color:#444444" href="ClientLists">兌換清單</a></h3></div>
-  <div><h3><a style="color:#444444" href="/Traveler/maru">QQ</a></h3></div>
+<div id="mwt_slider_content"   >
+ <div>模擬按鈕連結</div>
+ <div>模擬按鈕連結</div>
+ <div>模擬按鈕連結</div>
 </div>
 </div>
-<!-- =========側邊欄位結束============ -->		
-			
+<!-- =========側邊欄位結束============ -->
 	
 	
-	<%@ include file="/WEB-INF/backStageFooter.jsp" %>
 	
-</body>
+	
+		<div class="content text-center">
+		<h2>放內容的地方</h2>
+		
+		
+		</div>
 
+	<!--  ========================================================== -->
+
+
+
+
+	<%@ include file="/WEB-INF/backStageFooter.jsp" %>
+
+
+
+</body>
 </html>
