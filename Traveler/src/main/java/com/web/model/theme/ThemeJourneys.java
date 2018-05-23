@@ -320,13 +320,13 @@ public class ThemeJourneys implements Serializable{
 	@Override
 	public String toString() {//加入FK表格
 		return "ThemeJourneys [journeyId=" + journeyId + ", productId=" + productId + ", setOut=" + setOut
-				+ ", returnDay=" + returnDay + ", deadline=" + deadline + ", createTimestamp=" + createDate + ", price="
+				+ ", returnDay=" + returnDay + ", deadline=" + deadline + ", createDate=" + createDate + ", price="
 				+ price + ", companyName=" + companyName + ", goPlaneId=" + goPlaneId + ", returnPlaneId="
-				+ returnPlaneId + ", goStartTimestamp=" + goStartDate + ", goStartHour=" + goStartHour + ", goStartMinute="
-				+ goStartMinute + ", goEndTimestamp=" + goEndDate + ", goEndHour=" + goEndHour + ", goEndMinute="
-				+ goEndMinute + ", goStartWhere=" + goStartWhere + ", goEndWhere=" + goEndWhere + ", returnStartTimestamp="
+				+ returnPlaneId + ", goStartDate=" + goStartDate + ", goStartHour=" + goStartHour + ", goStartMinute="
+				+ goStartMinute + ", goEndDate=" + goEndDate + ", goEndHour=" + goEndHour + ", goEndMinute="
+				+ goEndMinute + ", goStartWhere=" + goStartWhere + ", goEndWhere=" + goEndWhere + ", returnStartDate="
 				+ returnStartDate + ", returnStartHour=" + returnStartHour + ", returnStartMinute=" + returnStartMinute
-				+ ", returnEndTimestamp=" + returnEndDate+ ", returnEndHour=" + returnEndHour + ", returnEndMinute="
+				+ ", returnEndDate=" + returnEndDate+ ", returnEndHour=" + returnEndHour + ", returnEndMinute="
 				+ returnEndMinute + ", returnStartWhere=" + returnStartWhere + ", returnEndWhere=" + returnEndWhere
 				+ ", themeProducts=" + themeProducts + ", themeTitles=" + themeTitles + "]";
 	}
