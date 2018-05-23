@@ -327,7 +327,7 @@ border: 1px solid orange ;
 background-color: white;
 width:15%;
 /* line-height:446%; */
- line-height:475%; 
+ line-height:470%; 
 align:center;
 padding:20px;
 float:left;

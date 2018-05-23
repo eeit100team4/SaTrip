@@ -126,8 +126,9 @@ public class MemberController {
 	public String updateMember(HttpServletRequest request, HttpServletResponse response, Model model) {
 		HttpSession session = request.getSession();
 		MemberBean mb = (MemberBean) session.getAttribute("LoginOK");
+		MemberBean memBean=memberService.getMemberById(mb.getMemberId());
 		model.addAttribute("welcomeNm", mb.getMemberId());
-		model.addAttribute("member", mb);
+		model.addAttribute("member", memBean);
 		model.addAttribute("function", "update");
 		return "/member/saveMember";
 	}
