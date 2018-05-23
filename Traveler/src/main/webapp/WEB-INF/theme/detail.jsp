@@ -121,12 +121,26 @@
 	
 <div style="text-align:center">
   <h1>詳細資訊</h1>
+    <hr>
     <p>
-    <b style='font-size:16px;'>商品名稱<br>${detail.themeProducts.productName}</b><br>
-    <b style='font-size:16px;'>出團日期<br><fmt:formatDate value="${detail.setOut}" pattern="yyyy/MM/dd" /></b><br>
-    <b style='font-size:16px;'>報名截止日<br><fmt:formatDate value="${detail.deadline}" pattern="yyyy/MM/dd" /></b><br>
-    <b style='font-size:16px;'>旅遊國家<br>${detail.themeProducts.country}</b><br>
-    <b style='font-size:16px;'>標準團費<br>${detail.price}</b><br>
+    <h2>行程資訊</h2>
+    <b style='font-size:16px;'>${detail.themeProducts.productName}</b><br>
+    <b style='font-size:16px;'>出團日期<fmt:formatDate value="${detail.setOut}" pattern="yyyy/MM/dd" /></b>
+    <b style='font-size:16px;'>報名截止日<fmt:formatDate value="${detail.deadline}" pattern="yyyy/MM/dd" /></b><br>
+    <b style='font-size:16px;'>旅遊國家${detail.themeProducts.country}</b>
+    <b style='font-size:16px;'>標準團費${detail.price}</b><br>
+    <hr>
+    <h2>航班資訊(去)</h2>
+    <b style='font-size:16px;'>${detail.companyName}</b>&nbsp;&nbsp;${detail.goPlaneId}<br>
+    <b style='font-size:16px;'>出發時間&nbsp;&nbsp;<fmt:formatDate value="${detail.setOut}" pattern="yyyy/MM/dd" />&nbsp;&nbsp;${detail.goStartHour}&nbsp;:&nbsp;${detail.goStartMinute}&nbsp;&nbsp;${detail.goStartWhere}</b><br>
+    <b style='font-size:16px;'>抵達時間&nbsp;&nbsp;<fmt:formatDate value="${detail.setOut}" pattern="yyyy/MM/dd" />&nbsp;&nbsp;${detail.goEndHour}&nbsp;:&nbsp;${detail.goEndMinute}&nbsp;&nbsp;${detail.goEndWhere}</b><br>
+    <hr>
+    <h2>航班資訊(回)</h2>
+    <b style='font-size:16px;'>${detail.companyName}</b>&nbsp;&nbsp;${detail.returnPlaneId}<br>
+    <b style='font-size:16px;'>出發時間&nbsp;&nbsp;<fmt:formatDate value="${detail.returnDay}" pattern="yyyy/MM/dd" />&nbsp;&nbsp;${detail.returnStartHour}&nbsp;:&nbsp;${detail.returnStartMinute}&nbsp;&nbsp;${detail.returnStartWhere}</b><br>
+    <b style='font-size:16px;'>抵達時間&nbsp;&nbsp;<fmt:formatDate value="${detail.returnDay}" pattern="yyyy/MM/dd" />&nbsp;&nbsp;${detail.returnEndHour}&nbsp;:&nbsp;${detail.returnEndMinute}&nbsp;&nbsp;${detail.returnEndWhere}</b><br>
+    <hr>
+    
     
     <a href="${detail.journeyId}/application">報名</a>    
     </p>

@@ -10,10 +10,10 @@ import org.springframework.stereotype.Repository;
 
 
 import com.web.model.commodity.ClientBean;
-import com.web.model.commodity.CommodityBean;
+
 import com.web.model.member.MemberBean;
 import com.web.repository.commodity.ClientDAO;
-import com.web.repository.commodity.CommodityDAO;
+
 
 @Repository
 @SuppressWarnings("unchecked") // 抑制單類型的警告
@@ -112,5 +112,8 @@ public class ClientRepository implements ClientDAO {
 			Session session = factory.getCurrentSession();	
 			session.saveOrUpdate(mb);
 		}
+		
+		
+		
 		
 }

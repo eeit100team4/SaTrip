@@ -80,6 +80,13 @@ public class HotelController {
 		return "_Hotel/OrderRoom";
 	}
 	
+	
+	// 顯示OrderRoom
+		@RequestMapping("/_Hotel/OrderFinish")
+		public String showOrderFinish(Model model) {
+			return "_Hotel/OrderFinish";
+		}
+	
 	//篩選扭送出呈現Hotel畫面 
 	@RequestMapping("/_Hotel/SelectListed")
 	public String getProductByIds(@RequestParam("start") String start, @RequestParam("end") String end,@RequestParam("location") String location, Model model) throws ParseException {
