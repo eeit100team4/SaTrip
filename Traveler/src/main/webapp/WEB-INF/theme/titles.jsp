@@ -118,7 +118,7 @@
 </head>
 <body>
 	<%@ include file="/WEB-INF/frontStageHeader.jsp"%>
-<div class="fh5co-cover" data-stellar-background-ratio="0.5" style="background-color:#000000">	
+<div class="fh5co-cover" data-stellar-background-ratio="0.5" style="background-color:white">	
 <div style="margin-left:200px; margin-top:10px;width:900px;" class="content text-center">	
 <h1 style="color:orange">請挑選主題</h1>
   <c:forEach var='titleName' items='${titleList}'>

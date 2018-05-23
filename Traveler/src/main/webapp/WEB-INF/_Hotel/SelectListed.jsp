@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+	<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
@@ -159,7 +159,7 @@ for(var x=0;x<length;x++){
 						<table class="simpleTable">							  
 							  <thead>
 							    <tr>
-							      <th>本日優惠</th>
+							      <th></th>
 							      <th></th>
 							      <th></th>
 							    </tr>
@@ -173,7 +173,7 @@ for(var x=0;x<length;x++){
 							    <tr>
 							      <td>${hotelInfo.country}</td>
 							      <td></td>
-							      <td><input type="submit" class="btn btn-primary btn-block" value="搜尋"></td>
+							      <td><a class="btn btn-primary"href="DisplayRoom"><font color="white">選擇</font></a></td>
 							    </tr>
 							    <tr>
 							      <td><img width='600' height='300' src="<c:url value='/getPic/${hotelInfo.hotel_id}' />" /></td>
