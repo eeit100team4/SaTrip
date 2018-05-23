@@ -37,7 +37,7 @@ table {
 						<th height="60" colspan="2" align="center">
 							<c:choose>
 								<c:when test="${function == 'add'}"><h1 align="center">會員註冊</h1></c:when>
-								<c:when test="${function == 'update'}"><h1 align="center">${welcomeNm} 會員資料更新</h1></c:when>
+								<c:when test="${function == 'update'}"><h1 align="center">${welcomeNm} 會員資料</h1></c:when>
 								<c:otherwise><h1 align="center">會員註冊</h1></c:otherwise>
 							</c:choose>
 						</th>
@@ -53,7 +53,7 @@ table {
 					</tr>
 				</c:if>
 					<tr bgcolor='#F5F5F5'>
-						<td width="120" height="40" align="right">*會員帳號:</td>
+						<td width="120" height="40" align="right">*會員帳號：</td>
 						<td width="600" height="40" align="left">
 							<c:choose>
 								<c:when test="${function == 'update'}">${welcomeNm}</c:when>
@@ -64,7 +64,18 @@ table {
 							</c:choose>
 					</tr>
 					<tr bgcolor='#F5F5F5'>
-						<td width="120" height="40" align="right">*性別:</td>
+						<td width="120" height="40" align="right">會員紅利：</td>
+						<td width="600" height="40" align="left">
+							<c:choose>
+								<c:when test="${function == 'update'}">${member.point}</c:when>
+								<c:otherwise>
+									<input id='memberId' style="text-align: left" name="memberId" value="${param.memberId}" type="text" size="14" placeholder="請輸入身份證字號" onblur="chkIdn()">
+									<div id="errMsgIdn" style="color: #ff0000; font-size =60%; display: inline;">${errorMsg.memberId}</div>
+								</c:otherwise>
+							</c:choose>
+					</tr>
+					<tr bgcolor='#F5F5F5'>
+						<td width="120" height="40" align="right">*性別：</td>
 						<td width="600" height="40" align="left">
 						<select id="gender" name="gender" style="text-align: left" onchange="chkGender()">
 								<option value="" ${(function == 'add')?"selected":""}>請選擇</option>
@@ -76,7 +87,7 @@ table {
 					</tr>
 					<c:if test="${function == 'add'}">
 					<tr bgcolor='#F5F5F5'>
-						<td width="120" height="40" align="right">*密碼:</td>
+						<td width="120" height="40" align="right">*密碼：</td>
 						<td width="600" height="40" align="left">
 						<input id='password' style="text-align: left" name="password" value="${param.password}" 
 									type="password" size="30" placeholder="至少6個字須含英文、數字" onblur="chkPwd()">
@@ -84,7 +95,7 @@ table {
 						</td>
 					</tr>
 					<tr bgcolor='#F5F5F5'>
-						<td width="120" height="40" align="right">*確認密碼:</td>
+						<td width="120" height="40" align="right">*確認密碼：</td>
 						<td width="600" height="40" align="left">
 						<input id='chkPassword' style="text-align: left" name="chkPassword"
 							value="${param.chkPassword}" type="password" size="30" placeholder="需和密碼欄一致" onblur="chkChkPwd()">
@@ -93,7 +104,7 @@ table {
 					</tr>
 					</c:if>
 					<tr bgcolor='#F5F5F5'>
-						<td width="120" height="40" align="right">*出生年月日:</td>
+						<td width="120" height="40" align="right">*出生年月日：</td>
 						<td width="600" height="40" align="left">
 						<input id="birthday" name="birthday" value="${(function == 'add')?param.birthday:member.birthday}" type="text" size="14"
 							placeholder="格式為yyyy/MM/dd" onblur="chkBirthday()">
@@ -101,7 +112,7 @@ table {
 						</td>
 					</tr>
 					<tr bgcolor='#F5F5F5'>
-						<td width="120" height="40" align="right">護照姓名:</td>
+						<td width="120" height="40" align="right">護照姓名：</td>
 						<td width="600" height="40" align="left">*中文
 						<input id="chineseLastName" name="chineseLastName" 
 							value="${(function == 'add')?param.chineseLastName:member.chineseLastName}"	
@@ -119,21 +130,21 @@ table {
 						</td>
 					</tr>
 					<tr bgcolor='#F5F5F5'>
-						<td width="120" height="40" align="right">*聯絡Email:</td>
+						<td width="120" height="40" align="right">*聯絡Email：</td>
 						<td width="600" height="40" align="left">
 						<input  id="email" name="email" value="${(function == 'add')?param.email:member.email}" type="text" size="30" onblur="chkEmail()">
 							<div  id="errMsgEmail" style="color: #ff0000; font-size =60%; display: inline;">${errorMsg.email}</div>
 						</td>
 					</tr>
 					<tr bgcolor='#F5F5F5'>
-						<td width="120" height="40" align="right">*手機:</td>
+						<td width="120" height="40" align="right">*手機：</td>
 						<td width="600" height="40" align="left">
 						<input id="mobile" name="mobile" value="${(function == 'add')?param.mobile:member.mobile}" type="text" size="30" onblur="chkMobile()">
 							<div  id="errMsgMobile" style="color: #ff0000; font-size =60%; display: inline;">${errorMsg.mobile}</div>
 						</td>
 					</tr>				
 					<tr bgcolor='#F5F5F5'>
-						<td width="120" height="40" align="right">市話:</td>
+						<td width="120" height="40" align="right">市話：</td>
 						<td width="600" height="40" align="left"><input
 							name="phoneNumber" value="${(function == 'add')?param.phoneNumber:member.phoneNumber}" type="text"
 							size="30">
@@ -151,7 +162,7 @@ table {
 							<td height="50" colspan="2" align="center">					
 							<input type="button" value="上一頁" onclick="goBack()">
 							<input
-							type="submit" value="送出">
+							type="submit" value="更新">
 						</td>
 					</tr>
 				</tbody>
