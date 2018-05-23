@@ -143,24 +143,15 @@ for(var x=0;x<length;x++){
 
 
 
-<style>
-
-table {
-    border: 0px solid black;
-}
-
-</style>
-
-
 </head>
 <body>
 		<%@ include file="/WEB-INF/frontStageHeader.jsp"%>				
 				
 		<main role="main" class="container mt-2">
-			<div class="row">
+			<div class="row">			
 			<div class="col-md-3">			
 				<%@ include file="/WEB-INF/hotelPartials/Search.jsp"%>	
-			</div>	
+			</div>				
 			<div class="col-md-9">
 				<div class="card">
 					<div class="card-header"></div>
@@ -175,26 +166,21 @@ table {
 							      <th></th>
 							    </tr>
 							  </thead>	
-							  <tbody>							  
-							  	<tr>
-							      <td></td>							      
-							      <td></td>
-							      <td></td>							      
-							    </tr>
+							  <tbody>
 							    <tr>
-							      <td>${hotelInfo.country}</td>
+							      <td><h1>${hotelInfo.name}</h1></td>							      
 							      <td></td>
-							      <td width="200px">NT：${hotelInfo.hotelRoomBean.price}</td>
+							      <td width="200px"><h1><font color="red">NT：${hotelInfo.hotelRoomBean.price}</font></h1></td>
 							    </tr>
 							    <tr>							     
-							      <td>${hotelInfo.city}</td>
+							      <td><h4>${hotelInfo.country}</h4></td>
 							      <td></td>							      
 							      <td></td>
 							    </tr>
-							    <tr>							     
-							      <td>${hotelInfo.name}</td>
+							    <tr>							     							      
+							      <td><h4>${hotelInfo.city}</h4></td>
 							      <td></td>							      
-							      <td><a class="btn btn-primary"href="DisplayRoom"><font color="white">選擇</font></a></td>
+							      <td><a class="btn btn-primary"href="DisplayRoom"><font color="white"><h4><font color="white">選擇</font></h4></font></a></td>
 							    </tr>
 						 	  </tbody>
 					    </table>			
