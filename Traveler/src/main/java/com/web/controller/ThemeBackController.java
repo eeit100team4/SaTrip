@@ -103,10 +103,10 @@ public class ThemeBackController {
 	}
 
 	//顯示全部報名表內容
-	@RequestMapping("theme/applications")
+	@RequestMapping("theme/allApplications")
 	public String applicationList(Model model) {
 		List<ThemeApplications> list = themeService.getAllApplications();
 		model.addAttribute("applications", list);
-		return "theme/applications";	
+		return "theme/allApplications";	
 	}
 }

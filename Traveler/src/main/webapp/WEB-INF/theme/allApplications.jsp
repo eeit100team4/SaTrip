@@ -217,7 +217,6 @@ margin-bottom:0px;
   <li class="color-green">
    <div class="main">報名表單</div>
    <ul class="subs">
-   <li><a href="allApplications">全報名表</a></li>
    <li><a href="">依行程查詢</a></li>
    <li><a href="">依人名查詢</a></li>
     <li><a href="">依報名時間查詢</a></li>
@@ -233,8 +232,22 @@ margin-bottom:0px;
 	
 	
 	
-		<div class="content text-center">
-		<h2>放內容的地方</h2>
+		
+		<div style="margin-left:300px; margin-top:10px;width:900px;" class="content text-center">
+<c:forEach var='applications' items='${applications}'>
+  <div style="width:300px; height:200px; float: left; ">
+    <p>
+    <b style='font-size:16px;'>類型:${applications.themeJourneys.themeProducts.themeTitles.titleName}</b><br>
+    <b style='font-size:16px;'>商品名稱:${applications.themeJourneys.themeProducts.productName}</b><br>
+    <b style='font-size:16px;'>出發日期:<fmt:formatDate value="${applications.themeJourneys.setOut}" pattern="yyyy/MM/dd" /></b><br>
+    <b style='font-size:16px;'>報名人:${applications.name}</b><br>
+    <b style='font-size:16px;'>連絡電話:${applications.cellPhone}</b><br>
+    <b style='font-size:16px;'>備註:${applications.extra}</b><br>
+    
+    
+    </p>
+  </div>
+ </c:forEach>
 		
 		
 		</div>
