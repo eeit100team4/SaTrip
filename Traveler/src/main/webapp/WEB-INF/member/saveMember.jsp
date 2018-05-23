@@ -65,14 +65,9 @@ table {
 					</tr>
 					<tr bgcolor='#F5F5F5'>
 						<td width="120" height="40" align="right">會員紅利：</td>
-						<td width="600" height="40" align="left">
-							<c:choose>
-								<c:when test="${function == 'update'}">${member.point}</c:when>
-								<c:otherwise>
-									<input id='memberId' style="text-align: left" name="memberId" value="${param.memberId}" type="text" size="14" placeholder="請輸入身份證字號" onblur="chkIdn()">
-									<div id="errMsgIdn" style="color: #ff0000; font-size =60%; display: inline;">${errorMsg.memberId}</div>
-								</c:otherwise>
-							</c:choose>
+						<td width="600" height="40" align="left">			
+								${member.point}
+									
 					</tr>
 					<tr bgcolor='#F5F5F5'>
 						<td width="120" height="40" align="right">*性別：</td>

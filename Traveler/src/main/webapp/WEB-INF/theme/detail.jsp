@@ -142,6 +142,7 @@
     <hr>
     
     
+    
     <a href="${detail.journeyId}/application">報名</a>    
     </p>
 </div>
