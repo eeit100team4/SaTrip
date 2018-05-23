@@ -78,9 +78,7 @@ public class airTicketsController {
 			}
 			String dep = request.getParameter("dept");
 			String arr = request.getParameter("arrv");
-			ExtraPriceBean epBean = eps.getExtraPrice(dep, arr);
-			System.out.println(epBean);
-			Integer extraP = epBean.getExtraPrice();
+			Integer extraP =eps.getExtraPrice(dep, arr);
 			if (extraP != null) {
 				System.out.println("加價");
 				// map.put("extraPrice", extraP);
@@ -168,15 +166,17 @@ public class airTicketsController {
 		int resultId = gs.addGuest(guestBean);
 		//將紅利存入會員
 		os.setPointToMember(orderId);
-		
 		os.updateByOrderId(orderId, resultId);
+		//取得會員EMAIL
+		MemberBean member = (MemberBean) session.getAttribute("LoginOK");
+		String memberEmail = member.getEmail();
 		if (orderId != null) {
 			os.updateCheckPayByOrderId(orderId);
 
 			System.out.println("歐富寶測試");
 			System.out.println("產生PDF");
 			pdf.pdfProduce(os.selectOneByOrderId(orderId));
-			emailService.sendEmail(orderId);
+			emailService.sendEmail(orderId,memberEmail);
 			System.out.println("寄信測試");
 			return "redirect:finishPage";
 		}
@@ -200,8 +200,7 @@ public class airTicketsController {
 
 	@RequestMapping("/pricetest")
 	public String toTest2(Model model) {
-		ExtraPriceBean epBean = eps.getExtraPrice("TPE", "HND");
-		Integer price = epBean.getExtraPrice();
+		Integer price = eps.getExtraPrice("TPE", "HND");
 		System.out.println(price);
 		return "airTickets/finishPage";
 	}
@@ -217,8 +216,7 @@ public class airTicketsController {
 
 		String dep = request.getParameter("dept");
 		String arr = request.getParameter("arrv");
-		ExtraPriceBean epBean = eps.getExtraPrice(dep, arr);
-		Integer extraP = epBean.getExtraPrice();
+		Integer extraP = eps.getExtraPrice(dep, arr);
 		if (extraP != null) {
 			model.addAttribute("extraPrice", extraP);
 		}

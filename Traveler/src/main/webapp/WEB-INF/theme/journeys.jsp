@@ -14,7 +14,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>Travel &mash; 100% Free Fully Responsive HTML5 Template by FREEHTML5.co</title>
+<title>Traveler</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
 <meta name="keywords"
@@ -47,7 +47,7 @@
 <meta name="twitter:card" content="" />
 
 <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-<link rel="shortcut icon" href="images/favicon.ico">
+<link rel="shortcut icon" href="/Traveler/images/LeftTopCorner.ico">
 
 <!--<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>-->
 
@@ -111,30 +111,93 @@
 <script src="/Traveler/js/airplain/airSearch.js"></script>
 <script src="/Traveler/js/jquery-ui.min.js"></script>
 <link rel="stylesheet" href="/Traveler/js/jquery-ui.min.css">
-
+<!--  -->
+<!-- 載入樣式 -->
+<link rel="stylesheet"   href="/Traveler/css/jquery.dataTables.css">
+<!-- Themeroller的主題 -->
+<link rel="stylesheet"   href="/Traveler/css/jquery.dataTables_themeroller.css">
+<!-- 載入jQuery  -->
+<script type="text/javascript" src="/Traveler/js/jquery.js"></script>
+<!-- 載入DataTables  -->
+<script type="text/javascript" src="/Traveler/js/jquery.dataTables.js"></script>
+<!-- 動態表格 -->
+<script>
+			(function() {
+				$(function() {
+					$('#datatable').dataTable({
+						"oLanguage": {
+						    "sSearch": "搜尋:",
+						    "sLengthMenu": "顯示件數 ：_MENU_",
+						    "sInfo": "_TOTAL_件中，從第_START_件顯示到第_END_件",
+						    "sInfoFiltered": " ( _MAX_件中搜尋 )",
+						    "sZeroRecords": "找無資料。",
+						    "sInfoEmpty": "0 件",
+						    "oPaginate": {
+						        "sFirst": "最初",
+						        "sLast": "最後",
+						        "sPrevious": "上一頁",
+						        "sNext": "下一頁"
+						    }
+						},
+						"iDisplayLength" : 10,
+					});
+				});
+			})();
+</script>
 <!-- 連結旁邊的小ICON套件  -->	
 <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
+<style>
+			* {
+				font-family:      'Lucida Grande', 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', Meiryo, 'メイリオ', sans-serif;
+				font-size:        98.5%;
+			}
+			h1 {
+				font-size:        46px;
+				margin-bottom:    12px;
+			}
+			.container {
+				width:            800px;
+				margin:           auto;
+			}
+			iframe {
+				border: solid 1px #000;
+			}
+		</style>
 
 </head>
 <body>
 	<%@ include file="/WEB-INF/frontStageHeader.jsp"%>
-
-<div style="text-align:center">
-<H1>出發日期</H1>
-</div>	
-<c:forEach var='journeys' items='${journeys}'>
-  <div style="text-align:center">
-    <p>
-    <b style='font-size:16px;'>出發日<br><fmt:formatDate value="${journeys.setOut}" pattern="yyyy/MM/dd" /></b><br>
-    <b style='font-size:16px;'>返回日<br><fmt:formatDate value="${journeys.returnDay}" pattern="yyyy/MM/dd" /></b><br>
-    <b style='font-size:16px;'>商品名稱<br>${journeys.themeProducts.productName}</b><br>
-    <b style='font-size:16px;'>航空公司<br>${journeys.companyName}</b><br>
-    <b style='font-size:16px;'>價格<br>${journeys.price}</b><br>
-    <a href="${journeys.themeProducts.productName}/${journeys.journeyId}">查看詳細內容</a>   
-    </p>
-  </div>
-</c:forEach>
-	
+<div class="container">
+		<div>
+			<h2 style="margin-top: 40px">搜尋行程</h2>				
+		</div>
+<table id="datatable">
+ <thead>
+  <tr>
+   <th></th>
+   <th>出發時間</th>
+   <th>返回時間</th>
+   <th>商品名稱</th>
+   <th>航空公司</th>
+   <th>價格</th>
+   <th></th>
+  </tr>
+ </thead>
+ <c:forEach var='journeys' items='${journeys}'>
+ <tbody>
+  <tr>
+   <th></th>
+   <th>&nbsp;&nbsp;<fmt:formatDate value="${journeys.setOut}" pattern="yyyy/MM/dd" /></th>
+   <th>&nbsp;&nbsp;<fmt:formatDate value="${journeys.returnDay}" pattern="yyyy/MM/dd" /></th>
+   <th>&nbsp;&nbsp;${journeys.themeProducts.productName}</th>
+   <th>&nbsp;&nbsp;${journeys.companyName}</th>
+   <th>&nbsp;&nbsp;${journeys.price}</th>
+   <th><a href="${journeys.themeProducts.productName}/${journeys.journeyId}">查看詳細內容</a></th> 
+ </tbody>
+ </c:forEach>
+</table>
+</div>
+	<br><br><br><br><br>
 	<%@ include file="/WEB-INF/frontStageFooter.jsp"%>
 </body>
 </html>

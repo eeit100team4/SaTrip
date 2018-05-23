@@ -127,102 +127,11 @@ $(document).ready(function(){
 	$("#mwt_mwt_slider_scroll").animate({ left:'0px' }, 600 ,'swing');
 	$('#mwt_slider_content').css('height', ($(window).height() - 20) + 'px' );
 })
-// $(function(){
-// var w = $("#mwt_slider_content").width();
-// $('#mwt_slider_content').css('height', ($(window).height() - 20) + 'px' ); //將區塊自動撐滿畫面高度
 
-// $("#mwt_fb_tab").mouseover(function(){ //滑鼠滑入時
-// if ($("#mwt_mwt_slider_scroll").css('left') == '-'+w+'px')
-// {
-// $("#mwt_mwt_slider_scroll").animate({ left:'0px' }, 600 ,'swing');
-// }
-// });
-
-
-// $("#mwt_slider_content").mouseleave(function(){　//滑鼠離開後
-// $("#mwt_mwt_slider_scroll").animate( { left:'-'+w+'px' }, 600 ,'swing');
-// });
-// });
 
 </script>
 
-<script>
-function extraPrice(){
-	$(".d2").empty();
-	$(".d2").html("<div><h2>調整EXTRA價格</h2><select  id='dept' name='dept' class='secDep' style='color: blue;''><option selected='selected'>選擇出發地</option><option>TPE</option></select></div>");
-	$(".d2").append("<div><select onchange='myFunction()' name='arrv'  id='arrv'><option selected='selected'>選擇目的地</option><option>HND</option><option>NRT</option></select></div><div id='show'><div>");
-	
-}
-
-function modify(){
-	alert("修改");
-}	
-
-var dept;
-var arrv;
-var id;
-var extraPrice;
-function myFunction(){
-	dept=$("#dept").val();
-	arrv=$("#arrv").val();
-	
-	var data= new FormData();
-	data.append("dept",dept);
-	data.append("arrv",arrv);
-
-	
-	$.ajax({
-		url : 'extra',
-		type : 'POST',
-		data : data,
-		enctype: "multipart/form-data",
-		contentType : false,
-		processData : false,
-		success : function(responce) {
-			$("#show").empty();		
-			id=responce.pkId;
-			$("#show").append("<div><input id='update' type='text' value="+responce.extraPrice+" ><button type='button' class='btn' onclick='modify()'>修改</button></div>");
-// 			window.location.assign(responce);
-		},
-		error:function(){
-			alert("error");
-		}
-
-	});
-}
-	
-function modify(){
-	extraPrice =$("#update").val();
-	var data2= new FormData();
-	data2.append("id",id);
-	data2.append("dept",dept);
-	data2.append("arrv",arrv);
-	data2.append("extraPrice",extraPrice);
-	
-	alert(dept+","+arrv+","+extraPrice);
-	
-	$.ajax({
-		url : 'updateExtra',
-		type : 'POST',
-		data : data2,
-		enctype: "multipart/form-data",
-		contentType : false,
-		processData : false,
-		success : function(responce) {
-			alert(responce);
-		},
-		error:function(){
-			alert("error");
-		}
-
-	});
-}	
-
-function searchAll(){
-	window.location.assign("searchAll");
-}
-
-</script>
+<script src="/Traveler/js/airplain/backLeft.js"></script>
 
 
 <style>
@@ -238,6 +147,11 @@ margin-bottom:0px;
 .footer .push{
 margin-bottom:0px;
 }
+
+.d2{
+margin:0px auto;
+width:500px;
+}
 </style>
 
 <title>Insert title here</title>
@@ -251,9 +165,8 @@ margin-bottom:0px;
 	<!-- =========側邊欄位開始============ -->	
 <div id="mwt_mwt_slider_scroll">
 <div id="mwt_slider_content"   >
- <div><h2 style="text-align: center">機票管理</h2></div>
- <div><button style="margin:10px;" type="button" class="btn" onclick="searchAll()">查詢訂單</button></div>
- <div><button type="button" class="btn" onclick="extraPrice()">調整extra價格</button></div>
+<%@ include file="/WEB-INF/airTickets/back/leftSide.jsp" %>
+
 </div>
 </div>
 <!-- =========側邊欄位結束============ -->
@@ -261,8 +174,8 @@ margin-bottom:0px;
 	
 	
 	
-		<div class="content text-center">
-		<h2>放內容的地方</h2>
+		<div class="d2 content text-center">
+		<h2>機票訂單管理</h2>
 		
 		
 		</div>

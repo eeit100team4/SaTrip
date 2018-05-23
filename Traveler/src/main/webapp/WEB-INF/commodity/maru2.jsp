@@ -167,6 +167,96 @@ margin-bottom:0px;
 	<%@ include file="/WEB-INF/backStageHeader.jsp" %>
 
 	<!--=========================要放的東西  =====================-->
+		<div class="container" style="padding-top:80px;padding-left:150px">
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<!-- <script src="https://code.highcharts.com/modules/exporting.js"></script> -->
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+
+<div id="container" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
+<span style="font-size:13px;"></span>
+<select id="choose" onchange="TheConfirmBox()">
+	<option disabled=disabled selected=selected>請選擇</option>
+<!-- 	<optgroup label="亞洲區"> -->
+		<option value="http://localhost:8080/Traveler/contactus/contactuspieasia">1~3月份國人出國目的地統計</option>
+		<option value="http://localhost:8080/Traveler/contactus/contactuspieage">1~3月份國人出國年齡地統計</option>
+</select>
+<span id="check" style="color:red;"></span><br>
+<script>
+	function TheConfirmBox() {
+		var noteToMe;
+		/*取得id為choose的選單裡剛剛所點擊的連結的名稱*/
+		var whichUserChoose=choose.options[choose.selectedIndex].text;
+		if (confirm("Hello！你確定要前往"+whichUserChoose+"?") == true){
+			noteToMe = "你選取想前往"+whichUserChoose+"！";
+			window.location.assign(choose.options[choose.selectedIndex].value);
+		}else{
+			noteToMe = "你按了取消喔！";
+		}
+		document.getElementById("check").innerHTML = noteToMe;
+	}
+	
+</script>
+
+<script>
+Highcharts.chart('container', {
+    chart: {
+        plotBackgroundColor: null,
+        plotBorderWidth: null,
+        plotShadow: false,
+        type: 'pie'
+    },
+    title: {
+        text: '1~3月份國人出國年齡統計(亞洲區)'
+    },
+    tooltip: {
+        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+    },
+    plotOptions: {
+        pie: {
+            allowPointSelect: true,
+            cursor: 'pointer',
+            dataLabels: {
+                enabled: true,
+                format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                style: {
+                    color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                }
+            }
+        }
+    },
+    series: [{
+        name: 'Brands',
+        colorByPoint: true,
+        data: [{
+            name: '12歲以下',
+            y: 267190,
+            sliced: true,
+            selected: true
+        }, {
+            name: '13至19歲 ',
+            y: 141979
+        }, {
+            name: '20至29歲',
+            y: 520927
+        }, {
+            name: '30至39歲',
+            y: 763344
+        }, {
+            name: '40至49歲',
+            y: 759121
+        }, {
+            name: '50至59歲',
+            y: 616449
+        }, {
+            name: '60至65歲',
+            y: 262736
+        }, {
+            name: '66歲以上',
+            y: 228351
+        }]
+    }]
+});
+</script>
 	
 	<!-- =========側邊欄位開始============ -->	
 <div id="mwt_mwt_slider_scroll">

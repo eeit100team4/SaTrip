@@ -263,8 +263,21 @@ function test(){
 		$("#"+i).parents("table").parent("div").parent("div").css("display","none");
 	}
 	}
-	alert("oK");
 }
+//不認識的航空不顯示
+function noShow(){
+	for(var i=0;i<50;i++){
+		var na=$("#"+i).parents("table").parent("div").prev("div").text();
+		console.log("pre"+na);
+		for(var a=0;a<50;a++){
+		if(na.match("7C")||na.match("TW")||na.match("B7")){
+			$("#"+i).parents("table").parent("div").parent("div").css("display","none");
+			}
+		}
+	
+		}
+}
+
 
 
 function CLOnly(){
@@ -473,7 +486,6 @@ function list(){
 			 data.sort(function(a,b){	
 				 return (a.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].DepartureAirport.LocationCode)-(b.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].DepartureAirport.LocationCode)
 				  })
-			 alert("intin");
 			 $("#ticketResult").empty();
 			 list();
 // 			 page();
@@ -594,8 +606,25 @@ function list(){
 
 
 	$(document).ready(function(){
-
-		show();
+		//使用同步延遲
+		var delay = function(s){
+			  return new Promise(function(resolve,reject){
+			   setTimeout(resolve,s); 
+			  });
+			};
+			
+			delay().then(function(){
+				show();     // 顯示 1
+				  return delay(100); // 延遲ㄧ秒
+				}).then(function(){
+					noShow();   // 顯示 2
+				  return delay(10); // 延遲一秒
+				});
+		
+		
+		
+		
+		
 		console.log(depCode+","+arrCode+","+depDateTemp+","+reDateTemp+","+personTemp);
 	})
 	

@@ -46,7 +46,9 @@
 								</c:when>
 									<c:otherwise>
 										<!-- 登入前 -->
-										<li><a href='/Traveler/member/login'><i class="far fa-user-circle"></i><font color="orange">註冊/登入</a></li>
+
+										<li><a href='/Traveler/member/login' style="color:orange"><i class="far fa-user-circle"></i>註冊/登入</a></li>
+
 									</c:otherwise>
 								</c:choose>
 							</ul>

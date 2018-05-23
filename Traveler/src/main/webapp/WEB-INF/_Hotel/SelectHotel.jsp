@@ -150,6 +150,8 @@
 				<div class="fh5co-hero">
 			<!-- <div class="fh5co-overlay"></div> -->
 			<div class="fh5co-cover" data-stellar-background-ratio="0.5" style="background-image: url(/Traveler/images/T1.jpg);">
+					
+				
 				<div class="desc">
 					<div class="container">
 						<div class="row">
@@ -239,7 +241,7 @@
 
 									 <div role="tabpanel" class="tab-pane active" id="hotels">
 									 	<div class="row">
-									 		<form action="Listed" method="get">
+									 		<form action="SelectListed" method="get">
 											<div class="col-xxs-12 col-xs-12 mt">
 												<div class="input-field">
 													<label for="from">目的地:</label>
@@ -260,9 +262,9 @@
 											</div>
 											<div class="col-sm-12 mt">
 												<section>
-													<label for="class">客房</label>
-													<select class="cs-select cs-skin-border">
-														<option value="" disabled selected  >1間客房，1位成人</option>
+													<label for="class" >客房</label>
+													<select class="cs-select cs-skin-border" style="color:black">
+														<option value="" disabled selected >1間客房，1位成人</option>
 														<option value="economy" >1間客房，2位成人</option>
 														<option value="first" >1間客房，3位成人</option>
 														<option value="business" >更多選項...</option>

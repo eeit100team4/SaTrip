@@ -118,16 +118,18 @@
 </head>
 <body>
 	<%@ include file="/WEB-INF/frontStageHeader.jsp"%>
-	
-<div style="text-align:center">
- <h1>請挑選主題</h1>
+<div class="fh5co-cover" data-stellar-background-ratio="0.5" style="background-color:white">	
+<div style="margin-left:200px; margin-top:10px;width:900px;" class="content text-center">	
+<h1 style="color:orange">請挑選主題</h1>
   <c:forEach var='titleName' items='${titleList}'>
+   <div style="width:280px; height:200px; float: left; ">
      <img src="/Traveler/images/themeTitle-${titleName}.png">
      <a href="products/${titleName}">${titleName}</a><br>
      <br>
+   </div>
   </c:forEach>
 </div>
-	
+	</div>
 	<%@ include file="/WEB-INF/frontStageFooter.jsp"%>
 </body>
 </html>
