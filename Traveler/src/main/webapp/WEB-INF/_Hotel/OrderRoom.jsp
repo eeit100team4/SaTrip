@@ -253,7 +253,7 @@ span.price {
 			            <label for="ccnum">信用卡號</label>				            
 			            <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444">
 			            <label for="expmonth">Exp Month</label>
-			            <input type="text" id="expmonth" name="expmonth" placeholder="September">			
+			            <input type="text" id="expmonth" name="expmonth" placeholder="9">			
 			            <div class="row">
 			              <div class="col-50">
 			                <label for="expyear">Exp Year</label>

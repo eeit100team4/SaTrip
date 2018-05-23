@@ -302,68 +302,68 @@
 				</div>
 				<div class="row row-bottom-padded-md">
 					<div class="col-md-4 col-sm-6 fh5co-tours animate-box" data-animate-effect="fadeIn">
-						<div href="#"><img src="/Traveler/images/place-1.jpg" alt="Free HTML5 Website Template by FreeHTML5.co" class="img-responsive">
+						<div href="#"><img src="/Traveler/images/hotelPic/Korea/Seoul/korSRA/Double/korSRA1.jpeg" alt="Free HTML5 Website Template by FreeHTML5.co" class="img-responsive">
 							<div class="desc">
 								<span></span>
-								<h3>New York</h3>
+								<h3>東京</h3>
 								<span>3 nights</span>
-								<span class="price">$1,000</span>
-								<a class="btn btn-primary btn-outline" href="#">Book Now <i class="icon-arrow-right22"></i></a>
+								<span class="price">$4,550</span>
+								<a class="btn btn-primary btn-outline" href="DisplayRoom">立即定位<i class="icon-arrow-right22"></i></a>
 							</div>
 						</div>
 					</div>
 					<div class="col-md-4 col-sm-6 fh5co-tours animate-box" data-animate-effect="fadeIn">
-						<div href="#"><img src="/Traveler/images/place-2.jpg" alt="Free HTML5 Website Template by FreeHTML5.co" class="img-responsive">
+						<div href="#"><img src="/Traveler/images/hotelPic/Korea/JejuIsland/korCRB/Double/korCRB2.jpeg" alt="Free HTML5 Website Template by FreeHTML5.co" class="img-responsive">
 							<div class="desc">
 								<span></span>
-								<h3>Philippines</h3>
+								<h3>大阪</h3>
 								<span>4 nights</span>
-								<span class="price">$1,000</span>
-								<a class="btn btn-primary btn-outline" href="#">Book Now <i class="icon-arrow-right22"></i></a>
+								<span class="price">$4,550</span>
+								<a class="btn btn-primary btn-outline" href="DisplayRoom">立即定位<i class="icon-arrow-right22"></i></a>
 							</div>
 						</div>
 					</div>
 					<div class="col-md-4 col-sm-6 fh5co-tours animate-box" data-animate-effect="fadeIn">
-						<div href="#"><img src="/Traveler/images/place-3.jpg" alt="Free HTML5 Website Template by FreeHTML5.co" class="img-responsive">
+						<div href="#"><img src="/Traveler/images/hotelPic/Thailand/ChiangMai/taiCRB/Double/taiCRB2.jpeg" alt="Free HTML5 Website Template by FreeHTML5.co" class="img-responsive">
 							<div class="desc">
 								<span></span>
-								<h3>Hongkong</h3>
+								<h3>北海道</h3>
 								<span>2 nights</span>
-								<span class="price">$1,000</span>
-								<a class="btn btn-primary btn-outline" href="#">Book Now <i class="icon-arrow-right22"></i></a>
+								<span class="price">$4,550</span>
+								<a class="btn btn-primary btn-outline" href="DisplayRoom">立即定位<i class="icon-arrow-right22"></i></a>
 							</div>
 						</div>
 					</div>
 					<div class="col-md-4 col-sm-6 fh5co-tours animate-box" data-animate-effect="fadeIn">
-						<div href="#"><img src="/Traveler/mages/place-1.jpg" alt="Free HTML5 Website Template by FreeHTML5.co" class="img-responsive">
+						<div href="#"><img src="/Traveler/images/hotelPic/Thailand/Pattaya/taiBRB/Double/taiBRB1.jpeg" alt="Free HTML5 Website Template by FreeHTML5.co" class="img-responsive">
 							<div class="desc">
 								<span></span>
-								<h3>New York</h3>
+								<h3>京都</h3>
 								<span>3 nights</span>
-								<span class="price">$1,000</span>
-								<a class="btn btn-primary btn-outline" href="#">Book Now <i class="icon-arrow-right22"></i></a>
+								<span class="price">$4,550</span>
+								<a class="btn btn-primary btn-outline" href="DisplayRoom">立即定位<i class="icon-arrow-right22"></i></a>
 							</div>
 						</div>
 					</div>
 					<div class="col-md-4 col-sm-6 fh5co-tours animate-box" data-animate-effect="fadeIn">
-						<div href="#"><img src="/Traveler/images/place-2.jpg" alt="Free HTML5 Website Template by FreeHTML5.co" class="img-responsive">
+						<div href="#"><img src="/Traveler/images/hotelPic/Thailand/Pattaya/taiBRB/Double/taiBRB4.jpeg" alt="Free HTML5 Website Template by FreeHTML5.co" class="img-responsive">
 							<div class="desc">
 								<span></span>
-								<h3>Philippines</h3>
+								<h3>北海道</h3>
 								<span>4 nights</span>
-								<span class="price">$1,000</span>
-								<a class="btn btn-primary btn-outline" href="#">Book Now <i class="icon-arrow-right22"></i></a>
+								<span class="price">$4,550</span>
+								<a class="btn btn-primary btn-outline" href="DisplayRoom">立即定位<i class="icon-arrow-right22"></i></a>
 							</div>
 						</div>
 					</div>
 					<div class="col-md-4 col-sm-6 fh5co-tours animate-box" data-animate-effect="fadeIn">
-						<div href="#"><img src="/Traveler/images/place-3.jpg" alt="Free HTML5 Website Template by FreeHTML5.co" class="img-responsive">
+						<div href="#"><img src="/Traveler/images/hotelPic/Thailand/Pattaya/taiBRB/Double/taiBRB2.jpeg" alt="Free HTML5 Website Template by FreeHTML5.co" class="img-responsive">
 							<div class="desc">
 								<span></span>
-								<h3>Hongkong</h3>
+								<h3>鹿兒島</h3>
 								<span>2 nights</span>
-								<span class="price">$1,000</span>
-								<a class="btn btn-primary btn-outline" href="#">Book Now <i class="icon-arrow-right22"></i></a>
+								<span class="price">$4,550</span>
+								<a class="btn btn-primary btn-outline" href="DisplayRoom">立即定位<i class="icon-arrow-right22"></i></a>
 							</div>
 						</div>
 					</div>
