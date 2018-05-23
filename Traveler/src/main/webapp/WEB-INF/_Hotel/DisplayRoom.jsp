@@ -231,7 +231,7 @@
 							<td>
 								<h4>不可退費</h4> <br>
 							<h4>免費無線上網</h4> <br>
-							<h4>1人份早餐</h4>
+							<h4>附早餐</h4>
 							</td>
 							<td><h4>累積 </h4><br><h4>兌換</h4>
 							</td>
@@ -239,9 +239,9 @@
 							<td><a href="OrderRoom" class="btn btn-primary" name="">訂房</a></td>
 						</tr>
 						<tr style="width: 180px">
-							<th scope="row"><img src="../images/hotelPic/korFRA2.jpg"
+							<th scope="row"><img src="../images/hotelPic/korFRA1.jpg"
 								width="250" hight="180" title="雙人房" alt="雙人房"></th>
-							<td><h4>不可退費 </h4><br><h4>免費無線上網</h4><br><h4>1人分早餐</h4>
+							<td><h4>不可退費 </h4><br><h4>免費無線上網</h4><br><h4>附早餐</h4>
 							</td>
 							<td><h4>累積 </h4><br><h4>兌換</h4>
 							</td>
@@ -249,9 +249,9 @@
 							<td><a href="OrderRoom" class="btn btn-primary" name="">訂房</a></td>
 						</tr>
 						<tr style="width: 180px">
-							<th scope="row"><img src="../images/hotelPic/korFRA2.jpg"
+							<th scope="row"><img src="../images/hotelPic/korFRA3.jpg"
 								width="250" hight="180" title="雙人房" alt="雙人房"></th>
-							<td><h4>不可退費 </h4><br><h4>免費無線上網</h4><br><h4>1人分早餐</h4>
+							<td><h4>不可退費 </h4><br><h4>免費無線上網</h4><br><h4>附早餐</h4>
 							</td>
 							<td><h4>累積 </h4><br><h4>兌換</h4>
 							</td>
@@ -259,9 +259,9 @@
 							<td><a href="OrderRoom" class="btn btn-primary" name="">訂房</a></td>
 						</tr>
 						<tr style="width: 180px">
-							<th scope="row"><img src="../images/hotelPic/korFRA2.jpg"
+							<th scope="row"><img src="../images/hotelPic/korFRA4.jpg"
 								width="250" hight="180" title="雙人房" alt="雙人房"></th>
-							<td><h4>不可退費 </h4><br><h4>免費無線上網</h4><br><h4>1人分早餐</h4>
+							<td><h4>不可退費 </h4><br><h4>免費無線上網</h4><br><h4>附早餐</h4>
 							</td>
 							<td><h4>累積 </h4><br><h4>兌換</h4>
 							</td>
@@ -269,9 +269,9 @@
 							<td><a href="OrderRoom" class="btn btn-primary" name="">訂房</a></td>
 						</tr>
 						<tr style="width: 180px">
-							<th scope="row"><img src="../images/hotelPic/korFRA2.jpg"
+							<th scope="row"><img src="../images/hotelPic/korFRA5.jpg"
 								width="250" hight="180" title="雙人房" alt="雙人房"></th>
-							<td><h4>不可退費 </h4><br><h4>免費無線上網</h4><br><h4>1人分早餐</h4>
+							<td><h4>不可退費 </h4><br><h4>免費無線上網</h4><br><h4>附早餐</h4>
 							</td>
 							<td><h4>累積 </h4><br><h4>兌換</h4>
 							</td>
@@ -279,9 +279,9 @@
 							<td><a href="OrderRoom" class="btn btn-primary" name="">訂房</a></td>
 						</tr>
 						<tr style="width: 180px">
-							<th scope="row"><img src="../images/hotelPic/korFRA2.jpg"
+							<th scope="row"><img src="../images/hotelPic/korFRA6.jpg"
 								width="250" hight="180" title="雙人房" alt="雙人房"></th>
-							<td><h4>不可退費 </h4><br><h4>免費無線上網</h4><br><h4>1人分早餐</h4>
+							<td><h4>不可退費 </h4><br><h4>免費無線上網</h4><br><h4>附早餐</h4>
 							</td>
 							<td><h4>累積 </h4><br><h4>兌換</h4>
 							</td>

@@ -45,11 +45,12 @@ public class HotelBackController {
 //		public String show(){
 //			return "_Hotel/End/ShowAllHotels";
 //		}
-		//後台新增房訊  
-		@RequestMapping("/InsertHotel")
-		public String insert(){
-			return "_Hotel/End/InsertHotel";
-		}//後台修改房訊  
+//		//後台新增房訊  
+//		@RequestMapping("/InsertHotel")
+//		public String insert(){
+//			return "_Hotel/End/InsertHotel";
+//		}
+		//後台修改房訊  
 		@RequestMapping("/UpdateHotel")
 		public String update(){
 			return "_Hotel/End/UpdateHotel";
@@ -60,15 +61,15 @@ public class HotelBackController {
 		}		
 	
 		//新增Hotel -GET
-		@RequestMapping(value = "/_Hotel/End/addProduct", method = RequestMethod.GET)
+		@RequestMapping(value = "/InsertHotel", method = RequestMethod.GET)
 		public String getAddNewHotelForm(Model model) {
 		    HotelBean hb = new HotelBean();
 		    model.addAttribute("hotelBean", hb); 
-		    return "_Hotel/End/addProduct";
+		    return "_Hotel/End/InsertHotel";
 		}
 	
 		//新增Hotel -POST
-		@RequestMapping(value = "/_Hotel/End/InsertHoteld", method = RequestMethod.POST)
+		@RequestMapping(value = "/InsertHotel", method = RequestMethod.POST)
 		public String getAddNewHotelForm(@ModelAttribute("hotelBean") HotelBean hb, HttpServletRequest request) { 
 			
 			MultipartFile productImage = hb.getProductImage();
@@ -89,7 +90,7 @@ public class HotelBackController {
 				}
 			}
 			hotelService.insertHotel(hb);    			
-			return "redirect:/showAllHotels";		    
+			return "redirect:/_Hotel/End/InsertHotel";		    
 		}
 		
 		// 取得HotelBean資料，顯示多筆Hotel資料
