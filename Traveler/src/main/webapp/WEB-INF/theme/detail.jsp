@@ -140,6 +140,7 @@
     <b style='font-size:16px;'>出發時間&nbsp;&nbsp;<fmt:formatDate value="${detail.returnDay}" pattern="yyyy/MM/dd" />&nbsp;&nbsp;${detail.returnStartHour}&nbsp;:&nbsp;${detail.returnStartMinute}&nbsp;&nbsp;${detail.returnStartWhere}</b><br>
     <b style='font-size:16px;'>抵達時間&nbsp;&nbsp;<fmt:formatDate value="${detail.returnDay}" pattern="yyyy/MM/dd" />&nbsp;&nbsp;${detail.returnEndHour}&nbsp;:&nbsp;${detail.returnEndMinute}&nbsp;&nbsp;${detail.returnEndWhere}</b><br>
     <hr>
+    <h2>航班資訊(回)</h2>
     
     
     <a href="${detail.journeyId}/application">報名</a>    
