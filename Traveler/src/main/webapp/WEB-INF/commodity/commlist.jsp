@@ -190,6 +190,9 @@ margin-bottom:0px;
 	height: auto;
 	float: right;
 }
+
+
+
 </style>
 
 
@@ -239,11 +242,11 @@ margin-bottom:0px;
 <div id="mwt_mwt_slider_scroll">
 <div id="mwt_slider_content" >
 <div><h2 style="text-align: center;color:black">紅利管理</h2></div>
- <div><h3><a style="color:#444444" href="commlist">商品清單</a></h3></div>
- <div><h3><a style="color:#444444" href="tsuika">新增商品訂單</a></h3></div>
- <div><h3><a style="color:#444444" href="henkou">修改商品</a></h3></div>
-  <div><h3><a style="color:#444444" href="ClientLists">兌換清單</a></h3></div>
-  <div><h3><a style="color:#444444" href="/Traveler/maru">QQ</a></h3></div>
+ <div><h3><a class='aa' href="commlist">商品清單</a></h3></div>
+ <div><h3><a class='aa' href="tsuika">新增商品訂單</a></h3></div>
+ <div><h3><a class='aa' href="henkou">修改商品</a></h3></div>
+  <div><h3><a class='aa' href="ClientLists">兌換清單</a></h3></div>
+  <div><h3><a class='aa' href="/Traveler/maru">QQ</a></h3></div>
 </div>
 </div>
 <!-- =========側邊欄位結束============ -->		
@@ -251,6 +254,30 @@ margin-bottom:0px;
 	
 	
 	<%@ include file="/WEB-INF/backStageFooter.jsp" %>
+	
+	
+<script>
+
+$(document).ready(function(){
+  
+	
+	var c1={'color':'#444444'};
+	var c2={'color':'#FFFFFF'};
+	
+	$('.aa').css(c1).mouseover(over).mouseout(out);
+	
+	function over(){
+		$(this).css(c2)
+	}
+	
+	function out(){
+		$(this).css(c1)
+	}
+})
+
+</script>	
+	
+	
 	
 </body>
 
