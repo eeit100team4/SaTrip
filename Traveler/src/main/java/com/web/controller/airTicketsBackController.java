@@ -102,10 +102,11 @@ public class airTicketsBackController {
 	@RequestMapping(value="/extra",method=RequestMethod.POST)
 	@ResponseBody
 	public Map getExtraPrice(@RequestParam("dept") String dept, @RequestParam("arrv") String arrv) {
-		 ExtraPriceBean result = eps.selectByidGetBean(dept, arrv);
+		  ExtraPriceBean extraPriceBean  = eps.selectByidGetBean(dept, arrv);
+		 System.out.println(extraPriceBean);
 		Map<String,Integer> map = new HashMap<>();
-		map.put("pkId",result.getId());
-		map.put("extraPrice", result.getExtraPrice());
+		map.put("pkId",extraPriceBean.getId());
+		map.put("extraPrice", extraPriceBean.getExtraPrice());
 		return map;
 	}
 	
@@ -123,7 +124,8 @@ public class airTicketsBackController {
 	public String sendPDF(@RequestParam("orderId") String orderId) throws DocumentException, IOException {
 		OrderDetailsBean odBean = os.selectOneByOrderId(orderId);
 		//取得此張訂單的會員EMAIL
-		String memberEmail = memberService.getMemberById(odBean.getMemberId()).getEmail();
+		String memberEmail = odBean.getGuestBean().getContactEmail();
+		System.out.println(memberEmail);
 		pdfService.pdfProduce(odBean);
 		sendEmailService.sendNewEmail(orderId,memberEmail);
 		return "OK";

@@ -125,9 +125,10 @@
 			<!-- end:header-top -->
 
 			<div  id="all"  class="fh5co-hero">
-<!-- 				<div class="fh5co-overlay"></div> -->
-				<div class="fh5co-cover" data-stellar-background-ratio="0.5"
-					style="background-image: url(images/cover_bg_1.jpg);">
+				<div class="fh5co-overlay"></div>
+				<div class="fh5co-cover" data-stellar-background-ratio="0.1"
+					style="background-image: url(/Traveler/images/backgroundairplain.jpg);">
+					
 					<div class="desc">
 						<div class="container">
 							<div class="row">
