@@ -300,7 +300,7 @@
 						<h3 class="card-title">我們只剩3間</h3>
 						<h1 class="card-title" style="color: red">NT：4450</h1>
 						<p class="card-text"></p>
-						<a href="#" class="btn btn-primary" name="">立即訂房</a>
+						<a href="OrderRoom" class="btn btn-primary" name="">立即訂房</a>
 					</div>
 				</div>
 				</form>
