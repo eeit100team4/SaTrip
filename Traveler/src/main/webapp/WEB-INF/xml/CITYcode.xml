@@ -20,35 +20,23 @@
 		<C>HND</C>
 		<D>東京羽田(HND)</D>
 	</T>
+	<T>
+		<C>KIX</C>
+		<D>大阪關西(KIX)</D>
+	</T>
 
 	<T>
 		<C>SEL</C>
-		<D>韓國首爾(SEL)</D>
+		<D>首爾仁川(SEL)</D>
 	</T>
 
 	<T>
-		<C>MPK</C>
-		<D>木浦(MPK)</D>
+		<C>BKK</C>
+		<D>泰國曼谷(BKK)</D>
 	</T>
 	<T>
-		<C>BLR</C>
-		<D>班加羅爾(BLR)</D>
-	</T>
-	<T>
-		<C>HYD</C>
-		<D>海德拉巴(HYD)</D>
-	</T>
-	<T>
-		<C>KHI</C>
-		<D>喀拉蚩(KHI)</D>
-	</T>
-	<T>
-		<C>LUM</C>
-		<D>芒市 (LUM)</D>
-	</T>
-	<T>
-		<C>HHA</C>
-		<D>長沙黃花 (HHA)</D>
+		<C>SIN</C>
+		<D>新加坡(SIN)</D>
 	</T>
 
 

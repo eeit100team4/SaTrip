@@ -282,10 +282,11 @@ function noShow(){
 
 function CLOnly(){
 	var all=[];
+	var checkBoxLength=$(":checkbox").length;
 	for(var d=0;d<50;d++){
 	$("#"+d).parents("table").parent("div").parent("div").css("display","none");
 	}
-	for(var k=0;k<2;k++){
+	for(var k=0;k<checkBoxLength;k++){
 		if($("#checkbox").find('input:checkbox:eq('+k+')').prop("checked")){
 			var name=$("#checkbox").find('input:checkbox:eq('+k+')').attr('checked', 'false').val();
 			all.push(name);
@@ -327,7 +328,7 @@ border: 1px solid orange ;
 background-color: white;
 width:15%;
 /* line-height:446%; */
- line-height:475%; 
+ line-height:426%; 
 align:center;
 padding:20px;
 float:left;
@@ -358,14 +359,14 @@ function list(){
             var td4=$("<td  width='50%' align='center' valign='middle'></td>").append(cell7);
             
             var cellhr=$("<td colspan='5' align='center' valign='middle' ></td>").html("<hr size='1' noshade='noshade' style='border:1px #cccccc dashed;'>");
-            var row2=$("<tr></tr>").append(cellhr);
+            var row2=$("<tr ></tr>").append(cellhr);
             
-            var cell10=$("<div></div>").html("<p>每人含稅</p>");
+            var cell10=$("<div></div>").html("<p style='margin-bottom:0px;'>每人含稅</p>");
           //價格
          var cellPrice=$("<span style='font-size:25px;color:red'></span>").text(value.AirItineraryPricingInfo[0].PTC_FareBreakdowns.PTC_FareBreakdown[0].PassengerFare.TotalFare.Amount+extraPrice);
-            var td5=$("<td></td>").append(cell10,cellPrice);
+            var td5=$("<td ></td>").append(cell10,cellPrice);
             
-            var row1=$("<tr ></tr>").append(td1,td2,td3,td4,td5);
+            var row1=$("<tr style='margin-top:10px;'></tr>").append(td1,td2,td3,td4,td5);
             
             
             var cellR1=$("<div></div>").text(value.AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[0].DepartureDateTime);
@@ -386,7 +387,7 @@ function list(){
             var cellR10=$("<div></div>").html("<button align=center style='top:50% ' type='button' class='btn btn_yell' id="+name+" onclick='sendDetails()'>訂位</button>");
             var tdR5=$("<td></td>").append(cellR10);
             
-            var row3=$("<tr></tr>").append(tdR1,tdR2,tdR3,tdR4,tdR5);
+            var row3=$("<tr style='height:60px;'></tr>").append(tdR1,tdR2,tdR3,tdR4,tdR5);
             
             
             var table1=$("<table  align='center' style=' border: 1px solid orange ; background-color: white'></table>").append(row1,row2,row3);
@@ -461,7 +462,6 @@ function list(){
 		
 		
 	}
-
 	function sortByPrice(){
 // 		 照價格排序
 			var data = emp.OTA_AirLowFareSearchRS.PricedItineraries.PricedItinerary;
@@ -471,9 +471,10 @@ function list(){
 			 
 			 $("#ticketResult").empty();
 			 list();
+			 noShow();
 // 			 page();
 				//取消篩選CHECKBOX
-				for(var k=0;k<2;k++){
+				for(var k=0;k<5;k++){
 					$("#checkbox").find('input:checkbox:eq('+k+')').prop("checked",false);
 					
 				}
@@ -481,7 +482,7 @@ function list(){
 		}
 		
 	function sortAirline(){
-		//出發航空公司排序
+		//出發航空公司排序  目前無效
 		    var data = emp.OTA_AirLowFareSearchRS.PricedItineraries.PricedItinerary;
 			 data.sort(function(a,b){	
 				 return (a.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].DepartureAirport.LocationCode)-(b.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].DepartureAirport.LocationCode)
@@ -505,9 +506,10 @@ function list(){
 			 
 			 $("#ticketResult").empty();
 			 list();
+			 noShow();
 // 			 page();
 				//取消篩選CHECKBOX
-				for(var k=0;k<2;k++){
+				for(var k=0;k<5;k++){
 					$("#checkbox").find('input:checkbox:eq('+k+')').prop("checked",false);
 					
 				}
@@ -888,6 +890,8 @@ $("#mwt_mwt_slider_scroll").animate( { left:'-'+w+'px' }, 600 ,'swing');
 <!-- </div> -->
 <form id="checkbox" action="/action_page.php">
   <input type="checkbox" name="a" value="中華航空" onclick="CLOnly()" > 中華航空<br>
+  <input type="checkbox" name="b" value="長榮航空" onclick="CLOnly()">長榮航空<br>
+  <input type="checkbox" name="b" value="國泰航空" onclick="CLOnly()">國泰航空<br>
   <input type="checkbox" name="b" value="日本航空" onclick="CLOnly()">日本航空<br>
 </form>
 </div>
