@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -267,7 +270,6 @@ float:right;
 
 
 
-
 <title>Insert title here</title>
 </head>
 <body>
@@ -299,14 +301,76 @@ float:right;
 </div>
 <!-- =========側邊欄位結束============ -->
 	
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	
+	<div class="container-fluid">
+	 
+	  	<form:form method='POST' modelAttribute="hotelBean" 	class='form-horizontal' enctype="multipart/form-data">
+
+						<fieldset >
+							<div class="form-group">
+								<label class="control-label col-lg-2 col-lg-2" for='country'>
+									國家：
+								</label>
+								<div class="col-lg-10">
+									 <form:input  path="country" type='text'
+										class='form:input-large' />
+								</div>
+							</div>
+			
+							<div class="form-group">
+								<label class="control-label col-lg-2 col-lg-2"  for='city'>
+									 城市：
+								</label>
+								<div class="col-lg-10">
+									<form:input  path="city" type='text'
+										class='form:input-large' />
+								</div>
+							</div>
+								<div class="form-group">
+								<label class="control-label col-lg-2 col-lg-2"  for='name'>
+									 飯店：
+								</label>
+								<div class="col-lg-10">
+									<form:input  path="name" type='text'
+										class='form:input-large' />
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-lg-2 col-lg-2"  for='productImage'>
+									 上傳照片
+								</label>
+								<div class="col-lg-10">
+									<form:input  path="productImage" type='file'
+										class='form:input-large' />
+								</div>
+							</div>
+							
+							<div class="form-group">
+								<div class='col-lg-offset-2 col-lg-10'>
+									<input id="btnAdd" type='submit' class='btn btn-primary'>
+									
+								</div>
+							</div>
+						</fieldset>
+					</form:form>
+	  
+	  
+	  
+	  
+	    		
+	</div>
 	
 	
 	
-		<div class="content text-center">
-		<h2>放內容的地方</h2>
-		
-		
-		</div>
+	
+	
+	
+	
 
 	<!--  ========================================================== -->
 

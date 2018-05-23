@@ -264,8 +264,8 @@ float:right;
 
 </style>
 
-<link rel="stylesheet"
-	href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+<!-- <link rel="stylesheet" -->
+<!-- 	href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"> -->
 
 
 <title>Insert title here</title>
@@ -350,7 +350,7 @@ float:right;
 							</p>
 							<p>${hotelInfo.country}</p>
 							<p>${hotelInfo.city}</p>
-							<p><font color="red">NT：${hotelInfo.hotelRoomBean.price}</font></p>
+<%-- 							<p><font color="red">NT：${hotelInfo.hotelRoomBean.price}</font></p> --%>
 <%-- 							<p>目前在庫數量: ${product.stock}本</p> --%>
 <!-- 							<p> -->
 <%-- 								<a href="<spring:url value='product?id=${product.bookId}' />"    --%>
