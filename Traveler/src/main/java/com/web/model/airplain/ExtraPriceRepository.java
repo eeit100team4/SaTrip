@@ -13,7 +13,18 @@ public class ExtraPriceRepository {
 	SessionFactory sessionFactory;
 	
 
-	public ExtraPriceBean selectByid(String dept ,String arrv) {
+	public Integer selectByid(String dept ,String arrv) {
+		Query<ExtraPriceBean> query = sessionFactory.getCurrentSession()
+				      .createQuery("FROM ExtraPriceBean WHERE dept=? AND arrv=?",ExtraPriceBean.class);
+		    query.setParameter(0,dept).setParameter(1,arrv);
+			ExtraPriceBean result = query.uniqueResult();
+		    if(result!=null) {
+		    	return result.getExtraPrice();
+		    }
+		return null;
+	}
+	
+	public ExtraPriceBean selectByidGetBean(String dept ,String arrv) {
 		Query<ExtraPriceBean> query = sessionFactory.getCurrentSession()
 				      .createQuery("FROM ExtraPriceBean WHERE dept=? AND arrv=?",ExtraPriceBean.class);
 		    query.setParameter(0,dept).setParameter(1,arrv);
@@ -23,6 +34,8 @@ public class ExtraPriceRepository {
 		    }
 		return null;
 	}
+	
+	
 	public void updateExtraPrice(ExtraPriceBean epBean) {
 		sessionFactory.getCurrentSession().update(epBean);
 	}

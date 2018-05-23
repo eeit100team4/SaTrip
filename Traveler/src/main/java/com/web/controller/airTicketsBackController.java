@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.annotation.Resources;
 import javax.servlet.http.HttpSession;
 import javax.swing.plaf.synth.SynthSpinnerUI;
 
@@ -14,6 +15,7 @@ import org.springframework.context.annotation.Conditional;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -23,12 +25,14 @@ import com.itextpdf.text.DocumentException;
 import com.web.model.airplain.ExtraPriceBean;
 import com.web.model.airplain.GuestBean;
 import com.web.model.airplain.OrderDetailsBean;
+import com.web.model.member.MemberBean;
 import com.web.service.airplain.BFMService;
 import com.web.service.airplain.ExtraPriceService;
 import com.web.service.airplain.GuestService;
 import com.web.service.airplain.OrderService;
 import com.web.service.airplain.PdfProduceService;
 import com.web.service.airplain.SendEmailService;
+import com.web.service.member.MemberService;
 
 @Controller
 @RequestMapping("/airTickets/back")
@@ -48,6 +52,8 @@ public class airTicketsBackController {
 	PdfProduceService pdfService;
 	@Autowired
 	SendEmailService sendEmailService;
+	@Autowired
+	MemberService memberService;
 
 	@RequestMapping("/list")
 	public String backList() {
@@ -96,13 +102,11 @@ public class airTicketsBackController {
 	@RequestMapping(value="/extra",method=RequestMethod.POST)
 	@ResponseBody
 	public Map getExtraPrice(@RequestParam("dept") String dept, @RequestParam("arrv") String arrv) {
-		System.out.println(dept + "," + arrv);
-		ExtraPriceBean result = eps.getExtraPrice(dept, arrv);
+		 ExtraPriceBean result = eps.selectByidGetBean(dept, arrv);
 		Map<String,Integer> map = new HashMap<>();
 		map.put("pkId",result.getId());
 		map.put("extraPrice", result.getExtraPrice());
 		return map;
-
 	}
 	
 	@RequestMapping(value="/updateExtra",method=RequestMethod.POST)
@@ -118,10 +122,25 @@ public class airTicketsBackController {
 	@ResponseBody
 	public String sendPDF(@RequestParam("orderId") String orderId) throws DocumentException, IOException {
 		OrderDetailsBean odBean = os.selectOneByOrderId(orderId);
+		//取得此張訂單的會員EMAIL
+		String memberEmail = memberService.getMemberById(odBean.getMemberId()).getEmail();
 		pdfService.pdfProduce(odBean);
-		sendEmailService.sendNewEmail(orderId);
+		sendEmailService.sendNewEmail(orderId,memberEmail);
 		return "OK";
 
+	}
+	
+	//查詢是否有訂單
+	@RequestMapping(value = "/selectOne/check", method = RequestMethod.POST)
+	@ResponseBody
+	public String selectOneCheck(@RequestParam("orderId") String orderID) {
+		OrderDetailsBean bean = os.selectOneByOrderId(orderID);
+		System.out.println(bean);
+		if(bean==null) {
+			return "noAnswer";
+		}
+		System.out.println(orderID);
+		return "exist";
 	}
 
 }

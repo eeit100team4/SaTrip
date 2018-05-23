@@ -227,8 +227,6 @@ function sendGuest(){
 		contentType : false,
 		processData : false,
 		success : function(responce) {
-			alert(responce);
-			alert("ok");
 			window.location.assign(responce);
 		},
 		error:function(){

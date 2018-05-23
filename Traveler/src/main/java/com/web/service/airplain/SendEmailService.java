@@ -23,14 +23,14 @@ public class SendEmailService {
 	
 	Properties props =new Properties();
 	String RECIPIENT=null;
-	public  void sendEmail(String fileName)  {
+	public  void sendEmail(String fileName,String emailAddress)  {
 		try {
 			props.load(new FileInputStream("c:/pdf/BFM.properties"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		
-		RECIPIENT="asally1110@gmail.com";
+		RECIPIENT=emailAddress;
 		String from = props.getProperty("Email_USER_NAME");
 		String pass = props.getProperty("Email_PASSWORD");
 		String[] to = { RECIPIENT }; // list of recipient email addresses
@@ -49,7 +49,7 @@ public class SendEmailService {
 	
 	
 	
-	public  void sendNewEmail(String fileName)  {
+	public  void sendNewEmail(String fileName,String memberEmail)  {
 		try {
 			props.load(new FileInputStream("c:/pdf/BFM.properties"));
 		} catch (IOException e) {
@@ -61,7 +61,7 @@ public class SendEmailService {
 			fileName=fileName+"_new";
 		}
 		
-		RECIPIENT="asally1110@gmail.com";
+		RECIPIENT=memberEmail;
 		String from = props.getProperty("Email_USER_NAME");
 		String pass = props.getProperty("Email_PASSWORD");
 		String[] to = { RECIPIENT }; // list of recipient email addresses

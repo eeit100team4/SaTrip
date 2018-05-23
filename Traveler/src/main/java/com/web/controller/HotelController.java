@@ -34,11 +34,13 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.web.model.hotel.HotelBean;
 import com.web.model.hotel.HotelBookingDateBean;
+import com.web.model.hotel.HotelOrderBean;
 import com.web.model.hotel.HotelRoomBean;
 import com.web.repository.hotel.HotelBookingDateRepository;
 import com.web.repository.hotel.HotelRoomRepository;
 import com.web.repository.hotel.impl.HotelBookingDateRepositoryImpl;
 import com.web.service.hotel.HotelBookingDatieService;
+import com.web.service.hotel.HotelOrderService;
 import com.web.service.hotel.HotelRoomService;
 import com.web.service.hotel.HotelService;
 
@@ -55,6 +57,8 @@ public class HotelController {
 
 	@Autowired
 	ServletContext context;
+	@Autowired
+	HotelOrderService hotelOrderService; 
 
 	
 
@@ -62,15 +66,7 @@ public class HotelController {
 	@RequestMapping("/_Hotel/SelectHotel")
 	public String list2(Model model) {
 		return "_Hotel/SelectHotel";
-	}
-
-	// 取得HotelBean資料，顯示多筆Hotel資料
-	@RequestMapping("/_Hotel/DisplayHotel")
-	public String list(Model model) {
-		List<HotelBean> list = hotelService.getAllHotels();
-		model.addAttribute("hotels", list);
-		return "_Hotel/DisplayHotel";
-	}
+	}	
 
 	// 顯示DisplayRoom
 	@RequestMapping("/_Hotel/DisplayRoom")
@@ -78,13 +74,17 @@ public class HotelController {
 		return "_Hotel/DisplayRoom";
 	}
 	
+	// 顯示OrderRoom
+	@RequestMapping("/_Hotel/OrderRoom")
+	public String showOrderRoom(Model model) {
+		return "_Hotel/OrderRoom";
+	}
+	
 	//篩選扭送出呈現Hotel畫面 
-	@RequestMapping("/_Hotel/Listed")
+	@RequestMapping("/_Hotel/SelectListed")
 	public String getProductByIds(@RequestParam("start") String start, @RequestParam("end") String end,@RequestParam("location") String location, Model model) throws ParseException {
-		// '2018/06/01' and '2018/06/05'		
-						
-		
-		
+		// '2018/06/01' and '2018/06/05'	
+				
 		SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");		
 		Date parsedDate = dateFormat.parse(start);
 		java.sql.Timestamp startTime = new java.sql.Timestamp(parsedDate.getTime());
@@ -99,7 +99,7 @@ public class HotelController {
 //		System.out.println("================");
 		model.addAttribute("hotels",hotels);
 		model.addAttribute("location",location);
-		return "_Hotel/Listed";
+		return "_Hotel/SelectListed";
 	}
 	
 	
@@ -140,19 +140,7 @@ public class HotelController {
 	
 	
 	
-		
-		
 	
-	
-	
-	
-	//新增Hotel -GET
-	@RequestMapping(value = "/_Hotel/addProduct", method = RequestMethod.GET)
-	public String getAddNewHotelForm(Model model) {
-	    HotelBean hb = new HotelBean();
-	    model.addAttribute("hotelBean", hb); 
-	    return "_Hotel/addProduct";
-	}
 	
 	
 	
@@ -164,35 +152,7 @@ public class HotelController {
 //	    return "";
 //	}
 //	
-	//新增Hotel -POST
-	@RequestMapping(value = "/_Hotel/addProduct", method = RequestMethod.POST)
-	public String getAddNewHotelForm(@ModelAttribute("hotelBean") HotelBean hb, HttpServletRequest request) { 
-		
-		MultipartFile productImage = hb.getProductImage();
-		String originalFilename = productImage.getOriginalFilename();
-		hb.setFile_name(originalFilename);
-		
-		String ext = originalFilename.substring(originalFilename.lastIndexOf("."));
-		String rootDirectory = request.getSession().getServletContext().getRealPath("/");
-		//  建立Blob物件，交由 Hibernate 寫入資料庫
-		if (productImage != null && !productImage.isEmpty() ) {
-			try {
-				byte[] b = productImage.getBytes();
-				Blob blob = new SerialBlob(b);
-				hb.setCoverImage(blob);
-			} catch(Exception e) {
-				e.printStackTrace();
-				throw new RuntimeException("檔案上傳發生異常: " + e.getMessage());
-			}
-		}
-		hotelService.insertHotel(hb);
-	    return "redirect:/fasdfas";
-	    
-	    
-	    
-	    
-	    
-	}
+	
 //	
 //	//新增Room -POST
 //	@RequestMapping(value = "", method = RequestMethod.POST)
@@ -203,7 +163,18 @@ public class HotelController {
 //	}
 
 	
-	
-	
+//	@RequestMapping("/_Hotel/OrderRoom")
+//	public String saveOrderBean(@RequestParam()) {
+//		HotelOrderBean hotelOrderBean=new HotelOrderBean(); 
+//		hotelOrderBean.setHotel_name(hotel_name);
+//		hotelOrderBean.setRm_no(rm_no);
+//		hotelOrderBean.setOrder_date(order_date);
+//		hotelOrderBean.setMember_no(member_no);
+//		hotelOrderBean.setTotalAmount(totalAmount);
+//		hotelOrderService.saveHotelOrderBean(hotelOrderBean);
+//		
+//		return "_Hotel/OrderRoom";
+//	}
+//	
 
 }

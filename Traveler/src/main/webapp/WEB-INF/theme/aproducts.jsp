@@ -1,9 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -116,124 +115,40 @@
 <!-- 連結旁邊的小ICON套件  -->	
 <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
 
-
-<script>
-var target="${location}";
-
-$(document).ready(function(){
-	
-	test();
-	
-})
-function test(){
-		
-// 爬樹順序 0,3 $("#option").find("table:eq(1)").css("display","none");
-var length= $("#option").find("table").length;
-for(var x=0;x<length;x++){
-	var country= $("#option").find("table:eq(1)").find("tbody").find("tr:eq(1)").find("td:eq(0)").text();
-	var city= $("#option").find("table:eq("+x+")").find("tbody").find("tr:eq(0)").find("td:eq(0)").text();	
-	if(!target.match(country+city)){
-		$("#option").find("table:eq("+x+")").css("display","none");
-		alert(country+city);
-	}	
-}
-
-}
-</script>
-
-
-
 </head>
 <body>
-		<%@ include file="/WEB-INF/frontStageHeader.jsp"%>
-
-					<main role="main" class="container mt-2">
-			<div class="row">
-			<div class="col-md-3">			
-<%-- 				<%@ include file="/WEB-INF/hotelPartials/Search.jsp"%>	 --%>
-			<div class="col-md-9">
-				<div class="card">
-					<div class="card-header"></div>
-					<div class="card-body">
-						<div id="option">		
-						<c:forEach  var="hotelInfo" items="${hotels}">			
-						<table class="simpleTable">							  
-							  <thead>
-							    <tr>
-							      <th>本日優惠</th>
-							      <th></th>
-							      <th></th>
-							    </tr>
-							  </thead>	
-							  <tbody>							  
-							  	<tr>
-							      <td>${hotelInfo.city}</td>
-							      <td>${hotelInfo.name}</td>
-							      <td>${hotelInfo.hotelRoomBean.price}</td>
-							    </tr>
-							    <tr>
-							      <td>${hotelInfo.country}</td>
-							      <td></td>
-							      <td><input type="submit" class="btn btn-primary btn-block" value="搜尋"></td>
-							    </tr>
-							    <tr>
-							      <td><img width='600' height='300' src="<c:url value='/getPic/${hotelInfo.hotel_id}' />" /></td>
-							      <td></td>
-							      <td></td>
-							    </tr>
-						 	  </tbody>
-					    </table>			
-						</c:forEach>					
-					 </div>
-					</div>
-				</div>	
-				</div>				
-			</div>
-			</div>
-			</div>
-		</main>
-
-
-
-
-			
-
-
-
-
-
-
-
-
-
-<!-- 記得爬樹 -->
-<!-- 		<div id="option">		 -->
-<%-- 			<c:forEach  var="hotelInfo" items="${hotels}">			 --%>
-<!-- 			<table class="table table-dark"> -->
-<!-- 				  <thead> -->
-<!-- 				    <tr> -->
-<!-- 				      <th scope="col">照片</th> -->
-<!-- 				      <th scope="col">國家</th> -->
-<!-- 				      <th scope="col">城市</th> -->
-<!-- 				      <th scope="col">飯店</th> -->
-<!-- 				      <th scope="col">房號</th>			       -->
-<!-- 				    </tr> -->
-<!-- 				  </thead> -->
-<!-- 				  <tbody> -->
-<!-- 				    <tr>			      		       -->
-<%-- 				      <td><img width='600' height='300' src="<c:url value='/getPic/${hotelInfo.hotel_id}' />" /></td> --%>
-<%-- 				      <td>${hotelInfo.country}</td> --%>
-<%-- 				      <td>${hotelInfo.city}</td> --%>
-<%-- 				      <td>${hotelInfo.name}</td> --%>
-<%-- 				      <td>${hotelInfo.room_no}</td>			       --%>
-<%-- 				      <td>${hotelInfo.room_no}</td>			      			       --%>
-<!-- 				    </tr> -->
-<!-- 			 	  </tbody> -->
-<!-- 		    </table>			 -->
-<%-- 			</c:forEach> --%>
-<!-- 		</div> -->
-
-
+	<%@ include file="/WEB-INF/frontStageHeader.jsp"%>
+<div style="text-align:center">
+<H1>主題下相關商品</H1>
+</div>
+<c:forEach var='products' items='${products}'>
+  <div style="text-align:center">
+    <p>
+    <b style='font-size:16px;'>商品名稱:${products.productName}</b><br>
+    <b style='font-size:16px;'>國家:${products.country}</b><br>
+    <b style='font-size:16px;'>種類:${products.themeTitles.titleName}</b><br>
+    <b style='font-size:16px;'>住宿:${products.hotelName}</b><br>
+    <b style='font-size:16px;'>Day1:${products.title1}</b><br>
+    <b style='font-size:16px;'>Day1內標:${products.descriTitle1}</b>
+    <b style='font-size:16px;'>Day1內容:${products.description1}</b><br>
+    <b style='font-size:16px;'>早餐1:${products.breakfast1}</b>
+    <b style='font-size:16px;'>中餐1:${products.lunch1}</b>
+    <b style='font-size:16px;'>晚餐1:${products.dinner1}</b>
+    <b style='font-size:16px;'>Day2:${products.title1}</b><br>
+    <b style='font-size:16px;'>Day2內標:${products.descriTitle1}</b>
+    <b style='font-size:16px;'>Day2內容:${products.description1}</b><br>
+    <b style='font-size:16px;'>早餐2:${products.breakfast1}</b>
+    <b style='font-size:16px;'>中餐2:${products.lunch1}</b>
+    <b style='font-size:16px;'>晚餐2:${products.dinner1}</b><b style='font-size:16px;'>Day1:${products.title1}</b><br>
+    <b style='font-size:16px;'>Day3內標:${products.descriTitle1}</b>
+    <b style='font-size:16px;'>Day3內容:${products.description1}</b><br>
+    <b style='font-size:16px;'>早餐3:${products.breakfast1}</b>
+    <b style='font-size:16px;'>中餐3:${products.lunch1}</b>
+    <b style='font-size:16px;'>晚餐3:${products.dinner1}</b>
+    <a href="${products.themeTitles.titleName}/${products.productName}">查看出團日期</a>
+    </p>
+  </div>
+</c:forEach>
 	
 	<%@ include file="/WEB-INF/frontStageFooter.jsp"%>
 </body>

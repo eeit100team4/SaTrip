@@ -134,7 +134,7 @@ function showInfo(){
               $("#TotalAmount").val(priceTemp);
               var orderIdTemp="Traveler訂單"+${orderList.orderID};
               $("#TradeDesc").val(orderIdTemp);
-              alert( $("#TradeDesc").val(orderIdTemp));
+//               alert( $("#TradeDesc").val(orderIdTemp));
 //               console.log($("#TradeDesc").val()+","+ $("#TotalAmount").val()+","+$("#MerchantTradeDate").val());
               var partOne="ChoosePayment=Credit&ClientBackURL=http://localhost:8080/Traveler/airTickets/checkOK&CreditInstallment=&EncryptType=1&InstallmentAmount=&ItemName=飛機票&MerchantID=2000132&MerchantTradeDate="+currentDateTime;	  
               var  partTwo= "&MerchantTradeNo="+rando+"&PaymentType=aio&Redeem=&ReturnURL=http://localhost:8080/Traveler/airTickets/checkOK&StoreID=&TotalAmount="+priceTemp+"&TradeDesc="+orderIdTemp
@@ -148,7 +148,7 @@ function showInfo(){
             	    contentType: "application/x-www-form-urlencoded",
                 success : function(response) {
                 	var forword=response;
-                	alert(forword);
+//                 	alert(forword);
                 	$("#CheckMacValue").val(forword);
                 	console.log($("#CheckMacValue").val());
                 },

@@ -1,8 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+
 
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -68,8 +69,7 @@
 <link rel="stylesheet" href="/Traveler/css/cs-skin-border.css">
 
 <link rel="stylesheet" href="/Traveler/css/style.css">
-<!-- 聯絡表單 -->
-<link href="css/bootstrap.min.css" rel="stylesheet">
+
 
 <!-- Modernizr JS -->
 <script src="/Traveler/js/modernizr-2.6.2.min.js"></script>
@@ -116,53 +116,123 @@
 <!-- 連結旁邊的小ICON套件  -->	
 <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
 
-<!-- 聯絡表單 -->
-<!-- jQuery -->
-<script src="js/jquery-1.11.0.min.js"></script>
-<!-- Twitter Boostrap -->
-<script src="js/bootstrap.min.js"></script>
+
+<script>
+var target="${location}";
+
+$(document).ready(function(){
+	
+	test();
+	
+})
+function test(){
+		
+// 爬樹順序 0,3 $("#option").find("table:eq(1)").css("display","none");
+var length= $("#option").find("table").length;
+for(var x=0;x<length;x++){
+	var country= $("#option").find("table:eq(1)").find("tbody").find("tr:eq(1)").find("td:eq(0)").text();
+	var city= $("#option").find("table:eq("+x+")").find("tbody").find("tr:eq(0)").find("td:eq(0)").text();	
+	if(!target.match(country+city)){
+		$("#option").find("table:eq("+x+")").css("display","none");	
+	}	
+}
+
+}
+</script>
+
+
+
 </head>
 <body>
-	<%@ include file="/WEB-INF/frontStageHeader.jsp"%>
+		<%@ include file="/WEB-INF/frontStageHeader.jsp"%>
 
-<div style="text-align:center">
-<H1>主題旅遊報名申請</H1>
-<b style='font-size:16px;'>${test.themeProducts.productName}</b><br>
-<b style='font-size:16px;'>出發日期<fmt:formatDate value="${test.setOut}" pattern="yyyy/MM/dd" /></b><br>
-<b style='font-size:16px;'>標準團費${test.price}</b><br>		   
-</div>	
-<section>
-	<div style="text-align:center">
-		<form:form method="POST" modelAttribute="application"  >
-		   <fieldset>		   
-				<label>姓名</label>
-				<form:input  path="name" type="text" />
-				<br>
-				<label>稱謂</label>
-				<form:input  path="gender" type="text" />				
-				<br>
-				<label>連絡電話</label>
-				<form:input  path="cellPhone" type="text" />
-				<br>			
-				<label>報名人數</label>
-				<form:input  path="people" type="text" />
-				<br>			
-				<label>聯絡時段</label>
-				<form:input  path="callTime" type="text" />
-				<br>			
-				<label>服務據點</label>
-				<form:input  path="location" type="text" />
-				<br>
-				<label>備註</label>
-				<form:input  path="extra" type="text" />
-				<br>											
-				<div>					
-				<input type="submit" value="送出報名申請表" />
-				</div>
-			</fieldset>
-		</form:form>
-	</div>		
-</section>
+					<main role="main" class="container mt-2">
+			<div class="row">
+			<div class="col-md-3">			
+<%-- 				<%@ include file="/WEB-INF/hotelPartials/Search.jsp"%>	 --%>
+			<div class="col-md-9">
+				<div class="card">
+					<div class="card-header"></div>
+					<div class="card-body">
+						<div id="option">		
+						<c:forEach  var="hotelInfo" items="${hotels}">			
+						<table class="simpleTable">							  
+							  <thead>
+							    <tr>
+							      <th>本日優惠</th>
+							      <th></th>
+							      <th></th>
+							    </tr>
+							  </thead>	
+							  <tbody>							  
+							  	<tr>
+							      <td>${hotelInfo.city}</td>
+							      <td>${hotelInfo.name}</td>
+							      <td>${hotelInfo.hotelRoomBean.price}</td>
+							    </tr>
+							    <tr>
+							      <td>${hotelInfo.country}</td>
+							      <td></td>
+							      <td><input type="submit" class="btn btn-primary btn-block" value="搜尋"></td>
+							    </tr>
+							    <tr>
+							      <td><img width='600' height='300' src="<c:url value='/getPic/${hotelInfo.hotel_id}' />" /></td>
+							      <td></td>
+							      <td></td>
+							    </tr>
+						 	  </tbody>
+					    </table>			
+						</c:forEach>					
+					 </div>
+					</div>
+				</div>	
+				</div>				
+			</div>
+			</div>
+			</div>
+		</main>
+
+
+
+
+			
+
+
+
+
+
+
+
+
+
+<!-- 記得爬樹 -->
+<!-- 		<div id="option">		 -->
+<%-- 			<c:forEach  var="hotelInfo" items="${hotels}">			 --%>
+<!-- 			<table class="table table-dark"> -->
+<!-- 				  <thead> -->
+<!-- 				    <tr> -->
+<!-- 				      <th scope="col">照片</th> -->
+<!-- 				      <th scope="col">國家</th> -->
+<!-- 				      <th scope="col">城市</th> -->
+<!-- 				      <th scope="col">飯店</th> -->
+<!-- 				      <th scope="col">房號</th>			       -->
+<!-- 				    </tr> -->
+<!-- 				  </thead> -->
+<!-- 				  <tbody> -->
+<!-- 				    <tr>			      		       -->
+<%-- 				      <td><img width='600' height='300' src="<c:url value='/getPic/${hotelInfo.hotel_id}' />" /></td> --%>
+<%-- 				      <td>${hotelInfo.country}</td> --%>
+<%-- 				      <td>${hotelInfo.city}</td> --%>
+<%-- 				      <td>${hotelInfo.name}</td> --%>
+<%-- 				      <td>${hotelInfo.room_no}</td>			       --%>
+<%-- 				      <td>${hotelInfo.room_no}</td>			      			       --%>
+<!-- 				    </tr> -->
+<!-- 			 	  </tbody> -->
+<!-- 		    </table>			 -->
+<%-- 			</c:forEach> --%>
+<!-- 		</div> -->
+
+
 	
 	<%@ include file="/WEB-INF/frontStageFooter.jsp"%>
 </body>
