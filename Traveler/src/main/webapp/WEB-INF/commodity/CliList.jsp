@@ -191,7 +191,7 @@ html, body {
 				<thead>
 					<tr>
 						<th scope="col">訂單編號</th>
-						<th scope="col">會員姓名</th>
+<!-- 						<th scope="col">會員姓名</th> -->
 						<th scope="col">兌換商品</th>
 						<th scope="col">兌換數量</th>
 						<th scope="col">兌換點數</th>
@@ -205,7 +205,7 @@ html, body {
 					<c:forEach var='cli' items='${ClientLists}'>
 						<tr>
 							<td>${cli.id}</td>
-							<td>${cli.memberBean.chineseLastName}${cli.memberBean.chineseFirstName}</td>
+							
 							<td>${cli.commodityBean.name}</td>
 							<td>${cli.cliquantity}</td>
 							<td>${cli.point}</td>
@@ -221,33 +221,15 @@ html, body {
 		</div>
 	</div>
 	<!-- =========側邊欄位開始============ -->
-	<div id="mwt_mwt_slider_scroll">
-		<div id="mwt_slider_content">
-			<div>
-				<h2 style="text-align: center; color: black">紅利管理</h2>
-			</div>
-			<div>
-				<h3>
-					<a style="color: #444444" href="commlist">商品清單</a>
-				</h3>
-			</div>
-			<div>
-				<h3>
-					<a style="color: #444444" href="tsuika">新增商品訂單</a>
-				</h3>
-			</div>
-			<div>
-				<h3>
-					<a style="color: #444444" href="henkou">修改商品</a>
-				</h3>
-			</div>
-			<div>
-				<h3>
-					<a style="color: #444444" href="ClientLists">兌換清單</a>
-				</h3>
-			</div>
-		</div>
-	</div>
+<div id="mwt_mwt_slider_scroll">
+<div id="mwt_slider_content" >
+<div><h2 style="text-align: center;color:black">紅利管理</h2></div>
+ <div><h3><a class='aa' href="commlist">商品清單</a></h3></div>
+ <div><h3><a class='aa' href="tsuika">新增商品訂單</a></h3></div>
+ <div><h3><a class='aa' href="henkou">修改商品</a></h3></div>
+  <div><h3><a class='aa' href="ClientLists">兌換清單</a></h3></div>
+</div>
+</div>
 	<!-- =========側邊欄位結束============ -->
 
 
@@ -255,6 +237,27 @@ html, body {
 
 
 	<%@ include file="/WEB-INF/backStageFooter.jsp"%>
+
+<script>
+
+$(document).ready(function(){
+  
+	
+	var c1={'color':'#444444'};
+	var c2={'color':'#FFFFFF'};
+	
+	$('.aa').css(c1).mouseover(over).mouseout(out);
+	
+	function over(){
+		$(this).css(c2)
+	}
+	
+	function out(){
+		$(this).css(c1)
+	}
+})
+
+</script>	
 
 </body>
 </html>

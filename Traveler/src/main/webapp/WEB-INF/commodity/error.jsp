@@ -90,11 +90,8 @@
 
 	<%@ include file="/WEB-INF/frontStageHeader.jsp"%>
 
-<h1>點數or數量不足</h1>
-<div>
-<img src="">
-
-
+<div style="width:1300px;margin:auto">
+<img src="/Traveler/images/404.png">
 </div>
 
 
