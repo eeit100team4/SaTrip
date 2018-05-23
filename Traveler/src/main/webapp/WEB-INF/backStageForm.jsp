@@ -182,7 +182,7 @@ margin-bottom:0px;
 	
 	
 		<div class="content text-center">
-		<h2>放內容的地方</h2>
+		<h2>放登入框或是其他圖片</h2>
 		
 		
 		</div>

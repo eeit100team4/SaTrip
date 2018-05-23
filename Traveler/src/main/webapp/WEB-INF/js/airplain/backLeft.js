@@ -1,6 +1,6 @@
 function extraPrice(){
 	$(".d2").empty();
-	$(".d2").html("<div class='panel panel-warning'><div class='panel-heading'><h3 class='panel-title'>調整EXTRA價格</h3></div><div class='panel-body'><div ><select  id='dept' name='dept' class='secDep' style='color: blue;''><option selected='selected'>選擇出發地</option><option>TPE</option><option>TSA</option></select></div><br><div ><select onchange='myFunction()' name='arrv'  id='arrv'><option selected='selected'>選擇目的地</option><option>HND</option><option>NRT</option><option>SEL</option><option>KIX</option><option>BKK</option><option>SIN</option></select></div><div id='show'><div></div></div>");
+	$(".d2").html("<div class='panel panel-info'><div class='panel-heading'><h3 class='panel-title'>調整EXTRA價格</h3></div><div class='panel-body'><div ><select  id='dept' name='dept' class='secDep' style='color: blue;''><option selected='selected'>選擇出發地</option><option>TPE</option><option>TSA</option></select></div><br><div ><select onchange='myFunction()' name='arrv'  id='arrv'><option selected='selected'>選擇目的地</option><option>HND</option><option>NRT</option><option>SEL</option><option>KIX</option><option>BKK</option><option>SIN</option></select></div><div id='show'><div></div></div>");
 //	$(".d2").append("<div  ><h2></h2><select  id='dept' name='dept' class='secDep' style='color: blue;''><option selected='selected'>選擇出發地</option><option>TPE</option><option>TSA</option></select></div>");
 	$(".d2").append("");
 	$(".d2").append("");
@@ -24,7 +24,7 @@ function myFunction(){
 	data.append("arrv",arrv);
 	
 	$.ajax({
-		url : 'extra',
+		url : '/Traveler/airTickets/back/extra',
 		type : 'POST',
 		data : data,
 		enctype: "multipart/form-data",

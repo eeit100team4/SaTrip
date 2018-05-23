@@ -156,7 +156,7 @@ width:500px;
 
 <title>Insert title here</title>
 </head>
-<body>
+<body style="background-image: url(/Traveler/images/sky.jpg);">
 
 	<%@ include file="/WEB-INF/backStageHeader.jsp" %>
 
@@ -172,14 +172,18 @@ width:500px;
 <!-- =========側邊欄位結束============ -->
 	
 	
+		<div>
 	
-	
-		<div class="d2 content text-center">
-		<h2>機票訂單管理</h2>
+		<div class="d2 content text-center" >
+		<br>
+		<br>
+		<br>
+		<br>
+		<h2 style=""><strong>機票訂單管理</strong></h2>
 		
 		
 		</div>
-
+</div>
 	<!--  ========================================================== -->
 
 
