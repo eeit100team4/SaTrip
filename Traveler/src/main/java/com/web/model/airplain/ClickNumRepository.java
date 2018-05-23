@@ -1,5 +1,7 @@
 package com.web.model.airplain;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.hibernate.Session;
@@ -14,9 +16,10 @@ public class ClickNumRepository {
 	@Autowired
 	SessionFactory sessionFactory;
 	
-	public void addClick(ClickNumBean clickNumBean) {
-	 sessionFactory.getCurrentSession().saveOrUpdate(clickNumBean);
-		
+	public List<ClickNumBean> selectAll() {
+		String HQL="FROM ClickNumBean";
+		List<ClickNumBean>list=sessionFactory.getCurrentSession().createQuery(HQL).getResultList();
+		return list;
 	}
 	
 	

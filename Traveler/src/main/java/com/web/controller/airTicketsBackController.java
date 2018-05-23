@@ -21,12 +21,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.google.gson.Gson;
 import com.itextpdf.text.DocumentException;
+import com.web.model.airplain.ClickNumBean;
 import com.web.model.airplain.ExtraPriceBean;
 import com.web.model.airplain.GuestBean;
 import com.web.model.airplain.OrderDetailsBean;
 import com.web.model.member.MemberBean;
 import com.web.service.airplain.BFMService;
+import com.web.service.airplain.CountClickService;
 import com.web.service.airplain.ExtraPriceService;
 import com.web.service.airplain.GuestService;
 import com.web.service.airplain.OrderService;
@@ -54,6 +57,8 @@ public class airTicketsBackController {
 	SendEmailService sendEmailService;
 	@Autowired
 	MemberService memberService;
+	@Autowired
+	CountClickService countClickService;
 
 	@RequestMapping("/list")
 	public String backList() {
@@ -91,6 +96,15 @@ public class airTicketsBackController {
 		gs.update(guestBean);
 		System.out.println("後" + guestBean);
 		return "OK";
+	}
+	
+	//導向統計畫面
+	@RequestMapping("/statistics")
+	public String toStatistics(Model model){
+		List<ClickNumBean> list =countClickService.selectAll();
+		String json = new Gson().toJson(list);
+		model.addAttribute("json",json);
+		return"/airTickets/back/statistics";
 	}
 
 	@RequestMapping("/here")

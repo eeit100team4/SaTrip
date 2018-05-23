@@ -1,5 +1,7 @@
 package com.web.service.airplain;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,5 +24,9 @@ public class CountClickService {
 		clickNumRepository.saveNupdateClick(clickNumBean);
 		
 		
+	}
+	
+	public List<ClickNumBean> selectAll(){
+		return clickNumRepository.selectAll();
 	}
 }

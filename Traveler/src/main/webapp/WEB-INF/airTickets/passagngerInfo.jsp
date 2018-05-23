@@ -120,7 +120,20 @@ margin:20px
 <!-- Main JS -->
 <script src="/Traveler/js/main.js"></script>
 
+<script>
+//一鍵帶入旅客資訊
+function entry(){
+	alert("key in");
+$("#guestTwoName").val("王建明");
+$("#guestTwoLastName").val("Wang");
+$("#guestTwoFirstName").val("Chien-Ming");
+$("#guestTwopassportNum").val("334567895");
+$("#guestTwoBirth").val("1980-03-31");
+$("#m1").prop("checked", true);
+$("#m2").prop("checked", true);
+}
 
+</script>
 <script >
 
 $(document).ready(function(){
@@ -409,10 +422,10 @@ var birthday="<fmt:formatDate value="${memberBean.birthday}" pattern="yyyy-MM-dd
             </div>
             <div class="st1">
                 <label class="lab">性別</label>
-                <input type="radio" name="guestTwoGender" id="m1" value="male">
-                <label for="m1">男</label>
-                <input type="radio" name="guestTwoGender" id="f1" value="female">
-                <label for="f1">女</label>
+                <input type="radio" name="guestTwoGender" id="m2" value="male">
+                <label for="m2">男</label>
+                <input type="radio" name="guestTwoGender" id="f2" value="female">
+                <label for="f2">女</label><button style="margin:10px;padding:10px;" class="btn-sm btn-info" onclick="entry()">一鍵帶入</button>
             </div>
         </fieldset>
         </c:if>

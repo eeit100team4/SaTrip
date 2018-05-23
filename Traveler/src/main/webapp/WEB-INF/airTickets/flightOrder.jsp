@@ -892,8 +892,8 @@ $("#mwt_mwt_slider_scroll").animate( { left:'-'+w+'px' }, 600 ,'swing');
 <form id="checkbox" action="/action_page.php">
   <input type="checkbox" name="a" value="中華航空" onclick="CLOnly()" > 中華航空<br>
   <input type="checkbox" name="b" value="日本航空" onclick="CLOnly()">日本航空<br>
-  <input type="checkbox" name="b" value="日本航空" onclick="CLOnly()">國泰航空<br>
-  <input type="checkbox" name="b" value="日本航空" onclick="CLOnly()">長榮航空<br>
+  <input type="checkbox" name="b" value="國泰航空" onclick="CLOnly()">國泰航空<br>
+  <input type="checkbox" name="b" value="長榮航空" onclick="CLOnly()">長榮航空<br>
 </form>
 </div>
 </div>

@@ -95,7 +95,7 @@ public class airTicketsController {
 			model.addAttribute("dep", request.getParameter("dept"));
 			model.addAttribute("arr", request.getParameter("arrv"));
 			model.addAttribute("psg", request.getParameter("psg"));
-//			countClickService.addOneClick(request.getParameter("arrv"));
+			countClickService.addOneClick(request.getParameter("arrv"));
 			return "airTickets/flightOrder";
 		}
 	}

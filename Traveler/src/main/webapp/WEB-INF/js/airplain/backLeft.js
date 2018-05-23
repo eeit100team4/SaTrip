@@ -7,9 +7,9 @@ function extraPrice(){
 	
 }
 
-function modify(){
-	alert("修改");
-}	
+//function modify(){
+//	alert("修改");
+//}	
 
 var dept;
 var arrv;
@@ -54,7 +54,7 @@ function modify(){
 //	alert(dept+","+arrv+","+extraPrice);
 	
 	$.ajax({
-		url : 'updateExtra',
+		url : '/Traveler/airTickets/back/updateExtra',
 		type : 'POST',
 		data : data2,
 		enctype: "multipart/form-data",
@@ -72,4 +72,8 @@ function modify(){
 
 function searchAll(){
 	window.location.assign("/Traveler/airTickets/back/searchAll");
+}
+//導向統計畫面
+function statistics(){
+	window.location.assign("/Traveler/airTickets/back/statistics");
 }

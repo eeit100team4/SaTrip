@@ -276,7 +276,7 @@ margin-bottom:0px;
 				<div class="text-left"
 					style="width: 90%; height: auto; margin: 20px; padding-left: 2px; border: 1px orange solid">
 					<form>
-						<div class="text-center" style="margin: 5px; background: orange">
+						<div class="text-center" style="margin: 5px; background: #FFDD55">
 							<strong>聯絡人</strong>
 						</div>
 						<div>
@@ -310,8 +310,9 @@ margin-bottom:0px;
 							</div>
 						</div>
 						</div>
-						<div class="text-center" >
-							<div><h4 style="margin: 5px;">旅客一</h4></div>
+						<div><h4>&nbsp;</h4></div>
+						<div class="text-center" style="margin: 5px; background: 	#FFDD55">
+							<strong>旅客一</strong>
 						</div>
 						<div class="form-row">
 							<div class="col-md-4 mb-3">
@@ -348,7 +349,8 @@ margin-bottom:0px;
 							</div>
 						</div>
 					<c:if test="${bean.person==2}">
-						<div class="text-center" style="margin: 5px; background: orange">
+						<div><h4>&nbsp;</h4></div>
+						<div class="text-center" style="margin: 5px; background: 	#FFDD55">
 							<strong>旅客二</strong>
 						</div>
 						<div class="form-row">
