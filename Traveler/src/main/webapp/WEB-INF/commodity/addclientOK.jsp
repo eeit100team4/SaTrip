@@ -210,15 +210,15 @@
 						<div class="carousel-inner">
 							<div class="carousel-item active">
 								<img height=800px class="d-block w-100"
-									src="/Traveler/images//disney.jpg" alt="First slide">
+									src="/Traveler/images/disney.jpg" alt="First slide">
 							</div>
 							<div class="carousel-item">
 								<img height=800px class="d-block w-100"
-									src="/Traveler/images//sakura_1.jpg" alt="Second slide">
+									src="/Traveler/images/sakura_1.jpg" alt="Second slide">
 							</div>
 							<div class="carousel-item">
 								<img height=800px class="d-block w-100"
-									src="/Traveler/images//sukii.jpg" alt="Third slide">
+									src="/Traveler/images/sukii.jpg" alt="Third slide">
 							</div>
 						</div>
 						<a class="carousel-control-prev" href="#carouselExampleIndicators"

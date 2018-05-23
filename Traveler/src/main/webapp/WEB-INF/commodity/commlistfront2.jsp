@@ -223,12 +223,13 @@ padding-left:20px;
 								<div class="prod-title">
 								<div style= "padding-left:50px;padding-bottom:30px;">
 									<img width='180' height='180' 
-										src="<c:url value='/getPicture/${comm.commodityid}'/>" />
+										src="<c:url value='/getPicture/${comm.commodityid}'/>" onMouseOver="this.width=this.width*1.2;this.height=this.height*1.2" onMouseOut="this.width=this.width/1.2;this.height=this.height/1.2" />
 									</div>	
                                     <h2 style="text-align:center">${comm.name}</h2>
 <!-- 										<span class="posted_by">Sep. 15th</span>  -->
 <!-- 								<span class="comment"><a href="">QQQQQ<i class="icon-bubble2"></i></a></span> -->
 									<h3 style="text-align:center">兌換點數 :${comm.point}點</h3>
+									<h3 style="text-align:center">剩餘數量:${comm.quantity}個</h3>
 									
 									<div style="padding-left:100px">
 									<a class="btn btn-warning" href="/Traveler/tsuikaClient/${comm.commodityid}" role="button">兌換</a>
