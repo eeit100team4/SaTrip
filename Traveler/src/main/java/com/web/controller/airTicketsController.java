@@ -27,11 +27,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.Gson;
 import com.itextpdf.text.DocumentException;
+import com.web.model.airplain.ClickNumBean;
+import com.web.model.airplain.ClickNumRepository;
 import com.web.model.airplain.ExtraPriceBean;
 import com.web.model.airplain.GuestBean;
 import com.web.model.airplain.OrderDetailsBean;
 import com.web.model.member.MemberBean;
 import com.web.service.airplain.BFMService;
+import com.web.service.airplain.CountClickService;
 import com.web.service.airplain.ExtraPriceService;
 import com.web.service.airplain.GuestService;
 import com.web.service.airplain.OpayEncoding;
@@ -58,6 +61,8 @@ public class airTicketsController {
 	ServletContext servletContext;
 	@Autowired
 	ExtraPriceService eps;
+	@Autowired
+	CountClickService countClickService; 
 
 	String sess = null;
 
@@ -68,7 +73,7 @@ public class airTicketsController {
 
 		if (result == null) {
 			System.out.println("壞查詢");
-			return "redirect:/index";
+			return "redirect:/";
 		} else {
 			// 產生PDF標題圖片
 			try {
@@ -91,6 +96,7 @@ public class airTicketsController {
 			model.addAttribute("dep", request.getParameter("dept"));
 			model.addAttribute("arr", request.getParameter("arrv"));
 			model.addAttribute("psg", request.getParameter("psg"));
+			countClickService.addOneClick(request.getParameter("arrv"));
 			return "airTickets/flightOrder";
 		}
 	}
@@ -176,7 +182,7 @@ public class airTicketsController {
 			System.out.println("歐富寶測試");
 			System.out.println("產生PDF");
 			pdf.pdfProduce(os.selectOneByOrderId(orderId));
-			emailService.sendEmail(orderId,memberEmail);
+			emailService.sendEmail(orderId,guestBean.getContactEmail());
 			System.out.println("寄信測試");
 			return "redirect:finishPage";
 		}
@@ -229,5 +235,7 @@ public class airTicketsController {
 		model.addAttribute("psg", request.getParameter("psg"));
 		return "airTickets/flightOrder";
 	}
+
+
 
 }

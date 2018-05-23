@@ -19,12 +19,12 @@
 							<li><a href="/Traveler/_Hotel/SelectHotel"><i class="fas fa-home"></i><font color="orange">飯店</font></a></li>
 								<li><a href="/Traveler/theme/titles" class="fh5co-sub-ddown"><i class="fas fa-globe"></i><font color="orange">主題旅遊</font></a>
 									<!-- 下面這塊ul以後會刪掉 -->
-									<ul class="fh5co-sub-menu">
+									<!--  <ul class="fh5co-sub-menu">
 									    <li><a href="/Traveler/theme/titles">測試頁</a></li>
 										<li><a href="/Traveler/theme/allProducts">顯示全產品</a></li>
 										<li><a href="/Traveler/theme/allJourneys">顯示全行程</a></li>
 										<li><a href="/Traveler/theme/applications">顯示全報名表</a></li>
-									</ul>
+									</ul>-->
 									</li>
 								
 								<li><a href="/Traveler/commlistfront"><i class=	"fas fa-cart-arrow-down"></i><font color="orange">紅利商品</font></a></li>

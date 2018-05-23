@@ -217,6 +217,7 @@ margin-bottom:0px;
   <li class="color-green">
    <div class="main">報名表單</div>
    <ul class="subs">
+   <li><a href="allApplications">全報名表</a></li>
    <li><a href="">依行程查詢</a></li>
    <li><a href="">依人名查詢</a></li>
     <li><a href="">依報名時間查詢</a></li>
