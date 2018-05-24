@@ -268,7 +268,6 @@ function test(){
 function noShow(){
 	for(var i=0;i<50;i++){
 		var na=$("#"+i).parents("table").parent("div").prev("div").text();
-		console.log("pre"+na);
 		for(var a=0;a<50;a++){
 		if(na.match("7C")||na.match("TW")||na.match("B7")){
 			$("#"+i).parents("table").parent("div").parent("div").css("display","none");
@@ -593,6 +592,17 @@ function list(){
 // 								te2=te2.substring(te2.length-4,te2.length);
 							 	res=res.replace(new RegExp(ss,"g"),"").replace(new RegExp(ss2,"g"),"").replace(new RegExp(te,"g"),"\"").replace(new RegExp(te2,"g"),"\"");
 							 	emp=JSON.parse(res);
+							 	
+							 	
+							 	//動態轉換航空公司篩選
+								
+								var airLineList=emp.OTA_AirLowFareSearchRS.TPA_Extensions.AirlineOrderList.AirlineOrder;
+								for(var x=0;x<airLineList.length;x++){
+									console.log(airLineList[x].Code);
+									$("#checkbox").append("<input type='checkbox' name='a' value='"+airLineList[x].Code+"' onclick='CLOnly()'' >"+airLineList[x].Code+"<br>");
+								};
+								
+							 	
 							 list();
 // 							 page();
 						}
@@ -625,8 +635,7 @@ function list(){
 				});
 		
 		
-		
-		
+
 		
 		console.log(depCode+","+arrCode+","+depDateTemp+","+reDateTemp+","+personTemp);
 	})
@@ -890,10 +899,10 @@ $("#mwt_mwt_slider_scroll").animate( { left:'-'+w+'px' }, 600 ,'swing');
 <!--   <button type="button" class="btn-xs ">Sony</button> -->
 <!-- </div> -->
 <form id="checkbox" action="/action_page.php">
-  <input type="checkbox" name="a" value="中華航空" onclick="CLOnly()" > 中華航空<br>
-  <input type="checkbox" name="b" value="日本航空" onclick="CLOnly()">日本航空<br>
-  <input type="checkbox" name="b" value="國泰航空" onclick="CLOnly()">國泰航空<br>
-  <input type="checkbox" name="b" value="長榮航空" onclick="CLOnly()">長榮航空<br>
+<!--   <input type="checkbox" name="a" value="中華航空" onclick="CLOnly()" > 中華航空<br> -->
+<!--   <input type="checkbox" name="b" value="日本航空" onclick="CLOnly()">日本航空<br> -->
+<!--   <input type="checkbox" name="b" value="國泰航空" onclick="CLOnly()">國泰航空<br> -->
+<!--   <input type="checkbox" name="b" value="長榮航空" onclick="CLOnly()">長榮航空<br> -->
 </form>
 </div>
 </div>
