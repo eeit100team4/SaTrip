@@ -64,7 +64,7 @@ public class ThemeRepositoryImpl implements ThemeRepository {
 	@Override
 	@SuppressWarnings("unchecked")
 	public List<ThemeApplications> getAllApplications(){
-		String hql = "FROM ThemeApplications";
+		String hql = "FROM ThemeApplications order by journeyId";
 		Session session = null;
 		List<ThemeApplications> list = new ArrayList<>();
 		session = factory.getCurrentSession();
@@ -96,7 +96,7 @@ public class ThemeRepositoryImpl implements ThemeRepository {
 	//找出所有商品
 	@SuppressWarnings("unchecked")
 	public List<String> getAllProductName(){
-		String hql = "SELECT DISTINCT productName FROM ThemeProducts";
+		String hql = "SELECT DISTINCT productName FROM ThemeProducts ";
 		Session session = factory.getCurrentSession();
 		List<String> list = new ArrayList<>();
 		list = session.createQuery(hql).getResultList();

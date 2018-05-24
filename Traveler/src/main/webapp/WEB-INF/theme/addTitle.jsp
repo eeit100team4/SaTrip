@@ -236,25 +236,25 @@ margin-bottom:0px;
 <div style="color:black">
 
   <div>
-   <h1 style="text-align: center">主題維護</h1>
+   <h1 style="text-align: center;margin-top: 50px;">主題維護</h1>
   </div>
 
 
 <hr width='3'>
 
-<section>
+<section style='font-size:30px;'>
 	<form:form method="POST" modelAttribute="themeBean" enctype="multipart/form-data" >
 	 <fieldset>
-	  <label>新增主題</label>
+	  <label style="margin-right: 150px;">新增主題類別</label><br>
 	   <form:input  path="titleName" type="text"/>								
 		<br>
 		<br>
-		<label>新增圖片</label><br>
-		<form:input  style="margin:0 auto;" path="titleImage" type="file"/>	
+		<label style="margin-right: 150px;">新增主題圖片</label>
+		<form:input  style="margin-left: 600px;" path="titleImage" type="file"/>	
 		<br>
 		<br>															
 		<div>					
-		<input type="submit" value="送出"/>
+		<input type="submit" value="確認送出"/>
 		</div>
 	  </fieldset>
 	</form:form>		
