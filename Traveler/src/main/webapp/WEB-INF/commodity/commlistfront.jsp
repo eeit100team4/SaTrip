@@ -261,12 +261,13 @@ padding-left:20px;
 	<%@ include file="/WEB-INF/frontStageFooter.jsp"%>
 
 
-<!-- <script> -->
-
-<!-- // document.addEventLisener(DOMCont ) -->
+<script>
 
 
-<!-- </script> -->
+
+
+
+ </script> 
 
 
 
