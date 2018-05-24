@@ -143,7 +143,7 @@ function showInfo(){
               var sendDet=partOne+partTwo;
             $.ajax({
                 type : "post",
-                url : "opay",
+                url : "/Traveler/airTickets/opay",
                 data: sendDet,
             	    contentType: "application/x-www-form-urlencoded",
                 success : function(response) {
