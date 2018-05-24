@@ -153,11 +153,6 @@ public class HotelController {
 		return "_Hotel/roomCheckOut";
 	}
 	
-
-	@RequestMapping("/_Hotel/roomCheckOut")
-	public String orderFinsh(Model model) {			
-		return "_Hotel/roomCheckOut";
-	}
 	
 	
 	
