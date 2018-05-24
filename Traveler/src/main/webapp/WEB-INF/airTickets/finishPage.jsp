@@ -122,7 +122,9 @@ padding:10px;
 background-color:orange;
 color:white;
 }
-
+.img{
+margin:10px;
+}
 
 </style>
 </head>
@@ -146,9 +148,16 @@ color:white;
 							<div class="item123">
 								<div align="center">
 									<div class="det1">
-										<h3 class="det2" >已付款完成</h3>
+										<h3 class="det2" >感謝您的訂購</h3>
 										<h3 class="det2">系統已寄出明細至您的信箱</h3>
 										<a style="color:blue" href="/Traveler/airTickets/download">點擊下載<img src="/Traveler/images/pdfIcon.png" alt="" height="16" width="16"  ></a>
+									</div>
+									<br><br><br>
+									<div><h2 style="color:red;">精選推薦飯店</h2>
+									<div >
+									<img class="img" height="200" width="200" src="/Traveler/images/hotelPic/Japan/Tokyo/japDRA/HotelCoverImage/japDRA.jpg" />
+									<img class="img" height="200" width="200" src="/Traveler/images/hotelPic/Japan/Tokyo/japDRA/HotelCoverImage/japDRA.jpg" />
+									</div>
 									</div>
 									<div style="margin:20px;">
 									<button type="button" class="btn-xs btn-warning " onclick="homepage()">回首頁</button>
