@@ -232,13 +232,13 @@ margin-bottom:0px;
 	
 	
 	
-<div style="margin-left:300px; margin-top:10px;width:900px;" class="content text-center">
-	
+<div style="margin-left:200px; margin-top:20px;width:1050px;" class="content text-center">
+<h1>請挑選主題</h1>
  <c:forEach var='theme' items='${themeTitles}'>
-  <div style="width:300px; height:200px; float: left; ">
-    <img src="/Traveler/images/themeTitle-${theme.titleName}.png">
-    <p>
-    <b style='font-size:16px;'>${theme.titleName}</b>
+  <div style="width:350px; height:250px; float: left; ">
+    <img src="/Traveler/images/themeTitle-${theme.titleName}.png" width="300" height="200">    
+    <p>   
+    <b style='font-size:25px;'>${theme.titleName}</b>   
     </p>
   </div>
  </c:forEach>

@@ -119,23 +119,23 @@
 <body>
 	<%@ include file="/WEB-INF/frontStageHeader.jsp"%>
 	
-<div style="text-align:center">
-  <h1>詳細資訊</h1>
+<div style="text-align:center;margin-left:100px; margin-top:20px;">
+  <h1 style="color:#009494;">詳細資訊</h1>
     <hr>
-    <p>
-    <h2>行程資訊</h2>
+    
+    <h2 style="color:#00D100;">行程資訊</h2>
     <b style='font-size:16px;'>${detail.themeProducts.productName}</b><br>
     <b style='font-size:16px;'>出團日期<fmt:formatDate value="${detail.setOut}" pattern="yyyy/MM/dd" /></b>
     <b style='font-size:16px;'>報名截止日<fmt:formatDate value="${detail.deadline}" pattern="yyyy/MM/dd" /></b><br>
     <b style='font-size:16px;'>旅遊國家${detail.themeProducts.country}</b>
     <b style='font-size:16px;'>標準團費${detail.price}</b><br>
     <hr>
-    <h2>航班資訊(去)</h2>
+    <h2 style="color:#00D100;">航班資訊(去)</h2>
     <b style='font-size:16px;'>${detail.companyName}</b>&nbsp;&nbsp;${detail.goPlaneId}<br>
     <b style='font-size:16px;'>出發時間&nbsp;&nbsp;<fmt:formatDate value="${detail.setOut}" pattern="yyyy/MM/dd" />&nbsp;&nbsp;${detail.goStartHour}&nbsp;:&nbsp;${detail.goStartMinute}&nbsp;&nbsp;${detail.goStartWhere}</b><br>
     <b style='font-size:16px;'>抵達時間&nbsp;&nbsp;<fmt:formatDate value="${detail.setOut}" pattern="yyyy/MM/dd" />&nbsp;&nbsp;${detail.goEndHour}&nbsp;:&nbsp;${detail.goEndMinute}&nbsp;&nbsp;${detail.goEndWhere}</b><br>
     <hr>
-    <h2>航班資訊(回)</h2>
+    <h2 style="color:#00D100;">航班資訊(回)</h2>
     <b style='font-size:16px;'>${detail.companyName}</b>&nbsp;&nbsp;${detail.returnPlaneId}<br>
     <b style='font-size:16px;'>出發時間&nbsp;&nbsp;<fmt:formatDate value="${detail.returnDay}" pattern="yyyy/MM/dd" />&nbsp;&nbsp;${detail.returnStartHour}&nbsp;:&nbsp;${detail.returnStartMinute}&nbsp;&nbsp;${detail.returnStartWhere}</b><br>
     <b style='font-size:16px;'>抵達時間&nbsp;&nbsp;<fmt:formatDate value="${detail.returnDay}" pattern="yyyy/MM/dd" />&nbsp;&nbsp;${detail.returnEndHour}&nbsp;:&nbsp;${detail.returnEndMinute}&nbsp;&nbsp;${detail.returnEndWhere}</b><br>
@@ -143,10 +143,10 @@
     
     
     
-    <a href="${detail.journeyId}/application">報名</a>    
-    </p>
+    <a onmouseover="this.style.color='orange'" onmouseout="this.style.color='#4F4FFF'" style="color:#4F4FFF;font-size:25px;" href="${detail.journeyId}/application">報名</a>    
+    
 </div>
-	
+<hr>
 	<%@ include file="/WEB-INF/frontStageFooter.jsp"%>
 </body>
 </html>

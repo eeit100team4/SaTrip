@@ -156,7 +156,7 @@
 				margin-bottom:    12px;
 			}
 			.container {
-				width:            800px;
+				width:            1000px;
 				margin:           auto;
 			}
 			iframe {
@@ -167,13 +167,16 @@
 </head>
 <body>
 	<%@ include file="/WEB-INF/frontStageHeader.jsp"%>
+<hr>
 <div class="container">
 		<div>
-			<h2 style="margin-top: 40px">搜尋行程</h2>				
+			<h2 style="margin-top: 20px;">搜尋行程</h2>				
 		</div>
+
 <table id="datatable">
- <thead>
-  <tr>
+
+ <thead style="background-color:black;">
+  <tr style="color:white;">
    <th></th>
    <th>出發時間</th>
    <th>返回時間</th>
@@ -183,6 +186,7 @@
    <th></th>
   </tr>
  </thead>
+
  <c:forEach var='journeys' items='${journeys}'>
  <tbody>
   <tr>
@@ -192,12 +196,13 @@
    <th>&nbsp;&nbsp;${journeys.themeProducts.productName}</th>
    <th>&nbsp;&nbsp;${journeys.companyName}</th>
    <th>&nbsp;&nbsp;${journeys.price}</th>
-   <th><a href="${journeys.themeProducts.productName}/${journeys.journeyId}">查看詳細內容</a></th> 
+   <th><a onmouseover="this.style.color='orange'" onmouseout="this.style.color='#4F4FFF'" style="color:#4F4FFF;" href="${journeys.themeProducts.productName}/${journeys.journeyId}">查看詳細內容</a></th> 
  </tbody>
  </c:forEach>
 </table>
 </div>
 	<br><br><br><br><br>
+<hr>
 	<%@ include file="/WEB-INF/frontStageFooter.jsp"%>
 </body>
 </html>

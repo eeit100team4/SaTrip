@@ -73,7 +73,10 @@ public class airTicketsController {
 
 		if (result == null) {
 			System.out.println("壞查詢");
-			return "redirect:/";
+			String error="條件錯誤，請重新搜尋";
+			model.addAttribute("error",error);
+//			return "redirect:/";
+			return "index";
 		} else {
 			// 產生PDF標題圖片
 			try {
