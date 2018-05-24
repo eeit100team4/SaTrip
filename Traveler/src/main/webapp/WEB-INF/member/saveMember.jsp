@@ -23,6 +23,25 @@ table {
 <script type="text/javascript" src='<c:url value="/js/utils/Traveler.Utils.js"/>'></script>
 <script type="text/javascript" src='<c:url value="/js/member.js"/>'></script>
 
+<script src="/Traveler/js/jquery.min.js"></script>
+<!-- jQuery Easing -->
+<script src="/Traveler/js/jquery.easing.1.3.js"></script>
+<!-- 一鍵帶入 -->
+<script>
+function  keyin(){
+$("#memberId").val("H222977822");
+$("#gender").val("female");
+$("#password").val("a123456");
+$("#chkPassword").val("a123456");
+$("#birthday").val("1999-06-06");
+$("#chineseLastName").val("江");
+$("#chineseFirstName").val("江江");
+$("#email").val("h6300kimo@gmail.com");
+$("#mobile").val("0989-768-666");
+$("#memberId").val("H222977822");
+$("#address").val("新北市板橋區oo街oo巷oo號oo樓");
+}
+</script>
 </head>
 
 <body onload="javascript:document.insertMemberFormA.mId.focus();">
@@ -63,12 +82,12 @@ table {
 								</c:otherwise>
 							</c:choose>
 					</tr>
-					<tr bgcolor='#F5F5F5'>
-						<td width="120" height="40" align="right">會員紅利：</td>
-						<td width="600" height="40" align="left">			
-								${member.point}
+<!-- 					<tr bgcolor='#F5F5F5'> -->
+<!-- 						<td width="120" height="40" align="right">會員紅利：</td> -->
+<!-- 						<td width="600" height="40" align="left">			 -->
+<!-- 								${member.point} --!>
 									
-					</tr>
+<!-- 					</tr> -->
 					<tr bgcolor='#F5F5F5'>
 						<td width="120" height="40" align="right">*性別：</td>
 						<td width="600" height="40" align="left">
@@ -148,7 +167,7 @@ table {
 					</tr>				
 					<tr bgcolor='#F5F5F5'>
 						<td width="120" height="40" align="right">地址:</td>
-						<td width="600" height="40" align="left"><input
+						<td width="600" height="40" align="left"><input id="address"
 							name="address" value="${(function == 'add')?param.address:member.address}" type="text" size="50">
 							<div  id="errMsgAddress" style="color: #ff0000; font-size =60%; display: inline;">${errorMsg.address}</div>
 						</td>
@@ -157,12 +176,13 @@ table {
 							<td height="50" colspan="2" align="center">					
 							<input type="button" value="上一頁" onclick="goBack()">
 							<input
-							type="submit" value="更新">
+							type="submit" value="送出">
 						</td>
 					</tr>
 				</tbody>
 			</table>
 		</form>
+		<button class="btn-info" onclick="keyin()">key in</button>
 	</center>
 </body>
 

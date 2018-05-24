@@ -222,11 +222,11 @@ margin-bottom:0px;
 <!--=========================要放的東西  =====================-->
 <div class="row no-gutters">
 	<!-- 		<div class="col-12 col-sm-6 col-md-8"> -->
-			<div class="container">
+			<div class="container" style="padding: 0 50px 1px 200px">
 <!-- 				<div class="form-row"> -->
 					<div class="d3">
 						<form:form method='POST' action='/Traveler/add'
-							modelAttribute="CommodityBean" enctype="multipart/form-data">
+							modelAttribute="CommodityBean" enctype="multipart/form-data"  >
 							<legend>新增產品資訊</legend>
 							
 							<div class="form-group">
