@@ -229,21 +229,38 @@ margin-bottom:0px;
 </div>
 </div>
 <!-- =========側邊欄位結束============ -->
-	
-	
-	
-<div style="margin-left:200px; margin-top:20px;width:1050px;" class="content text-center">
+<div style="color:black;margin-left:350px; margin-top:10px;width:1500px;" class="content text-center">
+<table style='font-size:25px;'>
+ <tr style="text-align:center;">
+  <th>主題編號</th>
+  <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;主題名稱</th>
+  <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;圖片檔名</th>
+  <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;網站顯示圖片</th>	
+ </tr>
+ <c:forEach var='themeTitles' items='${themeTitles}'>	
+	<tr style="text-align:left;">
+   <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${themeTitles.titleId}</td>
+   <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${themeTitles.titleName}</td>
+   <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${themeTitles.fileName}</td>
+   <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/Traveler/images/themeTitle-${themeTitles.titleName}.png" width="200" height="100"></td></tr>
+   </c:forEach>
+</table>	
+</div>
+
+<!--  
+<div style="margin-left:250px; margin-top:20px;width:1050px;" class="content text-center">
 <h1>請挑選主題</h1>
  <c:forEach var='theme' items='${themeTitles}'>
   <div style="width:350px; height:250px; float: left; ">
-    <img src="/Traveler/images/themeTitle-${theme.titleName}.png" width="300" height="200">    
+    <img src="/Traveler/images/themeTitle-${theme.titleName}.png" width="200" height="150">    
     <p>   
-    <b style='font-size:25px;'>${theme.titleName}</b>   
+    <b style='font-size:25px;'>種類名稱:${theme.titleName}</b><br> 
+    <b style='font-size:25px;'>圖片檔名:${theme.fileName}</b><br>  
     </p>
   </div>
  </c:forEach>
 </div>
-		
+-->		
 
 
 	<!--  ========================================================== -->

@@ -228,18 +228,18 @@ margin-bottom:0px;
 </div>
 </div>
 <!-- =========側邊欄位結束============ -->
-	<hr>
-<div style="color:black;margin-left:300px; margin-top:10px;width:1500px;" class="content text-center">
+<hr>
+<div style="color:black;margin-left:250px; margin-top:10px;width:1500px;" class="content text-center">
 <table style='font-size:25px;'>
  <tr style="text-align:center;">
-  <td>出發時間</td>
-  <td>&nbsp;&nbsp;&nbsp;&nbsp;類型</td>
-  <td>&nbsp;&nbsp;&nbsp;&nbsp;商品名稱</td>
-  <td>&nbsp;&nbsp;&nbsp;&nbsp;報名人</td>
-  <td>&nbsp;&nbsp;&nbsp;&nbsp;稱謂</td>
-  <td>&nbsp;&nbsp;&nbsp;&nbsp;人數</td>
-  <td>&nbsp;&nbsp;&nbsp;&nbsp;電話</td>
-  <td>&nbsp;&nbsp;&nbsp;&nbsp;備註</td>
+  <td>出發時間&nbsp;&nbsp;&nbsp;&nbsp;</td>
+  <th>&nbsp;&nbsp;&nbsp;&nbsp;類型</th>
+  <th>&nbsp;&nbsp;&nbsp;&nbsp;商品名稱</th>
+  <th>&nbsp;&nbsp;&nbsp;&nbsp;報名人</th>
+  <th>&nbsp;&nbsp;&nbsp;&nbsp;稱謂</th>
+  <th>&nbsp;&nbsp;&nbsp;&nbsp;人數</th>
+  <th>&nbsp;&nbsp;&nbsp;&nbsp;電話</th>
+  <th>&nbsp;&nbsp;&nbsp;&nbsp;備註</th>
  </tr >
  <c:forEach var='applications' items='${applications}'>
   <tr style="text-align:left;">
