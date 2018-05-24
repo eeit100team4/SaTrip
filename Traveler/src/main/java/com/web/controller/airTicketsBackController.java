@@ -127,6 +127,14 @@ public class airTicketsBackController {
 		map.put("extraPrice", extraPriceBean.getExtraPrice());
 		return map;
 	}
+	
+	//顯示額外價格清單
+	@RequestMapping("/extraShow")
+	public String showExtraList(Model model) {
+		List<ExtraPriceBean> list = eps.selectALl();
+		model.addAttribute("list",list);
+		return "/airTickets/back/extraPriceShow";
+	}
 
 	@RequestMapping(value = "/updateExtra", method = RequestMethod.POST)
 	@ResponseBody
