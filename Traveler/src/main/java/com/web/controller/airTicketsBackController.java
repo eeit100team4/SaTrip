@@ -32,6 +32,7 @@ import com.web.service.airplain.BFMService;
 import com.web.service.airplain.CountClickService;
 import com.web.service.airplain.ExtraPriceService;
 import com.web.service.airplain.GuestService;
+import com.web.service.airplain.MemberSecuService;
 import com.web.service.airplain.OrderService;
 import com.web.service.airplain.PdfProduceService;
 import com.web.service.airplain.SendEmailService;
@@ -59,6 +60,8 @@ public class airTicketsBackController {
 	MemberService memberService;
 	@Autowired
 	CountClickService countClickService;
+	@Autowired
+	MemberSecuService memberSecuService;
 
 	@RequestMapping("/list")
 	public String backList() {
@@ -68,15 +71,16 @@ public class airTicketsBackController {
 	@RequestMapping("/searchAll")
 	public String searchAll(Model model) {
 		List<OrderDetailsBean> allOrder = os.getAllOrder();
-//		 Date date = new Date();
-//		boolean newOrder=false;
-//		if((date.getTime()-bean.getOrderDay().getTime())<=(2*3600*24)) {
-//			newOrder=true;
-//		}
+		memberSecuService.modify(allOrder);
+		// Date date = new Date();
+		// boolean newOrder=false;
+		// if((date.getTime()-bean.getOrderDay().getTime())<=(2*3600*24)) {
+		// newOrder=true;
+		// }
 		System.out.println("測試");
 		model.addAttribute("list", allOrder);
-//		model.addAttribute("date", date);
-		
+		// model.addAttribute("date", date);
+
 		return "airTickets/back/airBackAllOrder2";
 	}
 
@@ -97,34 +101,34 @@ public class airTicketsBackController {
 		System.out.println("後" + guestBean);
 		return "OK";
 	}
-	
-	//導向統計畫面
+
+	// 導向統計畫面
 	@RequestMapping("/statistics")
-	public String toStatistics(Model model){
-		List<ClickNumBean> list =countClickService.selectAll();
+	public String toStatistics(Model model) {
+		List<ClickNumBean> list = countClickService.selectAll();
 		String json = new Gson().toJson(list);
-		model.addAttribute("json",json);
-		return"/airTickets/back/statistics";
+		model.addAttribute("json", json);
+		return "/airTickets/back/statistics";
 	}
 
 	@RequestMapping("/here")
 	public String selectOne() {
-		System.out.println(eps.getExtraPrice("TPE","HND"));
+		System.out.println(eps.getExtraPrice("TPE", "HND"));
 		return "/airTickets/back/here";
 	}
-	
-	@RequestMapping(value="/extra",method=RequestMethod.POST)
+
+	@RequestMapping(value = "/extra", method = RequestMethod.POST)
 	@ResponseBody
 	public Map getExtraPrice(@RequestParam("dept") String dept, @RequestParam("arrv") String arrv) {
-		  ExtraPriceBean extraPriceBean  = eps.selectByidGetBean(dept, arrv);
-		 System.out.println(extraPriceBean);
-		Map<String,Integer> map = new HashMap<>();
-		map.put("pkId",extraPriceBean.getId());
+		ExtraPriceBean extraPriceBean = eps.selectByidGetBean(dept, arrv);
+		System.out.println(extraPriceBean);
+		Map<String, Integer> map = new HashMap<>();
+		map.put("pkId", extraPriceBean.getId());
 		map.put("extraPrice", extraPriceBean.getExtraPrice());
 		return map;
 	}
-	
-	@RequestMapping(value="/updateExtra",method=RequestMethod.POST)
+
+	@RequestMapping(value = "/updateExtra", method = RequestMethod.POST)
 	@ResponseBody
 	public String updateExtraPrice(ExtraPriceBean epBean) {
 		System.out.println(epBean);
@@ -132,27 +136,27 @@ public class airTicketsBackController {
 		return "OK";
 
 	}
-	
-	@RequestMapping(value="/selectOne/PDF/sendPDF",method=RequestMethod.POST)
+
+	@RequestMapping(value = "/selectOne/PDF/sendPDF", method = RequestMethod.POST)
 	@ResponseBody
 	public String sendPDF(@RequestParam("orderId") String orderId) throws DocumentException, IOException {
 		OrderDetailsBean odBean = os.selectOneByOrderId(orderId);
-		//取得此張訂單的會員EMAIL
+		// 取得此張訂單的會員EMAIL
 		String memberEmail = odBean.getGuestBean().getContactEmail();
 		System.out.println(memberEmail);
 		pdfService.pdfProduce(odBean);
-		sendEmailService.sendNewEmail(orderId,memberEmail);
+		sendEmailService.sendNewEmail(orderId, memberEmail);
 		return "OK";
 
 	}
-	
-	//查詢是否有訂單
+
+	// 查詢是否有訂單
 	@RequestMapping(value = "/selectOne/check", method = RequestMethod.POST)
 	@ResponseBody
 	public String selectOneCheck(@RequestParam("orderId") String orderID) {
 		OrderDetailsBean bean = os.selectOneByOrderId(orderID);
 		System.out.println(bean);
-		if(bean==null) {
+		if (bean == null) {
 			return "noAnswer";
 		}
 		System.out.println(orderID);

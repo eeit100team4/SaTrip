@@ -308,10 +308,8 @@ margin-bottom:0px;
 		<%@ include file="/WEB-INF/backStageFooter.jsp" %>
 		
 <script>
-
 $(document).ready(function(){
-  
-	
+  	
 	var c1={'color':'#444444'};
 	var c2={'color':'#FFFFFF'};
 	
@@ -319,17 +317,11 @@ $(document).ready(function(){
 	
 	function over(){
 		$(this).css(c2)
-	}
-	
+	}	
 	function out(){
 		$(this).css(c1)
 	}
-
-
 })
-
-
-
 
 </script>		
 		

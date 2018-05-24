@@ -20,4 +20,6 @@ public interface ClientService {
 	List<MemberBean> getMemberAllData();
 	
 	void addMemberA (MemberBean mb);
+	
+	
 }

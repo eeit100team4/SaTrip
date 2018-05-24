@@ -200,15 +200,30 @@ padding-left:20px;
 				<div
 					class="col-md-8 col-md-offset-2 text-center heading-section animate-box">
 					<h3>紅利商品</h3>
-					<span class="sp1"><a href="1"> 迪士尼海洋 </a> </span>
-					<span class="sp1"><a href="2"> 迪士尼樂園 </a> </span>
-					<span class="sp1"><a href="3"> 環球影城電影 </a> </span>	
-					<span class="sp1"><a href="4"> 環球影城動畫 </a> </span>	
-					<span class="sp1"><a href="5"> 禮券 </a> </span>		
+					<span class="sp1"><a href="/Traveler/comm/1/0"> 迪士尼海洋 </a> </span>
+					<span class="sp1"><a href="/Traveler/comm/2/0"> 迪士尼樂園 </a> </span>
+					<span class="sp1"><a href="/Traveler/comm/3/0"> 環球影城電影 </a> </span>	
+					<span class="sp1"><a href="/Traveler/comm/4/0"> 環球影城動畫 </a> </span>	
+					<span class="sp1"><a href="/Traveler/comm/5/0"> 禮券 </a> </span>		
                
 				</div>
 			</div>
 		</div>
+
+
+<!-- 		=================	 -->
+			<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      排列功能
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="/Traveler/comm/${kinds}/0">依紅利點數由小到大</a>
+    <a class="dropdown-item" href="/Traveler/comm/${kinds}/1">依紅利點數由大到小</a>    
+  </div>
+</div>
+    <!-- 		=================	 -->
+
+
 
 		<div class="container">
 

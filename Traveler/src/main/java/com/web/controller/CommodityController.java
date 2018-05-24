@@ -68,9 +68,10 @@ public class CommodityController {
 	}
 	
 	//依類型顯示該類型商品
-	@RequestMapping(value="/comm/{kinds}")
-	public String getCommodityByKind(@PathVariable("kinds") String kind,Model model) {
-		List<CommodityBean> list=commodityservice.getCommodityByKind(kind);
+	@RequestMapping(value="/comm/{kinds}/{sort}")
+	public String getCommodityByKind(@PathVariable("kinds") String kind,
+			                         @PathVariable("sort") int sort ,Model model) {
+		List<CommodityBean> list=commodityservice.getCommodityByKind(kind,sort);
 		model.addAttribute("commlist", list);
 		
 		return "commodity/commlistfront2";
@@ -193,5 +194,26 @@ public class CommodityController {
 		
 		return "redirect:/commlist";
 	}
+	
+	
+	@RequestMapping(value="/commlistpoint/{kind}")
+	public String listPoint(Model model,@PathVariable("kind") String kind) {
+		
+	List<CommodityBean>  list = commodityservice.getAllPoint(kind);
+	model.addAttribute("commlist", list);
+		
+		return "commodity/commlistfront_point";
+	}
+	
+	@RequestMapping(value="/commlistpointdesc/{kind}")
+	public String listPointDesc(Model model,@PathVariable("kind") String kind) {
+		
+	List<CommodityBean>  list = commodityservice.getAllPointdesc(kind);
+	model.addAttribute("commlist", list);
+		
+		return "commodity/commlistfront_point2";
+	}
+	
+	
 	
 }	

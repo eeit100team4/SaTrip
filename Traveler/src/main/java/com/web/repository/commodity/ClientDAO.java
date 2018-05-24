@@ -21,4 +21,7 @@ public interface ClientDAO {
 	List<MemberBean> getMemberAllData();
 	
 	void addMemberA (MemberBean mb);
+	
+
+	
 }
