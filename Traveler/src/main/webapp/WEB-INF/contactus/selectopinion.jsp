@@ -203,46 +203,74 @@ margin-bottom:0px;
 				<form action="feedbackopinion" modelAttribute="contactusBean"  enctype='multipart/form-data'>
 						 <fieldest>
 						
-						 <table class="table table-hover" style="border:2px #ccc solid;border-radius:10px;width:400px;height:60px;">
-<!-- 						<table> -->
-						 <tr>
-						<td scope="row" style="width:100px;">姓名:</td>
-						<td>${aa.name}</td>
-						</tr>
-						<tr>
-						<td scope="row" style="width:100px;">性別:</td>
-						<td>${aa.sex}</td>
-						</tr>
-						<tr>
-						<td scope="row" style="width:100px;">年齡:</td>
-						<td>${aa.age}</td>
-						</tr>
-						<tr>
-						<td scope="row" style="width:100px;">連絡電話:</td>
-						<td>${aa.phone}</td>
-						</tr>
-						<tr>
-						<td scope="row" style="width:100px;">電子信箱:</td>
-						<td>${aa.email}</td>
-						</tr>
-						<tr>
-						<td scope="row" style="width:100px;">所在地:</td>
-						<td>${aa.address}</td>
-						</tr>
-						<tr>
-						<td scope="row" style="width:100px;">意見類別:</td>
-						<td>${aa.opinion}</td>
-						</tr>
-						<tr>
-						<td scope="row" style="width:100px;">意見欄:</td>
-					    <td>${aa.comment}</td>
-					    </tr>
-					    <tr>
-					    <td scope="row" style="width:100px;">回覆欄:</td>
-					    <td>${aa.feedback}</td>
-						</tr>
-						</table>
-					    
+<!-- 						 <table class="table table-hover" style="border:2px #ccc solid;border-radius:10px;width:400px;height:60px;"> -->
+
+<!-- 						 <tr> -->
+<!-- 						<td scope="row" style="width:100px;">姓名:</td> -->
+<%-- 						<td>${aa.name}</td> --%>
+<!-- 						</tr> -->
+<!-- 						<tr> -->
+<!-- 						<td scope="row" style="width:100px;">性別:</td> -->
+<%-- 						<td>${aa.sex}</td> --%>
+<!-- 						</tr> -->
+<!-- 						<tr> -->
+<!-- 						<td scope="row" style="width:100px;">年齡:</td> -->
+<%-- 						<td>${aa.age}</td> --%>
+<!-- 						</tr> -->
+<!-- 						<tr> -->
+<!-- 						<td scope="row" style="width:100px;">連絡電話:</td> -->
+<%-- 						<td>${aa.phone}</td> --%>
+<!-- 						</tr> -->
+<!-- 						<tr> -->
+<!-- 						<td scope="row" style="width:100px;">電子信箱:</td> -->
+<%-- 						<td>${aa.email}</td> --%>
+<!-- 						</tr> -->
+<!-- 						<tr> -->
+<!-- 						<td scope="row" style="width:100px;">所在地:</td> -->
+<%-- 						<td>${aa.address}</td> --%>
+<!-- 						</tr> -->
+<!-- 						<tr> -->
+<!-- 						<td scope="row" style="width:100px;">意見類別:</td> -->
+<%-- 						<td>${aa.opinion}</td> --%>
+<!-- 						</tr> -->
+<!-- 						<tr> -->
+<!-- 						<td scope="row" style="width:100px;">意見欄:</td> -->
+<%-- 					    <td>${aa.comment}</td> --%>
+<!-- 					    </tr> -->
+<!-- 					    <tr> -->
+<!-- 					    <td scope="row" style="width:100px;">回覆欄:</td> -->
+<%-- 					    <td>${aa.feedback}</td> --%>
+<!-- 						</tr> -->
+<!-- 						</table> -->
+			<table class="table table-hover">
+ 				 <thead>
+    				<tr>
+      					<th scope="col">#</th>
+      					<th scope="col">First</th>
+      					<th scope="col">Last</th>
+      					<th scope="col">Handle</th>
+    				</tr>
+  				</thead>
+  				<tbody>
+    				<tr>
+      					<th scope="row">1</th>
+     				 	<td>Mark</td>
+      					<td>Otto</td>
+      					<td>@mdo</td>
+    				</tr>
+   					<tr>
+      					<th scope="row">2</th>
+      					<td>Jacob</td>
+      					<td>Thornton</td>
+     					<td>@fat</td>
+    				</tr>
+   					<tr>
+     				 	<th scope="row">3</th>
+      					<td colspan="2">Larry the Bird</td>
+      					<td>@twitter</td>
+    				</tr>
+  				</tbody>
+			</table>
 
 		</fieldest>
 		</form>
