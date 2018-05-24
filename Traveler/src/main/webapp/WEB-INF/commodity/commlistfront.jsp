@@ -208,8 +208,8 @@ padding-left:20px;
 			</div>
 		</div>
 
-<!-- 		=================	 -->
-			<div class="dropdown">
+<!-- 		排列按鈕=================	 -->
+			<div class="dropdown" style="padding-left:220px;padding-bottom:20px">
   <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       排列功能
   </button>
@@ -243,7 +243,7 @@ padding-left:20px;
 									<h3 style="text-align:center">剩餘數量:${comm.quantity}個</h3>
 									
 									<div style="padding-left:100px">
-									<a class="btn btn-warning" href="tsuikaClient/${comm.commodityid}" role="button">兌換</a>
+									<a class="btn btn-warning" href="/Traveler/tsuikaClient/${comm.commodityid}" role="button">兌換</a>
                                    
 									</div>
 									
@@ -261,12 +261,13 @@ padding-left:20px;
 	<%@ include file="/WEB-INF/frontStageFooter.jsp"%>
 
 
-<!-- <script> -->
-
-<!-- // document.addEventLisener(DOMCont ) -->
+<script>
 
 
-<!-- </script> -->
+
+
+
+ </script> 
 
 
 
