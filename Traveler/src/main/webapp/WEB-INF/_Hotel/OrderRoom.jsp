@@ -223,54 +223,24 @@ span.price {
 			          <div class="col-50">
 			            <h3>客房資訊</h3>
 			            <label for="fname"><i class="fa fa-user"></i>姓名</label>
-			            <input type="text" id="fname" name="firstname" placeholder="John M. Doe">
+			            <input type="text" id="fname" name="firstname" >
 			            <label for="email"><i class="fa fa-envelope"></i> Email</label>
-			            <input type="text" id="email" name="email" placeholder="john@example.com">
-			            <label for="phone"><i class="fa fa-address-card-o"></i>行動電話</label>
-			            <input type="text" id="adr" name="phone" placeholder="0912-">
+			            <input type="text" id="email" name="email" >			            
+			            <label for="add"><i ></i>地址</label>
+			            <input type="text" id="adr" name="add">
+			            <label for="phone"><i ></i>行動電話</label>
+			            <input type="text" id="phone" name="phone">
 			            </div>
 			          </div>			
-			          <div class="col-50">
-			            <h3>付款資訊</h3>
-			            <label for="fname">Accepted Cards</label>
+			          <div class="col-50">			       
 			            <div class="icon-container">
 			              <i class="fa fa-cc-visa" style="color:navy;"></i>
 			              <i class="fa fa-cc-amex" style="color:blue;"></i>
 			              <i class="fa fa-cc-mastercard" style="color:red;"></i>
 			              <i class="fa fa-cc-discover" style="color:orange;"></i>
 			            </div>
-			            <label for="cname">信用卡種類</label>
-			            <form>
-							<select name="cars">
-							<option value="volvo">American Express</option>
-							<option value="saab">JCB</option>
-							<option value="fiat">MasterCard</option>
-							<option value="audi" placeholder="Visa" disabled selected>Visa</option>
-						</select>
-						</form>
-						
-			           
-			            <label for="ccnum">信用卡號</label>				            
-			            <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444">
-			            <label for="expmonth">Exp Month</label>
-			            <input type="text" id="expmonth" name="expmonth" placeholder="9">			
-			            <div class="row">
-			              <div class="col-50">
-			                <label for="expyear">Exp Year</label>
-			                <input type="text" id="expyear" name="expyear" placeholder="2018">
-			              </div>
-			              <div class="col-50">
-			                <label for="cvv">CVV</label>
-			                <input type="text" id="cvv" name="cvv" placeholder="352">
-			              </div>
-			            </div>
-			          </div>			
-			        </div>
-			        <label>
-			          <input type="checkbox" checked="checked" name="sameadr"> Shipping address same as billing
-			        </label> <!-- 			        <input type="submit" value="Continue to checkout" class="btn"> -->
 
-			         <a href="OrderFinish" class="btn ">確認送出</a>
+			         <a href="roomCheckOut" class="btn ">確認送出</a>
 			      </form>
 			    </div>
 			  </div>
