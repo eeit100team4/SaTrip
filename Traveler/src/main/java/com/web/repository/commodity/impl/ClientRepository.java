@@ -48,9 +48,7 @@ public class ClientRepository implements ClientDAO {
 		return cb;
 	}
 
-	
-	
-	
+
 	// 列出該會員的商品兌換資料
 	
 	//寫Hql語法
@@ -88,10 +86,7 @@ public class ClientRepository implements ClientDAO {
 			
 			session.save(clb);		
 			
-			
-			
-			
-			
+		
 		}
 		
 		@Override
@@ -114,6 +109,7 @@ public class ClientRepository implements ClientDAO {
 		}
 		
 		
+	
 		
 		
 }

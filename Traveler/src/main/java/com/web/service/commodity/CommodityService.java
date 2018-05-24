@@ -15,13 +15,15 @@ public interface CommodityService {
 	CommodityBean getCommodityById(int commodityid);
 	
 	
-	List<CommodityBean> getCommodityByKind(String kind);
+	List<CommodityBean> getCommodityByKind(String kind,int sort);
 
 
 	void update(CommodityBean bean);
 	
-	 void addCommodityA(CommodityBean bean);
+	void addCommodityA(CommodityBean bean);
 
-//	 
+	List<CommodityBean> getAllPoint(String kind);
+	List<CommodityBean> getAllPointdesc(String kind);
+	 
 //	void delete(String title);
 }
