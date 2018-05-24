@@ -1,5 +1,7 @@
 ﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -45,7 +47,7 @@
 <meta name="twitter:card" content="" />
 
 <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-<link rel="shortcut icon" href="images/favicon.ico">
+<link rel="shortcut icon" href="images/LeftTopCorner.ico">
 
 <!--<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>-->
 
@@ -106,7 +108,7 @@
 <script src="/Traveler/js/main.js"></script>
 
 
-<script src="/Traveler/js/airplain	/airSearch.js"></script>
+<script src="/Traveler/js/airplain/airSearch.js"></script>
 <script src="/Traveler/js/jquery-ui.min.js"></script>
 <link rel="stylesheet" href="/Traveler/js/jquery-ui.min.css">
 
@@ -118,44 +120,15 @@
 	<div id="fh5co-wrapper">
 		<div id="fh5co-page">
 
-			<header id="fh5co-header-section" class="sticky-banner">
-				<div class="container">
-					<div class="nav-header">
-						<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle dark"><i></i></a>
-						<h1 id="fh5co-logo">
-							<a href=""><i class="icon-airplane"></i>Travel</a>
-						</h1>
-						<!-- START #fh5co-menu-wrap -->
-						<nav id="fh5co-menu-wrap" role="navigation">
-							<ul class="sf-menu" id="fh5co-primary-menu">
-								<li class="active"><a href="">Home</a></li>
-								<li><a href="theme/themeTitles" class="fh5co-sub-ddown">主題旅遊</a>
-									<!-- 下面這塊ul以後會刪掉 -->
-									<ul class="fh5co-sub-menu">
-										<li><a href="#">Family</a></li>
-										<li><a href="#">CSS3 &amp; HTML5</a></li>
-										<li><a href="#">Angular JS</a></li>
-										<li><a href="#">Node JS</a></li>
-										<li><a href="#">Django &amp; Python</a></li>
-									</ul></li>
-								<li><a href="flight.html">航班</a></li>
-								<li><a href="_Hotel/HotelIndex">Hotel</a></li>
-								<li><a href="car.html">Car</a></li>
-								<li><a href="contactus/contactusopinion">客戶服務</a></li>
-							
-								<li><a href="contact.html">Contact</a></li>
-							</ul>
-						</nav>
-					</div>
-				</div>
-			</header>
+	<%@ include file="/WEB-INF/frontStageHeader.jsp" %>
 
 			<!-- end:header-top -->
 
 			<div  id="all"  class="fh5co-hero">
-<!-- 				<div class="fh5co-overlay"></div> -->
-				<div class="fh5co-cover" data-stellar-background-ratio="0.5"
-					style="background-image: url(images/cover_bg_1.jpg);">
+				<div class="fh5co-overlay"></div>
+				<div class="fh5co-cover" data-stellar-background-ratio="0.1"
+					style="background-image: url(/Traveler/images/backgroundairplain.jpg);">
+					
 					<div class="desc">
 						<div class="container">
 							<div class="row">
@@ -167,11 +140,12 @@
 											<li role="presentation" class="active"><a
 												href="#flights" aria-controls="flights" role="tab"
 												data-toggle="tab" style="color: blue;">航班</a></li>
-											<li role="presentation"><a href="#hotels"
-												aria-controls="hotels" role="tab" data-toggle="tab">飯店</a></li>
-											<li role="presentation"><a href="#packages"
-												aria-controls="packages" role="tab" data-toggle="tab">主題旅遊</a>
-											</li>
+<!-- 											<li role="presentation"><a href="#hotels" -->
+<!-- 												aria-controls="hotels" role="tab" data-toggle="tab">飯店</a></li> -->
+<!-- 											<li role="presentation"><a href="#packages" -->
+<!-- 												aria-controls="packages" role="tab" data-toggle="tab">主題旅遊</a> -->
+<!-- 											</li> -->
+							
 										</ul>
 
 										<!-- Tab panes -->
@@ -179,23 +153,24 @@
 										<div class="tab-content">
 											<div role="tabpanel" class="tab-pane active" id="flights">
 												<div class="row">
-													<form action="airTickets/BFMS" method="get">
-														<div class="col-xxs-12 col-xs-6 mt">
-														 <div class="form-group">
-														   <label for="sec">出發地</label>
+													<form action="/Traveler/airTickets/BFMS" method="get">
+														<div class="col-xxs-12 col-xs-5 mt">
+															<div class="input-field">
+																<label for="from">出發地</label>
 																<!-- 													增加先啟提供地點 -->
 																<!-- 													<input type="text" class="form-control" id="from-place" placeholder="台灣-桃園"/> -->
-																<select id="sec" name="dept" class="secDep form-control">
+																<select id="sec" name="dept" class="secDep"
+																	style="color: blue;">
 																	<option selected="selected">選擇出發地</option>
 																</select>
 															</div>
 														</div>
-														<div class="col-xxs-12 col-xs-6 mt">
+														<div class="col-xxs-12 col-xs-5 col-xs-offset-1 mt">
 															<div class="input-field">
 																<label for="from">目的地</label>
 																<!-- 																 <input type="text" class="form-control" id="to-place" -->
 																<!-- 																placeholder="Tokyo, Japan" /> -->
-																<select id="ret" name="arrv"  class="secDep form-control">
+																<select id="ret" name="arrv" style="color: blue;">
 																	<option selected="selected">必須選擇出發地</option>
 																</select>
 															</div>
@@ -270,144 +245,145 @@
 														</div>
 													</form>
 												</div>
+												<div class="text-center"><h3 style="color:red">${error}</h3></div>
 											</div>
-
-											<div role="tabpanel" class="tab-pane" id="hotels">
-												<div class="row">
-													<div class="col-xxs-12 col-xs-12 mt">
-														<div class="input-field">
-															<label for="from">City:</label> <input type="text"
-																class="form-control" id="from-place"
-																placeholder="Los Angeles, USA" />
-														</div>
-													</div>
-													<div class="col-xxs-12 col-xs-6 mt alternate">
-														<div class="input-field">
-															<label for="date-start">Return:</label> <input
-																type="text" class="form-control" id="date-start"
-																placeholder="mm/dd/yyyy" />
-														</div>
-													</div>
-													<div class="col-xxs-12 col-xs-6 mt alternate">
-														<div class="input-field">
-															<label for="date-end">Check Out:</label> <input
-																type="text" class="form-control" id="date-end"
-																placeholder="mm/dd/yyyy" />
-														</div>
-													</div>
-													<div class="col-sm-12 mt">
-														<section>
-															<label for="class">Rooms:</label> <select
-																class="cs-select cs-skin-border">
-																<option value="" disabled selected>1</option>
-																<option value="economy">1</option>
-																<option value="first">2</option>
-																<option value="business">3</option>
-															</select>
-														</section>
-													</div>
-													<div class="col-xxs-12 col-xs-6 mt">
-														<section>
-															<label for="class">Adult:</label> <select
-																class="cs-select cs-skin-border">
-																<option value="" disabled selected>1</option>
-																<option value="1">1</option>
-																<option value="2">2</option>
-																<option value="3">3</option>
-																<option value="4">4</option>
-															</select>
-														</section>
-													</div>
-													<div class="col-xxs-12 col-xs-6 mt">
-														<section>
-															<label for="class">Children:</label> <select
-																class="cs-select cs-skin-border">
-																<option value="" disabled selected>1</option>
-																<option value="1">1</option>
-																<option value="2">2</option>
-																<option value="3">3</option>
-																<option value="4">4</option>
-															</select>
-														</section>
-													</div>
-													<div class="col-xs-12">
-														<input type="submit" class="btn btn-primary btn-block"
-															value="Search Hotel">
-													</div>
-												</div>
-											</div>
-
-											<div role="tabpanel" class="tab-pane" id="packages">
-												<div class="row">
-													<div class="col-xxs-12 col-xs-6 mt">
-														<div class="input-field">
-															<label for="from">City:</label> <input type="text"
-																class="form-control" id="from-place"
-																placeholder="Los Angeles, USA" />
-														</div>
-													</div>
-													<div class="col-xxs-12 col-xs-6 mt">
-														<div class="input-field">
-															<label for="from">Destination:</label> <input type="text"
-																class="form-control" id="to-place"
-																placeholder="Tokyo, Japan" />
-														</div>
-													</div>
-													<div class="col-xxs-12 col-xs-6 mt alternate">
-														<div class="input-field">
-															<label for="date-start">Departs:</label> <input
-																type="text" class="form-control" id="date-start"
-																placeholder="mm/dd/yyyy" />
-														</div>
-													</div>
-													<div class="col-xxs-12 col-xs-6 mt alternate">
-														<div class="input-field">
-															<label for="date-end">Return:</label> <input type="text"
-																class="form-control" id="date-end"
-																placeholder="mm/dd/yyyy" />
-														</div>
-													</div>
-													<div class="col-sm-12 mt">
-														<section>
-															<label for="class">Rooms:</label> <select
-																class="cs-select cs-skin-border">
-																<option value="" disabled selected>1</option>
-																<option value="economy">1</option>
-																<option value="first">2</option>
-																<option value="business">3</option>
-															</select>
-														</section>
-													</div>
-													<div class="col-xxs-12 col-xs-6 mt">
-														<section>
-															<label for="class">Adult:</label> <select
-																class="cs-select cs-skin-border">
-																<option value="" disabled selected>1</option>
-																<option value="1">1</option>
-																<option value="2">2</option>
-																<option value="3">3</option>
-																<option value="4">4</option>
-															</select>
-														</section>
-													</div>
-													<div class="col-xxs-12 col-xs-6 mt">
-														<section>
-															<label for="class">Children:</label> <select
-																class="cs-select cs-skin-border">
-																<option value="" disabled selected>1</option>
-																<option value="1">1</option>
-																<option value="2">2</option>
-																<option value="3">3</option>
-																<option value="4">4</option>
-															</select>
-														</section>
-													</div>
-													<div class="col-xs-12">
-														<input type="submit" class="btn btn-primary btn-block"
-															value="Search Packages">
-													</div>
-												</div>
-											</div>
+<!-- 											飯店分頁 -->
+<!-- 											<div role="tabpanel" class="tab-pane" id="hotels"> -->
+<!-- 												<div class="row"> -->
+<!-- 													<div class="col-xxs-12 col-xs-12 mt"> -->
+<!-- 														<div class="input-field"> -->
+<!-- 															<label for="from">City:</label> <input type="text" -->
+<!-- 																class="form-control" id="from-place" -->
+<!-- 																placeholder="Los Angeles, USA" /> -->
+<!-- 														</div> -->
+<!-- 													</div> -->
+<!-- 													<div class="col-xxs-12 col-xs-6 mt alternate"> -->
+<!-- 														<div class="input-field"> -->
+<!-- 															<label for="date-start">Return:</label> <input -->
+<!-- 																type="text" class="form-control" id="date-start" -->
+<!-- 																placeholder="mm/dd/yyyy" /> -->
+<!-- 														</div> -->
+<!-- 													</div> -->
+<!-- 													<div class="col-xxs-12 col-xs-6 mt alternate"> -->
+<!-- 														<div class="input-field"> -->
+<!-- 															<label for="date-end">Check Out:</label> <input -->
+<!-- 																type="text" class="form-control" id="date-end" -->
+<!-- 																placeholder="mm/dd/yyyy" /> -->
+<!-- 														</div> -->
+<!-- 													</div> -->
+<!-- 													<div class="col-sm-12 mt"> -->
+<!-- 														<section> -->
+<!-- 															<label for="class">Rooms:</label> <select -->
+<!-- 																class="cs-select cs-skin-border"> -->
+<!-- 																<option value="" disabled selected>1</option> -->
+<!-- 																<option value="economy">1</option> -->
+<!-- 																<option value="first">2</option> -->
+<!-- 																<option value="business">3</option> -->
+<!-- 															</select> -->
+<!-- 														</section> -->
+<!-- 													</div> -->
+<!-- 													<div class="col-xxs-12 col-xs-6 mt"> -->
+<!-- 														<section> -->
+<!-- 															<label for="class">Adult:</label> <select -->
+<!-- 																class="cs-select cs-skin-border"> -->
+<!-- 																<option value="" disabled selected>1</option> -->
+<!-- 																<option value="1">1</option> -->
+<!-- 																<option value="2">2</option> -->
+<!-- 																<option value="3">3</option> -->
+<!-- 																<option value="4">4</option> -->
+<!-- 															</select> -->
+<!-- 														</section> -->
+<!-- 													</div> -->
+<!-- 													<div class="col-xxs-12 col-xs-6 mt"> -->
+<!-- 														<section> -->
+<!-- 															<label for="class">Children:</label> <select -->
+<!-- 																class="cs-select cs-skin-border"> -->
+<!-- 																<option value="" disabled selected>1</option> -->
+<!-- 																<option value="1">1</option> -->
+<!-- 																<option value="2">2</option> -->
+<!-- 																<option value="3">3</option> -->
+<!-- 																<option value="4">4</option> -->
+<!-- 															</select> -->
+<!-- 														</section> -->
+<!-- 													</div> -->
+<!-- 													<div class="col-xs-12"> -->
+<!-- 														<input type="submit" class="btn btn-primary btn-block" -->
+<!-- 															value="Search Hotel"> -->
+<!-- 													</div> -->
+<!-- 												</div> -->
+<!-- 											</div> -->
+<!-- 											主題分頁 -->
+<!-- 											<div role="tabpanel" class="tab-pane" id="packages"> -->
+<!-- 												<div class="row"> -->
+<!-- 													<div class="col-xxs-12 col-xs-6 mt"> -->
+<!-- 														<div class="input-field"> -->
+<!-- 															<label for="from">City:</label> <input type="text" -->
+<!-- 																class="form-control" id="from-place" -->
+<!-- 																placeholder="Los Angeles, USA" /> -->
+<!-- 														</div> -->
+<!-- 													</div> -->
+<!-- 													<div class="col-xxs-12 col-xs-6 mt"> -->
+<!-- 														<div class="input-field"> -->
+<!-- 															<label for="from">Destination:</label> <input type="text" -->
+<!-- 																class="form-control" id="to-place" -->
+<!-- 																placeholder="Tokyo, Japan" /> -->
+<!-- 														</div> -->
+<!-- 													</div> -->
+<!-- 													<div class="col-xxs-12 col-xs-6 mt alternate"> -->
+<!-- 														<div class="input-field"> -->
+<!-- 															<label for="date-start">Departs:</label> <input -->
+<!-- 																type="text" class="form-control" id="date-start" -->
+<!-- 																placeholder="mm/dd/yyyy" /> -->
+<!-- 														</div> -->
+<!-- 													</div> -->
+<!-- 													<div class="col-xxs-12 col-xs-6 mt alternate"> -->
+<!-- 														<div class="input-field"> -->
+<!-- 															<label for="date-end">Return:</label> <input type="text" -->
+<!-- 																class="form-control" id="date-end" -->
+<!-- 																placeholder="mm/dd/yyyy" /> -->
+<!-- 														</div> -->
+<!-- 													</div> -->
+<!-- 													<div class="col-sm-12 mt"> -->
+<!-- 														<section> -->
+<!-- 															<label for="class">Rooms:</label> <select -->
+<!-- 																class="cs-select cs-skin-border"> -->
+<!-- 																<option value="" disabled selected>1</option> -->
+<!-- 																<option value="economy">1</option> -->
+<!-- 																<option value="first">2</option> -->
+<!-- 																<option value="business">3</option> -->
+<!-- 															</select> -->
+<!-- 														</section> -->
+<!-- 													</div> -->
+<!-- 													<div class="col-xxs-12 col-xs-6 mt"> -->
+<!-- 														<section> -->
+<!-- 															<label for="class">Adult:</label> <select -->
+<!-- 																class="cs-select cs-skin-border"> -->
+<!-- 																<option value="" disabled selected>1</option> -->
+<!-- 																<option value="1">1</option> -->
+<!-- 																<option value="2">2</option> -->
+<!-- 																<option value="3">3</option> -->
+<!-- 																<option value="4">4</option> -->
+<!-- 															</select> -->
+<!-- 														</section> -->
+<!-- 													</div> -->
+<!-- 													<div class="col-xxs-12 col-xs-6 mt"> -->
+<!-- 														<section> -->
+<!-- 															<label for="class">Children:</label> <select -->
+<!-- 																class="cs-select cs-skin-border"> -->
+<!-- 																<option value="" disabled selected>1</option> -->
+<!-- 																<option value="1">1</option> -->
+<!-- 																<option value="2">2</option> -->
+<!-- 																<option value="3">3</option> -->
+<!-- 																<option value="4">4</option> -->
+<!-- 															</select> -->
+<!-- 														</section> -->
+<!-- 													</div> -->
+<!-- 													<div class="col-xs-12"> -->
+<!-- 														<input type="submit" class="btn btn-primary btn-block" -->
+<!-- 															value="Search Packages"> -->
+<!-- 													</div> -->
+<!-- 												</div> -->
+<!-- 											</div> -->
 										</div>
 
 									</div>
@@ -417,7 +393,7 @@
 										class="col-sm-7 col-sm-push-1 col-md-7 col-md-push-1">
 										<p>
 										<p>
-											<a class="btn btn-primary btn-lg" href="backStage">前往後台的傳送門</a>
+											<a class="btn btn-primary btn-lg" href="backStageForm">前往後台的傳送門</a>
 										</p>
 									</div>
 								</div>
@@ -430,27 +406,7 @@
 
 
 
-
-			<div class="row">
-				<div class="col-md-6 col-md-offset-3 text-center">
-					<p class="fh5co-social-icons">
-						<a href="#"><i class="icon-twitter2"></i></a> <a href="#"><i
-							class="icon-facebook2"></i></a> <a href="#"><i
-							class="icon-instagram"></i></a> <a href="#"><i
-							class="icon-dribbble2"></i></a> <a href="#"><i
-							class="icon-youtube"></i></a>
-					</p>
-					<p>
-						Copyright 2016 Free Html5 <a href="#">Module</a>. All Rights
-						Reserved. <br>Made with <i class="icon-heart3"></i> by <a
-							href="http://freehtml5.co/" target="_blank">Freehtml5.co</a> /
-						Demo Images: <a href="https://unsplash.com/" target="_blank">Unsplash</a>
-					</p>
-				</div>
-			</div>
-		</div>
-	</div>
-	</footer>
+  <%@ include file="/WEB-INF/frontStageFooter.jsp"%>
 
 
 
