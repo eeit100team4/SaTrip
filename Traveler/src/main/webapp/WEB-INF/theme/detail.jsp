@@ -119,10 +119,10 @@
 <body>
 	<%@ include file="/WEB-INF/frontStageHeader.jsp"%>
 	
-<div style="text-align:center">
+<div style="text-align:center;margin-left:100px; margin-top:20px;">
   <h1>詳細資訊</h1>
     <hr>
-    <p>
+    
     <h2>行程資訊</h2>
     <b style='font-size:16px;'>${detail.themeProducts.productName}</b><br>
     <b style='font-size:16px;'>出團日期<fmt:formatDate value="${detail.setOut}" pattern="yyyy/MM/dd" /></b>
@@ -143,10 +143,10 @@
     
     
     
-    <a href="${detail.journeyId}/application">報名</a>    
-    </p>
+    <a onmouseover="this.style.color='orange'" onmouseout="this.style.color='#4F4FFF'" style="color:#4F4FFF;font-size:25px;" href="${detail.journeyId}/application">報名</a>    
+    
 </div>
-	
+<hr>
 	<%@ include file="/WEB-INF/frontStageFooter.jsp"%>
 </body>
 </html>

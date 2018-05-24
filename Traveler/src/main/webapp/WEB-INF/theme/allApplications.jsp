@@ -228,7 +228,7 @@ margin-bottom:0px;
 </div>
 </div>
 <!-- =========側邊欄位結束============ -->
-	
+	<hr>
 	
 	
 	
@@ -241,6 +241,7 @@ margin-bottom:0px;
     <b style='font-size:16px;'>商品名稱:${applications.themeJourneys.themeProducts.productName}</b><br>
     <b style='font-size:16px;'>出發日期:<fmt:formatDate value="${applications.themeJourneys.setOut}" pattern="yyyy/MM/dd" /></b><br>
     <b style='font-size:16px;'>報名人:${applications.name}</b><br>
+    <b style='font-size:16px;'>稱謂:${applications.gender}</b><br>
     <b style='font-size:16px;'>連絡電話:${applications.cellPhone}</b><br>
     <b style='font-size:16px;'>備註:${applications.extra}</b><br>
     
@@ -251,7 +252,7 @@ margin-bottom:0px;
 		
 		
 		</div>
-
+<hr>
 	<!--  ========================================================== -->
 
 
