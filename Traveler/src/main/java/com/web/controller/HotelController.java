@@ -147,7 +147,17 @@ public class HotelController {
 	
 	
 	
+
+	@RequestMapping("/_Hotel/roomCheckOut")
+	public String checkOut(Model model) {			
+		return "_Hotel/roomCheckOut";
+	}
 	
+
+	@RequestMapping("/_Hotel/roomCheckOut")
+	public String orderFinsh(Model model) {			
+		return "_Hotel/roomCheckOut";
+	}
 	
 	
 	
