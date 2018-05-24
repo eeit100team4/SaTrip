@@ -67,7 +67,6 @@ public class ContactusController {
 	@RequestMapping(value="contactus/InsertOpinionSuccess",method=RequestMethod.POST)
 	public String processAddNewContactusForm(@ModelAttribute("contactusBean")ContactusBean contactus2,
 			BindingResult result, HttpSession session) {
-		MemberBean mb = (MemberBean) session.getAttribute("LoginOK");
 		System.out.println("ENTER POST");
 		System.out.println(contactus2);
 //		session.setAttribute("abc", contactus);
@@ -76,24 +75,6 @@ public class ContactusController {
 		return "redirect:/contactus/InsertOpinionSuccess";
 	}
 
-//	@RequestMapping(value="contactus/feedbackopinion")
-//	public String update(Model model,
-//			@ModelAttribute("contactusBean") ContactusBean contactus) {
-//		List<ContactusBean>  list = contactusService.getAllContactus();
-
-//	@RequestMapping(value="/update/{feedback}",method=RequestMethod.PUT)
-//	public String updateform(HttpServletRequest request, HttpServletResponse response,HttpSession session, Model model,
-//			@ModelAttribute("contactusBean") ContactusBean contactus2) {
-//		List<ContactusBean>  list = contactusService.getAllFeedback();
-////		model.addAttribute("aa", list);
-//		session.setAttribute("aa", contactus2);
-//		return "/contactus/feedbackopinion";		
-//	}
-//	@RequestMapping(value="contactus/feedbackopinion/{pkid}",method=RequestMethod.GET)
-//	public String updateForm(@ModelAttribute("contactusBean")ContactusBean contactus,Model model) {
-//		model.addAttribute("contactusBean",contactus);
-//		return "contactus/feedbackopinion";
-//	}
 
 	@RequestMapping(value="contactus/feedbackopinion/{pkid}")
 	public String updateForm(Model model,

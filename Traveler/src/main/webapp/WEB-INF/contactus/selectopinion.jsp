@@ -200,77 +200,43 @@ margin-bottom:0px;
 						
 <!--=========================要放的東西  =====================-->	
 <div class="container" style="padding-top:80px;padding-left:150px">
+
 				<form action="feedbackopinion" modelAttribute="contactusBean"  enctype='multipart/form-data'>
 						 <fieldest>
 						
-<!-- 						 <table class="table table-hover" style="border:2px #ccc solid;border-radius:10px;width:400px;height:60px;"> -->
-
-<!-- 						 <tr> -->
-<!-- 						<td scope="row" style="width:100px;">姓名:</td> -->
-<%-- 						<td>${aa.name}</td> --%>
-<!-- 						</tr> -->
-<!-- 						<tr> -->
-<!-- 						<td scope="row" style="width:100px;">性別:</td> -->
-<%-- 						<td>${aa.sex}</td> --%>
-<!-- 						</tr> -->
-<!-- 						<tr> -->
-<!-- 						<td scope="row" style="width:100px;">年齡:</td> -->
-<%-- 						<td>${aa.age}</td> --%>
-<!-- 						</tr> -->
-<!-- 						<tr> -->
-<!-- 						<td scope="row" style="width:100px;">連絡電話:</td> -->
-<%-- 						<td>${aa.phone}</td> --%>
-<!-- 						</tr> -->
-<!-- 						<tr> -->
-<!-- 						<td scope="row" style="width:100px;">電子信箱:</td> -->
-<%-- 						<td>${aa.email}</td> --%>
-<!-- 						</tr> -->
-<!-- 						<tr> -->
-<!-- 						<td scope="row" style="width:100px;">所在地:</td> -->
-<%-- 						<td>${aa.address}</td> --%>
-<!-- 						</tr> -->
-<!-- 						<tr> -->
-<!-- 						<td scope="row" style="width:100px;">意見類別:</td> -->
-<%-- 						<td>${aa.opinion}</td> --%>
-<!-- 						</tr> -->
-<!-- 						<tr> -->
-<!-- 						<td scope="row" style="width:100px;">意見欄:</td> -->
-<%-- 					    <td>${aa.comment}</td> --%>
-<!-- 					    </tr> -->
-<!-- 					    <tr> -->
-<!-- 					    <td scope="row" style="width:100px;">回覆欄:</td> -->
-<%-- 					    <td>${aa.feedback}</td> --%>
-<!-- 						</tr> -->
-<!-- 						</table> -->
+						 
 			<table class="table table-hover">
  				 <thead>
     				<tr>
-      					<th scope="col">#</th>
-      					<th scope="col">First</th>
-      					<th scope="col">Last</th>
-      					<th scope="col">Handle</th>
+      					<th scope="col">編號</th>
+      					<td scope="col">姓名</td>
+      					<td scope="col">性別</td>
+      					<td scope="col">年齡</td>
+      					<td scope="col">連絡電話</td>
+      					<td scope="col">電子信箱</td>
+      					<td scope="col">所在地</td>
+      					<td scope="col">意見類別</td>
+      					<td scope="col">意見欄</td>
+      					<td scope="col"></td>
     				</tr>
   				</thead>
   				<tbody>
+  			<c:forEach var='con' items='${contactus}'>
     				<tr>
-      					<th scope="row">1</th>
-     				 	<td>Mark</td>
-      					<td>Otto</td>
-      					<td>@mdo</td>
+      					<th scope="row">${con.pkid}</th>
+     				 	<td>${con.name}</td>
+      					<td>${con.sex}</td>
+      					<td>${con.age}</td>
+      					<td>${con.phone}</td>
+      					<td>${con.email}</td>
+      					<td>${con.address}</td>
+      					<td>${con.opinion}</td>
+      					<td>${con.comment}</td>
+      					<td>回覆鈕</td>
     				</tr>
-   					<tr>
-      					<th scope="row">2</th>
-      					<td>Jacob</td>
-      					<td>Thornton</td>
-     					<td>@fat</td>
-    				</tr>
-   					<tr>
-     				 	<th scope="row">3</th>
-      					<td colspan="2">Larry the Bird</td>
-      					<td>@twitter</td>
-    				</tr>
+    				</c:forEach>
   				</tbody>
-			</table>
+</table>
 
 		</fieldest>
 		</form>
