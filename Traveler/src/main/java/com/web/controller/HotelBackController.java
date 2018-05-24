@@ -35,11 +35,11 @@ public class HotelBackController {
 	@Autowired
 	ServletContext context;
 	
-		//後台Index
-		@RequestMapping("/HotelEnd")
-		public String hotelEnd(){
-			return "_Hotel/End/HotelEnd";
-		}
+//		//後台Index
+//		@RequestMapping("/HotelEnd")
+//		public String hotelEnd(){
+//			return "_Hotel/End/HotelEnd";
+//		}
 //		//後台秀出所有房訊  
 //		@RequestMapping("/ShowAllHotels")
 //		public String show(){
@@ -50,15 +50,15 @@ public class HotelBackController {
 //		public String insert(){
 //			return "_Hotel/End/InsertHotel";
 //		}
-		//後台修改房訊  
-		@RequestMapping("/UpdateHotel")
-		public String update(){
-			return "_Hotel/End/UpdateHotel";
-		}//後台刪除房訊  
-		@RequestMapping("/DeleteHotel")
-		public String delete(){
-			return "_Hotel/End/DeleteHotel";
-		}		
+//		//後台修改房訊  
+//		@RequestMapping("/UpdateHotel")
+//		public String update(){
+//			return "_Hotel/End/UpdateHotel";
+//		}//後台刪除房訊  
+//		@RequestMapping("/DeleteHotel")
+//		public String delete(){
+//			return "_Hotel/End/DeleteHotel";
+//		}		
 	
 		//新增Hotel -GET
 		@RequestMapping(value = "/InsertHotel", method = RequestMethod.GET)
@@ -94,11 +94,11 @@ public class HotelBackController {
 		}
 		
 		// 取得HotelBean資料，顯示多筆Hotel資料
-		@RequestMapping("/ShowAllHotels")
+		@RequestMapping("/ManagerAllHotels")
 		public String list(Model model) {
 			List<HotelBean> list = hotelService.getAllHotels();
 			model.addAttribute("hotels", list);
-			return "_Hotel/End/ShowAllHotels";
+			return "_Hotel/End/ManagerAllHotels";
 		}	
 		
 		
