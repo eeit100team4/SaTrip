@@ -211,8 +211,8 @@ padding-left:20px;
 		</div>
 
 
-<!-- 		=================	 -->
-			<div class="dropdown">
+<!-- 	排列按鈕	=================	 -->
+			<div class="dropdown"  style="padding-left:220px;padding-bottom:20px"> 
   <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       排列功能
   </button>
