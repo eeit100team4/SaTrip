@@ -230,11 +230,12 @@ font-weight:900
 					<p style="color:#888888;font-size:1.3em;font-weight:900">${Client.commodityBean.name}</p>
 				</div>
 				<div class="do4">
-					<p style="color:blue;font-size:1.3em;font-weight:900 ">商品點數:${Client.commodityBean.point}</p>
+				
+<%-- 					<p style="color:blue;font-size:1.3em;font-weight:900 " id='p1'>商品點數:${Client.commodityBean.point}</p> --%>
+					<p style="color:blue;font-size:1.3em;font-weight:900 " >商品點數:<span id='p1'></span></p>
 				</div>
 				<div class="do4">
-					<p style="color:red;font-size:1.3em;font-weight:900">會員點數:${Client.memberBean.point}</p>
-
+					<p style="color:red;font-size:1.3em;font-weight:900">會員點數:<span id='p2' ></span></p>
 				</div>
 
 				<div class="do4">
@@ -296,6 +297,23 @@ font-weight:900
 	</div>
 
 	<%@ include file="/WEB-INF/frontStageFooter.jsp"%>
+
+<script>
+
+$("#quantity").change(function(){$("#p1").html(
+		parseInt(
+				parseInt(${Client.commodityBean.point})
+				*parseInt($(this).val()) )) });
+				
+$("#p1").html(parseInt(${Client.commodityBean.point}));
+
+
+$("#p2").html(parseInt(${Client.memberBean.point}));
+
+
+
+</script>
+
 
 </body>
 
