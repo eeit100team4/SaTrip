@@ -18,7 +18,7 @@
 <meta name="keywords"
 	content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
 <meta name="author" content="FREEHTML5.CO" />
-
+   
 <!-- 
 	//////////////////////////////////////////////////////
 
@@ -326,7 +326,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-8 col-md-offset-2 text-center heading-section animate-box">
-						<h3>最後歡迎的飯店 &amp; 飯店預定</h3>
+						<h3>最受歡迎的飯店 &amp; 飯店預定</h3>
 						<p>每間現代化的寬敞客房均擁有極簡風格設計，每間客房都有免費WIFI</p>
 					</div>
 				</div>
