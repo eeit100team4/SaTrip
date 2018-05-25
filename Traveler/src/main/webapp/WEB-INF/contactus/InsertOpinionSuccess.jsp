@@ -201,6 +201,10 @@ color:black;
 					    <td>${aa.comment}</td>
 					    </tr>
 					    <tr>
+					    <td scope="row" style="width:100px;">留言時間:</td>
+					    <td>${aa.messagetime}</td>
+						</tr>
+					    <tr>
 					    <td scope="row" style="width:100px;">回覆欄:</td>
 					    <td>${aa.feedback}</td>
 						</tr>

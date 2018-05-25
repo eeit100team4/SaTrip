@@ -179,55 +179,14 @@ margin-bottom:0px;
 
 <title>Insert title here</title>
 </head>
-<body>
+<body  style="background-image: url(/Traveler/images/主題背景用圖2.png);">
 
 	<%@ include file="/WEB-INF/backStageHeader.jsp" %>
 
 	<!--=========================要放的東西  =====================-->
 	
 	<!-- =========側邊欄位開始============ -->	
-<div id="mwt_mwt_slider_scroll">
-<div id="mwt_slider_content"   >
-<div id="nav">
- <ul>
-  <li class="color-blue">
-   <div class="main">主題種類</div>
-   <ul class="subs">
-    <li><a href="themeTitles">瀏覽主題</a></li>
-    <li><a href="addTitle">新增主題</a></li>
-    <li><a href="">修改主題</a></li>
-   </ul>
-  </li>
-  <li class="color-red">
-   <div class="main">旅遊商品</div>
-   <ul class="subs">
-    <li><a href="">依種類查詢</a></li>
-    <li><a href="">新增旅遊商品</a></li>
-    <li><a href="">修改商品細節</a></li>
-   </ul>
-  </li>
-  <li class="color-yellow">
-   <div class="main">管理行程</div>
-   <ul class="subs">
-    <li><a href="">依商品查詢</a></li>
-    <li><a href="">新增行程</a></li>
-    <li><a href="">修改行程</a></li>
-   </ul>
-  </li>
-  <li class="color-green">
-   <div class="main">報名表單</div>
-   <ul class="subs">
-   <li><a href="allApplications">全報名表</a></li>
-   <li><a href="">依行程查詢</a></li>
-   <li><a href="">依人名查詢</a></li>
-    <li><a href="">依報名時間查詢</a></li>
-    <li><a href="">依報名人數查詢</a></li>    
-   </ul>
-  </li>
- </ul>
-</div>
-</div>
-</div>
+<%@ include file="/WEB-INF/theme/backLeftSide.jsp" %>
 <!-- =========側邊欄位結束============ -->
 <div style="color:black;margin-left:350px; margin-top:10px;width:1500px;" class="content text-center">
 
@@ -237,14 +196,14 @@ margin-bottom:0px;
   <th>主題編號</th>
   <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;主題名稱</th>
   <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;圖片檔名</th>
-  <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;網站顯示圖片</th>	
+  <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;網站顯示圖片預覽</th>	
  </tr>
  <c:forEach var='themeTitles' items='${themeTitles}'>	
 	<tr style="text-align:left;">
    <td>&nbsp;&nbsp;&nbsp;${themeTitles.titleId}</td>
    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${themeTitles.titleName}</td>
    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${themeTitles.fileName}</td>
-   <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/Traveler/images/themeTitle-${themeTitles.titleName}.png" width="200" height="100"style="border:10px #805300 ridge;"></td></tr>
+   <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/Traveler/images/themeTitle-${themeTitles.titleName}.png" width="200" height="80"style="border:6px #805300 ridge;"></td></tr>
    </c:forEach>
 </table>	
 </div>
