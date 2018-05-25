@@ -128,7 +128,7 @@ a img:hover {
 	<%@ include file="/WEB-INF/frontStageHeader.jsp"%>
 	
 <div class="fh5co-cover" data-stellar-background-ratio="0.5" style="background-color:white">	
- <h1 style="background:black;color:white;text-align:center;height:50px">各式精選主題</h1>
+ <h1 style="background:black;color:white;text-align:center;height:50px">~優質規劃*精選主題~</h1>
   <div style="margin-left:50px;margin-top:50px;width:1400px;" class="content text-center">	
 
    <c:forEach var='titleName' items='${titleList}'> 
