@@ -174,7 +174,7 @@ margin-bottom:0px;
 <!--=========================要放的東西  =====================-->
 		<div class="container" style="padding-top:80px;padding-left:150px">
 	<c:forEach var='con' items='${contactus}'>	
-<form:form action="feedbackopinion/${con.pkid}" modelAttribute="contactusBean"  enctype='multipart/form-data'>
+<form:form action="/Traveler/contactus/feedbackopinion/${con.pkid}" modelAttribute="contactusBean"  enctype='multipart/form-data'>
 						 <fieldest>
 						<table>
 									
@@ -237,7 +237,6 @@ margin-bottom:0px;
 <ul class="me">
 <h2>客服管理</h2>
 <p><a href="/Traveler/contactus/selectopinion" style="color:black">查看留言</a></p>
-<p><a href="/Traveler/contactus/feedbackopinion" style="color:black">回覆留言</a></p>
 <p><a href="/Traveler/contactus/StatisticsReport" style="color:black">統計報表</a></p>
 <a href="contactuspieasia"></a>
 <a href="contactuspieage"></a>

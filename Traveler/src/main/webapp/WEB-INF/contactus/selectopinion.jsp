@@ -201,7 +201,7 @@ margin-bottom:0px;
 <!--=========================要放的東西  =====================-->	
 <div class="container" style="padding-top:80px;padding-left:150px">
 
-				<form action="feedbackopinion" modelAttribute="contactusBean"  enctype='multipart/form-data'>
+				<form action="feedbackopinion/${pkid}" modelAttribute="contactusBean"  enctype='multipart/form-data'>
 						 <fieldest>
 						
 						 
@@ -217,6 +217,7 @@ margin-bottom:0px;
       					<td scope="col">所在地</td>
       					<td scope="col">意見類別</td>
       					<td scope="col">意見欄</td>
+      					<td scope="col">回覆欄</td>
       					<td scope="col"></td>
     				</tr>
   				</thead>
@@ -232,7 +233,8 @@ margin-bottom:0px;
       					<td>${con.address}</td>
       					<td>${con.opinion}</td>
       					<td>${con.comment}</td>
-      					<td>回覆鈕</td>
+      					<td>${con.feedback}</td>
+      					<td><a href="/Traveler/contactus/${con.pkid}">回覆</a></td>
     				</tr>
     				</c:forEach>
   				</tbody>
@@ -250,7 +252,6 @@ margin-bottom:0px;
 <ul class="me">
 <h2>客服管理</h2>
 <p><a href="/Traveler/contactus/selectopinion" style="color:black">查看留言</a></p>
-<p><a href="/Traveler/contactus/feedbackopinion" style="color:black">回覆留言</a></p>
 <p><a href="/Traveler/contactus/StatisticsReport" style="color:black">統計報表</a></p>
 <a href="contactuspieasia"></a>
 <a href="contactuspieage"></a>

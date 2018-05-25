@@ -142,6 +142,52 @@ input[type=submit]:hover {
 <script src="https://apis.google.com/js/platform.js" defer async="true"></script>
 </head>
 <body onLoad="setFocusToUserId()" style="background: #EBFFEB;">
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '343238696200370',
+      cookie     : true,
+      xfbml      : true,
+      version    : 'Windows 10'
+    });
+      
+    FB.AppEvents.logPageView();   
+      
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+  
+  
+  
+
+  FB.getLoginStatus(function(response) {
+      statusChangeCallback(response);
+  });
+  
+  
+
+  {
+      status: 'connected',
+      authResponse: {
+          accessToken: '...',
+          expiresIn:'...',
+          signedRequest:'...',
+          userID:'...'
+      }
+  }
+  
+  function checkLoginState() {
+	  FB.getLoginStatus(function(response) {
+	    statusChangeCallback(response);
+	  });
+	}
+</script>
 <div style="margin:auto;width:30%" >
 <div class="container" style="padding:center;" >
   <form name="loginForm" action="<c:url value='/member/login.do'/>" method="POST" align="center">
@@ -174,8 +220,10 @@ input[type=submit]:hover {
 <!--       </div> -->
   	<div class="col-md-4" padding="0 0 1px 0">
         <a href="#" class="fb btn">
-          	<i class="fa fa-facebook fa-fw"></i> Login with Facebook
+          	<i class="fa fa-facebook fa-fw" scope="public_profile,email"
+  onlogin="checkLoginState();"></i> Login with Facebook
         </a>
+      
         <a href="#" class="google btn">
         	<i class="fa fa-google fa-fw"></i> Login with Google+
         </a>
@@ -191,6 +239,7 @@ input[type=submit]:hover {
     <div class="col">
       <a href="<spring:url value='/member/queryPwd'/>" style="color:white" class="btn">Forgot password?</a>
     </div>
+
   </div>
 </div>
 </div>

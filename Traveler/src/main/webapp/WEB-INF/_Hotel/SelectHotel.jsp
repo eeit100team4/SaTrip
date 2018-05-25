@@ -335,9 +335,9 @@
 						<div href="#"><img src="/Traveler/images/hotelPic/Korea/Seoul/korSRA/Double/korSRA1.jpeg" alt="Free HTML5 Website Template by FreeHTML5.co" class="img-responsive">
 							<div class="desc">
 								<span></span>
-								<h3>東京</h3>
+								<h3>京都</h3>
 								<span>3 nights</span>
-								<span class="price">$4,550</span>
+								<span class="price">$4,500</span>
 								<a class="btn btn-primary btn-outline" href="DisplayRoom">立即定位<i class="icon-arrow-right22"></i></a>
 							</div>
 						</div>
@@ -346,10 +346,10 @@
 						<div href="#"><img src="/Traveler/images/hotelPic/Korea/JejuIsland/korCRB/Double/korCRB2.jpeg" alt="Free HTML5 Website Template by FreeHTML5.co" class="img-responsive">
 							<div class="desc">
 								<span></span>
-								<h3>大阪</h3>
+								<h3>福岡</h3>
 								<span>4 nights</span>
-								<span class="price">$4,550</span>
-								<a class="btn btn-primary btn-outline" href="DisplayRoom">立即定位<i class="icon-arrow-right22"></i></a>
+								<span class="price">$6,800</span>
+								<a class="btn btn-primary btn-outline" href="DisplayRoom1">立即定位<i class="icon-arrow-right22"></i></a>
 							</div>
 						</div>
 					</div>
@@ -359,8 +359,8 @@
 								<span></span>
 								<h3>北海道</h3>
 								<span>2 nights</span>
-								<span class="price">$4,550</span>
-								<a class="btn btn-primary btn-outline" href="DisplayRoom">立即定位<i class="icon-arrow-right22"></i></a>
+								<span class="price">$6,500</span>
+								<a class="btn btn-primary btn-outline" href="DisplayRoom2">立即定位<i class="icon-arrow-right22"></i></a>
 							</div>
 						</div>
 					</div>
@@ -368,10 +368,10 @@
 						<div href="#"><img src="/Traveler/images/hotelPic/Thailand/Pattaya/taiBRB/Double/taiBRB1.jpeg" alt="Free HTML5 Website Template by FreeHTML5.co" class="img-responsive">
 							<div class="desc">
 								<span></span>
-								<h3>京都</h3>
+								<h3>黑部立山</h3>
 								<span>3 nights</span>
-								<span class="price">$4,550</span>
-								<a class="btn btn-primary btn-outline" href="DisplayRoom">立即定位<i class="icon-arrow-right22"></i></a>
+								<span class="price">$9,500</span>
+								<a class="btn btn-primary btn-outline" href="DisplayRoom3">立即定位<i class="icon-arrow-right22"></i></a>
 							</div>
 						</div>
 					</div>
@@ -381,8 +381,8 @@
 								<span></span>
 								<h3>北海道</h3>
 								<span>4 nights</span>
-								<span class="price">$4,550</span>
-								<a class="btn btn-primary btn-outline" href="DisplayRoom">立即定位<i class="icon-arrow-right22"></i></a>
+								<span class="price">$8,500</span>
+								<a class="btn btn-primary btn-outline" href="DisplayRoom4">立即定位<i class="icon-arrow-right22"></i></a>
 							</div>
 						</div>
 					</div>
@@ -392,8 +392,8 @@
 								<span></span>
 								<h3>鹿兒島</h3>
 								<span>2 nights</span>
-								<span class="price">$4,550</span>
-								<a class="btn btn-primary btn-outline" href="DisplayRoom">立即定位<i class="icon-arrow-right22"></i></a>
+								<span class="price">$7,500</span>
+								<a class="btn btn-primary btn-outline" href="DisplayRoom5">立即定位<i class="icon-arrow-right22"></i></a>
 							</div>
 						</div>
 					</div>
