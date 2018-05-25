@@ -77,6 +77,16 @@ public class ContactusRepositoryImp implements ContactusRepository {
 		session.save(contactus2);
 	}
 
+	@Override
+	public List<ContactusBean> getAllContactus(Integer pkid) {
+		String hql="FROM ContactusBean contactus WHERE contactus.pkid = :pkid";
+		List<ContactusBean> list = new ArrayList<>();
+		Session session = factory.getCurrentSession();
+		list = session.createQuery(hql).setParameter("pkid",pkid).getResultList();
+		return list;
+	
+	}
+
 //	@Override
 //	public void updateFeedback(int pkid, int newQuantity) {
 //		String hql = "UPDATE ContactusBean SET feedback= :newQuantity WHERE pkid=:id";

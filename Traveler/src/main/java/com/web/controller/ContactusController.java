@@ -76,16 +76,14 @@ public class ContactusController {
 	}
 
 
-	@RequestMapping(value="contactus/feedbackopinion/{pkid}")
+	@RequestMapping(path="contactus/feedbackopinion/{pkid}")
 	public String updateForm(Model model,
-			@ModelAttribute("contactusBean") ContactusBean contactus,BindingResult result, 
-			HttpSession session) {
-		MemberBean mb = (MemberBean) session.getAttribute("LoginOK");
+			@ModelAttribute("contactusBean") ContactusBean contactus,@PathVariable ("pkid") Integer pkid) {
 //		List<ContactusBean>  list = contactusService.getAllFeedback();
 //		model.addAttribute("contactus", list);
 		contactusService.updateCustomerOpinion(contactus);
-		session.setAttribute("aa", contactus);
-		return "contactus/selectopinion";		
+		
+		return "redirect:/contactus/selectopinion";	
 		
 	}
 //	
@@ -111,9 +109,9 @@ public class ContactusController {
 	
 	
 	
-	@RequestMapping("contactus/feedbackopinion")
-	public String list2(Model model) {
-		List<ContactusBean> list2=contactusService.getAllContactus();
+	@RequestMapping("/contactus/{pkid}")
+	public String list2(@PathVariable("pkid")Integer pkid,Model model) {
+		List<ContactusBean> list2=contactusService.getAllContactus(pkid);
 		model.addAttribute("contactus", list2);
 		return "contactus/feedbackopinion";
 	}
@@ -136,7 +134,6 @@ public class ContactusController {
 	
 	@RequestMapping("contactus/selectopinion")
 	public String list6(Model model) {
-		MemberBean mb = (MemberBean) session.getAttribute("LoginOK");
 		List<ContactusBean> list2=contactusService.getAllContactus();
 		model.addAttribute("contactus", list2);
 		return "contactus/selectopinion";

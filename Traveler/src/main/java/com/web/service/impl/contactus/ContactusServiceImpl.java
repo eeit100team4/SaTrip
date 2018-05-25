@@ -57,6 +57,11 @@ public class ContactusServiceImpl implements ContactusService {
 		contactusRepository.update(contactus);
 	}
 
+	@Override
+	public List<ContactusBean> getAllContactus(Integer pkid) {
+		return contactusRepository.getAllContactus(pkid);
+	}
+
 	
 
 	

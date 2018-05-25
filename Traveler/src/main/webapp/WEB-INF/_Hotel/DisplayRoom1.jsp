@@ -168,8 +168,8 @@
 		var service;
 		var infowindow;
 		var pyrmont = {
-			lat : 35.007279,
-			lng : 135.768898
+			lat : 34.690360,
+			lng : 135.487151
 		};
 		function initMap() {
 
@@ -403,6 +403,7 @@
 			});
 
 			//加入多個InfoWindow
+
 		
             infowindow = new google.maps.InfoWindow({
                 content: place.name,
@@ -419,7 +420,9 @@
 				animation : google.maps.Animation.DROP,
 				icon : '../icon/hospital.png'
 			});
+
 			//加入多個InfoWindow
+
 
             infowindow = new google.maps.InfoWindow({
                 content: place.name,
@@ -595,7 +598,7 @@
 							</td>
 							<td><h4 style="color:red">NT:7,500</h4></td>
 							<td><a href="OrderRoom" class="btn btn-primary" name="">訂房</a></td>
-						</tr>						
+						</tr>												
 					</tbody>
 				</table>
 			</div>
@@ -603,10 +606,10 @@
 			<div class="col-4">
 				<form action="DisplayRoom" method="get">
 					<div class="card ">
-						<h5 class="card-header bg-danger" style="color: aliceblue">特別優惠：</h5>
+						<h5 class="card-header bg-danger" style="color: aliceblue">今日價格</h5>
 						<div class="card-body">
-							<h3 class="card-title">我們只剩3間</h3>
-							<h1 class="card-title" style="color: red">NT：4,450</h1>
+							<h3 class="card-title"></h3>
+							<h1 class="card-title" style="color: red">NT：6,800</h1>
 							<p class="card-text"></p>
 							<a href="OrderRoom" class="btn btn-primary" name="">立即訂房</a>
 						</div>
