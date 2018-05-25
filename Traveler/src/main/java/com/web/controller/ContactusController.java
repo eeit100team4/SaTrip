@@ -115,11 +115,15 @@ public class ContactusController {
 		model.addAttribute("contactus", list2);
 		return "contactus/feedbackopinion";
 	}
-	@RequestMapping("/contactus/InsertSuccessOpinion")
-	public String insertSuccessopinion(Model model) {
-		List<ContactusBean> insertSuccessopinion=contactusService.getAllContactus();
-		model.addAttribute("contactus", insertSuccessopinion);
-		return "redirect:/contactus/InsertSuccessOpinion";
+
+	@RequestMapping("/contactus/InsertOpinionSuccess")
+	public String instertopinionsuccess(Model model) {
+		List<ContactusBean>  list = contactusService.getAllContactus();
+		model.addAttribute("contactus", list);
+		
+			return "redirect:contactus/InsertOpinionSuccess";
+		
+		
 	}
 	
 	@RequestMapping("contactus/StatisticsReport")

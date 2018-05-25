@@ -166,48 +166,50 @@ color:black;
 						
 						 <table class="tabulation animate-box" style="border:2px #ccc solid;border-radius:10px;width:500px;
 						 background-color:#eee;color:black;height:500px;">
+						
 <%--   			    <c:forEach var='con' items='${contactus}'> --%>
-
+ 				
 						 <tr>
 						<td scope="row" style="width:100px;">姓名:</td>
-						<td>${aa.name}</td>
+						<td>${con.name}</td>
 						</tr>
 						<tr>
 						<td scope="row" style="width:100px;">性別:</td>
-						<td>${aa.sex}</td>
+						<td>${con.sex}</td>
 						</tr>
 						<tr>
 						<td scope="row" style="width:100px;">年齡:</td>
-						<td>${aa.age}</td>
+						<td>${con.age}</td>
 						</tr>
 						<tr>
 						<td scope="row" style="width:100px;">連絡電話:</td>
-						<td>${aa.phone}</td>
+						<td>${con.phone}</td>
 						</tr>
 						<tr>
 						<td scope="row" style="width:100px;">電子信箱:</td>
-						<td>${aa.email}</td>
+						<td>${con.email}</td>
 						</tr>
 						<tr>
 						<td scope="row" style="width:100px;">所在地:</td>
-						<td>${aa.address}</td>
+						<td>${con.address}</td>
 						</tr>
 						<tr>
 						<td scope="row" style="width:100px;">意見類別:</td>
-						<td>${aa.opinion}</td>
+						<td>${con.opinion}</td>
 						</tr>
 						<tr>
 						<td scope="row" style="width:100px;">意見欄:</td>
-					    <td>${aa.comment}</td>
+					    <td>${con.comment}</td>
 					    </tr>
 					    <tr>
 					    <td scope="row" style="width:100px;">留言時間:</td>
-					    <td>${aa.messagetime}</td>
+					    <td>${con.messagetime}</td>
 						</tr>
 					    <tr>
 					    <td scope="row" style="width:100px;">回覆欄:</td>
-					    <td>${aa.feedback}</td>
+					    <td>${con.feedback}</td>
 						</tr>
+						
 <%-- 						</c:forEach> --%>
 						</table>
 					    
