@@ -196,6 +196,7 @@ margin-bottom:0px;
 	}
 	
 </script>
+
 </div>
 	<!-- =========側邊欄位開始============ -->	
 <div id="mwt_mwt_slider_scroll">
