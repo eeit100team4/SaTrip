@@ -159,11 +159,14 @@ color:black;
 <%-- 							<p style=color:black>意見內容:${aa.comment}</p> --%>
 <%-- 							<p style=color:black>回覆內容:${aa.feedback}</p> --%>
 <div class="container" style="padding-top:80px;padding-left:150px">
-				<form action="feedbackopinion" modelAttribute="contactusBean"  enctype='multipart/form-data'>
+<%-- 				<form action="feedbackopinion" modelAttribute="contactusBean"  enctype='multipart/form-data'> --%>
+
+				<form action="feedbackopinion/${pkid}" modelAttribute="contactusBean"  enctype='multipart/form-data'>
 						 <fieldest>
 						
 						 <table class="tabulation animate-box" style="border:2px #ccc solid;border-radius:10px;width:500px;
 						 background-color:#eee;color:black;height:500px;">
+<%--   			    <c:forEach var='con' items='${contactus}'> --%>
 
 						 <tr>
 						<td scope="row" style="width:100px;">姓名:</td>
@@ -201,6 +204,7 @@ color:black;
 					    <td scope="row" style="width:100px;">回覆欄:</td>
 					    <td>${aa.feedback}</td>
 						</tr>
+<%-- 						</c:forEach> --%>
 						</table>
 					    
 

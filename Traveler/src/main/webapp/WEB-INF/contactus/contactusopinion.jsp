@@ -136,7 +136,7 @@ border:1px solid black;
 						<div class="container">
 							<div class="row">
 								<div class="col-sm-5 col-md-5">
-								<div class="tabulation animate-box">
+								<div class="tabulation animate-box"  style="color:black;">
 								<section class='container'>
 <form:form method='POST' action="InsertOpinionSuccess" modelAttribute="contactusBean"  enctype='multipart/form-data'>
 						 <fieldest>
@@ -146,7 +146,8 @@ border:1px solid black;
 						 </div>
 						 <div class='form-group'>
 						 <label for='sex'>性別:</label>
-						 <form:input id='sex' path='sex' type='text'/>
+						 <form:checkbox  path='sex' value="男"/>男
+						 <form:checkbox  path='sex' value="女"/>女
 						 </div>
 						 <div class='form-group'>
 						 <label for='age'>年齡:</label>
@@ -169,7 +170,9 @@ border:1px solid black;
 								<form:select path="opinion" style='color:black'>
 									<form:option value="機票預訂"/>
 									<form:option value="飯店預訂"/>
-									<form:option value="旅遊資訊"/>								
+									<form:option value="旅遊資訊"/>
+									<form:option value="會員服務專區"/>
+									<form:option value="意見回饋"/>								
 									<form:option value="其它"/>
 								</form:select>
 							</div>

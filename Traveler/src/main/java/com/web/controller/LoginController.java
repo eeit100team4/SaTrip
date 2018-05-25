@@ -250,6 +250,8 @@ public class LoginController {
 		}
 	}
 	
+
+	
 	//登出
 	@RequestMapping(value = "/member/logout.do", method = RequestMethod.GET)
 	protected void logout(HttpServletRequest request, HttpServletResponse response)
