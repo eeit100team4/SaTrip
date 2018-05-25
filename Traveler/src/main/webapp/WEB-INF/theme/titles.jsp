@@ -127,8 +127,9 @@ a img:hover {
 <body>
 	<%@ include file="/WEB-INF/frontStageHeader.jsp"%>
 <div class="fh5co-cover" data-stellar-background-ratio="0.5" style="background-color:white">	
+<h1 style="background:black;color:white;text-align:center;height:50px">各式精選主題</h1>
 <div style="margin-left:200px; margin-top:50px;width:1200px;" class="content text-center">	
-<h1 style="color:black">各式主題</h1>
+
   <c:forEach var='titleName' items='${titleList}'> 
    <div style="width:400px; height:250px; float: left; ">
      <a href="products/${titleName}"><img src="/Traveler/images/themeTitle-${titleName}.png" width="350" height="200" style="border:20px #805300 ridge;"></a>      
@@ -140,6 +141,7 @@ a img:hover {
   </c:forEach>
 </div>
 	</div>
+	<h1 style="background:black;color:black;text-align:center;">a</h1>
 	<%@ include file="/WEB-INF/frontStageFooter.jsp"%>
 </body>
 </html>

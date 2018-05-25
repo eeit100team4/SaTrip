@@ -85,17 +85,7 @@
 
 <!-- 手風琴 -->
 <script type="text/javascript" src="jquery-1.10.2.min.js"></script>
-<script type="text/javascript">
-$(function(){
-	$("ul.subs").hide();
-	$("div.main").click(function(){
-		$("ul.subs").hide();
-		if($("+ul",this).css("display")=="none"){
-		   $("+ul",this).show();
-	    }
-	 });
-  });
-</script>
+
 <!-- 測試側邊 -->
 <style>
 #mwt_mwt_slider_scroll
@@ -139,29 +129,7 @@ text-transform:uppercase;
 font-size:12px;
 }
 </style>
-<script type='text/javascript'>
-$(document).ready(function(){
-	$("#mwt_mwt_slider_scroll").animate({ left:'0px' }, 600 ,'swing');
-	$('#mwt_slider_content').css('height', ($(window).height() - 20) + 'px' );
-})
-// $(function(){
-// var w = $("#mwt_slider_content").width();
-// $('#mwt_slider_content').css('height', ($(window).height() - 20) + 'px' ); //將區塊自動撐滿畫面高度
 
-// $("#mwt_fb_tab").mouseover(function(){ //滑鼠滑入時
-// if ($("#mwt_mwt_slider_scroll").css('left') == '-'+w+'px')
-// {
-// $("#mwt_mwt_slider_scroll").animate({ left:'0px' }, 600 ,'swing');
-// }
-// });
-
-
-// $("#mwt_slider_content").mouseleave(function(){　//滑鼠離開後
-// $("#mwt_mwt_slider_scroll").animate( { left:'-'+w+'px' }, 600 ,'swing');
-// });
-// });
-
-</script>
 <style>
 html,body{
 margin:0;
@@ -187,46 +155,21 @@ margin-bottom:0px;
 	
 	<!-- =========側邊欄位開始============ -->	
 <div id="mwt_mwt_slider_scroll">
-<div id="mwt_slider_content"   >
-<div id="nav">
- <ul>
-  <li class="color-blue">
-   <div class="main">主題種類</div>
-   <ul class="subs">
-    <li><a href="themeTitles">瀏覽主題</a></li>
-    <li><a href="addTitle">新增主題</a></li>
-    <li><a href="">修改主題</a></li>
-   </ul>
-  </li>
-  <li class="color-red">
-   <div class="main">旅遊商品</div>
-   <ul class="subs">
-    <li><a href="">依種類查詢</a></li>
-    <li><a href="">新增旅遊商品</a></li>
-    <li><a href="">修改商品細節</a></li>
-   </ul>
-  </li>
-  <li class="color-yellow">
-   <div class="main">管理行程</div>
-   <ul class="subs">
-    <li><a href="">依商品查詢</a></li>
-    <li><a href="">新增行程</a></li>
-    <li><a href="">修改行程</a></li>
-   </ul>
-  </li>
-  <li class="color-green">
-   <div class="main">報名表單</div>
-   <ul class="subs">
-   <li><a href="allApplications">全報名表(依日期)</a></li>
-   <li><a href="">依行程查詢</a></li>
-   <li><a href="">依人名查詢</a></li>
-    <li><a href="">依報名時間查詢</a></li>
-    <li><a href="">依報名人數查詢</a></li>    
-   </ul>
-  </li>
- </ul>
-</div>
-</div>
+	<div id="mwt_slider_content"   >
+		<div id="nav">			 
+			 <ul >
+		 		 <li>
+					<a class="btn btn-primary"href="themeTitles"><font color="white">顯示全部主題</font></a>
+				 </li>
+				  <li >
+				   	<a class="btn btn-primary"href="addTitle"><font color="white">新增主題</font></a>			   
+				  </li>
+				  <li >
+				   	<a class="btn btn-primary"href="allApplications"><font color="white">顯示全報名表</font></a>			   
+				  </li>
+			 </ul>
+		</div>
+	</div>
 </div>
 <!-- =========側邊欄位結束============ -->
 	
