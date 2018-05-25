@@ -32,7 +32,7 @@ public class ThemeJourneys implements Serializable{
 	//建立日期
 	private Timestamp createDate;
 	//價格
-	private Integer price;
+	private String price;
 	//航空公司名
 	private String companyName;
 	//出發班機編號
@@ -89,7 +89,7 @@ public class ThemeJourneys implements Serializable{
 	//帶參數建構子 //放入FK的表格
 	public ThemeJourneys(Integer journeyId, Integer productId, Timestamp setOut,
 			Timestamp returnDay, Timestamp deadline, Timestamp createDate, 
-			Integer price, String companyName, String goPlaneId, String returnPlaneId, 
+			String price, String companyName, String goPlaneId, String returnPlaneId, 
 			Timestamp goStartDate, String goStartHour, String goStartMinute, 
 			Timestamp goEndDate, String goEndHour, String goEndMinute, 
 			String goStartWhere, String goEndWhere, Timestamp returnStartDate, 
@@ -178,10 +178,10 @@ public class ThemeJourneys implements Serializable{
 		this.createDate = createDate;
 	}
 	//價格
-	public Integer getPrice() {
+	public String getPrice() {
 		return price;
 	}
-	public void setPrice(Integer price) {
+	public void setPrice(String price) {
 		this.price = price;
 	}
 	//航空公司名
