@@ -182,8 +182,8 @@ margin-bottom:0px;
 <select id="choose" onchange="TheConfirmBox()">
 	<option disabled=disabled selected=selected>請選擇</option>
 <!-- 	<optgroup label="亞洲區"> -->
-		<option value="http://localhost:8080/Traveler/contactus/contactuspieasia">1~3月份國人出國目的地統計</option>
-		<option value="http://localhost:8080/Traveler/contactus/contactuspieage">1~3月份國人出國年齡地統計</option>
+<!-- 		<option value="http://localhost:8080/Traveler/contactus/contactuspieasia">1~3月份國人出國目的地統計</option> -->
+<!-- 		<option value="http://localhost:8080/Traveler/contactus/contactuspieage">1~3月份國人出國年齡地統計</option> -->
 </select>
 <span id="check" style="color:red;"></span><br>
 <script>
@@ -297,7 +297,6 @@ Highcharts.chart('container', {
 <ul class="me">
 <h2>客服管理</h2>
 <p><a href="selectopinion" style="color:black">查看留言</a></p>
-<p><a href="feedbackopinion" style="color:black">回覆留言</a></p>
 <p><a href="StatisticsReport" style="color:black">統計報表</a></p>
 <a href="contactuspieasia"></a>
 <a href="contactuspieage"></a>
