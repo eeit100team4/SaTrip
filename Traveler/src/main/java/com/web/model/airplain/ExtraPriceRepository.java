@@ -1,5 +1,8 @@
 package com.web.model.airplain;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
@@ -35,6 +38,13 @@ public class ExtraPriceRepository {
 		return null;
 	}
 	
+	public List<ExtraPriceBean> selectAll(){
+		String HQL="FROM ExtraPriceBean";
+		Session sesssion = sessionFactory.getCurrentSession();
+		List<ExtraPriceBean> list= new ArrayList<>();
+		list=sesssion.createQuery(HQL).getResultList();
+		return list;
+	}
 	
 	public void updateExtraPrice(ExtraPriceBean epBean) {
 		sessionFactory.getCurrentSession().update(epBean);

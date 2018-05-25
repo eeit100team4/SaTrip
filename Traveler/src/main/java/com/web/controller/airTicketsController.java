@@ -238,6 +238,10 @@ public class airTicketsController {
 		return "airTickets/flightOrder";
 	}
 
+	@RequestMapping("/testOpay")
+	public String thisISaBook()  {
+		return "airTickets/finishPage";
+	}
 
 
 }

@@ -1,5 +1,7 @@
 package com.web.service.airplain;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +19,10 @@ public class ExtraPriceService {
 
 	public Integer getExtraPrice(String dept,String arrv) {
 		return epr.selectByid(dept,arrv);
+	}
+	
+	public List<ExtraPriceBean> selectALl(){
+		return epr.selectAll();
 	}
 	
 	public void updateExtraPrice(ExtraPriceBean epBean) {

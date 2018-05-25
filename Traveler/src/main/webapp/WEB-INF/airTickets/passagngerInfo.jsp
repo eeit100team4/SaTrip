@@ -229,7 +229,7 @@ function sendGuest(){
 			window.location.assign(responce);
 		},
 		error:function(){
-			alert("error");
+			alert("資料格式有誤");
 		}
 
 	});
