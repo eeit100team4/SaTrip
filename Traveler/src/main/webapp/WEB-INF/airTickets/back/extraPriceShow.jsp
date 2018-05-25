@@ -157,8 +157,76 @@ width:500px;
 }
 </style>
 <script>
-function test(){
-	alert("睡覺");
+
+//點擊input直接修改
+$(document).ready(function() {
+	var before;
+	var detpName;
+	var arrvName;
+	var airLineName;
+	var modifyExtraPrice;
+	var modifyDetial= new FormData();
+
+$("input").dblclick(function() {
+	 
+	$(this).css("background-color", "#FFFFCC");
+	$(this).attr("readonly", false);
+	$(this).keypress(function(e) {
+		// 	    	  console.log(e.which);
+		if (e.which == 13) {
+			$(this).blur();
+			modifyExtraPrice = $(this).val();
+			//出發地
+// 			detpName=$(this).parent("td").prev().prev().prev().text();
+			var id=$(this).parent("td").next().text();
+			//目的地
+			arrvName=$(this).parent("td").prev().prev().text();
+			//航空公司
+			airLineName=$(this).parent("td").prev().text();
+			//將其存成formdata傳給AJAX後端
+			modifyDetial.append("id",id);
+			modifyDetial.append("arrvName",arrvName);
+			modifyDetial.append("airLineName",airLineName);
+			modifyDetial.append("modifyExtraPrice",modifyExtraPrice);
+			//ajax傳送			
+			$.ajax({
+			    type : "post",
+			    url : "/Traveler/airTickets/back/modifyExtraPrice",
+			    data: modifyDetial,
+				contentType : false,
+				processData : false,
+				enctype: "multipart/form-data",
+			    success : function(response) {
+			    	alert("OK");
+			    },
+			    error : function() {
+			        alert('fail');
+			    }
+			});
+			
+		}
+	})
+});
+});
+
+
+// function modifyExtra(){
+// 	$(this).prop('readonly', false);
+// 	alert("gogo");
+// }
+
+function choose(){
+	var chooseAirLine=event.target.value;
+	
+	for(var x=1;x<($(".choose").find("tr").length);x++){
+		var airline=$(".choose").find("tr:eq("+x+")").find("td:eq(1)").text();
+		if(airline!=chooseAirLine){
+			$(".choose").find("tr:eq("+x+")").css("display","none");
+		}else{
+			$(".choose").find("tr:eq("+x+")").css("display","");
+		}
+	};
+	
 }
 
 </script>
@@ -186,21 +254,30 @@ function test(){
 	
 		<div class="d2 content text-center" >
   <h2>ExtraPrice清單</h2>
-  <p>可直接點擊修改</p>            
-  <table class="table table-condensed">
+  <p>可直接點擊修改</p>
+  <button class="btn-info" onclick="choose()" value="東京成田" >東京成田</button>            
+  <button class="btn-info" onclick="choose()" value="東京羽田" >東京羽田</button>            
+  <button class="btn-info" onclick="choose()" value="大阪關西" >大阪關西</button>            
+  <button class="btn-info" onclick="choose()" value="首爾仁川" >首爾仁川</button>            
+  <button class="btn-info" onclick="choose()" value="泰國曼谷" >泰國曼谷</button>            
+  <button class="btn-info" onclick="choose()" value="新加坡" >新加坡</button>            
+  <table class="table table-condensed choose">
     <thead>
       <tr>
-        <th class="text-center" >出發地</th>
-        <th class="text-center">目的地</th>
-        <th class="text-center">ExtraPrice(NT.)</th>
+        <th class="text-center"   width="200px;">出發地</th>
+        <th class="text-center" width="200px;">目的地</th>
+        <th class="text-center" width="200px;">航空公司</th>
+        <th class="text-center" width="200px;">ExtraPrice(NT.)</th>
       </tr>
     </thead>
     <tbody>
     <c:forEach var="list" items="${list}">
-      <tr>
-        <td>${list.dept}</td>
-        <td>${list.arrv}</td>
-        <td  ondblclick="test()"><input size="5" type="text" value="${list.extraPrice}" readonly></td>
+      <tr >
+        <td width="200px;">${list.deptChinese}</td>
+        <td width="200px;">${list.arrvChinese}</td>
+        <td width="200px;">${list.airLine}</td>
+        <td width="200px;"><input size="5" type="text" value="${list.extraPrice}" readonly ></td>
+        <td width="200px;" style="display:none;">${list.id}</td>
       </tr>
 	</c:forEach>
     </tbody>

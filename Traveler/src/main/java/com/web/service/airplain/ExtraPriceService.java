@@ -28,6 +28,10 @@ public class ExtraPriceService {
 	public void updateExtraPrice(ExtraPriceBean epBean) {
 		epr.updateExtraPrice(epBean);
 	}
+	
+	public void updateExtraPrice(Integer extraPrice,Integer id) {
+		epr.updateExtraPrice(extraPrice,id);
+	}
 
 	public ExtraPriceBean selectByidGetBean(String dept, String arrv) {
 		return epr.selectByidGetBean(dept, arrv);

@@ -49,5 +49,12 @@ public class ExtraPriceRepository {
 	public void updateExtraPrice(ExtraPriceBean epBean) {
 		sessionFactory.getCurrentSession().update(epBean);
 	}
+	
+	public void updateExtraPrice(Integer id,Integer extraPirce ) {
+		String HQL="UPDATE extraPrice set extraPrice = :extraPirce "  + 
+	             "WHERE id = :id";
+//		Session sesssion = sessionFactory.getCurrentSession();
+//		sesssion.createQuery(HQL).setParameter("extraPirce", extraPirce).setParameter("id", id).executeUpdate();
+	}
 
 }

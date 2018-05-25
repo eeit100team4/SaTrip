@@ -9,6 +9,10 @@ function extraPrice(){
 	
 }
 
+function extraPriceShow(){
+	window.location.assign("/Traveler/airTickets/back/extraShow")
+}
+
 //function modify(){
 //	alert("修改");
 //}	
