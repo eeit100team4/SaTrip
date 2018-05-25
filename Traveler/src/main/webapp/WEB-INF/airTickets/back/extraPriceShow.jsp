@@ -160,14 +160,17 @@ width:500px;
 
 //點擊input直接修改
 $(document).ready(function() {
+
+
+$("input").dblclick(function() {
+	
 	var before;
 	var detpName;
 	var arrvName;
 	var airLineName;
 	var modifyExtraPrice;
 	var modifyDetial= new FormData();
-
-$("input").dblclick(function() {
+	
 	 
 	$(this).css("background-color", "#FFFFCC");
 	$(this).attr("readonly", false);
@@ -197,7 +200,7 @@ $("input").dblclick(function() {
 				processData : false,
 				enctype: "multipart/form-data",
 			    success : function(response) {
-			    	alert("OK");
+			    	alert("修改完成");
 			    },
 			    error : function() {
 			        alert('fail');
