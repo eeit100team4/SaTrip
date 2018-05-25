@@ -38,7 +38,7 @@
 									<!-- 登入後 -->
 								<li><a href=''><i class="far fa-user-circle"></i><font color="orange">會員專區</font></a>
 									<ul class="fh5co-sub-menu">
-											<li><a href='/Traveler/member/members'>查詢會員資料</a></li>
+											<li><a href="<spring:url value='/member/member?memberId=${member.memberId}'/>">查詢會員資料</a></li>
 											<li><a href='/Traveler/member/updateMember'>修改會員資料</a></li>
 											<li><a href='/Traveler/member/changePwd'>修改密碼</a></li>
 											<li><a href='/Traveler/member/logout.do'>登出</a></li>
