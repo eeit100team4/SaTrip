@@ -314,7 +314,7 @@ function test()
 </div>
 <div class="form-group">
  <label for="extra" class="col-sm-3 control-label" style='font-size:16px;'>備註事項</label>
-  <div class="col-sm-9 controls">
+  <div class="col-sm-6 controls">
    <textarea class="form-control" rows="3" id="extra" name="extra" placeholder="請輸入500字以內"style='font-size:16px;'></textarea>
   </div>
 </div>

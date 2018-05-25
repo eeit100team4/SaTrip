@@ -126,18 +126,20 @@ function showInfo(){
             var currentDateTimeTepm =today.getFullYear()+'/'+month[(today.getMonth())]+'/'+("0" + today.getDate()).slice(-2)+' '+("0" + today.getHours()).slice(-2)+':'+("0" + today.getMinutes()).slice(-2)+':'+("0" + today.getSeconds()).slice(-2)	;
 			var currentDateTime = currentDateTimeTepm.toString();
 			$("#MerchantTradeDate").val(currentDateTime);
-			//將MerchantTradeNo生成為特定格式的20位碼， EX:DXYYYYMMDD000000aaa
+// 			將MerchantTradeNo生成為特定格式的20位碼， EX:DXYYYYMMDD000000aaa
 			var rando="DX"+today.getFullYear()+month[(today.getMonth())]+("0" + today.getDate()).slice(-2)+randomNum()+randomAll();
-			$("#MerchantTradeNo").val(rando);
 			
-             var priceTemp= ${orderList.price};
-              $("#TotalAmount").val(priceTemp);
-              var orderIdTemp="Traveler訂單"+${orderList.orderID};
-              $("#TradeDesc").val(orderIdTemp);
+			$("#MerchantTradeNo").val(rando);
+			console.log($("#MerchantTradeNo").val());
+			
+//              var priceTemp= ${orderList.price};
+//               $("#TotalAmount").val(priceTemp);
+//               var orderIdTemp="Traveler訂單"+${orderList.orderID};
+//               $("#TradeDesc").val(orderIdTemp);
 //               alert( $("#TradeDesc").val(orderIdTemp));
 //               console.log($("#TradeDesc").val()+","+ $("#TotalAmount").val()+","+$("#MerchantTradeDate").val());
-              var partOne="ChoosePayment=Credit&ClientBackURL=http://localhost:8080/Traveler/airTickets/checkOK&CreditInstallment=&EncryptType=1&InstallmentAmount=&ItemName=飛機票&MerchantID=2000132&MerchantTradeDate="+currentDateTime;	  
-              var  partTwo= "&MerchantTradeNo="+rando+"&PaymentType=aio&Redeem=&ReturnURL=http://localhost:8080/Traveler/airTickets/checkOK&StoreID=&TotalAmount="+priceTemp+"&TradeDesc="+orderIdTemp
+              var partOne="ChoosePayment=Credit&ClientBackURL=http://localhost:8080/Traveler/&CreditInstallment=&EncryptType=1&InstallmentAmount=&ItemName=飯店房間&MerchantID=2000132&MerchantTradeDate="+currentDateTime;	  
+              var  partTwo= "&MerchantTradeNo="+rando+"&PaymentType=aio&Redeem=&ReturnURL=http://localhost:8080/Traveler/&StoreID=&TotalAmount=4500&TradeDesc=飯店訂單"
               
               //將查詢字串傳回後台進行加密
               var sendDet=partOne+partTwo;
@@ -198,7 +200,7 @@ function showInfo(){
 								</tr>								
 								<tr class="warning">
 									<td>訂單價格：</td>
-									<td style="color:red">NT$</td>
+									<td style="color:red">NT$ 4,500</td>
 								</tr>									
 							</table>
 						<br>
@@ -227,16 +229,16 @@ function showInfo(){
 <input type="hidden" name="PaymentType" value="aio" /><br />
 
 <!--  TotalAmount 交易金額: -->
-<input type="hidden" name="TotalAmount" id="TotalAmount" value="" /><br />
+<input type="hidden" name="TotalAmount" id="TotalAmount" value="4500" /><br />
 
 <!--  TradeDesc 交易描述: -->
-<input type="hidden" name="TradeDesc" id="TradeDesc" value="" /><br />
+<input type="hidden" name="TradeDesc" id="TradeDesc" value="飯店訂單" /><br />
 
 <!--  ItemName 商品名稱: -->
-<input type="hidden" name="ItemName" value="飛機票" /><br />
+<input type="hidden" name="ItemName" value="飯店房間" /><br />
 
 <!--  ReturnURL 付款完成通知回傳網址: -->
-<input type="hidden" name="ReturnURL" value="http://localhost:8080/Traveler/airTickets/checkOK" /><br />
+<input type="hidden" name="ReturnURL" value="http://localhost:8080/Traveler/" /><br />
 
 <!--  ChoosePayment 預設付款方式: -->
 <input type="hidden" name="ChoosePayment" value="Credit" /><br />
@@ -245,7 +247,7 @@ function showInfo(){
 <input type="hidden" name="StoreID" value="" /><br />
 
 <!--  ClientBackURL Client端返回廠商網址: -->
-<input type="hidden" name="ClientBackURL" value="http://localhost:8080/Traveler/airTickets/checkOK" /><br />
+<input type="hidden" name="ClientBackURL" value="http://localhost:8080/Traveler/" /><br />
 
 <!--  CreditInstallment 刷卡分期期數: -->
 <input type="hidden" name="CreditInstallment" value="" /><br />

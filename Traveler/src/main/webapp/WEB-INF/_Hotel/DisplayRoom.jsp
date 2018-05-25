@@ -603,10 +603,10 @@
 			<div class="col-4">
 				<form action="DisplayRoom" method="get">
 					<div class="card ">
-						<h5 class="card-header bg-danger" style="color: aliceblue">特別優惠：</h5>
+						<h5 class="card-header bg-danger" style="color: aliceblue">今日優惠：</h5>
 						<div class="card-body">
-							<h3 class="card-title">我們只剩3間</h3>
-							<h1 class="card-title" style="color: red">NT：4,450</h1>
+							<h3 class="card-title"></h3>
+							<h1 class="card-title" style="color: red">NT：4,500</h1>
 							<p class="card-text"></p>
 							<a href="OrderRoom" class="btn btn-primary" name="">立即訂房</a>
 						</div>

@@ -170,5 +170,13 @@ public class airTicketsBackController {
 		System.out.println(orderID);
 		return "exist";
 	}
+	
+	@RequestMapping(value = "/modifyExtraPrice", method = RequestMethod.POST)
+	@ResponseBody
+	public String modifyExtraPrice(@RequestParam("id") Integer id,
+			@RequestParam("modifyExtraPrice") Integer modifyExtraPrice) {
+		eps.updateExtraPrice(modifyExtraPrice, id);;
+		return "Ok";
+	}
 
 }
