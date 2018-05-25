@@ -276,7 +276,7 @@ float:right;
 
 <title>Insert title here</title>
 </head>
-<body>
+<body style="background-image: url(/Traveler/images/主題背景用圖1.jpg);">
 
 	<%@ include file="/WEB-INF/backStageHeader.jsp" %>
 
