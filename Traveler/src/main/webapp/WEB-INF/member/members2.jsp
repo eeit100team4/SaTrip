@@ -167,6 +167,39 @@ margin-bottom:0px;
 	<%@ include file="/WEB-INF/backStageHeader.jsp" %>
 
 	<!--=========================要放的東西  =====================-->
+		<div class="row no-gutters" style="padding: 25px 0 0 200px">
+		<div class="container">
+			<table class="table table-hover table-bordered" >
+				<thead>
+					<tr>
+						<th scope="col">會員帳號</th>
+						<th scope="col">會員姓名</th>
+						<th scope="col">會員性別</th>
+						<th scope="col">會員生日</th>
+						<th scope="col">會員email</th>
+						<th scope="col">會員手機</th>
+						<th scope="col">會員地址</th>
+						<th scope="col">註冊時間</th>
+					</tr>
+				</thead>
+				<tbody>
+					<c:forEach var='member' items='${members}'>
+						<tr>
+							<td>${member.memberId}</td>		
+							<td>${member.chineseLastName}${member.chineseFirstName}</</td>		
+							<td>${member.gender}</td>
+							<td>${member.birthday}</td>
+							<td>${member.email}</td>
+							<td>${member.mobile}</td>
+							<td>${member.address}</td>
+							<td>${member.registerTime}</td>
+						</tr>
+
+					</c:forEach>
+				</tbody>
+			</table>
+		</div>
+	</div>
 	
 	<!-- =========側邊欄位開始============ -->	
 <div id="mwt_mwt_slider_scroll">
@@ -177,45 +210,7 @@ margin-bottom:0px;
 </div>
 </div>
 <!-- =========側邊欄位結束============ -->
-	<div class="content text-center">
-	<section>
-		<div class="container" style="text-align: center">
-			<h2 style="padding: 15px 0 0 100px">會員資料</h2>
-			<h4 style="padding: 0 0 0 100px">本網站所有會員資料</h4>
-		</div>
-	</section>
-	<section class="container" style="padding: 0 0 0 100px">
-	<div class="row">
-		<c:forEach var='member' items='${members}'>
-			<div class="col-sm-6 col-md-3" style="width: 360px; height: 400px">
-				<div class="thumbnail" style="width: 320px; height: 360px">
-					<img width='100 height='200'
-					  src="<c:url value='/member/getPicture/${member.memberId}'/>"/>
-					
-					<div class="caption">
-						<p>
-							<b style='font-size: 16px;'>${member.chineseLastName}${member.chineseFirstName}</b>
-						</p>
-						<p>會員帳號：${member.memberId}</p>
-						<p>會員手機：${member.mobile}</p>
-						<p>會員紅利：${member.point}</p>
-						<p>
-						<a href="<spring:url value='./member?memberId=${member.memberId}'/>"
-						class="btn btn-primary"><span
-						class="glyphicon-info-sigh glypicon"></span>詳細資料</a>
-						</p>
-						
-					</div>
-				</div>
-			</div>
-		</c:forEach>
-			
-	</div>
-	<div class="container" style="text-align: center">
-			<input type="button" value="上一頁" onclick="goBack()">
-			</div>
-	</section>
-	</div>
+	
 
 	<%@ include file="/WEB-INF/backStageFooter.jsp" %>
 

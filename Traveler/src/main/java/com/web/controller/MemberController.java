@@ -133,11 +133,11 @@ public class MemberController {
 		return "/member/saveMember";
 	}
 
-	@RequestMapping("/member/members")
-	public String list(Model model) {
+	@RequestMapping({"/member/members{xxx}"})
+	public String list(@PathVariable String xxx, Model model) {
 		List<MemberBean> list = memberService.getAllMembers();
 		model.addAttribute("members", list);
-		return "/member/members";
+		return "/member/members"+ xxx;//xxx + "/" + xxx + "Index"
 	}
 
 	@RequestMapping("/member/member")
