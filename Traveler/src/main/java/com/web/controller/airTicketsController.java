@@ -221,10 +221,13 @@ public class airTicketsController {
 
 		String dep = request.getParameter("dept");
 		String arr = request.getParameter("arrv");
-		 List<ExtraPriceBean> extraP = eps.getExtraPrice(dep, arr);
-		if (extraP != null) {
-			model.addAttribute("extraPrice", extraP);
-		}
+		 List<ExtraPriceBean> extra = eps.getExtraPrice(dep, arr);
+			String extraP = new Gson().toJson(extra);
+			System.out.println(extraP);
+			if (extraP != null) {
+				System.out.println("加價");
+				model.addAttribute("extraPrice", extraP);
+			}
 
 		model.addAttribute("result", result);
 		model.addAttribute("depDate", request.getParameter("depDate"));

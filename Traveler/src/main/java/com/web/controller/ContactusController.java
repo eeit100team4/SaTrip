@@ -72,7 +72,7 @@ public class ContactusController {
 //		session.setAttribute("abc", contactus);
 		contactusService.addCustomerOpinion(contactus2);
 		session.setAttribute("aa", contactus2);
-		return "redirect:/contactus/InsertOpinionSuccess";
+		return "redirect:/contactus/contactusopinion";
 	}
 
 
@@ -114,6 +114,16 @@ public class ContactusController {
 		List<ContactusBean> list2=contactusService.getAllContactus(pkid);
 		model.addAttribute("contactus", list2);
 		return "contactus/feedbackopinion";
+	}
+
+	@RequestMapping("/contactus/InsertOpinionSuccess")
+	public String instertopinionsuccess(Model model) {
+		List<ContactusBean>  list = contactusService.getAllContactus();
+		model.addAttribute("contactus", list);
+		
+			return "redirect:contactus/InsertOpinionSuccess";
+		
+		
 	}
 	
 	@RequestMapping("contactus/StatisticsReport")
