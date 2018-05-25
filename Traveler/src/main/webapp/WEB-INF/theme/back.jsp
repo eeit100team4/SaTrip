@@ -288,17 +288,17 @@ float:right;
   <div id="nav">
    <ul>
     <li>
-     <a class="btn btn-primary" style="text-align:left;" href="themeTitles">瀏覽全部主題</a>
+     <a class="btn btn-primary" style="text-align:left;" href="themeTitles"><h3><font color="white">瀏覽全部主題</font></h3></a>
     </li>
    </ul>
    <ul>
     <li>
-     <a class="btn btn-primary" style="text-align:left;" href="addTitle">新增單一主題</a>
+     <a class="btn btn-primary" style="text-align:left;" href="addTitle"><h3><font color="white">新增單一主題</font></h3></a>
     </li>
    </ul>
     <ul>
      <li>
-      <a class="btn btn-primary" style="text-align:left;" href="allApplications">查看全報名表</a>
+      <a class="btn btn-primary" style="text-align:left;" href="allApplications"><h3><font color="white">查看全報名表</font></h3></a>
      </li> 
     </ul>
    </div>
