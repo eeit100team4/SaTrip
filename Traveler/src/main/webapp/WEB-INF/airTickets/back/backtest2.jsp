@@ -132,6 +132,8 @@ footer {
 	float: right;
 }
 </style>
+<!-- 側邊樣式 -->
+<link rel="stylesheet" href="/Traveler/css/side/side.css">
 
 <!-- Modernizr JS -->
 <script src="/Traveler/js/modernizr-2.6.2.min.js"></script>

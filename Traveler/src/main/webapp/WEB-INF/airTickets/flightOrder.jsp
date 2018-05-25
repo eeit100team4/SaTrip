@@ -909,7 +909,7 @@ $("#mwt_mwt_slider_scroll").animate( { left:'-'+w+'px' }, 600 ,'swing');
 									<c:if test="${empty result}">
 										<div style="margin: 5px;" align="center">
 											<h2 style="color: red">查無航班，請重新搜尋</h2>
-											<a style="font-size: 1em;" href="index.jsp">回首頁</a>
+											<a style="font-size: 1em;" href="/Traveler/">回首頁</a>
 										</div>
 									</c:if>
 								<div align="center">

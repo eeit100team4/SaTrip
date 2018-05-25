@@ -5,16 +5,16 @@
 <!--  <div><button style="margin:10px; color:black" type="button" class="btn" onclick="searchAll()">查詢訂單</button></div> -->
 <!--  <div><button style="margin:10px;" type="button" class="btn" onclick="extraPriceShow()">調整extra價格</button></div> -->
 <!--  <div><button  type="button" class="btn" onclick="statistics()">搜尋次數統計</button></div> -->
-		<div id="nav">			 
+		<div id="nav" style="maring:0px auto;">			 
 			 <ul  style="list-style-type:none;">
 		 		 <li>
-					<a class="btn btn-primary" onclick="searchAll()"><font color="white">查詢訂單</font></a>
+					<a class="btn btn-primary" onclick="searchAll()"><h3><font color="white">查詢訂單</font></h3></a>
 				 </li>
 				  <li >
-				   	<a class="btn btn-primary" onclick="extraPriceShow()"><font color="white">調整extra價格</font></a>			   
+				   	<a class="btn btn-primary" onclick="extraPriceShow()"><h3><font color="white">調整價格</font></h3></a>			   
 				  </li>
 				   <li >
-				   	<a class="btn btn-primary" onclick="statistics()"><font color="white">搜尋次數統計</font></a>			   
+				   	<a class="btn btn-primary" onclick="statistics()"><h3><font color="white">搜尋次數統計</font></h3></a>			   
 				  </li>
 			 </ul>
 		</div>

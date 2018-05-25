@@ -153,9 +153,9 @@ margin:0px auto;
 width:500px;
 }
 
-
-
 </style>
+<!-- 側邊樣式 -->
+<link rel="stylesheet" href="/Traveler/css/side/side.css">
 
 <title>Insert title here</title>
 </head>
