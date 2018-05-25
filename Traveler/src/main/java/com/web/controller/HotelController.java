@@ -70,8 +70,33 @@ public class HotelController {
 
 	// 顯示DisplayRoom
 	@RequestMapping("/_Hotel/DisplayRoom")
-	public String getProductById(Model model) {
+	public String vcvcx(Model model) {
 		return "_Hotel/DisplayRoom";
+	}
+	// 顯示DisplayRoom1
+	@RequestMapping("/_Hotel/DisplayRoom1")
+	public String xzcv(Model model) {
+		return "_Hotel/DisplayRoom1";
+	}
+	// 顯示DisplayRoom2
+	@RequestMapping("/_Hotel/DisplayRoom2")
+	public String bfff(Model model) {
+		return "_Hotel/DisplayRoom2";
+	}
+	// 顯示DisplayRoom3
+	@RequestMapping("/_Hotel/DisplayRoom3")
+	public String kk(Model model) {
+		return "_Hotel/DisplayRoom3";
+	}
+	// 顯示DisplayRoom4
+	@RequestMapping("/_Hotel/DisplayRoom4")
+	public String ttee(Model model) {
+		return "_Hotel/DisplayRoom4";
+	}
+	// 顯示DisplayRoom5
+	@RequestMapping("/_Hotel/DisplayRoom5")
+	public String bbbsd(Model model) {
+		return "_Hotel/DisplayRoom5";
 	}
 	
 	// 顯示OrderRoom
