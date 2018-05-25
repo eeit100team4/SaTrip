@@ -107,26 +107,33 @@
 <!-- Main JS -->
 <script src="/Traveler/js/main.js"></script>
 
-
 <script src="/Traveler/js/airplain/airSearch.js"></script>
 <script src="/Traveler/js/jquery-ui.min.js"></script>
 <link rel="stylesheet" href="/Traveler/js/jquery-ui.min.css">
 
 <!-- 連結旁邊的小ICON套件  -->	
-<script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script> 
+<style>
+a img {
+  border-width:0;
+  opacity:0.75;
+  }
 
+a img:hover {
+  opacity:50;
+}
+</style>
 </head>
 <body>
 	<%@ include file="/WEB-INF/frontStageHeader.jsp"%>
 <div class="fh5co-cover" data-stellar-background-ratio="0.5" style="background-color:white">	
 <div style="margin-left:200px; margin-top:50px;width:1200px;" class="content text-center">	
-<h1 style="color:black">請挑選主題</h1>
-  <c:forEach var='titleName' items='${titleList}'>
+<h1 style="color:black">各式主題</h1>
+  <c:forEach var='titleName' items='${titleList}'> 
    <div style="width:400px; height:250px; float: left; ">
-     <img src="/Traveler/images/themeTitle-${titleName}.png" width="350" height="200">
-     <div style="width:400px; height:250px; float: left; ">
-     <a onmouseover="this.style.color='orange'" onmouseout="this.style.color='black'" style='font-size:25px;color:black;' href="products/${titleName}">${titleName}</a><br>
-     
+     <a href="products/${titleName}"><img src="/Traveler/images/themeTitle-${titleName}.png" width="350" height="200" style="border:20px #805300 ridge;"></a>      
+    <div style="width:400px; height:250px; float: left; ">
+     <a onmouseover="this.style.color='orange'" onmouseout="this.style.color='black'" style='font-size:25px;color:black;' href="products/${titleName}">${titleName}</a><br>     
      </div>
      <br>
    </div>
