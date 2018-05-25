@@ -269,7 +269,7 @@ function noShow(){
 	for(var i=0;i<50;i++){
 		var na=$("#"+i).parents("table").parent("div").prev("div").text();
 		for(var a=0;a<50;a++){
-		if(na.match("7C")||na.match("TW")||na.match("B7")){
+		if(na.match("7C")||na.match("TW")||na.match("B7")||na.match("PR")||na.match("SL")||na.match("XW")){
 			$("#"+i).parents("table").parent("div").parent("div").css("display","none");
 			}
 		}
@@ -304,6 +304,11 @@ function CLOnly(){
 	if(all.length==0){
 		for(var d=0;d<50;d++){
 			$("#"+d).parents("table").parent("div").parent("div").css("display","inline");
+			var na=$("#"+d).parents("table").parent("div").prev("div").text();
+			if(na.match("7C")||na.match("TW")||na.match("B7")||na.match("PR")||na.match("SL")||na.match("XW")){
+					$("#"+d).parents("table").parent("div").parent("div").css("display","none");
+					}
+			
 			}
 	}
 }
@@ -399,6 +404,7 @@ function list(){
 	})
 	$("#ticketResult").html(docFrag);
 	
+	noShow();
 	}
 <!-- 回傳搜尋內容結束-->
 
@@ -599,7 +605,10 @@ function list(){
 								var airLineList=emp.OTA_AirLowFareSearchRS.TPA_Extensions.AirlineOrderList.AirlineOrder;
 								for(var x=0;x<airLineList.length;x++){
 									console.log(airLineList[x].Code);
-									$("#checkbox").append("<input type='checkbox' name='a' value='"+airLineList[x].Code+"' onclick='CLOnly()'' >"+airLineList[x].Code+"<br>");
+									if((airLineList[x].Code!="7C")&&(airLineList[x].Code!="H1")&&(airLineList[x].Code!="SL")&&(airLineList[x].Code!="XW")&&(airLineList[x].Code!="PG")){
+										$("#checkbox").append("<input type='checkbox' name='a' value='"+airLineList[x].Code+"' onclick='CLOnly()'' >"+airLineList[x].Code+"<br>");
+											}
+									
 								};
 								
 							 	
@@ -772,8 +781,8 @@ ul {
 #mwt_mwt_slider_scroll
 {
 top: 100px;
-left:-100px; 
-width:100px;
+left:-200px; 
+width:200px;
 position:fixed; 
 z-index:9999;
 }
@@ -890,10 +899,14 @@ $("#mwt_mwt_slider_scroll").animate( { left:'-'+w+'px' }, 600 ,'swing');
 </div>
 <div id="mwt_slider_content"   >
 <!-- <div class="btn-group-vertical"> -->
-  <button type="button" class="btn-xs btn-primary " onclick='sortByPrice()'>找低價</button>
-  <button type="button" class="btn-xs btn-primary" onclick='sortByTime()'>早出發</button>
-  <button type="button" class="btn-xs btn-primary" onclick='reSearchAdvance()'>提早一天</button>
-  <button type="button" class="btn-xs btn-primary" onclick='reSeatchPostpone()'>延後一天</button>
+  <button type="button" class="btn-primary " onclick='sortByPrice()'>找低價</button>
+  <br><br>
+  <button type="button" class="btn-primary" onclick='sortByTime()'>早出發</button>
+  <br><br>
+  <button type="button" class="btn-primary" onclick='reSearchAdvance()'>提早一天</button>
+  <br><br>
+  <button type="button" class="btn-primary" onclick='reSeatchPostpone()'>延後一天</button>
+  <br><br>
 <!--   <button type="button" class="btn-xs btn-primary" onclick='test()'>兩萬以下</button> -->
 <!--   <button type="button" class="btn-xs btn-primary" onclick='CLOnly()'>華航限定</button> -->
 <!--   <button type="button" class="btn-xs ">Sony</button> -->
