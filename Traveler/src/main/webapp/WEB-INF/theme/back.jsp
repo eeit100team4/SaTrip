@@ -283,27 +283,7 @@ float:right;
 	<!--=========================要放的東西  =====================-->
 	
 	<!-- =========側邊欄位開始============ -->	
-<div id="mwt_mwt_slider_scroll">
- <div id="mwt_slider_content"   >
-  <div id="nav">
-   <ul>
-    <li>
-     <a class="btn btn-primary" style="text-align:left;" href="themeTitles"><h3><font color="white">瀏覽全部主題</font></h3></a>
-    </li>
-   </ul>
-   <ul>
-    <li>
-     <a class="btn btn-primary" style="text-align:left;" href="addTitle"><h3><font color="white">新增單一主題</font></h3></a>
-    </li>
-   </ul>
-    <ul>
-     <li>
-      <a class="btn btn-primary" style="text-align:left;" href="allApplications"><h3><font color="white">查看全報名表</font></h3></a>
-     </li> 
-    </ul>
-   </div>
-  </div>
-</div>
+<%@ include file="/WEB-INF/theme/backLeftSide.jsp" %>
 <!-- =========側邊欄位結束============ -->
 
 	<!--  ========================================================== -->
