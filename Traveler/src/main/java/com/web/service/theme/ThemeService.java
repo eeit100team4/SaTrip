@@ -39,5 +39,7 @@ public interface ThemeService {
 	
 	//報名申請表
 	void addApplications(ThemeApplications application);
-				
+	
+	//依報名表編號抓出一筆備註extra
+	ThemeApplications getExtraByApplicationId(Integer applicationId);
 }

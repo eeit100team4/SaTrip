@@ -113,7 +113,7 @@ public class ThemeRepositoryImpl implements ThemeRepository {
 		return list;	
 	}
 	
-	//依行程編號抓出detail
+	//依行程編號抓出單筆資料detail
 	public ThemeJourneys getDetailsByJourneyId(Integer journeyId){
 		String hql = "FROM ThemeJourneys where journeyId = :journeyId";
 		Session session = factory.getCurrentSession();
@@ -128,4 +128,12 @@ public class ThemeRepositoryImpl implements ThemeRepository {
 	System.out.println(application);
 	session.saveOrUpdate(application);
 		}	
+	
+	//依報名表編號抓出一筆備註extra
+	public ThemeApplications getExtraByApplicationId(Integer applicationId) {
+			String hql = "FROM ThemeApplications where applicationId = :applicationId";
+			Session session = factory.getCurrentSession();
+			ThemeApplications themeApplications = (ThemeApplications) session.createQuery(hql).setParameter("applicationId",applicationId).uniqueResult();
+			return themeApplications;
+		}
 }

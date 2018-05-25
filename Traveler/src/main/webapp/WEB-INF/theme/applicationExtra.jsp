@@ -188,33 +188,25 @@ margin-bottom:0px;
 	<!-- =========側邊欄位開始============ -->	
 <%@ include file="/WEB-INF/theme/backLeftSide.jsp" %>
 <!-- =========側邊欄位結束============ -->
-<hr>
-<div style="color:black;margin-left:250px; margin-top:10px;width:1500px;" class="content text-center">
-<table style='font-size:25px;'>
- <tr style="text-align:center;">
-  <td>出發時間&nbsp;&nbsp;&nbsp;&nbsp;</td>
-  <th>&nbsp;&nbsp;&nbsp;&nbsp;類型</th>
-  <th>&nbsp;&nbsp;&nbsp;&nbsp;商品名稱</th>
-  <th>&nbsp;&nbsp;&nbsp;&nbsp;報名人</th>
-  <th>&nbsp;&nbsp;&nbsp;&nbsp;稱謂</th>
-  <th>&nbsp;&nbsp;&nbsp;&nbsp;人數</th>
-  <th>&nbsp;&nbsp;&nbsp;&nbsp;電話</th>
-  <th>&nbsp;&nbsp;&nbsp;&nbsp;</th>
- </tr >
- <c:forEach var='applications' items='${applications}'>
-  <tr style="text-align:left;">
-   <td><fmt:formatDate value="${applications.themeJourneys.setOut}" pattern="yyyy/MM/dd" /></td>
-   <td>&nbsp;&nbsp;&nbsp;&nbsp;${applications.themeJourneys.themeProducts.themeTitles.titleName}</td>
-   <td>&nbsp;&nbsp;&nbsp;&nbsp;${applications.themeJourneys.themeProducts.productName}</td>
-   <td>&nbsp;&nbsp;&nbsp;&nbsp;${applications.name}</td>
-   <td>&nbsp;&nbsp;&nbsp;&nbsp;${applications.gender}</td>
-   <td>&nbsp;&nbsp;&nbsp;&nbsp;${applications.people}人</td>
-   <td>&nbsp;&nbsp;&nbsp;&nbsp;${applications.cellPhone}</td>
-   <td><a href="../theme/allApplications/${applications.applicationId}">點擊查看更多詳細內容</a></td></tr>
- </c:forEach>
-</table>	
+  <hr>
+<div style="color:black;margin-left:100px; margin-top:10px;width:1500px;" class="content text-center">
+  <h1>詳細內容</h1>   
+    <h2>報名人相關資訊</h2><br>
+     <b>報名表編號:${extra.applicationId}</b><br>
+     <b>姓名:${extra.name}</b><br>
+     <b>稱謂:${extra.gender}</b><br>
+     <b>人數:${extra.people}</b><br>
+     <b>電話:${extra.cellPhone}</b><br>
+     <b>可連絡時間:${extra.callTime}</b><br>
+     <b>服務據點:${extra.location}</b><br>
+    <h2>套裝行程相關資訊</h2><br>
+     <b>旅遊行程編號:${extra.themeJourneys.themeProducts.themeTitles.titleName}${extra.journeyId}</b><br>
+     <b>旅遊商品名稱:${extra.themeJourneys.themeProducts.productName}</b><br>
+     <b>出團費用:${extra.themeJourneys.price}</b><br>
+    
+      
+
 </div>
-<hr>
 	<!--  ========================================================== -->
 
 

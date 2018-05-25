@@ -40,4 +40,7 @@ public interface ThemeRepository {
 	
 	//報名 在欄位輸入報名資料
 	void addApplications(ThemeApplications application);
+	
+	//依報名表編號抓出一筆備註extra
+	ThemeApplications getExtraByApplicationId(Integer applicationId);
 }

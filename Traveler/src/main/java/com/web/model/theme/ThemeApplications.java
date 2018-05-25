@@ -1,6 +1,8 @@
 package com.web.model.theme;
 
 import java.io.Serializable;
+import java.sql.Timestamp;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -32,8 +34,10 @@ public class ThemeApplications implements Serializable {
 	private String callTime;
 	//服務據點
 	private String location;
-	//報名日期
+	//備註
 	private String extra;
+	//最終處理時間
+	private Timestamp terminate;
 	
 	//FK的表格
 	private ThemeJourneys themeJourneys;
@@ -51,7 +55,7 @@ public class ThemeApplications implements Serializable {
 	
 	//帶參數建構子 //加入FK表格
 	public ThemeApplications(Integer applicationId, Integer journeyId, String name, String gender, String cellPhone, Integer people,
-			String callTime, String location, String extra, ThemeJourneys themeJourneys, 
+			String callTime, String location, String extra, Timestamp terminate, ThemeJourneys themeJourneys, 
 			ThemeProducts themeProducts, ThemeTitles themeTitles) {
 		super();
 		this.applicationId = applicationId;
@@ -63,6 +67,7 @@ public class ThemeApplications implements Serializable {
 		this.callTime = callTime;
 		this.location = location;
 		this.extra = extra;
+		this.terminate = terminate;
 		this.themeJourneys = themeJourneys;
 		this.themeProducts = themeProducts;
 		this.themeTitles = themeTitles;
@@ -129,11 +134,18 @@ public class ThemeApplications implements Serializable {
 	public void setExtra(String extra) {
 		this.extra = extra;
 	}
+	public Timestamp getTerminate() {
+		return terminate;
+	}
+	public void setTerminate(Timestamp terminate) {
+		this.terminate = terminate;
+	}
+	
 	@Override
 	public String toString() {
 		return "ThemeApplications [applicationId=" + applicationId + ", journeyId=" + journeyId + ", name=" + name
 				+ ", gender=" + gender + ", cellPhone=" + cellPhone + ", people=" + people + ", callTime=" + callTime + ", location="
-				+ location + ", extra=" + extra + ", themeJourneys=" + themeJourneys + ", themeProducts=" 
+				+ location + ", extra=" + extra + ", terminate=" + terminate + ", themeJourneys=" + themeJourneys + ", themeProducts=" 
 				+ themeProducts  + ", themeTitles=" + themeTitles + "]";
 	}
 	

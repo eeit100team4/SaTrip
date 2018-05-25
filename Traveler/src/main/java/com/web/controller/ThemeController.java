@@ -67,7 +67,7 @@ public class ThemeController {
 		return "theme/journeys";
 	}
 	
-	//依行程編號抓出detail
+	//依行程編號抓出單筆detail
 	@RequestMapping("/theme/products/{titleName}/{productName}/{journeyId}")
 	public String getDetailsByJourneyId(@PathVariable("journeyId") Integer journeyId, Model model) {
 	ThemeJourneys list = themeService.getDetailsByJourneyId(journeyId);
