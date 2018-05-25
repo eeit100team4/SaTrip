@@ -50,11 +50,24 @@ public class ExtraPriceRepository {
 		sessionFactory.getCurrentSession().update(epBean);
 	}
 	
-	public void updateExtraPrice(Integer id,Integer extraPirce ) {
-		String HQL="UPDATE extraPrice set extraPrice = :extraPirce "  + 
+	public List<ExtraPriceBean> getExtraPrice(String dept ,String arrv) {
+		Query<ExtraPriceBean> query = sessionFactory.getCurrentSession()
+			      .createQuery("FROM ExtraPriceBean WHERE dept=? AND arrv=?",ExtraPriceBean.class);
+	    query.setParameter(0,dept).setParameter(1,arrv);
+	    List<ExtraPriceBean> result = query.getResultList();
+	    System.out.println(dept+","+arrv);
+	    if(result!=null) {
+	    	return result;
+	    }
+	return null;
+	}
+	
+	public void updateExtraPrice(Integer extraPrice,Integer id ) {
+		String HQL="UPDATE ExtraPriceBean set extraPrice = :extraPrice "  + 
 	             "WHERE id = :id";
-//		Session sesssion = sessionFactory.getCurrentSession();
-//		sesssion.createQuery(HQL).setParameter("extraPirce", extraPirce).setParameter("id", id).executeUpdate();
+		System.out.println("在RE中"+id+","+extraPrice);
+		Session sesssion = sessionFactory.getCurrentSession();
+		sesssion.createQuery(HQL).setParameter("extraPrice", extraPrice).setParameter("id", id).executeUpdate();
 	}
 
 }
