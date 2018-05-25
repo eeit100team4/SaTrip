@@ -16,7 +16,7 @@ public interface CommodityDAO {
 	 
 		CommodityBean getCommodityById(int commodityid);
 	
-	List<CommodityBean> getCommodityByKind(String kind);
+	List<CommodityBean> getCommodityByKind(String kind,int sort);
 	
 
 	 void update(CommodityBean bean);
@@ -24,4 +24,8 @@ public interface CommodityDAO {
 	 void addCommodityA(CommodityBean bean);
 	 
 //	void delete(String title);
+	 
+	    List<CommodityBean> getAllPoint(String kind);
+		List<CommodityBean> getAllPointdesc(String kind);
+	 
 	}

@@ -137,7 +137,7 @@ function showInfo(){
 //               alert( $("#TradeDesc").val(orderIdTemp));
 //               console.log($("#TradeDesc").val()+","+ $("#TotalAmount").val()+","+$("#MerchantTradeDate").val());
               var partOne="ChoosePayment=Credit&ClientBackURL=http://localhost:8080/Traveler/airTickets/checkOK&CreditInstallment=&EncryptType=1&InstallmentAmount=&ItemName=飛機票&MerchantID=2000132&MerchantTradeDate="+currentDateTime;	  
-              var  partTwo= "&MerchantTradeNo="+rando+"&PaymentType=aio&Redeem=&ReturnURL=http://localhost:8080/Traveler/airTickets/testOpay&StoreID=&TotalAmount="+priceTemp+"&TradeDesc="+orderIdTemp
+              var  partTwo= "&MerchantTradeNo="+rando+"&PaymentType=aio&Redeem=&ReturnURL=http://localhost:8080/Traveler/airTickets/checkOK&StoreID=&TotalAmount="+priceTemp+"&TradeDesc="+orderIdTemp
               
               //將查詢字串傳回後台進行加密
               var sendDet=partOne+partTwo;
@@ -170,79 +170,41 @@ function showInfo(){
 <body>
 	<div id="fh5co-wrapper">
 		<div id="fh5co-page">
-	<%@ include file="../frontStageHeader.jsp" %>
+	<%@ include file="/WEB-INF/frontStageHeader.jsp"%>
 
 			<!-- end:header-top -->
-
+				<br>
+				<br>
 			<div class="text-center" style="width:65%;margin:10px auto;">
 				<div class="row ">
 					<div class="col-lg-12 text-center">
 						<div class="table-responsive">
-						<div style="margin-top:20px;" ><h2><span class="label label-warning">訂單明細</span></h2></div>
+						<div style="margin-top:20px;" ><h2><span class="label label-warning"></span></h2></div>
 							<table class="table table-bordered table-condensed">
 								<tr>
-									<th class="text-center" colspan="2">訂單號碼 ：${orderList.orderID}</th>
+									<th class="text-center cor-lg-12" colspan="2">訂單編號 ：</th>
 								</tr>
 								<tr class="warning">
-									<td class="cor-lg-2" >去程</td>
-									<td class="col-lg-10">${orderList.depDate} ${orderList.depT} ${orderList.depC} ~ <c:if test="${orderList.arrTnextDay!=null}">${orderList.depDate}</c:if>${orderList.arrTnextDay} ${orderList.arrT}  ${orderList.arrC}</td>
+									<td  class="cor-lg">訂購狀態：</td>
+									<td class="col-lg"><font color="orange"><b>未確認</b></font></td>
 								</tr>
 								<tr class="warning">
-									<td>回程</td>
-									<td>${orderList.returnDate} ${orderList.returnTime} ${orderList.arrC} ~  <c:if test="${orderList.returnArrTnextDay!=null}">${orderList.returnDate}</c:if>${orderList.returnArrTnextDay}  ${orderList.returnArrTime}  ${orderList.depC}</td>
+									<td>訂單時間：</td>
+									<td><font color="orange"><b>06/01/2018</b></font></td>
 								</tr>
 								<tr class="warning">
-									<td>航空公司</td>
-									<td>${orderList.airline}</td>
-								</tr>
+									<td>房間類型：</td>
+									<td><font color="orange"><b>雙人房</b></font></td>
+								</tr>								
 								<tr class="warning">
-									<td>人數</td>
-									<td >${orderList.person}</td>
-								</tr>
-								<tr class="warning">
-									<td>總價格</td>
-									<td style="color:red">NT$ ${orderList.price}</td>
-								</tr>
-									<tr class="warning">
-									<td>獲得紅利</td>
-									<td >${orderList.redPoint}</td>
-								</tr>
+									<td>訂單價格：</td>
+									<td style="color:red">NT$</td>
+								</tr>									
 							</table>
-							
-							<div align="left"><button  style="margin:10px;" type="button" class="btn btn-info" onclick="showInfo()" >旅客資訊</button></div>
-							
-	<div id="guestInfo" style="width:500px;display:none	">
-    <table class="text-center table table-hover">
-    <thead>
-      <tr>
-        <th class="col-lg-2 text-center">Firstname</th>
-        <th class="col-lg-2 text-center">Lastname</th>
-        <th class="col-lg-3 text-center">護照號碼</th>
-        <th class="col-lg-3 text-center">生日</th>
-        <th class="col-lg-2 text-center">性別</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>${guestBean.guestOneFirstName}</td>
-        <td>${guestBean.guestOneLastName}</td>
-        <td>${guestBean.guestOnepassportNum}</td>
-        <td><fmt:formatDate value="${guestBean.guestOneBirth}" pattern="yyyy-MM-dd" /></td>
-        <td>${guestBean.guestOneGender}</td>
-      </tr>
-     <c:if test="${orderList.person==2}">
-      <tr>
-       <td>${guestBean.guestTwoFirstName}</td>
-        <td>${guestBean.guestTwoLastName}</td>
-        <td>${guestBean.guestTwopassportNum}</td>
-         <td><fmt:formatDate value="${guestBean.guestTwoBirth}" pattern="yyyy-MM-dd" /></td>
-        <td>${guestBean.guestTwoGender}</td>
-      </tr>
-      </c:if>
-    </tbody>
-  </table>
-  <button  style="margin: 0px;"  type="button" class="text-left btn-xs btn-warning" onclick="back()">修改旅客資料</button>
-</div>
+						<br>
+						<br>
+						
+						
 							
 							
 							
@@ -274,7 +236,7 @@ function showInfo(){
 <input type="hidden" name="ItemName" value="飛機票" /><br />
 
 <!--  ReturnURL 付款完成通知回傳網址: -->
-<input type="hidden" name="ReturnURL" value="http://localhost:8080/Traveler/airTickets/testOpay" /><br />
+<input type="hidden" name="ReturnURL" value="http://localhost:8080/Traveler/airTickets/checkOK" /><br />
 
 <!--  ChoosePayment 預設付款方式: -->
 <input type="hidden" name="ChoosePayment" value="Credit" /><br />

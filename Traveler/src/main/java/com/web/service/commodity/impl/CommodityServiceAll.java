@@ -46,9 +46,9 @@ public class CommodityServiceAll implements CommodityService {
 
 	
 	@Override
-	public List<CommodityBean> getCommodityByKind(String kind) {
+	public List<CommodityBean> getCommodityByKind(String kind,int sort) {
 	
-		return commoditydao.getCommodityByKind(kind);
+		return commoditydao.getCommodityByKind(kind,sort);
 	}
 
 
@@ -63,4 +63,23 @@ public class CommodityServiceAll implements CommodityService {
 	public void addCommodityA(CommodityBean bean) {
 	    commoditydao.addCommodityA(bean);
 	}
+	
+	@Override
+	public List<CommodityBean> getAllPoint(String kind) {
+		
+		return commoditydao.getAllPoint(kind);	
+				
+	}
+
+	@Override
+	public List<CommodityBean> getAllPointdesc(String kind) {
+		
+		return commoditydao.getAllPointdesc(kind);
+	}
+	
+	
+	
+	
+	
+	
 }

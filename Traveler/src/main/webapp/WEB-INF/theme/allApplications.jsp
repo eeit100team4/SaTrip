@@ -228,30 +228,32 @@ margin-bottom:0px;
 </div>
 </div>
 <!-- =========側邊欄位結束============ -->
-	<hr>
-	
-	
-	
-		
-		<div style="margin-left:300px; margin-top:10px;width:900px;" class="content text-center">
-<c:forEach var='applications' items='${applications}'>
-  <div style="width:300px; height:200px; float: left; ">
-    <p>
-    <b style='font-size:16px;'>類型:${applications.themeJourneys.themeProducts.themeTitles.titleName}</b><br>
-    <b style='font-size:16px;'>商品名稱:${applications.themeJourneys.themeProducts.productName}</b><br>
-    <b style='font-size:16px;'>出發日期:<fmt:formatDate value="${applications.themeJourneys.setOut}" pattern="yyyy/MM/dd" /></b><br>
-    <b style='font-size:16px;'>報名人:${applications.name}</b><br>
-    <b style='font-size:16px;'>稱謂:${applications.gender}</b><br>
-    <b style='font-size:16px;'>連絡電話:${applications.cellPhone}</b><br>
-    <b style='font-size:16px;'>備註:${applications.extra}</b><br>
-    
-    
-    </p>
-  </div>
+<hr>
+<div style="color:black;margin-left:250px; margin-top:10px;width:1500px;" class="content text-center">
+<table style='font-size:25px;'>
+ <tr style="text-align:center;">
+  <td>出發時間&nbsp;&nbsp;&nbsp;&nbsp;</td>
+  <th>&nbsp;&nbsp;&nbsp;&nbsp;類型</th>
+  <th>&nbsp;&nbsp;&nbsp;&nbsp;商品名稱</th>
+  <th>&nbsp;&nbsp;&nbsp;&nbsp;報名人</th>
+  <th>&nbsp;&nbsp;&nbsp;&nbsp;稱謂</th>
+  <th>&nbsp;&nbsp;&nbsp;&nbsp;人數</th>
+  <th>&nbsp;&nbsp;&nbsp;&nbsp;電話</th>
+  <th>&nbsp;&nbsp;&nbsp;&nbsp;備註</th>
+ </tr >
+ <c:forEach var='applications' items='${applications}'>
+  <tr style="text-align:left;">
+   <td><fmt:formatDate value="${applications.themeJourneys.setOut}" pattern="yyyy/MM/dd" /></td>
+   <td>&nbsp;&nbsp;&nbsp;&nbsp;${applications.themeJourneys.themeProducts.themeTitles.titleName}</td>
+   <td>&nbsp;&nbsp;&nbsp;&nbsp;${applications.themeJourneys.themeProducts.productName}</td>
+   <td>&nbsp;&nbsp;&nbsp;&nbsp;${applications.name}</td>
+   <td>&nbsp;&nbsp;&nbsp;&nbsp;${applications.gender}</td>
+   <td>&nbsp;&nbsp;&nbsp;&nbsp;${applications.people}人</td>
+   <td>&nbsp;&nbsp;&nbsp;&nbsp;${applications.cellPhone}</td>
+   <td>&nbsp;&nbsp;&nbsp;&nbsp;${applications.extra}</td></tr>
  </c:forEach>
-		
-		
-		</div>
+</table>	
+</div>
 <hr>
 	<!--  ========================================================== -->
 

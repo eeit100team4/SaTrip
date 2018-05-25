@@ -73,7 +73,7 @@ public class airTicketsController {
 
 		if (result == null) {
 			System.out.println("壞查詢");
-			String error="條件錯誤，請重新搜尋";
+			String error="查無機票";
 			model.addAttribute("error",error);
 //			return "redirect:/";
 			return "index";
@@ -238,6 +238,10 @@ public class airTicketsController {
 		return "airTickets/flightOrder";
 	}
 
+	@RequestMapping("/testOpay")
+	public String thisISaBook()  {
+		return "airTickets/finishPage";
+	}
 
 
 }

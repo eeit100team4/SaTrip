@@ -1,4 +1,5 @@
-	<%@ page language="java" contentType="text/html; charset=UTF-8"
+
+<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
@@ -153,7 +154,7 @@
 	href="https://use.fontawesome.com/releases/v5.0.9/css/fontawesome.css"
 	integrity="sha384-Lyz+8VfV0lv38W729WFAmn77iH5OSroyONnUva4+gYaQTic3iI2fnUKtDSpbVf0J"
 	crossorigin="anonymous">
-	
+
 <!-- (原廠設定)Animate.css -->
 <link rel="stylesheet" href="/Traveler/css/animate.css">
 
@@ -177,21 +178,18 @@
 <link rel="stylesheet" href="/Traveler/css/cs-skin-border.css">
 <link rel="stylesheet" href="/Traveler/css/style.css">
 <style>
-.sp1{
-font-size:1.5em;
-font-weight:900;
-padding-left:20px;
-
+.sp1 {
+	font-size: 1.5em;
+	font-weight: 900;
+	padding-left: 20px;
 }
 </style>
-
-
 
 <title>Insert title here</title>
 </head>
 <body>
 
-   <%@ include file="/WEB-INF/frontStageHeader.jsp"%>
+	<%@ include file="/WEB-INF/frontStageHeader.jsp"%>
 
 	<div id="fh5co-blog-section" class="fh5co-section-gray">
 
@@ -200,57 +198,57 @@ padding-left:20px;
 				<div
 					class="col-md-8 col-md-offset-2 text-center heading-section animate-box">
 					<h3>紅利商品</h3>
-					<span class="sp1"><a href="/Traveler/comm/1/0"> 迪士尼海洋 </a> </span>
-					<span class="sp1"><a href="/Traveler/comm/2/0"> 迪士尼樂園 </a> </span>
-					<span class="sp1"><a href="/Traveler/comm/3/0"> 環球影城電影 </a> </span>	
-					<span class="sp1"><a href="/Traveler/comm/4/0"> 環球影城動畫 </a> </span>	
-					<span class="sp1"><a href="/Traveler/comm/5/0"> 禮券 </a> </span>		
-               
+					<span class="sp1"><a href="/Traveler/comm/1"> 迪士尼海洋 </a> </span> <span
+						class="sp1"><a href="/Traveler/comm/2"> 迪士尼樂園 </a> </span> <span
+						class="sp1"><a href="/Traveler/comm/3"> 環球影城電影 </a> </span> <span
+						class="sp1"><a href="/Traveler/comm/4"> 環球影城動畫 </a> </span> <span
+						class="sp1"><a href="/Traveler/comm/5"> 禮券 </a> </span>
+
 				</div>
 			</div>
 		</div>
 
-
-<!-- 	排列按鈕	=================	 -->
-			<div class="dropdown"  style="padding-left:220px;padding-bottom:20px"> 
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      排列功能
-  </button>
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <a class="dropdown-item" href="/Traveler/comm/${kinds}/0">依紅利點數由小到大</a>
-    <a class="dropdown-item" href="/Traveler/comm/${kinds}/1">依紅利點數由大到小</a>    
-  </div>
-</div>
-    <!-- 		=================	 -->
-
-
+		<!-- 		排列按鈕=================	 -->
+		<div class="dropdown" style="padding-left:220px;padding-bottom:20px">
+			<button class="btn btn-secondary dropdown-toggle" type="button"
+				id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+				aria-expanded="false">排列功能</button>
+			<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+				<a class="dropdown-item" href="/Traveler/commlistpoint/0">依紅利點數由小到大</a>
+				<a class="dropdown-item" href="/Traveler/commlistpointdesc/0">依紅利點數由大到小</a>
+			</div>
+		</div>
+		<!-- 		=================	 -->
 
 		<div class="container">
 
 			<div class="row row-bottom-padded-md">
-			
+
 				<c:forEach var='comm' items='${commlist}'>
 					<div class="col-lg-4 col-md-4 col-sm-6">
 						<div class="fh5co-blog animate-box">
-													
+
 							<div class="blog-text">
-																	
+
 								<div class="prod-title">
-								<div style= "padding-left:50px;padding-bottom:30px;">
-									<img width='180' height='180' 
-										src="<c:url value='/getPicture/${comm.commodityid}'/>" onMouseOver="this.width=this.width*1.2;this.height=this.height*1.2" onMouseOut="this.width=this.width/1.2;this.height=this.height/1.2" />
-									</div>	
-                                    <h2 style="text-align:center">${comm.name}</h2>
-<!-- 										<span class="posted_by">Sep. 15th</span>  -->
-<!-- 								<span class="comment"><a href="">QQQQQ<i class="icon-bubble2"></i></a></span> -->
-									<h3 style="text-align:center">兌換點數 :${comm.point}點</h3>
-									<h3 style="text-align:center">剩餘數量:${comm.quantity}個</h3>
-									
-									<div style="padding-left:100px">
-									<a class="btn btn-warning" href="/Traveler/tsuikaClient/${comm.commodityid}" role="button">兌換</a>
-                                   
+									<div style="padding-left: 50px; padding-bottom: 30px;">
+										<img width='180' height='180' id='img1'
+											src="<c:url value='/getPicture/${comm.commodityid}'/>"
+											onMouseOver="this.width=this.width*1.2;this.height=this.height*1.2"
+											onMouseOut="this.width=this.width/1.2;this.height=this.height/1.2" />
 									</div>
-									
+									<h2 style="text-align: center">${comm.name}</h2>
+									<!-- 										<span class="posted_by">Sep. 15th</span>  -->
+									<!-- 								<span class="comment"><a href="">QQQQQ<i class="icon-bubble2"></i></a></span> -->
+									<h3 style="text-align: center">兌換點數 :${comm.point}點</h3>
+									<h3 style="text-align: center">剩餘數量:${comm.quantity}個</h3>
+
+									<div style="padding-left: 100px">
+										<a class="btn btn-warning"
+											href="/Traveler/tsuikaClient/${comm.commodityid}" role="button">兌換</a>
+
+									</div>
+
 								</div>
 							</div>
 						</div>
@@ -261,7 +259,16 @@ padding-left:20px;
 	</div>
 
 
+
 	<%@ include file="/WEB-INF/frontStageFooter.jsp"%>
+
+
+	<!-- <script> -->
+
+	<!-- // document.addEventLisener(DOMCont ) -->
+
+
+	<!-- </script> -->
 
 
 

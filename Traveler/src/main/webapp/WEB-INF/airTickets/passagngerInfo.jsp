@@ -127,7 +127,6 @@ function entry(){
 $("#guestTwoName").val("王建明");
 $("#guestTwoLastName").val("Wang");
 $("#guestTwoFirstName").val("Chien-Ming");
-$("#guestTwopassportNum").val("334567895");
 $("#guestTwoBirth").val("1980-03-31");
 $("#m1").prop("checked", true);
 $("#m2").prop("checked", true);
@@ -198,34 +197,21 @@ function sendGuest(){
     }else if($("#guestOneFirstName").val()==""){
         alert("你尚未填寫旅客英文名字");
         eval("document.form['guestOneFirstName'].focus()");  
-    }else if($("#guestOnepassportNum").val()==""){
-        alert("你尚未填寫旅客護照號碼");
-        eval("document.form['guestOnepassportNum'].focus()");  
     }else if($("#guestOneBirth").val()==""){
         alert("你尚未填寫旅客生日");
         eval("document.form['guestOneBirth'].focus()");  
     }else if($("#contactPhone").val()==""){
-        alert("你尚未填寫手機");
-        eval("document.form['contactPhone'].focus()");  
+        alert("你尚未填寫旅客名字");
+        eval("document.form['guestTwoName'].focus()");  
     }else if($("#contactPhone").val()==""){
-        alert("你尚未填寫手機");
-        eval("document.form['contactPhone'].focus()");  
+        alert("你尚未填寫旅客英文名字");
+        eval("document.form['guestTwoLastName'].focus()");  
     }else if($("#contactPhone").val()==""){
-        alert("你尚未填寫手機");
-        eval("document.form['contactPhone'].focus()");  
+        alert("你尚未填寫英文名字");
+        eval("document.form['guestTwoFirstName'].focus()");  
     }else if($("#contactPhone").val()==""){
-        alert("你尚未填寫手機");
-        eval("document.form['contactPhone'].focus()");  
-    }else if($("#contactPhone").val()==""){
-        alert("你尚未填寫手機");
-        eval("document.form['contactPhone'].focus()");  
-    }else if($("#contactPhone").val()==""){
-        alert("你尚未填寫手機");
-        eval("document.form['contactPhone'].focus()");  
-    }else if($("#contactPhone").val()==""){
-        alert("你尚未填寫手機");
-        eval("document.form['contactPhone'].focus()");  
-        
+        alert("你尚未填寫旅客生日");
+        eval("document.form['guestTwoBirth'].focus()");  
     }else{
 
 	
@@ -243,7 +229,7 @@ function sendGuest(){
 			window.location.assign(responce);
 		},
 		error:function(){
-			alert("error");
+			alert("資料格式有誤");
 		}
 
 	});
@@ -381,10 +367,6 @@ var birthday="<fmt:formatDate value="${memberBean.birthday}" pattern="yyyy-MM-dd
                 <input type="text" name="guestOneFirstName" id="guestOneFirstName" maxlength="10" value="${memberBean.englishFirstName}" >
             </div>
             <div class="st1">
-                <label for="guestOnepassportNum" class="lab">護照號碼</label>
-                <input type="text" name=guestOnepassportNum id="guestOnepassportNum" value="${memberBean.passportNumber}" >
-            </div>
-            <div class="st1">
                 <label for="guestOneBirth" class="lab">生日</label>
                 <input type="text" name="guestOneBirth" id="guestOneBirth" placeholder="YYYY-MM-DD"  pattern="yyyy-MM-dd" />
             </div>
@@ -411,10 +393,6 @@ var birthday="<fmt:formatDate value="${memberBean.birthday}" pattern="yyyy-MM-dd
              <div class="st1">
                 <label for="guestTwoFirstName" class="lab">英文名</label>
                 <input type="text" name="guestTwoFirstName" id="guestTwoFirstName" maxlength="10">
-            </div>
-            <div class="st1">
-                <label for="guestTwopassportNum" class="lab">護照號碼</label>
-                <input type="text" name=guestTwopassportNum id="guestTwopassportNum">
             </div>
             <div class="st1">
                 <label for="guestTwoBirth" class="lab">生日</label>

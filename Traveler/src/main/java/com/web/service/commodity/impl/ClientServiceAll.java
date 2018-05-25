@@ -21,10 +21,12 @@ public class ClientServiceAll implements ClientService {
 
 	@Autowired
 	private ClientDAO clientDao;
+	
+	
 //	@Autowired
 //	private CommodityServiceAll commodityServiceAll;
-//	@Autowired
-//	private CommodityDAO commodityDAO;
+	@Autowired
+	private CommodityDAO commodityDAO;
 	
 	@Override
 	public List<ClientBean> getAllData() {
@@ -69,5 +71,9 @@ public class ClientServiceAll implements ClientService {
 	public void addMemberA (MemberBean mb) {
 		 clientDao.addMemberA(mb);
 	}
+
+
+	
+	
 	
 }

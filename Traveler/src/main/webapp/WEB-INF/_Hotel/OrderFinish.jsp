@@ -132,12 +132,12 @@
 		    </div>
 		    <div class="col-xl-10">
 		      <div class="card">
-				  <h1 class="card-header" ><font color="red"><b>預定房位</b></font></h1>
+				  <h1 class="card-header" ><font color="red"><b>訂房資訊</b></font></h1>
 				  <div class="card-body">
-				    <h3 class="card-title">訂房資訊</h3>
-				    <p class="card-text">訂購狀態：<font color="orange"><b>已確認</b></font></p><br>
-				    <p class="card-text">預定日期：<font color="orange"><b>06/01/2018</b></font></p><br>
-				    <p class="card-text">確認編號：<font color="orange"><b>E8730678</b></font></p>
+				    <h3 class="card-title"></h3>
+				    <p class="card-text">訂單狀態：<font color="orange"><b>已確認</b></font></p><br>
+				    <p class="card-text">訂單時間：<font color="orange"><b>06/01/2018</b></font></p><br>
+				    <p class="card-text">訂單編號：<font color="orange"><b>E8730678</b></font></p>
 				    <a href="SelectHotel" class="btn btn-primary">回到首頁</a>
 				  </div>
 				</div>

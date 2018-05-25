@@ -173,50 +173,52 @@ margin-bottom:0px;
 						
 <!--=========================要放的東西  =====================-->
 		<div class="container" style="padding-top:80px;padding-left:150px">
-	
-<form:form action="feedbackopinion/${aa.pkid}" modelAttribute="contactusBean"  enctype='multipart/form-data'>
+	<c:forEach var='con' items='${contactus}'>	
+<form:form action="feedbackopinion/${con.pkid}" modelAttribute="contactusBean"  enctype='multipart/form-data'>
 						 <fieldest>
 						<table>
+									
 						<tr>		
 						<td><label for='name'>姓名:</label>
-						<form:input id='name' path='name' type='text' value='${aa.name}'/></td>
+						<form:input id='name' path='name' type='text' value='${con.name}'/></td>
 						</tr>
 						<tr>
 						<td><label for='sex'>性別:</label>
-						<form:input id='sex' path='sex' type='text' value='${aa.sex}'/></td>
+						<form:input id='sex' path='sex' type='text' value='${con.sex}'/></td>
 						</tr>
 						<tr>
 						<td><label for='age'>年齡:</label>
-						<form:input id='age' path='age' type='text' value='${aa.age}'/></td>
+						<form:input id='age' path='age' type='text' value='${con.age}'/></td>
 						</tr>
 						<tr>
 						<td><label for='phone'>連絡電話:</label>
-						<form:input id='phone' path='phone' type='text' value='${aa.phone}'/></td>
+						<form:input id='phone' path='phone' type='text' value='${con.phone}'/></td>
 						</tr>
 						<tr>
 						<td><label for='email'>電子信箱:</label>
-						<form:input id='email' path='email' type='text' value='${aa.email}'/></td>
+						<form:input id='email' path='email' type='text' value='${con.email}'/></td>
 						</tr>
 						<tr>
 						<td><label for='address'>所在地:</label>
-						<form:input id='address' path='address' type='text' value='${aa.address}'/></td>
+						<form:input id='address' path='address' type='text' value='${con.address}'/></td>
 						</tr>
 						<tr>
 						<td><label for='opinion'>意見類別:</label>
-						<form:input id='opinion' path='opinion' type='text' value='${aa.opinion}'/></td>
+						<form:input id='opinion' path='opinion' type='text' value='${con.opinion}'/></td>
 						</tr>
 						<tr>
 						<td>
 					    <label for='comment'>意見欄:</label> 
-					    <form:input cols="40" rows="5"  id="comment" path='comment' value='${aa.comment}'></form:input>
+					    <form:input cols="40" rows="5"  id="comment" path='comment' value='${con.comment}'></form:input>
 					    </td>
 					    </tr>
 					    <tr>
 					    <td>
 					    <label for='feedback'>回覆欄:</label>
-					    <form:textarea cols="40" rows="5"  id="feedback" path='feedback' value='${aa.feedback}'></form:textarea>
+					    <form:textarea cols="40" rows="5"  id="feedback" path='feedback' value='${con.feedback}'></form:textarea>
 					    </td>
 					    </tr>
+					   
 						</table>
 					    
                <div class='form-group'>
@@ -224,6 +226,7 @@ margin-bottom:0px;
                	</div>
 		</fieldest>
 		</form:form>
+		 </c:forEach>
                	
 						
 						
