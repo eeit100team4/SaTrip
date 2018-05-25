@@ -142,7 +142,7 @@ a img:hover {
    </c:forEach>
  </div>
 </div>
- <h1 style="background:black;color:black;text-align:center;">a</h1>
+<!--<h1 style="background:black;color:black;text-align:center;">a</h1>  --> 
 	
 	<%@ include file="/WEB-INF/frontStageFooter.jsp"%>
 </body>

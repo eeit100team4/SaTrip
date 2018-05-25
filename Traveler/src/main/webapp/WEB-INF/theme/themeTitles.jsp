@@ -237,14 +237,14 @@ margin-bottom:0px;
   <th>主題編號</th>
   <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;主題名稱</th>
   <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;圖片檔名</th>
-  <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;網站顯示圖片</th>	
+  <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;網站顯示圖片預覽</th>	
  </tr>
  <c:forEach var='themeTitles' items='${themeTitles}'>	
 	<tr style="text-align:left;">
    <td>&nbsp;&nbsp;&nbsp;${themeTitles.titleId}</td>
    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${themeTitles.titleName}</td>
    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${themeTitles.fileName}</td>
-   <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/Traveler/images/themeTitle-${themeTitles.titleName}.png" width="200" height="100"style="border:10px #805300 ridge;"></td></tr>
+   <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/Traveler/images/themeTitle-${themeTitles.titleName}.png" width="200" height="80"style="border:6px #805300 ridge;"></td></tr>
    </c:forEach>
 </table>	
 </div>
