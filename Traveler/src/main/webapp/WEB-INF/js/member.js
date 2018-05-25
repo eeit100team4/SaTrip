@@ -31,7 +31,7 @@ function chkPwd(){
 	}else if (checkPassword(pwd)){
 		document.getElementById('errMsgPwd').innerHTML='';
 	}else {
-		document.getElementById('errMsgPwd').innerHTML='密碼最少6個字元，需包含數字及英文';
+		document.getElementById('errMsgPwd').innerHTML='密碼最少6個字元，需含數字及英文';
 		
 	}
 }

@@ -230,6 +230,8 @@ margin-bottom:0px;
 </div>
 <!-- =========側邊欄位結束============ -->
 <div style="color:black;margin-left:350px; margin-top:10px;width:1500px;" class="content text-center">
+
+<h1 style='font-size:30px;color:black;margin-top:50px;margin-right:700px;'>全主題類別</h1>
 <table style='font-size:25px;'>
  <tr style="text-align:center;">
   <th>主題編號</th>
@@ -239,7 +241,7 @@ margin-bottom:0px;
  </tr>
  <c:forEach var='themeTitles' items='${themeTitles}'>	
 	<tr style="text-align:left;">
-   <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${themeTitles.titleId}</td>
+   <td>&nbsp;&nbsp;&nbsp;${themeTitles.titleId}</td>
    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${themeTitles.titleName}</td>
    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${themeTitles.fileName}</td>
    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/Traveler/images/themeTitle-${themeTitles.titleName}.png" width="200" height="100"></td></tr>

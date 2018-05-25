@@ -174,7 +174,7 @@ margin-bottom:0px;
 <!--=========================要放的東西  =====================-->
 		<div class="container" style="padding-top:80px;padding-left:150px">
 	<c:forEach var='con' items='${contactus}'>	
-<form:form action="feedbackopinion/${con.pkid}" modelAttribute="contactusBean"  enctype='multipart/form-data'>
+<form:form action="/Traveler/contactus/feedbackopinion/${con.pkid}" modelAttribute="contactusBean"  enctype='multipart/form-data'>
 						 <fieldest>
 						<table>
 									

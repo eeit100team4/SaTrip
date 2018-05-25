@@ -96,7 +96,7 @@ public class ThemeController {
 		ta.setJourneyId(tt.getJourneyId());
 		System.out.println("fornt"+ta);
 		themeService.addApplications(ta);		
-		return "theme/finishPage";
+		return "index";
 	}
 	
 	@RequestMapping("theme/test")

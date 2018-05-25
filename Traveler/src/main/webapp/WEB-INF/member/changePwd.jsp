@@ -127,7 +127,7 @@ table {
 	<center>
 		<form name="changePasswordForm"
 			action="<c:url value='./changePwd.do' />" method="POST">
-			<table border="0" align="center" width="560">
+			<table border="0" align="center" width="600">
 				<thead>
 					<tr bgcolor='#F5F5F5' >
 						<th height="60" colspan="2" align="center"  style="padding-top:15px">
