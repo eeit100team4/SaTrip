@@ -337,7 +337,7 @@
 								<span></span>
 								<h3>京都</h3>
 								<span>3 nights</span>
-								<span class="price">$4,550</span>
+								<span class="price">$4,500</span>
 								<a class="btn btn-primary btn-outline" href="DisplayRoom">立即定位<i class="icon-arrow-right22"></i></a>
 							</div>
 						</div>
