@@ -232,7 +232,7 @@ span.price {
 			              <i class="fab fa-cc-mastercard" style="color:red;"></i>
 			              <i class="fab fa-cc-discover" style="color:orange;"></i>
 			            </div>
-		                <a href="roomCheckOut" class="btn">確認送出</a>
+		                <a href="roomCheckOut5" class="btn">確認送出</a>
 		   </div>
 		   <div class="col-sm-6">
 		   

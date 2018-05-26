@@ -111,53 +111,95 @@
 <script src="/Traveler/js/airplain/airSearch.js"></script>
 <script src="/Traveler/js/jquery-ui.min.js"></script>
 <link rel="stylesheet" href="/Traveler/js/jquery-ui.min.css">
-
+<!--  -->
+<!-- 載入樣式 -->
+<link rel="stylesheet"   href="/Traveler/css/jquery.dataTables.css">
+<!-- Themeroller的主題 -->
+<link rel="stylesheet"   href="/Traveler/css/jquery.dataTables_themeroller.css">
+<!-- 載入jQuery  -->
+<script type="text/javascript" src="/Traveler/js/jquery.js"></script>
+<!-- 載入DataTables  -->
+<script type="text/javascript" src="/Traveler/js/jquery.dataTables.js"></script>
+<!-- 動態表格 -->
+<script>
+			(function() {
+				$(function() {
+					$('#datatable').dataTable({
+						"oLanguage": {
+						    "sSearch": "搜尋:",
+						    "sLengthMenu": "顯示件數 ：_MENU_",
+						    "sInfo": "_TOTAL_件中，從第_START_件顯示到第_END_件",
+						    "sInfoFiltered": " ( _MAX_件中搜尋 )",
+						    "sZeroRecords": "找無資料。",
+						    "sInfoEmpty": "0 件",
+						    "oPaginate": {
+						        "sFirst": "最初",
+						        "sLast": "最後",
+						        "sPrevious": "上一頁",
+						        "sNext": "下一頁"
+						    }
+						},
+						"iDisplayLength" : 10,
+					});
+				});
+			})();
+</script>
 <!-- 連結旁邊的小ICON套件  -->	
 <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
-
-<!-- boostrap網格 -->
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"></link>
 <style>
-.well, .panel {text-align: center;}
-</style>
-<!--  -->
+			* {
+				font-family:      'Lucida Grande', 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', Meiryo, 'メイリオ', sans-serif;
+				font-size:        98.5%;
+			}
+			h1 {
+				font-size:        46px;
+				margin-bottom:    12px;
+			}
+			.container {
+				width:            1000px;
+				margin:           auto;
+			}
+			iframe {
+				border: solid 1px #000;
+			}
+		</style>
+
 </head>
 <body>
 	<%@ include file="/WEB-INF/frontStageHeader.jsp"%>
-<!-- 大標 跟一張圖 -->
-<div class="fh5co-cover" data-stellar-background-ratio="0.5">
- <h1 style="background:black;color:white;text-align:center;height:50px">~獨特商品*夢想起飛~</h1>	
- <div style="margin-right:400px;margin-top:10px;width:1500px;" class="content text-center">
-     <a><img src="/Traveler/images/獨家行程.png" width="1500" height="250"></a>
- </div>
-</div>
-<!-- 展示區 -->
-<c:forEach var='products' items='${products}'>
-<div class="container-fluid">
- <div class="row">
-  <!-- 左邊欄位 -->
-  <div class="col-sm-6">
-   <div class="panel-body"><img src="/Traveler/images/絢彩樂訪．環球影城魔法世界五日.png"></div>
-  </div>
-  <!--右邊欄位-->
-  <div class="col-sm-6">
-   <div class="well">${products.productName}</div>
-   <hr>
-   <div class="panel-heading">${products.adTitle}</div>
-   <div class="panel-body">${products.adDes}</div>
-   <br>
-   <div class="panel-heading">行程特色:</div>
-   <br>   
-   <div class="panel-body">★${products.ad1}</div>
-   <div class="panel-body">★${products.ad2}</div>
-   <div class="panel-body">★${products.ad3}</div>
-   <br>
-   <div class="panel-body"><a onmouseover="this.style.color='orange'" onmouseout="this.style.color='#4F4FFF'" style="color:#4F4FFF" href="${products.themeTitles.titleName}/${products.productName}">點擊可查看出團日期</a></div>
-  </div>
- </div>
-</div>
-</c:forEach>
+<hr>
+<div class="container">
+		<div >
+			<h2 style="margin-top: 20px;">搜尋主題商品</h2>				
+		</div>
+<table id="datatable">
 
+ <thead style="background-color:black;">
+  <tr style="color:white;">
+   <th>商品編號</th>
+   <th>&nbsp;&nbsp;國家</th>
+   <th>類型</th>
+   <th>&nbsp;&nbsp;商品名稱</th>
+   <th>住宿飯店</th>
+   <th></th>
+  </tr> 
+ </thead>
+
+ <c:forEach var='products' items='${products}'>
+ <tbody>
+  <tr>
+   <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${products.productId}</th>
+   <th>&nbsp;&nbsp;&nbsp;&nbsp;${products.country}</th>
+   <th>&nbsp;&nbsp;${products.themeTitles.titleName}</th>
+   <th>&nbsp;&nbsp;&nbsp;&nbsp;${products.productName}</th>
+   <th>&nbsp;&nbsp;${products.hotelName}</th>
+   <th><a onmouseover="this.style.color='orange'" onmouseout="this.style.color='#4F4FFF'"style="color:#4F4FFF;" href="${products.themeTitles.titleName}/${products.productName}">查看出團日期</a></th>
+ </tbody>
+ </c:forEach>
+</table>
+</div>
+	<br><br><br><br><br>
+	<hr>
 	<%@ include file="/WEB-INF/frontStageFooter.jsp"%>
 </body>
 </html>
