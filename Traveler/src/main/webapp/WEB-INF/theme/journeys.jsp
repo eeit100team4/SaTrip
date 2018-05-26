@@ -167,6 +167,7 @@
 </head>
 <body>
 	<%@ include file="/WEB-INF/frontStageHeader.jsp"%>
+<div class="fh5co-cover" data-stellar-background-ratio="0.5">
 <hr>
 <div class="container">
 		<div>
@@ -203,6 +204,7 @@
 </div>
 	<br><br><br><br><br>
 <hr>
+</div>
 	<%@ include file="/WEB-INF/frontStageFooter.jsp"%>
 </body>
 </html>
