@@ -120,15 +120,16 @@
 <style>
 .well, .panel {text-align: center;}
 </style>
+
 <!--  -->
 </head>
 <body>
 	<%@ include file="/WEB-INF/frontStageHeader.jsp"%>
 <!-- 大標 跟一張圖 -->
-<div class="fh5co-cover" data-stellar-background-ratio="0.5">
+ <!--  <div class="fh5co-cover" data-stellar-background-ratio="0.5">-->
  <h1 style="background:black;color:white;text-align:center;height:50px">~獨特商品*夢想起飛~</h1>	
  <div style="margin-right:400px;margin-top:10px;width:1500px;" class="content text-center">
-     <a><img src="/Traveler/images/獨家行程.png" width="1500" height="250"></a>
+     <a><img src="/Traveler/images/獨家行程.png" width="1500" height="200"></a>
  </div>
 </div>
 <!-- 展示區 -->
@@ -137,25 +138,22 @@
  <div class="row">
   <!-- 左邊欄位 -->
   <div class="col-sm-6">
-   <div class="panel-body"><img src="/Traveler/images/絢彩樂訪．環球影城魔法世界五日.png"></div>
+   <div class="panel-body"><img src="/Traveler/images/絢彩樂訪．環球影城魔法世界五日.png" style="border:20px #805300 ridge;"></div>
   </div>
   <!--右邊欄位-->
   <div class="col-sm-6">
-   <div class="well">${products.productName}</div>
-   <hr>
-   <div class="panel-heading">${products.adTitle}</div>
-   <div class="panel-body">${products.adDes}</div>
-   <br>
-   <div class="panel-heading">行程特色:</div>
+   <div class="well" style="font-size:30px;font-family: DFKai-sb;text-align: left;"><b>${products.productName}</b></div>
+   <div class="panel-heading" style="font-size:24px;color:#0000CC">${products.adTitle}</div>
+   <div class="panel-body" style="font-size:20px;">${products.adDes}</div>
    <br>   
-   <div class="panel-body">★${products.ad1}</div>
-   <div class="panel-body">★${products.ad2}</div>
-   <div class="panel-body">★${products.ad3}</div>
+   <div class="panel-body" style="font-size:20px;color:#808000">★${products.ad1}</div>
+   <div class="panel-body" style="font-size:20px;color:#808000">★${products.ad2}</div>
+   <div class="panel-body" style="font-size:20px;color:#808000">★${products.ad3}</div>
    <br>
-   <div class="panel-body"><a onmouseover="this.style.color='orange'" onmouseout="this.style.color='#4F4FFF'" style="color:#4F4FFF" href="${products.themeTitles.titleName}/${products.productName}">點擊可查看出團日期</a></div>
+   <div class="panel-body"><a onmouseover="this.style.color='orange'" onmouseout="this.style.color='#4F4FFF'" style="font-size:20px;color:#000080" href="${products.themeTitles.titleName}/${products.productName}">點此可查看出團日期!</a></div>
   </div>
  </div>
-</div>
+</div><hr><hr>
 </c:forEach>
 
 	<%@ include file="/WEB-INF/frontStageFooter.jsp"%>
