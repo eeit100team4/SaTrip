@@ -941,7 +941,6 @@ $("#mwt_mwt_slider_scroll").animate( { left:'-'+w+'px' }, 600 ,'swing');
   <button type="button" class="btn-primary" onclick='reSearchAdvance()'>提早一天</button>
   <br><br>
   <button type="button" class="btn-primary" onclick='reSeatchPostpone()'>延後一天</button>
-  <button type="button" class="btn-primary" onclick='changePrice()'>測試</button>
   <br><br>
 <!--   <button type="button" class="btn-xs btn-primary" onclick='test()'>兩萬以下</button> -->
 <!--   <button type="button" class="btn-xs btn-primary" onclick='CLOnly()'>華航限定</button> -->
