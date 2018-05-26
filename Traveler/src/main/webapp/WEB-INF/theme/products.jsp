@@ -138,19 +138,19 @@
  <div class="row">
   <!-- 左邊欄位 -->
   <div class="col-sm-6">
-   <div class="panel-body"><img src="/Traveler/images/絢彩樂訪．環球影城魔法世界五日.png" style="border:20px #805300 ridge;"></div>
+   <div class="panel-body"><img src="/Traveler/images/絢彩樂訪．環球影城魔法世界五日.png" style="border:10px #808000 ridge;width:725px; height:530px;"></div>
   </div>
   <!--右邊欄位-->
-  <div class="col-sm-6">
-   <div class="well" style="font-size:30px;font-family: DFKai-sb;text-align: left;"><b>${products.productName}</b></div>
+  <div class="col-sm-6" style="border:10px #805300 ridge;margin-top:15px">
+   <div class="panel-heading" style="font-size:30px;font-family: DFKai-sb;"><b>${products.productName}</b></div><hr>
    <div class="panel-heading" style="font-size:24px;color:#0000CC">${products.adTitle}</div>
    <div class="panel-body" style="font-size:20px;">${products.adDes}</div>
-   <br>   
+   <hr>   
    <div class="panel-body" style="font-size:20px;color:#808000">★${products.ad1}</div>
    <div class="panel-body" style="font-size:20px;color:#808000">★${products.ad2}</div>
    <div class="panel-body" style="font-size:20px;color:#808000">★${products.ad3}</div>
    <br>
-   <div class="panel-body"><a onmouseover="this.style.color='orange'" onmouseout="this.style.color='#4F4FFF'" style="font-size:20px;color:#000080" href="${products.themeTitles.titleName}/${products.productName}">點此可查看出團日期!</a></div>
+   <div class="panel-body"><a onmouseover="this.style.color='orange'" onmouseout="this.style.color='#4F4FFF'" style="font-size:20px;color:#000080" href="${products.themeTitles.titleName}/${products.productName}">點此可查看出團日期!</a></div>  
   </div>
  </div>
 </div><hr><hr>
