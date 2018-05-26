@@ -279,35 +279,31 @@ float:right;
 	<!--=========================要放的東西  =====================-->
 	
 	<!-- =========側邊欄位開始============ -->	
-<div id="mwt_mwt_slider_scroll">
-	<div id="mwt_slider_content"   >
-		<div id="nav">			 
-			 <ul >
-				  <li >
-				   	<a class="btn btn-primary"href="ShowAllHotels"><font color="white">查詢飯店資訊</font></a>
-				  </li>
-				  <li >
-				   	<a class="btn btn-primary"href="InsertHotel"><font color="white">新增飯店資訊</font></a>			   
-				  </li>
-				  <li >
-				   <a class="btn btn-primary"href="UpdateHotel"><font color="white">修改飯店資訊</font></a>				   
-				  </li>
-				  <li >
-				   	<a class="btn btn-primary"href="DeleteHotel"><font color="white">刪除飯店資訊</font> </a>			   
-				  </li>
-			 </ul>
+		<div id="mwt_mwt_slider_scroll">
+			<div id="mwt_slider_content"   >
+				<div id="nav">			 
+					 <ul >
+				 		 <li>
+							<a class="btn btn-primary"href="ManagerAllHotels"><h3><font color="white">管理飯店資訊</font></h3></a>
+						 </li>
+						  <li >
+						   	<a class="btn btn-primary"href="InsertHotel"><h3><font color="white">新增飯店資訊</font></h3></a>			   
+						  </li>
+					 </ul>
+				</div>
+			</div>
 		</div>
-	</div>
-</div>
 <!-- =========側邊欄位結束============ -->
 	
 	<br>
-	<br>
-	<br>
-	<br>
-	<br>
 	
-	<div class="container-fluid">
+	
+	<main role="main" class="container mt-2">
+		<!-- ____________________ -->
+			
+			<div class="row">
+				<div class="col-lg-3">
+				<div class="col-lg-9">
 	 
 	  	<form:form method='POST' modelAttribute="hotelBean" 	class='form-horizontal' enctype="multipart/form-data">
 
@@ -360,10 +356,10 @@ float:right;
 					</form:form>
 	  
 	  
-	  
-	  
-	    		
-	</div>
+			  </div>
+			  </div>
+	    </div>		
+	
 	
 	
 	

@@ -110,8 +110,32 @@
 <script>
 var extraPrice=null;
 <c:if test="${extraPrice!=null}">var extraPrice = ${extraPrice};</c:if>
+
 var emp = ${result};
 
+//將額外價格加上
+function changePrice(){
+	var templist=emp.OTA_AirLowFareSearchRS.PricedItineraries.PricedItinerary;
+	console.log(extraPrice);
+//       var tempNumber=$("#ticketResult").find("table").length;
+      var tempList=emp.OTA_AirLowFareSearchRS.PricedItineraries.PricedItinerary;
+
+	for(var x=0;x<extraPrice.length;x++){
+		console.log(extraPrice[x].airLine);
+		for(var y=0;y<tempList.length;y++){
+			var compare=tempList[y].AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[0].OperatingAirline.Code;
+			if(extraPrice[x].airLineCode==compare){
+			var oldPrice=tempList[y].AirItineraryPricingInfo[0].PTC_FareBreakdowns.PTC_FareBreakdown[0].PassengerFare.TotalFare.Amount;
+			var extraP=extraPrice[x].extraPrice;
+			var newPrice=parseInt(oldPrice)+parseInt(extraP);
+// 			console.log(newPrice);
+			tempList[y].AirItineraryPricingInfo[0].PTC_FareBreakdowns.PTC_FareBreakdown[0].PassengerFare.TotalFare.Amount=newPrice;
+// 			console.log(tempList[y].AirItineraryPricingInfo[0].PTC_FareBreakdowns.PTC_FareBreakdown[0].PassengerFare.TotalFare.Amount);
+			}
+		}
+	}
+	
+}
 
 //往前往後一天搜尋
 
@@ -269,7 +293,7 @@ function noShow(){
 	for(var i=0;i<50;i++){
 		var na=$("#"+i).parents("table").parent("div").prev("div").text();
 		for(var a=0;a<50;a++){
-		if(na.match("7C")||na.match("TW")||na.match("B7")){
+		if(na.match("7C")||na.match("TW")||na.match("B7")||na.match("PR")||na.match("SL")||na.match("XW")){
 			$("#"+i).parents("table").parent("div").parent("div").css("display","none");
 			}
 		}
@@ -304,6 +328,11 @@ function CLOnly(){
 	if(all.length==0){
 		for(var d=0;d<50;d++){
 			$("#"+d).parents("table").parent("div").parent("div").css("display","inline");
+			var na=$("#"+d).parents("table").parent("div").prev("div").text();
+			if(na.match("7C")||na.match("TW")||na.match("B7")||na.match("PR")||na.match("SL")||na.match("XW")){
+					$("#"+d).parents("table").parent("div").parent("div").css("display","none");
+					}
+			
 			}
 	}
 }
@@ -362,8 +391,9 @@ function list(){
             
             var cell10=$("<div></div>").html("<p style='margin:0;padding:0'>每人含稅</p>");
           //價格
-         var cellPrice=$("<span style='font-size:25px;color:red'></span>").text(value.AirItineraryPricingInfo[0].PTC_FareBreakdowns.PTC_FareBreakdown[0].PassengerFare.TotalFare.Amount+extraPrice);
-            var td5=$("<td></td>").append(cell10,cellPrice);
+         var cellPrice=$("<span style='font-size:25px;color:red'></span>").text(value.AirItineraryPricingInfo[0].PTC_FareBreakdowns.PTC_FareBreakdown[0].PassengerFare.TotalFare.Amount);
+         var cellPriceHidden=$("<span style='display:none'></span>").text(value.AirItineraryPricingInfo[0].PTC_FareBreakdowns.PTC_FareBreakdown[0].PassengerFare.TotalFare.Amount);
+            var td5=$("<td></td>").append(cell10,cellPrice,cellPriceHidden);
             
             var row1=$("<tr style='height:50px;' ></tr>").append(td1,td2,td3,td4,td5);
             
@@ -398,7 +428,8 @@ function list(){
             docFrag.append(divAll);
 	})
 	$("#ticketResult").html(docFrag);
-	
+
+	noShow();
 	}
 <!-- 回傳搜尋內容結束-->
 
@@ -481,17 +512,17 @@ function list(){
 			
 		}
 		
-	function sortAirline(){
-		//出發航空公司排序
-		    var data = emp.OTA_AirLowFareSearchRS.PricedItineraries.PricedItinerary;
-			 data.sort(function(a,b){	
-				 return (a.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].DepartureAirport.LocationCode)-(b.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].DepartureAirport.LocationCode)
-				  })
-			 $("#ticketResult").empty();
-			 list();
-// 			 page();
+// 	function sortAirline(){
+// 		//出發航空公司排序
+// 		    var data = emp.OTA_AirLowFareSearchRS.PricedItineraries.PricedItinerary;
+// 			 data.sort(function(a,b){	
+// 				 return (a.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].DepartureAirport.LocationCode)-(b.AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].DepartureAirport.LocationCode)
+// 				  })
+// 			 $("#ticketResult").empty();
+// 			 list();
+// // 			 page();
 
-		}
+// 		}
 	
 	
 	
@@ -561,6 +592,7 @@ function list(){
 	
 	
 			 function show(){
+					changePrice();
 	 			 	var res=JSON.stringify(emp);
 				 	var str = emp.OTA_AirLowFareSearchRS.PricedItineraries.PricedItinerary[0].AirItinerary.OriginDestinationOptions.OriginDestinationOption[0].FlightSegment[0].DepartureDateTime;
 				 	var str2 = emp.OTA_AirLowFareSearchRS.PricedItineraries.PricedItinerary[0].AirItinerary.OriginDestinationOptions.OriginDestinationOption[1].FlightSegment[0].DepartureDateTime;
@@ -598,8 +630,12 @@ function list(){
 								
 								var airLineList=emp.OTA_AirLowFareSearchRS.TPA_Extensions.AirlineOrderList.AirlineOrder;
 								for(var x=0;x<airLineList.length;x++){
-									console.log(airLineList[x].Code);
-									$("#checkbox").append("<input type='checkbox' name='a' value='"+airLineList[x].Code+"' onclick='CLOnly()'' >"+airLineList[x].Code+"<br>");
+									//測試用console
+// 									console.log(airLineList[x].Code);
+									if((airLineList[x].Code!="7C")&&(airLineList[x].Code!="H1")&&(airLineList[x].Code!="SL")&&(airLineList[x].Code!="XW")&&(airLineList[x].Code!="PG")){
+										$("#checkbox").append("<input type='checkbox' name='a' value='"+airLineList[x].Code+"' onclick='CLOnly()'' >"+airLineList[x].Code+"<br>");
+											}
+									
 								};
 								
 							 	
@@ -655,6 +691,7 @@ function list(){
 				}
 				var arrC=$("#"+k).parents("tbody").find("tr:eq(0)").children("td:eq(2)").children("div:eq(1)").text(); //去程目的地
 				var price=$("#"+k).parents("tbody").find("tr:eq(0)").children("td:eq(4)").children("span:eq(0)").text(); //總價格
+// 				var originprice=$("#"+k).parents("tbody").find("tr:eq(0)").children("td:eq(4)").children("span:eq(1)").text(); //原始價格;
 				var person=${psg};//人數
 				var returnDate=$("#"+k).parents("tbody").find("tr:eq(2)").children("td:eq(0)").children("div:eq(0)").text(); //回程出發日期
 				var returnTime=$("#"+k).parents("tbody").find("tr:eq(2)").children("td:eq(0)").children("div:eq(0)").text(); //回程出發時間
@@ -665,6 +702,13 @@ function list(){
 					returnArrTime=returnArrTime.substring(11)+" (隔日)";
 				}
 				var airline=$("#"+k).parents("table").parent("div").prev("div").text();  //航空公司                              //航班
+				var bonus;
+				for(var x=0;x<extraPrice.length;x++){
+					if(airline==extraPrice[x].airLine){
+						bonus=parseInt(extraPrice[x].extraPrice);
+					}
+				}
+				alert(bonus);
 				var depNum=$("#"+k).parents("tbody").find("tr:eq(0)").children("td:eq(2)").children("div:eq(2)").text(); //去程機型
 				var returnNum=$("#"+k).parents("tbody").find("tr:eq(2)").children("td:eq(2)").children("div:eq(2)").text(); //回程機型
 				
@@ -672,7 +716,6 @@ function list(){
 				var personInt=parseInt(person);
 				var priceTotal=priceInt*personInt;
 				
-				<c:if test="${extraPrice!=null}">var bonus=${extraPrice};</c:if>
 // 				console.log(k);
 // 				console.log("去程時間:"+depT);
 // 				console.log("去程出發地:"+depC);
@@ -772,8 +815,8 @@ ul {
 #mwt_mwt_slider_scroll
 {
 top: 100px;
-left:-100px; 
-width:100px;
+left:-200px; 
+width:200px;
 position:fixed; 
 z-index:9999;
 }
@@ -866,11 +909,11 @@ $("#mwt_mwt_slider_scroll").animate( { left:'-'+w+'px' }, 600 ,'swing');
 									<c:if test="${empty result}">
 										<div style="margin: 5px;" align="center">
 											<h2 style="color: red">查無航班，請重新搜尋</h2>
-											<a style="font-size: 1em;" href="index.jsp">回首頁</a>
+											<a style="font-size: 1em;" href="/Traveler/">回首頁</a>
 										</div>
 									</c:if>
 								<div align="center">
-								<span style="font-size:18px;"><strong>去：${depDate}，回：${reDate}，人數：${psg}，額外加價${extraPrice}</strong></span>
+								<span style="font-size:18px;"><strong>去：${depDate}，回：${reDate}，人數：${psg}</strong></span>
 								</div>
 								<div id=ticketResult>
 								
@@ -890,10 +933,15 @@ $("#mwt_mwt_slider_scroll").animate( { left:'-'+w+'px' }, 600 ,'swing');
 </div>
 <div id="mwt_slider_content"   >
 <!-- <div class="btn-group-vertical"> -->
-  <button type="button" class="btn-xs btn-primary " onclick='sortByPrice()'>找低價</button>
-  <button type="button" class="btn-xs btn-primary" onclick='sortByTime()'>早出發</button>
-  <button type="button" class="btn-xs btn-primary" onclick='reSearchAdvance()'>提早一天</button>
-  <button type="button" class="btn-xs btn-primary" onclick='reSeatchPostpone()'>延後一天</button>
+  <button type="button" class="btn-primary " onclick='sortByPrice()'>找低價</button>
+  <br><br>
+  <button type="button" class="btn-primary" onclick='sortByTime()'>早出發</button>
+  <br><br>
+  <button type="button" class="btn-primary" onclick='reSearchAdvance()'>提早一天</button>
+  <br><br>
+  <button type="button" class="btn-primary" onclick='reSeatchPostpone()'>延後一天</button>
+  <button type="button" class="btn-primary" onclick='changePrice()'>測試</button>
+  <br><br>
 <!--   <button type="button" class="btn-xs btn-primary" onclick='test()'>兩萬以下</button> -->
 <!--   <button type="button" class="btn-xs btn-primary" onclick='CLOnly()'>華航限定</button> -->
 <!--   <button type="button" class="btn-xs ">Sony</button> -->

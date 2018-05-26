@@ -127,6 +127,14 @@ public class airTicketsBackController {
 		map.put("extraPrice", extraPriceBean.getExtraPrice());
 		return map;
 	}
+	
+	//顯示額外價格清單
+	@RequestMapping("/extraShow")
+	public String showExtraList(Model model) {
+		List<ExtraPriceBean> list = eps.selectALl();
+		model.addAttribute("list",list);
+		return "/airTickets/back/extraPriceShow";
+	}
 
 	@RequestMapping(value = "/updateExtra", method = RequestMethod.POST)
 	@ResponseBody
@@ -161,6 +169,14 @@ public class airTicketsBackController {
 		}
 		System.out.println(orderID);
 		return "exist";
+	}
+	
+	@RequestMapping(value = "/modifyExtraPrice", method = RequestMethod.POST)
+	@ResponseBody
+	public String modifyExtraPrice(@RequestParam("id") Integer id,
+			@RequestParam("modifyExtraPrice") Integer modifyExtraPrice) {
+		eps.updateExtraPrice(modifyExtraPrice, id);;
+		return "Ok";
 	}
 
 }

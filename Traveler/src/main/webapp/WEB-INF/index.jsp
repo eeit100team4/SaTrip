@@ -145,6 +145,13 @@
 		}
 	});
 </script>
+<style>
+/* 飯店日期顏色 */
+.ui-datepicker-month{
+color:orange;
+}
+
+</style>
 </head>
 <body>
 	<%@ include file="/WEB-INF/frontStageHeader.jsp"%>
@@ -177,13 +184,13 @@
 									 <div role="tabpanel" class="tab-pane active" id="flights">
 										<div class="row">
 												<form action="/Traveler/airTickets/BFMS" method="get">
-														<div class="col-xxs-12 col-xs-5 mt">
+														<div class="col-xxs-12 col-xs-5 mt" style="margin:0px;">
 															<div class="input-field">
 																<label for="from">出發地</label>
 																<!-- 													增加先啟提供地點 -->
 																<!-- 													<input type="text" class="form-control" id="from-place" placeholder="台灣-桃園"/> -->
 																<select id="sec" name="dept" class="secDep"
-																	style="color: blue;">
+																	style="color: 	#CC6600; font-size: 15pt;	">
 																	<option selected="selected">選擇出發地</option>
 																</select>
 															</div>
@@ -193,7 +200,7 @@
 																<label for="from">目的地</label>
 																<!-- 																 <input type="text" class="form-control" id="to-place" -->
 																<!-- 																placeholder="Tokyo, Japan" /> -->
-																<select id="ret" name="arrv" style="color: blue;">
+																<select id="ret" name="arrv" style="color: 	#CC6600	; font-size: 15pt;">
 																	<option selected="selected">必須選擇出發地</option>
 																</select>
 															</div>

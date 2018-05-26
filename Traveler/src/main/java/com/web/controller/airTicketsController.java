@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.ServletContext;
@@ -86,7 +87,9 @@ public class airTicketsController {
 			}
 			String dep = request.getParameter("dept");
 			String arr = request.getParameter("arrv");
-			Integer extraP =eps.getExtraPrice(dep, arr);
+			List<ExtraPriceBean> extra = eps.getExtraPrice(dep, arr);
+			String extraP = new Gson().toJson(extra);
+			System.out.println(extraP);
 			if (extraP != null) {
 				System.out.println("加價");
 				model.addAttribute("extraPrice", extraP);
@@ -206,12 +209,6 @@ public class airTicketsController {
 		return null;
 	}
 
-	@RequestMapping("/pricetest")
-	public String toTest2(Model model) {
-		Integer price = eps.getExtraPrice("TPE", "HND");
-		System.out.println(price);
-		return "airTickets/finishPage";
-	}
 
 	@RequestMapping("/finishPage")
 	public String testPdf() throws DocumentException, IOException {
@@ -224,10 +221,13 @@ public class airTicketsController {
 
 		String dep = request.getParameter("dept");
 		String arr = request.getParameter("arrv");
-		Integer extraP = eps.getExtraPrice(dep, arr);
-		if (extraP != null) {
-			model.addAttribute("extraPrice", extraP);
-		}
+		 List<ExtraPriceBean> extra = eps.getExtraPrice(dep, arr);
+			String extraP = new Gson().toJson(extra);
+			System.out.println(extraP);
+			if (extraP != null) {
+				System.out.println("加價");
+				model.addAttribute("extraPrice", extraP);
+			}
 
 		model.addAttribute("result", result);
 		model.addAttribute("depDate", request.getParameter("depDate"));
@@ -238,6 +238,10 @@ public class airTicketsController {
 		return "airTickets/flightOrder";
 	}
 
+	@RequestMapping("/testOpay")
+	public String thisISaBook()  {
+		return "airTickets/finishPage";
+	}
 
 
 }

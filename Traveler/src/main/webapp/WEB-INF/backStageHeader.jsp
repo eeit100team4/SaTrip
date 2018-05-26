@@ -17,7 +17,7 @@
 				style="background-color: black">
 				<li><a href="/Traveler/airTickets/back/list"><i class="fas fa-plane"></i><font
 						color="orange">機票</font></a></li>
-				<li><a href="/Traveler/_Hotel/End/HotelEnd"><i class="fas fa-home"></i><font
+				<li><a href="/Traveler/_Hotel/End/ManagerAllHotels"><i class="fas fa-home"></i><font
 						color="orange">飯店</font></a></li>
 				<li><a href="/Traveler/theme/back"><i class="fas fa-globe"></i><font
 						color="orange">旅遊</font></a></li>
@@ -25,24 +25,25 @@
 						color="orange">紅利商品</font></a></li>
 				<li><a href="/Traveler/contactus/selectopinion"><i class="fas fa-phone-square"></i><font
 						color="orange">客服中心</font></a></li>
-			<c:choose>
-									<c:when test="${LoginOK!=null}">
-									<!-- 登入後 -->
-								<li><a href="/Traveler/backStageForm"><i class="far fa-user-circle"></i><font color="orange">管理會員專區</font></a>
-									<ul class="fh5co-sub-menu">
-											<li><a href='/Traveler/member/members'>查詢所有會員資料</a></li>
-											<li><a href='/Traveler/member/logout.do'>登出</a></li>
-									</ul>
-								</li>
-								</c:when>
-									<c:otherwise>
-										<!-- 登入前 -->
-										<li><a href='/Traveler/backStageForm' style="color:orange"><i class="far fa-user-circle"></i>管理專區</a></li>
-										<ul class="fh5co-sub-menu">
-											<li><a href='/Traveler/member/login'>登入</a></li>
-										</ul>
-									</c:otherwise>
-								</c:choose>
+					<li><a href="/Traveler/member/members"><i class="far fa-user-circle"></i><font color="orange">管理會員專區</font></a></li>
+<%-- 			<c:choose> --%>
+<%-- 									<c:when test="${LoginOK!=null}"> --%>
+<!-- 									登入後 -->
+<!-- 								<li><a href="/Traveler/backStageForm"><i class="far fa-user-circle"></i><font color="orange">管理會員專區</font></a> -->
+<!-- 									<ul class="fh5co-sub-menu"> -->
+<!-- 											<li><a href='/Traveler/member/members'>查詢所有會員資料</a></li> -->
+<!-- 											<li><a href='/Traveler/member/logout.do'>登出</a></li> -->
+<!-- 									</ul> -->
+<!-- 								</li> -->
+<%-- 								</c:when> --%>
+<%-- 									<c:otherwise> --%>
+<!-- 										登入前 -->
+<!-- 										<li><a href='/Traveler/backStageForm' style="color:orange"><i class="far fa-user-circle"></i>管理專區</a></li> -->
+<!-- 										<ul class="fh5co-sub-menu"> -->
+<!-- 											<li><a href='/Traveler/member/login'>登入</a></li> -->
+<!-- 										</ul> -->
+<%-- 									</c:otherwise> --%>
+<%-- 								</c:choose> --%>
 			</ul>
 			</nav>
 		</div>

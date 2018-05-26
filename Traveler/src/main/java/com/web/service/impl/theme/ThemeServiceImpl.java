@@ -79,7 +79,7 @@ public class ThemeServiceImpl implements ThemeService {
 		return themeRepository.getJourneysByProduct(productName);
 	}
 	
-	 //依行程編號抓出detail
+	 //依行程編號抓出單筆detail
 	@Transactional
 	@Override
 	public ThemeJourneys getDetailsByJourneyId(Integer journeyId){
@@ -92,5 +92,10 @@ public class ThemeServiceImpl implements ThemeService {
 	public void addApplications(ThemeApplications application) {
 		themeRepository.addApplications(application); 
 	}
+	//依報名表編號抓出一筆備註extra
+	@Transactional
+	@Override
+	public ThemeApplications getExtraByApplicationId(Integer applicationId) {
+		return themeRepository.getExtraByApplicationId(applicationId);
+	}
 }
-

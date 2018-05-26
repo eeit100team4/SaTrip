@@ -20,5 +20,6 @@ public interface ContactusService {
 	void updateAllFeedback();
 	void update(ContactusBean contactus);
 	void updateCustomerOpinion(ContactusBean contactus);
+	List<ContactusBean> getAllContactus(Integer pkid);
   
 }

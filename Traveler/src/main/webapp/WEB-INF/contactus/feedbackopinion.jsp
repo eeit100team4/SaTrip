@@ -84,6 +84,10 @@
 
 <!-- 測試側邊 -->
 <style>
+* {
+	margin: 0;
+	padding: 0;
+}
 #mwt_mwt_slider_scroll
 {
 top: 95px;
@@ -173,50 +177,52 @@ margin-bottom:0px;
 						
 <!--=========================要放的東西  =====================-->
 		<div class="container" style="padding-top:80px;padding-left:150px">
-	
-<form:form action="feedbackopinion/${aa.pkid}" modelAttribute="contactusBean"  enctype='multipart/form-data'>
+	<c:forEach var='con' items='${contactus}'>	
+<form:form action="/Traveler/contactus/feedbackopinion/${con.pkid}" modelAttribute="contactusBean"  enctype='multipart/form-data'>
 						 <fieldest>
 						<table>
+									
 						<tr>		
 						<td><label for='name'>姓名:</label>
-						<form:input id='name' path='name' type='text' value='${aa.name}'/></td>
+						<form:input id='name' path='name' type='text' value='${con.name}'/></td>
 						</tr>
 						<tr>
 						<td><label for='sex'>性別:</label>
-						<form:input id='sex' path='sex' type='text' value='${aa.sex}'/></td>
+						<form:input id='sex' path='sex' type='text' value='${con.sex}'/></td>
 						</tr>
 						<tr>
 						<td><label for='age'>年齡:</label>
-						<form:input id='age' path='age' type='text' value='${aa.age}'/></td>
+						<form:input id='age' path='age' type='text' value='${con.age}'/></td>
 						</tr>
 						<tr>
 						<td><label for='phone'>連絡電話:</label>
-						<form:input id='phone' path='phone' type='text' value='${aa.phone}'/></td>
+						<form:input id='phone' path='phone' type='text' value='${con.phone}'/></td>
 						</tr>
 						<tr>
 						<td><label for='email'>電子信箱:</label>
-						<form:input id='email' path='email' type='text' value='${aa.email}'/></td>
+						<form:input id='email' path='email' type='text' value='${con.email}'/></td>
 						</tr>
 						<tr>
 						<td><label for='address'>所在地:</label>
-						<form:input id='address' path='address' type='text' value='${aa.address}'/></td>
+						<form:input id='address' path='address' type='text' value='${con.address}'/></td>
 						</tr>
 						<tr>
 						<td><label for='opinion'>意見類別:</label>
-						<form:input id='opinion' path='opinion' type='text' value='${aa.opinion}'/></td>
+						<form:input id='opinion' path='opinion' type='text' value='${con.opinion}'/></td>
 						</tr>
 						<tr>
 						<td>
 					    <label for='comment'>意見欄:</label> 
-					    <form:input cols="40" rows="5"  id="comment" path='comment' value='${aa.comment}'></form:input>
+					    <form:input cols="40" rows="5"  id="comment" path='comment' value='${con.comment}'></form:input>
 					    </td>
 					    </tr>
 					    <tr>
 					    <td>
 					    <label for='feedback'>回覆欄:</label>
-					    <form:textarea cols="40" rows="5"  id="feedback" path='feedback' value='${aa.feedback}'></form:textarea>
+					    <form:textarea cols="40" rows="5"  id="feedback" path='feedback' value='${con.feedback}'></form:textarea>
 					    </td>
 					    </tr>
+					   
 						</table>
 					    
                <div class='form-group'>
@@ -224,25 +230,25 @@ margin-bottom:0px;
                	</div>
 		</fieldest>
 		</form:form>
+		 </c:forEach>
                	
 						
 						
 				</div>
 	<!-- =========側邊欄位開始============ -->	
 <div id="mwt_mwt_slider_scroll">
-<div id="mwt_slider_content"   >
-<ul class="me">
-<h2>客服管理</h2>
-<p><a href="/Traveler/contactus/selectopinion" style="color:black">查看留言</a></p>
-<p><a href="/Traveler/contactus/feedbackopinion" style="color:black">回覆留言</a></p>
-<p><a href="/Traveler/contactus/StatisticsReport" style="color:black">統計報表</a></p>
-<a href="contactuspieasia"></a>
-<a href="contactuspieage"></a>
-
-
-
-</ul>
-</div>
+	<div id="mwt_slider_content"   >
+		<div id="nav">			 
+			 <ul >
+		 		 <li>
+					<a class="btn btn-primary"href="Traveler/contactus/selectopinion"><h4><font color="white">查看留言</font></h4></a>
+				 </li>
+				  <li >
+				   	<a class="btn btn-primary"href="Traveler/contactus/StatisticsReport"><h4><font color="white">統計報表</font></h4></a>			   
+				  </li>
+			 </ul>
+		</div>
+	</div>
 </div>
 <!-- =========側邊欄位結束============ -->
 	

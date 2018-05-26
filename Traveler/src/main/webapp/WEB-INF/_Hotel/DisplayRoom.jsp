@@ -70,6 +70,10 @@
 <link rel="stylesheet" href="/Traveler/css/style.css">
 
 
+
+
+
+
 <!-- Modernizr JS -->
 <script src="/Traveler/js/modernizr-2.6.2.min.js"></script>
 <!-- FOR IE9 below -->
@@ -136,21 +140,325 @@
 	integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
 	crossorigin="anonymous"></script>
 
+<!-- 0525 -->
+<link rel="stylesheet"
+	href="http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.8.2.js"></script>
+<script src="https://code.jquery.com/ui/1.9.0/jquery-ui.js"></script>
+
+
+<script>
+	$(function() {
+		$("#tabs").tabs({
+			event : "mouseover"
+		});
+	});
+</script>
+
 
 </head>
 <body>
+	<script>
+		var map;
+		var map1;
+		var map2;
+		var map3;
+		var map4;
+		var map5;
+		var service;
+		var infowindow;
+		var pyrmont = {
+			lat : 35.007279,
+			lng : 135.768898
+		};
+		function initMap() {
 
+			map = new google.maps.Map(document.getElementById('map'), {
+				center : pyrmont,
+				zoom : 15
+			});
+			map1 = new google.maps.Map(document.getElementById('map1'), {
+				center : pyrmont,
+				zoom : 15
+			});
+			map2 = new google.maps.Map(document.getElementById('map2'), {
+				center : pyrmont,
+				zoom : 15
+			});
+			map3 = new google.maps.Map(document.getElementById('map3'), {
+				center : pyrmont,
+				zoom : 15
+			});
+			map4 = new google.maps.Map(document.getElementById('map4'), {
+				center : pyrmont,
+				zoom : 15
+			});
+			map5 = new google.maps.Map(document.getElementById('map5'), {
+				center : pyrmont,
+				zoom : 15
+			});
+
+			var marker = new google.maps.Marker({
+				map : map,
+				position : pyrmont,
+				animation : google.maps.Animation.BOUNCE,
+			//                 icon: '../icon/map.png'
+			});
+
+			var marker1 = new google.maps.Marker({
+				map : map1,
+				position : pyrmont,
+				animation : google.maps.Animation.BOUNCE,
+// 				icon : '../icon/map.png'
+			});
+
+			var marker2 = new google.maps.Marker({
+				map : map2,
+				position : pyrmont,
+				animation : google.maps.Animation.BOUNCE,
+// 				icon : '../icon/map.png'
+			});
+
+			var marker3 = new google.maps.Marker({
+				map : map3,
+				position : pyrmont,
+				animation : google.maps.Animation.BOUNCE,
+// 				icon : '../icon/map.png'
+			});
+
+			var marker4 = new google.maps.Marker({
+				map : map4,
+				position : pyrmont,
+				animation : google.maps.Animation.BOUNCE,
+// 				icon : '../icon/map.png'
+			});
+
+			var marker5 = new google.maps.Marker({
+				map : map5,
+				position : pyrmont,
+				animation : google.maps.Animation.BOUNCE,
+// 				icon : '../icon/map.png'
+			});
+
+			service = new google.maps.places.PlacesService(map);
+			service.nearbySearch({
+				location : pyrmont,
+				radius : 2000,
+				openNow : true,
+				type : [ 'restaurant' ]
+			}, callback);
+
+			service = new google.maps.places.PlacesService(map);
+			service.nearbySearch({
+				location : pyrmont,
+				radius : 2000,
+				openNow : true,
+				type : [ 'shopping_mall' ]
+			}, callback1);
+
+			service = new google.maps.places.PlacesService(map);
+			service.nearbySearch({
+				location : pyrmont,
+				radius : 2000,
+				openNow : true,
+				type : [ 'bank' ]
+			}, callback2);
+
+			service = new google.maps.places.PlacesService(map);
+			service.nearbySearch({
+				location : pyrmont,
+				radius : 2000,
+				openNow : true,
+				type : [ 'school' ]
+			}, callback3);
+
+			service = new google.maps.places.PlacesService(map);
+			service.nearbySearch({
+				location : pyrmont,
+				radius : 2000,
+				openNow : true,
+				type : [ 'hospital' ]
+			}, callback4);
+
+			service = new google.maps.places.PlacesService(map);
+			service.nearbySearch({
+				location : pyrmont,
+				radius : 2000,
+				openNow : true,
+				type : [ 'store' ]
+			}, callback5);
+
+		}
+
+		function callback(results, status) {
+			if (status == google.maps.places.PlacesServiceStatus.OK) {
+				for (var i = 0; i < results.length; i++) {
+					createMarker(results[i]);
+				}
+			}
+		}
+
+		function callback1(results, status) {
+			if (status == google.maps.places.PlacesServiceStatus.OK) {
+				for (var i = 0; i < results.length; i++) {
+					createMarker1(results[i]);
+				}
+			}
+		}
+
+		function callback2(results, status) {
+			if (status == google.maps.places.PlacesServiceStatus.OK) {
+				for (var i = 0; i < results.length; i++) {
+					createMarker2(results[i]);
+				}
+			}
+		}
+
+		function callback3(results, status) {
+			if (status == google.maps.places.PlacesServiceStatus.OK) {
+				for (var i = 0; i < results.length; i++) {
+					createMarker3(results[i]);
+				}
+			}
+		}
+
+		function callback4(results, status) {
+			if (status == google.maps.places.PlacesServiceStatus.OK) {
+				for (var i = 0; i < results.length; i++) {
+					createMarker4(results[i]);
+				}
+			}
+		}
+
+		function callback5(results, status) {
+			if (status == google.maps.places.PlacesServiceStatus.OK) {
+				for (var i = 0; i < results.length; i++) {
+					createMarker5(results[i]);
+				}
+			}
+		}
+
+		function createMarker(place) {
+			var placeLoc = place.geometry.location
+			var marker = new google.maps.Marker({
+				map : map,
+				position : placeLoc,
+				animation : google.maps.Animation.DROP,
+				icon : '../icon/restaurant.png'
+			});
+
+			//加入多個InfoWindow
+			
+            infowindow = new google.maps.InfoWindow({
+                content: place.name,
+            });
+            infowindow.open(map, marker);
+
+		}
+
+		function createMarker1(place) {
+			var placeLoc = place.geometry.location
+			var marker = new google.maps.Marker({
+				map : map1,
+				position : placeLoc,
+				animation : google.maps.Animation.DROP,
+				icon : '../icon/mall.png'
+			});
+
+			//加入多個InfoWindow
+		
+			infowindow = new google.maps.InfoWindow({
+				content : place.name,
+			});
+			infowindow.open(map1, marker);
+
+		}
+
+		function createMarker2(place) {
+			var placeLoc = place.geometry.location
+			var marker = new google.maps.Marker({
+				map : map2,
+				position : placeLoc,
+				animation : google.maps.Animation.DROP,
+				icon : '../icon/museum.png'
+			});
+
+			//加入多個InfoWindow
+			
+
+            infowindow = new google.maps.InfoWindow({
+                content: place.name,
+            });
+            infowindow.open(map2, marker);
+
+		}
+
+		function createMarker3(place) {
+			var placeLoc = place.geometry.location
+			var marker = new google.maps.Marker({
+				map : map3,
+				position : placeLoc,
+				animation : google.maps.Animation.DROP,
+				icon : '../icon/school.png'
+			});
+
+			//加入多個InfoWindow
+		
+            infowindow = new google.maps.InfoWindow({
+                content: place.name,
+            });
+            infowindow.open(map3, marker);
+
+		}
+
+		function createMarker4(place) {
+			var placeLoc = place.geometry.location
+			var marker = new google.maps.Marker({
+				map : map4,
+				position : placeLoc,
+				animation : google.maps.Animation.DROP,
+				icon : '../icon/hospital.png'
+			});
+			//加入多個InfoWindow
+
+            infowindow = new google.maps.InfoWindow({
+                content: place.name,
+            });
+            infowindow.open(map4, marker);
+
+		}
+
+		function createMarker5(place) {
+			var placeLoc = place.geometry.location
+			var marker = new google.maps.Marker({
+				map : map5,
+				position : placeLoc,
+				animation : google.maps.Animation.DROP,
+				icon : '../icon/store.png'
+			});
+
+			//加入多個InfoWindow           
+
+
+            infowindow = new google.maps.InfoWindow({
+                content: place.name,
+            });
+            infowindow.open(map5, marker);
+            ;
+
+		}
+	</script>
 
 	<%@ include file="/WEB-INF/frontStageHeader.jsp"%>
 
 
 	<div class="container">
 		<br> <br> <br>
-		<div class="row">			
-			
-			
+		<div class="row">
+
+
 			<div class="col-8">
-				
+
 				<div id="carouselExampleIndicators" class="carousel slide"
 					data-ride="carousel">
 					<ol class="carousel-indicators">
@@ -168,37 +476,37 @@
 					<div class="carousel-inner">
 
 						<div class="carousel-item active">
-							<img class="d-block w-60" src="/Traveler/images/hotelPic/korFRA1.jpg"
-								alt="First slide">
+							<img class="d-block w-60"
+								src="/Traveler/images/hotelPic/korFRA1.jpg" alt="First slide">
 						</div>
 						<div class="carousel-item">
-							<img class="d-block w-60" src="/Traveler/images/hotelPic/korFRA2.jpg"
-								alt="First slide">
+							<img class="d-block w-60"
+								src="/Traveler/images/hotelPic/korFRA2.jpg" alt="First slide">
 						</div>
 
 						<div class="carousel-item">
-							<img class="d-block w-60" src="/Traveler/images/hotelPic/korFRA3.jpg"
-								alt="Second slide">
+							<img class="d-block w-60"
+								src="/Traveler/images/hotelPic/korFRA3.jpg" alt="Second slide">
 						</div>
 						<div class="carousel-item">
-							<img class="d-block w-100" src="/Traveler/images/hotelPic/korFRA4.jpg"
-								alt="Third slide">
+							<img class="d-block w-100"
+								src="/Traveler/images/hotelPic/korFRA4.jpg" alt="Third slide">
 						</div>
 						<div class="carousel-item">
-							<img class="d-block w-100" src="/Traveler/images/hotelPic/korFRA5.jpg"
-								alt="fouth slide">
+							<img class="d-block w-100"
+								src="/Traveler/images/hotelPic/korFRA5.jpg" alt="fouth slide">
 						</div>
 						<div class="carousel-item">
-							<img class="d-block w-100" src="/Traveler/images/hotelPic/korFRA6.jpg"
-								alt="fivth slide">
+							<img class="d-block w-100"
+								src="/Traveler/images/hotelPic/korFRA6.jpg" alt="fivth slide">
 						</div>
 						<div class="carousel-item">
-							<img class="d-block w-100" src="/Traveler/images/hotelPic/korFRA7.jpg"
-								alt="sexth slide">
+							<img class="d-block w-100"
+								src="/Traveler/images/hotelPic/korFRA7.jpg" alt="sexth slide">
 						</div>
 						<div class="carousel-item">
-							<img class="d-block w-100" src="/Traveler/images/hotelPic/korFRA8.jpg"
-								alt="seventh slide">
+							<img class="d-block w-100"
+								src="/Traveler/images/hotelPic/korFRA8.jpg" alt="seventh slide">
 						</div>
 
 					</div>
@@ -287,39 +595,87 @@
 							</td>
 							<td><h4 style="color:red">NT:7,500</h4></td>
 							<td><a href="OrderRoom" class="btn btn-primary" name="">訂房</a></td>
-						</tr>
+						</tr>						
 					</tbody>
 				</table>
 			</div>
 
 			<div class="col-4">
 				<form action="DisplayRoom" method="get">
-				<div class="card ">
-					<h5 class="card-header bg-danger" style="color: aliceblue">特別優惠：</h5>
-					<div class="card-body">
-						<h3 class="card-title">我們只剩3間</h3>
-						<h1 class="card-title" style="color: red">NT：4,450</h1>
-						<p class="card-text"></p>
-						<a href="OrderRoom" class="btn btn-primary" name="">立即訂房</a>
+					<div class="card ">
+						<h5 class="card-header bg-danger" style="color: aliceblue">今日優惠：</h5>
+						<div class="card-body">
+							<h3 class="card-title"></h3>
+							<h1 class="card-title" style="color: red">NT：4,500</h1>
+							<p class="card-text"></p>
+							<a href="OrderRoom" class="btn btn-primary" name="">立即訂房</a>
+						</div>
 					</div>
-				</div>
 				</form>
 				<br> <br>
-				<iframe class="card-img-top"
-					src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28923.59812832985!2d121.52704234187426!3d25.01880619934078!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442ac841a02a5bd%3A0xac9f4b19c3406b05!2z6Ie65YyX5biC56uL5ZyW5pu46aSoIOe4vemkqA!5e0!3m2!1szh-TW!2stw!4v1526958557360"
-					width="600" height="300" frameborder="0" style="border: 0"
-					allowfullscreen alt="Card image cap"> </iframe>
+				<div id="tabs" style="width: 350px; height: 310px">
+					<ul>
+						<li><a href="#tabs-1">餐廳</a></li>
+						<li><a href="#tabs-2">百貨公司</a></li>
+						<li><a href="#tabs-3">銀行</a></li>
+						<li><a href="#tabs-4">學校</a></li>
+						<li><a href="#tabs-5">醫院</a></li>
+						<li><a href="#tabs-6">周邊店家</a></li>
+					</ul>
+
+					<div id="tabs-1">
+						<div id="map" style="width: 310px; height: 255px"></div>
+					</div>
+
+					<div id="tabs-2">
+						<div id="map1" style="width: 310px; height: 255px"></div>
+					</div>
+
+					<div id="tabs-3">
+						<div id="map2" style="width: 310px; height: 255px"></div>
+					</div>
+
+					<div id="tabs-4">
+						<div id="map3" style="width: 310px; height: 255px"></div>
+					</div>
+
+					<div id="tabs-5">
+						<div id="map4" style="width: 310px; height: 255px"></div>
+					</div>
+
+					<div id="tabs-6">
+						<div id="map5" style="width: 310px; height: 255px"></div>
+					</div>
+
+				</div>
+
+
+				<script
+					src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCzkvukDcmjF5aVCv7OXR8G2DqOCB_IDhE&libraries=places&callback=initMap"
+					async defer>
+					
+				</script>
+
+
+
+				<!-- 				<iframe class="card-img-top" -->
+				<!-- 					src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28923.59812832985!2d121.52704234187426!3d25.01880619934078!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442ac841a02a5bd%3A0xac9f4b19c3406b05!2z6Ie65YyX5biC56uL5ZyW5pu46aSoIOe4vemkqA!5e0!3m2!1szh-TW!2stw!4v1526958557360" -->
+				<!-- 					width="600" height="300" frameborder="0" style="border: 0" -->
+				<!-- 					allowfullscreen alt="Card image cap"> </iframe> -->
 				<br> <br>
-				
+
 				<div class="card bg-light mb-3" style="max-width: 60rem;">
-					<div class="card-header"><h2>旅客評論</h2></div>
+					<div class="card-header">
+						<h2>旅客評論</h2>
+					</div>
 					<div class="card-body">
 						<ul>
 							<li>房間雖然小了一些，但，兩個人住一起不會覺得擁擠，房間舒適又乾淨，隔音效果不錯，公共區域還有按摩椅可以按摩放鬆，超棒的！下次還會去住</li>
 							<li>床舖舒適,可以很快入睡,CP值高~</li>
 							<li>整體不錯，只是遊客很多..大家公德心ok，清潔阿姨已經很辛苦..但趕不上破壞的速度，希望再增加清潔人員與清掃的頻率</li>
 							<li>價格很便宜，地點也離我想去的地方很近，很適合背包客，唯一的缺點應該是隔音設備不好，隔壁做什麼事聽的很清楚</li>
-							<li>捷運站口出來大約需走約6-7分鐘，旅館隔壁有寶雅真的很方便，週邊環境安靜，晚上想買宵夜的話要跑遠一點。 旅館很大，公共設施很多，房間乾淨，浴室也是乾濕分離，如果真要說缺點那大概也就是隔音沒有很好</li>
+							<li>捷運站口出來大約需走約6-7分鐘，旅館隔壁有寶雅真的很方便，週邊環境安靜，晚上想買宵夜的話要跑遠一點。
+								旅館很大，公共設施很多，房間乾淨，浴室也是乾濕分離，如果真要說缺點那大概也就是隔音沒有很好</li>
 						</ul>
 					</div>
 				</div>

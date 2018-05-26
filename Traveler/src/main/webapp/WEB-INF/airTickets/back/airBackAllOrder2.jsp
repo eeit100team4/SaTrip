@@ -132,6 +132,8 @@ $(document).ready(function(){
 })
 
 </script>
+<!-- 側邊樣式 -->
+<link rel="stylesheet" href="/Traveler/css/side/side.css">
 
 
 <script src="/Traveler/js/airplain/jquery-tablepage.js"></script>
@@ -239,6 +241,10 @@ margin-bottom:0px;
 .footer .push{
 margin-bottom:0px;
 }
+
+
+
+
 </style>
 <!-- 
 <script>

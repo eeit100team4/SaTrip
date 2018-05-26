@@ -1,8 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -41,8 +41,6 @@
 <link rel="stylesheet" href="/Traveler/css/cs-skin-border.css">
 
 <link rel="stylesheet" href="/Traveler/css/style.css">
-<!-- 手風琴 -->
-<link rel="stylesheet" href="/Traveler/css/astyle.css" type="text/css"/>
 
 
 <!-- Modernizr JS -->
@@ -83,19 +81,7 @@
 <script src="/Traveler/js/main.js"></script>
 <!-- 連結旁邊的小ICON套件  -->	
 <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
-<!-- 手風琴 -->
-<script type="text/javascript" src="/Traveler/jquery-1.10.2.min.js"></script>
-<script type="text/javascript">
-$(function(){
-	$("ul.subs").hide();
-	$("div.main").click(function(){
-		$("ul.subs").hide();
-		if($("+ul",this).css("display")=="none"){
-		   $("+ul",this).show();
-	    }
-	 });
-  });
-</script>
+
 <!-- 測試側邊 -->
 <style>
 #mwt_mwt_slider_scroll
@@ -181,70 +167,154 @@ margin-bottom:0px;
 </head>
 <body>
 
-	<%@ include file="/WEB-INF/backStageHeader.jsp" %>
-
-	<!--=========================要放的東西  =====================-->
+	<%@ include file="/WEB-INF/backStageHeader.jsp" %>	
 	
+						
+<!--=========================要放的東西  =====================-->
+		<div class="container" style="padding-top:80px;padding-left:150px">		
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<!-- <script src="https://code.highcharts.com/modules/exporting.js"></script> -->
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+
+
+<div id="container" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
+<span style="font-size:13px;"></span>
+<select id="choose" onchange="TheConfirmBox()">
+	<option disabled=disabled selected=selected>請選擇</option>
+<!-- 	<optgroup label="亞洲區"> -->
+<!-- 		<option value="http://localhost:8080/Traveler/contactus/contactuspieasia">1~3月份國人出國目的地統計</option> -->
+<!-- 		<option value="http://localhost:8080/Traveler/contactus/contactuspieage">1~3月份國人出國年齡地統計</option> -->
+</select>
+<span id="check" style="color:red;"></span><br>
+<script>
+	function TheConfirmBox() {
+		var noteToMe;
+		/*取得id為choose的選單裡剛剛所點擊的連結的名稱*/
+		var whichUserChoose=choose.options[choose.selectedIndex].text;
+		if (confirm("Hello！你確定要前往"+whichUserChoose+"?") == true){
+			noteToMe = "你選取想前往"+whichUserChoose+"！";
+			window.location.assign(choose.options[choose.selectedIndex].value);
+		}else{
+			noteToMe = "你按了取消喔！";
+		}
+		document.getElementById("check").innerHTML = noteToMe;
+	}
+	
+</script>
+
+<script>
+Highcharts.chart('container', {
+    chart: {
+        plotBackgroundColor: null,
+        plotBorderWidth: null,
+        plotShadow: false,
+        type: 'pie'
+    },
+    title: {
+        text: '1~3月份國人出國目的地統計(亞洲區)'
+    },
+    tooltip: {
+        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+    },
+    plotOptions: {
+        pie: {
+            allowPointSelect: true,
+            cursor: 'pointer',
+            dataLabels: {
+                enabled: true,
+                format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                style: {
+                    color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                }
+            }
+        }
+    },
+    series: [{
+        name: 'Brands',
+        colorByPoint: true,
+        data: [{
+            name: '香港',
+            y: 412631,
+            sliced: true,
+            selected: true
+        }, {
+            name: '澳門 ',
+            y: 145445
+        }, {
+            name: '大陸',
+            y: 916722
+        }, {
+            name: '日本',
+            y: 1147797
+        }, {
+            name: '韓國',
+            y: 249373
+        }, {
+            name: '新加坡',
+            y: 94411
+        }, {
+            name: '馬來西亞',
+            y: 81267
+        }, {
+            name: '泰國',
+            y: 163539
+        }, {
+            name: '菲律賓',
+            y: 60953
+        }, {
+            name: '印尼',
+            y: 44721
+        }, {
+            name: '汶淶',
+            y: 272
+        }, {
+            name: '越南',
+            y: 155676
+        }, {
+            name: '緬甸',
+            y: 7519
+        }, {
+            name: '柬埔寨',
+            y: 25870
+        }, {
+            name: '阿拉伯聯合大公國 ',
+            y: 16370
+        }, {
+            name: '土耳其',
+            y: 18966
+        }, {
+            name: '亞洲其他地區',
+            y: 18642
+        }]
+    }]
+});
+</script>
+
+</div>
 	<!-- =========側邊欄位開始============ -->	
 <div id="mwt_mwt_slider_scroll">
 <div id="mwt_slider_content"   >
-<div id="nav">
- <ul>
-  <li class="color-blue">
-   <div class="main">主題種類</div>
-   <ul class="subs">
-    <li><a href="themeTitles">瀏覽主題</a></li>
-    <li><a href="addTitle">新增主題</a></li>
-    <li><a href="">修改主題</a></li>
-   </ul>
-  </li>
-  <li class="color-red">
-   <div class="main">旅遊商品</div>
-   <ul class="subs">
-    <li><a href="">依種類查詢</a></li>
-    <li><a href="">新增旅遊商品</a></li>
-    <li><a href="">修改商品細節</a></li>
-   </ul>
-  </li>
-  <li class="color-yellow">
-   <div class="main">管理行程</div>
-   <ul class="subs">
-    <li><a href="">依商品查詢</a></li>
-    <li><a href="">新增行程</a></li>
-    <li><a href="">修改行程</a></li>
-   </ul>
-  </li>
-  <li class="color-green">
-   <div class="main">報名表單</div>
-   <ul class="subs">
-   <li><a href="allApplications">全報名表</a></li>
-   <li><a href="">依行程查詢</a></li>
-   <li><a href="">依人名查詢</a></li>
-    <li><a href="">依報名時間查詢</a></li>
-    <li><a href="">依報名人數查詢</a></li>    
-   </ul>
-  </li>
- </ul>
-</div>
+<ul class="me">
+<h2>客服管理</h2>
+<p><a href="selectopinion" style="color:black">查看留言</a></p>
+<p><a href="StatisticsReport" style="color:black">統計報表</a></p>
+<a href="contactuspieasia"></a>
+<a href="contactuspieage"></a>
+<a href="contactuspieopinion"></a>
+
+
+
+
+
+</ul>
 </div>
 </div>
 <!-- =========側邊欄位結束============ -->
 	
 	
 	
-<div style="margin-left:200px; margin-top:20px;width:1050px;" class="content text-center">
-<h1>請挑選主題</h1>
- <c:forEach var='theme' items='${themeTitles}'>
-  <div style="width:350px; height:250px; float: left; ">
-    <img src="/Traveler/images/themeTitle-${theme.titleName}.png" width="300" height="200">    
-    <p>   
-    <b style='font-size:25px;'>${theme.titleName}</b>   
-    </p>
-  </div>
- </c:forEach>
-</div>
-		
-
+	
+	
 
 	<!--  ========================================================== -->
 

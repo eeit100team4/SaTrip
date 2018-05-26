@@ -132,6 +132,8 @@ $(document).ready(function(){
 })
 
 </script>
+<!-- 側邊樣式 -->
+<link rel="stylesheet" href="/Traveler/css/side/side.css">
 
 <script>
 	function entry() {
@@ -338,9 +340,6 @@ margin-bottom:0px;
 									value="${bean.guestBean.guestOneBirth}">
 							</div>
 							<div class="col-md-4 mb-3">
-								<label for="guestOnepassportNum" class="lab">護照號碼</label> <input
-									type="text" name=guestOnepassportNum id="guestOnepassportNum"
-									value="${bean.guestBean.guestOnepassportNum}">
 							</div>
 							<div class="col-md-4  mb-3">
 								<label class="lab">性別</label> <input type="text"
@@ -377,9 +376,6 @@ margin-bottom:0px;
 									value="${bean.guestBean.guestTwoBirth}">
 							</div>
 							<div class="col-md-4 mb-3">
-								<label for="guestTwopassportNum" class="lab">護照號碼</label> <input
-									type="text" name=guestTwopassportNum id="guestTwopassportNum"
-									value="${bean.guestBean.guestTwopassportNum}">
 							</div>
 							<div class="col-md-4  mb-3">
 								<label class="lab">性別</label> <input type="text"

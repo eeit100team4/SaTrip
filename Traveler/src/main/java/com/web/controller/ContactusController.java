@@ -67,44 +67,23 @@ public class ContactusController {
 	@RequestMapping(value="contactus/InsertOpinionSuccess",method=RequestMethod.POST)
 	public String processAddNewContactusForm(@ModelAttribute("contactusBean")ContactusBean contactus2,
 			BindingResult result, HttpSession session) {
-		MemberBean mb = (MemberBean) session.getAttribute("LoginOK");
 		System.out.println("ENTER POST");
 		System.out.println(contactus2);
 //		session.setAttribute("abc", contactus);
 		contactusService.addCustomerOpinion(contactus2);
 		session.setAttribute("aa", contactus2);
-		return "redirect:/contactus/InsertOpinionSuccess";
+		return "redirect:/contactus/contactusopinion";
 	}
 
-//	@RequestMapping(value="contactus/feedbackopinion")
-//	public String update(Model model,
-//			@ModelAttribute("contactusBean") ContactusBean contactus) {
-//		List<ContactusBean>  list = contactusService.getAllContactus();
 
-//	@RequestMapping(value="/update/{feedback}",method=RequestMethod.PUT)
-//	public String updateform(HttpServletRequest request, HttpServletResponse response,HttpSession session, Model model,
-//			@ModelAttribute("contactusBean") ContactusBean contactus2) {
-//		List<ContactusBean>  list = contactusService.getAllFeedback();
-////		model.addAttribute("aa", list);
-//		session.setAttribute("aa", contactus2);
-//		return "/contactus/feedbackopinion";		
-//	}
-//	@RequestMapping(value="contactus/feedbackopinion/{pkid}",method=RequestMethod.GET)
-//	public String updateForm(@ModelAttribute("contactusBean")ContactusBean contactus,Model model) {
-//		model.addAttribute("contactusBean",contactus);
-//		return "contactus/feedbackopinion";
-//	}
-
-	@RequestMapping(value="contactus/feedbackopinion/{pkid}")
+	@RequestMapping(path="contactus/feedbackopinion/{pkid}")
 	public String updateForm(Model model,
-			@ModelAttribute("contactusBean") ContactusBean contactus,BindingResult result, 
-			HttpSession session) {
-		MemberBean mb = (MemberBean) session.getAttribute("LoginOK");
+			@ModelAttribute("contactusBean") ContactusBean contactus,@PathVariable ("pkid") Integer pkid) {
 //		List<ContactusBean>  list = contactusService.getAllFeedback();
 //		model.addAttribute("contactus", list);
 		contactusService.updateCustomerOpinion(contactus);
-		session.setAttribute("aa", contactus);
-		return "contactus/selectopinion";		
+		
+		return "redirect:/contactus/selectopinion";	
 		
 	}
 //	
@@ -130,11 +109,21 @@ public class ContactusController {
 	
 	
 	
-	@RequestMapping("contactus/feedbackopinion")
-	public String list2(Model model) {
-		List<ContactusBean> list2=contactusService.getAllContactus();
+	@RequestMapping("/contactus/{pkid}")
+	public String list2(@PathVariable("pkid")Integer pkid,Model model) {
+		List<ContactusBean> list2=contactusService.getAllContactus(pkid);
 		model.addAttribute("contactus", list2);
 		return "contactus/feedbackopinion";
+	}
+
+	@RequestMapping("/contactus/InsertOpinionSuccess")
+	public String instertopinionsuccess(Model model) {
+		List<ContactusBean>  list = contactusService.getAllContactus();
+		model.addAttribute("contactus", list);
+		
+			return "redirect:contactus/InsertOpinionSuccess";
+		
+		
 	}
 	
 	@RequestMapping("contactus/StatisticsReport")
@@ -155,7 +144,6 @@ public class ContactusController {
 	
 	@RequestMapping("contactus/selectopinion")
 	public String list6(Model model) {
-		MemberBean mb = (MemberBean) session.getAttribute("LoginOK");
 		List<ContactusBean> list2=contactusService.getAllContactus();
 		model.addAttribute("contactus", list2);
 		return "contactus/selectopinion";

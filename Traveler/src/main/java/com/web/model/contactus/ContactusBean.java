@@ -2,7 +2,7 @@ package com.web.model.contactus;
 
 import java.io.*;
 import java.text.*;
-import java.util.*;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -27,12 +27,13 @@ public class ContactusBean implements Serializable {
 	private String opinion;
 	private String comment;
 	private String feedback;
+	private Date messagetime = new Date();
 	
 	
 	
 	
 	public ContactusBean(Integer pkid, String name, String sex, String age, String phone, String email, String address,
-			String opinion, String comment, String feedback) {
+			String opinion, String comment, String feedback,Date messagetime) {
 		super();
 		this.pkid = pkid;
 		this.name = name;
@@ -44,9 +45,20 @@ public class ContactusBean implements Serializable {
 		this.opinion = opinion;
 		this.comment = comment;
 		this.feedback = feedback;
+		this.messagetime = messagetime;
 	}
 	
 	
+	public Date getMessagetime() {
+		return messagetime;
+	}
+
+
+	public void setMessagetime(Date messagetime) {
+		this.messagetime = messagetime;
+	}
+
+
 	public ContactusBean() {
 		super();
 	}
@@ -161,9 +173,11 @@ public class ContactusBean implements Serializable {
 	public String toString() {
 		return "ContactusBean [pkid=" + pkid + ", name=" + name + ", sex=" + sex + ", age=" + age + ", phone=" + phone
 				+ ", email=" + email + ", address=" + address + ", opinion=" + opinion + ", comment=" + comment
-				+ ", feedback=" + feedback + "]";
+				+ ", feedback=" + feedback + ", messagetime=" + messagetime + "]";
 	}
 
+
+	
 
 
 

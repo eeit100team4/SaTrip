@@ -7,33 +7,30 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>Traveler</title>
+
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+	integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
+	crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+	integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
+	integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+	crossorigin="anonymous"></script>
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
+	integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
+	crossorigin="anonymous"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
 <meta name="keywords"
 	content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
 <meta name="author" content="FREEHTML5.CO" />
-<!-- -------------------------------- -->
-<link rel="stylesheet" href="/Traveler/css/bootstrap.min.css">
-<link rel="stylesheet" href="/Traveler/css/bootstrap-theme.min.css">
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
-<link
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
-	rel="stylesheet">
-<link rel="stylesheet"
-	href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-	crossorigin="anonymous">
 
-<!-- ---------------------------------- -->
+
+
 <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 <link rel="shortcut icon" href="/Traveler/images/favicon.ico">
 
@@ -94,178 +91,171 @@
 
 <!-- Main JS -->
 <script src="/Traveler/js/main.js"></script>
-<!-- 連結旁邊的小ICON套件  -->	
-<script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
-
+<!-- 連結旁邊的小ICON套件  -->
+<script defer
+	src="https://use.fontawesome.com/releases/v5.0.13/js/all.js"
+	integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe"
+	crossorigin="anonymous"></script>
 <!-- 測試側邊 -->
 <style>
-#mwt_mwt_slider_scroll
-{
-top: 95px;
-left:0px; 
-width:200px;
-position:fixed; 
-z-index:9999;
+* {
+	margin: 0;
+	padding: 0;
+}
+#mwt_mwt_slider_scroll {
+	top: 95px;
+	left: 0px;
+	width: 200px;
+	position: fixed;
+	z-index: 9999;
 }
 
-#mwt_slider_content{
-/* background:#FF8800; */
- background:#FF8800; 
-text-align:center;
-padding-top:20px;
+#mwt_slider_content {
+	/* background:#FF8800; */
+	background: #FF8800;
+	text-align: center;
+	padding-top: 20px;
 }
 
 #mwt_fb_tab {
-position:absolute;
-top:20px;
-right:-24px;
-width:24px;
-background:#FF8800;
-color:#ffffff;
-font-family:Arial, Helvetica, sans-serif;
-text-align:center;
-padding:9px 0;
-
--moz-border-radius-topright:10px;
--moz-border-radius-bottomright:10px;
--webkit-border-top-right-radius:10px;
--webkit-border-bottom-right-radius:10px;
+	position: absolute;
+	top: 20px;
+	right: -24px;
+	width: 24px;
+	background: #FF8800;
+	color: #ffffff;
+	font-family: Arial, Helvetica, sans-serif;
+	text-align: center;
+	padding: 9px 0;
+	-moz-border-radius-topright: 10px;
+	-moz-border-radius-bottomright: 10px;
+	-webkit-border-top-right-radius: 10px;
+	-webkit-border-bottom-right-radius: 10px;
 }
+
 #mwt_fb_tab span {
-display:block;
-height:12px;
-padding:1px 0;
-line-height:12px;
-text-transform:uppercase;
-font-size:12px;
+	display: block;
+	height: 12px;
+	padding: 1px 0;
+	line-height: 12px;
+	text-transform: uppercase;
+	font-size: 12px;
 }
-table{
-border:1px solid black;
-width:80px;
-height:50px;
-}
-td{
-border:1px solid black;
-/* text-align:center; */
-border:2px #ccc solid;border-radius:10px;width:360px;height:60px;
-color:black;
-font-family:微軟正黑;
-}
-
 </style>
 <script type='text/javascript'>
-$(document).ready(function(){
-	$("#mwt_mwt_slider_scroll").animate({ left:'0px' }, 600 ,'swing');
-	$('#mwt_slider_content').css('height', ($(window).height() - 20) + 'px' );
-})
-// $(function(){
-// var w = $("#mwt_slider_content").width();
-// $('#mwt_slider_content').css('height', ($(window).height() - 20) + 'px' ); //將區塊自動撐滿畫面高度
+	$(document).ready(
+			function() {
+				$("#mwt_mwt_slider_scroll").animate({
+					left : '0px'
+				}, 600, 'swing');
+				$('#mwt_slider_content').css('height',
+						($(window).height() - 20) + 'px');
+			})
+	// $(function(){
+	// var w = $("#mwt_slider_content").width();
+	// $('#mwt_slider_content').css('height', ($(window).height() - 20) + 'px' ); //將區塊自動撐滿畫面高度
 
-// $("#mwt_fb_tab").mouseover(function(){ //滑鼠滑入時
-// if ($("#mwt_mwt_slider_scroll").css('left') == '-'+w+'px')
-// {
-// $("#mwt_mwt_slider_scroll").animate({ left:'0px' }, 600 ,'swing');
-// }
-// });
+	// $("#mwt_fb_tab").mouseover(function(){ //滑鼠滑入時
+	// if ($("#mwt_mwt_slider_scroll").css('left') == '-'+w+'px')
+	// {
+	// $("#mwt_mwt_slider_scroll").animate({ left:'0px' }, 600 ,'swing');
+	// }
+	// });
 
-
-// $("#mwt_slider_content").mouseleave(function(){　//滑鼠離開後
-// $("#mwt_mwt_slider_scroll").animate( { left:'-'+w+'px' }, 600 ,'swing');
-// });
-// });
-
+	// $("#mwt_slider_content").mouseleave(function(){　//滑鼠離開後
+	// $("#mwt_mwt_slider_scroll").animate( { left:'-'+w+'px' }, 600 ,'swing');
+	// });
+	// });
 </script>
 <style>
-html,body{
-margin:0;
-padding:0;
-height:100%;
+html, body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
 }
-.wrapper{
-min-height:100%;
-margin-bottom:0px;
-}
-.footer .push{
-margin-bottom:0px;
-}
-</style>
 
+.wrapper {
+	min-height: 100%;
+	margin-bottom: 0px;
+}
+
+.footer .push {
+	margin-bottom: 0px;
+}
+
+</style>
 <title>Insert title here</title>
 </head>
 <body>
+	<%@ include file="/WEB-INF/backStageHeader.jsp"%>
 
-	<%@ include file="/WEB-INF/backStageHeader.jsp" %>	
-	
-						
-<!--=========================要放的東西  =====================-->	
-<div class="container" style="padding-top:80px;padding-left:150px">
-				<form action="feedbackopinion" modelAttribute="contactusBean"  enctype='multipart/form-data'>
+	<!--=========================要放的東西  =====================-->
+	<div class="row no-gutters">
+		<div class="container">
+<!-- 			<table class="table table-hover table-bordered"> -->
+				<form action="feedbackopinion/${pkid}" modelAttribute="contactusBean"  enctype='multipart/form-data'>
 						 <fieldest>
 						
-						 <table class="table table-hover" style="border:2px #ccc solid;border-radius:10px;width:400px;height:60px;">
-<!-- 						<table> -->
-						 <tr>
-						<td scope="row" style="width:100px;">姓名:</td>
-						<td>${aa.name}</td>
-						</tr>
-						<tr>
-						<td scope="row" style="width:100px;">性別:</td>
-						<td>${aa.sex}</td>
-						</tr>
-						<tr>
-						<td scope="row" style="width:100px;">年齡:</td>
-						<td>${aa.age}</td>
-						</tr>
-						<tr>
-						<td scope="row" style="width:100px;">連絡電話:</td>
-						<td>${aa.phone}</td>
-						</tr>
-						<tr>
-						<td scope="row" style="width:100px;">電子信箱:</td>
-						<td>${aa.email}</td>
-						</tr>
-						<tr>
-						<td scope="row" style="width:100px;">所在地:</td>
-						<td>${aa.address}</td>
-						</tr>
-						<tr>
-						<td scope="row" style="width:100px;">意見類別:</td>
-						<td>${aa.opinion}</td>
-						</tr>
-						<tr>
-						<td scope="row" style="width:100px;">意見欄:</td>
-					    <td>${aa.comment}</td>
-					    </tr>
-					    <tr>
-					    <td scope="row" style="width:100px;">回覆欄:</td>
-					    <td>${aa.feedback}</td>
-						</tr>
-						</table>
-					    
+						 
+			<table class="table table-hover" style="width:86em">
+ 				 <thead>
+    				<tr>
+      					<th scope="col">編號</th>
+      					<th scope="col">姓名</th>
+      					<th scope="col">性別</th>
+      					<th scope="col">年齡</th>
+      					<th scope="col">連絡電話</th>
+      					<th scope="col">電子信箱</th>
+      					<th scope="col">所在地</th>
+      					<th scope="col">意見類別</th>
+      					<th scope="col">意見欄</th>
+      					<th scope="col">回覆欄</th>
+      					<th scope="col">留言時間</th>
+      					<th scope="col"></th>
+    				</tr>
+  				</thead>
+  				<tbody>
+  			<c:forEach var='con' items='${contactus}'>
+    				<tr>
+      					<td scope="row">${con.pkid}</td>
+     				 	<td>${con.name}</td>
+      					<td>${con.sex}</td>
+      					<td>${con.age}</td>
+      					<td>${con.phone}</td>
+      					<td>${con.email}</td>
+      					<td>${con.address}</td>
+      					<td>${con.opinion}</td>
+      					<td>${con.comment}</td>
+      					<td>${con.feedback}</td>
+      					<td>${con.messagetime}</td>
+      					<td><a href="/Traveler/contactus/${con.pkid}">回覆</a></td>
+    				</tr>
+    				</c:forEach>
+  				</tbody>
+</table>
 
 		</fieldest>
 		</form>
+		</div>
+		</div>
                </div>
 						
 						
 						
 <!-- =========側邊欄位開始============ -->	
 <div id="mwt_mwt_slider_scroll">
-<div id="mwt_slider_content"   >
-<ul class="me">
-<h2>客服管理</h2>
-<p><a href="/Traveler/contactus/selectopinion" style="color:black">查看留言</a></p>
-<p><a href="/Traveler/contactus/feedbackopinion" style="color:black">回覆留言</a></p>
-<p><a href="/Traveler/contactus/StatisticsReport" style="color:black">統計報表</a></p>
-<a href="contactuspieasia"></a>
-<a href="contactuspieage"></a>
-
-
-
-
-</ul>
-</div>
+	<div id="mwt_slider_content"   >
+		<div id="nav">			 
+			 <ul >
+		 		 <li>
+					<a class="btn btn-primary"href="selectopinion"><h4><font color="white">查看留言</font></h4></a>
+				 </li>
+				  <li >
+				   	<a class="btn btn-primary"href="StatisticsReport"><h4><font color="white">統計報表</font></h4></a>			   
+				  </li>
+			 </ul>
+		</div>
+	</div>
 </div>
 <!-- =========側邊欄位結束============ -->
 	

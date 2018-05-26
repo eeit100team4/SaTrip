@@ -268,6 +268,12 @@ float:right;
 <!-- 	href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"> -->
 
 
+<!-- 老師 -->
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/jumbotron.css">
+<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+
+
 <title>Insert title here</title>
 </head>
 <body>
@@ -277,79 +283,92 @@ float:right;
 	<!--=========================要放的東西  =====================-->
 	
 	<!-- =========側邊欄位開始============ -->	
-<div id="mwt_mwt_slider_scroll">
-	<div id="mwt_slider_content"   >
-		<div id="nav">			 
-			 <ul >
-				  <li >
-				   	<a class="btn btn-primary"href="ShowAllHotels"><font color="white">查詢飯店資訊</font></a>
-				  </li>
-				  <li >
-				   	<a class="btn btn-primary"href="InsertHotel"><font color="white">新增飯店資訊</font></a>			   
-				  </li>
-				  <li >
-				   <a class="btn btn-primary"href="UpdateHotel"><font color="white">修改飯店資訊</font></a>				   
-				  </li>
-				  <li >
-				   	<a class="btn btn-primary"href="DeleteHotel"><font color="white">刪除飯店資訊</font> </a>			   
-				  </li>
-			 </ul>
+		<div id="mwt_mwt_slider_scroll">
+			<div id="mwt_slider_content"   >
+				<div id="nav">			 
+					 <ul >
+				 		 <li>
+							<a class="btn btn-primary"href="ManagerAllHotels"><h3><font color="white">管理飯店資訊</font></h3></a>
+						 </li>
+						  <li >
+						   	<a class="btn btn-primary"href="InsertHotel"><h3><font color="white">新增飯店資訊</font></h3></a>			   
+						  </li>
+					 </ul>
+				</div>
+			</div>
 		</div>
-	</div>
-</div>
 <!-- =========側邊欄位結束============ -->	
 	
-		<div class="container-fluid">
-				
-<%-- 					<c:forEach  var="hotelInfo" items="${hotels}">			 --%>
-<!-- 						<table class="simpleTable">							   -->
-<!-- 							  <thead> -->
-<!-- 							    <tr> -->
-<%-- 							      <th><img width='600' height='300' src="<c:url value='/getPic/${hotelInfo.hotel_id}' />" /></th> --%>
-<!-- 							      <th></th> -->
-<!-- 							      <th></th> -->
-<!-- 							    </tr> -->
-<!-- 							  </thead>	 -->
-<!-- 							  <tbody> -->
-<!-- 							    <tr> -->
-<%-- 							      <td><h1>${hotelInfo.name}</h1></td>							       --%>
-<!-- 							      <td></td> -->
-<%-- 							      <td width="200px"><h1><font color="red">NT：${hotelInfo.hotelRoomBean.price}</font></h1></td> --%>
-<!-- 							    </tr> -->
-<!-- 							    <tr>							      -->
-<%-- 							      <td><h4>${hotelInfo.country}</h4></td> --%>
-<!-- 							      <td></td>							       -->
-<!-- 							      <td></td> -->
-<!-- 							    </tr> -->
-<!-- 							    <tr>							     							       -->
-<%-- 							      <td><h4>${hotelInfo.city}</h4></td> --%>
-<!-- 							      <td></td>							       -->
-<!-- 							      <td><a class="btn btn-primary"href="DisplayRoom"><font color="white"><h4><font color="white">選擇</font></h4></font></a></td> -->
-<!-- 							    </tr> -->
-<!-- 						 	  </tbody> -->
-<!-- 					    </table>			 -->
-<%-- 						</c:forEach> --%>
-
+		<main role="main" class="container mt-2">
+		<!-- ____________________ -->
 			
-<!-- 		</div> -->
-		
-		
-		
-		<section class="container">
 			<div class="row">
-			<c:forEach  var="hotelInfo" items="${hotels}">	
+				<div class="col-lg-3">
+				<div class="col-lg-9">
+	
+			
+		
+		
+		<div class="card">
+			<div class="card-header"></div>
+			<div class="card-body">
+				<!-- 每頁不同的內容從這裡開始 -->
+				<c:forEach  var="hotelInfo" items="${hotels}">	
+				 <table id="productTable"   class="table table-bordered">
+                       <thead>
+                          <tr>
+                             <th>編號</th>
+                             <th>照片</th> 
+                             <th>國家</th>
+                             <th>城市</th>
+                             <th>飯店</th>                                             
+                             <th>管理</th>
+                          </tr>
+                       </thead>
+                       <tbody>
+                    
+                       		<tr><td>${hotelInfo.hotel_id}</td><td><img width='200' height='100' src="<c:url value='/getPic/${hotelInfo.hotel_id}' />" /></td><td>${hotelInfo.country}</td><td>${hotelInfo.city}</td><td>${hotelInfo.name}</td><td><button class="btn btn-danger"><i class="fas fa-trash-alt"></i></button> <button class="btn btn-info"><i class="fas fa-edit"></i></button></td></tr>                       
+                       </tbody>
+                       <tfoot>
+                       <tr>
+                       <form name="myForm">
+                        <td><input type="hidden" id="ProductID" name="ProductID"><span></span></td>
+                        <td><input path="productImage" type='file' class='form:input-large'></td>
+                        <td><input type="text" style="width:125px" class="form-control" id="country" name="country" placeholder=""></td>
+                        <td><input type="text" style="width:125px" class="form-control" id="city" name="city" placeholder=""></td>
+                        <td><input type="text" style="width:200px" class="form-control" id="name" name="name" placeholder=""></td>
+                        <td><button id="buttonAdd" type="button" class="btn btn-primary"><i class="fas fa-plus"></i></button>
+                          <button id="buttonUpdate" type="button" class="btn btn-success"><i class="fas fa-pencil-alt"></i></button></td>
+                       </tr>
+                       </form>
+                       </tfoot>
+                   </table>
+                   </c:forEach>
+				<!-- 每頁不同的內容到這裡結束 -->
+			</div>
+			</div>	
+		</div>
+		
+		
+<!-- ____________________ -->
+
+		
+		
+<!-- 		<section class="container"> -->
+<!-- 			<div class="row"> -->
+<%-- 			<c:forEach  var="hotelInfo" items="${hotels}">	 --%>
 			
 			
 			
-			<div class="col-sm-6 col-md-3" style="width: 360px; height: 360px">
-					<div class="thumbnail" style="width: 320px; height: 340px">
-					 <th><img width='300' height='250' src="<c:url value='/getPic/${hotelInfo.hotel_id}' />" /></th>						
-						<div class="caption">
-							<p>
-								<b style='font-size: 16px;'>${hotelInfo.name}</b>
-							</p>
-							<p>${hotelInfo.country}</p>
-							<p>${hotelInfo.city}</p>
+<!-- 			<div class="col-sm-6 col-md-3" style="width: 360px; height: 360px"> -->
+<!-- 					<div class="thumbnail" style="width: 320px; height: 340px"> -->
+<%-- 					 <th><img width='300' height='250' src="<c:url value='/getPic/${hotelInfo.hotel_id}' />" /></th>						 --%>
+<!-- 						<div class="caption"> -->
+<!-- 							<p> -->
+<%-- 								<b style='font-size: 16px;'>${hotelInfo.name}</b> --%>
+<!-- 							</p> -->
+<%-- 							<p>${hotelInfo.country}</p> --%>
+<%-- 							<p>${hotelInfo.city}</p> --%>
 <%-- 							<p><font color="red">NT：${hotelInfo.hotelRoomBean.price}</font></p> --%>
 <%-- 							<p>目前在庫數量: ${product.stock}本</p> --%>
 <!-- 							<p> -->
@@ -368,13 +387,13 @@ float:right;
 <!-- 									class="glyphicon-info-sigh glyphicon"></span>JSON -->
 <!-- 								</a> -->
 <!-- 							</p> -->
-						</div>
-					</div>
-				</div>
-				</c:forEach>
-			</div>			
-		</section>
-		</div>
+<!-- 						</div> -->
+<!-- 					</div> -->
+<!-- 				</div> -->
+<%-- 				</c:forEach> --%>
+<!-- 			</div>			 -->
+<!-- 		</section> -->
+<!-- 		</div> -->
 
 	<!--  ========================================================== -->
 

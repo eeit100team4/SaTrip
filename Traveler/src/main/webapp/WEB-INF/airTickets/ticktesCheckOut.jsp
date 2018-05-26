@@ -137,7 +137,7 @@ function showInfo(){
 //               alert( $("#TradeDesc").val(orderIdTemp));
 //               console.log($("#TradeDesc").val()+","+ $("#TotalAmount").val()+","+$("#MerchantTradeDate").val());
               var partOne="ChoosePayment=Credit&ClientBackURL=http://localhost:8080/Traveler/airTickets/checkOK&CreditInstallment=&EncryptType=1&InstallmentAmount=&ItemName=飛機票&MerchantID=2000132&MerchantTradeDate="+currentDateTime;	  
-              var  partTwo= "&MerchantTradeNo="+rando+"&PaymentType=aio&Redeem=&ReturnURL=http://localhost:8080/Traveler/airTickets/checkOK&StoreID=&TotalAmount="+priceTemp+"&TradeDesc="+orderIdTemp
+              var  partTwo= "&MerchantTradeNo="+rando+"&PaymentType=aio&Redeem=&ReturnURL=http://localhost:8080/Traveler/airTickets/testOpay&StoreID=&TotalAmount="+priceTemp+"&TradeDesc="+orderIdTemp
               
               //將查詢字串傳回後台進行加密
               var sendDet=partOne+partTwo;
@@ -274,7 +274,7 @@ function showInfo(){
 <input type="hidden" name="ItemName" value="飛機票" /><br />
 
 <!--  ReturnURL 付款完成通知回傳網址: -->
-<input type="hidden" name="ReturnURL" value="http://localhost:8080/Traveler/airTickets/checkOK" /><br />
+<input type="hidden" name="ReturnURL" value="http://localhost:8080/Traveler/airTickets/testOpay" /><br />
 
 <!--  ChoosePayment 預設付款方式: -->
 <input type="hidden" name="ChoosePayment" value="Credit" /><br />

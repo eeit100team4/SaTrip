@@ -179,67 +179,27 @@ margin-bottom:0px;
 
 <title>Insert title here</title>
 </head>
-<body>
+<body  style="background-image: url(/Traveler/images/主題背景用圖2.png);">
 
 	<%@ include file="/WEB-INF/backStageHeader.jsp" %>
 
 	<!--=========================要放的東西  =====================-->
 	
 	<!-- =========側邊欄位開始============ -->	
-<div id="mwt_mwt_slider_scroll">
-<div id="mwt_slider_content"   >
-<div id="nav">
- <ul>
-  <li class="color-blue">
-   <div class="main">主題種類</div>
-   <ul class="subs">
-    <li><a href="themeTitles">瀏覽主題</a></li>
-    <li><a href="addTitle">新增主題</a></li>
-    <li><a href="">修改主題</a></li>
-   </ul>
-  </li>
-  <li class="color-red">
-   <div class="main">旅遊商品</div>
-   <ul class="subs">
-    <li><a href="">依種類查詢</a></li>
-    <li><a href="">新增旅遊商品</a></li>
-    <li><a href="">修改商品細節</a></li>
-   </ul>
-  </li>
-  <li class="color-yellow">
-   <div class="main">管理行程</div>
-   <ul class="subs">
-    <li><a href="">依商品查詢</a></li>
-    <li><a href="">新增行程</a></li>
-    <li><a href="">修改行程</a></li>
-   </ul>
-  </li>
-  <li class="color-green">
-   <div class="main">報名表單</div>
-   <ul class="subs">
-   <li><a href="">依行程查詢</a></li>
-   <li><a href="">依人名查詢</a></li>
-    <li><a href="">依報名時間查詢</a></li>
-    <li><a href="">依報名人數查詢</a></li>    
-   </ul>
-  </li>
- </ul>
-</div>
-</div>
-</div>
+<%@ include file="/WEB-INF/theme/backLeftSide.jsp" %>
 <!-- =========側邊欄位結束============ -->
-	<hr>
-<div style="color:black;margin-left:300px; margin-top:10px;width:1500px;" class="content text-center">
+<hr>
+<div style="color:black;margin-left:250px; margin-top:10px;width:1500px;" class="content text-center">
 <table style='font-size:25px;'>
  <tr style="text-align:center;">
-  <td>出發時間</td>
-  <td>&nbsp;&nbsp;&nbsp;&nbsp;類型</td>
-  <td>&nbsp;&nbsp;&nbsp;&nbsp;商品名稱</td>
-  <td>&nbsp;&nbsp;&nbsp;&nbsp;報名人</td>
-  <td>&nbsp;&nbsp;&nbsp;&nbsp;稱謂</td>
-  <td>&nbsp;&nbsp;&nbsp;&nbsp;人數</td>
-  <td>&nbsp;&nbsp;&nbsp;&nbsp;電話</td>
-  <td>&nbsp;&nbsp;&nbsp;&nbsp;備註</td>
+  <td>出發時間&nbsp;&nbsp;&nbsp;&nbsp;</td>
+  <th>&nbsp;&nbsp;&nbsp;&nbsp;類型</th>
+  <th>&nbsp;&nbsp;&nbsp;&nbsp;商品名稱</th>
+  <th>&nbsp;&nbsp;&nbsp;&nbsp;報名人</th>
+  <th>&nbsp;&nbsp;&nbsp;&nbsp;稱謂</th>
+  <th>&nbsp;&nbsp;&nbsp;&nbsp;人數</th>
+  <th>&nbsp;&nbsp;&nbsp;&nbsp;電話</th>
+  <th>&nbsp;&nbsp;&nbsp;&nbsp;</th>
  </tr >
  <c:forEach var='applications' items='${applications}'>
   <tr style="text-align:left;">
@@ -250,7 +210,7 @@ margin-bottom:0px;
    <td>&nbsp;&nbsp;&nbsp;&nbsp;${applications.gender}</td>
    <td>&nbsp;&nbsp;&nbsp;&nbsp;${applications.people}人</td>
    <td>&nbsp;&nbsp;&nbsp;&nbsp;${applications.cellPhone}</td>
-   <td>&nbsp;&nbsp;&nbsp;&nbsp;${applications.extra}</td></tr>
+   <td><a href="../theme/allApplications/${applications.applicationId}">點擊查看更多詳細內容</a></td></tr>
  </c:forEach>
 </table>	
 </div>

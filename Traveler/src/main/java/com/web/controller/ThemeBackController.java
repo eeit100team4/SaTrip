@@ -4,11 +4,13 @@ import java.io.File;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
@@ -23,6 +25,8 @@ import com.web.service.theme.ThemeService;
 public class ThemeBackController {
 	@Autowired
 	ThemeService themeService;
+	@Autowired
+	HttpSession session;
 
 	// 新增主題用 產生空白表單 預設讀取GET方法
 	@RequestMapping(value = "/theme/addTitle", method = RequestMethod.GET)
@@ -95,7 +99,7 @@ public class ThemeBackController {
 	}
 	
 	//顯示全部行程內容
-	@RequestMapping("theme/allJourneys")
+	@RequestMapping("/theme/allJourneys")
 	public String journeyList(Model model) {
 		List<ThemeJourneys> list = themeService.getAllJourneys();
 		model.addAttribute("journeys", list);
@@ -103,10 +107,21 @@ public class ThemeBackController {
 	}
 
 	//顯示全部報名表內容
-	@RequestMapping("theme/allApplications")
+	@RequestMapping("/theme/allApplications")
 	public String applicationList(Model model) {
 		List<ThemeApplications> list = themeService.getAllApplications();
 		model.addAttribute("applications", list);
 		return "theme/allApplications";	
 	}
+	
+	//依申請表編號抓出單筆備註
+	@RequestMapping("/theme/allApplications/{applicationId}")
+	public String getExtra(@PathVariable("applicationId") Integer applicationId, Model model) {
+	ThemeApplications List = themeService.getExtraByApplicationId(applicationId);
+	System.out.println(List);
+	model.addAttribute("applicationId", List);
+	session.setAttribute("extra", List);		
+	System.out.println("ggg"+List);//測試	
+	return "theme/applicationExtra";
+		}
 }
