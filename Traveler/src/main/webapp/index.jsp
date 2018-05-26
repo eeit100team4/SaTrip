@@ -18,7 +18,7 @@
 <meta name="keywords"
 	content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
 <meta name="author" content="FREEHTML5.CO" />
-   
+
 <!-- 
 	//////////////////////////////////////////////////////
 
@@ -145,7 +145,6 @@
 		}
 	});
 </script>
-
 <style>
 /* 飯店日期顏色 */
 .ui-datepicker-month{
@@ -153,12 +152,11 @@ color:orange;
 }
 
 </style>
-
 </head>
 <body>
 	<%@ include file="/WEB-INF/frontStageHeader.jsp"%>
 	
-				<div class="fh5co-hero">
+				<div id="all" class="fh5co-hero">
 			<!-- <div class="fh5co-overlay"></div> -->
 			<div class="fh5co-cover" data-stellar-background-ratio="0.5" style="background-image: url(/Traveler/images/T1.jpg);">
 					
@@ -172,27 +170,27 @@ color:orange;
 
 								  <!-- Nav tabs -->
 								   <ul class="nav nav-tabs" role="tablist">
-								      <li role="presentation">								      	
+								      <li role="presentation"  class="active">								      	
 										    <a href="#flights" aria-controls="flights" role="tab" data-toggle="tab"><i class="fas fa-plane"></i>機票</a>
 								      </li>									  
 									  
-										  <li role="presentation" class="active">															
+										  <li role="presentation">															
 												<a href="#hotels" aria-controls="hotels" role="tab" data-toggle="tab"><i class="fas fa-home"></i>飯店</a>
 										  </li>
 								   </ul>
 
 								   <!-- Tab panes -->
 									<div class="tab-content">
-									 <div role="tabpanel" class="tab-pane" id="flights">
+									 <div role="tabpanel" class="tab-pane active" id="flights">
 										<div class="row">
 												<form action="/Traveler/airTickets/BFMS" method="get">
-														<div class="col-xxs-12 col-xs-5 mt">
+														<div class="col-xxs-12 col-xs-5 mt" style="margin:0px;">
 															<div class="input-field">
 																<label for="from">出發地</label>
 																<!-- 													增加先啟提供地點 -->
 																<!-- 													<input type="text" class="form-control" id="from-place" placeholder="台灣-桃園"/> -->
 																<select id="sec" name="dept" class="secDep"
-																	style="color: blue;">
+																	style="color: 	#CC6600; font-size: 15pt;	">
 																	<option selected="selected">選擇出發地</option>
 																</select>
 															</div>
@@ -202,7 +200,7 @@ color:orange;
 																<label for="from">目的地</label>
 																<!-- 																 <input type="text" class="form-control" id="to-place" -->
 																<!-- 																placeholder="Tokyo, Japan" /> -->
-																<select id="ret" name="arrv" style="color: blue;">
+																<select id="ret" name="arrv" style="color: 	#CC6600	; font-size: 15pt;">
 																	<option selected="selected">必須選擇出發地</option>
 																</select>
 															</div>
@@ -278,7 +276,7 @@ color:orange;
 										<div class="text-center"><h3 style="color:red">${error}</h3></div>
 									 </div>
 
-									 <div role="tabpanel" class="tab-pane active" id="hotels">
+									 <div role="tabpanel" class="tab-pane" id="hotels">
 									 	<div class="row">
 									 		<form action="SelectListed" method="get">
 											<div class="col-xxs-12 col-xs-12 mt">
@@ -335,7 +333,7 @@ color:orange;
 			<div class="container">
 				<div class="row">
 					<div class="col-md-8 col-md-offset-2 text-center heading-section animate-box">
-						<h3>最受歡迎的飯店 &amp; 飯店預定</h3>
+						<h3>最後歡迎的飯店 &amp; 飯店預定</h3>
 						<p>每間現代化的寬敞客房均擁有極簡風格設計，每間客房都有免費WIFI</p>
 					</div>
 				</div>
@@ -344,9 +342,9 @@ color:orange;
 						<div href="#"><img src="/Traveler/images/hotelPic/Korea/Seoul/korSRA/Double/korSRA1.jpeg" alt="Free HTML5 Website Template by FreeHTML5.co" class="img-responsive">
 							<div class="desc">
 								<span></span>
-								<h3>京都</h3>
+								<h3>東京</h3>
 								<span>3 nights</span>
-								<span class="price">$4,500</span>
+								<span class="price">$4,550</span>
 								<a class="btn btn-primary btn-outline" href="DisplayRoom">立即定位<i class="icon-arrow-right22"></i></a>
 							</div>
 						</div>
@@ -355,10 +353,10 @@ color:orange;
 						<div href="#"><img src="/Traveler/images/hotelPic/Korea/JejuIsland/korCRB/Double/korCRB2.jpeg" alt="Free HTML5 Website Template by FreeHTML5.co" class="img-responsive">
 							<div class="desc">
 								<span></span>
-								<h3>福岡</h3>
+								<h3>大阪</h3>
 								<span>4 nights</span>
-								<span class="price">$6,800</span>
-								<a class="btn btn-primary btn-outline" href="DisplayRoom1">立即定位<i class="icon-arrow-right22"></i></a>
+								<span class="price">$4,550</span>
+								<a class="btn btn-primary btn-outline" href="DisplayRoom">立即定位<i class="icon-arrow-right22"></i></a>
 							</div>
 						</div>
 					</div>
@@ -368,8 +366,8 @@ color:orange;
 								<span></span>
 								<h3>北海道</h3>
 								<span>2 nights</span>
-								<span class="price">$6,500</span>
-								<a class="btn btn-primary btn-outline" href="DisplayRoom2">立即定位<i class="icon-arrow-right22"></i></a>
+								<span class="price">$4,550</span>
+								<a class="btn btn-primary btn-outline" href="DisplayRoom">立即定位<i class="icon-arrow-right22"></i></a>
 							</div>
 						</div>
 					</div>
@@ -377,10 +375,10 @@ color:orange;
 						<div href="#"><img src="/Traveler/images/hotelPic/Thailand/Pattaya/taiBRB/Double/taiBRB1.jpeg" alt="Free HTML5 Website Template by FreeHTML5.co" class="img-responsive">
 							<div class="desc">
 								<span></span>
-								<h3>黑部立山</h3>
+								<h3>京都</h3>
 								<span>3 nights</span>
-								<span class="price">$9,500</span>
-								<a class="btn btn-primary btn-outline" href="DisplayRoom3">立即定位<i class="icon-arrow-right22"></i></a>
+								<span class="price">$4,550</span>
+								<a class="btn btn-primary btn-outline" href="DisplayRoom">立即定位<i class="icon-arrow-right22"></i></a>
 							</div>
 						</div>
 					</div>
@@ -390,8 +388,8 @@ color:orange;
 								<span></span>
 								<h3>北海道</h3>
 								<span>4 nights</span>
-								<span class="price">$8,500</span>
-								<a class="btn btn-primary btn-outline" href="DisplayRoom4">立即定位<i class="icon-arrow-right22"></i></a>
+								<span class="price">$4,550</span>
+								<a class="btn btn-primary btn-outline" href="DisplayRoom">立即定位<i class="icon-arrow-right22"></i></a>
 							</div>
 						</div>
 					</div>
@@ -401,8 +399,8 @@ color:orange;
 								<span></span>
 								<h3>鹿兒島</h3>
 								<span>2 nights</span>
-								<span class="price">$7,500</span>
-								<a class="btn btn-primary btn-outline" href="DisplayRoom5">立即定位<i class="icon-arrow-right22"></i></a>
+								<span class="price">$4,550</span>
+								<a class="btn btn-primary btn-outline" href="DisplayRoom">立即定位<i class="icon-arrow-right22"></i></a>
 							</div>
 						</div>
 					</div>
@@ -469,5 +467,13 @@ color:orange;
 		</div>
 	</div>
 	<%@ include file="/WEB-INF/frontStageFooter.jsp"%>
+	
+	
+		<div id="img1" style="display: none">
+		<h1>
+			<strong>搜尋中......</strang>
+		</h1>
+		<img alt="" src="images/airplain.gif" widtg=200px height=150px />
+	</div>
 </body>
 </html>
