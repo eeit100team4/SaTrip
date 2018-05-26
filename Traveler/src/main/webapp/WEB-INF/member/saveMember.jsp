@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>	
+<%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html class="no-js">
 <head>
@@ -9,8 +10,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <link rel='stylesheet' href='//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css' />
 <title><c:choose>
-		<c:when test="${function == 'add'}">加入會員</c:when>
-		<c:when test="${function == 'update'}">${welcomeNm} 會員資料更新</c:when>
+		<c:when test="${memberBean.function == 'add'}">加入會員</c:when>
+		<c:when test="${memberBean.function == 'update'}">${welcomeNm} 會員資料更新</c:when>
 		<c:otherwise>麥來亂</c:otherwise>
 	</c:choose></title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -146,23 +147,23 @@ $("#address").val("新北市板橋區oo街oo巷oo號oo樓");
 	<%@ include file="/WEB-INF/frontStageHeader.jsp"%>
 	<center>
 		<!-- <form name="insertMemberFormA" action="member.do" method="POST"> -->
-		<form name="insertMemberFormA" action="<c:url value='./saveMember.do' />"
-			method="POST" enctype="multipart/form-data">
-			<input type="hidden" name="function" value="${function}">
+		<form:form method="POST" name="insertMemberFormA" action="/Traveler/member/saveMember.do"
+			modelAttribute="memberBean" enctype="multipart/form-data">
+			<form:input type="hidden" name="function" value="${memberBean.function}" path="function"/>
 			<table border="0" >
 				<thead>
 					<tr bgcolor='#F5F5F5'>
 						<th height="60" colspan="2" align="center">
 							<c:choose>
-								<c:when test="${function == 'add'}"><h1 align="center" style="padding-top:15px">會員註冊</h1></c:when>
-								<c:when test="${function == 'update'}"><h1 align="center"style="padding-top:15px">${welcomeNm} 會員資料</h1></c:when>
+								<c:when test="${memberBean.function == 'add'}"><h1 align="center" style="padding-top:15px">會員註冊</h1></c:when>
+								<c:when test="${memberBean.function == 'update'}"><h1 align="center"style="padding-top:15px">會員資料</h1></c:when>
 								<c:otherwise><h1 align="center">會員註冊</h1></c:otherwise>
 							</c:choose>
 						</th>
 					</tr>
 				</thead>
 				<tbody>
-<!-- 				<c:if test="${function == 'update'}"> -->
+<!-- 				<c:if test="${memberBean.function == 'update'}"> -->
 <!-- 					<tr bgcolor='#F5F5F5'> -->
 <!-- 						<td width="120" height="40" align="right"></td> -->
 <!-- 						<td width="600" height="40" align="left"> -->
@@ -174,9 +175,10 @@ $("#address").val("新北市板橋區oo街oo巷oo號oo樓");
 						<td width="120" height="40" align="right">*會員帳號：</td>
 						<td width="600" height="40" align="left">
 							<c:choose>
-								<c:when test="${function == 'update'}">${welcomeNm}</c:when>
+								<c:when test="${memberBean.function == 'update'}">${memberBean.memberId}</c:when>
 								<c:otherwise>
-									<input id='memberId' style="text-align: left" name="memberId" value="${param.memberId}" type="text" size="14" placeholder="請輸入身份證字號" onblur="chkIdn()">
+									<form:input type="text" id='memberId' style="text-align: left" name="memberId" 
+									value="${memberBean.memberId}"  size="14" placeholder="請輸入身份證字號" onblur="chkIdn()" path="memberId" />
 									<div id="errMsgIdn" style="color: #ff0000; font-size =60%; display: inline;">${errorMsg.memberId}</div>
 								</c:otherwise>
 							</c:choose>
@@ -191,27 +193,27 @@ $("#address").val("新北市板橋區oo街oo巷oo號oo樓");
 						<td width="120" height="40" align="right">*性別：</td>
 						<td width="600" height="40" align="left">
 						<select id="gender" name="gender" style="text-align: left" onchange="chkGender()">
-								<option value="" ${(function == 'add')?"selected":""}>請選擇</option>
-								<option value="male" ${(member.gender == 'male')?"selected":""}>男</option>
-								<option value="female" ${(member.gender == 'female')?"selected":""}>女</option>
+								<option value="" ${(memberBean.function == 'add')?"selected":""}>請選擇</option>
+								<option value="male" ${(memberBean.gender == 'male')?"selected":""}>男</option>
+								<option value="female" ${(memberBean.gender == 'female')?"selected":""}>女</option>
 						</select>
 							<div  id="errMsgGender" style="color: #ff0000; font-size =60%; display: inline;">${errorMsg.gender}</div>
 						</td>
 					</tr>
-					<c:if test="${function == 'add'}">
+					<c:if test="${memberBean.function == 'add'}">
 					<tr bgcolor='#F5F5F5'>
 						<td width="120" height="40" align="right">*密碼：</td>
 						<td width="600" height="40" align="left">
-						<input id='password' style="text-align: left" name="password" value="${param.password}" 
-									type="password" size="30" placeholder="至少6個字須含英文、數字" onblur="chkPwd()">
+						<form:input id='password' style="text-align: left" name="password" value="${memberBean.password}" 
+									type="password" size="30" placeholder="至少6個字須含英文、數字" onblur="chkPwd()" path="password" />
 						<div id="errMsgPwd" style="color: #ff0000; font-size =60%; display: inline;">${errorMsg.password}</div>
 						</td>
 					</tr>
 					<tr bgcolor='#F5F5F5'>
 						<td width="120" height="40" align="right">*確認密碼：</td>
 						<td width="600" height="40" align="left">
-						<input id='chkPassword' style="text-align: left" name="chkPassword"
-							value="${param.chkPassword}" type="password" size="30" placeholder="需和密碼欄一致" onblur="chkChkPwd()">
+						<form:input id='chkPassword' style="text-align: left" name="chkPassword"
+							value="${memberBean.chkPassword}" type="password" size="30" placeholder="需和密碼欄一致" onblur="chkChkPwd()" path="chkPassword" />
 							<div  id="errMsgChkPwd" style="color: #ff0000; font-size =60%; display: inline;">${errorMsg.chkPassword}</div>
 						</td>
 					</tr>
@@ -219,69 +221,80 @@ $("#address").val("新北市板橋區oo街oo巷oo號oo樓");
 					<tr bgcolor='#F5F5F5'>
 						<td width="120" height="40" align="right">*出生年月日：</td>
 						<td width="600" height="40" align="left">
-						<input id="birthday" name="birthday" value="${(function == 'add')?param.birthday:member.birthday}" type="text" size="14"
-							placeholder="格式為yyyy/MM/dd" onblur="chkBirthday()">
+						<form:input id="birthday" name="birthday" value="${(memberBean.function == 'add')?memberBean.birthday:member.birthday}" type="text" size="14"
+							placeholder="格式為yyyy/MM/dd" onblur="chkBirthday()" path="birthday"/>
 							<div  id="errMsgBirthday" style="color: #ff0000; font-size =60%; display: inline;">${errorMsg.birthday}</div>
 						</td>
 					</tr>
 					<tr bgcolor='#F5F5F5'>
 						<td width="120" height="40" align="right">護照姓名：</td>
 						<td width="600" height="40" align="left">*中文
-						<input id="chineseLastName" name="chineseLastName" 
-							value="${(function == 'add')?param.chineseLastName:member.chineseLastName}"	
-							type="text" size="10" placeholder="姓" onblur="chkName(value)">
-						<input id="chineseFirstName" name="chineseFirstName" 
-							value="${(function == 'add')?param.chineseFirstName:member.chineseFirstName}"
-							type="text" size="10" placeholder="名" onblur="chkName(value)">
+						<form:input id="chineseLastName" name="chineseLastName" 
+							value="${(memberBean.function == 'add')?memberBean.chineseLastName:member.chineseLastName}"	
+							type="text" size="10" placeholder="姓" onblur="chkName(value)" path="chineseLastName"/>
+						<form:input id="chineseFirstName" name="chineseFirstName" 
+							value="${(memberBean.function == 'add')?memberBean.chineseFirstName:member.chineseFirstName}"
+							type="text" size="10" placeholder="名" onblur="chkName(value)" path="chineseFirstName"/>
 							<div  id="errMsgName" style="color: #ff0000; font-size =60%; display: inline;">${errorMsg.name}</div>
 							<p></p>&nbsp&nbsp英文
-						<input id="englishLastName" name="englishLastName" 
-							value="${(function == 'add')?param.englishLastName:member.englishLastName}"
-							type="text" size="20" placeholder="姓Last Name">
-						<input name="englishFirstName" value="${(function == 'add')?param.englishFirstName:member.englishFirstName}"
-							type="text" size="20" placeholder="名First Name">
+						<form:input id="englishLastName" name="englishLastName" 
+							value="${(memberBean.function == 'add')?memberBean.englishLastName:member.englishLastName}"
+							type="text" size="20" placeholder="姓Last Name" path="englishLastName"/>
+						<form:input name="englishFirstName" value="${(memberBean.function == 'add')?memberBean.englishFirstName:member.englishFirstName}"
+							type="text" size="20" placeholder="名First Name" path="englishFirstName" />
 						</td>
 					</tr>
 					<tr bgcolor='#F5F5F5'>
 						<td width="120" height="40" align="right">*聯絡Email：</td>
 						<td width="600" height="40" align="left">
-						<input  id="email" name="email" value="${(function == 'add')?param.email:member.email}" type="text" size="30" onblur="chkEmail()">
+						<form:input  id="email" name="email" value="${(memberBean.function == 'add')?memberBean.email:member.email}" type="text" size="30" onblur="chkEmail()" path="email"/>
 							<div  id="errMsgEmail" style="color: #ff0000; font-size =60%; display: inline;">${errorMsg.email}</div>
 						</td>
 					</tr>
 					<tr bgcolor='#F5F5F5'>
 						<td width="120" height="40" align="right">*手機：</td>
 						<td width="600" height="40" align="left">
-						<input id="mobile" name="mobile" value="${(function == 'add')?param.mobile:member.mobile}" type="text" size="30" onblur="chkMobile()">
+							<form:input type="text" id="mobile" name="mobile" 
+							value="${(memberBean.function == 'add')?memberBean.mobile:member.mobile}"  
+							size="30" onblur="chkMobile()" path="mobile"/>
 							<div  id="errMsgMobile" style="color: #ff0000; font-size =60%; display: inline;">${errorMsg.mobile}</div>
 						</td>
 					</tr>				
 					<tr bgcolor='#F5F5F5'>
 						<td width="120" height="40" align="right">市話：</td>
-						<td width="600" height="40" align="left"><input
-							name="phoneNumber" value="${(function == 'add')?param.phoneNumber:member.phoneNumber}" type="text"
-							size="30">
+						<td width="600" height="40" align="left">
+							<form:input type="text"
+							name="phoneNumber" value="${(memberBean.function == 'add')?memberBean.phoneNumber:member.phoneNumber}" 
+							size="30" path="phoneNumber"/>
 							<div  id="errMsgPhoneNumber" style="color: #ff0000; font-size =60%; display: inline;">${errorMsg.phoneNumber}</div>
 						</td>
 					</tr>				
 					<tr bgcolor='#F5F5F5'>
-						<td width="120" height="40" align="right">地址:</td>
-						<td width="600" height="40" align="left"><input id="address"
-							name="address" value="${(function == 'add')?param.address:member.address}" type="text" size="50">
+						<td width="120" height="40" align="right">地址：</td>
+						<td width="600" height="40" align="left">
+							<form:input type="text" id="address"
+							name="address" value="${(memberBean.function == 'add')?memberBean.address:member.address}" 
+							size="50" path="address"/>
 							<div  id="errMsgAddress" style="color: #ff0000; font-size =60%; display: inline;">${errorMsg.address}</div>
 						</td>
 					</tr>
-						<tr bgcolor='#F5F5F5'>
+					<tr bgcolor='#F5F5F5'>
+						<td width="120" height="40" align="right">圖片：</td>
+						<td width="600" height="40" align="left">
+							<form:input type='file' id="memberPicture" path="memberPicture" />
+						</td>
+					</tr>
+					<tr bgcolor='#F5F5F5'>
 							<td height="50" colspan="2" align="center">					
-							<input type="button" value="上一頁" onclick="goBack()">
+							<input type="button" value="上一頁" onclick="goBack()" />
 							<input
 							type="submit" value="送出">
 						</td>
 					</tr>
 				</tbody>
 			</table>
-		</form>
-		    <c:if test="${function == 'add'}">
+		</form:form>
+		    <c:if test="${memberBean.function == 'add'}">
 				<button class="btn-info" onclick="keyin()">key in</button>
 			</c:if>
 
