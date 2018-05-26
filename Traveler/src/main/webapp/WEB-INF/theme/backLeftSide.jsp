@@ -8,7 +8,7 @@
   <div id="nav">
    <ul>
     <li>
-     <a class="btn btn-primary" style="text-align:left;" href="themeTitles"><h3><font color="white">主題列表管理</font></h3></a>
+     <a class="btn btn-primary" style="text-align:left;" href="allTitles"><h3><font color="white">主題列表管理</font></h3></a>
     </li>
    </ul>
    <ul>

@@ -25,15 +25,15 @@ public class ThemeController {
 	@Autowired
 	HttpSession session;
 
-	// 從首頁點選主題旅遊時的dispatcher 
-	@RequestMapping("theme/themeTitles")
+	// 後台顯示全部主題 
+	@RequestMapping("theme/allTitles")
 	public String list(Model model) {
 		List<ThemeTitles> list = themeService.getTitles();
 		model.addAttribute("themeTitles", list);
-		return "theme/themeTitles";
+		return "theme/allTitles";
 	}
 	
-	//叫出各title，顯示在網頁
+	//叫出各title，顯示在前台網頁
 	@RequestMapping("/theme/titles")
 	public String getTitleList(Model model) {
 		List<String> list = themeService.getAllTitles();
