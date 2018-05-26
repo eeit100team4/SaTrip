@@ -60,8 +60,6 @@ public class HotelController {
 	@Autowired
 	HotelOrderService hotelOrderService; 
 
-	
-
 	// 顯示HotelIndex
 	@RequestMapping("/_Hotel/SelectHotel")
 	public String list2(Model model) {
@@ -103,10 +101,37 @@ public class HotelController {
 	@RequestMapping("/_Hotel/OrderRoom")
 	public String showOrderRoom(Model model) {
 		return "_Hotel/OrderRoom";
+	}		
+	
+	// 顯示OrderRoom1
+		@RequestMapping("/_Hotel/OrderRoom1")
+		public String showOrderRoom1(Model model) {
+			return "_Hotel/OrderRoom1";
+		}
+	
+	// 顯示OrderRoom2
+	@RequestMapping("/_Hotel/OrderRoom2")
+	public String showOrderRoom2(Model model) {
+		return "_Hotel/OrderRoom2";
 	}
+	// 顯示OrderRoom3
+	@RequestMapping("/_Hotel/OrderRoom3")
+	public String showOrderRoom3(Model model) {
+		return "_Hotel/OrderRoom3";
+	}
+	// 顯示OrderRoom4
+	@RequestMapping("/_Hotel/OrderRoom4")
+	public String showOrderRoom4(Model model) {
+		return "_Hotel/OrderRoom4";
+	}
+	// 顯示OrderRoom5
+	@RequestMapping("/_Hotel/OrderRoom5")
+	public String showOrderRoom5(Model model) {
+		return "_Hotel/OrderRoom5";
+	}
+		
 	
-	
-	// 顯示OrderRoom
+	// 顯示OrderFinish
 		@RequestMapping("/_Hotel/OrderFinish")
 		public String showOrderFinish(Model model) {
 			return "_Hotel/OrderFinish";

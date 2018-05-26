@@ -65,4 +65,8 @@ public class OrderService {
 		memberDAO.updateMember(member);
 		
 	}
+	
+	public List<OrderDetailsBean> memberSearch(String memberId){
+		return or.memberSearch(memberId);
+	}
 }
