@@ -139,7 +139,7 @@ function showInfo(){
 //               alert( $("#TradeDesc").val(orderIdTemp));
 //               console.log($("#TradeDesc").val()+","+ $("#TotalAmount").val()+","+$("#MerchantTradeDate").val());
               var partOne="ChoosePayment=Credit&ClientBackURL=http://localhost:8080/Traveler/&CreditInstallment=&EncryptType=1&InstallmentAmount=&ItemName=飯店房間&MerchantID=2000132&MerchantTradeDate="+currentDateTime;	  
-              var  partTwo= "&MerchantTradeNo="+rando+"&PaymentType=aio&Redeem=&ReturnURL=http://localhost:8080/Traveler/&StoreID=&TotalAmount=4500&TradeDesc=飯店訂單"
+              var  partTwo= "&MerchantTradeNo="+rando+"&PaymentType=aio&Redeem=&ReturnURL=http://localhost:8080/Traveler/&StoreID=&TotalAmount=8500&TradeDesc=飯店訂單"
               
               //將查詢字串傳回後台進行加密
               var sendDet=partOne+partTwo;
@@ -200,7 +200,7 @@ function showInfo(){
 								</tr>								
 								<tr class="warning">
 									<td>訂單價格：</td>
-									<td style="color:red">NT$ 4,500</td>
+									<td style="color:red">NT$ 8,500</td>
 								</tr>									
 							</table>
 						<br>
@@ -229,7 +229,7 @@ function showInfo(){
 <input type="hidden" name="PaymentType" value="aio" /><br />
 
 <!--  TotalAmount 交易金額: -->
-<input type="hidden" name="TotalAmount" id="TotalAmount" value="4500" /><br />
+<input type="hidden" name="TotalAmount" id="TotalAmount" value="8500" /><br />
 
 <!--  TradeDesc 交易描述: -->
 <input type="hidden" name="TradeDesc" id="TradeDesc" value="飯店訂單" /><br />

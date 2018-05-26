@@ -9,7 +9,7 @@
 		<div class="nav-header">
 			<a href="/Traveler/backStageForm/" class="js-fh5co-nav-toggle fh5co-nav-toggle dark"><i></i></a>
 			<h1 id="fh5co-logo" style="color:orange;">
-				<a href="/Traveler/backStageForm/"><i class="fas fa-dove "></i>Traveler</a>&nbsp;管理員
+				<a href="#"><i class="fas fa-dove "></i>Traveler</a>&nbsp;管理員
 			</h1>
 			<!-- START #fh5co-menu-wrap -->
 			<nav id="fh5co-menu-wrap" role="navigation">
@@ -44,6 +44,8 @@
 <!-- 										</ul> -->
 <%-- 									</c:otherwise> --%>
 <%-- 								</c:choose> --%>
+				<li id="logout" ><a href="#"><i class="fas fa-home"></i><font
+						color="orange">登出</font></a></li>
 			</ul>
 			</nav>
 		</div>

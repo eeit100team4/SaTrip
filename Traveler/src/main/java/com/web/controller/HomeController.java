@@ -15,9 +15,9 @@ import com.web.model.member.MemberBean;
 public class HomeController {
 
 	 
-	 @RequestMapping({"/backStageForm"})
+	 @RequestMapping({"/backStageHome"})
 	 public String backStage() {
-	 return "backStageForm";
+	 return "backStageHome";
 	 }
 	 
 	 

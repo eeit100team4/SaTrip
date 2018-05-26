@@ -535,20 +535,7 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
-							<th style="width: 60px" scope="row"><img
-								src="../images/hotelPic/korFRA2.jpg" width="250" hight="180"
-								title="雙人房" alt="雙人房"></th>
-							<td>
-								<h4>不可退費</h4> <br>
-							<h4>免費無線上網</h4> <br>
-							<h4>附早餐</h4>
-							</td>
-							<td><h4>累積 </h4><br><h4>兌換</h4>
-							</td>
-							<td><h4 style="color:red">NT:5,000</h4></td>
-							<td><a href="OrderRoom" class="btn btn-primary" name="">訂房</a></td>
-						</tr>
+						
 						<tr style="width: 180px">
 							<th scope="row"><img src="../images/hotelPic/korFRA1.jpg"
 								width="250" hight="180" title="雙人房" alt="雙人房"></th>
@@ -557,7 +544,7 @@
 							<td><h4>累積 </h4><br><h4>兌換</h4>
 							</td>
 							<td><h4 style="color:red">NT:6,800</h4></td>
-							<td><a href="OrderRoom" class="btn btn-primary" name="">訂房</a></td>
+							<td><a href="OrderRoom1" class="btn btn-primary" name="">訂房</a></td>
 						</tr>
 						<tr style="width: 180px">
 							<th scope="row"><img src="../images/hotelPic/korFRA3.jpg"
@@ -567,7 +554,7 @@
 							<td><h4>累積 </h4><br><h4>兌換</h4>
 							</td>
 							<td><h4 style="color:red">NT:6,500</h4></td>
-							<td><a href="OrderRoom" class="btn btn-primary" name="">訂房</a></td>
+							<td><a href="OrderRoom2" class="btn btn-primary" name="">訂房</a></td>
 						</tr>
 						<tr style="width: 180px">
 							<th scope="row"><img src="../images/hotelPic/korFRA4.jpg"
@@ -577,7 +564,7 @@
 							<td><h4>累積 </h4><br><h4>兌換</h4>
 							</td>
 							<td><h4 style="color:red">NT:9,500</h4></td>
-							<td><a href="OrderRoom" class="btn btn-primary" name="">訂房</a></td>
+							<td><a href="OrderRoom3" class="btn btn-primary" name="">訂房</a></td>
 						</tr>
 						<tr style="width: 180px">
 							<th scope="row"><img src="../images/hotelPic/korFRA5.jpg"
@@ -587,7 +574,7 @@
 							<td><h4>累積 </h4><br><h4>兌換</h4>
 							</td>
 							<td><h4 style="color:red">NT:8,500</h4></td>
-							<td><a href="OrderRoom" class="btn btn-primary" name="">訂房</a></td>
+							<td><a href="OrderRoom4" class="btn btn-primary" name="">訂房</a></td>
 						</tr>
 						<tr style="width: 180px">
 							<th scope="row"><img src="../images/hotelPic/korFRA6.jpg"
@@ -597,7 +584,7 @@
 							<td><h4>累積 </h4><br><h4>兌換</h4>
 							</td>
 							<td><h4 style="color:red">NT:7,500</h4></td>
-							<td><a href="OrderRoom" class="btn btn-primary" name="">訂房</a></td>
+							<td><a href="OrderRoom5" class="btn btn-primary" name="">訂房</a></td>
 						</tr>						
 					</tbody>
 				</table>
@@ -611,7 +598,7 @@
 							<h3 class="card-title"></h3>
 							<h1 class="card-title" style="color: red">NT：8,500</h1>
 							<p class="card-text"></p>
-							<a href="OrderRoom" class="btn btn-primary" name="">立即訂房</a>
+							<a href="OrderRoom4" class="btn btn-primary" name="">立即訂房</a>
 						</div>
 					</div>
 				</form>
