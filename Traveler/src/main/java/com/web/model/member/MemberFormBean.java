@@ -1,4 +1,4 @@
-﻿package com.web.model.member;
+package com.web.model.member;
 
 import java.io.Serializable;
 import java.sql.Blob;
@@ -9,24 +9,25 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+
 import org.hibernate.annotations.DynamicUpdate;
+import org.springframework.web.multipart.MultipartFile;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-
-@Entity
-@Table(name = "member")
-@DynamicUpdate(true) //可動態更新
-public class MemberBean implements Serializable {
+public class MemberFormBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private String memberId;
 	private String password;
+	private String chkPassword;
 	private String gender;
 	private String chineseLastName;
 	private String chineseFirstName;
 	private String englishLastName;
 	private String englishFirstName;
-	private Date birthday;
+	private String birthday;
 	private String email;
 	private String mobile;
 	private String phoneNumber;
@@ -36,18 +37,21 @@ public class MemberBean implements Serializable {
 	private Timestamp registerTime;
 	@JsonIgnore
 	private Blob memberImage;
+	
+	private MultipartFile  memberPicture;
+	private String function;
 
-	public MemberBean() {
+	public MemberFormBean() {
 		super();
 	}
 
-	public MemberBean(String memberId) {
+	public MemberFormBean(String memberId) {
 		super();
 		this.memberId = memberId;
 	}
 
-	public MemberBean(String memberId, String password, String gender, String chineseLastName, String chineseFirstName,
-			String englishLastName, String englishFirstName, Date birthday, String email, String mobile,
+	public MemberFormBean(String memberId, String password, String gender, String chineseLastName, String chineseFirstName,
+			String englishLastName, String englishFirstName, String birthday, String email, String mobile,
 			String phoneNumber, String address, double point, String passportNumber, Timestamp registerTime) {
 		super();
 		this.memberId = memberId;
@@ -68,8 +72,8 @@ public class MemberBean implements Serializable {
 	}
 
 
-	public MemberBean(String memberId, String password, String gender, String chineseLastName, String chineseFirstName,
-			String englishLastName, String englishFirstName, Date birthday, String email, String mobile,
+	public MemberFormBean(String memberId, String password, String gender, String chineseLastName, String chineseFirstName,
+			String englishLastName, String englishFirstName, String birthday, String email, String mobile,
 			String phoneNumber, String address, String passportNumber, Blob memberImage) {
 		super();
 		this.memberId = memberId;
@@ -105,6 +109,14 @@ public class MemberBean implements Serializable {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public String getChkPassword() {
+		return chkPassword;
+	}
+
+	public void setChkPassword(String chkPassword) {
+		this.chkPassword = chkPassword;
 	}
 
 	@Column(name = "gender")
@@ -153,11 +165,11 @@ public class MemberBean implements Serializable {
 	}
 
 	@Column(name = "birthday")
-	public Date getBirthday() {
+	public String getBirthday() {
 		return birthday;
 	}
 
-	public void setBirthday(Date birthday) {
+	public void setBirthday(String birthday) {
 		this.birthday = birthday;
 	}
 
@@ -231,6 +243,21 @@ public class MemberBean implements Serializable {
 
 	public void setMemberImage(Blob memberImage) {
 		this.memberImage = memberImage;
+	}
+	public MultipartFile getMemberPicture() {
+		return memberPicture;
+	}
+
+	public void setMemberPicture(MultipartFile memberPicture) {
+		this.memberPicture = memberPicture;
+	}
+
+	public String getFunction() {
+		return function;
+	}
+
+	public void setFunction(String function) {
+		this.function = function;
 	}
 
 	@Override

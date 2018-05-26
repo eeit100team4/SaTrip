@@ -1,8 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
@@ -81,6 +84,11 @@
 
 <!-- 測試側邊 -->
 <style>
+* {
+    margin: 0;
+    padding: 0;
+}
+
 #mwt_mwt_slider_scroll
 {
 top: 95px;
@@ -160,7 +168,8 @@ margin-bottom:0px;
 }
 </style>
 
-<title>Insert title here</title>
+<title>後台會員明細</title>
+
 </head>
 <body>
 
@@ -171,9 +180,10 @@ margin-bottom:0px;
 	<!-- =========側邊欄位開始============ -->	
 <div id="mwt_mwt_slider_scroll">
 <div id="mwt_slider_content"   >
- <div><h1>會員管理<h1></div>
- <div><a href="/Traveler/member/members"><h3>會員資料</h3></a></div>
- <div><a href="/Traveler/member/member2"><h3>會員</h3></a></div>
+<%@include file="/WEB-INF/member/leftSide.jsp" %>
+<!--  <div><h1>會員管理<h1></div> -->
+<!--  <div><a href="/Traveler/member/members"><h3>會員資料</h3></a></div> -->
+<!--  <div><a href="/Traveler/member/member2"><h3>會員</h3></a></div> -->
 </div>
 </div>
 <!-- =========側邊欄位結束============ -->
@@ -181,19 +191,20 @@ margin-bottom:0px;
 	<section>
 		<div class="container" style="text-align: center">
 			<h2 style="padding: 20px 0 0 0">會員資料</h2>
-			<h4>本網站所有會員資料</h4>
+
 		</div>
 	</section>
 
 		<div class="dd">
-
-			<h3>${member.chineseLastName}${member.chineseFirstName}</h3>
-			<p>帳號：${member.memberId}</p>
-			<p>生日：${member.birthday}</p>
-			<p>手機：${member.mobile}</p>
-			<p>mail：${member.email}</p>
-			<p>紅利：${member.point}</p>
-			<input type="button" value="上一頁" onclick="goBack()">
+<img width='100 height='200'
+					  src="<c:url value='/member/getPicture/${member.memberId}'/>"/>
+			<h3>${member.chineseLastName}ｏ${fn:substring(member.chineseFirstName, 1, 2)}</h3>
+			<h3>帳號：${fn:substring(member.memberId, 0, 3)}*****${fn:substring(member.memberId, 8, 11)}</h3>
+			<h3>生日：${member.birthday}</h3>
+			<h3>手機：${member.mobile}</h3>
+			<h3>mail：${member.email}</h3>
+			<h3>紅利：${member.point}</h3>
+<!-- 			<input type="button" value="上一頁" onclick="goBack()"> -->
 		</div>
 	</div>
 <%@ include file="/WEB-INF/backStageFooter.jsp" %>

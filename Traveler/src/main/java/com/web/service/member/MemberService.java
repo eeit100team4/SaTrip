@@ -25,7 +25,8 @@ public interface MemberService {
 	//多筆查詢及單筆查詢
 		public List<MemberBean> getAllMembers();
 		public MemberBean getMemberById(String memberId);
-
+		public int countNewMemberToday();
+		
 		public void addMember(MemberBean member) throws SQLException;
 		public MemberBean checkIdPwd(String memberId, String password) throws IOException;
 
