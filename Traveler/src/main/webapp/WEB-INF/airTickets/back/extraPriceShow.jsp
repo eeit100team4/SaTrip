@@ -205,7 +205,7 @@ $("input").dblclick(function() {
 			    	alert("修改完成");
 			    },
 			    error : function() {
-			        alert('fail');
+			        alert('格式錯誤');
 			    }
 			});
 			

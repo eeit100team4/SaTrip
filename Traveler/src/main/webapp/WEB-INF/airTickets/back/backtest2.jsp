@@ -222,7 +222,7 @@ footer {
 						// 		window.location.assign(responce);
 					},
 					error : function() {
-						alert("error");
+						alert("格式錯誤");
 					}
 
 				});

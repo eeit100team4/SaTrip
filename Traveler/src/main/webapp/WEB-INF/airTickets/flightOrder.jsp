@@ -708,7 +708,8 @@ function list(){
 						bonus=parseInt(extraPrice[x].extraPrice);
 					}
 				}
-				alert(bonus);
+// 				測試用alert
+// 				alert(bonus);
 				var depNum=$("#"+k).parents("tbody").find("tr:eq(0)").children("td:eq(2)").children("div:eq(2)").text(); //去程機型
 				var returnNum=$("#"+k).parents("tbody").find("tr:eq(2)").children("td:eq(2)").children("div:eq(2)").text(); //回程機型
 				
@@ -742,7 +743,7 @@ function list(){
 				        window.location.assign("show/"+forword);
 				    },
 				    error : function() {
-				        alert('fail');
+				        alert('格式有誤');
 				    }
 				});
 	  			 
