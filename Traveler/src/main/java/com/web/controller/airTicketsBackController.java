@@ -91,6 +91,14 @@ public class airTicketsBackController {
 		System.out.println(bean);
 		return "/airTickets/back/searchOrderList";
 	}
+	//給前台查詢
+	@RequestMapping(value = "/member/selectOne/{orderID}", method = RequestMethod.GET)
+	public String selectMemberOrder(@PathVariable("orderID") String orderID, Model model) {
+		OrderDetailsBean bean = os.selectOneByOrderId(orderID);
+		model.addAttribute("bean", bean);
+		System.out.println(bean);
+		return "/airTickets/memberOrderDetail";
+	}
 
 	@RequestMapping(value = "/selectOne/{orderID}", method = RequestMethod.POST)
 	@ResponseBody
