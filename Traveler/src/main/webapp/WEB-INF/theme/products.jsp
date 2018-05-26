@@ -115,7 +115,7 @@
 <!-- 連結旁邊的小ICON套件  -->	
 <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
 
-<!-- boostrap網格 -->
+<!-- bootstrap網格 -->
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"></link>
 <style>
 .well, .panel {text-align: center;}
@@ -159,7 +159,7 @@
  <div class="row">
   <!-- 左邊欄位 -->
   <div class="col-sm-6">
-   <div class="panel-body"><img src="/Traveler/images/絢彩樂訪．環球影城魔法世界五日.png" style="border:10px #808000 ridge;width:725px; height:530px;"></div>
+   <div class="panel-body"><img src="/Traveler/images/絢彩樂訪．環球影城魔法世界五日.png" style="border:10px #808000 ridge;width:725px; height:552px;"></div>
   </div>
   <!--右邊欄位-->
   <div class="col-sm-6" style="border:10px #805300 ridge;margin-top:15px">
@@ -171,7 +171,7 @@
    <div class="panel-body" style="font-size:20px;color:#808000">★${products.ad2}</div>
    <div class="panel-body" style="font-size:20px;color:#808000">★${products.ad3}</div>
    <br>
-   <div class="panel-body"><a onmouseover="this.style.color='orange'" onmouseout="this.style.color='#4F4FFF'" style="font-size:20px;color:#000080" href="${products.themeTitles.titleName}/${products.productName}">點此可查看出團日期!</a></div>  
+   <div class="panel-body"><a onmouseover="this.style.color='orange'" onmouseout="this.style.color='#4F4FFF'" style="font-size:20px;color:#000080" href="${products.themeTitles.titleName}/${products.productName}">點此可查看出團日期!<img src="/Traveler/images/向左箭頭.png" width="50" height="50"></a></div>  
   </div>
  </div>
 </div><hr><hr>
@@ -196,9 +196,9 @@ $(function() {
 /*返回上方的按鈕*/
 </script>   
 <!-- 記得要把按鈕放到網頁上, 否則它不會出現 -->
-<a href="https://www.blogger.com/blogger.g?blogID=2031514508322140995#" id="gotop" style="">
+<img src=/Traveler/images/向上箭頭.png id="gotop" style="">
    <i class="fa fa-angle-up"></i>
-</a>
+
 
 	<%@ include file="/WEB-INF/frontStageFooter.jsp"%>
 </body>
