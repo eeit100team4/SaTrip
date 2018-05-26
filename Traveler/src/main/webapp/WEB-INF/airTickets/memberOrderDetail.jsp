@@ -123,25 +123,142 @@
 
 	<!--  網頁內容 -->
 	<div class="container">
-		<h2>機票訂單查詢</h2>
-		<table class="table table-striped">
-			<thead>
-				<tr>
-					<th>訂單編號</th>
-					<th>內容</th>
-					<th>價格</th>
-				</tr>
-			</thead>
-			<tbody>
-			<c:forEach var="list" items="${list}">
-				<tr>
-					<td >${list.orderID}</td>
-					<td>${list.depC} &nbsp; ${list.arrC} 來回機票</td>
-					<td>${list.price}</td>
-				</tr>
-			</c:forEach>
-			</tbody>
-		</table>
+		<h2>訂單明細</h2>
+	
+		<div class="d2 " style="">
+			<ul class="list-group">
+				<li class="list-group-item">訂單編號：${bean.orderID}</li>
+				<li class="list-group-item">去程 :${bean.depDate} ${bean.depT}
+					${bean.depC} (機型 ${bean.depNum}) ~ <c:if test="${bean.arrTnextDay==null}">${bean.depDate}</c:if>${bean.arrTnextDay} ${bean.arrT}
+					${bean.arrC}</li>
+				<li class="list-group-item">回程 :${bean.returnDate}
+					${bean.returnTime} ${bean.arrC} (機型 ${bean.returnNum}) ~
+					<c:if test="${returnArrTnextDay==null}">${bean.returnDate}</c:if>${bean.returnArrTnextDay} ${bean.returnArrTime} ${bean.depC}</li>
+				<li class="list-group-item">航空公司：(${bean.airline})</li>
+				<li class="list-group-item">總價格：NT$ ${bean.price} </li>
+				<li class="list-group-item">紅利點數：${bean.redPoint} 點</li>
+				<li class="list-group-item">付款狀態：${bean.checkpay}</li>
+			</ul>
+	<div id="guestInfo" >
+				<!--  	<div class="text-left" style="width: 50%;height:auto; margin: 0px auto; border: 1px orange solid"> -->
+				<div class="text-left"
+					style="width: 90%; height:300px; margin: 20px; padding-left: 2px; border: 1px orange solid">
+					<form>
+						<div class="text-center" style="margin: 5px; background: #FFDD55">
+							<strong>聯絡人</strong>
+						</div>
+						<div>
+						<div class="form-row" style="background: white">
+							<div class="col-md-4 mb-3">
+								<label for="contactName" class="lab">姓名</label> <input
+									type="text" name="contactName" id="contactName" maxlength="10"
+									value="${bean.guestBean.contactName}">
+							</div>
+							<div class="col-md-4 mb-3">
+								<label for="contactPhone" class="lab">手機</label> <input
+									type="text" name="contactPhone" id="contactPhone"
+									maxlength="10" value="${bean.guestBean.contactPhone}">
+							</div>
+							<div class="col-md-4 mb-3">
+								<label for="contactIdCard" class="lab">身分證字號</label> <input
+									type="text" name="contactIdCard" id="contactIdCard"
+									maxlength="10" value="${bean.guestBean.contactIdCard}">
+							</div>
+						</div>
+						<div class="form-row">
+							<div class="col-md-6  mb-3">
+								<label for="contactAddress" class="lab">地址</label> <input
+									type="text" name="contactAddress" id="contactAddress" size="40"
+									value="${bean.guestBean.contactAddress}">
+							</div>
+							<div class="col-md-5 col-md-offset-1	 mb-3">
+								<label for="" class="lab">E-mail</label> <input type="text"
+									name="contactEmail" id="contactEmail" size="30"
+									value="${bean.guestBean.contactEmail}">
+							</div>
+						</div>
+						</div>
+						<div><h4>&nbsp;</h4></div>
+						<div class="text-center" style="margin: 5px; background: 	#FFDD55">
+							<strong>旅客一</strong>
+						</div>
+						<div class="form-row">
+							<div class="col-md-4 mb-3">
+								<label for="guestOneName" class="lab">姓名</label> <input
+									type="text" name="guestOneName" id="guestOneName"
+									value="${bean.guestBean.guestOneName}">
+							</div>
+							<div class="col-md-4 mb-3">
+								<label for="guestOneLastName" class="lab">英文姓</label> <input
+									type="text" name="guestOneLastName" id="guestOneLastName"
+									maxlength="10" value="${bean.guestBean.guestOneLastName}">
+							</div>
+							<div class="col-md-4 mb-3">
+								<label for="guestOneFirstName" class="lab">英文名</label> <input
+									type="text" name="guestOneFirstName" id="guestOneFirstName"
+									maxlength="10" value="${bean.guestBean.guestOneFirstName}">
+							</div>
+						</div>
+						<div class="form-row">
+							<div class="col-md-4 mb-3">
+								<label for="guestOneBirth" class="lab">生日</label> <input
+									type="text" name="guestOneBirth" id="guestOneBirth"
+									value="${bean.guestBean.guestOneBirth}">
+							</div>
+							<div class="col-md-4 mb-3">
+							</div>
+							<div class="col-md-4  mb-3">
+								<label class="lab">性別</label> <input type="text"
+									name="guestOneGender" id="guestOneGender"
+									value="${bean.guestBean.guestOneGender}">
+							</div>
+						</div>
+					<c:if test="${bean.person==2}">
+						<div><h4>&nbsp;</h4></div>
+						<div class="text-center" style="margin: 5px; background: 	#FFDD55">
+							<strong>旅客二</strong>
+						</div>
+						<div class="form-row">
+							<div class="col-md-4 mb-3">
+								<label for="guestTwoName" class="lab">姓名</label> <input
+									type="text" name="guestTwoName" id="guestTwoName"
+									value="${bean.guestBean.guestTwoName}">
+							</div>
+							<div class="col-md-4 mb-3">
+								<label for="guestTwoLastName" class="lab">英文姓</label> <input
+									type="text" name="guestTwoLastName" id="guestTwoLastName"
+									maxlength="10" value="${bean.guestBean.guestTwoLastName}">
+							</div>
+							<div class="col-md-4 mb-3">
+								<label for="guestTwoFirstName" class="lab">英文名</label> <input
+									type="text" name="guestTwoFirstName" id="guestTwoFirstName"
+									maxlength="10" value="${bean.guestBean.guestTwoFirstName}">
+							</div>
+						</div>
+						<div class="form-row">
+							<div class="col-md-4 mb-3">
+								<label for="guestTwoBirth" class="lab">生日</label> <input
+									type="text" name="guestTwoBirth" id="guestTwoBirth"
+									value="${bean.guestBean.guestTwoBirth}">
+							</div>
+							<div class="col-md-4 mb-3">
+							</div>
+							<div class="col-md-4  mb-3">
+								<label class="lab">性別</label> <input type="text"
+									name="guestTwoGender" id="guestTwoGender"
+									value="${bean.guestBean.guestTwoGender}">
+							</div>
+						</div>
+					</c:if>
+						<input type="hidden" name="_method" value="post" />
+						<div class="sub text-center" style="margin-top:50px;margin-bottom:10px">
+							<input type="hidden" name="orderID" value="${bean.orderID}" /> <input
+								type="hidden" name="guestId" value="${bean.guestId}" />
+						</div>
+					</form>
+				</div>
+			</div>
+			</div>
 	</div>
 
 

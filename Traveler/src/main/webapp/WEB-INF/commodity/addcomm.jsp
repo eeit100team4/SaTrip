@@ -295,7 +295,7 @@ list-style-type: none;
 <div id="mwt_mwt_slider_scroll">
 			<div id="mwt_slider_content"   >
 				<div id="nav" style="margin:auto;">			 
-					 <ul >
+					 <ul>
 				 		 <li>
 							<a class="btn btn-primary"href="commlist" ><h3><font color="white">商品清單</font></h3></a>
 						 </li>

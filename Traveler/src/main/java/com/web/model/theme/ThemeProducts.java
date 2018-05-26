@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -40,6 +41,13 @@ public class ThemeProducts implements Serializable{
 	}
 	//圖片檔 大圖檔名
 	private String adImageName;
+	
+	//廣告文宣
+	private String adTitle;
+	private String adDes;
+	private String ad1;
+	private String ad2;
+	private String ad3;
 	
 	//第一天的內容
 	private String title1;
@@ -103,6 +111,7 @@ public class ThemeProducts implements Serializable{
 	
 	//FK的表格
 	private ThemeTitles themeTitles;
+	private ThemeJourneys themeJourneys;
 	//FK
 	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="titleId" ,referencedColumnName="titleId", insertable=false, updatable=false)
@@ -112,11 +121,11 @@ public class ThemeProducts implements Serializable{
 	public void setThemeTitles(ThemeTitles themeTitles) {
 		this.themeTitles = themeTitles;
 	}
-
-	
+		
 	//帶參數建構子  //FK的表格也放入
 	public ThemeProducts(Integer productId, Integer titleId, String productName, 
-			String country, String hotelName, String adImageName, String title1, 
+			String country, String hotelName, String adImageName, String adTitle,
+			String adDes, String ad1, String ad2, String ad3, String title1, 
 			String fileName1, String descriTitle1, String description1, 
 			String breakfast1, String lunch1, String dinner1, String title2, 
 			String fileName2, String descriTitle2, String description2, 
@@ -129,6 +138,12 @@ public class ThemeProducts implements Serializable{
 		this.country = country;
 		this.hotelName = hotelName;
 		this.adImageName = adImageName;
+		
+		this.adTitle = adTitle;
+		this.adDes= adDes;
+		this.ad1 = ad1;
+		this.ad2 = ad2;
+		this.ad3 = ad3;
 		
 		this.title1 = title1;
 		this.fileName1 = fileName1;
@@ -174,8 +189,7 @@ public class ThemeProducts implements Serializable{
 	}
 	public void setTitleId(Integer titleId) {
 		this.titleId = titleId;
-	}
-	
+	}	
 	public String getProductName() {   
 		return productName;
 	}
@@ -200,17 +214,50 @@ public class ThemeProducts implements Serializable{
 	public void setAdImageName(String adImageName) {
 		this.adImageName = adImageName;
 	}
+	
+
+	//
+	public String getAdTitle() {
+		return adTitle;
+	}
+	public void setAdTitle(String adTitle) {
+		this.adTitle = adTitle;
+	}
+	public String getAdDes() {
+		return adDes;
+	}
+	public void setAdDes(String adDes) {
+		this.adDes = adDes;
+	}
+	public String getAd1() {
+		return ad1;
+	}
+	public void setAd1(String ad1) {
+		this.ad1 = ad1;
+	}
+	public String getAd2() {
+		return ad2;
+	}
+	public void setAd2(String ad2) {
+		this.ad2 = ad2;
+	}
+	public String getAd3() {
+		return ad3;
+	}
+	public void setAd3(String ad3) {
+		this.ad3 = ad3;
+	}
+	//第一天
 	public String getTitle1() {   
 		return title1;
 	}
-	//第一天
 	public void setTitle1(String title1) {
 		this.title1 = title1;
 	}
 	public String getFileName1() {   
 		return fileName1;
 	}
-	public void setfileName1(String fileName1) {
+	public void setFileName1(String fileName1) {
 		this.fileName1 = fileName1;
 	}
 	public String getDescriTitle1() {   
@@ -242,9 +289,10 @@ public class ThemeProducts implements Serializable{
 	}
 	public void setDinner1(String dinner1) {
 		this.dinner1 = dinner1;
-	}
+	}	
+	
 	//第二天
-	public String geTtitle2() {   
+	public String getTitle2() {   
 		return title2;
 	}
 	public void setTitle2(String title2) {
@@ -253,7 +301,7 @@ public class ThemeProducts implements Serializable{
 	public String getFileName2() {   
 		return fileName2;
 	}
-	public void setfileName2(String fileName2) {
+	public void setFileName2(String fileName2) {
 		this.fileName2 = fileName2;
 	}
 	public String getDescriTitle2() {   
@@ -286,8 +334,9 @@ public class ThemeProducts implements Serializable{
 	public void setDinner2(String dinner2) {
 		this.dinner2 = dinner2;
 	}
+	
 	//第三天
-	public String geTtitle3() {   
+	public String getTitle3() {   
 		return title3;
 	}
 	public void setTitle3(String title3) {
@@ -329,20 +378,20 @@ public class ThemeProducts implements Serializable{
 	public void setDinner3(String dinner3) {
 		this.dinner3 = dinner3;
 	}
+	//記得確認外部表格
 	@Override
-	public String toString() {//加入FK表格
-		return "ThemeProducts [productId=" + productId + ",titleId=" + titleId + 
-				", productName=" + productName + ", country=" + country + 
-				", hotelName=" + hotelName + ", adImageName=" + adImageName +
-				", title1=" + title1 + ", fileName1=" + fileName1 + 
-				", descriTitle1= " + descriTitle1 + ", description1=" + description1 +
-				", breakfast1=" + breakfast1 +", lunch1=" + lunch1 +
-				", dinner1=" + dinner1 +", title2=" + title2 + ", fileName2=" + fileName2 +  
-				", descriTitle2=" + descriTitle2 + ", description2=" + description2 + 
-				", breakfast2=" + breakfast2 + ", lunch2=" + lunch2 + 
-				", dinner2=" + dinner2 + ", title3=" + title3 + 
-				", fileName3=" + fileName3 +", descriTitle3=" + descriTitle3 + 
-				", description3=" + description3 + ", breakfast3=" + breakfast3 + 
-				", lunch3=" + lunch3 + ", dinner3=" + dinner3 + ", themeTitles=" + themeTitles + "]";
+	public String toString() {
+		return "ThemeProducts [productId=" + productId + ", titleId=" + titleId + ", productName=" + productName
+				+ ", country=" + country + ", hotelName=" + hotelName + ", adImage=" + adImage + ", adImageName="
+				+ adImageName + ", adTitle=" + adTitle + ", adDes=" + adDes + ", ad1=" + ad1 + ", ad2=" + ad2 + ", ad3="
+				+ ad3 + ", title1=" + title1 + ", image1=" + image1 + ", fileName1=" + fileName1 + ", descriTitle1="
+				+ descriTitle1 + ", description1=" + description1 + ", breakfast1=" + breakfast1 + ", lunch1=" + lunch1
+				+ ", dinner1=" + dinner1 + ", title2=" + title2 + ", image2=" + image2 + ", fileName2=" + fileName2
+				+ ", descriTitle2=" + descriTitle2 + ", description2=" + description2 + ", breakfast2=" + breakfast2
+				+ ", lunch2=" + lunch2 + ", dinner2=" + dinner2 + ", title3=" + title3 + ", image3=" + image3
+				+ ", fileName3=" + fileName3 + ", descriTitle3=" + descriTitle3 + ", description3=" + description3
+				+ ", breakfast3=" + breakfast3 + ", lunch3=" + lunch3 + ", dinner3=" + dinner3 + ", themeTitles="
+				+ themeTitles + "]";
 	}
+	
 }
