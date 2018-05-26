@@ -97,4 +97,9 @@ public class MemberServiceImpl implements com.web.service.member.MemberService {
 	public MemberBean queryPwd(String memberId, Date bdate) throws IOException {
 		return memberDAO.queryPwd(memberId, bdate);
 	}
+
+	@Override
+	public int countNewMemberToday() {
+		return memberDAO.countNewMemberToday();
+	}
 }

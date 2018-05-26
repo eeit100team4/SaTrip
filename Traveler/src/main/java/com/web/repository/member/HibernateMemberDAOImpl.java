@@ -6,13 +6,17 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.commons.lang3.RandomStringUtils;
+import org.hibernate.Criteria;
+import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.web.model.member.MemberBean;
 import com.web.service.member.GlobalService;
@@ -22,6 +26,7 @@ import com.web.service.member.GlobalService;
 
 
 @Repository
+@Transactional
 @SuppressWarnings("unchecked")
 public class HibernateMemberDAOImpl implements MemberDAO {
 	@Autowired
@@ -41,6 +46,7 @@ public class HibernateMemberDAOImpl implements MemberDAO {
 		 * MemberBean mb = null; Session session = factory.getCurrentSession(); mb =
 		 * session.get(MemberBean.class, memberId); if(mb!=null)exist = true;
 		 */
+		session.flush();
 		return exist;
 	}
 
@@ -52,6 +58,24 @@ public class HibernateMemberDAOImpl implements MemberDAO {
 		updateCount = 1;
 		session.flush();
 		return updateCount;
+	}
+	
+	@Override
+	@SuppressWarnings({ "rawtypes", "deprecation" })
+	public int countNewMemberToday() {
+		String sql = "select count(*) as cnt "
+				+ "from Member "
+				+ "where convert(varchar,registerTime,111)=convert(nvarchar,GETDATE(),111);";
+		Session session=factory.getCurrentSession();//.openSession();
+		//Transaction tx = session.beginTransaction();//應加此行及commit才可通，不然他會一直hold session，會錯500。
+		SQLQuery query = session.createSQLQuery(sql);
+		query.setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP);
+		List results = query.list();
+		Map m = (Map)results.get(0);
+		int cnt = (int) m.get("cnt");
+		//tx.commit();
+		session.flush();
+		return cnt;
 	}
 
 	@Override
@@ -67,11 +91,12 @@ public class HibernateMemberDAOImpl implements MemberDAO {
 
 	@Override
 	public List<MemberBean> getAllMembers() {
-		String hql = "FROM MemberBean";
+		String hql = "FROM MemberBean order by registerTime desc";
 		Session session = null;
 		List<MemberBean> list = new ArrayList<>();
 		session = factory.getCurrentSession();
 		list = session.createQuery(hql).getResultList();
+		session.flush();
 		return list;
 	}
 
@@ -81,6 +106,7 @@ public class HibernateMemberDAOImpl implements MemberDAO {
 		Session session = factory.getCurrentSession();
 		mb = session.get(MemberBean.class, memberId);
 		// if(mb==null)throw new MemberNotFoundException(memberId);
+		session.flush();
 		return mb;
 	}
 	// 沒有要keep住id就不用此行
@@ -97,7 +123,7 @@ public class HibernateMemberDAOImpl implements MemberDAO {
 		// .setParameter("memberId",memberId)
 		// .executeUpdate();
 		session.update(member);
-
+		session.flush();
 	}
 
 	@Override
@@ -109,6 +135,7 @@ public class HibernateMemberDAOImpl implements MemberDAO {
 		if (mb == null || !password.equals(mb.getPassword())) {
 			mb = null;
 		}
+		session.flush();
 		return mb;
 
 		// Session session=factory.getCurrentSession();
@@ -132,6 +159,7 @@ public class HibernateMemberDAOImpl implements MemberDAO {
 
 		int n = session.createQuery(hql).setParameter("password", password).setParameter("memberId", memberId)
 				.executeUpdate();
+		session.flush();
 	}
 
 	@Override
@@ -151,6 +179,7 @@ public class HibernateMemberDAOImpl implements MemberDAO {
 			mb.setPassword(encodePassword);
 			updateMember(mb);
 		}
+		session.flush();
 		return mb;
 	}
 }

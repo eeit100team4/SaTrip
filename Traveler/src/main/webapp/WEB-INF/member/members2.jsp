@@ -1,5 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -81,6 +83,10 @@
 
 <!-- 測試側邊 -->
 <style>
+* {
+    margin: 0;
+    padding: 0;
+}
 #mwt_mwt_slider_scroll
 {
 top: 95px;
@@ -127,6 +133,25 @@ $(document).ready(function(){
 	$("#mwt_mwt_slider_scroll").animate({ left:'0px' }, 600 ,'swing');
 	$('#mwt_slider_content').css('height', ($(window).height() - 20) + 'px' );
 })
+
+function dat(){
+var sum=0;
+var num=$("#tbo").find("tr").length;
+var nowD= (Date.parse(new Date())).valueOf();
+var aDay=1000*60*60*24;
+var number=$("#tbb").find("tr").length;
+
+for(var k=0;k<number;k++){
+	var test= $("#tbo").find("tr:eq("+k+")").find("td:eq(1)").text();
+	var date =(Date.parse( new Date(test))).valueOf();
+	if((nowD-date)<aDay){
+		var visibity=$("#tbo").find("tr:eq("+k+")").find("img").css("visibility", "visible");
+		sum+=1;
+	}
+}
+$("#newTotal").empty().append(sum);
+}
+
 // $(function(){
 // var w = $("#mwt_slider_content").width();
 // $('#mwt_slider_content').css('height', ($(window).height() - 20) + 'px' ); //將區塊自動撐滿畫面高度
@@ -163,12 +188,15 @@ margin-bottom:0px;
 <title>Insert title here</title>
 </head>
 <body>
+<!-- <body style="background-image: url(/Traveler/images/sky.jpg);"> -->
 
 	<%@ include file="/WEB-INF/backStageHeader.jsp" %>
 
 	<!--=========================要放的東西  =====================-->
 		<div class="row no-gutters" style="padding: 25px 0 0 200px">
 		<div class="container">
+			本站會員總人數：${memberSize}人<br>
+				本日新會員人數：${newMemberSize}人
 			<table class="table table-hover table-bordered" >
 				<thead>
 					<tr>
@@ -185,8 +213,8 @@ margin-bottom:0px;
 				<tbody>
 					<c:forEach var='member' items='${members}'>
 						<tr>
-							<td>${member.memberId}</td>		
-							<td>${member.chineseLastName}${member.chineseFirstName}</</td>		
+							<td><a href="<spring:url value='./member2?memberId=${member.memberId}'/>">${fn:substring(member.memberId, 0, 3)}*****${fn:substring(member.memberId, 8, 11)}</a></td>		
+							<td>${member.chineseLastName}ｏ${fn:substring(member.chineseFirstName, 1, 2)}</td>		
 							<td>${member.gender}</td>
 							<td>${member.birthday}</td>
 							<td>${member.email}</td>
@@ -204,9 +232,10 @@ margin-bottom:0px;
 	<!-- =========側邊欄位開始============ -->	
 <div id="mwt_mwt_slider_scroll">
 <div id="mwt_slider_content"   >
- <div><h1>會員管理<h1></div>
- <div><a href="/Traveler/member/members"><h3>會員圖像資料</h3></a></div>
- <div><a href="/Traveler/member/members2"><h3>會員清單</h3></a></div>
+<%@include file="/WEB-INF/member/leftSide.jsp" %>
+<!--  <div><h1>會員管理<h1></div> -->
+<!--  <div><a href="/Traveler/member/members"><h3>會員圖像資料</h3></a></div> -->
+<!--  <div><a href="/Traveler/member/members2"><h3>會員清單</h3></a></div> -->
 </div>
 </div>
 <!-- =========側邊欄位結束============ -->

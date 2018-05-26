@@ -1,5 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -13,8 +15,6 @@
 <meta name="keywords"
 	content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
 <meta name="author" content="FREEHTML5.CO" />
-
-
 
 <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 <link rel="shortcut icon" href="/Traveler/images/favicon.ico">
@@ -81,6 +81,10 @@
 
 <!-- 測試側邊 -->
 <style>
+* {
+    margin: 0;
+    padding: 0;
+}
 #mwt_mwt_slider_scroll
 {
 top: 95px;
@@ -162,7 +166,7 @@ margin-bottom:0px;
 
 <title>Insert title here</title>
 </head>
-<body>
+<body style="background-image: url(/Traveler/images/sky.jpg);">
 
 	<%@ include file="/WEB-INF/backStageHeader.jsp" %>
 
@@ -171,9 +175,10 @@ margin-bottom:0px;
 	<!-- =========側邊欄位開始============ -->	
 <div id="mwt_mwt_slider_scroll">
 <div id="mwt_slider_content"   >
- <div><h1>會員管理<h1></div>
- <div><a href="/Traveler/member/members"><h3>會員圖像資料</h3></a></div>
- <div><a href="/Traveler/member/members2"><h3>會員清單</h3></a></div>
+<%@include file="/WEB-INF/member/leftSide.jsp" %>
+<!--  <div><h1>會員管理<h1></div> -->
+<!--  <div><a href="/Traveler/member/members"><h3>會員圖像資料</h3></a></div> -->
+<!--  <div><a href="/Traveler/member/members2"><h3>會員清單</h3></a></div> -->
 </div>
 </div>
 <!-- =========側邊欄位結束============ -->
@@ -194,13 +199,13 @@ margin-bottom:0px;
 					
 					<div class="caption">
 						<p>
-							<b style='font-size: 16px;'>${member.chineseLastName}${member.chineseFirstName}</b>
+							<b style='font-size: 16px;'>${member.chineseLastName}ｏ${fn:substring(member.chineseFirstName, 1, 2)}</b>
 						</p>
-						<p>會員帳號：${member.memberId}</p>
+						<p>會員帳號：${fn:substring(member.memberId, 0, 3)}*****${fn:substring(member.memberId, 8, 11)}</p>
 						<p>會員手機：${member.mobile}</p>
 						<p>會員紅利：${member.point}</p>
 						<p>
-						<a href="<spring:url value='./member?memberId=${member.memberId}'/>"
+						<a href="<spring:url value='./member2?memberId=${member.memberId}'/>"
 						class="btn btn-primary"><span
 						class="glyphicon-info-sigh glypicon"></span>詳細資料</a>
 						</p>
@@ -212,7 +217,7 @@ margin-bottom:0px;
 			
 	</div>
 	<div class="container" style="text-align: center">
-			<input type="button" value="上一頁" onclick="goBack()">
+<!-- 			<input type="button" value="上一頁" onclick="goBack()"> -->
 			</div>
 	</section>
 	</div>
