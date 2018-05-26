@@ -64,7 +64,7 @@ public class ThemeBackController {
 			e.printStackTrace();
 			throw new RuntimeException("檔案上傳發生異常: " + e.getMessage());
 		}
-		return "redirect:themeTitles";
+		return "redirect:allTitles";
 	}
 	//後台頁面  連結到主題管理頁
 	@RequestMapping("theme/back")

@@ -113,7 +113,7 @@
 <!-- 連結旁邊的小ICON套件  -->	
 <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
 
-
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"></link>
 
 <style>
 .row {
@@ -209,47 +209,50 @@ span.price {
 <body>
 	<%@ include file="/WEB-INF/frontStageHeader.jsp"%>
 		<br>
-		<div class="container">
-		
-		  <div class="row">
-		    <div class="col-xl">
-		      
-		    </div>
-		    <div class="col-xl">		    
-			  <div class="col-75">
-			    <div class="container">
-			      <form action="/action_page.php">			
-			        <div class="row">
-			          <div class="col-50">
-			            <h3>客房資訊</h3>
+		<div class="container">		
+		  <div class="row">		   
+		   
+		   
+		   
+		   <div class="col-sm-4">
+		   		
+			  			  <h1><b>客房資訊</b></h1>
+			            <hr style="height: 2px; border: none; color: #333; background-color: #333;">
 			            <label for="fname"><i class="fa fa-user"></i>姓名</label>
-			            <input type="text" id="fname" name="firstname" >
+			            <input type="text" id="fname" name="firstname" size="35"  >
 			            <label for="email"><i class="fa fa-envelope"></i> Email</label>
-			            <input type="text" id="email" name="email" >			            
+			            <input type="text" id="email" name="email" size="35">			            
 			            <label for="add"><i ></i>地址</label>
-			            <input type="text" id="adr" name="add">
+			            <input type="text" id="adr" name="add" size="35">
 			            <label for="phone"><i ></i>行動電話</label>
-			            <input type="text" id="phone" name="phone">
-			            </div>
-			          </div>			
-			          <div class="col-50">			       
+			            <input type="text" id="phone" name="phone" size="35">
 			            <div class="icon-container">
-			              <i class="fa fa-cc-visa" style="color:navy;"></i>
-			              <i class="fa fa-cc-amex" style="color:blue;"></i>
-			              <i class="fa fa-cc-mastercard" style="color:red;"></i>
-			              <i class="fa fa-cc-discover" style="color:orange;"></i>
+			              <i class="fab fa-cc-visa" style="color:navy;"></i>
+			              <i class="fab fa-cc-amex" style="color:blue;"></i>
+			              <i class="fab fa-cc-mastercard" style="color:red;"></i>
+			              <i class="fab fa-cc-discover" style="color:orange;"></i>
 			            </div>
-
-			         <a href="roomCheckOut" class="btn ">確認送出</a>
-			      </form>
-			    </div>
-			  </div>
-		    </div>
-		    <div class="col-xl">
-		      
-		    </div>
+		                <a href="roomCheckOut" class="btn">確認送出</a>
+		   </div>
+		   <div class="col-sm-6">
+		   
+		  			  <h1><b>訂購資訊</b></h1>
+		            <hr style="height: 2px; border: none; color: #333; background-color: #333;">
+		            
+		            <p><h3>雙人房, 非吸煙房,免費上網, 延遲退房, 雙人床, 非吸煙房。</h3></p>
+                    <br>
+                    <p><h3>請輸入入住房客的姓名，姓名必須與飯店入住時所出示的身分證明文件相同。</h3></p>
+                    <p><h3>如果房客有超過一個姓氏，請輸入所有姓氏。</h3></p>
+			            
+		   </div>
+		   
+		
+		   
+		   
+		   
+		           
 		  </div>									
-			</div>			
+		</div>			
 	<%@ include file="/WEB-INF/frontStageFooter.jsp"%>
 </body>
 </html>

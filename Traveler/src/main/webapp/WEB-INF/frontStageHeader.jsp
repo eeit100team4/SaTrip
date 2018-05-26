@@ -9,7 +9,7 @@
 				<div class="container">
 					<div class="nav-header">
 					<!-- 正式上線刪除 -->
-					<a class="btn btn-primary btn-lg" href="/Traveler/backStageForm">暫時後台傳送門</a>
+					<a class="btn btn-primary btn-lg" href="/Traveler/backStageHome">暫時後台傳送門</a>
 					<!-- 正式上線刪除 -->
 						<a href="/Traveler/" class="js-fh5co-nav-toggle fh5co-nav-toggle dark"><i></i></a>
 						<h1 id="fh5co-logo">
@@ -42,7 +42,7 @@
 								<li><a href=''><i class="far fa-user-circle"></i><font color="orange">會員專區</font></a>
 									<ul class="fh5co-sub-menu">
 											<li><a href="<spring:url value='/member/member?memberId=${LoginOK.memberId}'/>">查詢會員資料</a></li>
-											<li><a href='/Traveler/'>查詢交易資料</a></li>
+											<li><a href='/Traveler/airTickets/memberOrderSearch'>查詢交易資料</a></li>
 											<li><a href='/Traveler/member/updateMember'>修改會員資料</a></li>
 											<li><a href='/Traveler/member/changePwd'>修改密碼</a></li>
 											<li><a href='/Traveler/member/logout.do'>登出</a></li>

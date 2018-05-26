@@ -111,95 +111,95 @@
 <script src="/Traveler/js/airplain/airSearch.js"></script>
 <script src="/Traveler/js/jquery-ui.min.js"></script>
 <link rel="stylesheet" href="/Traveler/js/jquery-ui.min.css">
-<!--  -->
-<!-- 載入樣式 -->
-<link rel="stylesheet"   href="/Traveler/css/jquery.dataTables.css">
-<!-- Themeroller的主題 -->
-<link rel="stylesheet"   href="/Traveler/css/jquery.dataTables_themeroller.css">
-<!-- 載入jQuery  -->
-<script type="text/javascript" src="/Traveler/js/jquery.js"></script>
-<!-- 載入DataTables  -->
-<script type="text/javascript" src="/Traveler/js/jquery.dataTables.js"></script>
-<!-- 動態表格 -->
-<script>
-			(function() {
-				$(function() {
-					$('#datatable').dataTable({
-						"oLanguage": {
-						    "sSearch": "搜尋:",
-						    "sLengthMenu": "顯示件數 ：_MENU_",
-						    "sInfo": "_TOTAL_件中，從第_START_件顯示到第_END_件",
-						    "sInfoFiltered": " ( _MAX_件中搜尋 )",
-						    "sZeroRecords": "找無資料。",
-						    "sInfoEmpty": "0 件",
-						    "oPaginate": {
-						        "sFirst": "最初",
-						        "sLast": "最後",
-						        "sPrevious": "上一頁",
-						        "sNext": "下一頁"
-						    }
-						},
-						"iDisplayLength" : 10,
-					});
-				});
-			})();
-</script>
+
 <!-- 連結旁邊的小ICON套件  -->	
 <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
-<style>
-			* {
-				font-family:      'Lucida Grande', 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', Meiryo, 'メイリオ', sans-serif;
-				font-size:        98.5%;
-			}
-			h1 {
-				font-size:        46px;
-				margin-bottom:    12px;
-			}
-			.container {
-				width:            1000px;
-				margin:           auto;
-			}
-			iframe {
-				border: solid 1px #000;
-			}
-		</style>
 
+<!-- boostrap網格 -->
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"></link>
+<style>
+.well, .panel {text-align: center;}
+</style>
+<!-- 返回上方按鈕 -->
+<style>
+#gotop {
+    position:fixed;
+    z-index:90;
+    right:30px;
+    bottom:31px;
+    display:none;
+    width:50px;
+    height:50px;
+    color:#fff;
+    background:#33b5e5;
+    line-height:50px;
+    border-radius:50%;
+    transition:all 0.5s;
+    text-align: center;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+}
+#gotop :hover{
+    background:#0099CC;
+}
+</style>
+<!--  -->
 </head>
 <body>
 	<%@ include file="/WEB-INF/frontStageHeader.jsp"%>
-<hr>
-<div class="container">
-		<div >
-			<h2 style="margin-top: 20px;">搜尋主題商品</h2>				
-		</div>
-<table id="datatable">
+<!-- 大標 跟一張圖 -->
+ <!--  <div class="fh5co-cover" data-stellar-background-ratio="0.5">-->
+ <h1 style="background:black;color:white;text-align:center;height:50px">~獨特商品*夢想起飛~</h1>	
+ <div style="margin-right:400px;margin-top:10px;width:1500px;" class="content text-center">
+     <a><img src="/Traveler/images/獨家行程.png" width="1500" height="200"></a>
+ </div>
+<!--</div>-->
+<!-- 展示區 -->
+<c:forEach var='products' items='${products}'>
+<div class="container-fluid">
+ <div class="row">
+  <!-- 左邊欄位 -->
+  <div class="col-sm-6">
+   <div class="panel-body"><img src="/Traveler/images/絢彩樂訪．環球影城魔法世界五日.png" style="border:10px #808000 ridge;width:725px; height:530px;"></div>
+  </div>
+  <!--右邊欄位-->
+  <div class="col-sm-6" style="border:10px #805300 ridge;margin-top:15px">
+   <div class="panel-heading" style="font-size:30px;font-family: DFKai-sb;"><b>${products.productName}</b></div><hr>
+   <div class="panel-heading" style="font-size:24px;color:#0000CC">${products.adTitle}</div>
+   <div class="panel-body" style="font-size:20px;">${products.adDes}</div>
+   <hr>   
+   <div class="panel-body" style="font-size:20px;color:#808000">★${products.ad1}</div>
+   <div class="panel-body" style="font-size:20px;color:#808000">★${products.ad2}</div>
+   <div class="panel-body" style="font-size:20px;color:#808000">★${products.ad3}</div>
+   <br>
+   <div class="panel-body"><a onmouseover="this.style.color='orange'" onmouseout="this.style.color='#4F4FFF'" style="font-size:20px;color:#000080" href="${products.themeTitles.titleName}/${products.productName}">點此可查看出團日期!</a></div>  
+  </div>
+ </div>
+</div><hr><hr>
+</c:forEach>
+<script type="text/javascript">
+$(function() {
+    /* 按下GoTop按鈕時的事件 */
+    $('#gotop').click(function(){
+        $('html,body').animate({ scrollTop: 0 }, 'slow');   /* 返回到最頂上 */
+        return false;
+    });
+     
+    /* 偵測卷軸滑動時，往下滑超過400px就讓GoTop按鈕出現 */
+    $(window).scroll(function() {
+        if ( $(this).scrollTop() > 400){
+            $('#gotop').fadeIn();
+        } else {
+            $('#gotop').fadeOut();
+        }
+    });
+});
+/*返回上方的按鈕*/
+</script>   
+<!-- 記得要把按鈕放到網頁上, 否則它不會出現 -->
+<a href="https://www.blogger.com/blogger.g?blogID=2031514508322140995#" id="gotop" style="">
+   <i class="fa fa-angle-up"></i>
+</a>
 
- <thead style="background-color:black;">
-  <tr style="color:white;">
-   <th>商品編號</th>
-   <th>&nbsp;&nbsp;國家</th>
-   <th>類型</th>
-   <th>&nbsp;&nbsp;商品名稱</th>
-   <th>住宿飯店</th>
-   <th></th>
-  </tr> 
- </thead>
-
- <c:forEach var='products' items='${products}'>
- <tbody>
-  <tr>
-   <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${products.productId}</th>
-   <th>&nbsp;&nbsp;&nbsp;&nbsp;${products.country}</th>
-   <th>&nbsp;&nbsp;${products.themeTitles.titleName}</th>
-   <th>&nbsp;&nbsp;&nbsp;&nbsp;${products.productName}</th>
-   <th>&nbsp;&nbsp;${products.hotelName}</th>
-   <th><a onmouseover="this.style.color='orange'" onmouseout="this.style.color='#4F4FFF'"style="color:#4F4FFF;" href="${products.themeTitles.titleName}/${products.productName}">查看出團日期</a></th>
- </tbody>
- </c:forEach>
-</table>
-</div>
-	<br><br><br><br><br>
-	<hr>
 	<%@ include file="/WEB-INF/frontStageFooter.jsp"%>
 </body>
 </html>

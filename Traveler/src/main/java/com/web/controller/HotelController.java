@@ -60,8 +60,6 @@ public class HotelController {
 	@Autowired
 	HotelOrderService hotelOrderService; 
 
-	
-
 	// 顯示HotelIndex
 	@RequestMapping("/_Hotel/SelectHotel")
 	public String list2(Model model) {
@@ -103,14 +101,73 @@ public class HotelController {
 	@RequestMapping("/_Hotel/OrderRoom")
 	public String showOrderRoom(Model model) {
 		return "_Hotel/OrderRoom";
+	}		
+	
+	// 顯示OrderRoom1
+		@RequestMapping("/_Hotel/OrderRoom1")
+		public String showOrderRoom1(Model model) {
+			return "_Hotel/OrderRoom1";
+		}
+	
+	// 顯示OrderRoom2
+	@RequestMapping("/_Hotel/OrderRoom2")
+	public String showOrderRoom2(Model model) {
+		return "_Hotel/OrderRoom2";
 	}
+	// 顯示OrderRoom3
+	@RequestMapping("/_Hotel/OrderRoom3")
+	public String showOrderRoom3(Model model) {
+		return "_Hotel/OrderRoom3";
+	}
+	// 顯示OrderRoom4
+	@RequestMapping("/_Hotel/OrderRoom4")
+	public String showOrderRoom4(Model model) {
+		return "_Hotel/OrderRoom4";
+	}
+	// 顯示OrderRoom5
+	@RequestMapping("/_Hotel/OrderRoom5")
+	public String showOrderRoom5(Model model) {
+		return "_Hotel/OrderRoom5";
+	}
+		
 	
-	
-	// 顯示OrderRoom
+	// 顯示OrderFinish
 		@RequestMapping("/_Hotel/OrderFinish")
 		public String showOrderFinish(Model model) {
 			return "_Hotel/OrderFinish";
 		}
+		
+	// 顯示roomCheckOut
+	@RequestMapping("/_Hotel/roomCheckOut")
+	public String checkOut(Model model) {			
+		return "_Hotel/roomCheckOut";
+	}
+	// 顯示roomCheckOut1
+	@RequestMapping("/_Hotel/roomCheckOut1")
+	public String checkOut1(Model model) {			
+		return "_Hotel/roomCheckOut1";
+	}
+	// 顯示roomCheckOut2
+	@RequestMapping("/_Hotel/roomCheckOut2")
+	public String checkOut2(Model model) {			
+		return "_Hotel/roomCheckOut2";
+	}
+	// 顯示roomCheckOut3
+	@RequestMapping("/_Hotel/roomCheckOut3")
+	public String checkOut3(Model model) {			
+		return "_Hotel/roomCheckOut3";
+	}
+	// 顯示roomCheckOut4
+	@RequestMapping("/_Hotel/roomCheckOut4")
+	public String checkOut4(Model model) {			
+		return "_Hotel/roomCheckOut4";
+	}
+	// 顯示roomCheckOut5
+	@RequestMapping("/_Hotel/roomCheckOut5")
+	public String checkOut5(Model model) {			
+		return "_Hotel/roomCheckOut5";
+	}
+		
 	
 	//篩選扭送出呈現Hotel畫面 
 	@RequestMapping("/_Hotel/SelectListed")
@@ -172,11 +229,7 @@ public class HotelController {
 	
 	
 	
-
-	@RequestMapping("/_Hotel/roomCheckOut")
-	public String checkOut(Model model) {			
-		return "_Hotel/roomCheckOut";
-	}
+	
 	
 	
 	

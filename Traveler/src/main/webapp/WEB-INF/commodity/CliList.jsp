@@ -98,44 +98,49 @@
 	crossorigin="anonymous"></script>
 <!-- 測試側邊 -->
 <style>
-#mwt_mwt_slider_scroll {
-	top: 95px;
-	left: 0px;
-	width: 200px;
-	position: fixed;
-	z-index: 9999;
+* {
+	margin: 0;
+	padding: 0;
+}
+#mwt_mwt_slider_scroll
+{
+top: 95px;
+left:0px; 
+width:200px;
+position:fixed; 
+z-index:9999;
 }
 
-#mwt_slider_content {
-	/* background:#FF8800; */
-	background: #FF8800;
-	text-align: center;
-	padding-top: 20px;
+#mwt_slider_content{
+/* background:#FF8800; */
+ background:#FF8800; 
+text-align:center;
+padding-top:20px;
 }
 
 #mwt_fb_tab {
-	position: absolute;
-	top: 20px;
-	right: -24px;
-	width: 24px;
-	background: #FF8800;
-	color: #ffffff;
-	font-family: Arial, Helvetica, sans-serif;
-	text-align: center;
-	padding: 9px 0;
-	-moz-border-radius-topright: 10px;
-	-moz-border-radius-bottomright: 10px;
-	-webkit-border-top-right-radius: 10px;
-	-webkit-border-bottom-right-radius: 10px;
-}
+position:absolute;
+top:20px;
+right:-24px;
+width:24px;
+background:#FF8800;
+color:#ffffff;
+font-family:Arial, Helvetica, sans-serif;
+text-align:center;
+padding:9px 0;
 
+-moz-border-radius-topright:10px;
+-moz-border-radius-bottomright:10px;
+-webkit-border-top-right-radius:10px;
+-webkit-border-bottom-right-radius:10px;
+}
 #mwt_fb_tab span {
-	display: block;
-	height: 12px;
-	padding: 1px 0;
-	line-height: 12px;
-	text-transform: uppercase;
-	font-size: 12px;
+display:block;
+height:12px;
+padding:1px 0;
+line-height:12px;
+text-transform:uppercase;
+font-size:12px;
 }
 </style>
 <script type='text/javascript'>
@@ -222,14 +227,25 @@ html, body {
 	</div>
 	<!-- =========側邊欄位開始============ -->
 <div id="mwt_mwt_slider_scroll">
-<div id="mwt_slider_content" >
-<div><h2 style="text-align: center;color:black">紅利管理</h2></div>
- <div><h3><a class='aa' href="commlist">商品清單</a></h3></div>
- <div><h3><a class='aa' href="tsuika">新增商品訂單</a></h3></div>
- <div><h3><a class='aa' href="henkou">修改商品</a></h3></div>
-  <div><h3><a class='aa' href="ClientLists">兌換清單</a></h3></div>
-</div>
-</div>
+			<div id="mwt_slider_content"   >
+				<div id="nav" style="margin:auto;">			 
+					 <ul >
+				 		 <li>
+							<a class="btn btn-primary"href="commlist" ><h3><font color="white">商品清單</font></h3></a>
+						 </li>
+						  <li >
+						   	<a class="btn btn-primary"href="tsuika"><h3><font color="white">新增商品</font></h3></a>			   
+						  </li>
+						  <li >
+						   	<a class="btn btn-primary"href="henkou"><h3><font color="white">修改商品</font></h3></a>			   
+						  </li>
+						  <li >
+						   	<a class="btn btn-primary"href="ClientLists"><h3><font color="white">兌換清單</font></h3></a>			   
+						  </li>
+					 </ul>
+				</div>
+			</div>
+		</div>
 	<!-- =========側邊欄位結束============ -->
 
 

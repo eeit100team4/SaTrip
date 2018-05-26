@@ -1,58 +1,146 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+ 
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title></title>
+    <script src="/js/lib/jquery-1.8.3.min.js" type='text/javascript'></script>  
+    <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="/js/flot/excanvas.min.js"></script><![endif]-->
+     
+    <script type="text/javascript" src="/js/flot/jquery.flot.min.js"></script>    
+    <script type="text/javascript" src="/js/flot/jquery.flot.symbol.js"></script>
+    <script type="text/javascript" src="/js/flot/jquery.flot.axislabels.js"></script>
+     
+    <script type="text/javascript">
+        //******* 2012 Average Temperature - BAR CHART
+        var data = [[0, 11],[1, 15],[2, 25],[3, 24],[4, 13],[5, 18]];
+        var dataset = [{ label: "2012 Average Temperature", data: data, color: "#5482FF" }];
+        var ticks = [[0, "London"], [1, "New York"], [2, "New Delhi"], [3, "Taipei"],[4, "Beijing"], [5, "Sydney"]];
+ 
+        var options = {
+            series: {
+                bars: {
+                    show: true
+                }
+            },
+            bars: {
+                align: "center",
+                barWidth: 0.5
+            },
+            xaxis: {
+                axisLabel: "World Cities",
+                axisLabelUseCanvas: true,
+                axisLabelFontSizePixels: 12,
+                axisLabelFontFamily: 'Verdana, Arial',
+                axisLabelPadding: 10,
+                ticks: ticks
+            },
+            yaxis: {
+                axisLabel: "Average Temperature",
+                axisLabelUseCanvas: true,
+                axisLabelFontSizePixels: 12,
+                axisLabelFontFamily: 'Verdana, Arial',
+                axisLabelPadding: 3,
+                tickFormatter: function (v, axis) {
+                    return v + "°C";
+                }
+            },
+            legend: {
+                noColumns: 0,
+                labelBoxBorderColor: "#000000",
+                position: "nw"
+            },
+            grid: {
+                hoverable: true,
+                borderWidth: 2,
+                backgroundColor: { colors: ["#ffffff", "#EDF5FF"] }
+            }
+        };
+ 
+        $(document).ready(function () {
+            $.plot($("#flot-placeholder"), dataset, options);
+            $("#flot-placeholder").UseTooltip();
+        });
+ 
+        function gd(year, month, day) {
+            return new Date(year, month, day).getTime();
+        }
+ 
+        var previousPoint = null, previousLabel = null;
+ 
+        $.fn.UseTooltip = function () {
+            $(this).bind("plothover", function (event, pos, item) {
+                if (item) {
+                    if ((previousLabel != item.series.label) || (previousPoint != item.dataIndex)) {
+                        previousPoint = item.dataIndex;
+                        previousLabel = item.series.label;
+                        $("#tooltip").remove();
+ 
+                        var x = item.datapoint[0];
+                        var y = item.datapoint[1];
+ 
+                        var color = item.series.color;
+ 
+                        //console.log(item.series.xaxis.ticks[x].label);                
+ 
+                        showTooltip(item.pageX,
+                        item.pageY,
+                        color,
+                        "<strong>" + item.series.label + "</strong><br>" + item.series.xaxis.ticks[x].label + " : <strong>" + y + "</strong> °C");
+                    }
+                } else {
+                    $("#tooltip").remove();
+                    previousPoint = null;
+                }
+            });
+        };
+ 
+        function showTooltip(x, y, color, contents) {
+            $('<div id="tooltip">' + contents + '</div>').css({
+                position: 'absolute',
+                display: 'none',
+                top: y - 40,
+                left: x - 120,
+                border: '2px solid ' + color,
+                padding: '3px',
+                'font-size': '9px',
+                'border-radius': '5px',
+                'background-color': '#fff',
+                'font-family': 'Verdana, Arial, Helvetica, Tahoma, sans-serif',
+                opacity: 0.9
+            }).appendTo("body").fadeIn(200);
+        }
+        
+  
 
 
-<title>Insert title here</title>
+        <script>
+        function a(){
+        	var json=${json};
+        	console.log(json);
 
-<style>
-
-
-
-</style>
-
+        	console.log(json[0].commodityBean.name);
+//         	console.log(json[0].cliquantity);
+        		
+        }       
+        
+        
+    </script>
 </head>
 <body>
 
-
-
-
-
-
-	<div class="container" style="padding-top:80px;padding-left:150px">
-
-<span style="font-size:30px;">Traveler統計報表:</span>
-<select id="choose" onchange="TheConfirmBox()">
-	<option disabled=disabled selected=selected>請選擇</option>
-<!-- 	<optgroup label="亞洲區"> -->
-		<option value="http://localhost:8080/Traveler/contactus/contactuspieasia">1~3月份國人出國目的地統計</option>
-		<option value="http://localhost:8080/Traveler/contactus/contactuspieage">1~3月份國人出國年齡地統計</option>
-</select>
-<span id="check" style="color:red;"></span><br>
-<script>
-	function TheConfirmBox() {
-		var noteToMe;
-		/*取得id為choose的選單裡剛剛所點擊的連結的名稱*/
-		var whichUserChoose=choose.options[choose.selectedIndex].text;
-		if (confirm("Hello！你確定要前往"+whichUserChoose+"?") == true){
-			noteToMe = "你選取想前往"+whichUserChoose+"！";
-			window.location.assign(choose.options[choose.selectedIndex].value);
-		}else{
-			noteToMe = "你按了取消喔！";
-		}
-		document.getElementById("check").innerHTML = noteToMe;
-	}
-	
-</script>
-</div>
-
-
-
-
-
-
+<button class='btn' onclick='showTooltip()'>Q</button>
+      <button class='btn' onclick='a()'>QQQ</button>
+    <div style="width:450px;height:300px;text-align:center;margin:10px">        
+        <div id="flot-placeholder" style="width:100%;height:100%;"></div>        
+    </div>
+    
+    
+    
 </body>
 </html>
+
+
+
+
