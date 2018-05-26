@@ -158,7 +158,7 @@ a img:hover {
     <div style="width:350px; height:250px; float: left; ">
      <a href="products/${titleName}"><img src="/Traveler/images/themeTitle-${titleName}.png" width="325" height="200" style="border:20px #805300 ridge;"></a>      
       <div style="width:350px; height:250px; float: left;">
-       <a onmouseover="this.style.color='orange'" onmouseout="this.style.color='black'" style='font-size:25px;color:black;' href="products/${titleName}">${titleName}</a><br>     
+       <a onmouseover="this.style.color='orange'" onmouseout="this.style.color='black'" style='font-size:25px;color:black;' href="products/${titleName}">~~~~~~~${titleName}~~~~~~~</a><br>     
       </div>
       <br>
     </div>

@@ -171,7 +171,7 @@
    <div class="panel-body" style="font-size:20px;color:#808000">★${products.ad2}</div>
    <div class="panel-body" style="font-size:20px;color:#808000">★${products.ad3}</div>
    <br>
-   <div class="panel-body"><a onmouseover="this.style.color='orange'" onmouseout="this.style.color='#4F4FFF'" style="font-size:20px;color:#000080" href="${products.themeTitles.titleName}/${products.productName}">點此可查看出團日期!<img src="/Traveler/images/向左箭頭.png" width="50" height="50"></a></div>  
+   <div class="panel-body"><a onmouseover="this.style.color='orange'" onmouseout="this.style.color='#4F4FFF'" style="font-size:20px;color:#000080" href="${products.themeTitles.titleName}/${products.productName}">點此可查看出團時間!<img src="/Traveler/images/向左箭頭.png" width="50" height="50"></a></div>  
   </div>
  </div>
 </div><hr><hr>
