@@ -89,6 +89,10 @@
 
 <!-- 測試側邊 -->
 <style>
+* {
+	margin: 0;
+	padding: 0;
+}
 #mwt_mwt_slider_scroll
 {
 top: 95px;
@@ -240,15 +244,25 @@ margin-bottom:0px;
 		</div>
 <!-- =========側邊欄位開始============ -->	
 <div id="mwt_mwt_slider_scroll">
-<div id="mwt_slider_content" >
-<div><h2 style="text-align: center;color:black">紅利管理</h2></div>
- <div><h3><a class='aa' href="commlist">商品清單</a></h3></div>
- <div><h3><a class='aa' href="tsuika">新增商品訂單</a></h3></div>
- <div><h3><a class='aa' href="henkou">修改商品</a></h3></div>
-  <div><h3><a class='aa' href="ClientLists">兌換清單</a></h3></div>
-  <div><h3><a class='aa' href="/Traveler/maruru">QQ</a></h3></div>
-</div>
-</div>
+			<div id="mwt_slider_content"   >
+				<div id="nav" style="margin:auto;">			 
+					 <ul >
+				 		 <li>
+							<a class="btn btn-primary"href="commlist" ><h3><font color="white">商品清單</font></h3></a>
+						 </li>
+						  <li >
+						   	<a class="btn btn-primary"href="tsuika"><h3><font color="white">新增商品</font></h3></a>			   
+						  </li>
+						  <li >
+						   	<a class="btn btn-primary"href="henkou"><h3><font color="white">修改商品</font></h3></a>			   
+						  </li>
+						  <li >
+						   	<a class="btn btn-primary"href="ClientLists"><h3><font color="white">兌換清單</font></h3></a>			   
+						  </li>
+					 </ul>
+				</div>
+			</div>
+		</div>
 <!-- =========側邊欄位結束============ -->		
 			
 	
