@@ -153,47 +153,45 @@
 <br>
 <hr>
 <!-- 展示區 -->
-<div class="container-fluid" style="text-align:center;background:black">
- <div class="row" style="font-size:30px;color:white;">
+<div class="container-fluid" style="text-align:center;background:#2B2B2B">
+ <div class="row" style="font-size:30px;color:white">
   <div class="col-md-2">出發日</div>
   <div class="col-md-4">商品名稱</div>
   <div class="col-md-2">航空公司</div>
   <div class="col-md-2">價格</div>
-  <div class="col-md-2">報名截止日</div>
+  <div class="col-md-2"></div>
  </div>
 </div>
-<hr>
+<hr><hr>
 <c:forEach var='journeys' items='${journeys}'>
-<div class="container-fluid" style="font-size:18px">
+<div class="container-fluid" style="font-size:22px;color:#2B2B2B;text-align:center">
  <div class="row">
   <!--欄位1 出發日期-->
   <div class="col-md-2">
-   <div class="well"><fmt:formatDate value="${journeys.setOut}" pattern="yyyy/MM/dd"/></div>
+   <div class="panel-body" style="background:white;border:10px white none;"><fmt:formatDate value="${journeys.setOut}" pattern="yyyy/MM/dd"/></div>
   </div>
   <!--欄位2 商品名稱-->
   <div class="col-md-4">
-   <div class="well">${journeys.themeProducts.productName}</div>
+   <div class="panel-body"style="font-family: DFKai-sb;background:white;border:10px white none;"><${journeys.themeProducts.productName}></div>
   </div>
   <!--欄位3 航空公司-->
   <div class="col-md-2">
-   <div class="well"><a><img src="/Traveler/images/${journeys.companyName}.gif"></a>${journeys.companyName}</div>
+   <div class="panel-body" style="background:white;border:10px white none;"><a><img src="/Traveler/images/${journeys.companyName}.gif"style="width:30px; height:30px;"></a>&nbsp;&nbsp;${journeys.companyName}</div>
   </div>
   <!--欄位4 價格-->
   <div class="col-md-2">
-   <div class="well">${journeys.price}</div>
+   <div class="panel-body" style="background:white;border:10px white none;">$&nbsp;&nbsp;${journeys.price}</div>
   </div>
-  <!--欄位5 報名截止日-->
+  <!--欄位5 連結-->
   <div class="col-md-2">
-   <div class="well"><fmt:formatDate value="${journeys.deadline}" pattern="yyyy/MM/dd"/></div>
+   <div class="panel-body" style="background:white;border:10px white none;text-align:left"><a onmouseover="this.style.color='orange'" onmouseout="this.style.color='#4F4FFF'" style="color:#4F4FFF;" href="${journeys.themeProducts.productName}/${journeys.journeyId}">瞭解更多<img src="/Traveler/images/向左箭頭.png" width="50" height="50"></a></div>
   </div>
   
  </div>
 </div>
-<!-- 每筆資料後的橫線 -->
-<hr>
-<!--  -->
+<hr><hr>
 </c:forEach> 
-				
+			
 <script type="text/javascript">
 $(function() {
     /* 按下GoTop按鈕時的事件 */
@@ -214,9 +212,8 @@ $(function() {
 /*返回上方的按鈕*/
 </script>   
 <!-- 記得要把按鈕放到網頁上, 否則它不會出現 -->
-<a href="https://www.blogger.com/blogger.g?blogID=2031514508322140995#" id="gotop" style="">
+<img src=/Traveler/images/向上箭頭.png id="gotop" style="">
    <i class="fa fa-angle-up"></i>
-</a>	
 	<%@ include file="/WEB-INF/frontStageFooter.jsp"%>
 </body>
 </html>
