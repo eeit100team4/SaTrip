@@ -90,6 +90,15 @@ public class OrderRepository {
 		}
 		return 0;
 	}
+	
+	public List<OrderDetailsBean> memberSearch(String memberId){
+		List<OrderDetailsBean> list=null;
+		session = factory.getCurrentSession();
+		String hql="FROM OrderDetailsBean WHERE memberId=:memberId";
+		Query query = session.createQuery(hql).setParameter("memberId", memberId);
+		List<OrderDetailsBean> result = query.list();
+		return result;
+	}
 
 
 }
