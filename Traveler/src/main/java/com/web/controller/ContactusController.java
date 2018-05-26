@@ -116,11 +116,11 @@ public class ContactusController {
 		return "contactus/feedbackopinion";
 	}
 
-	@RequestMapping("/contactus/InsertOpinionSuccess")
-	public String instertopinionsuccess(Model model) {
+	@RequestMapping("contactus/testInsert")
+	public String instertopinionsuccess(@ModelAttribute("contactusBean")ContactusBean contactus3,Model model) {
 		List<ContactusBean>  list = contactusService.getAllContactus();
-		model.addAttribute("contactus", list);
-		
+		model.addAttribute("contactus3", list);
+		System.out.println(list);
 			return "redirect:contactus/InsertOpinionSuccess";
 		
 		

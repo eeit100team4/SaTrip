@@ -63,7 +63,7 @@ public class airTicketsController {
 	@Autowired
 	ExtraPriceService eps;
 	@Autowired
-	CountClickService countClickService; 
+	CountClickService countClickService;
 
 	String sess = null;
 
@@ -74,9 +74,9 @@ public class airTicketsController {
 
 		if (result == null) {
 			System.out.println("壞查詢");
-			String error="查無機票";
-			model.addAttribute("error",error);
-//			return "redirect:/";
+			String error = "查無機票";
+			model.addAttribute("error", error);
+			// return "redirect:/";
 			return "index";
 		} else {
 			// 產生PDF標題圖片
@@ -115,7 +115,7 @@ public class airTicketsController {
 
 		int id = os.addOrder(odb);
 		String orderid = os.selectOneById(id);
-		
+
 		session.setAttribute("orderID", orderid);
 		System.out.println("將ORDERID存入SESSION orderId=" + orderid);
 		return orderid;
@@ -175,10 +175,10 @@ public class airTicketsController {
 		// 將旅客資訊存入DB
 		GuestBean guestBean = (GuestBean) session.getAttribute("guestBean");
 		int resultId = gs.addGuest(guestBean);
-		//將紅利存入會員
+		// 將紅利存入會員
 		os.setPointToMember(orderId);
 		os.updateByOrderId(orderId, resultId);
-		//取得會員EMAIL
+		// 取得會員EMAIL
 		MemberBean member = (MemberBean) session.getAttribute("LoginOK");
 		String memberEmail = member.getEmail();
 		if (orderId != null) {
@@ -187,7 +187,7 @@ public class airTicketsController {
 			System.out.println("歐富寶測試");
 			System.out.println("產生PDF");
 			pdf.pdfProduce(os.selectOneByOrderId(orderId));
-			emailService.sendEmail(orderId,guestBean.getContactEmail());
+			emailService.sendEmail(orderId, guestBean.getContactEmail());
 			System.out.println("寄信測試");
 			return "redirect:finishPage";
 		}
@@ -209,7 +209,6 @@ public class airTicketsController {
 		return null;
 	}
 
-
 	@RequestMapping("/finishPage")
 	public String testPdf() throws DocumentException, IOException {
 		return "airTickets/finishPage";
@@ -221,13 +220,13 @@ public class airTicketsController {
 
 		String dep = request.getParameter("dept");
 		String arr = request.getParameter("arrv");
-		 List<ExtraPriceBean> extra = eps.getExtraPrice(dep, arr);
-			String extraP = new Gson().toJson(extra);
-			System.out.println(extraP);
-			if (extraP != null) {
-				System.out.println("加價");
-				model.addAttribute("extraPrice", extraP);
-			}
+		List<ExtraPriceBean> extra = eps.getExtraPrice(dep, arr);
+		String extraP = new Gson().toJson(extra);
+		System.out.println(extraP);
+		if (extraP != null) {
+			System.out.println("加價");
+			model.addAttribute("extraPrice", extraP);
+		}
 
 		model.addAttribute("result", result);
 		model.addAttribute("depDate", request.getParameter("depDate"));
@@ -239,9 +238,21 @@ public class airTicketsController {
 	}
 
 	@RequestMapping("/testOpay")
-	public String thisISaBook()  {
+	public String thisISaBook() {
 		return "airTickets/finishPage";
 	}
 
+	
+	//會員查詢訂單
+	@RequestMapping("/memberOrderSearch")
+	public String memeberOrder(Model model) {
+		MemberBean member = (MemberBean) session.getAttribute("LoginOK");
+		String memberId = member.getMemberId();
+		List<OrderDetailsBean> list = os.memberSearch(memberId);
+		System.out.println(memberId);
+		System.out.println(list);
+		model.addAttribute("list",list);
+		return "/airTickets/memberOrder";
+	}
 
 }

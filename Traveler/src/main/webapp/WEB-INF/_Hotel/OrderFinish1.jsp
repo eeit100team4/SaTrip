@@ -113,146 +113,47 @@
 <!-- 連結旁邊的小ICON套件  -->	
 <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
 
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"></link>
-
-<style>
-.row {
-  display: -ms-flexbox; /* IE10 */
-  display: flex;
-  -ms-flex-wrap: wrap; /* IE10 */
-  flex-wrap: wrap;
-  margin: 0 -16px;
-}
-
-.col-25 {
-  -ms-flex: 25%; /* IE10 */
-  flex: 25%;
-}
-
-.col-50 {
-  -ms-flex: 50%; /* IE10 */
-  flex: 50%;
-}
-
-.col-75 {
-  -ms-flex: 75%; /* IE10 */
-  flex: 75%;
-}
-
-.col-25,
-.col-50,
-.col-75 {
-  padding: 0 16px;
-}
-
-.container1 {
-  background-color: #f2f2f2;
-  padding: 5px 20px 15px 20px;
-  border: 1px solid lightgrey;
-  border-radius: 3px;
-}
-
-input[type=text] {
-  width: 100%;
-  margin-bottom: 20px;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-}
-
-label {
-  margin-bottom: 10px;
-  display: block;
-}
-
-.icon-container {
-  margin-bottom: 20px;
-  padding: 7px 0;
-  font-size: 24px;
-}
-
-.btn {
-  background-color: #4CAF50;
-  color: white;
-  padding: 12px;
-  margin: 10px 0;
-  border: none;
-  width: 100%;
-  border-radius: 3px;
-  cursor: pointer;
-  font-size: 17px;
-}
-
-.btn:hover {
-  background-color: #45a049;
-}
-
-span.price {
-  float: right;
-  color: grey;
-}
-
-/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (and change the direction - make the "cart" column go on top) */
-@media (max-width: 800px) {
-  .row {
-    flex-direction: column-reverse;
-  }
-  .col-25 {
-    margin-bottom: 20px;
-  }
-}
-</style>
-
-
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 </head>
 <body>
 	<%@ include file="/WEB-INF/frontStageHeader.jsp"%>
 		<br>
-		<div class="container">		
-		  <div class="row">		   
-		   
-		   
-		   
-		   <div class="col-sm-4">
-		   		
-			  			  <h1><b>客房資訊</b></h1>
-			            <hr style="height: 2px; border: none; color: #333; background-color: #333;">
-			            <label for="fname"><i class="fa fa-user"></i>姓名</label>
-			            <input type="text" id="fname" name="firstname" size="35"  >
-			            <label for="email"><i class="fa fa-envelope"></i> Email</label>
-			            <input type="text" id="email" name="email" size="35">			            
-			            <label for="add"><i ></i>地址</label>
-			            <input type="text" id="adr" name="add" size="35">
-			            <label for="phone"><i ></i>行動電話</label>
-			            <input type="text" id="phone" name="phone" size="35">
-			            <div class="icon-container">
-			              <i class="fab fa-cc-visa" style="color:navy;"></i>
-			              <i class="fab fa-cc-amex" style="color:blue;"></i>
-			              <i class="fab fa-cc-mastercard" style="color:red;"></i>
-			              <i class="fab fa-cc-discover" style="color:orange;"></i>
-			            </div>
-		                <a href="roomCheckOut" class="btn">確認送出</a>
-		   </div>
-		   <div class="col-sm-6">
-		   
-		  			  <h1><b>訂購資訊</b></h1>
-		            <hr style="height: 2px; border: none; color: #333; background-color: #333;">
-		            
-		            <p><h3>雙人房, 非吸煙房,免費上網, 延遲退房, 雙人床, 非吸煙房。</h3></p>
-                    <br>
-                    <p><h3>請輸入入住房客的姓名，姓名必須與飯店入住時所出示的身分證明文件相同。</h3></p>
-                    <p><h3>如果房客有超過一個姓氏，請輸入所有姓氏。</h3></p>
-			            
-		   </div>
-		   
+		<br>
+		<br>
+		<br>
+		<div class="container" align="center">
+		  <div class="row">
+		    <div class="col-xl">
+		      
+		    </div>
+		    <div class="col-xl-10">
+		      <div class="card">
+				  <h1 class="card-header" ><font color="red"><b>訂房資訊</b></font></h1>
+				  <div class="card-body">
+				    <h3 class="card-title"></h3>
+				    <p class="card-text">訂單狀態：<font color="orange"><b>已確認</b></font></p><br>
+				    <p class="card-text">訂單時間：<font color="orange"><b>06/01/2018</b></font></p><br>
+				    <p class="card-text">訂單編號：<font color="orange"><b>E8730678</b></font></p>
+				    <a href="SelectHotel" class="btn btn-primary">回到首頁</a>
+				  </div>
+				</div>
+		    </div>
+		    <div class="col-xl">
+		      
+		    </div>
+		  </div>
+		</div>
+			
 		
-		   
-		   
-		   
-		           
-		  </div>									
-		</div>			
+			
+		
+		
+		
+				
 	<%@ include file="/WEB-INF/frontStageFooter.jsp"%>
 </body>
 </html>

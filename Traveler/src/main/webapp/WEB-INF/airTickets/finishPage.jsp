@@ -129,7 +129,7 @@ margin:10px;
 </style>
 </head>
 <body
-	style="background-image: url(/Traveler/images/cover_bg_1.jpg); background-attachment: fixed;">
+	style="background-image: url(/Traveler/images/true.jpg); background-attachment: fixed;">
 	<div id="fh5co-wrapper">
 		<div id="fh5co-page">
 
@@ -154,10 +154,47 @@ margin:10px;
 									</div>
 									<br><br><br>
 									<div><h2 style="color:red;">精選推薦飯店</h2>
-									<div >
-									<img class="img" height="200" width="200" src="/Traveler/images/hotelPic/Japan/Tokyo/japDRA/HotelCoverImage/japDRA.jpg" />
-									<img class="img" height="200" width="200" src="/Traveler/images/hotelPic/Japan/Tokyo/japDRA/HotelCoverImage/japDRA.jpg" />
-									</div>
+<!-- 									<div > -->
+<!-- 									<img class="img" height="200" width="200" src="/Traveler/images/hotelPic/Japan/Tokyo/japDRA/HotelCoverImage/japDRA.jpg" /> -->
+<!-- 									<img class="img" height="200" width="200" src="/Traveler/images/hotelPic/Japan/Tokyo/japDRA/HotelCoverImage/japDRA.jpg" /> -->
+<!-- 									</div> -->
+
+<!-- 						輪播 -->
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1"></li>
+    <li data-target="#myCarousel" data-slide-to="2"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+    <div class="item active">
+      <img height="400" width="400" src="/Traveler/images/hotelPic/Japan/Tokyo/japDRA/HotelCoverImage/japDRA.jpg" alt="Los Angeles">
+    </div>
+
+    <div class="item">
+      <img height="400" width="400" src="/Traveler/images/hotelPic/Japan/Tokyo/japDRB/HotelCoverImage/japDRB.jpg" alt="Chicago">
+    </div>
+
+    <div class="item">
+      <img height="400" width="400" src="/Traveler/images/hotelPic/Japan/Tokyo/japDRC/HotelCoverImage/japDRC.jpg" alt="New York">
+    </div>
+  </div>
+
+  <!-- Left and right controls -->
+  <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#myCarousel" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+
+
 									</div>
 									<div style="margin:20px;">
 									<button type="button" class="btn-xs btn-warning " onclick="homepage()">回首頁</button>

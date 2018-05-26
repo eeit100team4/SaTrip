@@ -161,56 +161,56 @@ color:black;
 <div class="container" style="padding-top:80px;padding-left:150px">
 <%-- 				<form action="feedbackopinion" modelAttribute="contactusBean"  enctype='multipart/form-data'> --%>
 
-				<form action="feedbackopinion/${pkid}" modelAttribute="contactusBean"  enctype='multipart/form-data'>
+				<form action="feedbackopinioin/${pkid}" modelAttribute="contactusBean"  enctype='multipart/form-data'>
 						 <fieldest>
 						
 						 <table class="tabulation animate-box" style="border:2px #ccc solid;border-radius:10px;width:500px;
 						 background-color:#eee;color:black;height:500px;">
 						
-<%--   			    <c:forEach var='con' items='${contactus}'> --%>
+  			    <c:forEach var='con' items='${contactus3}'>
  				
 						 <tr>
 						<td scope="row" style="width:100px;">姓名:</td>
-						<td>${con.name}</td>
+						<td><c:out value="${con.name}"/></td>
 						</tr>
 						<tr>
 						<td scope="row" style="width:100px;">性別:</td>
-						<td>${con.sex}</td>
+						<td><c:out value="${con.sex}"/></td>
 						</tr>
 						<tr>
 						<td scope="row" style="width:100px;">年齡:</td>
-						<td>${con.age}</td>
+						<td><c:out value="${con.age}"/></td>
 						</tr>
 						<tr>
 						<td scope="row" style="width:100px;">連絡電話:</td>
-						<td>${con.phone}</td>
+						<td><c:out value="${con.phone}"/></td>
 						</tr>
 						<tr>
 						<td scope="row" style="width:100px;">電子信箱:</td>
-						<td>${con.email}</td>
+						<td><c:out value="${con.email}"/></td>
 						</tr>
 						<tr>
 						<td scope="row" style="width:100px;">所在地:</td>
-						<td>${con.address}</td>
+						<td><c:out value="${con.address}"/></td>
 						</tr>
 						<tr>
 						<td scope="row" style="width:100px;">意見類別:</td>
-						<td>${con.opinion}</td>
+						<td><c:out value="${con.opinion}"/></td>
 						</tr>
 						<tr>
 						<td scope="row" style="width:100px;">意見欄:</td>
-					    <td>${con.comment}</td>
+					    <td><c:out value="${con.comment}"/></td>
 					    </tr>
 					    <tr>
 					    <td scope="row" style="width:100px;">留言時間:</td>
-					    <td>${con.messagetime}</td>
+					    <td><c:out value="${con.messagetime}"/></td>
 						</tr>
 					    <tr>
 					    <td scope="row" style="width:100px;">回覆欄:</td>
-					    <td>${con.feedback}</td>
+					    <td><c:out value="${con.feedback}"/></td>
 						</tr>
 						
-<%-- 						</c:forEach> --%>
+						</c:forEach>
 						</table>
 					    
 
