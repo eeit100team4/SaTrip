@@ -153,7 +153,7 @@ function showInfo(){
                 	console.log($("#CheckMacValue").val());
                 },
                 error : function() {
-                    alert('fail');
+                    alert('格式有誤');
                 }
             });
             

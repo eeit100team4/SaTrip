@@ -194,7 +194,7 @@ $( document ).ready(function(){
 			
 		},
 		error:function(){
-			alert("TT");
+			alert("格式錯誤");
 		}
 
 	});
