@@ -149,6 +149,10 @@ $(document).ready(function(){
 
 </script>
 <style>
+* {
+	margin: 0;
+	padding: 0;
+}
 html,body{
 margin:0;
 padding:0;
@@ -293,20 +297,18 @@ Highcharts.chart('container', {
 </div>
 	<!-- =========側邊欄位開始============ -->	
 <div id="mwt_mwt_slider_scroll">
-<div id="mwt_slider_content"   >
-<ul class="me">
-<h2>客服管理</h2>
-<p><a href="selectopinion" style="color:black">查看留言</a></p>
-<p><a href="StatisticsReport" style="color:black">統計報表</a></p>
-<a href="contactuspieasia"></a>
-<a href="contactuspieage"></a>
-
-
-
-
-
-</ul>
-</div>
+	<div id="mwt_slider_content"   >
+		<div id="nav">			 
+			 <ul >
+		 		 <li>
+					<a class="btn btn-primary"href="selectopinion"><h4><font color="white">查看留言</font></h4></a>
+				 </li>
+				  <li >
+				   	<a class="btn btn-primary"href="StatisticsReport"><h4><font color="white">統計報表</font></h4></a>			   
+				  </li>
+			 </ul>
+		</div>
+	</div>
 </div>
 <!-- =========側邊欄位結束============ -->
 	
