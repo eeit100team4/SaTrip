@@ -120,7 +120,28 @@
 <style>
 .well, .panel {text-align: center;}
 </style>
-
+<!-- 返回上方按鈕 -->
+<style>
+#gotop {
+    position:fixed;
+    z-index:90;
+    right:30px;
+    bottom:31px;
+    display:none;
+    width:50px;
+    height:50px;
+    color:#fff;
+    background:#33b5e5;
+    line-height:50px;
+    border-radius:50%;
+    transition:all 0.5s;
+    text-align: center;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+}
+#gotop :hover{
+    background:#0099CC;
+}
+</style>
 <!--  -->
 </head>
 <body>
@@ -131,7 +152,7 @@
  <div style="margin-right:400px;margin-top:10px;width:1500px;" class="content text-center">
      <a><img src="/Traveler/images/獨家行程.png" width="1500" height="200"></a>
  </div>
-</div>
+<!--</div>-->
 <!-- 展示區 -->
 <c:forEach var='products' items='${products}'>
 <div class="container-fluid">
@@ -155,6 +176,29 @@
  </div>
 </div><hr><hr>
 </c:forEach>
+<script type="text/javascript">
+$(function() {
+    /* 按下GoTop按鈕時的事件 */
+    $('#gotop').click(function(){
+        $('html,body').animate({ scrollTop: 0 }, 'slow');   /* 返回到最頂上 */
+        return false;
+    });
+     
+    /* 偵測卷軸滑動時，往下滑超過400px就讓GoTop按鈕出現 */
+    $(window).scroll(function() {
+        if ( $(this).scrollTop() > 400){
+            $('#gotop').fadeIn();
+        } else {
+            $('#gotop').fadeOut();
+        }
+    });
+});
+/*返回上方的按鈕*/
+</script>   
+<!-- 記得要把按鈕放到網頁上, 否則它不會出現 -->
+<a href="https://www.blogger.com/blogger.g?blogID=2031514508322140995#" id="gotop" style="">
+   <i class="fa fa-angle-up"></i>
+</a>
 
 	<%@ include file="/WEB-INF/frontStageFooter.jsp"%>
 </body>
