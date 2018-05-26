@@ -17,40 +17,101 @@
 </head>
 <body>
 
+<button class='btn' onclick='a()'>QQQ</button>
 
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
 
-
-
-
-	<div class="container" style="padding-top:80px;padding-left:150px">
-
-<span style="font-size:30px;">Traveler統計報表:</span>
-<select id="choose" onchange="TheConfirmBox()">
-	<option disabled=disabled selected=selected>請選擇</option>
-<!-- 	<optgroup label="亞洲區"> -->
-		<option value="http://localhost:8080/Traveler/contactus/contactuspieasia">1~3月份國人出國目的地統計</option>
-		<option value="http://localhost:8080/Traveler/contactus/contactuspieage">1~3月份國人出國年齡地統計</option>
-</select>
-<span id="check" style="color:red;"></span><br>
 <script>
-	function TheConfirmBox() {
-		var noteToMe;
-		/*取得id為choose的選單裡剛剛所點擊的連結的名稱*/
-		var whichUserChoose=choose.options[choose.selectedIndex].text;
-		if (confirm("Hello！你確定要前往"+whichUserChoose+"?") == true){
-			noteToMe = "你選取想前往"+whichUserChoose+"！";
-			window.location.assign(choose.options[choose.selectedIndex].value);
-		}else{
-			noteToMe = "你按了取消喔！";
-		}
-		document.getElementById("check").innerHTML = noteToMe;
-	}
+function a(){
+	var json=${json};
+	console.log(json);
+
+	console.log(json[0].commodityBean.name);
+}
+
+
+
+
+Highcharts.chart('container', {
+    chart: {
+        plotBackgroundColor: null,
+        plotBorderWidth: null,
+        plotShadow: false,
+        type: 'pie'
+    },
+    title: {
+        text: '兌換的物品數量'
+    },
+    tooltip: {
+        pointFormat: '{json.name}: <b>{point.percentage:.1f}%</b>'
+    },
+    plotOptions: {
+        pie: {
+            allowPointSelect: true,
+            cursor: 'pointer',
+            dataLabels: {
+                enabled: true,
+                format: '<b>{json.name}</b>: {point.percentage:.1f} %',
+                style: {
+                    color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                }
+            }
+        }
+    },
+    series: [{
+        name: 'Brands',
+        colorByPoint: true,
+        data: [
+        {
+            name: 'Chrome',
+            y: 61.41,
+            sliced: true,
+            selected: true
+        }, 
+        {
+            name: 'Internet Explorer',
+            y: 11.84
+        }, 
+      
+       
+       
+       
+        
+       ]
+    }]
+});
+
+
+// function load(){
+// 	var xmlHttp=new XMLHttpRequest();
 	
+// 		if(xmlHttp.status==200){
+	
+// 			xmlHttp.open("get","json",false);
+// 			xmlHttp.send();
+
+// 		}
+// 	});
+
+
+
+
+
+
+
 </script>
+
+
+	<div class="container">
+
+<div id="container" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto">
+
+
 </div>
 
-
-
+</div>
 
 
 
