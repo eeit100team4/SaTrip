@@ -113,6 +113,7 @@
 
 <!-- 連結旁邊的小ICON套件  -->	
 <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script> 
+<!-- 淡入淡出 -->
 <style>
 a img {
   border-width:0;
@@ -123,6 +124,29 @@ a img:hover {
   opacity:500;
 }
 </style>
+<!-- 返回上方按鈕 -->
+<style>
+#gotop {
+    position:fixed;
+    z-index:90;
+    right:30px;
+    bottom:31px;
+    display:none;
+    width:50px;
+    height:50px;
+    color:#fff;
+    background:#33b5e5;
+    line-height:50px;
+    border-radius:50%;
+    transition:all 0.5s;
+    text-align: center;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+}
+#gotop :hover{
+    background:#0099CC;
+}
+</style>
+<!--  -->
 </head>
 <body>
 	<%@ include file="/WEB-INF/frontStageHeader.jsp"%>
@@ -143,6 +167,30 @@ a img:hover {
 </div>
 <!--<h1 style="background:black;color:black;text-align:center;">a</h1>  --> 
 	<br><br><br><br><br>
+<!-- 返回上方按鈕 -->	
+<script type="text/javascript">
+$(function() {
+    /* 按下GoTop按鈕時的事件 */
+    $('#gotop').click(function(){
+        $('html,body').animate({ scrollTop: 0 }, 'slow');   /* 返回到最頂上 */
+        return false;
+    });
+     
+    /* 偵測卷軸滑動時，往下滑超過400px就讓GoTop按鈕出現 */
+    $(window).scroll(function() {
+        if ( $(this).scrollTop() > 400){
+            $('#gotop').fadeIn();
+        } else {
+            $('#gotop').fadeOut();
+        }
+    });
+});
+</script>
+<!-- 記得要把按鈕放到網頁上, 否則它不會出現 -->
+<a href="https://www.blogger.com/blogger.g?blogID=2031514508322140995#" id="gotop" style="">
+   <i class="fa fa-angle-up"></i>
+</a>
+<!--  -->   
 	<%@ include file="/WEB-INF/frontStageFooter.jsp"%>
 </body>
 </html>

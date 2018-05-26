@@ -3,6 +3,7 @@
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.lang.reflect.InvocationTargetException;
 import java.sql.Blob;
 import java.sql.SQLException;
 import java.text.DateFormat;
@@ -19,7 +20,10 @@ import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.sql.rowset.serial.SerialBlob;
 
+import org.apache.commons.beanutils.BeanUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.CacheControl;
 import org.springframework.http.HttpHeaders;
@@ -28,13 +32,16 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.web.Utils.DateUtils;
 import com.web.model.member.MemberBean;
+import com.web.model.member.MemberFormBean;
 import com.web.service.member.GlobalService;
 import com.web.service.member.MemberService;
 
@@ -123,13 +130,24 @@ public class MemberController {
 	}
 
 	@RequestMapping("/member/updateMember")
-	public String updateMember(HttpServletRequest request, HttpServletResponse response, Model model) {
+	public String updateMember(@ModelAttribute("memberBean") MemberFormBean formBean, HttpServletRequest request, 
+			HttpServletResponse response) {
 		HttpSession session = request.getSession();
 		MemberBean mb = (MemberBean) session.getAttribute("LoginOK");
 		MemberBean memBean=memberService.getMemberById(mb.getMemberId());
-		model.addAttribute("welcomeNm", mb.getMemberId());
-		model.addAttribute("member", memBean);
-		model.addAttribute("function", "update");
+		try {
+			BeanUtils.copyProperties(formBean, memBean);
+		} catch (IllegalAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (InvocationTargetException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		//model.addAttribute("welcomeNm", mb.getMemberId());
+		//model.addAttribute("member", memBean);
+		//model.addAttribute("function", "update");
+		formBean.setFunction("update");
 		return "/member/saveMember";
 	}
 
@@ -137,24 +155,26 @@ public class MemberController {
 	public String list(@PathVariable String xxx, Model model) {
 		List<MemberBean> list = memberService.getAllMembers();
 		model.addAttribute("members", list);
-		return "/member/members"+ xxx;//xxx + "/" + xxx + "Index"
+		model.addAttribute("memberSize",list.size());
+		model.addAttribute("newMemberSize",memberService.countNewMemberToday());
+		return "/member/members"+ xxx;
 	}
 
-	@RequestMapping("/member/member")
-	public String getMemberById(@RequestParam("memberId") String memberId, Model model) {
+	@RequestMapping("/member/member{xxx}")
+	public String getMemberById(@PathVariable String xxx,@RequestParam("memberId") String memberId, Model model) {
 		model.addAttribute("member", memberService.getMemberById(memberId));
-		return "/member/member";
+		return "/member/member"+xxx;
 	}
 
 	@RequestMapping("/member/register")
-	public String register(Model model) {
+	public String register(@ModelAttribute("memberBean") MemberFormBean mb) {
 		System.out.println("register");
-		model.addAttribute("function", "add");
+		mb.setFunction("add");
 		return "/member/saveMember";
 	}
 
 	@RequestMapping("/member/saveMember.do")
-	public String doSaveMember(HttpServletRequest request, HttpServletResponse response) throws IOException {
+	public String doSaveMember(@ModelAttribute("memberBean") MemberFormBean mb, HttpServletRequest request, HttpServletResponse response) throws IOException {
 		System.out.println("doSaveMember");
 
 		String succPage = "/member/success";
@@ -166,31 +186,15 @@ public class MemberController {
 		request.setAttribute("errorMsg", errorMsg);
 		// 1. 讀取使用者輸入資料
 		System.out.println("1. 讀取使用者輸入資料");
-		String memberId = request.getParameter("memberId");
-		String gender = request.getParameter("gender");
-		String password = request.getParameter("password");
-		String chkPassword = request.getParameter("chkPassword");
-		String chineseLastName = request.getParameter("chineseLastName");
-		String chineseFirstName = request.getParameter("chineseFirstName");
-		String englishLastName = request.getParameter("englishLastName");
-		String englishFirstName = request.getParameter("englishFirstName");
-		String birthday = request.getParameter("birthday");
-		String email = request.getParameter("email");
-		String mobile = request.getParameter("mobile");
-		String phoneNumber = request.getParameter("phoneNumber");
-		String address = request.getParameter("address");
-		String passportNumber = request.getParameter("passportNumber");
-		String function = request.getParameter("function");// update or add
-		System.out.println("function="+function+" memberId=" + memberId + " ,gender=" + gender + " ,password=" + password + " ,chkPassword="
-				+ chkPassword + " ,chineseLastName=" + chineseLastName + " ,chineseFirstName=" + chineseFirstName
-				+ " ,englishLastName=" + englishLastName + " ,englishFirstName=" + englishFirstName + " ,birthday="
-				+ birthday + " ,email=" + email + " ,mobile=" + mobile + " ,phoneNumber=" + phoneNumber + " ,address="
-				+ address + " ,passportNumber=" + passportNumber);
+//		MultipartFile productImage = request.getParameter("memberImage");
+		String function = mb.getFunction();
+		System.out.println(mb.toString());
 		// 2. 進行必要的資料轉換
 		System.out.println("2. 進行必要的資料轉換");
 		
 		java.sql.Date bdate = null;
 		try {
+			String birthday = mb.getBirthday();
 			if (birthday != null && birthday.trim().length() > 0) {
 				Date bd = DateUtils.getDateByString(birthday);
 				if (bd!=null) {
@@ -200,17 +204,42 @@ public class MemberController {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		
+		MultipartFile memberPicture = mb.getMemberPicture();
+		String originalFilename = memberPicture.getOriginalFilename();
+		//cb.setPicturename(originalFilename);
+		System.out.println("originalFilename=" + originalFilename);
+		if (StringUtils.isBlank(originalFilename)) {
+			System.out.println("未上傳照片");
+		} else {
+			String ext = originalFilename.substring(originalFilename.lastIndexOf("."));
+			String rootDirectory = request.getSession().getServletContext().getRealPath("/");
+			//  建立Blob物件，交由 Hibernate 寫入資料庫
+			if (memberPicture != null && !memberPicture.isEmpty() ) {
+				try {
+					byte[] b = memberPicture.getBytes();
+					Blob blob = new SerialBlob(b);
+					mb.setMemberImage(blob);
+					} catch(Exception e) {
+					e.printStackTrace();
+					throw new RuntimeException("檔案上傳發生異常: " + e.getMessage());
+				}
+			}
+		}
+		
 		// 3. 檢查使用者必輸入資料
 		System.out.println("3. 檢查使用者必輸入資料");
 		if ("add".equals(function)) {
 			// 新增時的驗證
-			if (memberId == null || memberId.trim().length() == 0) {
+			if (StringUtils.isBlank(mb.getMemberId())) {
 				errorMsg.put("memberId", "帳號欄必須輸入身份證");
 			}
-			if (password == null || password.trim().length() == 0) {
+			String password = mb.getPassword();
+			if (StringUtils.isBlank(password)) {
 				errorMsg.put("password", "密碼欄必須輸入");
 			}
-			if (chkPassword == null || chkPassword.trim().length() == 0) {
+			String chkPassword = mb.getChkPassword();
+			if (StringUtils.isBlank(chkPassword)) {
 				errorMsg.put("chkPassword", "確認密碼欄必須輸入");
 			} else {
 				if (!chkPassword.equals(password)) {
@@ -223,22 +252,22 @@ public class MemberController {
 			errPage = "/member/saveMember";
 		}
 		// 共用時的驗證
-		if (gender == null || gender.trim().length() == 0) {
+		if (StringUtils.isBlank(mb.getGender())) {
 			errorMsg.put("gender", "性別欄必須輸入");
 		}
 
-		if (birthday == null || birthday.trim().length() == 0) {
+		if (StringUtils.isBlank(mb.getBirthday())) {
 			errorMsg.put("birthday", "生日欄必須輸入");
 		}
-		if ((chineseLastName == null || chineseLastName.trim().length() == 0)
-				|| (chineseFirstName == null || chineseFirstName.trim().length() == 0)) {
+		if (StringUtils.isBlank(mb.getChineseLastName())
+				||StringUtils.isBlank(mb.getChineseFirstName())) {
 			errorMsg.put("name", "中文姓名欄必須輸入");
 		}
 
-		if (email == null || email.trim().length() == 0) {
+		if (StringUtils.isBlank(mb.getEmail())) {
 			errorMsg.put("email", "email欄必須輸入");
 		}
-		if (mobile == null || mobile.trim().length() == 0) {
+		if (StringUtils.isBlank(mb.getMobile())) {
 			errorMsg.put("mobile", "手機欄必須輸入");
 		}
 		if (!errorMsg.isEmpty()) {
@@ -248,15 +277,15 @@ public class MemberController {
 		System.out.println("4. 進行 Business Logic 運算");
 		if ("add".equals(function)) {
 			// 新增時的邏輯
-			if (memberService.idExists(memberId)) {
-				errorMsg.put("memberId", "該身份證帳號 (" + memberId + ") 已經存在，請勿重複申請");
+			if (memberService.idExists(mb.getMemberId())) {
+				errorMsg.put("memberId", "該身份證帳號 (" + mb.getMemberId() + ") 已經存在，請勿重複申請");
 			} else {
 				// 加密後的password為encodePassword
-				String encodePassword = GlobalService.encryptString(password);
+				String encodePassword = GlobalService.encryptString(mb.getPassword());
 				try {
-					MemberBean member = new MemberBean(memberId, encodePassword, gender, chineseLastName,
-							chineseFirstName, englishLastName, englishFirstName, bdate, email, mobile, phoneNumber,
-							address, passportNumber);
+					MemberBean member = new MemberBean(mb.getMemberId(), encodePassword, mb.getGender(), mb.getChineseLastName(),
+							mb.getChineseFirstName(), mb.getEnglishLastName(), mb.getEnglishFirstName(), bdate, mb.getEmail(), mb.getMobile(), mb.getPhoneNumber(),
+							mb.getAddress(), mb.getPassportNumber(), mb.getMemberImage());
 					memberService.addMember(member);
 				} catch (Exception e) {
 					errorMsg.put("memberId", "儲存資料時發生錯誤，請檢查，例外=" + e.getMessage());
@@ -267,26 +296,25 @@ public class MemberController {
 			// 更新時的邏輯
 			try {
 				HttpSession session = request.getSession();
-				MemberBean mb = (MemberBean) session.getAttribute("LoginOK");// mb
-				// MemberBean member = new MemberBean(mb.getMemberId(), mb.getPassword(),
-				// gender, chineseLastName, chineseFirstName, englishLastName,
-				// englishFirstName, bdate, email, mobile, phoneNumber, address,
-				// passportNumber);
-				mb.setGender(gender);
-				mb.setChineseLastName(chineseLastName);
-				mb.setChineseFirstName(chineseFirstName);
-				mb.setEnglishLastName(englishLastName);
-				mb.setEnglishFirstName(englishFirstName);
-				mb.setBirthday(bdate);
-				mb.setEmail(email);
-				mb.setMobile(mobile);
-				mb.setPhoneNumber(phoneNumber);
-				mb.setAddress(address);
-				mb.setPassportNumber(passportNumber);
+				MemberBean sessionMb = (MemberBean) session.getAttribute("LoginOK");// sessionMb
+				sessionMb.setGender(mb.getGender());
+				sessionMb.setChineseLastName(mb.getChineseLastName());
+				sessionMb.setChineseFirstName(mb.getChineseFirstName());
+				sessionMb.setEnglishLastName(mb.getEnglishLastName());
+				sessionMb.setEnglishFirstName(mb.getEnglishFirstName());
+				sessionMb.setBirthday(bdate);
+				sessionMb.setEmail(mb.getEmail());
+				sessionMb.setMobile(mb.getMobile());
+				sessionMb.setPhoneNumber(mb.getPhoneNumber());
+				sessionMb.setAddress(mb.getAddress());
+				sessionMb.setPassportNumber(mb.getPassportNumber());
+				if(mb.getMemberImage()!=null) {
+					sessionMb.setMemberImage(mb.getMemberImage());
+				}
 
-				memberService.updateMember(mb);
-				request.setAttribute("chineseLastName", chineseLastName);
-				request.setAttribute("chineseFirstName", chineseFirstName);
+				memberService.updateMember(sessionMb);
+				request.setAttribute("chineseLastName", mb.getChineseLastName());
+				request.setAttribute("chineseFirstName", mb.getChineseFirstName());
 			} catch (Exception e) {
 				errorMsg.put("memberId", "儲存資料時發生錯誤，請檢查，例外=" + e.getMessage());
 				e.printStackTrace();
@@ -295,7 +323,7 @@ public class MemberController {
 
 		// 5.依照 Business Logic 運算結果來挑選適當的畫面
 		System.out.println("5.依照 Business Logic 運算結果來挑選適當的畫面");
-		request.setAttribute("memberId", memberId);
+		request.setAttribute("memberId", mb.getMemberId());
 		System.out.println("errorMsg.isEmpty()="+errorMsg.isEmpty()
 		+" go page->"+(errorMsg.isEmpty()?succPage:errPage));
 		if (errorMsg.isEmpty()) {

@@ -141,13 +141,15 @@ table {
 	<!-- 	<section class="container"  > -->
 	<div>
 
-		<div class="dd">
-
-			<h3>會員：${member.chineseLastName}${member.chineseFirstName}</h3><br>
-			<h3>帳號：${member.memberId}</h3><br>
-			<h3>生日：${member.birthday}</h3><br>
-			<h3>手機：${member.mobile}</h3><br>
-			<h3>mail：${member.email}</h3><br>
+		<div class="dd" style="text-align: center">
+			<img width='100 height='200'
+					  src="<c:url value='/member/getPicture/${member.memberId}'/>"/>
+			<br><br>
+			<h3>${member.chineseLastName}${member.chineseFirstName}</h3>
+			<h3>帳號：${member.memberId}</h3>
+			<h3>生日：${member.birthday}</h3>
+			<h3>手機：${member.mobile}</h3>
+			<h3>mail：${member.email}</h3>
 			<h3>紅利：${member.point}</h3>
 			<br>
 			</div><div class="container" style="text-align: center">

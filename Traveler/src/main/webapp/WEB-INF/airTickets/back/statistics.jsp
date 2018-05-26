@@ -194,7 +194,7 @@ $( document ).ready(function(){
 			
 		},
 		error:function(){
-			alert("TT");
+			alert("格式錯誤");
 		}
 
 	});
@@ -339,7 +339,7 @@ function test(){
 	var BKK=json[4].click;
 	var SIN=json[5].click;
 	var NRT=json[6].click;
-	$("#total").html("<h3  style='color:#CC0000; margin:0px;padding:0px;'>五月份總搜尋數："+totalClick+"</h3>");
+	$("#total").html("<h3  style='color:#CC0000; margin:0px;padding:0px;'>5月份總搜尋數："+totalClick+"</h3>");
 	d3.select("body").append("div").attr("id", "mydiv");
 	//設定欲顯示的資料。
 	
@@ -376,9 +376,27 @@ function test(){
 	
 	
 		<div style="margin:0px auto; width:800px;" class="content text-center">
+		<select>
+		<option>2018</option>
+		<option>2019</option>
+		<option>2020</option>
+		</select>
+		<br><br>
+		<button class="btn-info" style="WIDTH: 75px;" onclick="test()">1月統計</button> 
+		<button class="btn-info" style="WIDTH: 75px;" onclick="test()">2月統計</button> 
+		<button class="btn-info" style="WIDTH: 75px;" onclick="test()">3月統計</button> 
+		<button class="btn-info" style="WIDTH: 75px;" onclick="test()">4月統計</button> 
+		<button class="btn-info" style="WIDTH: 75px;" onclick="test()">5月統計</button> 
+		<button class="btn-info" style="WIDTH: 75px;"  onclick="test()">6月統計</button>
+		<br><br>
+		<button class="btn-info" style="WIDTH: 75px;" onclick="test()">7月統計</button> 
+		<button class="btn-info" style="WIDTH: 75px;" onclick="test()">8月統計</button> 
+		<button class="btn-info" style="WIDTH: 75px;" onclick="test()">9月統計</button> 
+		<button class="btn-info" style="WIDTH: 75px;" onclick="test()">10月統計</button> 
+		<button class="btn-info" style="WIDTH: 75px;" onclick="test()">11月統計</button> 
+		<button class="btn-info" style="WIDTH: 75px;" onclick="test()">12月統計</button> 
 			<div id="total"></div>
 			<div id="mydiv"></div>
-			<button class="btn-info" onclick="test()">五月統計</button> 
 		</div>
 
 	<!--  ========================================================== -->

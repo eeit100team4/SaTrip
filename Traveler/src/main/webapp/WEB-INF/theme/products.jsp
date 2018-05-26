@@ -120,43 +120,85 @@
 <style>
 .well, .panel {text-align: center;}
 </style>
+<!-- 返回上方按鈕 -->
+<style>
+#gotop {
+    position:fixed;
+    z-index:90;
+    right:30px;
+    bottom:31px;
+    display:none;
+    width:50px;
+    height:50px;
+    color:#fff;
+    background:#33b5e5;
+    line-height:50px;
+    border-radius:50%;
+    transition:all 0.5s;
+    text-align: center;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+}
+#gotop :hover{
+    background:#0099CC;
+}
+</style>
 <!--  -->
 </head>
 <body>
 	<%@ include file="/WEB-INF/frontStageHeader.jsp"%>
 <!-- 大標 跟一張圖 -->
-<div class="fh5co-cover" data-stellar-background-ratio="0.5">
+ <!--  <div class="fh5co-cover" data-stellar-background-ratio="0.5">-->
  <h1 style="background:black;color:white;text-align:center;height:50px">~獨特商品*夢想起飛~</h1>	
  <div style="margin-right:400px;margin-top:10px;width:1500px;" class="content text-center">
-     <a><img src="/Traveler/images/獨家行程.png" width="1500" height="250"></a>
+     <a><img src="/Traveler/images/獨家行程.png" width="1500" height="200"></a>
  </div>
-</div>
+<!--</div>-->
 <!-- 展示區 -->
 <c:forEach var='products' items='${products}'>
 <div class="container-fluid">
  <div class="row">
   <!-- 左邊欄位 -->
   <div class="col-sm-6">
-   <div class="panel-body"><img src="/Traveler/images/絢彩樂訪．環球影城魔法世界五日.png"></div>
+   <div class="panel-body"><img src="/Traveler/images/絢彩樂訪．環球影城魔法世界五日.png" style="border:10px #808000 ridge;width:725px; height:530px;"></div>
   </div>
   <!--右邊欄位-->
-  <div class="col-sm-6">
-   <div class="well">${products.productName}</div>
-   <hr>
-   <div class="panel-heading">${products.adTitle}</div>
-   <div class="panel-body">${products.adDes}</div>
+  <div class="col-sm-6" style="border:10px #805300 ridge;margin-top:15px">
+   <div class="panel-heading" style="font-size:30px;font-family: DFKai-sb;"><b>${products.productName}</b></div><hr>
+   <div class="panel-heading" style="font-size:24px;color:#0000CC">${products.adTitle}</div>
+   <div class="panel-body" style="font-size:20px;">${products.adDes}</div>
+   <hr>   
+   <div class="panel-body" style="font-size:20px;color:#808000">★${products.ad1}</div>
+   <div class="panel-body" style="font-size:20px;color:#808000">★${products.ad2}</div>
+   <div class="panel-body" style="font-size:20px;color:#808000">★${products.ad3}</div>
    <br>
-   <div class="panel-heading">行程特色:</div>
-   <br>   
-   <div class="panel-body">★${products.ad1}</div>
-   <div class="panel-body">★${products.ad2}</div>
-   <div class="panel-body">★${products.ad3}</div>
-   <br>
-   <div class="panel-body"><a onmouseover="this.style.color='orange'" onmouseout="this.style.color='#4F4FFF'" style="color:#4F4FFF" href="${products.themeTitles.titleName}/${products.productName}">點擊可查看出團日期</a></div>
+   <div class="panel-body"><a onmouseover="this.style.color='orange'" onmouseout="this.style.color='#4F4FFF'" style="font-size:20px;color:#000080" href="${products.themeTitles.titleName}/${products.productName}">點此可查看出團日期!</a></div>  
   </div>
  </div>
-</div>
+</div><hr><hr>
 </c:forEach>
+<script type="text/javascript">
+$(function() {
+    /* 按下GoTop按鈕時的事件 */
+    $('#gotop').click(function(){
+        $('html,body').animate({ scrollTop: 0 }, 'slow');   /* 返回到最頂上 */
+        return false;
+    });
+     
+    /* 偵測卷軸滑動時，往下滑超過400px就讓GoTop按鈕出現 */
+    $(window).scroll(function() {
+        if ( $(this).scrollTop() > 400){
+            $('#gotop').fadeIn();
+        } else {
+            $('#gotop').fadeOut();
+        }
+    });
+});
+/*返回上方的按鈕*/
+</script>   
+<!-- 記得要把按鈕放到網頁上, 否則它不會出現 -->
+<a href="https://www.blogger.com/blogger.g?blogID=2031514508322140995#" id="gotop" style="">
+   <i class="fa fa-angle-up"></i>
+</a>
 
 	<%@ include file="/WEB-INF/frontStageFooter.jsp"%>
 </body>

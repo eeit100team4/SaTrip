@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -110,6 +111,7 @@ public class ThemeProducts implements Serializable{
 	
 	//FK的表格
 	private ThemeTitles themeTitles;
+	private ThemeJourneys themeJourneys;
 	//FK
 	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="titleId" ,referencedColumnName="titleId", insertable=false, updatable=false)
@@ -119,8 +121,7 @@ public class ThemeProducts implements Serializable{
 	public void setThemeTitles(ThemeTitles themeTitles) {
 		this.themeTitles = themeTitles;
 	}
-
-	
+		
 	//帶參數建構子  //FK的表格也放入
 	public ThemeProducts(Integer productId, Integer titleId, String productName, 
 			String country, String hotelName, String adImageName, String adTitle,

@@ -137,12 +137,12 @@ $(document).ready(function(){
 
 <script>
 	function entry() {
-		alert("doubleclick");
+// 		alert("doubleclick");
 
 	}
 
 	$("#name").blur(function() {
-		alert("blur");
+// 		alert("blur");
 		// 	  $("name").attr("background-color","#D6D6FF").attr("readonly",true);
 	});
 	
@@ -195,7 +195,7 @@ $(document).ready(function(){
 // 				window.location.assign(orderId);
 			},
 			error : function() {
-				alert("error");
+				alert("格式錯誤");
 			}
 
 		});
@@ -216,7 +216,7 @@ $(document).ready(function(){
 // 				window.location.assign(orderId);
 			},
 			error : function() {
-				alert("error");
+				alert("格式錯誤");
 			}
 
 		});
