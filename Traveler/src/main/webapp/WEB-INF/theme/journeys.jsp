@@ -147,14 +147,24 @@
 	<%@ include file="/WEB-INF/frontStageHeader.jsp"%>
 <!-- 大標 放三張跟此產品相關的圖-->	
 <h1 style="background:black;color:white;text-align:center;height:50px">~嚴選行程*任君挑選~</h1>
-<a><img src="/Traveler/images/環球1.jpg" style="border:10px #808000 ridge;width:495px; height:200px;"></a>	
-<a><img src="/Traveler/images/環球2.jpg" style="border:10px #808000 ridge;width:495px; height:200px;"></a>
-<a><img src="/Traveler/images/環球3.jpg" style="border:10px #808000 ridge;width:495px; height:200px;"></a>
+<a><img src="/Traveler/images/環球1.jpg" style="border:10px #808000 ridge;width:495px; height:250px;"></a>	
+<a><img src="/Traveler/images/環球2.jpg" style="border:10px #808000 ridge;width:495px; height:250px;"></a>
+<a><img src="/Traveler/images/環球3.jpg" style="border:10px #808000 ridge;width:495px; height:250px;"></a>
 <br>
 <hr>
 <!-- 展示區 -->
+<div class="container-fluid" style="text-align:center;background:black">
+ <div class="row" style="font-size:30px;color:white;">
+  <div class="col-md-2">出發日</div>
+  <div class="col-md-4">商品名稱</div>
+  <div class="col-md-2">航空公司</div>
+  <div class="col-md-2">價格</div>
+  <div class="col-md-2">報名截止日</div>
+ </div>
+</div>
+<hr>
 <c:forEach var='journeys' items='${journeys}'>
-<div class="container-fluid">
+<div class="container-fluid" style="font-size:18px">
  <div class="row">
   <!--欄位1 出發日期-->
   <div class="col-md-2">
@@ -166,7 +176,7 @@
   </div>
   <!--欄位3 航空公司-->
   <div class="col-md-2">
-   <div class="well">${journeys.companyName}</div>
+   <div class="well"><a><img src="/Traveler/images/${journeys.companyName}.gif"></a>${journeys.companyName}</div>
   </div>
   <!--欄位4 價格-->
   <div class="col-md-2">
@@ -179,6 +189,9 @@
   
  </div>
 </div>
+<!-- 每筆資料後的橫線 -->
+<hr>
+<!--  -->
 </c:forEach> 
 				
 <script type="text/javascript">
