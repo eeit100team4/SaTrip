@@ -87,6 +87,10 @@ public class ContactusRepositoryImp implements ContactusRepository {
 	
 	}
 
+	
+
+	
+
 //	@Override
 //	public void updateFeedback(int pkid, int newQuantity) {
 //		String hql = "UPDATE ContactusBean SET feedback= :newQuantity WHERE pkid=:id";

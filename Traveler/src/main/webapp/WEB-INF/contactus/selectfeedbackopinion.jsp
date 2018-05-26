@@ -138,86 +138,65 @@ color:black;
 
 			<!-- end:header-top -->
 
-			<div class="fh5co-hero">
-			
-<!-- 				<div class="fh5co-cover" data-stellar-background-ratio="0.5" -->
-<!-- 					style="background-image: url(../images/contactus.jpg);"> -->
-					<div class="desc">
-						<div class="container">
-							<div class="row">
-								<div class="col-sm-5 col-md-5">
-<!-- 								<div class="tabulation animate-box"> -->
-								<section class='container'>
-							
-<%-- 							<p style=color:black>姓名:${aa.name}</p> --%>
-<%-- 							<p style=color:black>性別:${aa.sex}</p> --%>
-<%-- 							<p style=color:black>年齡:${aa.age}</p> --%>
-<%-- 							<p style=color:black>連絡電話:${aa.phone}</p> --%>
-<%-- 							<p style=color:black>電子信箱:${aa.email}</p> --%>
-<%-- 							<p style=color:black>所在地:${aa.address}</p> --%>
-<%-- 							<p style=color:black>意見類別:${aa.opinion}</p> --%>
-<%-- 							<p style=color:black>意見內容:${aa.comment}</p> --%>
-<%-- 							<p style=color:black>回覆內容:${aa.feedback}</p> --%>
-<!-- <div class="container" style="padding-top:80px;padding-left:150px"> -->
-<%-- 				<form action="feedbackopinion" modelAttribute="contactusBean"  enctype='multipart/form-data'> --%>
-
-				<form action="selectfeedbackopinion/${pkid}" modelAttribute="contactusBean"  enctype='multipart/form-data'>
+			<div class="container" style="padding-top:80px;padding-left:150px">
+	<c:forEach var='con' items='${contactus}'>	
+<form:form action="/Traveler/contactus/selectfeedbackopinion/${con.pkid}" modelAttribute="contactusBean"  enctype='multipart/form-data'>
 						 <fieldest>
-						
-						 
-			<table class="table table-hover" style="width:80em">
- 				 <thead>
-    				<tr>
-      					<th scope="col">編號</th>
-      					<th scope="col">姓名</th>
-      					<th scope="col">性別</th>
-      					<th scope="col">年齡</th>
-      					<th scope="col">連絡電話</th>
-      					<th scope="col">電子信箱</th>
-      					<th scope="col">所在地</th>
-      					<th scope="col">意見類別</th>
-      					<th scope="col">意見欄</th>
-<!--       					<th scope="col">回覆欄</th> -->
-      					<th scope="col">留言時間</th>
-      					<th scope="col"></th>
-    				</tr>
-  				</thead>
-  				<tbody>
-<%--   			<c:forEach var='con' items='${contactus}'> --%>
-    				<tr>
-      					<td scope="row">${contactus.pkid}</td>
-     				 	<td>${contactus.name}</td>
-      					<td>${contactus.sex}</td>
-      					<td>${contactus.age}</td>
-      					<td>${contactus.phone}</td>
-      					<td>${contactus.email}</td>
-      					<td>${contactus.address}</td>
-      					<td>${contactus.opinion}</td>
-      					<td>${contactus.comment}</td>
-<%--       					<td>${con.feedback}</td> --%>
-<%--       					<td>${con.messagetime}</td> --%>
-      					<td><a href="/Traveler/contactus/${contactus.pkid}">查看回覆</a></td>
-    				</tr>
-<%--     				</c:forEach> --%>
-  				</tbody>
-</table>
-
+						<table>
+									
+						<tr>		
+						<td><label for='name'>姓名:</label>
+						<form:input id='name' path='name' type='text' value='${con.name}'/></td>
+						</tr>
+						<tr>
+						<td><label for='sex'>性別:</label>
+						<form:input id='sex' path='sex' type='text' value='${con.sex}'/></td>
+						</tr>
+						<tr>
+						<td><label for='age'>年齡:</label>
+						<form:input id='age' path='age' type='text' value='${con.age}'/></td>
+						</tr>
+						<tr>
+						<td><label for='phone'>連絡電話:</label>
+						<form:input id='phone' path='phone' type='text' value='${con.phone}'/></td>
+						</tr>
+						<tr>
+						<td><label for='email'>電子信箱:</label>
+						<form:input id='email' path='email' type='text' value='${con.email}'/></td>
+						</tr>
+						<tr>
+						<td><label for='address'>所在地:</label>
+						<form:input id='address' path='address' type='text' value='${con.address}'/></td>
+						</tr>
+						<tr>
+						<td><label for='opinion'>意見類別:</label>
+						<form:input id='opinion' path='opinion' type='text' value='${con.opinion}'/></td>
+						</tr>
+						<tr>
+						<td>
+					    <label for='comment'>意見欄:</label> 
+					    <form:input cols="40" rows="5"  id="comment" path='comment' value='${con.comment}'></form:input>
+					    </td>
+					    </tr>
+					    <tr>
+					    <td>
+					    <label for='feedback'>回覆欄:</label>
+					    <form:input cols="40" rows="5"  id="feedback" path='feedback' value='${con.feedback}'></form:input>
+					    </td>
+					    </tr>
+					   
+						</table>
+					    
+               <div class='form-group'>
+               	<input type="submit" id='btnAdd' class="btn btn-primary" value="回覆"></input>
+               	</div>
 		</fieldest>
-		</form>
-               </div>
+		</form:form>
+		 </c:forEach>
+               	
 						
 						
-							
-						
-					
-	</div>
-						</section>
-							</div>
-						</div>
-<!-- 					</div> -->
-<!-- 				</div> -->
-			</div>
-		</div>
+				</div>
 
 <!-- 	fh5co-blog-section -->
 
