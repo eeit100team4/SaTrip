@@ -123,21 +123,25 @@
 
 	<!--  網頁內容 -->
 	<div class="container">
-		<h2>機票訂單查詢</h2>
+		<h2 class="text-center">機票訂單查詢</h2>
 		<table class="table table-striped">
 			<thead>
 				<tr>
 					<th>訂單編號</th>
 					<th>內容</th>
+					<th>紅利</th>
 					<th>價格</th>
+					<th>付款狀態</th>
 				</tr>
 			</thead>
 			<tbody>
 			<c:forEach var="list" items="${list}">
 				<tr>
-					<td><a href="/Traveler//airTickets/back//selectOne/${list.orderID}">${list.orderID}</a></td>
+					<td><a href="/Traveler//airTickets/back/member/selectOne/${list.orderID}">${list.orderID}</a></td>
 					<td>${list.depC} &nbsp; ${list.arrC} 來回機票</td>
-					<td>${list.price}</td>
+					<td>${list.redPoint}點</td>
+					<td>NT.&nbsp;${list.price}</td>
+					<td>${list.checkpay}</td>
 				</tr>
 			</c:forEach>
 			</tbody>
