@@ -320,6 +320,7 @@ float:right;
    <div class="header">全旅遊商品&nbsp;&nbsp;&nbsp;&nbsp;
     <a onmouseover="this.style.color='orange'" onmouseout="this.style.color='#4F4FFF'" style="font-size:24px;color:#4F4FFF"href=''>新增旅遊商品<img src="/Traveler/images/向左黑.jpg" width="50" height="50"></a>
     <a onmouseover="this.style.color='orange'" onmouseout="this.style.color='#4F4FFF'" style="font-size:24px;color:#4F4FFF"href=''>依分類排序<img src="/Traveler/images/排序.png" width="50" height="50"></a>
+    <a onmouseover="this.style.color='orange'" onmouseout="this.style.color='#4F4FFF'" style="font-size:24px;color:#4F4FFF"href=''>依國家排序<img src="/Traveler/images/排序.png" width="50" height="50"></a>
     </div>
   </div>
  </div>
@@ -330,9 +331,10 @@ float:right;
  <div class="row">
   <div class="col-md-1">編號</div>
   <div class="col-md-1">分類</div>
-  <div class="col-md-4">商品名稱</div>
+  <div class="col-md-3">商品名稱</div>
+  <div class="col-md-1">國家</div>
   <div class="col-md-2">住宿飯店</div>
-  <div class="col-md-3"></div>
+  <div class="col-md-2"></div>
  </div>
 </div>
 <hr>
@@ -342,11 +344,12 @@ float:right;
  <div class="row">
   <div class="col-md-1">${products.productId}</div>
   <div class="col-md-1">${products.themeTitles.titleName}</div>
-  <div class="col-md-4">${products.productName}</div>
+  <div class="col-md-3">${products.productName}</div>
+  <div class="col-md-1">${products.country}</div>
   <div class="col-md-2">${products.hotelName}</div>
-  <div class="col-md-3" style="width:330px">
-   <a href=''>商品細節<img src="/Traveler/images/向左橘.png" width="50" height="50"></a>
-   <a href=''>下架商品<img src="/Traveler/images/向左箭頭.png" width="50" height="50"></a>
+  <div class="col-md-2" style="width:330px;margine-buttom:10px">
+   <a href=''>商品細節<img src="/Traveler/images/向左橘.png" width="50" height="40"></a>
+   <a href=''>下架商品<img src="/Traveler/images/向左箭頭.png" width="50" height="40"></a>
   </div> 
  </div>
 </div>

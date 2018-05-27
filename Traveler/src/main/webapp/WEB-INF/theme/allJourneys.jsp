@@ -337,7 +337,8 @@ float:right;
   <div class="col-md-1" style="width:130px">航空公司</div>
   <div class="col-md-1">價格</div>
   <div class="col-md-1" style="width:150px">報名截止日</div>
-  <div class="col-md-2"></div>
+  <div class="col-md-1">建立日</div>
+  <div class="col-md-5"></div>
  </div>
 </div>
 <hr>
@@ -351,9 +352,10 @@ float:right;
   <div class="col-md-1" style="width:130px">${journeys.companyName}</div>
   <div class="col-md-1">${journeys.price}</div>
   <div class="col-md-1" style="width:140px"><fmt:formatDate value="${journeys.deadline}" pattern="yyyy/MM/dd"/></div>
-  <div class="col-md-2" style="width:330px">
-   <a href=''>報名人數<img src="/Traveler/images/向左橘.png" width="50" height="50"></a>
-   <a href=''>宣告滿額<img src="/Traveler/images/向左箭頭.png" width="50" height="50"></a>
+  <div class="col-md-1"><fmt:formatDate value="${journeys.createDate}" pattern="yyyy/MM/dd"/></div>
+  <div class="col-md-5" style="width:450px;margin-bottom:10px">
+   <a href=''>&nbsp;&nbsp;&nbsp;詳細時間<img src="/Traveler/images/向左橘.png" width="50" height="40"></a>
+   <a href=''>報名人數<img src="/Traveler/images/向左箭頭.png" width="50" height="40"></a>
   </div> 
  </div>
 </div>
