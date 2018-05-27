@@ -150,7 +150,7 @@
 <div class="container-fluid">
  <div class="row">
   <div class="col-md-12" style="font-weight:bold">
-   <div class="well" style="background-color:black;color:white;font-size:30px"><${detail.themeProducts.productName}></div>
+   <div class="well" style="background-color:black;color:white;font-size:30px">${detail.themeProducts.productName}</div>
   </div>
  </div>
 </div> 
@@ -208,29 +208,29 @@
 <!--表5 航班資訊內容  -->
 <div class="container-fluid">
  <div class="row">           
-  <div class="col-md-2">
-   <div class="panel-body" style="color:black;font-size:24px"><fmt:formatDate value="${detail.goStartDate}" pattern="yyyy/MM/dd"/>&nbsp;&nbsp;${detail.goStartHour}:${detail.goStartMinute}</div>
-   <div class="panel-body" style="color:black;font-size:24px"><fmt:formatDate value="${detail.returnStartDate}" pattern="yyyy/MM/dd"/>&nbsp;&nbsp;${detail.goEndHour}:${detail.goEndMinute}</div>
+  <div class="col-md-2" style="color:black;font-size:24px">
+   <div class="panel-body"><fmt:formatDate value="${detail.goStartDate}" pattern="yyyy/MM/dd"/>&nbsp;&nbsp;${detail.goStartHour}:${detail.goStartMinute}</div>
+   <div class="panel-body"><fmt:formatDate value="${detail.returnStartDate}" pattern="yyyy/MM/dd"/>&nbsp;&nbsp;${detail.goEndHour}:${detail.goEndMinute}</div>
   </div>
-  <div class="col-md-2">
-   <div class="panel-body" style="color:black;font-size:24px"><fmt:formatDate value="${detail.goStartDate}" pattern="yyyy/MM/dd"/>&nbsp;&nbsp;${detail.goStartHour}:${detail.goStartMinute}</div>
-   <div class="panel-body" style="color:black;font-size:24px"><fmt:formatDate value="${detail.returnStartDate}" pattern="yyyy/MM/dd"/>&nbsp;&nbsp;${detail.goEndHour}:${detail.goEndMinute}</div>
+  <div class="col-md-2" style="color:black;font-size:24px">
+   <div class="panel-body"><fmt:formatDate value="${detail.goStartDate}" pattern="yyyy/MM/dd"/>&nbsp;&nbsp;${detail.goStartHour}:${detail.goStartMinute}</div>
+   <div class="panel-body"><fmt:formatDate value="${detail.returnStartDate}" pattern="yyyy/MM/dd"/>&nbsp;&nbsp;${detail.goEndHour}:${detail.goEndMinute}</div>
   </div>
-  <div class="col-md-2">
-   <div class="panel-body" style="color:black;font-size:24px">${detail.goStartWhere}</div>
-   <div class="panel-body" style="color:black;font-size:24px">${detail.returnStartWhere}</div>
+  <div class="col-md-2" style="color:black;font-size:24px">
+   <div class="panel-body">${detail.goStartWhere}</div>
+   <div class="panel-body">${detail.returnStartWhere}</div>
   </div>
-  <div class="col-md-2">
-   <div class="panel-body" style="color:black;font-size:24px">${detail.goEndWhere}</div>
-   <div class="panel-body" style="color:black;font-size:24px">${detail.returnEndWhere}</div>
+  <div class="col-md-2" style="color:black;font-size:24px">
+   <div class="panel-body">${detail.goEndWhere}</div>
+   <div class="panel-body">${detail.returnEndWhere}</div>
   </div>
-  <div class="col-md-2">
-   <div class="panel-body" style="color:black;font-size:24px"><img src="/Traveler/images/${detail.companyName}.gif">${detail.companyName}</div>
-   <div class="panel-body" style="color:black;font-size:24px"><img src="/Traveler/images/${detail.companyName}.gif">${detail.companyName}</div>
+  <div class="col-md-2" style="color:black;font-size:24px">
+   <div class="panel-body"><img src="/Traveler/images/${detail.companyName}.gif">${detail.companyName}</div>
+   <div class="panel-body"><img src="/Traveler/images/${detail.companyName}.gif">${detail.companyName}</div>
   </div>
-  <div class="col-md-2">
-   <div class="panel-body" style="color:black;font-size:24px">${detail.goPlaneId}</div>
-   <div class="panel-body" style="color:black;font-size:24px">${detail.returnPlaneId}</div>
+  <div class="col-md-2" style="color:black;font-size:24px">
+   <div class="panel-body">${detail.goPlaneId}</div>
+   <div class="panel-body">${detail.returnPlaneId}</div>
   </div>
  </div>
 </div>
@@ -240,12 +240,125 @@
 <a><img src="/Traveler/images/${detail.themeProducts.productName}-2.png" style="border:10px #808000 ridge;width:1500px; height:1000px;"></a>
 <a><img src="/Traveler/images/${detail.themeProducts.productName}-3.png" style="border:10px #808000 ridge;width:1500px; height:1000px;"></a>
 <a><img src="/Traveler/images/${detail.themeProducts.productName}-4.png" style="border:10px #808000 ridge;width:1500px; height:1000px;"></a>
-<!-- 每日行程 -->
-
-<!-- 每日行程 -->
-
-<!-- 每日行程 -->
-
+<br>
+<hr>
+<!-- 每日行程 1標題-->
+<div class="container-fluid">
+ <div class="row">
+  <div class="col-md-12" style="font-weight:bold">
+   <div class="panel-heading" style="color:black;font-size:32px;text-align:left"><img src="/Traveler/images/day.png" width="50" height="50">&nbsp;&nbsp;&nbsp;&nbsp;第一天:${detail.themeProducts.descriTitle1}</div>
+  </div>
+ </div>
+</div> 
+<hr>
+<!-- 每日行程 1-->
+<div class="container-fluid">
+ <div class="row">
+  <div class="col-md-6">
+   <div class="panel-body"><img src="/Traveler/images/環球1.jpg" style="border:10px #808000 ridge;width:725px; height:552px;"></div>
+  </div>
+  <div class="col-md-6" style="font-size:24px">
+    <div class="panel-heading" style="color:blue;font-weight:bold">${detail.themeProducts.descriTitle1}</div>
+     <div class="panel-body" >${detail.themeProducts.description1}</div>
+  </div>
+ </div>
+</div>
+<!-- 每日行程 1 吃-->
+<div class="container-fluid">
+ <div class="row" style="font-size:24px">
+  <div class="col-sm-3">
+   <div class="panel-heading"><img src="/Traveler/images/餐.png" width="50" height="50">&nbsp;&nbsp;早餐:${detail.themeProducts.breakfast1}</div>
+  </div>
+  <div class="col-sm-3">
+   <div class="panel-heading"><img src="/Traveler/images/餐.png" width="50" height="50">&nbsp;&nbsp;中餐:${detail.themeProducts.lunch1}</div>
+  </div>
+  <div class="col-sm-3">
+   <div class="panel-heading"><img src="/Traveler/images/餐.png" width="50" height="50">&nbsp;&nbsp;晚餐:${detail.themeProducts.dinner1}</div>
+  </div>
+  <div class="col-sm-3">
+   <div class="panel-heading"><img src="/Traveler/images/住宿.png" width="50" height="50">&nbsp;&nbsp;住宿:${detail.themeProducts.hotelName}</div>
+  </div>
+ </div>
+</div>
+<hr>
+<!-- 每日行程 2標題-->
+<div class="container-fluid">
+ <div class="row">
+  <div class="col-md-12" style="font-weight:bold">
+   <div class="panel-heading" style="color:black;font-size:32px;text-align:left"><img src="/Traveler/images/day.png" width="50" height="50">&nbsp;&nbsp;&nbsp;&nbsp;第二天:${detail.themeProducts.descriTitle2}</div>
+  </div>
+ </div>
+</div> 
+<hr>
+<!-- 每日行程 2-->
+<div class="container-fluid">
+ <div class="row">
+  <div class="col-md-6">
+   <div class="panel-body"><img src="/Traveler/images/${detail.themeProducts.productName}-1.png" style="border:10px #808000 ridge;width:725px; height:552px;"></div>
+  </div>
+  <div class="col-md-6" style="font-size:24px">
+    <div class="panel-heading" style="color:blue;font-weight:bold">${detail.themeProducts.descriTitle2}</div>
+     <div class="panel-body">${detail.themeProducts.description2}</div>
+  </div>
+ </div>
+</div>
+<!-- 每日行程 2 吃-->
+<div class="container-fluid">
+ <div class="row" style="font-size:24px">
+  <div class="col-sm-3">
+   <div class="panel-heading"><img src="/Traveler/images/餐.png" width="50" height="50">&nbsp;&nbsp;早餐:${detail.themeProducts.breakfast2}</div>
+  </div>
+  <div class="col-sm-3">
+   <div class="panel-heading"><img src="/Traveler/images/餐.png" width="50" height="50">&nbsp;&nbsp;中餐:${detail.themeProducts.lunch2}</div>
+  </div>
+  <div class="col-sm-3">
+   <div class="panel-heading"><img src="/Traveler/images/餐.png" width="50" height="50">&nbsp;&nbsp;晚餐:${detail.themeProducts.dinner2}</div>
+  </div>
+  <div class="col-sm-3">
+   <div class="panel-heading"><img src="/Traveler/images/住宿.png" width="50" height="50">&nbsp;&nbsp;住宿:${detail.themeProducts.hotelName}</div>
+  </div>
+ </div>
+</div>
+<hr>
+<!-- 每日行程 3標題-->
+<div class="container-fluid">
+ <div class="row">
+  <div class="col-md-12" style="font-weight:bold">
+   <div class="panel-heading" style="color:black;font-size:32px;text-align:left"><img src="/Traveler/images/day.png" width="50" height="50">&nbsp;&nbsp;&nbsp;&nbsp;第三天:${detail.themeProducts.descriTitle3}</div>
+  </div>
+ </div>
+</div> 
+<hr>
+<!-- 每日行程 3-->
+<div class="container-fluid">
+ <div class="row">
+  <div class="col-md-6">
+   <div class="panel-body"><img src="/Traveler/images/環球2.jpg" style="border:10px #808000 ridge;width:725px; height:552px;"></div>
+  </div>
+  <div class="col-md-6" style="font-size:24px">
+    <div class="panel-heading" style="color:blue;font-weight:bold">${detail.themeProducts.descriTitle3}</div>
+     <div class="panel-body">${detail.themeProducts.description3}</div>
+  </div>
+ </div>
+</div>
+<!-- 每日行程 3 吃-->
+<div class="container-fluid">
+ <div class="row" style="font-size:24px">
+  <div class="col-sm-3">
+   <div class="panel-heading"><img src="/Traveler/images/餐.png" width="50" height="50">&nbsp;&nbsp;早餐:${detail.themeProducts.breakfast3}</div>
+  </div>
+  <div class="col-sm-3">
+   <div class="panel-heading"><img src="/Traveler/images/餐.png" width="50" height="50">&nbsp;&nbsp;中餐:${detail.themeProducts.lunch3}</div>
+  </div>
+  <div class="col-sm-3">
+   <div class="panel-heading"><img src="/Traveler/images/餐.png" width="50" height="50">&nbsp;&nbsp;晚餐:${detail.themeProducts.dinner3}</div>
+  </div>
+  <div class="col-sm-3">
+   <div class="panel-heading"><img src="/Traveler/images/住宿.png" width="50" height="50">&nbsp;&nbsp;住宿:溫暖的家</div>
+  </div>
+ </div>
+</div>
+<hr>
 <!-- 備註 標題--> 
 <div class="container-fluid">
  <div class="row">
