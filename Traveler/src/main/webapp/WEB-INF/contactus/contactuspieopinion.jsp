@@ -178,14 +178,14 @@ margin-bottom:0px;
 
 
 <div id="container" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
-<span style="font-size:13px;"></span>
-<select id="choose" onchange="TheConfirmBox()">
-	<option disabled=disabled selected=selected>請選擇</option>
-<!-- 	<optgroup label="亞洲區"> -->
-<!-- 		<option value="http://localhost:8080/Traveler/contactus/contactuspieasia">1~3月份國人出國目的地統計</option> -->
-<!-- 		<option value="http://localhost:8080/Traveler/contactus/contactuspieage">1~3月份國人出國年齡地統計</option> -->
-</select>
-<span id="check" style="color:red;"></span><br>
+<!-- <span style="font-size:13px;"></span> -->
+<!-- <select id="choose" onchange="TheConfirmBox()"> -->
+<!-- 	<option disabled=disabled selected=selected>請選擇</option> -->
+<!--  	<optgroup label="亞洲區"> --> 
+<!-- 		<option value="http://localhost:8080/Traveler/contactus/contactuspieasia">1~3月份國人出國目的地統計</option> --> 
+<!-- 	<option value="http://localhost:8080/Traveler/contactus/contactuspieage">1~3月份國人出國年齡地統計</option> --> 
+<!-- </select> -->
+<!-- <span id="check" style="color:red;"></span><br> -->
 <script>
 	function TheConfirmBox() {
 		var noteToMe;
@@ -211,7 +211,7 @@ Highcharts.chart('container', {
         type: 'pie'
     },
     title: {
-        text: '1~3月份國人出國目的地統計(亞洲區)'
+        text: '1~3月份意見反應統計'
     },
     tooltip: {
         pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
@@ -233,58 +233,26 @@ Highcharts.chart('container', {
         name: 'Brands',
         colorByPoint: true,
         data: [{
-            name: '香港',
+            name: '機票預訂',
             y: 412631,
             sliced: true,
             selected: true
         }, {
-            name: '澳門 ',
+            name: '飯店預訂 ',
             y: 145445
         }, {
-            name: '大陸',
+            name: '旅遊資訊',
             y: 916722
         }, {
-            name: '日本',
+            name: '會員服務專區',
             y: 1147797
         }, {
-            name: '韓國',
+            name: '意見回饋',
             y: 249373
         }, {
-            name: '新加坡',
+            name: '其它',
             y: 94411
-        }, {
-            name: '馬來西亞',
-            y: 81267
-        }, {
-            name: '泰國',
-            y: 163539
-        }, {
-            name: '菲律賓',
-            y: 60953
-        }, {
-            name: '印尼',
-            y: 44721
-        }, {
-            name: '汶淶',
-            y: 272
-        }, {
-            name: '越南',
-            y: 155676
-        }, {
-            name: '緬甸',
-            y: 7519
-        }, {
-            name: '柬埔寨',
-            y: 25870
-        }, {
-            name: '阿拉伯聯合大公國 ',
-            y: 16370
-        }, {
-            name: '土耳其',
-            y: 18966
-        }, {
-            name: '亞洲其他地區',
-            y: 18642
+      
         }]
     }]
 });
@@ -298,9 +266,7 @@ Highcharts.chart('container', {
 <h2>客服管理</h2>
 <p><a href="selectopinion" style="color:black">查看留言</a></p>
 <p><a href="StatisticsReport" style="color:black">統計報表</a></p>
-<a href="contactuspieasia"></a>
-<a href="contactuspieage"></a>
-<a href="contactuspieopinion"></a>
+
 
 
 

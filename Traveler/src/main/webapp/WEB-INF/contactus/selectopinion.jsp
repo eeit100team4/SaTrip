@@ -211,6 +211,7 @@ html, body {
       					<th scope="col">意見欄</th>
       					<th scope="col">回覆欄</th>
       					<th scope="col">留言時間</th>
+<!--       					<th scope="col">回覆時間</th> -->
       					<th scope="col"></th>
     				</tr>
   				</thead>
@@ -228,6 +229,7 @@ html, body {
       					<td>${con.comment}</td>
       					<td>${con.feedback}</td>
       					<td>${con.messagetime}</td>
+<%--       					<td>${con.feedbackmessagetime}</td> --%>
       					<td><a href="/Traveler/contactus/${con.pkid}">回覆</a></td>
     				</tr>
     				</c:forEach>

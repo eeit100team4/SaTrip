@@ -194,140 +194,145 @@ function test()
 </head>
 <body>
 	<%@ include file="/WEB-INF/frontStageHeader.jsp"%>
-	<hr>
-	
-<div  class="container">
-			<div class="row">
-				<div class="col-sm-offset-5 span9">
-					<h1 style="color:#009494;">主題旅遊報名申請</h1>             
-                    <br>
-				</div>
-			</div>
-		</div>	
-		
+<!-- 大標 -->
+<div class="container-fluid">
+ <div class="row">
+  <div class="col-md-12" style="font-weight:bold">
+   <div class="well" style="background-color:black;color:white;font-size:30px;text-align:center">主題旅遊報名申請</div>
+  </div>
+ </div>
+</div> 
+<!-- 報名表格 -->		
 <div   class="container">
  <div class="row">
-  <div class=" col-sm-offset-1 span12" style="width:80%">
+  <div class=" col-sm span12" style="width:100%;height:100%">
 
-    <!-- 程式碼開始 -->
-    <form:form method="POST" modelAttribute="application" class="form-horizontal" role="form" id="form" >
+<!-- 程式碼開始 -->
+<form:form method="POST" modelAttribute="application" class="form-horizontal" role="form" id="form" >
 <div class="form-group">
- <label for="name" class="col-sm-3 control-label" style='font-size:16px;'>聯絡人姓名</label>
+ <label for="name" class="col-sm-3 control-label" style='font-size:28px;'>聯絡人姓名</label>
   <div class="col-sm-3 controls">
-   <input type="text" id="name" name="name" placeholder="例:王大明" class="form-control" style='font-size:16px;'>
-  </div>
-  
-  <b style='font-size:16px;'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${test.themeProducts.productName}</b>
+   <input type="text" id="name" name="name" placeholder="例:王大明" class="form-control" style='font-size:24px;'>
+  </div> 
+   
+ <b style='font-size:28px;'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${test.themeProducts.productName}</b>
 
 </div>
-<div class="form-group"style='font-size:16px;'>
- <label for="gender" class="col-sm-3 control-label" style='font-size:16px;'>稱謂</label>
+
+<div class="form-group"style='font-size:28px;'>
+ <label for="gender" class="col-sm-3 control-label" style='font-size:28px;'>稱謂</label>
   <div class="col-sm-3 controls">
    <!--<input type="text" id="gender" name="gender" placeholder="先生、小姐" class="form-control">  -->
-  <div class="form-control" style='font-size:16px;'>
-  <form:select path="gender" style="border:1px none #000;background:white">
-  <form:option value="-1" label="稱謂"></form:option>
-  <form:option value="先生" label="先生"></form:option>
-  <form:option value="小姐" label="小姐"></form:option>
-  </form:select>
+  <div class="form-control" style='font-size:24px;'>
+   <form:select path="gender" style="border:1px none #000;background:white">
+    <form:option value="-1" label="稱謂"></form:option>
+    <form:option value="先生" label="先生"></form:option>
+    <form:option value="小姐" label="小姐"></form:option>
+   </form:select>
   </div>
-  </div>
+ </div>
   
-  <b style='font-size:16px;'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;國家:${test.themeProducts.country}</b>
+<b style='font-size:28px;'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;國家:${test.themeProducts.country}</b>
 
 </div>
-<div class="form-group"style='font-size:16px;'>
- <label for="cellPhone" class="col-sm-3 control-label" style='font-size:16px;'>連絡電話</label>
+<div class="form-group"style='font-size:28px;'>
+ <label for="cellPhone" class="col-sm-3 control-label" style='font-size:28px;'>連絡電話</label>
   <div class="col-sm-3 controls">
-   <input type="text" id="cellPhone" name="cellPhone" placeholder="例:0912345678" class="form-control"style='font-size:16px;'>
+   <input type="text" id="cellPhone" name="cellPhone" placeholder="例:0912345678" class="form-control"style='font-size:24px;'>
   </div>
   
-  <b style='font-size:16px'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;出發日期:<fmt:formatDate value="${test.setOut}" pattern="yyyy/MM/dd" /></b>
+<b style='font-size:28px'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;出發日期:<fmt:formatDate value="${test.setOut}" pattern="yyyy/MM/dd" /></b>
 
 </div>
-<div class="form-group"style='font-size:16px;'>
- <label for="people" class="col-sm-3 control-label" style='font-size:16px;'>人數</label>
+
+<div class="form-group"style='font-size:28px;'>
+ <label for="people" class="col-sm-3 control-label" style='font-size:28px;'>人數</label>
   <div class="col-sm-3 controls">
-  <div class="form-control" style='font-size:16px;'>
-  <form:select path="people" style="border:1px none #000;background:white">
-  <form:option value="-1" label="請挑選人數"></form:option>
-  <form:option value="1" label="1人"></form:option>
-  <form:option value="2" label="2人"></form:option>
-  <form:option value="3" label="3人"></form:option>
-  <form:option value="4" label="4人"></form:option>
-  <form:option value="5" label="5人"></form:option>
-  <form:option value="6" label="6人"></form:option>
-  <form:option value="7" label="7人"></form:option>
-  <form:option value="8" label="8人"></form:option>
-  <form:option value="9" label="9人"></form:option>
-  <form:option value="10" label="10人"></form:option>
-  <form:option value="11" label="11人"></form:option>
-  <form:option value="12" label="12人"></form:option>
-  <form:option value="13" label="13人"></form:option>
-  <form:option value="14" label="14人"></form:option>
-  <form:option value="15" label="15人"></form:option>
-  <form:option value="16" label="16人"></form:option>
-  <form:option value="17" label="17人"></form:option>
-  <form:option value="18" label="18人"></form:option>
-  <form:option value="19" label="19人"></form:option>
-  <form:option value="20" label="20人"></form:option>
-  </form:select>
+  <div class="form-control" style='font-size:24px;'>
+   <form:select path="people" style="border:1px none #000;background:white">
+    <form:option value="-1" label="請挑選人數"></form:option>
+    <form:option value="1" label="1人"></form:option>
+    <form:option value="2" label="2人"></form:option>
+    <form:option value="3" label="3人"></form:option>
+    <form:option value="4" label="4人"></form:option>
+    <form:option value="5" label="5人"></form:option>
+    <form:option value="6" label="6人"></form:option>
+    <form:option value="7" label="7人"></form:option>
+    <form:option value="8" label="8人"></form:option>
+    <form:option value="9" label="9人"></form:option>
+    <form:option value="10" label="10人"></form:option>
+    <form:option value="11" label="11人"></form:option>
+    <form:option value="12" label="12人"></form:option>
+    <form:option value="13" label="13人"></form:option>
+    <form:option value="14" label="14人"></form:option>
+    <form:option value="15" label="15人"></form:option>
+    <form:option value="16" label="16人"></form:option>
+    <form:option value="17" label="17人"></form:option>
+    <form:option value="18" label="18人"></form:option>
+    <form:option value="19" label="19人"></form:option>
+    <form:option value="20" label="20人"></form:option>
+   </form:select>
   </div>
-  </div>
+</div>
   
-  <b style='font-size:16px;'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;返回日期:<fmt:formatDate value="${test.returnDay}" pattern="yyyy/MM/dd" /></b>
+<b style='font-size:28px;'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;返回日期:<fmt:formatDate value="${test.returnDay}" pattern="yyyy/MM/dd" /></b>
 
 </div>
+
 <div class="form-group">
- <label for="callTime" class="col-sm-3 control-label" style='font-size:16px;'>可連絡時段</label>
+ <label for="callTime" class="col-sm-3 control-label" style='font-size:28px;'>可連絡時段</label>
   <div class="col-sm-3 controls">
    <!--<input type="text" id="callTime" name="callTime" placeholder="早上、下午、晚上" class="form-control">-->
-   <div class="form-control"style='font-size:16px;'>
-  <form:select path="callTime" style="border:1px none #000;background:white">
-  <form:option value="-1" label="">請選擇時段</form:option>
-  <form:option value="早上" label="早上"></form:option>
-  <form:option value="下午" label="下午"></form:option>
-  <form:option value="晚上" label="晚上"></form:option>
-  </form:select>
-  </div>
+   <div class="form-control"style='font-size:24px;'>
+    <form:select path="callTime" style="border:1px none #000;background:white">
+    <form:option value="-1" label="">請選擇時段</form:option>
+    <form:option value="早上" label="早上"></form:option>
+    <form:option value="下午" label="下午"></form:option>
+    <form:option value="晚上" label="晚上"></form:option>
+    </form:select>
+   </div>
   </div>
   
-  <b style='font-size:16px;'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;航空公司:${test.companyName}</b>
+<b style='font-size:28px;'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;航空公司:${test.companyName}</b>
 
 </div>
+
 <div class="form-group">
- <label for="location" class="col-sm-3 control-label" style='font-size:16px;'>服務據點</label>
+ <label for="location" class="col-sm-3 control-label" style='font-size:28px;'>服務據點</label>
   <div class="col-sm-3 controls">
    <!--<input type="text" id="location" name="location" placeholder="台北、台中、高雄" class="form-control">  -->
-   <div class="form-control"style='font-size:16px;'>
-  <form:select path="location" style="border:1px none #000;background:white">
-  <form:option value="-1" label="">服務據點</form:option>
-  <form:option value="台北" label="台北"></form:option>
-  <form:option value="台中" label="台中"></form:option>
-  <form:option value="高雄" label="高雄"></form:option>
-  </form:select>
+   <div class="form-control"style='font-size:24px;'>
+   <form:select path="location" style="border:1px none #000;background:white">
+    <form:option value="-1" label="">服務據點</form:option>
+    <form:option value="台北" label="台北"></form:option>
+    <form:option value="台中" label="台中"></form:option>
+    <form:option value="高雄" label="高雄"></form:option>
+   </form:select>
   </div>
-   </div>
+ </div>
   
-  <b style='font-size:16px;'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;標準團費:${test.price}</b>
+<b style='font-size:28px;'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;標準團費:${test.price}</b>
   
 </div>
+
 <div class="form-group">
- <label for="extra" class="col-sm-3 control-label" style='font-size:16px;'>備註事項</label>
-  <div class="col-sm-6 controls">
-   <textarea class="form-control" rows="3" id="extra" name="extra" placeholder="請輸入500字以內"style='font-size:16px;'></textarea>
+ <label for="extra" class="col-sm-3 control-label" style='font-size:28px;'>備註事項</label>
+  <div class="col-sm-9 controls">
+   <textarea class="form-control" rows="3" id="extra" name="extra" placeholder="請輸入500字以內"style='font-size:20px;'></textarea>
   </div>
 </div>
+
 <div class="form-group">
  <div class="col-sm-offset-3 col-sm-6">
-  <button onmouseover="this.style.color='orange'" onmouseout="this.style.color='#4F4FFF'" style="color:#4F4FFF;font-size:16px;"type="submit" class="btn"  onclick="test()">送出報名表</button>
+  <button onmouseover="this.style.color='orange'" onmouseout="this.style.color='#4F4FFF'" style="color:#4F4FFF;font-size:28px;font-weight:bold" type="submit" class="btn"  onclick="test()">點擊此處以寄出報名表</button>
  </div>
 </div>
-     </form:form>
+</form:form>
     
   </div>
  </div>
 </div>
+<br><br><br>
 <hr>
 	<%@ include file="/WEB-INF/frontStageFooter.jsp"%>
 </body>

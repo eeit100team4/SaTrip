@@ -170,11 +170,11 @@ color:black;
     				<tr>
       					<th scope="col">編號</th>
       					<th scope="col">姓名</th>
-      					<th scope="col">性別</th>
-      					<th scope="col">年齡</th>
+<!--       					<th scope="col">性別</th> -->
+<!--       					<th scope="col">年齡</th> -->
       					<th scope="col">連絡電話</th>
       					<th scope="col">電子信箱</th>
-      					<th scope="col">所在地</th>
+<!--       					<th scope="col">所在地</th> -->
       					<th scope="col">意見類別</th>
       					<th scope="col">意見欄</th>
 <!--       					<th scope="col">回覆欄</th> -->
@@ -187,16 +187,16 @@ color:black;
     				<tr>
       					<td scope="row">${contactus.pkid}</td>
      				 	<td>${contactus.name}</td>
-      					<td>${contactus.sex}</td>
-      					<td>${contactus.age}</td>
+<%--       					<td>${contactus.sex}</td> --%>
+<%--       					<td>${contactus.age}</td> --%>
       					<td>${contactus.phone}</td>
       					<td>${contactus.email}</td>
-      					<td>${contactus.address}</td>
+<%--       					<td>${contactus.address}</td> --%>
       					<td>${contactus.opinion}</td>
       					<td>${contactus.comment}</td>
 <%--       					<td>${con.feedback}</td> --%>
-<%--       					<td>${con.messagetime}</td> --%>
-      					<td><a href="/Traveler/contactus/${contactus.pkid}">查看回覆</a></td>
+      					<td>${contactus.messagetime}</td>
+      					<td><a href="/Traveler/contactus/selectfeedbackopinion/${contactus.pkid}">查看回覆</a></td>
     				</tr>
 <%--     				</c:forEach> --%>
   				</tbody>

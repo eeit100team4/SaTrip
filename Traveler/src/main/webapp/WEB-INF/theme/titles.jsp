@@ -152,12 +152,12 @@ a img:hover {
 	<%@ include file="/WEB-INF/frontStageHeader.jsp"%>
 		
 <!--  <div class="fh5co-cover" data-stellar-background-ratio="0.5">	-->
- <h1 style="background:black;color:white;text-align:center;height:50px">~優質規劃*精選主題~</h1>
+ <h1 style="background:black;color:white;text-align:center;height:50;font-weight:bold">~優質規劃*精選主題~</h1>
   <div style="margin-left:50px;margin-top:50px;width:1400px;" class="content text-center">	
    <c:forEach var='titleName' items='${titleList}'> 
     <div style="width:350px; height:250px; float: left; ">
-     <a href="products/${titleName}"><img src="/Traveler/images/themeTitle-${titleName}.png" width="325" height="200" style="border:20px #805300 ridge;"></a>      
-      <div style="width:350px; height:250px; float: left;">
+     <a href="products/${titleName}"><img src="/Traveler/images/themeTitle-${titleName}.png" width="325" height="200" style="border:20px #805300 ridge"></a>      
+      <div style="width:350px; height:250px; float: left;font-weight:bold">
        <a onmouseover="this.style.color='orange'" onmouseout="this.style.color='black'" style='font-size:25px;color:black;' href="products/${titleName}">~~~~~~~${titleName}~~~~~~~</a><br>     
       </div>
       <br>

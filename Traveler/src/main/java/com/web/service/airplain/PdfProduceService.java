@@ -55,7 +55,10 @@ public class PdfProduceService {
 			//將旅客生日格式統一
 			SimpleDateFormat sdf2 = new SimpleDateFormat("YYYY-MM-dd");
 			String guestOneBirth=sdf2.format(odBean.getGuestBean().getGuestOneBirth());
-			String guestTwoBirth = sdf2.format(odBean.getGuestBean().getGuestTwoBirth());
+			String guestTwoBirth="";
+			if(odBean.getGuestBean().getGuestTwoBirth()!=null) {
+			guestTwoBirth = sdf2.format(odBean.getGuestBean().getGuestTwoBirth());
+			}
 			//HTML內容
 			String part1 = "<html>\r\n" + 
 					"<head>\r\n" + 
@@ -96,7 +99,10 @@ public class PdfProduceService {
 					"<table class=\"table3\">\r\n" + 
 					"<tr><th colspan='2'  width=\"100px\" align=\"center\">姓名</th><th colspan='3'align=\"center\" width=\"300px;\">英文姓名</th> <th colspan='3'align=\"center\" width=\"100px;\">生日</th><th colspan='3' width=\"100px\" align=\"center\">性別</th></tr>\r\n" + 
 					"<tr><td  colspan='2' width=\"100px\" align=\"center\" >"+odBean.getGuestBean().getGuestOneName()+"</td><td colspan='3' align=\"center\" width=\"300px;\">"+odBean.getGuestBean().getGuestOneFirstName()+"/"+odBean.getGuestBean().getGuestOneLastName()+"</td><td colspan='3' align=\"center\" width=\"100px;\">"+guestOneBirth+"</td><td align=\"center\" colspan='3' width=\"150px;\">成人"+odBean.getGuestBean().getGuestOneGender()+"</td></tr>\r\n";  
-					String part2="<tr><td  colspan='2' width=\"100px\" align=\"center\" >"+odBean.getGuestBean().getGuestTwoName()+"</td><td colspan='3' align=\"center\" width=\"300px;\">"+odBean.getGuestBean().getGuestTwoFirstName()+"/"+odBean.getGuestBean().getGuestTwoLastName()+"</td><td colspan='3' align=\"center\" width=\"100px;\">"+guestTwoBirth+"</td><td align=\"center\" colspan='3' width=\"150px;\">成人"+odBean.getGuestBean().getGuestTwoGender()+"</td></tr>\r\n"; 
+					String part2="";
+					if(odBean.getGuestBean().getGuestTwoName()!=null) {
+					part2="<tr><td  colspan='2' width=\"100px\" align=\"center\" >"+odBean.getGuestBean().getGuestTwoName()+"</td><td colspan='3' align=\"center\" width=\"300px;\">"+odBean.getGuestBean().getGuestTwoFirstName()+"/"+odBean.getGuestBean().getGuestTwoLastName()+"</td><td colspan='3' align=\"center\" width=\"100px;\">"+guestTwoBirth+"</td><td align=\"center\" colspan='3' width=\"150px;\">成人"+odBean.getGuestBean().getGuestTwoGender()+"</td></tr>\r\n";
+					}
 					String part3="</table>\r\n" + 
 					"<hr />\r\n" + 
 					"\r\n" + 

@@ -28,12 +28,13 @@ public class ContactusBean implements Serializable {
 	private String comment;
 	private String feedback;
 	private Date messagetime = new Date();
+	private Date feedbackmessagetime = new Date();
 	
 	
 	
 	
 	public ContactusBean(Integer pkid, String name, String sex, String age, String phone, String email, String address,
-			String opinion, String comment, String feedback,Date messagetime) {
+			String opinion, String comment, String feedback,Date messagetime,Date feedbackmessagetime) {
 		super();
 		this.pkid = pkid;
 		this.name = name;
@@ -46,9 +47,20 @@ public class ContactusBean implements Serializable {
 		this.comment = comment;
 		this.feedback = feedback;
 		this.messagetime = messagetime;
+		this.feedbackmessagetime = feedbackmessagetime;
 	}
 	
 	
+	public Date getFeedbackmessagetime() {
+		return feedbackmessagetime;
+	}
+
+
+	public void setFeedbackmessagetime(Date feedbackmessagetime) {
+		this.feedbackmessagetime = feedbackmessagetime;
+	}
+
+
 	public Date getMessagetime() {
 		return messagetime;
 	}
@@ -173,9 +185,12 @@ public class ContactusBean implements Serializable {
 	public String toString() {
 		return "ContactusBean [pkid=" + pkid + ", name=" + name + ", sex=" + sex + ", age=" + age + ", phone=" + phone
 				+ ", email=" + email + ", address=" + address + ", opinion=" + opinion + ", comment=" + comment
-				+ ", feedback=" + feedback + ", messagetime=" + messagetime + "]";
+				+ ", feedback=" + feedback + ", messagetime=" + messagetime + ", feedbackmessagetime="
+				+ feedbackmessagetime + "]";
 	}
 
+
+	
 
 	
 

@@ -8,134 +8,74 @@
     <script src="/js/lib/jquery-1.8.3.min.js" type='text/javascript'></script>  
     <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="/js/flot/excanvas.min.js"></script><![endif]-->
      
-    <script type="text/javascript" src="/js/flot/jquery.flot.min.js"></script>    
-    <script type="text/javascript" src="/js/flot/jquery.flot.symbol.js"></script>
-    <script type="text/javascript" src="/js/flot/jquery.flot.axislabels.js"></script>
-     
-    <script type="text/javascript">
-        //******* 2012 Average Temperature - BAR CHART
-        var data = [[0, 11],[1, 15],[2, 25],[3, 24],[4, 13],[5, 18]];
-        var dataset = [{ label: "2012 Average Temperature", data: data, color: "#5482FF" }];
-        var ticks = [[0, "London"], [1, "New York"], [2, "New Delhi"], [3, "Taipei"],[4, "Beijing"], [5, "Sydney"]];
- 
-        var options = {
-            series: {
-                bars: {
-                    show: true
-                }
-            },
-            bars: {
-                align: "center",
-                barWidth: 0.5
-            },
-            xaxis: {
-                axisLabel: "World Cities",
-                axisLabelUseCanvas: true,
-                axisLabelFontSizePixels: 12,
-                axisLabelFontFamily: 'Verdana, Arial',
-                axisLabelPadding: 10,
-                ticks: ticks
-            },
-            yaxis: {
-                axisLabel: "Average Temperature",
-                axisLabelUseCanvas: true,
-                axisLabelFontSizePixels: 12,
-                axisLabelFontFamily: 'Verdana, Arial',
-                axisLabelPadding: 3,
-                tickFormatter: function (v, axis) {
-                    return v + "°C";
-                }
-            },
-            legend: {
-                noColumns: 0,
-                labelBoxBorderColor: "#000000",
-                position: "nw"
-            },
-            grid: {
-                hoverable: true,
-                borderWidth: 2,
-                backgroundColor: { colors: ["#ffffff", "#EDF5FF"] }
-            }
-        };
- 
-        $(document).ready(function () {
-            $.plot($("#flot-placeholder"), dataset, options);
-            $("#flot-placeholder").UseTooltip();
-        });
- 
-        function gd(year, month, day) {
-            return new Date(year, month, day).getTime();
-        }
- 
-        var previousPoint = null, previousLabel = null;
- 
-        $.fn.UseTooltip = function () {
-            $(this).bind("plothover", function (event, pos, item) {
-                if (item) {
-                    if ((previousLabel != item.series.label) || (previousPoint != item.dataIndex)) {
-                        previousPoint = item.dataIndex;
-                        previousLabel = item.series.label;
-                        $("#tooltip").remove();
- 
-                        var x = item.datapoint[0];
-                        var y = item.datapoint[1];
- 
-                        var color = item.series.color;
- 
-                        //console.log(item.series.xaxis.ticks[x].label);                
- 
-                        showTooltip(item.pageX,
-                        item.pageY,
-                        color,
-                        "<strong>" + item.series.label + "</strong><br>" + item.series.xaxis.ticks[x].label + " : <strong>" + y + "</strong> °C");
-                    }
-                } else {
-                    $("#tooltip").remove();
-                    previousPoint = null;
-                }
-            });
-        };
- 
-        function showTooltip(x, y, color, contents) {
-            $('<div id="tooltip">' + contents + '</div>').css({
-                position: 'absolute',
-                display: 'none',
-                top: y - 40,
-                left: x - 120,
-                border: '2px solid ' + color,
-                padding: '3px',
-                'font-size': '9px',
-                'border-radius': '5px',
-                'background-color': '#fff',
-                'font-family': 'Verdana, Arial, Helvetica, Tahoma, sans-serif',
-                opacity: 0.9
-            }).appendTo("body").fadeIn(200);
-        }
-        
   
-
-
-        <script>
-        function a(){
+    
+    <!-- D3 函式庫 --> 
+<script src=https://d3js.org/d3.v3.min.js charset="utf-8"></script>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+<script src="/Traveler/js/airplain/backLeft.js"></script>
+     
+    <script>
+      function a(){
         	var json=${json};
         	console.log(json);
 
         	console.log(json[0].commodityBean.name);
-//         	console.log(json[0].cliquantity);
-        		
-        }       
+        	console.log(json[0].cliquantity);
+   }       
         
         
-    </script>
+</script>
+<script>
+
+
+function test(){
+	var json=${json};
+	var a=json[0].commodityBean.name;
+	var b=json[0].cliquantity;
+	
+	var a1=json[1].commodityBean.name;
+	var a2=json[2].commodityBean.name;
+	var a3=json[3].commodityBean.name;
+	var a4=json[4].commodityBean.name;
+	
+	var b1=json[1].cliquantity;
+	var b2=json[2].cliquantity;
+	var b3=json[3].cliquantity;
+	var b4=json[4].cliquantity;
+	
+	
+	
+// 	$("#total").html("<h3  style='color:#CC0000; margin:0px;padding:0px;'>五月份總搜尋數："+totalClick+"</h3>");
+	d3.select("body").append("div").attr("id", "mydiv");
+	//設定欲顯示的資料。
+	
+	var data = [{
+	values: [b,b1,b2,b3,b4],
+	labels: [a,a1,a2,a3,a4],
+	type: 'pie'
+	}];
+	//設定框架大小。 
+	var frame = {
+	height: 700,
+	width: 700};
+	//使用Plotly畫出圓餅圖。 
+	Plotly.newPlot('mydiv', data, frame);
+}
+</script>    
+    
 </head>
 <body>
+ 
 
-<button class='btn' onclick='showTooltip()'>Q</button>
-      <button class='btn' onclick='a()'>QQQ</button>
-    <div style="width:450px;height:300px;text-align:center;margin:10px">        
-        <div id="flot-placeholder" style="width:100%;height:100%;"></div>        
-    </div>
-    
+    <div style="margin:0px auto; width:800px;" class="content text-center">
+			<div id="total"></div>
+			<div id="mydiv"></div>
+			<button class="btn-info" onclick="test()">五月統計</button> 
+			<button class='btn' onclick='showTooltip()'>Q</button>
+		</div>
+
     
     
 </body>

@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,6 +25,7 @@ import org.springframework.web.context.support.WebApplicationContextUtils;
 
 import com.web.Utils.DateUtils;
 import com.web.Utils.SendMailTLS;
+import com.web.Utils.VerifyRecaptcha;
 import com.web.model.member.MemberBean;
 import com.web.service.member.GlobalService;
 import com.web.service.member.MemberService;
@@ -77,6 +79,9 @@ public class LoginController {
 		String memberId = request.getParameter("memberId");
 		String password = request.getParameter("password");
 		String rm = request.getParameter("rememberMe");
+		String fbId = request.getParameter("fbId");
+		String gRecaptchaResponse = request
+				.getParameter("g-recaptcha-response");
 		String requestURI = (String) session.getAttribute("requestURI");
 		System.out
 				.println("memberId=" + memberId + " password=" + password + " rm=" + rm + " requestURI=" + requestURI);
@@ -84,13 +89,25 @@ public class LoginController {
 		// 無
 		// 3.檢查使用者輸入資料
 		// 如果memberId欄位為空白，放一個錯誤訊息到errorMsgMap之內
-		if (memberId == null || memberId.trim().length() == 0) {
-			errorMsgMap.put("AccountEmptyError", "帳號欄必須輸入");
+		if (StringUtils.isNotBlank(fbId)) {
+			System.out.println("fbId=" + fbId + "登入");
+			//TODO 使用第三方登入
+		} else {
+			if (StringUtils.isBlank(memberId)) {
+				errorMsgMap.put("AccountEmptyError", "帳號欄必須輸入");
+			}
+			// 如果password欄位為空白，放一個錯誤訊息到errorMsgMap之內
+			if (StringUtils.isBlank(password)) {
+				errorMsgMap.put("PasswordEmptyError", "密碼欄必須輸入");
+			}
+			//System.out.println(gRecaptchaResponse);
+			boolean verify = VerifyRecaptcha.verify(gRecaptchaResponse);
+			//System.out.println("verify="+verify);
+			if (!verify) {
+				errorMsgMap.put("LoginError", "你是機器人厚!!");
+			}
 		}
-		// 如果password欄位為空白，放一個錯誤訊息到errorMsgMap之內
-		if (password == null || password.trim().length() == 0) {
-			errorMsgMap.put("PasswordEmptyError", "密碼欄必須輸入");
-		}
+
 		// **********Remember Me***********************************
 		Cookie cookieMember = null;
 		Cookie cookiePassword = null;
@@ -98,26 +115,38 @@ public class LoginController {
 
 		if (rm != null) {
 			cookieMember = new Cookie("member", memberId);
+			cookieMember.setSecure(true);
+			cookieMember.setHttpOnly(true);
 			cookieMember.setMaxAge(30 * 60 * 60);
 			cookieMember.setPath(request.getContextPath());
 			String encodePassword = GlobalService.encryptString(password);
 			cookiePassword = new Cookie("password", encodePassword);
+			cookiePassword.setSecure(true);
+			cookiePassword.setHttpOnly(true);
 			cookiePassword.setMaxAge(30 * 60 * 60);
 			cookiePassword.setPath(request.getContextPath());
 			cookieRememberMe = new Cookie("rm", "true");
+			cookieRememberMe.setSecure(true);
+			cookieRememberMe.setHttpOnly(true);
 			cookieRememberMe.setMaxAge(30 * 60 * 60);
 			cookieRememberMe.setPath(request.getContextPath());
 		} else {
 			cookieMember = new Cookie("member", memberId);
+			cookieMember.setSecure(true);
+			cookieMember.setHttpOnly(true);
 			cookieMember.setMaxAge(0);// MaxAge==0表示要請瀏覽器刪除此Cookie
 			cookieMember.setPath(request.getContextPath());
 			// String encodePassword=
 			// DatatypeConverter.printBase64Binary(password.getBytes());
 			String encodePassword = GlobalService.encryptString(password);
 			cookiePassword = new Cookie("password", encodePassword);
+			cookiePassword.setSecure(true);
+			cookiePassword.setHttpOnly(true);
 			cookiePassword.setMaxAge(0);
 			cookiePassword.setPath(request.getContextPath());
 			cookieRememberMe = new Cookie("rm", "false");
+			cookieRememberMe.setSecure(true);
+			cookieRememberMe.setHttpOnly(true);
 			cookieRememberMe.setMaxAge(30 * 60 * 60);
 			cookieRememberMe.setPath(request.getContextPath());
 		}
