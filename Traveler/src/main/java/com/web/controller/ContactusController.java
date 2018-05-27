@@ -134,7 +134,10 @@ public class ContactusController {
 	public String list5(Model model) {
 		return "contactus/contactuspieage";
 	}
-	
+	@RequestMapping("contactus/contactuspieopinion")
+	public String pieopinion(Model model) {
+		return "contactus/contactuspieopinion";
+	}
 	
 	@RequestMapping("contactus/selectopinion")
 	public String list6(Model model) {
