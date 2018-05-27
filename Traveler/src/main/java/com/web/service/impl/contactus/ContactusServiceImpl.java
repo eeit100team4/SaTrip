@@ -61,9 +61,4 @@ public class ContactusServiceImpl implements ContactusService {
 	public List<ContactusBean> getAllContactus(Integer pkid) {
 		return contactusRepository.getAllContactus(pkid);
 	}
-
-	
-
-	
-
 }

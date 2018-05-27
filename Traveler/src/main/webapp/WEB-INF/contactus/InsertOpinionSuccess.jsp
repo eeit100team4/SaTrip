@@ -140,8 +140,8 @@ color:black;
 
 			<div class="fh5co-hero">
 			
-				<div class="fh5co-cover" data-stellar-background-ratio="0.5"
-					style="background-image: url(../images/contactus.jpg);">
+<!-- 				<div class="fh5co-cover" data-stellar-background-ratio="0.5" -->
+<!-- 					style="background-image: url(../images/contactus.jpg);"> -->
 					<div class="desc">
 						<div class="container">
 							<div class="row">
@@ -161,60 +161,46 @@ color:black;
 <!-- <div class="container" style="padding-top:80px;padding-left:150px"> -->
 <%-- 				<form action="feedbackopinion" modelAttribute="contactusBean"  enctype='multipart/form-data'> --%>
 
-				<form action="Traveler/contactus/InsertOpinionSuccess" modelAttribute="contactusBean"  enctype='multipart/form-data'>
+				<form action="selectfeedbackopinion/${pkid}" modelAttribute="contactusBean"  enctype='multipart/form-data'>
 						 <fieldest>
 						
-						 <table class="tabulation animate-box" style="border:2px #ccc solid;border-radius:10px;width:500px;
-						 background-color:#eee;color:black;height:500px;">
-						
-  			    <c:forEach var='con' items='${contactus}'>
- 			
-    			
-  		
-						 <tr>
-						<td scope="row" style="width:100px;">姓名:</td>
-						<td>${con.name}</td>
-						</tr>
-						<tr>
-						<td scope="row" style="width:100px;">性別:</td>
-						<td>${con.sex}</td>
-						</tr>
-						<tr>
-						<td scope="row" style="width:100px;">年齡:</td>
-						<td>${con.age}</td>
-						</tr>
-						<tr>
-						<td scope="row" style="width:100px;">連絡電話:</td>
-						<td>${con.phone}</td>
-						</tr>
-						<tr>
-						<td scope="row" style="width:100px;">電子信箱:</td>
-						<td>${con.email}</td>
-						</tr>
-						<tr>
-						<td scope="row" style="width:100px;">所在地:</td>
-						<td>${con.address}</td>
-						</tr>
-						<tr>
-						<td scope="row" style="width:100px;">意見類別:</td>
-						<td>${con.opinion}</td>
-						</tr>
-						<tr>
-						<td scope="row" style="width:100px;">意見欄:</td>
-					    <td>${con.comment}</td>
-					    </tr>
-					    <tr>
-					    <td scope="row" style="width:100px;">留言時間:</td>
-					    <td>${con.messagetime}</td>
-						</tr>
-					    <tr>
-					    <td scope="row" style="width:100px;">回覆欄:</td>
-					    <td>${con.feedback}</td>
-						</tr>
-						
-						</c:forEach>
-						</table>
-					    
+						 
+			<table class="table table-hover" style="width:80em">
+ 				 <thead>
+    				<tr>
+      					<th scope="col">編號</th>
+      					<th scope="col">姓名</th>
+<!--       					<th scope="col">性別</th> -->
+<!--       					<th scope="col">年齡</th> -->
+      					<th scope="col">連絡電話</th>
+      					<th scope="col">電子信箱</th>
+<!--       					<th scope="col">所在地</th> -->
+      					<th scope="col">意見類別</th>
+      					<th scope="col">意見欄</th>
+<!--       					<th scope="col">回覆欄</th> -->
+      					<th scope="col">留言時間</th>
+      					<th scope="col"></th>
+    				</tr>
+  				</thead>
+  				<tbody>
+<%--   			<c:forEach var='con' items='${contactus}'> --%>
+    				<tr>
+      					<td scope="row">${contactus.pkid}</td>
+     				 	<td>${contactus.name}</td>
+<%--       					<td>${contactus.sex}</td> --%>
+<%--       					<td>${contactus.age}</td> --%>
+      					<td>${contactus.phone}</td>
+      					<td>${contactus.email}</td>
+<%--       					<td>${contactus.address}</td> --%>
+      					<td>${contactus.opinion}</td>
+      					<td>${contactus.comment}</td>
+<%--       					<td>${con.feedback}</td> --%>
+      					<td>${contactus.messagetime}</td>
+      					<td><a href="/Traveler/contactus/selectfeedbackopinion/${contactus.pkid}">查看回覆</a></td>
+    				</tr>
+<%--     				</c:forEach> --%>
+  				</tbody>
+</table>
 
 		</fieldest>
 		</form>
@@ -228,7 +214,7 @@ color:black;
 						</section>
 							</div>
 						</div>
-					</div>
+<!-- 					</div> -->
 <!-- 				</div> -->
 			</div>
 		</div>

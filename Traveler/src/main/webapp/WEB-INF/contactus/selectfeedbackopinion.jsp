@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
@@ -113,118 +113,138 @@
 
 <!-- 連結旁邊的小ICON套件  -->	
 <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
+<title>意見反應表</title>
+</head>
 <style>
-from{
-border:1px solid black;
+table{
+padding:5px;
+}
+p{
+color:black;
+}
+td{
+border:1px solid #ccc;
+color:black;
 }
 </style>
 </head>
 <body>
 	<%@ include file="/WEB-INF/frontStageHeader.jsp"%>
+	
+
 
 	
 			</header>
 
 			<!-- end:header-top -->
 
-			<div class="fh5co-hero">
-			   
-			   
-				<div class="fh5co-cover" data-stellar-background-ratio="0.5"
-					style="background-image: url(../images/contactus.jpg);">
-					<div class="desc">
-						<div class="container">
-							<div class="row">
-								<div class="col-sm-5 col-md-5">
-								<div class="tabulation animate-box"  style="color:black;">
-								<section class='container'>
-<form:form method='POST' action="InsertOpinionSuccess" modelAttribute="contactusBean"  enctype='multipart/form-data'>
+			<div class="container" style="padding-top:80px;padding-left:200px;width:45em">
+	<c:forEach var='con' items='${contactus}'>	
+<form action="/Traveler/contactus/selectfeedbackopinion/${con.pkid}" modelAttribute="contactusBean"  enctype='multipart/form-data'>
 						 <fieldest>
-						 <div class='form-group'  style="padding-top:10px">
-						 <label for='name'>姓名:</label>
-						 <form:input id='name' path='name' type='text'/>
-						 </div>
-						 <div class='form-group'>
-						 <label for='sex'>性別:</label>
-						 <form:checkbox  path='sex' value="男"/>男
-						 <form:checkbox  path='sex' value="女"/>女
-						 </div>
-						 <div class='form-group'>
-						 <label for='age'>年齡:</label>
-						 <form:input id='age' path='age' type='text'/>
-						 </div>
-						 <div class='form-group'>
-						 <label for='phone'>連絡電話:</label>
-						 <form:input id='phone' path='phone' type='text'/>
-						 </div>
-						 <div class='form-group'>
-						 <label for='email'>電子信箱:</label>
-						 <form:input id='email' path='email' type='text'/>
-						 </div>
-						 <div class='form-group'>
-						 <label for='address'>所在地:</label>						 
-						 <form:select path="address" style='color:black'>
-									<form:option value="台北市"/>
-									<form:option value="新北市"/>
-									<form:option value="基隆市"/>
-									<form:option value="桃園市"/>
-									<form:option value="新竹市"/>								
-									<form:option value="新竹縣"/>
-									<form:option value="苗栗縣"/>
-									<form:option value="台中市"/>
-									<form:option value="彰化縣"/>
-									<form:option value="南投縣"/>
-									<form:option value="雲林縣"/>
-									<form:option value="嘉義市"/>
-									<form:option value="嘉義縣"/>
-									<form:option value="台南市"/>
-									<form:option value="高雄市"/>
-									<form:option value="屏東縣"/>
-									<form:option value="台東縣"/>
-									<form:option value="花蓮縣"/>
-									<form:option value="宜蘭縣"/>
-									<form:option value="澎湖縣"/>
-								</form:select>
-						 </div>
-						 <div class="form-group">
-								<label for='opinion'>意見類別:</label>
-								<form:select path="opinion" style='color:black'>
-									<form:option value="機票預訂"/>
-									<form:option value="飯店預訂"/>
-									<form:option value="旅遊資訊"/>
-									<form:option value="會員服務專區"/>
-									<form:option value="意見回饋"/>								
-									<form:option value="其它"/>
-								</form:select>
-							</div>
-							<div class='form-group'>
-						<label for='comment'>意見欄:</label>
-						<form:textarea cols="40" rows="5"  id="comment" path='comment' style='color:black'></form:textarea>
-						</div>
-						<div  style=color:red> 歡迎您對Traveler旅遊各項服務及產品提供意見與發表問題，<br>
-                                                  請務必填妥聯絡資料以利Traveler旅遊與您取得聯繫，<br>
-                                                   感謝您!
-               </div>
-               <div class='form-group'>
-               	<input type="submit" id='btnAdd' class="btn btn-primary"></input>
-               	</div>
+						<table>
+									
+						<tr>		
+						<td><label for='name'>姓名:</label>
+						<td id='name' path='name' type='text' value='${con.name}'/>${con.name}</td>
+						</tr>
+						<tr>
+						<td><label for='sex'>性別: </label>
+						<td id='sex' path='sex' type='text' value='${con.sex}'/>${con.sex}</td>
+						</tr>
+						<tr>
+						<td><label for='age'>年齡: </label>
+						<td id='age' path='age' type='text' value='${con.age}'/>${con.age}</td>
+						</tr>
+						<tr>
+						<td><label for='phone'>連絡電話: </label>
+						<td id='phone' path='phone' type='text' value='${con.phone}'/>${con.phone}</td>
+						</tr>
+						<tr>
+						<td><label for='email'>電子信箱: </label>
+						<td id='email' path='email' type='text' value='${con.email}'/>${con.email}</td>
+						</tr>
+						<tr>
+						<td><label for='address'>所在地: </label>
+						<td id='address' path='address' type='text' value='${con.address}'/>${con.address}</td>
+						</tr>
+						<tr>
+						<td><label for='opinion'>意見類別: </label>
+						<td id='opinion' path='opinion' type='text' value='${con.opinion}'/>${con.opinion}</td>
+						</tr>
+						<tr>
+						<td>
+					    <label for='comment'>意見欄: </label> 
+					    <td cols="40" rows="5"  id="comment" path='comment' value='${con.comment}'>${con.comment}
+					    </td>
+					    </tr>
+					    <tr>
+						<td>
+					    <label for='feedbackmessagetime'>回覆時間: </label> 
+					    <td cols="40" rows="5"  id="feedbackmessagetime" path='feedbackmessagetime' value='${con.feedbackmessagetime}'>${con.feedbackmessagetime}
+					    </td>
+					    </tr>
+					    <tr>
+					    <td>
+					    <label for='feedback'>回覆欄:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</label>
+					    <td cols="40" rows="5"  id="feedback" path='feedback' value='${con.feedback}'>${con.feedback}
+					    </td>
+					    </tr>
+					   
+						</table>
+					    
+<!--                <div class='form-group'> -->
+<!--                	<input type="submit" id='btnAdd' class="btn btn-primary" value="回覆"></input> -->
+<!--                	</div> -->
 		</fieldest>
-		</form:form>
-	
-							</div>
-						</div>
-					</div>
+		</form>
+		 </c:forEach>
+               	
+						
+						
 				</div>
-			</div>
-		</div>
 
-	<!-- fh5co-blog-section -->
+<!-- 	fh5co-blog-section -->
 
 	
 	</div>
 	</div>
 	</footer>
 
+	</div>
+	<!-- END fh5co-page -->
+
+	</div>
+	<!-- END fh5co-wrapper -->
+
+	<!-- jQuery -->
+
+
+	<script src="../js/jquery.min.js"></script>
+	<!-- jQuery Easing -->
+	<script src="../js/jquery.easing.1.3.js"></script>
+	<!-- Bootstrap -->
+	<script src="../js/bootstrap.min.js"></script>
+	<!-- Waypoints -->
+	<script src="../js/jquery.waypoints.min.js"></script>
+	<script src="../js/sticky.js"></script>
+
+	<!-- Stellar -->
+	<script src="../js/jquery.stellar.min.js"></script>
+	<!-- Superfish -->
+	<script src="../js/hoverIntent.js"></script>
+	<script src="../js/superfish.js"></script>
+	<!-- Magnific Popup -->
+	<script src="../js/jquery.magnific-popup.min.js"></script>
+	<script src="../js/magnific-popup-options.js"></script>
+	<!-- Date Picker -->
+	<script src="../js/bootstrap-datepicker.min.js"></script>
+	<!-- CS Select -->
+	<script src="../js/classie.js"></script>
+	<script src="../js/selectFx.js"></script>
+
+	<!-- Main JS -->
+	<script src="../js/main.js"></script>
 	<%@ include file="/WEB-INF/frontStageFooter.jsp"%>
 </body>
 </html>

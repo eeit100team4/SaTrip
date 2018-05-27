@@ -71,8 +71,8 @@ public class ContactusController {
 		System.out.println(contactus2);
 //		session.setAttribute("abc", contactus);
 		contactusService.addCustomerOpinion(contactus2);
-		session.setAttribute("aa", contactus2);
-		return "redirect:/contactus/InsertOpinionSuccess";
+		session.setAttribute("contactus", contactus2);
+		return "/contactus/InsertOpinionSuccess";
 	}
 
 
@@ -95,23 +95,30 @@ public class ContactusController {
 		return "contactus/feedbackopinion";
 	}
 	
-
-	@RequestMapping("contactus/InsertOpinionSuccess")
-	public String insertOpinionSuccess(Model model) {
-		List<ContactusBean> insertOpinionSuccess=contactusService.getAllContactus();
-		model.addAttribute("contactus", insertOpinionSuccess);
-		return "contactus/insertOpinionSuccess";
+	@RequestMapping("/contactus/selectfeedbackopinion/{pkid}")
+	public String list7(@PathVariable("pkid")Integer pkid,Model model) {
+		List<ContactusBean> list3=contactusService.getAllContactus(pkid);
+		model.addAttribute("contactus", list3);
+		return "contactus/selectfeedbackopinion";
 	}
-//
+	
+
+//	@RequestMapping("contactus/InsertOpinionSuccess/{pkid}")
+//	public String insertOpinionSuccess(@PathVariable("pkid")Integer pkid,Model model) {
+//		List<ContactusBean> insertOpinionSuccess=contactusService.getAllContactus(pkid);
+//		model.addAttribute("contactus", insertOpinionSuccess);
+//		return "contactus/InsertOpinionSuccess";
+//	}
+	
+
 //	@RequestMapping("contactus/InsertOpinionSuccess")
 //	public String instertopinionsuccess(@ModelAttribute("contactusBean")ContactusBean contactus,Model model) {
 //		List<ContactusBean>  list = contactusService.getAllContactus();
 //		model.addAttribute("contactus", list);
 //		System.out.println(list);
 //			return "redirect:contactus/InsertOpinionSuccess";
-//		
-//		
 //	}
+	
 	
 	@RequestMapping("contactus/StatisticsReport")
 	public String list3(Model model) {
@@ -127,12 +134,21 @@ public class ContactusController {
 	public String list5(Model model) {
 		return "contactus/contactuspieage";
 	}
-	
+	@RequestMapping("contactus/contactuspieopinion")
+	public String pieopinion(Model model) {
+		return "contactus/contactuspieopinion";
+	}
 	
 	@RequestMapping("contactus/selectopinion")
 	public String list6(Model model) {
 		List<ContactusBean> list2=contactusService.getAllContactus();
 		model.addAttribute("contactus", list2);
 		return "contactus/selectopinion";
+	}
+	@RequestMapping("contactus/selectfeedbackopinion")
+	public String insertsuccess(Model model) {
+		List<ContactusBean> insertsuccess=contactusService.getAllContactus();
+		model.addAttribute("contactus2", insertsuccess);
+		return "contactus/selectfeedbackopinion";
 	}
 }
