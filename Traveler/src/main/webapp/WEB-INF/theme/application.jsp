@@ -199,7 +199,7 @@ function test()
 <div  class="container">
 			<div class="row">
 				<div class="col-sm-offset-5 span9">
-					<h1 style="color:#009494;">主題旅遊報名申請</h1>             
+					<h1 style="color:#009494;font-size:30px">主題旅遊報名申請</h1>             
                     <br>
 				</div>
 			</div>

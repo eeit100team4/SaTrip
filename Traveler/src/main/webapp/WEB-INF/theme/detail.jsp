@@ -150,7 +150,7 @@
 <div class="container-fluid">
  <div class="row">
   <div class="col-md-12" style="font-weight:bold">
-   <div class="well" style="background-color:black;color:white;font-size:30px">${detail.themeProducts.productName}</div>
+   <div class="well" style="background-color:black;color:white;font-size:30px"><${detail.themeProducts.productName}></div>
   </div>
  </div>
 </div> 
@@ -241,8 +241,11 @@
 <a><img src="/Traveler/images/${detail.themeProducts.productName}-3.png" style="border:10px #808000 ridge;width:1500px; height:1000px;"></a>
 <a><img src="/Traveler/images/${detail.themeProducts.productName}-4.png" style="border:10px #808000 ridge;width:1500px; height:1000px;"></a>
 <!-- 每日行程 -->
+
 <!-- 每日行程 -->
+
 <!-- 每日行程 -->
+
 <!-- 備註 標題--> 
 <div class="container-fluid">
  <div class="row">
