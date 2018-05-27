@@ -143,59 +143,100 @@ input[type=submit]:hover {
 </head>
 <body onLoad="setFocusToUserId()" style="background: #EBFFEB;">
 <script>
+  // This is called with the results from from FB.getLoginStatus().
+  function statusChangeCallback(response) {
+    console.log('statusChangeCallback');
+    console.log(response);
+    // The response object is returned with a status field that lets the
+    // app know the current login status of the person.
+    // Full docs on the response object can be found in the documentation
+    // for FB.getLoginStatus().
+    if (response.status === 'connected') {
+      // Logged into your app and Facebook.
+      testAPI();
+    } else {
+      // The person is not logged into your app or we are unable to tell.
+      document.getElementById('status').innerHTML = 'Please log ' +
+        'into this app.';
+    }
+  }
+
+  // This function is called when someone finishes with the Login
+  // Button.  See the onlogin handler attached to it in the sample
+  // code below.
+  function checkLoginState() {
+    FB.getLoginStatus(function(response) {
+      statusChangeCallback(response);
+    });
+  }
+
   window.fbAsyncInit = function() {
     FB.init({
       appId      : '343238696200370',
-      cookie     : true,
-      xfbml      : true,
-      version    : 'Windows 10'
+      cookie     : true,  // enable cookies to allow the server to access 
+                          // the session
+      xfbml      : true,  // parse social plugins on this page
+      version    : 'v2.8' // use graph api version 2.8
     });
-      
-    FB.AppEvents.logPageView();   
-      
+
+    // Now that we've initialized the JavaScript SDK, we call 
+    // FB.getLoginStatus().  This function gets the state of the
+    // person visiting this page and can return one of three states to
+    // the callback you provide.  They can be:
+    //
+    // 1. Logged into your app ('connected')
+    // 2. Logged into Facebook, but not your app ('not_authorized')
+    // 3. Not logged into Facebook and can't tell if they are logged into
+    //    your app or not.
+    //
+    // These three cases are handled in the callback function.
+
+    FB.getLoginStatus(function(response) {
+      statusChangeCallback(response);
+    });
+
   };
 
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "https://connect.facebook.net/en_US/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
-  
-  
-  
+  // Load the SDK asynchronously
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "https://connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
 
-  FB.getLoginStatus(function(response) {
-      statusChangeCallback(response);
-  });
-  
-  
-
-  {
-      status: 'connected',
-      authResponse: {
-          accessToken: '...',
-          expiresIn:'...',
-          signedRequest:'...',
-          userID:'...'
+  // Here we run a very simple test of the Graph API after login is
+  // successful.  See statusChangeCallback() for when this call is made.
+  function testAPI() {
+    console.log('Welcome!  Fetching your information.... ');
+    FB.api('/me', function(response) {
+      //alert('Thanks for logging in, ' + response.name + '!' + response.id);
+      var fbId = document.getElementById("fbId").value;
+      //if(response.id=='1672836152800044') {
+      if (fbId=='') {
+    	  document.getElementById("fbId").value=response.id;
+    	  //document.getElementById("loginFormAuto").submit();
+      } else {
+    	  document.getElementById("memberId").value='A123456789';
+    	  document.getElementById("password").value='A123456789';
+    	  document.getElementById("fbId").value=response.id;
+    	  document.getElementById("loginFormAuto").submit();
       }
+      //console.log('Successful login for: ' + response.name);
+      //document.getElementById('status').innerHTML =
+        
+    });
   }
-  
-  function checkLoginState() {
-	  FB.getLoginStatus(function(response) {
-	    statusChangeCallback(response);
-	  });
-	}
 </script>
 <div style="margin:auto;width:30%" >
 <div class="container" style="padding:center;" >
-  <form name="loginForm" action="<c:url value='/member/login.do'/>" method="POST" align="center">
+  <form id="loginForm" name="loginForm" action="<c:url value='/member/login.do'/>" method="POST" align="center">
   <div class="row">
   	<h2 >Login </h2>
   	<div class="col-md-4" >
-        <input type="text" name="memberId" placeholder="身份證字號" required></Font></small></TD>
-        <input type="password" name="password" placeholder="Password" required>
+        <input type="text" name="memberId" placeholder="身份證字號" required style="width:304px">
+        <input type="password" name="password" placeholder="Password" required style="width:304px">
 <%--         <div id="errorMsgMap"  font-size =30%; display: inline;">${ErrorMsgMap.LoginError}</div> --%>
         <div style="align=center;">
                 <input type="checkbox"	name="rememberMe"
@@ -206,32 +247,35 @@ input[type=submit]:hover {
          </TR>
     	<div class="g-recaptcha col" data-sitekey="6LecRlkUAAAAAAjw-yatNu-zJHfZhcqVmg10Ce9b" style="width:304px"></div>
     </div>
-    	 
-			
-		
-        <input type="submit" value="Login">
+	
+        <input type="submit" value="Login" style="width:304px">
 <!--    <div class="col-md-8"></div>      -->
 
 	</div>
   </div>
   <div class="row">
-<!--       <div class="vl"> -->
-<!--         <span class="vl-innertext">or</span> -->
-<!--       </div> -->
-  	<div class="col-md-4" padding="0 0 1px 0">
-        <a href="#" class="fb btn">
-          	<i class="fa fa-facebook fa-fw" scope="public_profile,email"
-  onlogin="checkLoginState();"></i> Login with Facebook
-        </a>
-      
-        <a href="#" class="google btn">
+   	<div class="col-md-4" padding="0 0 1px 0">
+<!--         <a href="#" class="fb btn"> -->
+<!--           	<i class="fa fa-facebook fa-fw" scope="public_profile,email" -->
+<!--   onlogin="checkLoginState();"></i> Login with Facebook -->
+<!--         </a> -->
+        <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" 
+        data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false" onlogin="checkLoginState();" style="width:304px" ></div>
+<!--       <fb:login-button scope="public_profile,email" onlogin="checkLoginState();"> -->
+<!-- 	  </fb:login-button> -->
+        <a href="#" class="google btn" style="width:304px">
         	<i class="fa fa-google fa-fw"></i> Login with Google+
         </a>
     </div>
     </div>    
   </form>
+  <form id="loginFormAuto" name="loginFormAuto" action="<c:url value='/member/login.do'/>" method="POST" align="center">
+        <input type="hidden" id="memberId" name="memberId" value="H222977822">
+        <input type="hidden" id="password" name="password" value="a123456">
+        <input type="hidden" id="fbId" name="fbId" value="">
+  </form>
   </div>
-<div class="bottom-container" margin-bottom: 0px">
+<div class="bottom-container" style="margin-top:-15px">
   <div class="row">
     <div class="col">
       <a href="<spring:url value='/member/register'/>" style="color:white" class="btn">Sign up</a>
