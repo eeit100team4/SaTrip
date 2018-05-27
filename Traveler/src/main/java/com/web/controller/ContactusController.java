@@ -1,5 +1,6 @@
 package com.web.controller;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpSession;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,6 +24,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.google.gson.Gson;
+import com.web.model.commodity.ClientBean;
 import com.web.model.commodity.CommodityBean;
 import com.web.model.contactus.ContactusBean;
 
@@ -81,6 +85,7 @@ public class ContactusController {
 			@ModelAttribute("contactusBean") ContactusBean contactus,@PathVariable ("pkid") Integer pkid) {
 //		List<ContactusBean>  list = contactusService.getAllFeedback();
 //		model.addAttribute("contactus", list);
+		contactus.setFeedbackmessagetime(new Date());
 		contactusService.updateCustomerOpinion(contactus);
 		
 		return "redirect:/contactus/selectopinion";	
@@ -126,16 +131,19 @@ public class ContactusController {
 		return "contactus/StatisticsReport";
 	}
 	
-	@RequestMapping("contactus/contactuspieasia")
-	public String list4(Model model) {
-		return "contactus/contactuspieasia";
-	}
-	@RequestMapping("contactus/contactuspieage")
-	public String list5(Model model) {
-		return "contactus/contactuspieage";
-	}
+//	@RequestMapping("contactus/contactuspieasia")
+//	public String list4(Model model) {
+//		return "contactus/contactuspieasia";
+//	}
+//	@RequestMapping("contactus/contactuspieage")
+//	public String list5(Model model) {
+//		return "contactus/contactuspieage";
+//	}
 	@RequestMapping("contactus/contactuspieopinion")
 	public String pieopinion(Model model) {
+		List<ContactusBean> list = contactusService.getAllContactus();
+		String json = new Gson().toJson(list);
+		model.addAttribute("json", list);
 		return "contactus/contactuspieopinion";
 	}
 	
@@ -151,4 +159,10 @@ public class ContactusController {
 		model.addAttribute("contactus2", insertsuccess);
 		return "contactus/selectfeedbackopinion";
 	}
+	
+	@RequestMapping("contactus/Linechat")
+	public String linechat(Model model) {
+		return "contactus/selectfeedbackopinion";
+	}
+
 }
