@@ -163,7 +163,28 @@ border:1px solid black;
 						 </div>
 						 <div class='form-group'>
 						 <label for='address'>所在地:</label>						 
-						 <form:input id='address' path='address' type='text'/>
+						 <form:select path="address" style='color:black'>
+									<form:option value="台北市"/>
+									<form:option value="新北市"/>
+									<form:option value="基隆市"/>
+									<form:option value="桃園市"/>
+									<form:option value="新竹市"/>								
+									<form:option value="新竹縣"/>
+									<form:option value="苗栗縣"/>
+									<form:option value="台中市"/>
+									<form:option value="彰化縣"/>
+									<form:option value="南投縣"/>
+									<form:option value="雲林縣"/>
+									<form:option value="嘉義市"/>
+									<form:option value="嘉義縣"/>
+									<form:option value="台南市"/>
+									<form:option value="高雄市"/>
+									<form:option value="屏東縣"/>
+									<form:option value="台東縣"/>
+									<form:option value="花蓮縣"/>
+									<form:option value="宜蘭縣"/>
+									<form:option value="澎湖縣"/>
+								</form:select>
 						 </div>
 						 <div class="form-group">
 								<label for='opinion'>意見類別:</label>
