@@ -13,11 +13,6 @@
    </ul>
    <ul>
     <li>
-     <a class="btn btn-primary" style="text-align:left;" href="addTitle"><h3><font color="white">單一主題管理</font></h3></a>
-    </li>
-   </ul>
-   <ul>
-    <li>
      <a class="btn btn-primary" style="text-align:left;" href=""><h3><font color="white">旅遊商品管理</font></h3></a>
     </li>
    </ul>

@@ -82,20 +82,6 @@
 <!-- Main JS -->
 <script src="/Traveler/js/main.js"></script>
 <!-- 連結旁邊的小ICON套件  -->	
-<script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
-<!-- 手風琴 -->
-<script type="text/javascript" src="/Traveler/jquery-1.10.2.min.js"></script>
-<script type="text/javascript">
-$(function(){
-	$("ul.subs").hide();
-	$("div.main").click(function(){
-		$("ul.subs").hide();
-		if($("+ul",this).css("display")=="none"){
-		   $("+ul",this).show();
-	    }
-	 });
-  });
-</script>
 <!-- 測試側邊 -->
 <style>
 #mwt_mwt_slider_scroll
@@ -176,10 +162,15 @@ margin-bottom:0px;
 margin-bottom:0px;
 }
 </style>
+<!-- bootstrap網格 -->
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"></link>
+<style>
+.well, .panel {text-align: center;}
+</style>
 
 <title>Insert title here</title>
 </head>
-<body  style="background-image: url(/Traveler/images/主題背景用圖2.png);">
+<body>
 
 	<%@ include file="/WEB-INF/backStageHeader.jsp" %>
 
@@ -188,50 +179,44 @@ margin-bottom:0px;
 	<!-- =========側邊欄位開始============ -->	
 <%@ include file="/WEB-INF/theme/backLeftSide.jsp" %>
 <!-- =========側邊欄位結束============ -->
-<div style="color:black;margin-left:350px; margin-top:10px;width:1500px;" class="content text-center">
-
-<h1 style='font-size:30px;color:black;margin-top:50px;margin-right:700px;'>全主題類別</h1>
-<table style='font-size:25px;'>
- <tr style="text-align:center;">
-  <th>主題編號</th>
-  <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;主題名稱</th>
-  <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;圖片檔名</th>
-  <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;網站顯示圖片預覽</th>	
- </tr>
- <c:forEach var='themeTitles' items='${themeTitles}'>	
-	<tr style="text-align:left;">
-   <td>&nbsp;&nbsp;&nbsp;${themeTitles.titleId}</td>
-   <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${themeTitles.titleName}</td>
-   <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${themeTitles.fileName}</td>
-   <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/Traveler/images/themeTitle-${themeTitles.titleName}.png" width="200" height="80"style="border:6px #805300 ridge;"></td></tr>
-   </c:forEach>
-</table>	
-</div>
-
-<!--  
-<div style="margin-left:250px; margin-top:20px;width:1050px;" class="content text-center">
-<h1>請挑選主題</h1>
- <c:forEach var='theme' items='${themeTitles}'>
-  <div style="width:350px; height:250px; float: left; ">
-    <img src="/Traveler/images/themeTitle-${theme.titleName}.png" width="200" height="150">    
-    <p>   
-    <b style='font-size:25px;'>種類名稱:${theme.titleName}</b><br> 
-    <b style='font-size:25px;'>圖片檔名:${theme.fileName}</b><br>  
-    </p>
+<!-- 左邊的bar會歪 -->
+<div style="color:black;margin-left:230px;font-size:24px">
+<!-- 大標題 -->
+<br>
+<div class="container-fluid">
+ <div class="row">
+  <div class="col-sm-4">
+   <div class="header">全主題列表</div>
   </div>
- </c:forEach>
+ </div>
 </div>
--->		
-
-
+<hr>
+<!-- 表格 title -->
+<div class="container-fluid">
+ <div class="row">
+  <div class="col-md-1">編號</div>
+  <div class="col-md-1">名稱</div>
+  <div class="col-md-3">示意圖檔案名稱</div>
+  <div class="col-md-2">顯示圖片預覽</div>
+  <div class="col-md-3"></div>
+ </div>
+</div>
+<hr>
+<!-- 表格 內容 -->
+<c:forEach var='themeTitles' items='${themeTitles}'>
+<div class="container-fluid">
+ <div class="row">
+  <div class="col-md-1">${themeTitles.titleId}</div>
+  <div class="col-md-1">${themeTitles.titleName}</div>
+  <div class="col-md-3">${themeTitles.fileName}</div>
+  <div class="col-md-2"><img src="/Traveler/images/themeTitle-${themeTitles.titleName}.png" width="200" height="80"style="border:6px #805300 ridge;"></div>
+  <div class="col-md-3">修改圖片<img src="/Traveler/images/向左橘.png" width="50" height="50">隱藏主題<img src="/Traveler/images/向左箭頭.png" width="50" height="50"></div> 
+ </div>
+</div>
+</c:forEach>
+<!-- 新增主題按鈕 -->
+</div>
 	<!--  ========================================================== -->
-
-
-
-
 	<%@ include file="/WEB-INF/backStageFooter.jsp" %>
-
-
-
 </body>
 </html>
