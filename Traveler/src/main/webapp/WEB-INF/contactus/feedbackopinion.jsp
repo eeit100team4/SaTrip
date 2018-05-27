@@ -171,6 +171,9 @@ table{
  width:500px;
  heigth:800px;
 }
+td{
+border:2px black solid;
+}
 </style>
 
 <title>Insert title here</title>
@@ -189,7 +192,7 @@ table{
 									
 						<tr>		
 						<td>姓名:
-						<td><form:input id='name' path='name' type='text' value='${con.name}'></form:input></td>
+						<td id='name' path='name' type='text' value='${con.name}'>${con.name}</td>
 						</tr>
 						<tr>
 						<td>性別:
