@@ -197,7 +197,7 @@ html, body {
 						 <fieldest>
 						
 						 
-			<table class="table table-hover" style="width:86em">
+			<table class="table table-hover" style="width:80em">
  				 <thead>
     				<tr>
       					<th scope="col">編號</th>
