@@ -145,8 +145,106 @@
 </head>
 <body>
 	<%@ include file="/WEB-INF/frontStageHeader.jsp"%>
-	
-				<!--  網頁內容 -->
+<!-- 展示區 -->
+<!-- 表1 顯示商品名  -->
+<div class="container-fluid">
+ <div class="row">
+  <div class="col-md-12">
+   <div class="well" style="background-color:black;color:white;font-size:30px">${detail.themeProducts.productName}</div>
+  </div>
+ </div>
+</div> 
+<!--表2 行程資訊標題  -->
+<div class="container-fluid">
+ <div class="row">
+  <div class="col-md-12">
+   <div class="panel-heading" style="color:black;font-size:32px;text-align:left"><img src="/Traveler/images/行李箱.png" width="50" height="50">&nbsp;&nbsp;&nbsp;&nbsp;行程資訊</div>
+  </div>
+ </div>
+</div> 
+<hr>
+<!--表3 行程資訊內容  -->
+<div class="container-fluid">
+ <div class="row">
+  <div class="col-md-4">
+   <div class="panel-body" style="color:black;font-size:24px">出發日期&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<fmt:formatDate value="${detail.setOut}" pattern="yyyy/MM/dd"/></div>
+   <div class="panel-body" style="color:black;font-size:24px">報名期限&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<fmt:formatDate value="${detail.deadline}" pattern="yyyy/MM/dd" /></div>
+  </div>
+  <div class="col-md-4">
+   <div class="panel-body" style="color:black;font-size:24px">旅遊國家&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${detail.themeProducts.country}</div>
+   <div class="panel-body" style="color:black;font-size:24px">一人費用&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NTD&nbsp;&nbsp;$${detail.price}</div>
+  </div>
+  <div class="col-md-4">
+   <div class="panel-body" style="color:white;font-size:24px"></div>
+   <div class="panel-body" style="color:black;font-size:24px;;margin-top:20px"><a onmouseover="this.style.color='orange'" onmouseout="this.style.color='#4F4FFF'" style="color:#4F4FFF;font-size:32px;" href="${detail.journeyId}/application"><img src="/Traveler/images/向右箭頭.jpg" width="50" height="50">點擊此處填寫報名表</a></div>
+   </div>
+ </div>
+</div>
+<hr>
+<!--表4 航班資訊標題  -->
+<div class="container-fluid">
+ <div class="row">
+  <div class="col-md-12">
+   <div class="panel-heading" style="color:black;font-size:30px;text-align:left"><img src="/Traveler/images/航班.png" width="50" height="50">&nbsp;&nbsp;&nbsp;&nbsp;航班資訊</div>
+    <div class="panel-body" style="color:black;font-size:20px">* 以下為本行程預定的航空班機及飛航路線，實際航班以團體確認的航班編號與飛行時間為準。</div>
+    <div class="panel-body" style="color:black;font-size:20px">* 因應國際油價波動，航空公司隨機票所增收燃油附加費用，會隨國際油價而有所調整。</div>
+  </div>
+ </div>
+</div> 
+<hr>
+<!--表5 航班資訊標題列  -->
+<div class="container-fluid">
+ <div class="row">
+  <div class="col-md-12">
+   <div class="well" style="color:white;font-size:24px;text-align:left;background-color:black">出發日期/時間&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   抵達日期/時間&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   出發機場&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   抵達機場&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   航空公司&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;班機編號</div>
+  </div>
+ </div>
+</div> 
+<hr>
+<!--表5 航班資訊內容  -->
+<div class="container-fluid">
+ <div class="row">           
+  <div class="col-md-2">
+   <div class="panel-body" style="color:black;font-size:24px"><fmt:formatDate value="${detail.goStartDate}" pattern="yyyy/MM/dd"/>&nbsp;&nbsp;${detail.goStartHour}:${detail.goStartMinute}</div>
+   <div class="panel-body" style="color:black;font-size:24px"><fmt:formatDate value="${detail.returnStartDate}" pattern="yyyy/MM/dd"/>&nbsp;&nbsp;${detail.goEndHour}:${detail.goEndMinute}</div>
+  </div>
+  <div class="col-md-2">
+   <div class="panel-body" style="color:black;font-size:24px"><fmt:formatDate value="${detail.goStartDate}" pattern="yyyy/MM/dd"/>&nbsp;&nbsp;${detail.goStartHour}:${detail.goStartMinute}</div>
+   <div class="panel-body" style="color:black;font-size:24px"><fmt:formatDate value="${detail.returnStartDate}" pattern="yyyy/MM/dd"/>&nbsp;&nbsp;${detail.goEndHour}:${detail.goEndMinute}</div>
+  </div>
+  <div class="col-md-2">
+   <div class="panel-body" style="color:black;font-size:24px">${detail.goStartWhere}</div>
+   <div class="panel-body" style="color:black;font-size:24px">${detail.returnStartWhere}</div>
+   </div>
+   <div class="col-md-2">
+   <div class="panel-body" style="color:black;font-size:24px">${detail.goEndWhere}</div>
+   <div class="panel-body" style="color:black;font-size:24px">${detail.returnEndWhere}</div>
+  </div>
+  <div class="col-md-2">
+   <div class="panel-body" style="color:black;font-size:24px">${detail.companyName}</div>
+   <div class="panel-body" style="color:black;font-size:24px">${detail.companyName}</div>
+  </div>
+  <div class="col-md-2">
+   <div class="panel-body" style="color:black;font-size:24px">${detail.goPlaneId}</div>
+   <div class="panel-body" style="color:black;font-size:24px">${detail.returnPlaneId}</div>
+  </div>
+ </div>
+</div>
+<hr>
+<!--超級大圖  -->
+<a><img src="/Traveler/images/${detail.themeProducts.productName}-1.png" style="border:10px #808000 ridge;width:1500px; height:1000px;"></a>
+<a><img src="/Traveler/images/${detail.themeProducts.productName}-2.png" style="border:10px #808000 ridge;width:1500px; height:1000px;"></a>
+<a><img src="/Traveler/images/${detail.themeProducts.productName}-3.png" style="border:10px #808000 ridge;width:1500px; height:1000px;"></a>
+<a><img src="/Traveler/images/${detail.themeProducts.productName}-4.png" style="border:10px #808000 ridge;width:1500px; height:1000px;"></a>
+<!-- 每日行程 -->
+<!-- 每日行程 -->
+<!-- 每日行程 -->
+<!-- 備註 --> 
+<!-- 返回上方按鈕 -->				
 <script type="text/javascript">
 $(function() {
     /* 按下GoTop按鈕時的事件 */
