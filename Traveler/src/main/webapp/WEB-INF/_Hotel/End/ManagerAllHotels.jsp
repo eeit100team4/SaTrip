@@ -313,93 +313,183 @@ float:right;
 			<div class="card-header"></div>
 			<div class="card-body">
 				<!-- 每頁不同的內容從這裡開始 -->
-				<c:forEach  var="hotelInfo" items="${hotels}">	
-				 <table id="productTable"   class="table table-bordered">
+					
+				 <table id="hotelTable"   class="table table-bordered">
                        <thead>
                           <tr>
-                             <th>編號</th>
-                             <th>照片</th> 
-                             <th>國家</th>
-                             <th>城市</th>
-                             <th>飯店</th>                                             
-                             <th>管理</th>
+                             <th scope="col">編號</th>
+                             <th scope="col">照片</th> 
+                             <th scope="col">國家</th>
+                             <th scope="col">城市</th>
+                             <th scope="col">飯店</th>                                             
+                             <th scope="col">管理</th>
                           </tr>
                        </thead>
                        <tbody>
-                    
-                       		<tr><td>${hotelInfo.hotel_id}</td><td><img width='200' height='100' src="<c:url value='/getPic/${hotelInfo.hotel_id}' />" /></td><td>${hotelInfo.country}</td><td>${hotelInfo.city}</td><td>${hotelInfo.name}</td><td><button class="btn btn-danger"><i class="fas fa-trash-alt"></i></button> <button class="btn btn-info"><i class="fas fa-edit"></i></button></td></tr>                       
+                       <c:forEach  var="hotelInfo" items="${hotels}">                    
+                       		<tr>
+	                       		<td>${hotelInfo.hotel_id}</td>
+	                       		<td><img width='200' height='100' src="<c:url value='/getPic/${hotelInfo.hotel_id}' />" /></td>
+	                       		<td>${hotelInfo.country}</td>
+	                       		<td>${hotelInfo.city}</td>
+	                       		<td>${hotelInfo.name}</td>
+	                       		<td>
+		                       		 <button class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+		                       		 <button class="btn btn-info"><i class="fas fa-edit"></i></button>
+	                       			 </td>
+                    		 </tr> 
+                	   </c:forEach>                      
                        </tbody>
                        <tfoot>
                        <tr>
-                       <form name="myForm">
-                        <td><input type="hidden" id="ProductID" name="ProductID"><span></span></td>
-                        <td><input path="productImage" type='file' class='form:input-large'></td>
-                        <td><input type="text" style="width:125px" class="form-control" id="country" name="country" placeholder=""></td>
-                        <td><input type="text" style="width:125px" class="form-control" id="city" name="city" placeholder=""></td>
-                        <td><input type="text" style="width:200px" class="form-control" id="name" name="name" placeholder=""></td>
-                        <td><button id="buttonAdd" type="button" class="btn btn-primary"><i class="fas fa-plus"></i></button>
-                          <button id="buttonUpdate" type="button" class="btn btn-success"><i class="fas fa-pencil-alt"></i></button></td>
-                       </tr>
-                       </form>
-                       </tfoot>
+	                       <form:form method='POST' modelAttribute="hotelBean" 	class='form-horizontal' enctype="multipart/form-data">
+		                        <td><input type="hidden" id="ProductID" name="ProductID"><span></span></td>
+		                        <td><input path="productImage" type='file' class='form:input-large'></td>                        
+		                        <td><input type="text" style="width:125px" class="form-control" id="country" name="country" placeholder="國家"></td>
+		                        <td><input type="text" style="width:125px" class="form-control" id="city" name="city" placeholder="城市"></td>
+		                        <td><input type="text" style="width:200px" class="form-control" id="name" name="name" placeholder="飯店"></td>
+		                        <td>
+			                        <button id="buttonAdd" type="button" class="btn btn-primary"><i class="fas fa-plus"></i></button>
+			                        <button id="buttonUpdate" type="button" class="btn btn-success"><i class="fas fa-pencil-alt"></i></button>
+			                    </td>	                  
+	                       </form:form>
+                      </tr>
+                      </tfoot>
                    </table>
-                   </c:forEach>
+                   
 				<!-- 每頁不同的內容到這裡結束 -->
 			</div>
 			</div>	
 		</div>
 		
-		
-<!-- ____________________ -->
-
-		
-		
-<!-- 		<section class="container"> -->
-<!-- 			<div class="row"> -->
-<%-- 			<c:forEach  var="hotelInfo" items="${hotels}">	 --%>
+		<script src="js/jquery-3.3.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script>
+		$(document).ready(function() {			
+			loadProduct(1);
+			
+			
+// 			$('#buttonAdd').click(function(){
+// 				console.log($('form[name="myForm"]').serializeArray())
+// 			})
 			
 			
 			
-<!-- 			<div class="col-sm-6 col-md-3" style="width: 360px; height: 360px"> -->
-<!-- 					<div class="thumbnail" style="width: 320px; height: 340px"> -->
-<%-- 					 <th><img width='300' height='250' src="<c:url value='/getPic/${hotelInfo.hotel_id}' />" /></th>						 --%>
-<!-- 						<div class="caption"> -->
-<!-- 							<p> -->
-<%-- 								<b style='font-size: 16px;'>${hotelInfo.name}</b> --%>
-<!-- 							</p> -->
-<%-- 							<p>${hotelInfo.country}</p> --%>
-<%-- 							<p>${hotelInfo.city}</p> --%>
-<%-- 							<p><font color="red">NT：${hotelInfo.hotelRoomBean.price}</font></p> --%>
-<%-- 							<p>目前在庫數量: ${product.stock}本</p> --%>
-<!-- 							<p> -->
-<%-- 								<a href="<spring:url value='product?id=${product.bookId}' />"    --%>
-<!-- 									class="btn btn-primary"> <span -->
-<!-- 									class="glyphicon-info-sigh glyphicon"></span>詳細資料 -->
-<!-- 								</a> -->
-								
-<%-- 								<a href="<spring:url value='product.xml?id=${product.bookId}' />"    --%>
-<!-- 									class="btn btn-primary"> <span -->
-<!-- 									class="glyphicon-info-sigh glyphicon"></span>XML -->
-<!-- 								</a> -->
-								
-<%-- 								<a href="<spring:url value='product.json?id=${product.bookId}' />"    --%>
-<!-- 									class="btn btn-primary"> <span -->
-<!-- 									class="glyphicon-info-sigh glyphicon"></span>JSON -->
-<!-- 								</a> -->
-<!-- 							</p> -->
-<!-- 						</div> -->
-<!-- 					</div> -->
-<!-- 				</div> -->
-<%-- 				</c:forEach> --%>
-<!-- 			</div>			 -->
-<!-- 		</section> -->
-<!-- 		</div> -->
+			
+			   //新增產品
+			    $('#buttonAdd').click(function(){
+	 		    	var datas = $('form[name="myForm"]').serialize();
+	 		    	$.post('ProductsInsert',datas,function(data){
+	 		    		alert(data);	 		    		
+	 		    		loadProduct(1);	 		    		
+	 		    		$('#ProductID').val('');
+	 					$('#ProductName').val('');
+	 					$('#UnitPrice').val('');
+	 					$('#UnitsInStock').val('');
+	 		    	});
+			    })
+			   
+			    //讀取產品
+			   function loadProduct(id){
+// 				   $.getJSON('Products',{'categoryID':id},function(datas){
+// 					   var docFrag = $(document.createDocumentFragment());
+// 					   $.each(datas,function(idx,product){
+// 						   //{UnitPrice: "18.0000", ProductName: "Chai", ProductID: "1", UnitsInStock: "34"}
+// 						   var cell1 = $("<td></td>").text(product.ProductID);
+// 						   var cell2 = $("<td></td>").text(product.ProductName);
+// 						   var cell3 = $("<td></td>").text(product.UnitPrice);
+// 						   var cell4 = $("<td></td>").text(product.UnitsInStock);
+// 						   var cell5 = $('<td></td>').html('<button class="btn btn-danger"><i class="fas fa-trash-alt"></i></button> <button class="btn btn-info"><i class="fas fa-edit"></i></button>');
+// 						   var row = $("<tr></tr>").append([cell1,cell2,cell3,cell4,cell5]);
+// 						   docFrag.append(row);
+// 					   })
+// 					   $('#productTable>tbody').html(docFrag);
+// 				   })
+				  
+			    	
+	 		    	 $.getJSON('Products', { 'categoryID': id }, function (datas) {			          
+	 			           var docFrag = $(document.createDocumentFragment());
+	 			           var tb = $('#productTable>tbody');
+	 			           tb.empty();
+	 			           $.each(datas, function (idx,product) {
+	 			               var cell1 = $('<td></td>').text(product.ProductID);
+	 			               var cell2 = $('<td></td>').text(product.ProductName);
+	 			               var cell3 = $('<td></td>').text(product.UnitPrice);
+	 			               var cell4 = $('<td></td>').text(product.UnitsInStock);
+	 			               var cell5 = $('<td></td>').html('<button class="btn btn-danger"><i class="fas fa-trash-alt"></i></button> <button class="btn btn-info"><i class="fas fa-edit"></i></button>');
 
-	<!--  ========================================================== -->
-
-
-
-
+	 			               var row = $('<tr></tr>').append([cell1, cell2, cell3, cell4,cell5]);
+	 			               docFrag.append(row);
+	 			           })
+	 			           tb.append(docFrag);
+	 			           
+	 			       })	   
+			   }
+			   			   
+// 		          $('#productTable>tbody>tr>td>button:nth-child(1)').click(function(){
+// 						//this -> button
+// 						//$(this).parent().parent().remove();
+// 						$(this).parents('tr').remove();
+// 					})
+// 					$('#productTable>tbody').on('click','tr>td>button:nth-child(1)',function(){
+// 						//this -> button
+// 						//$(this).parent().parent().remove();
+// 						$(this).parents('tr').remove();
+// 					})
+					
+					
+// 					$('#productTable>tbody').on('click','tr>td>button:nth-child(2)',function(){
+// 						var row = $(this).parents('tr');
+// 						console.log(row.children('td:eq(0)').text());
+// 						$('#ProductName').val(row.children('td:eq(1)').text());
+// 						$('#UnitPrice').val(row.children('td:eq(2)').text());
+// 						$('#UnitsInStock').val(row.children('td:eq(3)').text());
+// 					})
+			 
+			    //刪除產品			    
+			    
+			   $('#productTable>tbody').on('click','tr button:nth-child(1)',function(){
+				   //$(this).parents('tr').children('td:eq(0)').text()
+	 			   var id = $(this).parents('tr').find('td:nth-child(1)').text();
+	 			   $.get('ProductsDelete',{ProductID:id},function(data){
+	 				   alert(data);
+	 				   loadProduct(1);
+	 			   })
+			  })
+		
+			    //修改產品
+			    	    
+	 		   $('#productTable>tbody').on('click','tr button:nth-child(2)',function(){
+	 			   var ProductID = $(this).parents('tr').find('td:nth-child(1)').text();
+	 			   var ProductName = $(this).parents('tr').find('td:nth-child(2)').text();
+	 			   var UnitPrice = $(this).parents('tr').find('td:nth-child(3)').text();
+	 			   var UnitsInStock = $(this).parents('tr').find('td:nth-child(4)').text();
+				  
+	 			   $('#ProductID').val(ProductID).next('span').text(ProductID);
+	 			   $('#ProductName').val(ProductName);
+	 			   $('#UnitPrice').val(UnitPrice);
+	 			   $('#UnitsInStock').val(UnitsInStock);
+	 		   })
+			   
+			   
+			   //更新產品
+			   $('#buttonUpdate').click(function(){
+	 			   var datas = $('form[name="myForm"]').serialize();
+	 		    	$.post('ProductsUpdate',datas,function(data){
+	 		    		alert(data);
+	 		    		loadProduct(1);
+	 		    		 $('#ProductID').val('').next('span').text('');
+	 					   $('#ProductName').val('');
+	 					   $('#UnitPrice').val('');
+	 					   $('#UnitsInStock').val('');
+	 		    	});
+			   });
+		})
+	</script>
+		
+		
+		
+		
 <%-- 	<%@ include file="/WEB-INF/backStageFooter.jsp" %> --%>
 
 

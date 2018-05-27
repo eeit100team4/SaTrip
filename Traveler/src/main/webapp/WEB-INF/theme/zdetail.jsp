@@ -14,7 +14,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>Traveler</title>
+<title>Travel &mash; 100% Free Fully Responsive HTML5 Template by FREEHTML5.co</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
 <meta name="keywords"
@@ -47,7 +47,7 @@
 <meta name="twitter:card" content="" />
 
 <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-<link rel="shortcut icon" href="/Traveler/images/LeftTopCorner.ico">
+<link rel="shortcut icon" href="images/favicon.ico">
 
 <!--<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>-->
 
@@ -115,91 +115,38 @@
 <!-- 連結旁邊的小ICON套件  -->	
 <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
 
-<!-- bootstrap網格 -->
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"></link>
-<style>
-.well, .panel {text-align: center;}
-</style>
-<!-- 返回上方按鈕 -->
-<style>
-#gotop {
-    position:fixed;
-    z-index:90;
-    right:30px;
-    bottom:31px;
-    display:none;
-    width:50px;
-    height:50px;
-    color:#fff;
-    background:#33b5e5;
-    line-height:50px;
-    border-radius:50%;
-    transition:all 0.5s;
-    text-align: center;
-    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
-}
-#gotop :hover{
-    background:#0099CC;
-}
-</style>
-<!--  -->
 </head>
 <body>
 	<%@ include file="/WEB-INF/frontStageHeader.jsp"%>
-<!-- 大標 跟一張圖 -->
- <!--  <div class="fh5co-cover" data-stellar-background-ratio="0.5">-->
- <h1 style="background:black;color:white;text-align:center;height:50px">~獨特商品*夢想起飛~</h1>	
- <div style="margin-right:400px;margin-top:10px;width:1500px;" class="content text-center">
-     <a><img src="/Traveler/images/獨家行程.png" width="1500" height="200"></a>
- </div>
-<!--</div>-->
-<!-- 展示區 -->
-<c:forEach var='products' items='${products}'>
-<div class="container-fluid">
- <div class="row">
-  <!-- 左邊欄位 -->
-  <div class="col-sm-6">
-   <div class="panel-body"><img src="/Traveler/images/絢彩樂訪．環球影城魔法世界五日.png" style="border:10px #808000 ridge;width:725px; height:552px;"></div>
-  </div>
-  <!--右邊欄位-->
-  <div class="col-sm-6" style="border:10px #805300 ridge;margin-top:15px">
-   <div class="panel-heading" style="font-size:30px;font-family: DFKai-sb;"><b>${products.productName}</b></div><hr>
-   <div class="panel-heading" style="font-size:24px;color:#0000CC">${products.adTitle}</div>
-   <div class="panel-body" style="font-size:20px;">${products.adDes}</div>
-   <hr>   
-   <div class="panel-body" style="font-size:20px;color:#808000">★${products.ad1}</div>
-   <div class="panel-body" style="font-size:20px;color:#808000">★${products.ad2}</div>
-   <div class="panel-body" style="font-size:20px;color:#808000">★${products.ad3}</div>
-   <br>
-   <div class="panel-body"><a onmouseover="this.style.color='orange'" onmouseout="this.style.color='#4F4FFF'" style="font-size:20px;color:#000080" href="${products.themeTitles.titleName}/${products.productName}">點此可查看出團時間!<img src="/Traveler/images/向左箭頭.png" width="50" height="50"></a></div>  
-  </div>
- </div>
-</div><hr><hr>
-</c:forEach>
-<script type="text/javascript">
-$(function() {
-    /* 按下GoTop按鈕時的事件 */
-    $('#gotop').click(function(){
-        $('html,body').animate({ scrollTop: 0 }, 'slow');   /* 返回到最頂上 */
-        return false;
-    });
-     
-    /* 偵測卷軸滑動時，往下滑超過400px就讓GoTop按鈕出現 */
-    $(window).scroll(function() {
-        if ( $(this).scrollTop() > 400){
-            $('#gotop').fadeIn();
-        } else {
-            $('#gotop').fadeOut();
-        }
-    });
-});
-/*返回上方的按鈕*/
-</script>   
-<!-- 記得要把按鈕放到網頁上, 否則它不會出現 -->
-<img src=/Traveler/images/向上箭頭.png id="gotop" style="">
-   <i class="fa fa-angle-up"></i>
-
-
+	
+<div style="text-align:center;margin-left:100px; margin-top:20px;">
+  <h1 style="color:#009494;">詳細資訊</h1>
+    <hr>
+    
+    <h2 style="color:#00D100;">行程資訊</h2>
+    <b style='font-size:16px;'>${detail.themeProducts.productName}</b><br>
+    <b style='font-size:16px;'>出團日期<fmt:formatDate value="${detail.setOut}" pattern="yyyy/MM/dd" /></b>
+    <b style='font-size:16px;'>報名截止日<fmt:formatDate value="${detail.deadline}" pattern="yyyy/MM/dd" /></b><br>
+    <b style='font-size:16px;'>旅遊國家${detail.themeProducts.country}</b>
+    <b style='font-size:16px;'>標準團費${detail.price}</b><br>
+    <hr>
+    <h2 style="color:#00D100;">航班資訊(去)</h2>
+    <b style='font-size:16px;'>${detail.companyName}</b>&nbsp;&nbsp;${detail.goPlaneId}<br>
+    <b style='font-size:16px;'>出發時間&nbsp;&nbsp;<fmt:formatDate value="${detail.setOut}" pattern="yyyy/MM/dd" />&nbsp;&nbsp;${detail.goStartHour}&nbsp;:&nbsp;${detail.goStartMinute}&nbsp;&nbsp;${detail.goStartWhere}</b><br>
+    <b style='font-size:16px;'>抵達時間&nbsp;&nbsp;<fmt:formatDate value="${detail.setOut}" pattern="yyyy/MM/dd" />&nbsp;&nbsp;${detail.goEndHour}&nbsp;:&nbsp;${detail.goEndMinute}&nbsp;&nbsp;${detail.goEndWhere}</b><br>
+    <hr>
+    <h2 style="color:#00D100;">航班資訊(回)</h2>
+    <b style='font-size:16px;'>${detail.companyName}</b>&nbsp;&nbsp;${detail.returnPlaneId}<br>
+    <b style='font-size:16px;'>出發時間&nbsp;&nbsp;<fmt:formatDate value="${detail.returnDay}" pattern="yyyy/MM/dd" />&nbsp;&nbsp;${detail.returnStartHour}&nbsp;:&nbsp;${detail.returnStartMinute}&nbsp;&nbsp;${detail.returnStartWhere}</b><br>
+    <b style='font-size:16px;'>抵達時間&nbsp;&nbsp;<fmt:formatDate value="${detail.returnDay}" pattern="yyyy/MM/dd" />&nbsp;&nbsp;${detail.returnEndHour}&nbsp;:&nbsp;${detail.returnEndMinute}&nbsp;&nbsp;${detail.returnEndWhere}</b><br>
+    <hr>
+    
+    
+    
+    <a onmouseover="this.style.color='orange'" onmouseout="this.style.color='#4F4FFF'" style="color:#4F4FFF;font-size:25px;" href="${detail.journeyId}/application">報名</a>    
+    
+</div>
+<hr>
 	<%@ include file="/WEB-INF/frontStageFooter.jsp"%>
 </body>
 </html>

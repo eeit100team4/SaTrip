@@ -166,6 +166,11 @@ margin-bottom:0px;
 .footer .push{
 margin-bottom:0px;
 }
+table{
+ border:2px black solid;
+ width:500px;
+ heigth:800px;
+}
 </style>
 
 <title>Insert title here</title>
@@ -176,51 +181,48 @@ margin-bottom:0px;
 	
 						
 <!--=========================要放的東西  =====================-->
-		<div class="container" style="padding-top:80px;padding-left:150px">
+		<div class="container" style="padding-top:80px;padding-left:150px;width:40em;">
 	<c:forEach var='con' items='${contactus}'>	
 <form:form action="/Traveler/contactus/feedbackopinion/${con.pkid}" modelAttribute="contactusBean"  enctype='multipart/form-data'>
 						 <fieldest>
 						<table>
 									
 						<tr>		
-						<td><label for='name'>姓名:</label>
-						<form:input id='name' path='name' type='text' value='${con.name}'/></td>
+						<td>姓名:
+						<td><form:input id='name' path='name' type='text' value='${con.name}'></form:input></td>
 						</tr>
 						<tr>
-						<td><label for='sex'>性別:</label>
-						<form:input id='sex' path='sex' type='text' value='${con.sex}'/></td>
+						<td>性別:
+						<td id='sex' path='sex' type='text' value='${con.sex}'>${con.sex}</td>
 						</tr>
 						<tr>
-						<td><label for='age'>年齡:</label>
-						<form:input id='age' path='age' type='text' value='${con.age}'/></td>
+						<td>年齡:
+						<td id='age' path='age' type='text' value='${con.age}'>${con.age}</td>
 						</tr>
 						<tr>
-						<td><label for='phone'>連絡電話:</label>
-						<form:input id='phone' path='phone' type='text' value='${con.phone}'/></td>
+						<td>連絡電話:
+						<td id='phone' path='phone' type='text' value='${con.phone}'>${con.phone}</td>
 						</tr>
 						<tr>
-						<td><label for='email'>電子信箱:</label>
-						<form:input id='email' path='email' type='text' value='${con.email}'/></td>
+						<td>電子信箱:
+						<td id='email' path='email' type='text' value='${con.email}'>${con.email}</td>
 						</tr>
 						<tr>
-						<td><label for='address'>所在地:</label>
-						<form:input id='address' path='address' type='text' value='${con.address}'/></td>
+						<td>所在地:
+						<td id='address' path='address' type='text' value='${con.address}'>${con.address}</td>
 						</tr>
 						<tr>
-						<td><label for='opinion'>意見類別:</label>
-						<form:input id='opinion' path='opinion' type='text' value='${con.opinion}'/></td>
+						<td>意見類別:
+						<td id='opinion' path='opinion' type='text' value='${con.opinion}'>${con.opinion}</td>
 						</tr>
 						<tr>
-						<td>
-					    <label for='comment'>意見欄:</label> 
-					    <form:input cols="40" rows="5"  id="comment" path='comment' value='${con.comment}'></form:input>
-					    </td>
+						<td>意見欄:
+					    <td cols="40" rows="5"  id="comment" path='comment' value='${con.comment}'>${con.comment}</td>
 					    </tr>
 					    <tr>
-					    <td>
-					    <label for='feedback'>回覆欄:</label>
-					    <form:textarea cols="40" rows="5"  id="feedback" path='feedback' value='${con.feedback}'></form:textarea>
-					    </td>
+					    <td>回覆欄:
+					    <td  colspan="6"><form:textarea cols="40" rows="5"  id="feedback" path='feedback' value='${con.feedback}'></form:textarea></td>
+					   
 					    </tr>
 					   
 						</table>
@@ -228,6 +230,7 @@ margin-bottom:0px;
                <div class='form-group'>
                	<input type="submit" id='btnAdd' class="btn btn-primary" value="回覆"></input>
                	</div>
+               
 		</fieldest>
 		</form:form>
 		 </c:forEach>

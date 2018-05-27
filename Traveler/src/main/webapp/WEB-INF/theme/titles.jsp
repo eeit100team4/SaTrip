@@ -151,20 +151,20 @@ a img:hover {
 <body>
 	<%@ include file="/WEB-INF/frontStageHeader.jsp"%>
 		
-<div class="fh5co-cover" data-stellar-background-ratio="0.5">	
+<!--  <div class="fh5co-cover" data-stellar-background-ratio="0.5">	-->
  <h1 style="background:black;color:white;text-align:center;height:50px">~優質規劃*精選主題~</h1>
   <div style="margin-left:50px;margin-top:50px;width:1400px;" class="content text-center">	
    <c:forEach var='titleName' items='${titleList}'> 
     <div style="width:350px; height:250px; float: left; ">
      <a href="products/${titleName}"><img src="/Traveler/images/themeTitle-${titleName}.png" width="325" height="200" style="border:20px #805300 ridge;"></a>      
       <div style="width:350px; height:250px; float: left;">
-       <a onmouseover="this.style.color='orange'" onmouseout="this.style.color='black'" style='font-size:25px;color:black;' href="products/${titleName}">${titleName}</a><br>     
+       <a onmouseover="this.style.color='orange'" onmouseout="this.style.color='black'" style='font-size:25px;color:black;' href="products/${titleName}">~~~~~~~${titleName}~~~~~~~</a><br>     
       </div>
       <br>
     </div>
    </c:forEach> 
  </div>
-</div>
+<!-- </div> -->
 <!--<h1 style="background:black;color:black;text-align:center;">a</h1>  --> 
 	<br><br><br><br><br>
 <!-- 返回上方按鈕 -->	
@@ -187,9 +187,8 @@ $(function() {
 });
 </script>
 <!-- 記得要把按鈕放到網頁上, 否則它不會出現 -->
-<a href="https://www.blogger.com/blogger.g?blogID=2031514508322140995#" id="gotop" style="">
+<img src=/Traveler/images/向上箭頭.png id="gotop" style="">
    <i class="fa fa-angle-up"></i>
-</a>
 <!--  -->   
 	<%@ include file="/WEB-INF/frontStageFooter.jsp"%>
 </body>

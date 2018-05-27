@@ -14,7 +14,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>Travel &mash; 100% Free Fully Responsive HTML5 Template by FREEHTML5.co</title>
+<title>Traveler</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
 <meta name="keywords"
@@ -47,7 +47,7 @@
 <meta name="twitter:card" content="" />
 
 <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-<link rel="shortcut icon" href="images/favicon.ico">
+<link rel="shortcut icon" href="/Traveler/images/LeftTopCorner.ico">
 
 <!--<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>-->
 
@@ -114,39 +114,160 @@
 
 <!-- 連結旁邊的小ICON套件  -->	
 <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
-
+<!-- bootstrap網格 -->
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"></link>
+<style>
+.well, .panel {text-align: center;}
+</style>
+<!-- 返回上方按鈕 -->
+<style>
+#gotop {
+    position:fixed;
+    z-index:90;
+    right:30px;
+    bottom:31px;
+    display:none;
+    width:50px;
+    height:50px;
+    color:#fff;
+    background:#33b5e5;
+    line-height:50px;
+    border-radius:50%;
+    transition:all 0.5s;
+    text-align: center;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+}
+#gotop :hover{
+    background:#0099CC;
+}
+</style>
+<!--  -->
 </head>
 <body>
 	<%@ include file="/WEB-INF/frontStageHeader.jsp"%>
-	
-<div style="text-align:center;margin-left:100px; margin-top:20px;">
-  <h1 style="color:#009494;">詳細資訊</h1>
-    <hr>
-    
-    <h2 style="color:#00D100;">行程資訊</h2>
-    <b style='font-size:16px;'>${detail.themeProducts.productName}</b><br>
-    <b style='font-size:16px;'>出團日期<fmt:formatDate value="${detail.setOut}" pattern="yyyy/MM/dd" /></b>
-    <b style='font-size:16px;'>報名截止日<fmt:formatDate value="${detail.deadline}" pattern="yyyy/MM/dd" /></b><br>
-    <b style='font-size:16px;'>旅遊國家${detail.themeProducts.country}</b>
-    <b style='font-size:16px;'>標準團費${detail.price}</b><br>
-    <hr>
-    <h2 style="color:#00D100;">航班資訊(去)</h2>
-    <b style='font-size:16px;'>${detail.companyName}</b>&nbsp;&nbsp;${detail.goPlaneId}<br>
-    <b style='font-size:16px;'>出發時間&nbsp;&nbsp;<fmt:formatDate value="${detail.setOut}" pattern="yyyy/MM/dd" />&nbsp;&nbsp;${detail.goStartHour}&nbsp;:&nbsp;${detail.goStartMinute}&nbsp;&nbsp;${detail.goStartWhere}</b><br>
-    <b style='font-size:16px;'>抵達時間&nbsp;&nbsp;<fmt:formatDate value="${detail.setOut}" pattern="yyyy/MM/dd" />&nbsp;&nbsp;${detail.goEndHour}&nbsp;:&nbsp;${detail.goEndMinute}&nbsp;&nbsp;${detail.goEndWhere}</b><br>
-    <hr>
-    <h2 style="color:#00D100;">航班資訊(回)</h2>
-    <b style='font-size:16px;'>${detail.companyName}</b>&nbsp;&nbsp;${detail.returnPlaneId}<br>
-    <b style='font-size:16px;'>出發時間&nbsp;&nbsp;<fmt:formatDate value="${detail.returnDay}" pattern="yyyy/MM/dd" />&nbsp;&nbsp;${detail.returnStartHour}&nbsp;:&nbsp;${detail.returnStartMinute}&nbsp;&nbsp;${detail.returnStartWhere}</b><br>
-    <b style='font-size:16px;'>抵達時間&nbsp;&nbsp;<fmt:formatDate value="${detail.returnDay}" pattern="yyyy/MM/dd" />&nbsp;&nbsp;${detail.returnEndHour}&nbsp;:&nbsp;${detail.returnEndMinute}&nbsp;&nbsp;${detail.returnEndWhere}</b><br>
-    <hr>
-    
-    
-    
-    <a onmouseover="this.style.color='orange'" onmouseout="this.style.color='#4F4FFF'" style="color:#4F4FFF;font-size:25px;" href="${detail.journeyId}/application">報名</a>    
-    
+<!-- 展示區 -->
+<!-- 表1 顯示商品名  -->
+<div class="container-fluid">
+ <div class="row">
+  <div class="col-md-12">
+   <div class="well" style="background-color:black;color:white;font-size:30px">${detail.themeProducts.productName}</div>
+  </div>
+ </div>
+</div> 
+<!--表2 行程資訊標題  -->
+<div class="container-fluid">
+ <div class="row">
+  <div class="col-md-12">
+   <div class="panel-heading" style="color:black;font-size:32px;text-align:left"><img src="/Traveler/images/行李箱.png" width="50" height="50">&nbsp;&nbsp;&nbsp;&nbsp;行程資訊</div>
+  </div>
+ </div>
+</div> 
+<hr>
+<!--表3 行程資訊內容  -->
+<div class="container-fluid">
+ <div class="row">
+  <div class="col-md-4">
+   <div class="panel-body" style="color:black;font-size:24px">出發日期&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<fmt:formatDate value="${detail.setOut}" pattern="yyyy/MM/dd"/></div>
+   <div class="panel-body" style="color:black;font-size:24px">報名期限&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<fmt:formatDate value="${detail.deadline}" pattern="yyyy/MM/dd" /></div>
+  </div>
+  <div class="col-md-4">
+   <div class="panel-body" style="color:black;font-size:24px">旅遊國家&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${detail.themeProducts.country}</div>
+   <div class="panel-body" style="color:black;font-size:24px">一人費用&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NTD&nbsp;&nbsp;$${detail.price}</div>
+  </div>
+  <div class="col-md-4">
+   <div class="panel-body" style="color:white;font-size:24px"></div>
+   <div class="panel-body" style="color:black;font-size:24px;;margin-top:20px"><a onmouseover="this.style.color='orange'" onmouseout="this.style.color='#4F4FFF'" style="color:#4F4FFF;font-size:32px;" href="${detail.journeyId}/application"><img src="/Traveler/images/向右箭頭.jpg" width="50" height="50">點擊此處填寫報名表</a></div>
+   </div>
+ </div>
 </div>
 <hr>
+<!--表4 航班資訊標題  -->
+<div class="container-fluid">
+ <div class="row">
+  <div class="col-md-12">
+   <div class="panel-heading" style="color:black;font-size:30px;text-align:left"><img src="/Traveler/images/航班.png" width="50" height="50">&nbsp;&nbsp;&nbsp;&nbsp;航班資訊</div>
+    <div class="panel-body" style="color:black;font-size:20px">* 以下為本行程預定的航空班機及飛航路線，實際航班以團體確認的航班編號與飛行時間為準。</div>
+    <div class="panel-body" style="color:black;font-size:20px">* 因應國際油價波動，航空公司隨機票所增收燃油附加費用，會隨國際油價而有所調整。</div>
+  </div>
+ </div>
+</div> 
+<hr>
+<!--表5 航班資訊標題列  -->
+<div class="container-fluid">
+ <div class="row">
+  <div class="col-md-12">
+   <div class="well" style="color:white;font-size:24px;text-align:left;background-color:black">出發日期/時間&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   抵達日期/時間&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   出發機場&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   抵達機場&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   航空公司&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;班機編號</div>
+  </div>
+ </div>
+</div> 
+<hr>
+<!--表5 航班資訊內容  -->
+<div class="container-fluid">
+ <div class="row">           
+  <div class="col-md-2">
+   <div class="panel-body" style="color:black;font-size:24px"><fmt:formatDate value="${detail.goStartDate}" pattern="yyyy/MM/dd"/>&nbsp;&nbsp;${detail.goStartHour}:${detail.goStartMinute}</div>
+   <div class="panel-body" style="color:black;font-size:24px"><fmt:formatDate value="${detail.returnStartDate}" pattern="yyyy/MM/dd"/>&nbsp;&nbsp;${detail.goEndHour}:${detail.goEndMinute}</div>
+  </div>
+  <div class="col-md-2">
+   <div class="panel-body" style="color:black;font-size:24px"><fmt:formatDate value="${detail.goStartDate}" pattern="yyyy/MM/dd"/>&nbsp;&nbsp;${detail.goStartHour}:${detail.goStartMinute}</div>
+   <div class="panel-body" style="color:black;font-size:24px"><fmt:formatDate value="${detail.returnStartDate}" pattern="yyyy/MM/dd"/>&nbsp;&nbsp;${detail.goEndHour}:${detail.goEndMinute}</div>
+  </div>
+  <div class="col-md-2">
+   <div class="panel-body" style="color:black;font-size:24px">${detail.goStartWhere}</div>
+   <div class="panel-body" style="color:black;font-size:24px">${detail.returnStartWhere}</div>
+   </div>
+   <div class="col-md-2">
+   <div class="panel-body" style="color:black;font-size:24px">${detail.goEndWhere}</div>
+   <div class="panel-body" style="color:black;font-size:24px">${detail.returnEndWhere}</div>
+  </div>
+  <div class="col-md-2">
+   <div class="panel-body" style="color:black;font-size:24px">${detail.companyName}</div>
+   <div class="panel-body" style="color:black;font-size:24px">${detail.companyName}</div>
+  </div>
+  <div class="col-md-2">
+   <div class="panel-body" style="color:black;font-size:24px">${detail.goPlaneId}</div>
+   <div class="panel-body" style="color:black;font-size:24px">${detail.returnPlaneId}</div>
+  </div>
+ </div>
+</div>
+<hr>
+<!--超級大圖  -->
+<a><img src="/Traveler/images/${detail.themeProducts.productName}-1.png" style="border:10px #808000 ridge;width:1500px; height:1000px;"></a>
+<a><img src="/Traveler/images/${detail.themeProducts.productName}-2.png" style="border:10px #808000 ridge;width:1500px; height:1000px;"></a>
+<a><img src="/Traveler/images/${detail.themeProducts.productName}-3.png" style="border:10px #808000 ridge;width:1500px; height:1000px;"></a>
+<a><img src="/Traveler/images/${detail.themeProducts.productName}-4.png" style="border:10px #808000 ridge;width:1500px; height:1000px;"></a>
+<!-- 每日行程 -->
+<!-- 每日行程 -->
+<!-- 每日行程 -->
+<!-- 備註 --> 
+<!-- 返回上方按鈕 -->				
+<script type="text/javascript">
+$(function() {
+    /* 按下GoTop按鈕時的事件 */
+    $('#gotop').click(function(){
+        $('html,body').animate({ scrollTop: 0 }, 'slow');   /* 返回到最頂上 */
+        return false;
+    });
+     
+    /* 偵測卷軸滑動時，往下滑超過400px就讓GoTop按鈕出現 */
+    $(window).scroll(function() {
+        if ( $(this).scrollTop() > 400){
+            $('#gotop').fadeIn();
+        } else {
+            $('#gotop').fadeOut();
+        }
+    });
+});				
+/*返回上方的按鈕*/
+</script>   
+<!-- 記得要把按鈕放到網頁上, 否則它不會出現 -->
+<img src=/Traveler/images/向上箭頭.png id="gotop" style="">
+   <i class="fa fa-angle-up"></i>
+   	
 	<%@ include file="/WEB-INF/frontStageFooter.jsp"%>
 </body>
 </html>

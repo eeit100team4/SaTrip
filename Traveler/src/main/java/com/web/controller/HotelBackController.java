@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.web.model.commodity.CommodityBean;
 import com.web.model.hotel.HotelBean;
 import com.web.service.hotel.HotelService;
 @Controller
@@ -136,6 +137,30 @@ public class HotelBackController {
 			ResponseEntity<byte[]> responseEntity = new ResponseEntity<>(media, headers, HttpStatus.OK);
 			return responseEntity;
 		}
+		
+		
+
+//		@RequestMapping(value="/")
+//		public String updateform(Model model,
+//				@ModelAttribute("HotelBean") HotelBean hb) {
+//			
+//			List<HotelBean>  list = hotelService.getAllHotels();
+//			model.addAttribute("hotels", list);
+//			return "";		
+//			
+//		}
+//		
+//		
+//		@RequestMapping(path= "/update/{hotel_id}" )
+//		public String update(@ModelAttribute("HotelBean") HotelBean hb,
+//				@PathVariable Integer hotel_id
+//				) {
+//
+//			hotelService.udpateHotel(hb);
+//
+//			
+//			return "";
+//		}
 		
 	
 		

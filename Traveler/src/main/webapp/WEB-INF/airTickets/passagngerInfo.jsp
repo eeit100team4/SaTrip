@@ -123,7 +123,7 @@ margin:20px
 <script>
 //一鍵帶入旅客資訊
 function entry(){
-// 	alert("key in");
+	alert("一鍵帶入");
 $("#guestTwoName").val("王建明");
 $("#guestTwoLastName").val("Wang");
 $("#guestTwoFirstName").val("Chien-Ming");
