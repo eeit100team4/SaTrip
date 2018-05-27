@@ -14,7 +14,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>Travel &mash; 100% Free Fully Responsive HTML5 Template by FREEHTML5.co</title>
+<title>Traveler</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
 <meta name="keywords"
@@ -47,7 +47,7 @@
 <meta name="twitter:card" content="" />
 
 <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-<link rel="shortcut icon" href="images/favicon.ico">
+<link rel="shortcut icon" href="/Traveler/images/LeftTopCorner.ico">
 
 <!--<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>-->
 
@@ -68,8 +68,7 @@
 <link rel="stylesheet" href="/Traveler/css/cs-skin-border.css">
 
 <link rel="stylesheet" href="/Traveler/css/style.css">
-<!-- 聯絡表單 -->
-<link href="/Traveler/css/bootstrap.min.css" rel="stylesheet">
+
 
 <!-- Modernizr JS -->
 <script src="/Traveler/js/modernizr-2.6.2.min.js"></script>
@@ -98,7 +97,7 @@
 <script src="/Traveler/js/superfish.js"></script>
 <!-- Magnific Popup -->
 <script src="/Traveler/js/jquery.magnific-popup.min.js"></script>
-<!-- <script src="/Traveler/js/magnific-popup-options.js"></script> -->
+<script src="/Traveler/js/magnific-popup-options.js"></script>
 <!-- Date Picker -->
 <script src="/Traveler/js/bootstrap-datepicker.min.js"></script>
 <!-- CS Select -->
@@ -115,15 +114,34 @@
 
 <!-- 連結旁邊的小ICON套件  -->	
 <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
-
-<!-- 聯絡表單 -->
-<!-- jQuery -->
-<script src="/Traveler/js/jquery-1.11.0.min.js"></script>
-<!-- Twitter Boostrap -->
-<script src="/Traveler/js/bootstrap.min.js"></script>
-<!-- zip2addr plugin -->
-<script src="/Traveler/js/jquery.zip2addr.js"></script>
-<script type="text/javascript"> 
+<!-- bootstrap網格 -->
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"></link>
+<style>
+.well, .panel {text-align: center;}
+</style>
+<!-- 返回上方按鈕 -->
+<style>
+#gotop {
+    position:fixed;
+    z-index:90;
+    right:30px;
+    bottom:31px;
+    display:none;
+    width:50px;
+    height:50px;
+    color:#fff;
+    background:#33b5e5;
+    line-height:50px;
+    border-radius:50%;
+    transition:all 0.5s;
+    text-align: center;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+}
+#gotop :hover{
+    background:#0099CC;
+}
+</style>
+<!--  
 //function test2() { 
 //  var msg = "報名完成!!\n\n请确认！"; 
 // var msg = "OK"; 
@@ -133,63 +151,12 @@
 //  return false; 
 // } 
 //} 
+-->
+<script>
 function test()
 {alert("申請成功~~報名表已幫您寄出!!\n專屬服務人員將在三天內跟您聯絡~~\n接下來將轉回首頁~~");
 	}
 </script> 
-<script>
- $(function(){
-	 //jQuery validation Plugin 的Twitter BootStrap3對應
-// 	 $.validator.setDefaults({
-// 		 highlight:function(element){
-// 			 $(element).closest('.form-group').addClass('has-error');
-// 		 },
-// 		 errorElement:  'span',
-// 		 errorClass:   'help-block',
-// 		 errorPlacement: function(error, element){
-// 			 if(element.parent('.controls').length){
-// 				 error.insertAfter(element.parent());
-// 			 }else{
-// 				 error.insertAfter(element);
-// 			 }
-// 		 }
-// 	 });
-	// jQuery Validation Plugin的套用
-// 		$('#form').validate({
-// 			/**
-// 			 * validate 規則設定
-// 			 */
-// 			rules: {
-// 				name:     "required",
-// 				gender:    "required",
-// 				cellPhone:    "required",
-// 				people:    "required",
-// 				callTime:    "required",
-// 				location:    "required",
-// 				extra:    {
-// 					maxlength: 500
-// 				}
-			  
-// 			},
-// 			/**
-// 			 * validate 訊息設定
-// 			 */
-// 			messages: {
-// 				name:     "請輸入姓名。",
-// 				gender:     "請選擇稱謂。",
-// 				cellPhone:     "請輸入電話。",
-// 				people:     "請選擇人數。",
-// 				callTime:     "請選擇可連絡時段。",
-// 				location:     "請選擇服務據點。",				
-// 				extra:     {
-// 					maxlength: jQuery.format("備註事項請輸入 {0} 字以内。")
-// 				},
-// 			}
-		
-//  });
- });
- 
-</script>
 
 </head>
 <body>
@@ -212,18 +179,18 @@ function test()
 <div class="form-group">
  <label for="name" class="col-sm-3 control-label" style='font-size:28px;'>聯絡人姓名</label>
   <div class="col-sm-3 controls">
-   <input type="text" id="name" name="name" placeholder="例:王大明" class="form-control" style='font-size:24px;'>
+   <input type="text" id="name" name="name" placeholder="例:王大明" class="form-control" style='font-size:20px;margin-top:10px'>
   </div> 
    
  <b style='font-size:28px;'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${test.themeProducts.productName}</b>
 
 </div>
 
-<div class="form-group"style='font-size:28px;'>
+<div class="form-group"style='font-size:28px'>
  <label for="gender" class="col-sm-3 control-label" style='font-size:28px;'>稱謂</label>
   <div class="col-sm-3 controls">
    <!--<input type="text" id="gender" name="gender" placeholder="先生、小姐" class="form-control">  -->
-  <div class="form-control" style='font-size:24px;'>
+  <div class="form-control" style='font-size:20px;'>
    <form:select path="gender" style="border:1px none #000;background:white">
     <form:option value="-1" label="稱謂"></form:option>
     <form:option value="先生" label="先生"></form:option>
@@ -238,7 +205,7 @@ function test()
 <div class="form-group"style='font-size:28px;'>
  <label for="cellPhone" class="col-sm-3 control-label" style='font-size:28px;'>連絡電話</label>
   <div class="col-sm-3 controls">
-   <input type="text" id="cellPhone" name="cellPhone" placeholder="例:0912345678" class="form-control"style='font-size:24px;'>
+   <input type="text" id="cellPhone" name="cellPhone" placeholder="例:0912345678" class="form-control"style='font-size:20px;'>
   </div>
   
 <b style='font-size:28px'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;出發日期:<fmt:formatDate value="${test.setOut}" pattern="yyyy/MM/dd" /></b>
@@ -248,7 +215,7 @@ function test()
 <div class="form-group"style='font-size:28px;'>
  <label for="people" class="col-sm-3 control-label" style='font-size:28px;'>人數</label>
   <div class="col-sm-3 controls">
-  <div class="form-control" style='font-size:24px;'>
+  <div class="form-control" style='font-size:20px;'>
    <form:select path="people" style="border:1px none #000;background:white">
     <form:option value="-1" label="請挑選人數"></form:option>
     <form:option value="1" label="1人"></form:option>
@@ -283,7 +250,7 @@ function test()
  <label for="callTime" class="col-sm-3 control-label" style='font-size:28px;'>可連絡時段</label>
   <div class="col-sm-3 controls">
    <!--<input type="text" id="callTime" name="callTime" placeholder="早上、下午、晚上" class="form-control">-->
-   <div class="form-control"style='font-size:24px;'>
+   <div class="form-control"style='font-size:20px;'>
     <form:select path="callTime" style="border:1px none #000;background:white">
     <form:option value="-1" label="">請選擇時段</form:option>
     <form:option value="早上" label="早上"></form:option>
@@ -301,7 +268,7 @@ function test()
  <label for="location" class="col-sm-3 control-label" style='font-size:28px;'>服務據點</label>
   <div class="col-sm-3 controls">
    <!--<input type="text" id="location" name="location" placeholder="台北、台中、高雄" class="form-control">  -->
-   <div class="form-control"style='font-size:24px;'>
+   <div class="form-control"style='font-size:20px;'>
    <form:select path="location" style="border:1px none #000;background:white">
     <form:option value="-1" label="">服務據點</form:option>
     <form:option value="台北" label="台北"></form:option>
