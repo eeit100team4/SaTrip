@@ -306,12 +306,31 @@ float:right;
 
 <title>Insert title here</title>
 </head>
-<body style="background-image: url(/Traveler/images/主題背景用圖1.jpg);">
-
+<body>
+<!--<body style="background-image: url(/Traveler/images/主題背景用圖1.jpg);">-->
 <%@ include file="/WEB-INF/backStageHeader.jsp" %>
 <!--=========================要放的東西  =====================-->
 <!-- 左邊的bar會歪 -->
-<div style="color:black;margin-left:230px;font-size:24px">
+<div style="color:black;font-size:24px">
+ <div class="container-fluid" style="text-align:center;background:#2B2B2B">
+ <div class="row" style="font-size:30px;color:white">
+  <div class="col-md-12">
+  <br>
+   <div class="panel-well">歡迎來到主題商品管理頁面</div>
+    <div class="panel-heading">你可以在此使用以下功能:</div>
+    <hr>
+     <div class="panel-body">主題列表管理:目前種類&nbsp;&nbsp;12&nbsp;&nbsp;種</div>
+     <div class="panel-body">旅遊商品管理:上架旅遊商品&nbsp;&nbsp;67&nbsp;&nbsp;項</div>
+     <div class="panel-body">出團行程管理:已建立行程&nbsp;&nbsp;255&nbsp;&nbsp;團</div>
+     <div class="panel-body">全報名表管理:待處理報名申請表&nbsp;&nbsp;81&nbsp;&nbsp;筆</div>
+     <hr>
+     <div class="panel-body">點擊左側連結開始執行管理行為</div>
+     <br>
+     <br>
+     <br>
+  </div>
+ </div>
+</div> 
 </div>
 <!-- =========側邊欄位開始============ -->	
 <%@ include file="/WEB-INF/theme/backLeftSide.jsp" %>
@@ -338,10 +357,10 @@ $(function() {
 <!-- 記得要把按鈕放到網頁上, 否則它不會出現 -->
 <img src=/Traveler/images/向上箭頭.png id="gotop" style="">
    <i class="fa fa-angle-up"></i>
-<br><br><br><br><br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+
+
 <!--  ========================================================== -->
 <%@ include file="/WEB-INF/backStageFooter.jsp" %>
 
