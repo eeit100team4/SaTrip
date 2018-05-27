@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.web.model.airplain.OrderDetailsBean;
+import com.web.model.commodity.CommodityBean;
 import com.web.model.hotel.HotelBean;
 import com.web.model.hotel.HotelRoomBean;
 import com.web.repository.hotel.HotelRepository;
@@ -20,10 +21,11 @@ public class HotelRepositoryImpl implements HotelRepository {
 	
 	Session session = null;
 	
+
 	@Override
 	@SuppressWarnings("unchecked")
 	public List<HotelBean> getAllHotels() {
-		String hql = "FROM HotelBean";
+		String hql = "FROM HotelBean order by hotel_id desc";
 		Session session = null;
 		List<HotelBean> list = new ArrayList<>();		
 		list = factory.getCurrentSession().createQuery(hql).getResultList();
@@ -48,6 +50,12 @@ public class HotelRepositoryImpl implements HotelRepository {
 	public HotelBean udpateHotel(HotelBean hotelBean) {
 		Session session = factory.getCurrentSession();
 		HotelBean hb = session.get(HotelBean.class, hotelBean.getHotel_id());
+		String country = hotelBean.getCountry();
+		String city = hotelBean.getCity();
+		String name = hotelBean.getCity();
+		hb.setCountry(country);		
+		hb.setCity(city);		
+		hb.setName(name);		
 		session.save(hb);
 		return hb;
 	}	
@@ -62,6 +70,8 @@ public class HotelRepositoryImpl implements HotelRepository {
 		}
 		return false;
 	}
+	
+	
 
 	
 	
