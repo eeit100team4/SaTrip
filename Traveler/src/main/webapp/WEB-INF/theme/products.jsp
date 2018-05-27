@@ -148,7 +148,7 @@
 	<%@ include file="/WEB-INF/frontStageHeader.jsp"%>
 <!-- 大標 跟一張圖 -->
  <!--  <div class="fh5co-cover" data-stellar-background-ratio="0.5">-->
- <h1 style="background:black;color:white;text-align:center;height:50px">~獨特商品*夢想起飛~</h1>	
+ <h1 style="background:black;color:white;text-align:center;height:50;font-weight:bold">~獨特商品*夢想起飛~</h1>	
  <div style="margin-right:400px;margin-top:10px;width:1500px;" class="content text-center">
      <a><img src="/Traveler/images/獨家行程.png" width="1500" height="200"></a>
  </div>
@@ -163,7 +163,7 @@
   </div>
   <!--右邊欄位-->
   <div class="col-sm-6" style="border:10px #805300 ridge;margin-top:15px">
-   <div class="panel-heading" style="font-size:30px;font-family: DFKai-sb;"><b>${products.productName}</b></div><hr>
+   <div class="panel-heading" style="font-size:30px;font-family: DFKai-sb;font-weight:bold"><b>${products.productName}</b></div><hr>
    <div class="panel-heading" style="font-size:24px;color:#0000CC">${products.adTitle}</div>
    <div class="panel-body" style="font-size:20px;">${products.adDes}</div>
    <hr>   

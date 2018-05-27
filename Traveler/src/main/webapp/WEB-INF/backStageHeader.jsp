@@ -44,7 +44,7 @@
 <!-- 										</ul> -->
 <%-- 									</c:otherwise> --%>
 <%-- 								</c:choose> --%>
-				<li id="logout" ><a href="#"><i class="fas fa-home"></i><font
+				<li id="logout" ><a href="/Traveler/backStageHome"><i class="fas fa-home"></i><font
 						color="orange">登出</font></a></li>
 			</ul>
 			</nav>

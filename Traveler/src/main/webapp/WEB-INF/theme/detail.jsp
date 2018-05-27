@@ -149,7 +149,7 @@
 <!-- 表1 顯示商品名  -->
 <div class="container-fluid">
  <div class="row">
-  <div class="col-md-12">
+  <div class="col-md-12" style="font-weight:bold">
    <div class="well" style="background-color:black;color:white;font-size:30px">${detail.themeProducts.productName}</div>
   </div>
  </div>
@@ -157,7 +157,7 @@
 <!--表2 行程資訊標題  -->
 <div class="container-fluid">
  <div class="row">
-  <div class="col-md-12">
+  <div class="col-md-12" style="font-weight:bold">
    <div class="panel-heading" style="color:black;font-size:32px;text-align:left"><img src="/Traveler/images/行李箱.png" width="50" height="50">&nbsp;&nbsp;&nbsp;&nbsp;行程資訊</div>
   </div>
  </div>
@@ -184,7 +184,7 @@
 <!--表4 航班資訊標題  -->
 <div class="container-fluid">
  <div class="row">
-  <div class="col-md-12">
+  <div class="col-md-12" style="font-weight:bold">
    <div class="panel-heading" style="color:black;font-size:30px;text-align:left"><img src="/Traveler/images/航班.png" width="50" height="50">&nbsp;&nbsp;&nbsp;&nbsp;航班資訊</div>
     <div class="panel-body" style="color:black;font-size:20px">* 以下為本行程預定的航空班機及飛航路線，實際航班以團體確認的航班編號與飛行時間為準。</div>
     <div class="panel-body" style="color:black;font-size:20px">* 因應國際油價波動，航空公司隨機票所增收燃油附加費用，會隨國際油價而有所調整。</div>
@@ -219,14 +219,14 @@
   <div class="col-md-2">
    <div class="panel-body" style="color:black;font-size:24px">${detail.goStartWhere}</div>
    <div class="panel-body" style="color:black;font-size:24px">${detail.returnStartWhere}</div>
-   </div>
-   <div class="col-md-2">
+  </div>
+  <div class="col-md-2">
    <div class="panel-body" style="color:black;font-size:24px">${detail.goEndWhere}</div>
    <div class="panel-body" style="color:black;font-size:24px">${detail.returnEndWhere}</div>
   </div>
   <div class="col-md-2">
-   <div class="panel-body" style="color:black;font-size:24px">${detail.companyName}</div>
-   <div class="panel-body" style="color:black;font-size:24px">${detail.companyName}</div>
+   <div class="panel-body" style="color:black;font-size:24px"><img src="/Traveler/images/${detail.companyName}.gif">${detail.companyName}</div>
+   <div class="panel-body" style="color:black;font-size:24px"><img src="/Traveler/images/${detail.companyName}.gif">${detail.companyName}</div>
   </div>
   <div class="col-md-2">
    <div class="panel-body" style="color:black;font-size:24px">${detail.goPlaneId}</div>
@@ -243,7 +243,40 @@
 <!-- 每日行程 -->
 <!-- 每日行程 -->
 <!-- 每日行程 -->
-<!-- 備註 --> 
+<!-- 備註 標題--> 
+<div class="container-fluid">
+ <div class="row">
+  <div class="col-md-12" style="font-weight:bold">
+   <div class="panel-heading" style="color:black;font-size:32px;text-align:left"><img src="/Traveler/images/迴紋針.jpg" width="50" height="50">&nbsp;&nbsp;&nbsp;&nbsp;出團備註</div>
+  </div>
+ </div>
+</div> 
+<hr>
+<!-- 備註 -->
+<div class="container-fluid">
+ <div class="row">
+  <div class="col-md-12" style="font-size:20px">
+   <div class="panel-heading" style="font-weight:bold">★費用包含★</div>
+    <div class="panel-body">1.行程表中註明之飯店住宿、餐食、行程、車資、門票。</div>
+    <div class="panel-body">2.兩地機場稅、燃油附加費、雜支附加費。</div>
+    <div class="panel-body">3.每人500萬元旅遊意外責任險、20萬元意外傷害醫療險及海外急難救助。</div>
+   <div class="panel-heading" style="font-weight:bold">★費用不含★</div>
+    <div class="panel-body">申辦護照費用NT$1,400元。</div>
+    <div class="panel-body">*需身份證正本、兩吋彩色白底近照2張，已服完兵役者，新辦護照需附上退伍令，在學役男出國手續與一般人民出國相同，非在學役男需先向地方政府兵役科辦理役男出國核准公文。</div>
+   <div class="panel-heading" style="font-weight:bold">★注意事項★</div>
+    <div class="panel-body">1.報名繳費後，觀光局國外旅遊定型化契約書即生效力，變更或取消行程依契約內容辦理。</div>
+    <div class="panel-body">2.為使團體順利進行，本公司保留行程變更、對調之權利，行程內容、餐食、班機時間、降落城市、住宿飯店之確認以最後團體說明會資料為主、餐食料理內容以餐廳及飯店當日實際提供為主，住宿房型依飯店實際提供為主，依報名先後順序選擇。</div>
+    <div class="panel-body">3.如遇需門票之參觀景點休館或其他不可抗力因素無法進入時，皆以退費處理，敬請見諒。</div>
+    <div class="panel-body">4.若回程無隨團回國或更改回程機場時，需補機票差額，恕不退其餘團費。</div>
+    <div class="panel-body">5.參加本行程須持有(至回國當日護照有效期六個月以上)之中華民國護照，若同時擁有雙重國籍或持他國護照，請先自行查明相關入出境之規定，並於報名時主動告知您的服務人員。</div>
+    <div class="panel-body">6.若為軍職者，出國需經由所屬單位核準，並將核准章蓋於護照上，若為役男者，滿18歲未服兵役之役男，出國需經所屬戶政單位兵役科核准，並將核准章蓋於護照上。</div>
+    <div class="panel-body">7.行程最低出團人數為10人(含)即可成行，最多參團則為20人(含)以下。</div>
+    <div class="panel-body">8.行程內安排參觀之季節性景點(如賞櫻、賞花、賞楓、賞雪等)，會因當時現場實際狀況或天氣等不可抗力之因素等影響，而調整前往參觀適時適當觀光景點。</div>
+    <div class="panel-body">9.團體機位以航空公司安排為準。</div>
+  </div>
+ </div>
+</div> 
+<hr>
 <!-- 返回上方按鈕 -->				
 <script type="text/javascript">
 $(function() {

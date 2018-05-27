@@ -146,7 +146,7 @@
 <body>
 	<%@ include file="/WEB-INF/frontStageHeader.jsp"%>
 <!-- 大標 放三張跟此產品相關的圖-->	
-<h1 style="background:black;color:white;text-align:center;height:50px">~嚴選行程*任君挑選~</h1>
+<h1 style="background:black;color:white;text-align:center;height:50px;font-weight:bold">~嚴選行程*任君挑選~</h1>
 <a><img src="/Traveler/images/環球1.jpg" style="border:10px #808000 ridge;width:495px; height:250px;"></a>	
 <a><img src="/Traveler/images/環球2.jpg" style="border:10px #808000 ridge;width:495px; height:250px;"></a>
 <a><img src="/Traveler/images/環球3.jpg" style="border:10px #808000 ridge;width:495px; height:250px;"></a>
