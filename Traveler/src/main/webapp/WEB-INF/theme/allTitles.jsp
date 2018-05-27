@@ -193,11 +193,11 @@ margin-bottom:0px;
 </head>
 <body>
 
-	<%@ include file="/WEB-INF/backStageHeader.jsp" %>
+<%@ include file="/WEB-INF/backStageHeader.jsp" %>
 
-	<!--=========================要放的東西  =====================-->
+<!--=========================要放的東西  =====================-->
 	
-	<!-- =========側邊欄位開始============ -->	
+<!-- =========側邊欄位開始============ -->	
 <%@ include file="/WEB-INF/theme/backLeftSide.jsp" %>
 <!-- =========側邊欄位結束============ -->
 <!-- 左邊的bar會歪 -->

@@ -13,12 +13,12 @@
    </ul>
    <ul>
     <li>
-     <a class="btn btn-primary" style="text-align:left;" href=""><h3><font color="white">旅遊商品管理</font></h3></a>
+     <a class="btn btn-primary" style="text-align:left;" href="allProducts"><h3><font color="white">旅遊商品管理</font></h3></a>
     </li>
    </ul>
    <ul>
     <li>
-     <a class="btn btn-primary" style="text-align:left;" href=""><h3><font color="white">出團行程管理</font></h3></a>
+     <a class="btn btn-primary" style="text-align:left;" href="allJourneys"><h3><font color="white">出團行程管理</font></h3></a>
     </li>
    </ul>
     <ul>
