@@ -167,7 +167,28 @@ margin-bottom:0px;
 <style>
 .well, .panel {text-align: center;}
 </style>
-
+<!-- 返回上方按鈕 -->
+<style>
+#gotop {
+    position:fixed;
+    z-index:90;
+    right:30px;
+    bottom:31px;
+    display:none;
+    width:50px;
+    height:50px;
+    color:#fff;
+    background:#33b5e5;
+    line-height:50px;
+    border-radius:50%;
+    transition:all 0.5s;
+    text-align: center;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+}
+#gotop :hover{
+    background:#0099CC;
+}
+</style>
 <title>Insert title here</title>
 </head>
 <body>
@@ -181,12 +202,13 @@ margin-bottom:0px;
 <!-- =========側邊欄位結束============ -->
 <!-- 左邊的bar會歪 -->
 <div style="color:black;margin-left:230px;font-size:24px">
-<!-- 大標題 -->
+<!-- 大標題  + 新增主題連結區-->
 <br>
 <div class="container-fluid">
  <div class="row">
-  <div class="col-sm-4">
-   <div class="header">全主題列表</div>
+  <div class="col-md-4">
+   <div class="header">全主題列表&nbsp;&nbsp;&nbsp;&nbsp;
+    <a onmouseover="this.style.color='orange'" onmouseout="this.style.color='#4F4FFF'" style="font-size:24px;color:#000080"href='addTitle'>新增主題類別<img src="/Traveler/images/向左黑.jpg" width="50" height="50"></a></div>
   </div>
  </div>
 </div>
@@ -195,7 +217,7 @@ margin-bottom:0px;
 <div class="container-fluid">
  <div class="row">
   <div class="col-md-1">編號</div>
-  <div class="col-md-1">名稱</div>
+  <div class="col-md-1" style="width:130px">名稱</div>
   <div class="col-md-3">示意圖檔案名稱</div>
   <div class="col-md-2">顯示圖片預覽</div>
   <div class="col-md-3"></div>
@@ -207,15 +229,40 @@ margin-bottom:0px;
 <div class="container-fluid">
  <div class="row">
   <div class="col-md-1">${themeTitles.titleId}</div>
-  <div class="col-md-1">${themeTitles.titleName}</div>
+  <div class="col-md-1"style="width:130px">${themeTitles.titleName}</div>
   <div class="col-md-3">${themeTitles.fileName}</div>
   <div class="col-md-2"><img src="/Traveler/images/themeTitle-${themeTitles.titleName}.png" width="200" height="80"style="border:6px #805300 ridge;"></div>
-  <div class="col-md-3">修改圖片<img src="/Traveler/images/向左橘.png" width="50" height="50">隱藏主題<img src="/Traveler/images/向左箭頭.png" width="50" height="50"></div> 
+  <div class="col-md-3" style="width:330px">
+   <a href=''>修改圖片<img src="/Traveler/images/向左橘.png" width="50" height="50"></a>
+   <a href=''>隱藏主題<img src="/Traveler/images/向左箭頭.png" width="50" height="50"></a>
+  </div> 
  </div>
 </div>
 </c:forEach>
-<!-- 新增主題按鈕 -->
 </div>
+
+<script type="text/javascript">
+$(function() {
+    /* 按下GoTop按鈕時的事件 */
+    $('#gotop').click(function(){
+        $('html,body').animate({ scrollTop: 0 }, 'slow');   /* 返回到最頂上 */
+        return false;
+    });
+     
+    /* 偵測卷軸滑動時，往下滑超過400px就讓GoTop按鈕出現 */
+    $(window).scroll(function() {
+        if ( $(this).scrollTop() > 400){
+            $('#gotop').fadeIn();
+        } else {
+            $('#gotop').fadeOut();
+        }
+    });
+});				
+/*返回上方的按鈕*/
+</script>   
+<!-- 記得要把按鈕放到網頁上, 否則它不會出現 -->
+<img src=/Traveler/images/向上箭頭.png id="gotop" style="">
+   <i class="fa fa-angle-up"></i>
 	<!--  ========================================================== -->
 	<%@ include file="/WEB-INF/backStageFooter.jsp" %>
 </body>
