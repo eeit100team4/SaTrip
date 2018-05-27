@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.web.model.commodity.CommodityBean;
 import com.web.model.hotel.HotelBean;
 import com.web.model.hotel.HotelBookingDateBean;
 import com.web.model.hotel.HotelRoomBean;
@@ -86,5 +87,7 @@ public class HotelServiceImpl implements HotelService {
 		return hotelRepository.deleteHotel(hotel_id);
 
 	}
+	
+	
 
 }

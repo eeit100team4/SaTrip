@@ -18,6 +18,7 @@
 <meta name="author" content="FREEHTML5.CO" />
 
 
+
 <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 <link rel="shortcut icon" href="/Traveler/images/favicon.ico">
 
@@ -265,16 +266,54 @@ height:630px;
 float:right;
 }
 
+.dx {
+	border: 1.5px solid #AAAAAA;
+	height: 300px;
+	width: 90%;
+	padding: 10px;
+}
+
+.dr {
+	float: left;
+	width: 20.7%;
+	height: 300px;
+	margin: auto;
+	padding: 25px;
+}
+
+.dt {
+	float: right;
+	width: 79%;
+	height: 300px;
+}
+.QQ{
+
+ height:300px;
+ width:100%;
+ 
+}
+.dr{
+ 
+  float:left;
+width: 20.7%;
+height:270px;
+margin:auto;
+}
+
+.dt{
+
+  float:right;
+width: 79%;
+height:270px;
+}
+
 </style>
 
-<!-- <link rel="stylesheet" -->
-<!-- 	href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"> -->
 
+<title>Insert title here</title>
+</head>
+<body>
 
-<!-- 老師 -->
-<link rel="stylesheet" href="css/bootstrap.min.css">
-<link rel="stylesheet" href="css/jumbotron.css">
-<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 
 
 <title>Insert title here</title>
@@ -306,71 +345,67 @@ float:right;
 				</div>
 			</div>
 		</div>
-<!-- =========側邊欄位結束============ -->	
+<!-- =========側邊欄位結束============ -->
 	
 	
-	
-	
-	
-	
-	
-	
-	
-		<main role="main" class="container mt-2">
-		<!-- ____________________ -->
-			
-			<div class="row">
-				<div class="col-lg-3">
-				<div class="col-lg-9">
-				<div class="card">
-					<div class="card-header"></div>
-					<div class="card-body">
-				<!-- 每頁不同的內容從這裡開始 -->
+<div class="container" style="padding-top:20px">
+<c:forEach var="hotelInfo" items="${hotels}">
+		<div class="ds">
+<form:form method='POST' modelAttribute="HotelBean" 	class='form-horizontal' enctype="multipart/form-data">
+<%-- 			<form:form action='/Traveler/UpdateHotel/${hotelInfo.hotel_id}' --%>
+<%-- 				modelAttribute="HotelBean" enctype="multipart/form-data"> --%>
+
+				<fieldset>
+					<div class="dr">
+						<img width='200' height='100' src="<c:url value='/getPic/${hotelInfo.hotel_id}' />" />
+					</div>
+
+					<div class="dt">
+						<div class="form-group row col-md-8">
+							<label for='country' class="col-sm-2 col-form-label">國家:</label>
+							<div class="col-sm-10">
+								<form:input id='country' class="form-control" path='country'
+									type='text' value='${hotelInfo.country}' />
+							</div>
+						</div>
+
+						<div class="form-group row col-md-8">
+							<label for='city' class="col-sm-2 col-form-label">城市
+								:</label>
+							<div class="col-sm-10">
+								<form:input id='city' class="form-control" path='city'
+									type='text' value='${hotelInfo.city}' />
+							</div>
+						</div>
+
+						<div class="form-group row col-md-8">
+							<label for='name' class="col-sm-2 col-form-label">飯店 :</label>
+							<div class="col-sm-10">
+								<form:input id='name' class="form-control" path='name'
+									type='text' value='${hotelInfo.name}' />
+							</div>
+						</div>
+
+                            
+						<input type="submit" class="btn btn-warning" value="修改">
 					
-				 <table id="hotelTable"   class="table table-bordered">
-                       <thead>
-                          <tr>
-                             <th scope="col"><h3>編號</h3></th>
-                             <th scope="col"><h3>照片</h3></th> 
-                             <th scope="col"><h3>國家</h3></th>
-                             <th scope="col"><h3>城市</h3></th>
-                             <th scope="col"><h3>飯店</h3></th> 
-                          </tr>  
-                       </thead>
-                       <tbody> 
-                 		<c:forEach var="hotelInfo" items="${hotels}">
-							<tr>
-									<td><h3>${hotelInfo.hotel_id}</h3></td>
-		                      		<td><img width='200' height='100' src="<c:url value='/getPic/${hotelInfo.hotel_id}' />" /></td>
-		                      		<td width='80px'><h3>${hotelInfo.country}</h3></td>
-		                      		<td width='80px'><h3>${hotelInfo.city}</h3></td>
-		                      		<td width='200px'><h3>${hotelInfo.name}</h3></td>
-							</tr>
-						</c:forEach>
-                       </tbody>
-                       <tfoot>
-	                       <tr>
-	                       		<td><input type="hidden" id="ProductID" name="ProductID"><span></span></td>                        
-		                        <td><input type="text" style="width:125px" class="form-control" id="country" name="country" placeholder=""></td>
-		                        <td><input type="text" style="width:125px" class="form-control" id="country" name="country" placeholder=""></td>
-		                        <td><input type="text" style="width:125px" class="form-control" id="city" name="city" placeholder=""></td>
-		                        <td><input type="text" style="width:350px" class="form-control" id="name" name="name" placeholder=""></td>
-	                       </tr>
-                       </tfoot> 
-                   </table>
-                   
-				<!-- 每頁不同的內容到這裡結束 -->
-			</div>
-			</div>	
+					</div>
+
+				</fieldset>
+				<hr>
+
+			</form:form>
+
 		</div>
-		
-	</div>
-	</div>
-	</main>
-		
-		
-		
-		
+	</c:forEach>
+</div>
+	
+
+	<!--  ========================================================== -->
+
+
+
+
 <%-- 	<%@ include file="/WEB-INF/backStageFooter.jsp" %> --%>
 
 
