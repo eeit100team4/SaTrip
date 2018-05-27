@@ -211,7 +211,7 @@ Highcharts.chart('container', {
         type: 'pie'
     },
     title: {
-        text: '1~3月份國人出國目的地統計(亞洲區)'
+        text: '1~3月份意見反應統計'
     },
     tooltip: {
         pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
