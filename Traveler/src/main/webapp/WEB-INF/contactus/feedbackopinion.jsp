@@ -173,6 +173,7 @@ table{
 }
 td{
 border:2px black solid;
+padding:5px;
 }
 </style>
 

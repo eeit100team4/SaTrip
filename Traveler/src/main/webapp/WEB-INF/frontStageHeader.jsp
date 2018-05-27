@@ -35,6 +35,7 @@
 							<ul class="fh5co-sub-menu">
 								<li><a href="/Traveler/contactus/InsertOpinionSuccess">查看回覆</a></li>
 								<li><a href="mailto:asally1110@gmail.com">客服信箱</a></li>
+									<li><a href="/Traveler/contactus/Linechat">Line線上客服</a></li>
 						</ul></li>
 							<c:choose>
 									<c:when test="${LoginOK!=null}">
