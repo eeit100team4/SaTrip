@@ -324,7 +324,7 @@ function test()
 
 <div class="form-group">
  <div class="col-sm-offset-3 col-sm-6">
-  <button onmouseover="this.style.color='orange'" onmouseout="this.style.color='#4F4FFF'" style="color:#4F4FFF;font-size:28px;font-weight:bold" type="submit" class="btn"  onclick="test()">寄出報名表</button>
+  <button onmouseover="this.style.color='orange'" onmouseout="this.style.color='#4F4FFF'" style="color:#4F4FFF;font-size:28px;font-weight:bold" type="submit" class="btn"  onclick="test()">點擊此處以寄出報名表</button>
  </div>
 </div>
 </form:form>
