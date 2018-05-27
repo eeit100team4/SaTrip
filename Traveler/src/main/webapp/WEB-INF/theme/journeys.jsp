@@ -155,11 +155,11 @@
 <!-- 展示區 -->
 <div class="container-fluid" style="text-align:center;background:#2B2B2B">
  <div class="row" style="font-size:30px;color:white">
-  <div class="col-md-2">出發日</div>
+  <div class="col-md-2" style="text-align:right">出發日</div>
   <div class="col-md-4">商品名稱</div>
   <div class="col-md-2">航空公司</div>
-  <div class="col-md-2">價格</div>
-  <div class="col-md-2"></div>
+  <div class="col-md-1">價格</div>
+  <div class="col-md-3"></div>
  </div>
 </div>
 <hr><hr>
@@ -167,24 +167,24 @@
 <div class="container-fluid" style="font-size:22px;color:#2B2B2B;text-align:center">
  <div class="row">
   <!--欄位1 出發日期-->
-  <div class="col-md-2">
-   <div class="panel-body" style="background:white;border:10px white none;"><fmt:formatDate value="${journeys.setOut}" pattern="yyyy/MM/dd"/></div>
+  <div class="col-md-2" style="text-align:right">
+   <div class="panel-body" style="background:white;border:10px white none;margin-top:10px"><fmt:formatDate value="${journeys.setOut}" pattern="yyyy/MM/dd"/></div>
   </div>
   <!--欄位2 商品名稱-->
   <div class="col-md-4">
-   <div class="panel-body"style="font-family: DFKai-sb;background:white;border:10px white none;"><${journeys.themeProducts.productName}></div>
+   <div class="panel-body"style="font-family: DFKai-sb;background:white;border:10px white none;margin-top:10px"><${journeys.themeProducts.productName}></div>
   </div>
   <!--欄位3 航空公司-->
   <div class="col-md-2">
-   <div class="panel-body" style="background:white;border:10px white none;"><a><img src="/Traveler/images/${journeys.companyName}.gif"style="width:30px; height:30px;"></a>&nbsp;&nbsp;${journeys.companyName}</div>
+   <div class="panel-body" style="background:white;border:10px white none;"><a><img src="/Traveler/images/${journeys.companyName}.gif"style="width:50px; height:50px;"></a>&nbsp;&nbsp;${journeys.companyName}</div>
   </div>
   <!--欄位4 價格-->
-  <div class="col-md-2">
-   <div class="panel-body" style="background:white;border:10px white none;">$&nbsp;&nbsp;${journeys.price}</div>
+  <div class="col-md-1">
+   <div class="panel-body" style="background:white;border:10px white none;margin-top:10px" >$&nbsp;&nbsp;${journeys.price}</div>
   </div>
   <!--欄位5 連結-->
-  <div class="col-md-2">
-   <div class="panel-body" style="background:white;border:10px white none;text-align:left"><a onmouseover="this.style.color='orange'" onmouseout="this.style.color='#4F4FFF'" style="color:#4F4FFF;" href="${journeys.themeProducts.productName}/${journeys.journeyId}">瞭解更多<img src="/Traveler/images/向左箭頭.png" width="50" height="50"></a></div>
+  <div class="col-md-3">
+   <div class="panel-body" style="background:white;border:10px white none;text-align:left"><a onmouseover="this.style.color='orange'" onmouseout="this.style.color='#4F4FFF'" style="color:#4F4FFF;" href="${journeys.themeProducts.productName}/${journeys.journeyId}">查看更多細節<img src="/Traveler/images/向左箭頭.png" width="50" height="50"></a></div>
   </div>
   
  </div>

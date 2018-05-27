@@ -132,10 +132,10 @@ public class HotelController {
 		
 	
 	// 顯示OrderFinish
-		@RequestMapping("/_Hotel/OrderFinish")
-		public String showOrderFinish(Model model) {
-			return "_Hotel/OrderFinish";
-		}
+	@RequestMapping("/_Hotel/OrderFinish")
+	public String showOrderFinish(Model model) {
+		return "_Hotel/OrderFinish";
+	}
 		
 	// 顯示roomCheckOut
 	@RequestMapping("/_Hotel/roomCheckOut")
