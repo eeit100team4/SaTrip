@@ -14,7 +14,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>Traveler</title>
+<title>Travel &mash; 100% Free Fully Responsive HTML5 Template by FREEHTML5.co</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
 <meta name="keywords"
@@ -47,7 +47,7 @@
 <meta name="twitter:card" content="" />
 
 <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-<link rel="shortcut icon" href="/Traveler/images/LeftTopCorner.ico">
+<link rel="shortcut icon" href="images/favicon.ico">
 
 <!--<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>-->
 
@@ -111,100 +111,42 @@
 <script src="/Traveler/js/airplain/airSearch.js"></script>
 <script src="/Traveler/js/jquery-ui.min.js"></script>
 <link rel="stylesheet" href="/Traveler/js/jquery-ui.min.css">
-<!--  -->
-<!-- 載入樣式 -->
-<link rel="stylesheet"   href="/Traveler/css/jquery.dataTables.css">
-<!-- Themeroller的主題 -->
-<link rel="stylesheet"   href="/Traveler/css/jquery.dataTables_themeroller.css">
-<!-- 載入jQuery  -->
-<script type="text/javascript" src="/Traveler/js/jquery.js"></script>
-<!-- 載入DataTables  -->
-<script type="text/javascript" src="/Traveler/js/jquery.dataTables.js"></script>
-<!-- 動態表格 -->
-<script>
-			(function() {
-				$(function() {
-					$('#datatable').dataTable({
-						"oLanguage": {
-						    "sSearch": "搜尋:",
-						    "sLengthMenu": "顯示件數 ：_MENU_",
-						    "sInfo": "_TOTAL_件中，從第_START_件顯示到第_END_件",
-						    "sInfoFiltered": " ( _MAX_件中搜尋 )",
-						    "sZeroRecords": "找無資料。",
-						    "sInfoEmpty": "0 件",
-						    "oPaginate": {
-						        "sFirst": "最初",
-						        "sLast": "最後",
-						        "sPrevious": "上一頁",
-						        "sNext": "下一頁"
-						    }
-						},
-						"iDisplayLength" : 10,
-					});
-				});
-			})();
-</script>
+
 <!-- 連結旁邊的小ICON套件  -->	
 <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
-<style>
-			* {
-				font-family:      'Lucida Grande', 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', Meiryo, 'メイリオ', sans-serif;
-				font-size:        98.5%;
-			}
-			h1 {
-				font-size:        46px;
-				margin-bottom:    12px;
-			}
-			.container {
-				width:            1000px;
-				margin:           auto;
-			}
-			iframe {
-				border: solid 1px #000;
-			}
-		</style>
 
 </head>
 <body>
 	<%@ include file="/WEB-INF/frontStageHeader.jsp"%>
-<div class="fh5co-cover" data-stellar-background-ratio="0.5">
-<hr>
-<div class="container">
-		<div>
-			<h2 style="margin-top: 20px;">搜尋行程</h2>				
-		</div>
-
-<table id="datatable">
-
- <thead style="background-color:black;">
-  <tr style="color:white;">
-   <th></th>
-   <th>出發時間</th>
-   <th>返回時間</th>
-   <th>商品名稱</th>
-   <th>航空公司</th>
-   <th>價格</th>
-   <th></th>
-  </tr>
- </thead>
-
- <c:forEach var='journeys' items='${journeys}'>
- <tbody>
-  <tr>
-   <th></th>
-   <th>&nbsp;&nbsp;<fmt:formatDate value="${journeys.setOut}" pattern="yyyy/MM/dd" /></th>
-   <th>&nbsp;&nbsp;<fmt:formatDate value="${journeys.returnDay}" pattern="yyyy/MM/dd" /></th>
-   <th>&nbsp;&nbsp;${journeys.themeProducts.productName}</th>
-   <th>&nbsp;&nbsp;${journeys.companyName}</th>
-   <th>&nbsp;&nbsp;${journeys.price}</th>
-   <th><a onmouseover="this.style.color='orange'" onmouseout="this.style.color='#4F4FFF'" style="color:#4F4FFF;" href="${journeys.themeProducts.productName}/${journeys.journeyId}">查看詳細內容</a></th> 
- </tbody>
- </c:forEach>
-</table>
+	
+<div style="text-align:center;margin-left:100px; margin-top:20px;">
+  <h1 style="color:#009494;">詳細資訊</h1>
+    <hr>
+    
+    <h2 style="color:#00D100;">行程資訊</h2>
+    <b style='font-size:16px;'>${detail.themeProducts.productName}</b><br>
+    <b style='font-size:16px;'>出團日期<fmt:formatDate value="${detail.setOut}" pattern="yyyy/MM/dd" /></b>
+    <b style='font-size:16px;'>報名截止日<fmt:formatDate value="${detail.deadline}" pattern="yyyy/MM/dd" /></b><br>
+    <b style='font-size:16px;'>旅遊國家${detail.themeProducts.country}</b>
+    <b style='font-size:16px;'>標準團費${detail.price}</b><br>
+    <hr>
+    <h2 style="color:#00D100;">航班資訊(去)</h2>
+    <b style='font-size:16px;'>${detail.companyName}</b>&nbsp;&nbsp;${detail.goPlaneId}<br>
+    <b style='font-size:16px;'>出發時間&nbsp;&nbsp;<fmt:formatDate value="${detail.setOut}" pattern="yyyy/MM/dd" />&nbsp;&nbsp;${detail.goStartHour}&nbsp;:&nbsp;${detail.goStartMinute}&nbsp;&nbsp;${detail.goStartWhere}</b><br>
+    <b style='font-size:16px;'>抵達時間&nbsp;&nbsp;<fmt:formatDate value="${detail.setOut}" pattern="yyyy/MM/dd" />&nbsp;&nbsp;${detail.goEndHour}&nbsp;:&nbsp;${detail.goEndMinute}&nbsp;&nbsp;${detail.goEndWhere}</b><br>
+    <hr>
+    <h2 style="color:#00D100;">航班資訊(回)</h2>
+    <b style='font-size:16px;'>${detail.companyName}</b>&nbsp;&nbsp;${detail.returnPlaneId}<br>
+    <b style='font-size:16px;'>出發時間&nbsp;&nbsp;<fmt:formatDate value="${detail.returnDay}" pattern="yyyy/MM/dd" />&nbsp;&nbsp;${detail.returnStartHour}&nbsp;:&nbsp;${detail.returnStartMinute}&nbsp;&nbsp;${detail.returnStartWhere}</b><br>
+    <b style='font-size:16px;'>抵達時間&nbsp;&nbsp;<fmt:formatDate value="${detail.returnDay}" pattern="yyyy/MM/dd" />&nbsp;&nbsp;${detail.returnEndHour}&nbsp;:&nbsp;${detail.returnEndMinute}&nbsp;&nbsp;${detail.returnEndWhere}</b><br>
+    <hr>
+    
+    
+    
+    <a onmouseover="this.style.color='orange'" onmouseout="this.style.color='#4F4FFF'" style="color:#4F4FFF;font-size:25px;" href="${detail.journeyId}/application">報名</a>    
+    
 </div>
-	<br><br><br><br><br>
 <hr>
-</div>
 	<%@ include file="/WEB-INF/frontStageFooter.jsp"%>
 </body>
 </html>
