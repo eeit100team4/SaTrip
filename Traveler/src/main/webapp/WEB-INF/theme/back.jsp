@@ -319,10 +319,10 @@ float:right;
    <div class="panel-well">歡迎來到主題商品管理頁面</div>
     <div class="panel-heading">你可以在此使用以下功能:</div>
     <hr>
-     <div class="panel-body">主題列表管理:目前種類&nbsp;&nbsp;12&nbsp;&nbsp;種</div>
-     <div class="panel-body">旅遊商品管理:上架旅遊商品&nbsp;&nbsp;67&nbsp;&nbsp;項</div>
-     <div class="panel-body">出團行程管理:已建立行程&nbsp;&nbsp;255&nbsp;&nbsp;團</div>
-     <div class="panel-body">全報名表管理:待處理報名申請表&nbsp;&nbsp;81&nbsp;&nbsp;筆</div>
+     <div class="panel-body">主題列表管理:目前種類&nbsp;&nbsp;<a style="color:gold">12</a>&nbsp;&nbsp;種</div>
+     <div class="panel-body">旅遊商品管理:上架旅遊商品&nbsp;&nbsp;<a style="color:gold">67</a>&nbsp;&nbsp;項</div>
+     <div class="panel-body">出團行程管理:已建立行程&nbsp;&nbsp;<a style="color:gold">255</a>&nbsp;&nbsp;團</div>
+     <div class="panel-body">全報名表管理:待處理報名申請表&nbsp;&nbsp;<a style="color:gold">81</a>&nbsp;&nbsp;筆</div>
      <hr>
      <div class="panel-body">點擊左側連結開始執行管理行為</div>
      <br>

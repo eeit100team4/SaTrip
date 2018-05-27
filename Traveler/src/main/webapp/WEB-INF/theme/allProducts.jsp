@@ -318,9 +318,8 @@ float:right;
  <div class="row">
   <div class="col-md-12">
    <div class="header">全旅遊商品&nbsp;&nbsp;&nbsp;&nbsp;
-    <a onmouseover="this.style.color='orange'" onmouseout="this.style.color='#4F4FFF'" style="font-size:24px;color:#000080"href=''>新增旅遊商品<img src="/Traveler/images/向左黑.jpg" width="50" height="50"></a>
-    <a onmouseover="this.style.color='orange'" onmouseout="this.style.color='#4F4FFF'" style="font-size:24px;color:#000080"href=''>依編號排序<img src="/Traveler/images/排序.png" width="50" height="50"></a>
-    <a onmouseover="this.style.color='orange'" onmouseout="this.style.color='#4F4FFF'" style="font-size:24px;color:#000080"href=''>依分類排序<img src="/Traveler/images/排序.png" width="50" height="50"></a>
+    <a onmouseover="this.style.color='orange'" onmouseout="this.style.color='#4F4FFF'" style="font-size:24px;color:#4F4FFF"href=''>新增旅遊商品<img src="/Traveler/images/向左黑.jpg" width="50" height="50"></a>
+    <a onmouseover="this.style.color='orange'" onmouseout="this.style.color='#4F4FFF'" style="font-size:24px;color:#4F4FFF"href=''>依分類排序<img src="/Traveler/images/排序.png" width="50" height="50"></a>
     </div>
   </div>
  </div>
@@ -346,7 +345,7 @@ float:right;
   <div class="col-md-4">${products.productName}</div>
   <div class="col-md-2">${products.hotelName}</div>
   <div class="col-md-3" style="width:330px">
-   <a href=''>出團時間<img src="/Traveler/images/向左橘.png" width="50" height="50"></a>
+   <a href=''>商品細節<img src="/Traveler/images/向左橘.png" width="50" height="50"></a>
    <a href=''>下架商品<img src="/Traveler/images/向左箭頭.png" width="50" height="50"></a>
   </div> 
  </div>

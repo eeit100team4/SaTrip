@@ -208,7 +208,7 @@ margin-bottom:0px;
  <div class="row">
   <div class="col-md-4">
    <div class="header">全主題列表&nbsp;&nbsp;&nbsp;&nbsp;
-    <a onmouseover="this.style.color='orange'" onmouseout="this.style.color='#4F4FFF'" style="font-size:24px;color:#000080"href='addTitle'>新增主題類別<img src="/Traveler/images/向左黑.jpg" width="50" height="50"></a></div>
+    <a onmouseover="this.style.color='orange'" onmouseout="this.style.color='#4F4FFF'" style="font-size:24px;color:#4F4FFF"href='addTitle'>新增主題類別<img src="/Traveler/images/向左黑.jpg" width="50" height="50"></a></div>
   </div>
  </div>
 </div>
