@@ -323,7 +323,7 @@ float:right;
  <div class="row">
   <div class="col-md-4">
    <div class="header">全主題列表&nbsp;&nbsp;&nbsp;&nbsp;
-    <a onmouseover="this.style.color='orange'" onmouseout="this.style.color='#4F4FFF'" style="font-size:24px;color:#4F4FFF"href='addTitle'>新增主題類別<img src="/Traveler/images/向左黑.jpg" width="50" height="50"></a></div>
+    <a onmouseover="this.style.color='orange'" onmouseout="this.style.color='#4F4FFF'" style="font-size:24px;color:#4F4FFF"href='addTitle'>新增主題類別<img src="/Traveler/images/向左黑.jpg" width="60" height="60"></a></div>
   </div>
  </div>
 </div>
@@ -333,7 +333,7 @@ float:right;
  <div class="row">
   <div class="col-md-1">編號</div>
   <div class="col-md-1" style="width:130px">名稱</div>
-  <div class="col-md-3">示意圖檔案名稱</div>
+  <div class="col-md-3" style="width:300px">示意圖檔案名稱</div>
   <div class="col-md-2">顯示圖片預覽</div>
   <div class="col-md-3"></div>
  </div>
@@ -344,8 +344,8 @@ float:right;
 <div class="container-fluid">
  <div class="row">
   <div class="col-md-1">${themeTitles.titleId}</div>
-  <div class="col-md-1"style="width:130px">${themeTitles.titleName}</div>
-  <div class="col-md-3">${themeTitles.fileName}</div>
+  <div class="col-md-1" style="width:130px">${themeTitles.titleName}</div>
+  <div class="col-md-3" style="width:300px">${themeTitles.fileName}</div>
   <div class="col-md-2"><img src="/Traveler/images/themeTitle-${themeTitles.titleName}.png" width="200" height="80"style="border:6px #805300 ridge;"></div>
   <div class="col-md-3" style="width:330px">
    <a href=''>修改圖片<img src="/Traveler/images/向左橘.png" width="50" height="50"></a>

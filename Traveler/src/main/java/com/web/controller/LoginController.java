@@ -93,6 +93,7 @@ public class LoginController {
 			System.out.println("fbId=" + fbId + "登入");
 			//TODO 使用第三方登入
 		} else {
+			System.out.println("fbId=" + fbId + "登入");
 			if (StringUtils.isBlank(memberId)) {
 				errorMsgMap.put("AccountEmptyError", "帳號欄必須輸入");
 			}
@@ -105,6 +106,7 @@ public class LoginController {
 			//System.out.println("verify="+verify);
 			if (!verify) {
 				errorMsgMap.put("LoginError", "你是機器人厚!!");
+				System.out.println("verify=" + verify );
 			}
 		}
 
