@@ -237,6 +237,9 @@ function sendGuest(){
 	
     }
 }
+function showInfo(){
+	$("#waring").slideToggle();
+}
 
 </script>
 
@@ -403,11 +406,42 @@ var birthday="<fmt:formatDate value="${memberBean.birthday}" pattern="yyyy-MM-dd
                 <input type="radio" name="guestTwoGender" id="m2" value="male">
                 <label for="m2">男</label>
                 <input type="radio" name="guestTwoGender" id="f2" value="female">
-                <label for="f2">女</label><button style="margin:10px;padding:10px;" class="btn-sm btn-info" onclick="entry()">一鍵帶入</button>
+                <label for="f2">女</label>
             </div>
         </fieldset>
         </c:if>
-        
+        <button style="margin:10px;padding:10px;" class="btn-sm btn-info" onclick="entry()">一鍵帶入</button>
+        <br>
+        <button  style="margin:10px;" type="button" class="btn btn-info" onclick="showInfo()" >注意事項</button>
+        <div class="tr_note  scrollbar2" id="waring" style="display:none">
+                    <ul>
+                        <li>出發前可更改皆須改票，每次收取『航空公司罰金』+『價差』+『稅差』+本公司服務費，所有更改須符合原購票之相關規定及限制（機票若有NO SHOW *記錄須另查）；出發後欲更改，須另洽詢，亦有可能不可更改。</li>
+                        <li>不可退票。</li>
+
+                        <li>
+                            如更改必須於原搭乘日前２個工作日完成(國定假日無法提供更改服務)。
+                        </li>
+                        <li>
+                            務必於原班機出發前２天更改行程並完成改票或取消紀錄，如造成NO SHOW (未照原訂航班搭乘) 將不接受任何更改或退票。
+                        </li>
+                        <li>
+                            上述航班時間如有變動，以航空公司確認的時間為準。
+                        </li>
+                        <li>
+                            機票開立後，不可轉讓其他公司航空、不可轉讓他人使用。
+                        </li>
+                        <li>
+                            機票開出後,取消預訂，相關退票規定請見<a href="/Travel4u_BFM/%e9%80%80%e7%a5%a8%e9%a0%88%e7%9f%a5.pdf" target="_blank">退票須知</a>。
+                        </li>
+                        <li>
+                            可能有額外支付費用。
+                        </li>
+                    </ul>
+                </div>
+                <div class="form-check">
+    				<input type="checkbox" class="filled-in form-check-input" id="checkbox101" >
+    				<label class="form-check-label" for="checkbox101">我已閱讀注意事項並同意其內容</label>
+				</div>
 			          <div class="sub text-center">
 	          <input type="hidden" name="_method" value="post" /> 
 	          <button type="button" class="btn btn-warning"    onclick="sendGuest()">送出</button>

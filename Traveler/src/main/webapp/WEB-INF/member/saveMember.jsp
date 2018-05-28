@@ -136,7 +136,7 @@ $("#chkPassword").val("a123456");
 $("#birthday").val("1999-06-06");
 $("#chineseLastName").val("江");
 $("#chineseFirstName").val("江江");
-$("#email").val("h6300kimo@gmail.com");
+$("#email").val("asally1110@gmail.com");
 $("#mobile").val("0989-768-666");
 $("#memberId").val("H222977822");
 $("#address").val("新北市板橋區oo街oo巷oo號oo樓");

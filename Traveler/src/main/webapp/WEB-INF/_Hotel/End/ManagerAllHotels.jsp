@@ -335,6 +335,7 @@ float:right;
                              <th scope="col"><h3>國家</h3></th>
                              <th scope="col"><h3>城市</h3></th>
                              <th scope="col"><h3>飯店</h3></th> 
+                             
                           </tr>  
                        </thead>
                        <tbody> 
@@ -345,6 +346,7 @@ float:right;
 		                      		<td width='80px'><h3>${hotelInfo.country}</h3></td>
 		                      		<td width='80px'><h3>${hotelInfo.city}</h3></td>
 		                      		<td width='200px'><h3>${hotelInfo.name}</h3></td>
+		                      		
 							</tr>
 						</c:forEach>
                        </tbody>

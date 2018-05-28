@@ -317,12 +317,16 @@ float:right;
 				<tbody>
 					<c:forEach var="hotelInfo" items="${hotels}">
 						<tr>
+						<form action="/Traveler/_Hotel/End/DeleteHotel/del/${hotelInfo.hotel_id}" method="POST">
 							<td><h3>${hotelInfo.hotel_id}</h3></td>
                       		<td><img width='200' height='100' src="<c:url value='/getPic/${hotelInfo.hotel_id}' />" /></td>
                       		<td width='80px'><h3>${hotelInfo.country}</h3></td>
                       		<td width='80px'><h3>${hotelInfo.city}</h3></td>
                       		<td width='200px'><h3>${hotelInfo.name}</h3></td>
-                      		<td><input type="hidden" id="ProductID" name="ProductID"><span></span></td>
+<!--                       		<td><input type="hidden" id="ProductID" name="ProductID"><span></span></td> -->
+                      		<td><input id="hotel_id" name="hotel_id" type='hidden'  class='btn btn-primary' value="${hotelInfo.hotel_id}"></td>
+                      		<td><input id="btnAdd" type='submit' class='btn btn-primary' value="刪除"></td>
+                      		</form>
 						</tr>
 					</c:forEach>
 				</tbody>
