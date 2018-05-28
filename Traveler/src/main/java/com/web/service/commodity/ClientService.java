@@ -21,5 +21,7 @@ public interface ClientService {
 	
 	void addMemberA (MemberBean mb);
 	
+	ClientBean getClientByMemId(String memId);
+	
 	
 }

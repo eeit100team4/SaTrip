@@ -39,11 +39,20 @@ function test(){
 	var a2=json[2].commodityBean.name;
 	var a3=json[3].commodityBean.name;
 	var a4=json[4].commodityBean.name;
+	var a5=json[5].commodityBean.name;
+	var a6=json[6].commodityBean.name;
+	var a7=json[7].commodityBean.name;
+	var a8=json[8].commodityBean.name;
 	
 	var b1=json[1].cliquantity;
 	var b2=json[2].cliquantity;
 	var b3=json[3].cliquantity;
 	var b4=json[4].cliquantity;
+	var b5=json[5].cliquantity;
+	var b6=json[6].cliquantity;
+	var b7=json[7].cliquantity;
+	var b8=json[8].cliquantity;
+	
 	
 	
 	
@@ -52,14 +61,14 @@ function test(){
 	//設定欲顯示的資料。
 	
 	var data = [{
-	values: [b,b1,b2,b3,b4],
-	labels: [a,a1,a2,a3,a4],
+	values: [b,b1,b2,b3,b4,b5,b6,b7],
+	labels: [a,a1,a2,a3,a4,a5,a6,a7],
 	type: 'pie'
 	}];
 	//設定框架大小。 
 	var frame = {
-	height: 700,
-	width: 700};
+	height: 600,
+	width: 600};
 	//使用Plotly畫出圓餅圖。 
 	Plotly.newPlot('mydiv', data, frame);
 }
@@ -72,8 +81,7 @@ function test(){
     <div style="margin:0px auto; width:800px;" class="content text-center">
 			<div id="total"></div>
 			<div id="mydiv"></div>
-			<button class="btn-info" onclick="test()">五月統計</button> 
-			<button class='btn' onclick='showTooltip()'>Q</button>
+			<button class="btn-info" onclick="test()">五月統計</button> 		
 		</div>
 
     

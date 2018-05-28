@@ -72,7 +72,13 @@ public class ClientServiceAll implements ClientService {
 		 clientDao.addMemberA(mb);
 	}
 
-
+	@Override
+	public ClientBean getClientByMemId(String memId) {
+		
+		return clientDao.getClientByMemId(memId);
+		
+		
+	}
 	
 	
 	

@@ -127,4 +127,16 @@ public class ClientController {
 		return "commodity/maru";
 	}
 
+	
+	@RequestMapping("/GetClientById/{Id}")
+	public String GetClientById(Model model,@PathVariable("Id") String memId) {
+		ClientBean clibean = clientservice.getClientByMemId(memId);
+		model.addAttribute("clibean", clibean);
+
+		return "commodity/maru2";
+	}
+	
+	
+	
+	
 }

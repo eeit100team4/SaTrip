@@ -108,8 +108,16 @@ public class ClientRepository implements ClientDAO {
 			session.saveOrUpdate(mb);
 		}
 		
-		
-	
+		//依會員ID列出資料
+		@Override
+		public ClientBean getClientByMemId(String memId) {
+			ClientBean cb = null;
+			Session session = factory.getCurrentSession();	
+			cb = session.get(ClientBean.class,memId);
+			
+			
+			return cb;
+		}
 		
 		
 }
