@@ -308,6 +308,9 @@ list-style-type: none;
 						  <li >
 						   	<a class="btn btn-primary"href="ClientLists"><h3><font color="white">兌換清單</font></h3></a>			   
 						  </li>
+						   <li >
+						   	<a class="btn btn-primary"href="maruru"><h3><font color="white">兌換統計</font></h3></a>			   
+						  </li>
 					 </ul>
 				</div>
 			</div>
