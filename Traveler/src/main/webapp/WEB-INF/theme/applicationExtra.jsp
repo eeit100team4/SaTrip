@@ -315,58 +315,61 @@ function test()
 <%@ include file="/WEB-INF/backStageHeader.jsp" %>
 
 <!--=========================要放的東西  =====================-->
-	
-<!-- =========側邊欄位開始============ -->	
-<%@ include file="/WEB-INF/theme/backLeftSide.jsp" %>
-<!-- =========側邊欄位結束============ -->
 <!-- 左邊的bar會歪 -->
 <div style="color:black;margin-left:230px;font-size:24px">
-<!-- 大標題  + 新增主題連結區-->
+<!-- 大標:報名者名字 -->
 <br>
 <div class="container-fluid">
  <div class="row">
-  <div class="col-md-12">
-   <div class="header">全報名表&nbsp;&nbsp;&nbsp;&nbsp;
-    <a onmouseover="this.style.color='orange'" onmouseout="this.style.color='#4F4FFF'" style="font-size:24px;color:#4F4FFF"href=''>依行程排序<img src="/Traveler/images/排序.png" width="40" height="40"></a>
-    <a onmouseover="this.style.color='orange'" onmouseout="this.style.color='#4F4FFF'" style="font-size:24px;color:#4F4FFF"href=''>依人數排序<img src="/Traveler/images/排序.png" width="40" height="40"></a>
-    <a onmouseover="this.style.color='orange'" onmouseout="this.style.color='#4F4FFF'" style="font-size:24px;color:#4F4FFF"href=''>依出團日排序<img src="/Traveler/images/排序.png" width="40" height="40"></a>
+  <div class="col-sm-12">
+   <div class="well" style="text-align:left">報名表編號:${extra.applicationId}</div>   
   </div>
  </div>
 </div>
-<hr>
-<!-- 表格 title -->
+<!--報名人相關資訊 -->
 <div class="container-fluid">
  <div class="row">
-  <div class="col-md-1">編號</div>
-  <div class="col-md-1">行程</div>
-  <div class="col-md-1">姓名</div>
-  <div class="col-md-2" style="width:170px">連絡電話</div>
-  <div class="col-md-1" style="width:80px">人數</div>
-  <div class="col-md-1">出團日</div>
-  <div class="col-md-2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;簽收日</div>
-  <div class="col-md-3"></div>
+  <div class="col-sm-12">
+   <div class="well"style="text-align:left">報名資訊</div>
+ </div>
  </div>
 </div>
-<hr>
-<!-- 表格 內容 -->
-<c:forEach var='applications' items='${applications}'>
+ <!-- 商品相關資訊 -->
 <div class="container-fluid">
  <div class="row">
-  <div class="col-md-1">${applications.applicationId}</div>
-  <div class="col-md-1">${applications.journeyId}</div>
-  <div class="col-md-1">${applications.name}</div>
-  <div class="col-md-2" style="width:180px">${applications.cellPhone}</div>
-  <div class="col-md-1" style="width:50px">${applications.people}</div>
-  <div class="col-md-1"><fmt:formatDate value="${applications.themeJourneys.setOut}" pattern="yyyy/MM/dd"/></div>
-  <div class="col-md-2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<fmt:formatDate value="${applications.terminate}" pattern="yyyy/MM/dd"/></div>
-  <div class="col-md-3">
-   <a href='../theme/allApplications/${applications.applicationId}'>內容<img src="/Traveler/images/向左橘.png" width="50" height="50"></a>
-   <a href='../theme/reback'onclick="test()">簽收<img src="/Traveler/images/向左橘.png" width="50" height="50"></a>
-  </div> 
+  <div class="col-sm-12">
+   <div class="well"style="text-align:left">商品資訊</div>
+  </div>
  </div>
 </div>
-</c:forEach>
+<!-- 航班資訊 -->
+<div class="container-fluid">
+ <div class="row">
+  <div class="col-sm-12">
+   <div class="well"style="text-align:left">行程資訊</div>
+  </div>
+ </div>
 </div>
+
+<div style="color:black;margin-left:100px; margin-top:10px;width:1500px;" class="content text-center">
+  <h1>詳細內容</h1>   
+    <h2>報名人相關資訊</h2><br>
+     <b>報名表編號:${extra.applicationId}</b><br>
+     <b>姓名:${extra.name}</b><br>
+     <b>稱謂:${extra.gender}</b><br>
+     <b>人數:${extra.people}</b><br>
+     <b>電話:${extra.cellPhone}</b><br>
+     <b>可連絡時間:${extra.callTime}</b><br>
+     <b>服務據點:${extra.location}</b><br>
+    <h2>套裝行程相關資訊</h2><br>
+     <b>旅遊行程編號:${extra.themeJourneys.themeProducts.themeTitles.titleName}${extra.journeyId}</b><br>
+     <b>旅遊商品名稱:${extra.themeJourneys.themeProducts.productName}</b><br>
+     <b>出團費用:${extra.themeJourneys.price}</b><br>
+</div>
+
+<!-- =========側邊欄位開始============ -->	
+<%@ include file="/WEB-INF/theme/backLeftSide.jsp" %>
+<!-- =========側邊欄位結束============ -->
 </div>
 <script type="text/javascript">
 $(function() {
@@ -391,6 +394,8 @@ $(function() {
 <img src=/Traveler/images/向上箭頭.png id="gotop" style="">
    <i class="fa fa-angle-up"></i>
 	<!--  ========================================================== -->
+<br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br>
 <br><br><br><br><br><br><br><br><br><br><br><br><br>
 <br><br><br><br><br><br><br><br><br><br><br><br><br>
 	<%@ include file="/WEB-INF/backStageFooter.jsp" %>
