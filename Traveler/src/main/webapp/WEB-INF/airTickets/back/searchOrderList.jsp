@@ -260,13 +260,14 @@ margin-bottom:0px;
 	<div class="d2 " style="">
 			<ul class="list-group">
 				<li class="list-group-item">訂單編號：${bean.orderID}</li>
+				<li class="list-group-item">訂單時間：${bean.orderDay}</li>
 				<li class="list-group-item">去程 :${bean.depDate} ${bean.depT}
 					${bean.depC} (機型 ${bean.depNum}) ~ <c:if test="${bean.arrTnextDay==null}">${bean.depDate}</c:if>${bean.arrTnextDay} ${bean.arrT}
 					${bean.arrC}</li>
 				<li class="list-group-item">回程 :${bean.returnDate}
 					${bean.returnTime} ${bean.arrC} (機型 ${bean.returnNum}) ~
 					<c:if test="${returnArrTnextDay==null}">${bean.returnDate}</c:if>${bean.returnArrTnextDay} ${bean.returnArrTime} ${bean.depC}</li>
-				<li class="list-group-item">航空公司：(${bean.airline})</li>
+				<li class="list-group-item">航空公司：${bean.airline}</li>
 				<li class="list-group-item">總價格：NT$ ${bean.price} <c:if test="${bean.bonus!=null}">(extra ${bean.bonus})</c:if></li>
 				<li class="list-group-item">紅利點數：${bean.redPoint} 點</li>
 				<li class="list-group-item">付款狀態：${bean.checkpay}</li>
