@@ -19,13 +19,17 @@ import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import com.web.model.member.MemberBean;
+import com.web.model.member.ThirdPartyMemberBean;
 import com.web.repository.member.MemberDAO;
+import com.web.repository.member.ThirdPartyMemberDAO;
 
 
 @Service
 public class MemberServiceImpl implements com.web.service.member.MemberService {
 	@Autowired
 	private MemberDAO memberDAO;
+	@Autowired
+	private ThirdPartyMemberDAO thirdPartyMemberDAO;
 
 	@Transactional
 	@Override
@@ -101,5 +105,15 @@ public class MemberServiceImpl implements com.web.service.member.MemberService {
 	@Override
 	public int countNewMemberToday() {
 		return memberDAO.countNewMemberToday();
+	}
+
+	@Override
+	public int saveThirdPartyMember(ThirdPartyMemberBean thirdPartyMember) throws SQLException {
+		return thirdPartyMemberDAO.saveThirdPartyMember(thirdPartyMember);
+	}
+
+	@Override
+	public String queryMemberId(String thirdPartyType, String thirdPartyId) throws IOException {
+		return thirdPartyMemberDAO.queryMemberId(thirdPartyType,thirdPartyId);
 	}
 }

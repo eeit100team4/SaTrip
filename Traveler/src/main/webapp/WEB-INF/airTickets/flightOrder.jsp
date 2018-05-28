@@ -119,7 +119,9 @@ function changePrice(){
 	console.log(extraPrice);
 //       var tempNumber=$("#ticketResult").find("table").length;
       var tempList=emp.OTA_AirLowFareSearchRS.PricedItineraries.PricedItinerary;
-
+		for(var x=0;x<extraPrice.length;x++){
+			extraPrice[x].cheap=9999999;
+		};
 	for(var x=0;x<extraPrice.length;x++){
 		console.log(extraPrice[x].airLine);
 		for(var y=0;y<tempList.length;y++){
@@ -128,13 +130,16 @@ function changePrice(){
 			var oldPrice=tempList[y].AirItineraryPricingInfo[0].PTC_FareBreakdowns.PTC_FareBreakdown[0].PassengerFare.TotalFare.Amount;
 			var extraP=extraPrice[x].extraPrice;
 			var newPrice=parseInt(oldPrice)+parseInt(extraP);
+			if(newPrice<extraPrice[x].cheap){
+				extraPrice[x].cheap=newPrice;};
+			
 // 			console.log(newPrice);
 			tempList[y].AirItineraryPricingInfo[0].PTC_FareBreakdowns.PTC_FareBreakdown[0].PassengerFare.TotalFare.Amount=newPrice;
 // 			console.log(tempList[y].AirItineraryPricingInfo[0].PTC_FareBreakdowns.PTC_FareBreakdown[0].PassengerFare.TotalFare.Amount);
 			}
 		}
 	}
-	
+	console.log(extraPrice);
 }
 
 //往前往後一天搜尋
@@ -633,8 +638,12 @@ function list(){
 									//測試用console
 // 									console.log(airLineList[x].Code);
 									if((airLineList[x].Code!="7C")&&(airLineList[x].Code!="H1")&&(airLineList[x].Code!="SL")&&(airLineList[x].Code!="XW")&&(airLineList[x].Code!="PG")){
-										$("#checkbox").append("<input type='checkbox' name='a' value='"+airLineList[x].Code+"' onclick='CLOnly()'' >"+airLineList[x].Code+"<br>");
+									 for(var y=0;y<extraPrice.length;y++){
+										 if(airLineList[x].Code.match(extraPrice[y].airLine)){
+										$("#checkbox").append("<input type='checkbox' name='a' value='"+airLineList[x].Code+"' onclick='CLOnly()'' >"+airLineList[x].Code+"<span>"+"(最低：NT."+extraPrice[y].cheap+")</span><br>");
+										 }
 											}
+									}
 									
 								};
 								
@@ -816,8 +825,8 @@ ul {
 #mwt_mwt_slider_scroll
 {
 top: 100px;
-left:-200px; 
-width:200px;
+left:-250px; 
+width:250px;
 position:fixed; 
 z-index:9999;
 }
