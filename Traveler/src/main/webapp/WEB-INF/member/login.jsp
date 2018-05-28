@@ -255,13 +255,14 @@ input[type=submit]:hover {
   </div>
   <div class="row">
    	<div class="col-md-4" padding="0 0 1px 0">
-        <a href="#" class="fb btn">
+<!--         <a href="#" class="fb btn"></a> -->
+			<div class="fb btn">
 <!--           	<i class="fa fa-facebook fa-fw" scope="public_profile,email" -->
 <!--   onlogin="checkLoginState();"></i> Login with Facebook -->
 
         <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" 
         data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false" onlogin="checkLoginState();" style="width:304px" ></div>
-        </a>
+ 			</div>       
 <!--       <fb:login-button scope="public_profile,email" onlogin="checkLoginState();"> -->
 <!-- 	  </fb:login-button> -->
         <a href="#" class="google btn" >
