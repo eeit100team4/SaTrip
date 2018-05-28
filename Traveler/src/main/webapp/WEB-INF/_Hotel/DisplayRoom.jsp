@@ -477,11 +477,11 @@
 
 						<div class="carousel-item active">
 							<img class="d-block w-60"
-								src="/Traveler/images/hotelPic/korFRA1.jpg" alt="First slide">
+								src="/Traveler/images/hotelPic/korFRA2.jpg" alt="First slide">
 						</div>
 						<div class="carousel-item">
 							<img class="d-block w-60"
-								src="/Traveler/images/hotelPic/korFRA2.jpg" alt="First slide">
+								src="/Traveler/images/hotelPic/korFRA1.jpg" alt="First slide">
 						</div>
 
 						<div class="carousel-item">

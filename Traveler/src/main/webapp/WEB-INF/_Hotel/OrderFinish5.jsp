@@ -18,7 +18,7 @@
 <meta name="keywords"
 	content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
 <meta name="author" content="FREEHTML5.CO" />
-
+   
 <!-- 
 	//////////////////////////////////////////////////////
 
@@ -112,47 +112,136 @@
 
 <!-- 連結旁邊的小ICON套件  -->	
 <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
+<script src="/Traveler/js/airplain/airSearch.js"></script>
+<script src="/Traveler/js/jquery-ui.min.js"></script>
+<link rel="stylesheet" href="/Traveler/js/jquery-ui.min.css">
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+</style>
 
 </head>
 <body>
 	<%@ include file="/WEB-INF/frontStageHeader.jsp"%>
+	
 		<br>
-		<br>
-		<br>
-		<br>
-		<div class="container" align="center">
-		  <div class="row">
-		    <div class="col-xl">
-		      
-		    </div>
-		    <div class="col-xl-10">
-		      <div class="card">
-				  <h1 class="card-header" ><font color="red"><b>訂房資訊</b></font></h1>
+		<div class="container">		
+		  <div class="row">		   
+		   
+		   
+		   
+		   <div class="col-sm-4">
+		   	
+					<br>
+					<br>
+			  			  <h1 class="card-header" ><font color="red"><b>訂房資訊</b></font></h1>
+	            	<hr style="height: 1px; border: none; color: #333; background-color: #333;">
+			            <div class="card">
+				  
 				  <div class="card-body">
 				    <h3 class="card-title"></h3>
 				    <p class="card-text">訂單狀態：<font color="orange"><b>已確認</b></font></p><br>
-				    <p class="card-text">訂單時間：<font color="orange"><b>06/01/2018</b></font></p><br>
+				    <p class="card-text">訂單時間：<font color="orange"><b>06/03/2018</b></font></p><br>
 				    <p class="card-text">訂單編號：<font color="orange"><b>E8730678</b></font></p>
+				    <p class="card-text">訂單價格：<font color="orange"><b>NT:7,500</b></font></p>
 				    <a href="SelectHotel" class="btn btn-primary">回到首頁</a>
 				  </div>
 				</div>
-		    </div>
-		    <div class="col-xl">
-		      
-		    </div>
-		  </div>
+		   </div>
+		  
+		  
+		  
+		   <div class="col-sm-6">
+		   
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					
+		            <div><img src="/Traveler/images/hotelPic/korFRA6.jpg" height="250" width="550" >
+						</div>
+	            	<p><h3>房型：雙人房</h3></p>
+					<p><h3>簡介：非吸菸房、免費上網</h3></p>    
+		   </div>
+		           
+		  </div>									
+		</div>	
+		<hr style="height: 1px; border: none; color: #333; background-color: #333;">
+		
+		<div id="fh5co-tours" class="fh5co-section-gray">
+			<div class="container">
+				<div class="row row-bottom-padded-md">
+					<div class="col-md-4 col-sm-6 fh5co-tours animate-box" data-animate-effect="fadeIn">
+						<div href="#"><img src="/Traveler/images/hotelPic/Korea/Seoul/korSRA/Double/korSRA1.jpeg" alt="Free HTML5 Website Template by FreeHTML5.co" class="img-responsive">
+							<div class="desc">
+								<span></span>
+								<h3>京都</h3>
+								<span>3 nights</span>
+								<span class="price">$4,500</span>
+								<a class="btn btn-primary btn-outline" href="DisplayRoom">立即定位<i class="icon-arrow-right22"></i></a>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 col-sm-6 fh5co-tours animate-box" data-animate-effect="fadeIn">
+						<div href="#"><img src="/Traveler/images/hotelPic/Korea/JejuIsland/korCRB/Double/korCRB2.jpeg" alt="Free HTML5 Website Template by FreeHTML5.co" class="img-responsive">
+							<div class="desc">
+								<span></span>
+								<h3>福岡</h3>
+								<span>4 nights</span>
+								<span class="price">$6,800</span>
+								<a class="btn btn-primary btn-outline" href="DisplayRoom1">立即定位<i class="icon-arrow-right22"></i></a>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 col-sm-6 fh5co-tours animate-box" data-animate-effect="fadeIn">
+						<div href="#"><img src="/Traveler/images/hotelPic/Thailand/ChiangMai/taiCRB/Double/taiCRB2.jpeg" alt="Free HTML5 Website Template by FreeHTML5.co" class="img-responsive">
+							<div class="desc">
+								<span></span>
+								<h3>北海道</h3>
+								<span>2 nights</span>
+								<span class="price">$6,500</span>
+								<a class="btn btn-primary btn-outline" href="DisplayRoom2">立即定位<i class="icon-arrow-right22"></i></a>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 col-sm-6 fh5co-tours animate-box" data-animate-effect="fadeIn">
+						<div href="#"><img src="/Traveler/images/hotelPic/Thailand/Pattaya/taiBRB/Double/taiBRB1.jpeg" alt="Free HTML5 Website Template by FreeHTML5.co" class="img-responsive">
+							<div class="desc">
+								<span></span>
+								<h3>黑部立山</h3>
+								<span>3 nights</span>
+								<span class="price">$9,500</span>
+								<a class="btn btn-primary btn-outline" href="DisplayRoom3">立即定位<i class="icon-arrow-right22"></i></a>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 col-sm-6 fh5co-tours animate-box" data-animate-effect="fadeIn">
+						<div href="#"><img src="/Traveler/images/hotelPic/Thailand/Pattaya/taiBRB/Double/taiBRB4.jpeg" alt="Free HTML5 Website Template by FreeHTML5.co" class="img-responsive">
+							<div class="desc">
+								<span></span>
+								<h3>北海道</h3>
+								<span>4 nights</span>
+								<span class="price">$8,500</span>
+								<a class="btn btn-primary btn-outline" href="DisplayRoom4">立即定位<i class="icon-arrow-right22"></i></a>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 col-sm-6 fh5co-tours animate-box" data-animate-effect="fadeIn">
+						<div href="#"><img src="/Traveler/images/hotelPic/Thailand/Pattaya/taiBRB/Double/taiBRB2.jpeg" alt="Free HTML5 Website Template by FreeHTML5.co" class="img-responsive">
+							<div class="desc">
+								<span></span>
+								<h3>鹿兒島</h3>
+								<span>2 nights</span>
+								<span class="price">$7,500</span>
+								<a class="btn btn-primary btn-outline" href="DisplayRoom5">立即定位<i class="icon-arrow-right22"></i></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 			
-		
-			
-		
-		
-		
 				
 	<%@ include file="/WEB-INF/frontStageFooter.jsp"%>
 </body>
