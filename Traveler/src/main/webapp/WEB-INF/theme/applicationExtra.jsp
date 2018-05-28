@@ -305,7 +305,7 @@ float:right;
 <!-- 提示框 -->
 <script>
 function test()
-{alert("已成功簽收~~將回到簽收頁面");
+{alert("已成功簽收~~將回到旅遊管理首頁");
 	}
 </script> 
 <title>Insert title here</title>
@@ -322,51 +322,40 @@ function test()
 <div class="container-fluid">
  <div class="row">
   <div class="col-sm-12">
-   <div class="well" style="text-align:left">報名表編號:${extra.applicationId}</div>   
+   <div class="well" style="text-align:left;font-weight:bold"><img src="/Traveler/images/勳章.png" width="40" height="40">報名表編號:${extra.applicationId}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${extra.name}&nbsp;&nbsp;&nbsp;&nbsp;${extra.gender}</div>   
   </div>
  </div>
 </div>
-<!--報名人相關資訊 -->
+<!--三個相關資訊 -->
 <div class="container-fluid">
  <div class="row">
-  <div class="col-sm-12">
-   <div class="well"style="text-align:left">報名資訊</div>
+  <div class="col-sm-4">
+   <div class="well"style="text-align:left;font-weight:bold">報名資訊</div>
+    <div class="panel-body">電話:&nbsp;&nbsp;${extra.cellPhone}</div>
+    <div class="panel-body">報名人數:&nbsp;&nbsp;${extra.people}人</div>
+    <div class="panel-body">可連絡時間:&nbsp;&nbsp;${extra.callTime}</div>
+    <div class="panel-body">服務據點:&nbsp;&nbsp;${extra.location}</div>
+    <div class="panel-body">備註:&nbsp;&nbsp;${extra.extra}</div>
  </div>
+ <div class="col-sm-4">
+   <div class="well"style="text-align:left;font-weight:bold"><a onmouseover="this.style.color='orange'" onmouseout="this.style.color='black'" style="font-size:24px;color:black"href=''>行程資訊</a></div>
+    <div class="panel-body">旅遊類別:&nbsp;&nbsp;${extra.themeJourneys.themeProducts.themeTitles.titleName}</div>
+    <div class="panel-body">旅遊行程編號:&nbsp;&nbsp;${extra.journeyId}</div>
+    <div class="panel-body">出團費用:&nbsp;&nbsp;${extra.themeJourneys.price}</div>
+    <div class="panel-body">航空公司:&nbsp;&nbsp;${extra.themeJourneys.companyName}</div>
+    <div class="panel-body">出發日:&nbsp;&nbsp;<fmt:formatDate value="${extra.themeJourneys.setOut}" pattern="yyyy/MM/dd"/></div>
+ </div>
+ <div class="col-sm-4">
+   <div class="well"style="text-align:left;font-weight:bold"><a onmouseover="this.style.color='orange'" onmouseout="this.style.color='black'" style="font-size:24px;color:black"href=''>商品資訊</a></div>
+    <div class="panel-body">旅遊商品名稱:&nbsp;&nbsp;${extra.themeJourneys.themeProducts.productId}<br>${extra.themeJourneys.themeProducts.productName}</div>
+    <div class="panel-body">旅遊國家:&nbsp;&nbsp;${extra.themeJourneys.themeProducts.country}</div>
+    <div class="panel-body">住宿:&nbsp;&nbsp;${extra.themeJourneys.themeProducts.hotelName}</div>
+    <br>
+    <a href='../reback'onclick="test()" style="margin-left:20px;color:blue"onmouseover="this.style.color='orange'" onmouseout="this.style.color='blue'">點擊此處以完成簽收<img src="/Traveler/images/向左箭頭.png" width="50" height="50"></a>
+ </div>
+ 
  </div>
 </div>
- <!-- 商品相關資訊 -->
-<div class="container-fluid">
- <div class="row">
-  <div class="col-sm-12">
-   <div class="well"style="text-align:left">商品資訊</div>
-  </div>
- </div>
-</div>
-<!-- 航班資訊 -->
-<div class="container-fluid">
- <div class="row">
-  <div class="col-sm-12">
-   <div class="well"style="text-align:left">行程資訊</div>
-  </div>
- </div>
-</div>
-
-<div style="color:black;margin-left:100px; margin-top:10px;width:1500px;" class="content text-center">
-  <h1>詳細內容</h1>   
-    <h2>報名人相關資訊</h2><br>
-     <b>報名表編號:${extra.applicationId}</b><br>
-     <b>姓名:${extra.name}</b><br>
-     <b>稱謂:${extra.gender}</b><br>
-     <b>人數:${extra.people}</b><br>
-     <b>電話:${extra.cellPhone}</b><br>
-     <b>可連絡時間:${extra.callTime}</b><br>
-     <b>服務據點:${extra.location}</b><br>
-    <h2>套裝行程相關資訊</h2><br>
-     <b>旅遊行程編號:${extra.themeJourneys.themeProducts.themeTitles.titleName}${extra.journeyId}</b><br>
-     <b>旅遊商品名稱:${extra.themeJourneys.themeProducts.productName}</b><br>
-     <b>出團費用:${extra.themeJourneys.price}</b><br>
-</div>
-
 <!-- =========側邊欄位開始============ -->	
 <%@ include file="/WEB-INF/theme/backLeftSide.jsp" %>
 <!-- =========側邊欄位結束============ -->
