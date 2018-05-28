@@ -302,72 +302,39 @@ float:right;
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <link rel="stylesheet" href="css/jumbotron.css">
 <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
-<!-- 提示框 -->
-<script>
-function test()
-{alert("已成功簽收~~將回到簽收頁面");
-	}
-</script> 
+
+
 <title>Insert title here</title>
 </head>
 <body>
-
+<!--<body style="background-image: url(/Traveler/images/主題背景用圖1.jpg);">-->
 <%@ include file="/WEB-INF/backStageHeader.jsp" %>
-
 <!--=========================要放的東西  =====================-->
-	
+<!-- 左邊的bar會歪 -->
+<div style="color:black;font-size:24px">
+ <div class="container-fluid" style="text-align:center;background:#2B2B2B">
+ <div class="row" style="font-size:30px;color:white">
+  <div class="col-md-12">
+  <br>
+   <div class="panel-well">歡迎來到主題商品管理頁面</div>
+    <div class="panel-heading">你可以在此使用以下功能:</div>
+    <hr>
+     <div class="panel-body">主題列表管理:目前種類&nbsp;&nbsp;<a style="color:gold">12</a>&nbsp;&nbsp;種</div>
+     <div class="panel-body">旅遊商品管理:上架旅遊商品&nbsp;&nbsp;<a style="color:gold">49</a>&nbsp;&nbsp;項</div>
+     <div class="panel-body">出團行程管理:已建立行程&nbsp;&nbsp;<a style="color:gold">155</a>&nbsp;&nbsp;團</div>
+     <div class="panel-body">全報名表管理:待處理報名申請表&nbsp;&nbsp;<a style="color:gold">0</a>&nbsp;&nbsp;筆</div>
+     <hr>
+     <div class="panel-body">點擊左側連結開始執行管理行為</div>
+     <br>
+     <br>
+     <br>
+  </div>
+ </div>
+</div> 
+</div>
 <!-- =========側邊欄位開始============ -->	
 <%@ include file="/WEB-INF/theme/backLeftSide.jsp" %>
 <!-- =========側邊欄位結束============ -->
-<!-- 左邊的bar會歪 -->
-<div style="color:black;margin-left:230px;font-size:24px">
-<!-- 大標題  + 新增主題連結區-->
-<br>
-<div class="container-fluid">
- <div class="row">
-  <div class="col-md-12">
-   <div class="header">全報名表&nbsp;&nbsp;&nbsp;&nbsp;
-    <a onmouseover="this.style.color='orange'" onmouseout="this.style.color='#4F4FFF'" style="font-size:24px;color:#4F4FFF"href=''>依行程排序<img src="/Traveler/images/排序.png" width="40" height="40"></a>
-    <a onmouseover="this.style.color='orange'" onmouseout="this.style.color='#4F4FFF'" style="font-size:24px;color:#4F4FFF"href=''>依人數排序<img src="/Traveler/images/排序.png" width="40" height="40"></a>
-    <a onmouseover="this.style.color='orange'" onmouseout="this.style.color='#4F4FFF'" style="font-size:24px;color:#4F4FFF"href=''>依出團日排序<img src="/Traveler/images/排序.png" width="40" height="40"></a>
-  </div>
- </div>
-</div>
-<hr>
-<!-- 表格 title -->
-<div class="container-fluid">
- <div class="row">
-  <div class="col-md-1">編號</div>
-  <div class="col-md-1">行程</div>
-  <div class="col-md-1">姓名</div>
-  <div class="col-md-2" style="width:170px">連絡電話</div>
-  <div class="col-md-1" style="width:80px">人數</div>
-  <div class="col-md-1">出團日</div>
-  <div class="col-md-2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;簽收日</div>
-  <div class="col-md-3"></div>
- </div>
-</div>
-<hr>
-<!-- 表格 內容 -->
-<c:forEach var='applications' items='${applications}'>
-<div class="container-fluid">
- <div class="row">
-  <div class="col-md-1">${applications.applicationId}</div>
-  <div class="col-md-1">${applications.journeyId}</div>
-  <div class="col-md-1">${applications.name}</div>
-  <div class="col-md-2" style="width:180px">${applications.cellPhone}</div>
-  <div class="col-md-1" style="width:50px">${applications.people}</div>
-  <div class="col-md-1"><fmt:formatDate value="${applications.themeJourneys.setOut}" pattern="yyyy/MM/dd"/></div>
-  <div class="col-md-2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<fmt:formatDate value="${applications.terminate}" pattern="yyyy/MM/dd"/></div>
-  <div class="col-md-3">
-   <a href='../theme/allApplications/${applications.applicationId}'>內容<img src="/Traveler/images/向左橘.png" width="50" height="50"></a>
-   <a href='../theme/reback'onclick="test()">簽收<img src="/Traveler/images/向左橘.png" width="50" height="50"></a>
-  </div> 
- </div>
-</div>
-</c:forEach>
-</div>
-</div>
 <script type="text/javascript">
 $(function() {
     /* 按下GoTop按鈕時的事件 */
@@ -384,15 +351,18 @@ $(function() {
             $('#gotop').fadeOut();
         }
     });
-});				
-/*返回上方的按鈕*/
+});
+/*返回上方的按鈕*/ 
 </script>   
 <!-- 記得要把按鈕放到網頁上, 否則它不會出現 -->
 <img src=/Traveler/images/向上箭頭.png id="gotop" style="">
    <i class="fa fa-angle-up"></i>
-	<!--  ========================================================== -->
-<br><br><br><br><br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br><br><br><br><br><br>
-	<%@ include file="/WEB-INF/backStageFooter.jsp" %>
+
+
+
+
+<!--  ========================================================== -->
+<%@ include file="/WEB-INF/backStageFooter.jsp" %>
+
 </body>
 </html>

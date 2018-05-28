@@ -123,5 +123,18 @@ public class ThemeBackController {
 	session.setAttribute("extra", List);		
 	System.out.println("ggg"+List);//測試	
 	return "theme/applicationExtra";
-		}
+	}
+	
+	@RequestMapping("theme/reback")
+	public String reback(){
+		return "theme/reback";
+	}
+	
+//	//簽收
+//	@RequestMapping("theme/allApplications/terminate/{applicationId}")
+//	public String updateTerminate(Model model) {
+//		themeService.updateAllTerminate();
+//		return "theme/allApplications";
+//	}
+
 }

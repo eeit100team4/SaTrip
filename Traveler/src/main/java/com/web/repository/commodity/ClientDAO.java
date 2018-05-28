@@ -22,6 +22,6 @@ public interface ClientDAO {
 	
 	void addMemberA (MemberBean mb);
 	
-
+	ClientBean getClientByMemId(String memId);
 	
 }
