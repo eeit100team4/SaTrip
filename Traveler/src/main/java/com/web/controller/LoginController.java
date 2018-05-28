@@ -79,7 +79,8 @@ public class LoginController {
 		String memberId = request.getParameter("memberId");
 		String password = request.getParameter("password");
 		String rm = request.getParameter("rememberMe");
-		String fbId = request.getParameter("fbId");
+		String thirdPartyType= request.getParameter("thirdPartyType");
+		String thirdPartyId = request.getParameter("thirdPartyId");
 		String gRecaptchaResponse = request
 				.getParameter("g-recaptcha-response");
 		String requestURI = (String) session.getAttribute("requestURI");
@@ -89,18 +90,16 @@ public class LoginController {
 		// 無
 		// 3.檢查使用者輸入資料
 		// 如果memberId欄位為空白，放一個錯誤訊息到errorMsgMap之內
-		if (StringUtils.isNotBlank(fbId)) {
-			System.out.println("fbId=" + fbId + "登入");
-			//TODO 使用第三方登入
+		if (StringUtils.isNotBlank(thirdPartyId)) {
+			System.out.println("thirdPartyId=" + thirdPartyId + "登入");
+			//使用第三方登入取得memberId帳號
+			memberId=memberService.queryMemberId(thirdPartyType, thirdPartyId);
+			password ="";
 		} else {
-			System.out.println("fbId=" + fbId + "非fb登入");if (StringUtils.isBlank(memberId)) {
-				errorMsgMap.put("AccountEmptyError", "帳號欄必須輸入");
+			System.out.println("thirdPartyId=" + thirdPartyId + "非fb登入");
+			if (StringUtils.isBlank(memberId) || StringUtils.isBlank(password)) {
+				errorMsgMap.put("LoginError", "帳號或密碼欄必須輸入");
 			}
-			// 如果password欄位為空白，放一個錯誤訊息到errorMsgMap之內
-			if (StringUtils.isBlank(password)) {
-				errorMsgMap.put("PasswordEmptyError", "密碼欄必須輸入");
-			}
-			//System.out.println(gRecaptchaResponse);
 			boolean verify = VerifyRecaptcha.verify(gRecaptchaResponse);
 			//System.out.println("verify="+verify);
 			if (!verify) {
@@ -166,7 +165,12 @@ public class LoginController {
 		// password=GlobalService.getMD5Endocing(GlobalService.encryptString(password));//二次加密
 		password = GlobalService.encryptString(password);
 		// 呼叫loginService物件的checkIdPwd()，傳入memberId與password兩個參數
-		MemberBean mb = memberService.checkIdPwd(memberId, password);
+		MemberBean mb =null;
+		if (StringUtils.isNotBlank(thirdPartyId)) {
+			mb = memberService.getMemberById(memberId);
+		}else {
+			mb = memberService.checkIdPwd(memberId, password);
+		}
 
 		if (mb != null) {
 			// OK,將mb物件放入Session範圍，識別字串為"LoginOK"

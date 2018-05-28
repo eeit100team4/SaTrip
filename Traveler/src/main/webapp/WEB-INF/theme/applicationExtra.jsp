@@ -383,10 +383,9 @@ $(function() {
 <img src=/Traveler/images/向上箭頭.png id="gotop" style="">
    <i class="fa fa-angle-up"></i>
 	<!--  ========================================================== -->
-<br><br><br><br><br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+<br><br><br>
 	<%@ include file="/WEB-INF/backStageFooter.jsp" %>
 </body>
 </html>
