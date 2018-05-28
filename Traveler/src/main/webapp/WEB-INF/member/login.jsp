@@ -141,7 +141,7 @@ input[type=submit]:hover {
 <script src='https://www.google.com/recaptcha/api.js'></script>
 <script src="https://apis.google.com/js/platform.js" defer async="true"></script>
 </head>
-<body onLoad="setFocusToUserId()" style="background: #EBFFEB;">
+<body onLoad="setFocusToUserId()" style="margin-top: 20px">
 <script>
   // This is called with the results from from FB.getLoginStatus().
   function statusChangeCallback(response) {
@@ -235,9 +235,9 @@ input[type=submit]:hover {
   <div class="row">
   	<h2 >Login </h2>
   	<div class="col-md-4" >
-        <input type="text" name="memberId" placeholder="身份證字號" required style="width:304px">
-        <input type="password" name="password" placeholder="Password" required style="width:304px">
-<%--         <div id="errorMsgMap"  font-size =30%; display: inline;">${ErrorMsgMap.LoginError}</div> --%>
+        <input type="text" name="memberId" placeholder="身份證字號" required >
+        <input type="password" name="password" placeholder="Password" required >
+        <div id="errorMsgMap"  font-size =30%; display: inline;">${errorMsgMap.LoginError}</div>
         <div style="align=center;">
                 <input type="checkbox"	name="rememberMe"
 				<c:if test='${sessionScope.rememberMe==true}'>checked='checked'</c:if>
@@ -248,22 +248,23 @@ input[type=submit]:hover {
     	<div class="g-recaptcha col" data-sitekey="6LecRlkUAAAAAAjw-yatNu-zJHfZhcqVmg10Ce9b" style="width:304px"></div>
     </div>
 	
-        <input type="submit" value="Login" style="width:304px">
-<!--    <div class="col-md-8"></div>      -->
+        <input type="submit" value="Login">
+   <div class="col-md-8"></div>     
 
 	</div>
   </div>
   <div class="row">
    	<div class="col-md-4" padding="0 0 1px 0">
-<!--         <a href="#" class="fb btn"> -->
+        <a href="#" class="fb btn">
 <!--           	<i class="fa fa-facebook fa-fw" scope="public_profile,email" -->
 <!--   onlogin="checkLoginState();"></i> Login with Facebook -->
-<!--         </a> -->
+
         <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" 
         data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false" onlogin="checkLoginState();" style="width:304px" ></div>
+        </a>
 <!--       <fb:login-button scope="public_profile,email" onlogin="checkLoginState();"> -->
 <!-- 	  </fb:login-button> -->
-        <a href="#" class="google btn" style="width:304px">
+        <a href="#" class="google btn" >
         	<i class="fa fa-google fa-fw"></i> Login with Google+
         </a>
     </div>

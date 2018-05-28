@@ -166,7 +166,7 @@ margin-bottom:0px;
 
 <title>Insert title here</title>
 </head>
-<body style="background-image: url(/Traveler/images/sky.jpg);">
+<body >
 
 	<%@ include file="/WEB-INF/backStageHeader.jsp" %>
 
