@@ -125,8 +125,11 @@ public class CommodityController {
 				e.printStackTrace();
 				throw new RuntimeException("檔案上傳發生異常: " + e.getMessage());
 			}
-		return "redirect:/commlist";
-	
+			
+			
+				return "redirect:/commlist";
+		
+
 	}
 	
 	//新增產品JSP中 列出種類清單的方法
