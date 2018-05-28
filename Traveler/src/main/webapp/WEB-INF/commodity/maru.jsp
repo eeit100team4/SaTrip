@@ -231,7 +231,7 @@ function test(){
 	<div style="margin:0px auto; width:700px; padding:15px" class="content text-center" >
 			<div id="total"></div>
 			<div id="mydiv"></div>
-			<button style="padding:20x" class="btn-info" onclick="test()">五月統計</button> 		
+			<button style="padding:20x" class="btn-info" onclick="test()">五月份兌換統計圖</button> 		
 		</div>
 	
 	
