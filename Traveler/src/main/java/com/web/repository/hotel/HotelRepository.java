@@ -13,7 +13,7 @@ public interface HotelRepository {
 
 	HotelBean insertHotel(HotelBean hotelBean);
 
-	HotelBean udpateHotel(HotelBean hotelBean);
+	void udpateHotel(HotelBean hotelBean);
 
 	boolean deleteHotel(int hotel_id);
 

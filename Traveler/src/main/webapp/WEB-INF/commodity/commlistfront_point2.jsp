@@ -18,22 +18,7 @@
 	content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
 <meta name="author" content="FREEHTML5.CO" />
 
-<!--(額外補足)Bootstrap 網頁的基本結構-->
-<link rel="stylesheet" href="/Traveler/css/bootstrap.min.css">
-<link rel="stylesheet" href="/Traveler/css/bootstrap-theme.min.css">
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
-<link
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
-	rel="stylesheet">
-<link rel="stylesheet"
-	href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-	crossorigin="anonymous">
+
 
 <!-- -------------------------------------------------------------------------------------------------------	 -->
 
@@ -66,7 +51,7 @@
 <!-- Icomoon Icon Fonts-->
 <link rel="stylesheet" href="/Traveler/css/icomoon.css">
 <!-- Bootstrap  -->
-<link rel="stylesheet" href="/Traveler/css/bootstrap.css">
+<!-- <link rel="stylesheet" href="/Traveler/css/bootstrap.css"> -->
 <!-- Superfish -->
 <link rel="stylesheet" href="/Traveler/css/superfish.css">
 <!-- Magnific Popup -->
@@ -95,7 +80,7 @@
 <!-- jQuery Easing -->
 <script src="/Traveler/js/jquery.easing.1.3.js"></script>
 <!-- Bootstrap -->
-<script src="/Traveler/js/bootstrap.min.js"></script>
+<!-- <script src="/Traveler/js/bootstrap.min.js"></script> -->
 <!-- Waypoints -->
 <script src="/Traveler/js/jquery.waypoints.min.js"></script>
 <script src="/Traveler/js/sticky.js"></script>

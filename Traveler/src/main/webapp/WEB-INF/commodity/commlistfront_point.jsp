@@ -66,7 +66,7 @@
 <!-- Icomoon Icon Fonts-->
 <link rel="stylesheet" href="/Traveler/css/icomoon.css">
 <!-- Bootstrap  -->
-<link rel="stylesheet" href="/Traveler/css/bootstrap.css">
+<!-- <link rel="stylesheet" href="/Traveler/css/bootstrap.css"> -->
 <!-- Superfish -->
 <link rel="stylesheet" href="/Traveler/css/superfish.css">
 <!-- Magnific Popup -->
@@ -95,7 +95,7 @@
 <!-- jQuery Easing -->
 <script src="/Traveler/js/jquery.easing.1.3.js"></script>
 <!-- Bootstrap -->
-<script src="/Traveler/js/bootstrap.min.js"></script>
+<!-- <script src="/Traveler/js/bootstrap.min.js"></script> -->
 <!-- Waypoints -->
 <script src="/Traveler/js/jquery.waypoints.min.js"></script>
 <script src="/Traveler/js/sticky.js"></script>

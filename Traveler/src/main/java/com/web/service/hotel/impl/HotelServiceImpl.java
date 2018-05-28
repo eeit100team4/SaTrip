@@ -76,9 +76,9 @@ public class HotelServiceImpl implements HotelService {
 	}
 	@Transactional
 	@Override
-	public HotelBean udpateHotel(HotelBean hotelBean) {
+	public void udpateHotel(HotelBean hotelBean) {
 		
-		return  hotelRepository.udpateHotel(hotelBean);
+		 hotelRepository.udpateHotel(hotelBean);
 	}
 	@Transactional
 	@Override
