@@ -7,6 +7,8 @@ import com.web.model.hotel.HotelRoomBean;
 
 public interface HotelRepository {
 
+	
+
 	List<HotelBean> getAllHotels();
 
 	HotelBean getHotelById(int hotel_id);

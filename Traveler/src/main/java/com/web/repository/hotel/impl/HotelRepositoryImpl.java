@@ -21,6 +21,9 @@ public class HotelRepositoryImpl implements HotelRepository {
 	
 	Session session = null;
 	
+	@Autowired
+	private HotelRepository hotelRepository;
+	
 
 	@Override
 	@SuppressWarnings("unchecked")
@@ -58,18 +61,38 @@ public class HotelRepositoryImpl implements HotelRepository {
 		hb.setName(hotelBean.getName());		
 		session.save(hb);
 		
-	}	
-	
+	}
+
 	@Override
-	public boolean deleteHotel(int hotel_id) {
-		Session session = factory.getCurrentSession();
-		HotelBean hb = session.get(HotelBean.class, hotel_id);
-		if (hb != null) {
-			session.delete(hb);
+	public boolean deleteHotel(int hotel_id) {	
+		HotelBean hotelBean = this.getHotelById(hotel_id);
+		if(hotelBean!=null) {
+			this.factory.getCurrentSession().delete(hotelBean);			
 			return true;
 		}
 		return false;
+		
 	}
+
+	
+	
+
+	
+	
+//	@Override
+//	public boolean deleteHotel(int hotel_id) {
+//		Session session = factory.getCurrentSession();
+//		HotelBean hb = session.get(HotelBean.class, hotel_id);
+//		if (hb != null) {
+//			session.delete(hb);
+//			return true;
+//		}
+//		return false;
+//	}
+	
+	
+	
+	
 	
 	
 

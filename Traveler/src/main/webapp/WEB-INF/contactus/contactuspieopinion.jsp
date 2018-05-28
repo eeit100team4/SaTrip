@@ -216,7 +216,7 @@ Highcharts.chart('container', {
         type: 'pie'
     },
     title: {
-        text: '1~3月份意見反應統計'
+          text: '1~3月份意見反應統計' 
     },
     tooltip: {
         pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
@@ -238,76 +238,36 @@ Highcharts.chart('container', {
         name: 'Brands',
         colorByPoint: true,
         data: [{
-            name: '機票預訂',
-            y: 20,
-            sliced: true,
-            selected: true
-        }, {
-            name: '飯店預訂 ',
-            y: 24
-        }, {
-            name: '旅遊資訊',
-            y: 28
-        }, {
-            name: '會員服務',
-            y: 25
-        }, {
-            name: '紅利點數',
-            y: 54
-        }, {
-            name: '意見回饋',
-            y: 30
-        }, {
-            name: '其它',
-            y: 18
-      
-        }]
+              name: '機票預訂',
+              y: 20,
+             sliced: true, 
+             selected: true
+          }, { 
+             name: '飯店預訂 ',
+              y: 24
+          }, { 
+              name: '旅遊資訊',
+             y: 28
+          }, { 
+              name: '會員服務',
+              y: 25
+         }, { 
+              name: '紅利點數',
+             y: 54 
+          }, {
+             name: '意見回饋',
+              y: 30
+         }, {
+             name: '其它', 
+              y: 18 
+         }]
     }]
 });
     
      
-</script>
- <!-- D3 函式庫 --> 
-<!-- <script src=https://d3js.org/d3.v3.min.js charset="utf-8"></script> -->
-<!-- <script src="https://cdn.plot.ly/plotly-latest.min.js"></script> -->
-<!-- <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script> -->
-<!-- <script src="/Traveler/js/airplain/backLeft.js"></script> -->
-     
- 
-<!-- <script> -->
+ </script>
 
 
-<!--  function test(){ -->
-<%--  	var json=${json}; --%>
-<!--  	var totalOpinion=json[0].opinion; -->
-<!--  	var op=json[1].contactusBean.opinion; -->
-<!--  	var op1=json[2].contactusBean.opinion; -->
-<!--  	var op3=json[3].contactusBean.opinion; -->
-<!--  	var op4=json[4].contactusBean.opinion; -->
-<!--  	var op5=json[5].contactusBean.opinion; -->
-<!--  	var op6=json[6].contactusBean.opinion; -->
-<!-- 	var op7=json[7].contactusBean.opinion; -->
-	
-
-	
-	
-<!-- // // 	$("#total").html("<h3  style='color:#CC0000; margin:0px;padding:0px;'>五月份總搜尋數："+totalClick+"</h3>"); -->
-<!-- // 	d3.select("body").append("div").attr("id", "mydiv"); -->
-<!-- // 	//設定欲顯示的資料。 -->
-	
-<!-- // 	var data = [{ -->
-<!-- // 	values: [op,op1,op2,op3,op4,op5,op6,op7], -->
-<!-- // 	labels: ["機票預訂","飯店預訂","旅遊資訊","紅利點數","會員服務","意見回饋","其它"], -->
-<!-- // 	type: 'pie' -->
-<!-- // 	}]; -->
-<!-- // 	//設定框架大小。  -->
-<!-- // 	var frame = { -->
-<!-- // 	height: 700, -->
-<!-- // 	width: 700}; -->
-<!-- // 	//使用Plotly畫出圓餅圖。  -->
-<!-- // 	Plotly.newPlot('mydiv', data, frame); -->
-<!-- // } -->
-<!-- </script> -->
 
 
 </div>
