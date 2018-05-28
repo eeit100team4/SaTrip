@@ -23,6 +23,8 @@ public class RootAppcConfig {
 	public DataSource dataSource() {
 		ComboPooledDataSource ds = new ComboPooledDataSource();
 		ds.setUser("sa");
+		//雲端資料庫
+//		ds.setUser("memberuser");
 		ds.setPassword("P@ssw0rd");
 		try {
 			ds.setDriverClass("com.microsoft.sqlserver.jdbc.SQLServerDriver");
@@ -31,6 +33,8 @@ public class RootAppcConfig {
 		}
 
 		ds.setJdbcUrl("jdbc:sqlserver://localhost;DatabaseName=Traveler");
+		//雲端資料課
+//		ds.setJdbcUrl("jdbc:sqlserver://eeittraveler.database.windows.net:1433;DatabaseName=Traveler");
 
 		ds.setInitialPoolSize(4);
 		ds.setMaxPoolSize(8);
@@ -66,7 +70,7 @@ public class RootAppcConfig {
 		props.put("hibernate.show_sql", Boolean.TRUE);
 		props.put("hibernate.format_sql", Boolean.TRUE);
 		props.put("defalut_batch_fetch_size", 10);
-		props.put("hibernate.hbm2ddl.auto", "update");
+		props.put("hibernate.hbm2ddl.auto", "none");
 		return props;
 	}
 }

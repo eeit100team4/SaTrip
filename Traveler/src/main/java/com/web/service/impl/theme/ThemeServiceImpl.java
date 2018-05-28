@@ -98,4 +98,18 @@ public class ThemeServiceImpl implements ThemeService {
 	public ThemeApplications getExtraByApplicationId(Integer applicationId) {
 		return themeRepository.getExtraByApplicationId(applicationId);
 	}
+	
+//	//簽收
+//	@Transactional
+//	@Override
+//	public void updateAllTerminate(){
+//		List<ThemeApplications> allTerminates = themeRepository.getAllApplications();
+//		
+//		for(ThemeApplications ta : allTerminates) {
+//			if(ta.getTerminate() != null) {
+//				themeRepository.updateTerminate
+//				(ta.getApplicationId(), ta.getTerminate()+1);
+//			}
+//		}
+//	}
 }

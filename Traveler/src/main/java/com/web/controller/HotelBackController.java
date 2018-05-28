@@ -118,9 +118,7 @@ public class HotelBackController {
 		
 
 		@RequestMapping(value="/UpdateHotel")
-		public String updateform(Model model,
-				@ModelAttribute("HotelBean") HotelBean hb) {
-			
+		public String updateform(Model model,@ModelAttribute("HotelBean") HotelBean hb) {
 			List<HotelBean>  list = hotelService.getAllHotels();
 			model.addAttribute("hotels", list);
 			return "/_Hotel/End/UpdateHotel";		
@@ -129,9 +127,7 @@ public class HotelBackController {
 		
 		
 		@RequestMapping(path= "/UpdateHotel/{hotel_id}" )
-		public String update(@ModelAttribute("HotelBean") HotelBean hb,
-				@PathVariable Integer hotel_id
-				) {
+		public String updateHotelIfno(@ModelAttribute("HotelBean") HotelBean hb,@PathVariable Integer hotel_id) {
 
 			hotelService.udpateHotel(hb);
 
@@ -139,10 +135,20 @@ public class HotelBackController {
 			return "redirect:/_Hotel/End/UpdateHotel";
 		}
 		
+
+//		// 取得HotelBean資料，顯示多筆Hotel資料
+//		@RequestMapping("/DeleteHotel")
+//		public String DeleteHotel(Model model) {
+//			
+//			return "_Hotel/End/DeleteHotel";
+//		}	
 		
 		// 取得HotelBean資料，顯示多筆Hotel資料
 		@RequestMapping("/DeleteHotel")
 		public String DeleteHotel(Model model) {
+			
+			List<HotelBean> list = hotelService.getAllHotels();
+			model.addAttribute("hotels", list);			
 			return "_Hotel/End/DeleteHotel";
 		}	
 		

@@ -84,7 +84,7 @@
 <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
 
 <!-- 手風琴 -->
-<script type="text/javascript" src="/Traveler/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="jquery-1.10.2.min.js"></script>
 <script type="text/javascript">
 $(function(){
 	$("ul.subs").hide();
@@ -179,7 +179,7 @@ margin-bottom:0px;
 
 <title>Insert title here</title>
 </head>
-<body>
+<body  style="background-image: url(/Traveler/images/主題背景用圖2.png);">
 
 	<%@ include file="/WEB-INF/backStageHeader.jsp" %>
 
@@ -188,41 +188,25 @@ margin-bottom:0px;
 	<!-- =========側邊欄位開始============ -->	
 <%@ include file="/WEB-INF/theme/backLeftSide.jsp" %>
 <!-- =========側邊欄位結束============ -->
-	
-	
-	
-	
-        <div class="content text-center">
-<div style="color:black">
+  <hr>
+<div style="color:black;margin-left:100px; margin-top:10px;width:1500px;" class="content text-center">
+  <h1>詳細內容</h1>   
+    <h2>報名人相關資訊</h2><br>
+     <b>報名表編號:${extra.applicationId}</b><br>
+     <b>姓名:${extra.name}</b><br>
+     <b>稱謂:${extra.gender}</b><br>
+     <b>人數:${extra.people}</b><br>
+     <b>電話:${extra.cellPhone}</b><br>
+     <b>可連絡時間:${extra.callTime}</b><br>
+     <b>服務據點:${extra.location}</b><br>
+    <h2>套裝行程相關資訊</h2><br>
+     <b>旅遊行程編號:${extra.themeJourneys.themeProducts.themeTitles.titleName}${extra.journeyId}</b><br>
+     <b>旅遊商品名稱:${extra.themeJourneys.themeProducts.productName}</b><br>
+     <b>出團費用:${extra.themeJourneys.price}</b><br>
+    
+      
 
-  <div>
-   <h1 style="text-align: center;margin-top: 50px;">主題維護</h1>
-  </div>
-
-
-<hr width='3'>
-
-<section style='font-size:30px;'>
-	<form:form method="POST" modelAttribute="themeBean" enctype="multipart/form-data" >
-	 <fieldset>
-	  <label style="margin-right: 150px;">新增主題類別</label><br>
-	   <form:input  path="titleName" type="text"/>								
-		<br>
-		<br>
-		<label style="margin-right: 150px;">新增主題圖片</label>
-		<form:input  style="margin-left: 600px;" path="titleImage" type="file"/>	
-		<br>
-		<br>															
-		<div>					
-		<input type="submit" value="確認送出"/>
-		</div>
-	  </fieldset>
-	</form:form>		
-</section>	
 </div>
-		
-</div>
-
 	<!--  ========================================================== -->
 
 

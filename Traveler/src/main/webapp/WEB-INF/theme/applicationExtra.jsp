@@ -3,6 +3,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -16,7 +17,6 @@
 <meta name="keywords"
 	content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
 <meta name="author" content="FREEHTML5.CO" />
-
 
 
 <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -41,8 +41,7 @@
 <link rel="stylesheet" href="/Traveler/css/cs-skin-border.css">
 
 <link rel="stylesheet" href="/Traveler/css/style.css">
-<!-- 手風琴 -->
-<link rel="stylesheet" href="/Traveler/css/astyle.css" type="text/css"/>
+
 
 <!-- Modernizr JS -->
 <script src="/Traveler/js/modernizr-2.6.2.min.js"></script>
@@ -82,20 +81,38 @@
 <script src="/Traveler/js/main.js"></script>
 <!-- 連結旁邊的小ICON套件  -->	
 <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
-
-<!-- 手風琴 -->
-<script type="text/javascript" src="jquery-1.10.2.min.js"></script>
-<script type="text/javascript">
-$(function(){
-	$("ul.subs").hide();
-	$("div.main").click(function(){
-		$("ul.subs").hide();
-		if($("+ul",this).css("display")=="none"){
-		   $("+ul",this).show();
-	    }
-	 });
-  });
-</script>
+<!-- Bootstrap -->
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
+<!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> -->
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script> -->
+<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> -->
+<!-- bootstrap網格 -->
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"></link>
+<style>
+.well, .panel {text-align: center;}
+</style>
+<!-- 返回上方按鈕 -->
+<style>
+#gotop {
+    position:fixed;
+    z-index:90;
+    right:30px;
+    bottom:31px;
+    display:none;
+    width:50px;
+    height:50px;
+    color:#fff;
+    background:#33b5e5;
+    line-height:50px;
+    border-radius:50%;
+    transition:all 0.5s;
+    text-align: center;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+}
+#gotop :hover{
+    background:#0099CC;
+}
+</style>
 <!-- 測試側邊 -->
 <style>
 #mwt_mwt_slider_scroll
@@ -163,58 +180,219 @@ $(document).ready(function(){
 
 </script>
 <style>
-html,body{
-margin:0;
-padding:0;
-height:100%;
+        
+* {
+	margin: 0;
+	padding: 0;
 }
-.wrapper{
-min-height:100%;
-margin-bottom:0px;
+
+/* #allpage { */
+/* 	margin: 0 auto; */
+/* } */
+
+.menu {
+	overflow: auto;
+	width: 100%;
+	list-style-type: none;
+	background-color: #FF8800;
+	border-bottom: 3px solid #cccccc;
 }
-.footer .push{
-margin-bottom:0px;
+
+.me {
+	overflow: auto;
+	width: 100%;
+	list-style-type: none;
+
+
 }
+
+.menu li {
+	float: left;
+	width: 11em;
+	/*為了讓連結區域能依字型大小的變化自動放大,因此在指定width屬性時採用em為單位*/
+	border-right: 1px solid #cccccc;
+}
+
+.me li {
+	float: left;
+    width: 15em; 
+	/*為了讓連結區域能依字型大小的變化自動放大,因此在指定width屬性時採用em為單位*/
+	
+}
+
+.menu li a {
+	display: block;
+	width: 100%;
+	line-height: 3em;
+	/*讓文字上下空出適當的空白,不用padding屬性,直接將行Box的高度設的高一些*/
+	color: #333333;
+	text-decoration: none;
+	text-align: center;
+}
+
+.me li a {
+	display: block;
+	width: 100%;
+	line-height: 3em;
+	/*讓文字上下空出適當的空白,不用padding屬性,直接將行Box的高度設的高一些*/
+	color: #333333;
+	text-decoration: none;
+	text-align: center;
+}
+
+ .menu li a:hover { 
+	color: #FFFFFF; 
+ 	background-color: #AA7700; 
+ } 
+  .me li a:hover { 
+	color: #FFFFFF; 
+ 	background-color: #AA7700; 
+ }
+
+
+/* .content { */
+/* 	overflow: auto; */
+/* 	width: 100%; */
+/* 	padding-bottom: 20px; */
+/* } */
+
+/* aside { */
+/* 	float: right; */
+/* 	width: 20%; */
+/* } */
+
+.list1 {
+	list-style: decimal inside;
+}
+
+
+
+footer {
+	width: 100%;
+	clear: both;
+	line-height: 2.5em;
+	text-align: center;
+	color: #ffffff;
+	background-color: #FFBB00;
+	/*             border-bottom-right-radius: 15px; */
+	/*             border-bottom-left-radius: 15px; */
+}
+
+.d1 {
+	background-color: #FF8800;
+	width: 20%;
+	height:630px;
+	float:left;
+}
+
+.d2{
+background-color: #FFFFFF;
+width: 80%;
+height:630px;
+float:right;
+}
+
 </style>
 
+<!-- <link rel="stylesheet" -->
+<!-- 	href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"> -->
+
+
+<!-- 老師 -->
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/jumbotron.css">
+<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+<!-- 提示框 -->
+<script>
+function test()
+{alert("已成功簽收~~將回到簽收頁面");
+	}
+</script> 
 <title>Insert title here</title>
 </head>
-<body  style="background-image: url(/Traveler/images/主題背景用圖2.png);">
+<body>
 
-	<%@ include file="/WEB-INF/backStageHeader.jsp" %>
+<%@ include file="/WEB-INF/backStageHeader.jsp" %>
 
-	<!--=========================要放的東西  =====================-->
+<!--=========================要放的東西  =====================-->
 	
-	<!-- =========側邊欄位開始============ -->	
+<!-- =========側邊欄位開始============ -->	
 <%@ include file="/WEB-INF/theme/backLeftSide.jsp" %>
 <!-- =========側邊欄位結束============ -->
-  <hr>
-<div style="color:black;margin-left:100px; margin-top:10px;width:1500px;" class="content text-center">
-  <h1>詳細內容</h1>   
-    <h2>報名人相關資訊</h2><br>
-     <b>報名表編號:${extra.applicationId}</b><br>
-     <b>姓名:${extra.name}</b><br>
-     <b>稱謂:${extra.gender}</b><br>
-     <b>人數:${extra.people}</b><br>
-     <b>電話:${extra.cellPhone}</b><br>
-     <b>可連絡時間:${extra.callTime}</b><br>
-     <b>服務據點:${extra.location}</b><br>
-    <h2>套裝行程相關資訊</h2><br>
-     <b>旅遊行程編號:${extra.themeJourneys.themeProducts.themeTitles.titleName}${extra.journeyId}</b><br>
-     <b>旅遊商品名稱:${extra.themeJourneys.themeProducts.productName}</b><br>
-     <b>出團費用:${extra.themeJourneys.price}</b><br>
-    
-      
-
+<!-- 左邊的bar會歪 -->
+<div style="color:black;margin-left:230px;font-size:24px">
+<!-- 大標題  + 新增主題連結區-->
+<br>
+<div class="container-fluid">
+ <div class="row">
+  <div class="col-md-12">
+   <div class="header">全報名表&nbsp;&nbsp;&nbsp;&nbsp;
+    <a onmouseover="this.style.color='orange'" onmouseout="this.style.color='#4F4FFF'" style="font-size:24px;color:#4F4FFF"href=''>依行程排序<img src="/Traveler/images/排序.png" width="40" height="40"></a>
+    <a onmouseover="this.style.color='orange'" onmouseout="this.style.color='#4F4FFF'" style="font-size:24px;color:#4F4FFF"href=''>依人數排序<img src="/Traveler/images/排序.png" width="40" height="40"></a>
+    <a onmouseover="this.style.color='orange'" onmouseout="this.style.color='#4F4FFF'" style="font-size:24px;color:#4F4FFF"href=''>依出團日排序<img src="/Traveler/images/排序.png" width="40" height="40"></a>
+  </div>
+ </div>
 </div>
+<hr>
+<!-- 表格 title -->
+<div class="container-fluid">
+ <div class="row">
+  <div class="col-md-1">編號</div>
+  <div class="col-md-1">行程</div>
+  <div class="col-md-1">姓名</div>
+  <div class="col-md-2" style="width:170px">連絡電話</div>
+  <div class="col-md-1" style="width:80px">人數</div>
+  <div class="col-md-1">出團日</div>
+  <div class="col-md-2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;簽收日</div>
+  <div class="col-md-3"></div>
+ </div>
+</div>
+<hr>
+<!-- 表格 內容 -->
+<c:forEach var='applications' items='${applications}'>
+<div class="container-fluid">
+ <div class="row">
+  <div class="col-md-1">${applications.applicationId}</div>
+  <div class="col-md-1">${applications.journeyId}</div>
+  <div class="col-md-1">${applications.name}</div>
+  <div class="col-md-2" style="width:180px">${applications.cellPhone}</div>
+  <div class="col-md-1" style="width:50px">${applications.people}</div>
+  <div class="col-md-1"><fmt:formatDate value="${applications.themeJourneys.setOut}" pattern="yyyy/MM/dd"/></div>
+  <div class="col-md-2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<fmt:formatDate value="${applications.terminate}" pattern="yyyy/MM/dd"/></div>
+  <div class="col-md-3">
+   <a href='../theme/allApplications/${applications.applicationId}'>內容<img src="/Traveler/images/向左橘.png" width="50" height="50"></a>
+   <a href='../theme/reback'onclick="test()">簽收<img src="/Traveler/images/向左橘.png" width="50" height="50"></a>
+  </div> 
+ </div>
+</div>
+</c:forEach>
+</div>
+</div>
+<script type="text/javascript">
+$(function() {
+    /* 按下GoTop按鈕時的事件 */
+    $('#gotop').click(function(){
+        $('html,body').animate({ scrollTop: 0 }, 'slow');   /* 返回到最頂上 */
+        return false;
+    });
+     
+    /* 偵測卷軸滑動時，往下滑超過400px就讓GoTop按鈕出現 */
+    $(window).scroll(function() {
+        if ( $(this).scrollTop() > 400){
+            $('#gotop').fadeIn();
+        } else {
+            $('#gotop').fadeOut();
+        }
+    });
+});				
+/*返回上方的按鈕*/
+</script>   
+<!-- 記得要把按鈕放到網頁上, 否則它不會出現 -->
+<img src=/Traveler/images/向上箭頭.png id="gotop" style="">
+   <i class="fa fa-angle-up"></i>
 	<!--  ========================================================== -->
-
-
-
-
+<br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br>
 	<%@ include file="/WEB-INF/backStageFooter.jsp" %>
-
-
-
 </body>
 </html>

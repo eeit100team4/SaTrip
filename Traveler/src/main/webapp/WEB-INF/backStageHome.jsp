@@ -172,7 +172,7 @@ $(document).ready(function(){
 })
 
 function tran(){
-	$("#temp").empty().html("<h2>歡迎登入Traveler管理者</h2>");
+	$("#temp").empty().html("<div><br><br><br><br><br><h2>歡迎登入Traveler管理者</h2><img src='/Traveler/images/manager.png'></div>");
 	$("#logout").css("display","");
 	
 }
@@ -201,8 +201,10 @@ function tran(){
 			<label for="id">帳號</label> 
 			<input type="text" name="id" id="id">
 			<br> 
+			<br> 
 			<label for="ps">密碼</label>
 			<input type="password" name="ps" id="ps">
+			<br>
 			<br>
 			<button class="btn-info" onclick="tran()">登入</button>
 		</div>

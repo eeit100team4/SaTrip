@@ -307,55 +307,34 @@ float:right;
 <title>Insert title here</title>
 </head>
 <body>
-
+<!--<body style="background-image: url(/Traveler/images/主題背景用圖1.jpg);">-->
 <%@ include file="/WEB-INF/backStageHeader.jsp" %>
-
 <!--=========================要放的東西  =====================-->
-	
+<!-- 左邊的bar會歪 -->
+<div style="color:black;font-size:24px">
+ <div class="container-fluid" style="text-align:center;background:#2B2B2B">
+ <div class="row" style="font-size:30px;color:white">
+  <div class="col-md-12">
+  <br>
+   <div class="panel-well">歡迎來到主題商品管理頁面</div>
+    <div class="panel-heading">你可以在此使用以下功能:</div>
+    <hr>
+     <div class="panel-body">主題列表管理:目前種類&nbsp;&nbsp;<a style="color:gold">12</a>&nbsp;&nbsp;種</div>
+     <div class="panel-body">旅遊商品管理:上架旅遊商品&nbsp;&nbsp;<a style="color:gold">49</a>&nbsp;&nbsp;項</div>
+     <div class="panel-body">出團行程管理:已建立行程&nbsp;&nbsp;<a style="color:gold">155</a>&nbsp;&nbsp;團</div>
+     <div class="panel-body">全報名表管理:待處理報名申請表&nbsp;&nbsp;<a style="color:gold">0</a>&nbsp;&nbsp;筆</div>
+     <hr>
+     <div class="panel-body">點擊左側連結開始執行管理行為</div>
+     <br>
+     <br>
+     <br>
+  </div>
+ </div>
+</div> 
+</div>
 <!-- =========側邊欄位開始============ -->	
 <%@ include file="/WEB-INF/theme/backLeftSide.jsp" %>
 <!-- =========側邊欄位結束============ -->
-<!-- 左邊的bar會歪 -->
-<div style="color:black;margin-left:230px;font-size:24px">
-<!-- 大標題  + 新增主題連結區-->
-<br>
-<div class="container-fluid">
- <div class="row">
-  <div class="col-md-4">
-   <div class="header">全主題列表&nbsp;&nbsp;&nbsp;&nbsp;
-    <a onmouseover="this.style.color='orange'" onmouseout="this.style.color='#4F4FFF'" style="font-size:24px;color:#4F4FFF"href='addTitle'>新增主題類別<img src="/Traveler/images/向左黑.jpg" width="60" height="60"></a></div>
-  </div>
- </div>
-</div>
-<hr>
-<!-- 表格 title -->
-<div class="container-fluid">
- <div class="row">
-  <div class="col-md-1">編號</div>
-  <div class="col-md-1" style="width:130px">名稱</div>
-  <div class="col-md-3" style="width:300px">示意圖檔案名稱</div>
-  <div class="col-md-2">顯示圖片預覽</div>
-  <div class="col-md-3"></div>
- </div>
-</div>
-<hr>
-<!-- 表格 內容 -->
-<c:forEach var='themeTitles' items='${themeTitles}'>
-<div class="container-fluid">
- <div class="row">
-  <div class="col-md-1">${themeTitles.titleId}</div>
-  <div class="col-md-1" style="width:130px">${themeTitles.titleName}</div>
-  <div class="col-md-3" style="width:300px">${themeTitles.fileName}</div>
-  <div class="col-md-2"><img src="/Traveler/images/themeTitle-${themeTitles.titleName}.png" width="200" height="80"style="border:6px #805300 ridge;"></div>
-  <div class="col-md-3" style="width:330px">
-   <a href=''>修改圖片<img src="/Traveler/images/向左橘.png" width="50" height="50"></a>
-   <a href=''>隱藏主題<img src="/Traveler/images/向左箭頭.png" width="50" height="50"></a>
-  </div> 
- </div>
-</div>
-</c:forEach>
-</div>
-
 <script type="text/javascript">
 $(function() {
     /* 按下GoTop按鈕時的事件 */
@@ -372,13 +351,18 @@ $(function() {
             $('#gotop').fadeOut();
         }
     });
-});				
-/*返回上方的按鈕*/
+});
+/*返回上方的按鈕*/ 
 </script>   
 <!-- 記得要把按鈕放到網頁上, 否則它不會出現 -->
 <img src=/Traveler/images/向上箭頭.png id="gotop" style="">
    <i class="fa fa-angle-up"></i>
-	<!--  ========================================================== -->
-	<%@ include file="/WEB-INF/backStageFooter.jsp" %>
+
+
+
+
+<!--  ========================================================== -->
+<%@ include file="/WEB-INF/backStageFooter.jsp" %>
+
 </body>
 </html>

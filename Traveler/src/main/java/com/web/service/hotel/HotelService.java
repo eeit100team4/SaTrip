@@ -12,6 +12,7 @@ import com.web.model.hotel.HotelRoomBean;
 public interface HotelService {
 	
 	
+	
 	Set<HotelBean> getHotelsByDateTime(Timestamp startTime,Timestamp endTime);
 
 	List<HotelBean> getAllHotels();
@@ -20,7 +21,7 @@ public interface HotelService {
 	
 	HotelBean insertHotel(HotelBean hotelBean);
 	
-	HotelBean udpateHotel(HotelBean hotelBean);
+	void udpateHotel(HotelBean hotelBean);
 	
 	boolean deleteHotel(int hotel_id);
 
