@@ -128,6 +128,90 @@ table {
 <script src="/Traveler/js/jquery.easing.1.3.js"></script>
 <!-- 一鍵帶入 -->
 <script>
+//This is called with the results from from FB.getLoginStatus().
+function statusChangeCallback(response) {
+  console.log('statusChangeCallback');
+  console.log(response);
+  // The response object is returned with a status field that lets the
+  // app know the current login status of the person.
+  // Full docs on the response object can be found in the documentation
+  // for FB.getLoginStatus().
+  if (response.status === 'connected') {
+    // Logged into your app and Facebook.
+    testAPI();
+  } else {
+    // The person is not logged into your app or we are unable to tell.
+    document.getElementById('status').innerHTML = 'Please log ' +
+      'into this app.';
+  }
+}
+
+function checkLoginState() {
+    FB.getLoginStatus(function(response) {
+      statusChangeCallback(response);
+    });
+  }
+  
+window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '343238696200370',
+      cookie     : true,  // enable cookies to allow the server to access 
+                          // the session
+      xfbml      : true,  // parse social plugins on this page
+      version    : 'v2.8' // use graph api version 2.8
+    });
+    
+ // Now that we've initialized the JavaScript SDK, we call 
+    // FB.getLoginStatus().  This function gets the state of the
+    // person visiting this page and can return one of three states to
+    // the callback you provide.  They can be:
+    //
+    // 1. Logged into your app ('connected')
+    // 2. Logged into Facebook, but not your app ('not_authorized')
+    // 3. Not logged into Facebook and can't tell if they are logged into
+    //    your app or not.
+    //
+    // These three cases are handled in the callback function.
+
+    FB.getLoginStatus(function(response) {
+      statusChangeCallback(response);
+    });
+
+  };
+//Load the SDK asynchronously
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "https://connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+
+  // Here we run a very simple test of the Graph API after login is
+  // successful.  See statusChangeCallback() for when this call is made.
+  function testAPI() {
+    console.log('Welcome!  Fetching your information.... ');
+    FB.api('/me', function(response) {
+      //alert('Thanks for logging in, ' + response.name + '!' + response.id);
+      var thirdPartyId = document.getElementById("thirdPartyId").value;
+      //if(response.id=='1672836152800044') {
+      if (thirdPartyId=='') {
+    	  document.getElementById("thirdPartyId").value=response.id;
+    	  //document.getElementById("loginFormAuto").submit();
+      } else {
+    	  document.getElementById("thirdPartyId").value=response.id;
+    	  document.getElementById("thirdPartyType").value='01';
+    	  alert(response.id+ ','+response.birthday);
+    	  document.getElementById("fbLogin").innerHTML="已綁定FB帳號";
+//     	  document.getElementById("loginFormAuto").submit();
+      }
+      //console.log('Successful login for: ' + response.name);
+      //document.getElementById('status').innerHTML =
+        
+    });
+  }
+
+
 function  keyin(){
 $("#memberId").val("H222977822");
 $("#gender").val("female");
@@ -138,7 +222,6 @@ $("#chineseLastName").val("江");
 $("#chineseFirstName").val("江江");
 $("#email").val("asally1110@gmail.com");
 $("#mobile").val("0989-768-666");
-$("#memberId").val("H222977822");
 $("#address").val("新北市板橋區oo街oo巷oo號oo樓");
 }
 </script>
@@ -149,13 +232,16 @@ $("#address").val("新北市板橋區oo街oo巷oo號oo樓");
 		<!-- <form name="insertMemberFormA" action="member.do" method="POST"> -->
 		<form:form method="POST" name="insertMemberFormA" action="/Traveler/member/saveMember.do"
 			modelAttribute="memberBean" enctype="multipart/form-data">
-			<form:input type="hidden" name="function" value="${memberBean.function}" path="function"/>
+			<form:input type="hidden" name="function" value="${memberBean.function}" path="function"/>		
 			<table border="0" >
 				<thead>
 					<tr bgcolor='#F5F5F5'>
 						<th height="60" colspan="2" align="center">
 							<c:choose>
-								<c:when test="${memberBean.function == 'add'}"><h1 align="center" style="padding-top:15px">會員註冊</h1></c:when>
+								<c:when test="${memberBean.function == 'add'}"><h1 align="center" style="padding-top:15px">會員註冊</h1>
+								
+								</c:when>
+								
 								<c:when test="${memberBean.function == 'update'}"><h1 align="center"style="padding-top:15px">會員資料</h1></c:when>
 								<c:otherwise><h1 align="center">會員註冊</h1></c:otherwise>
 							</c:choose>
@@ -171,6 +257,23 @@ $("#address").val("新北市板橋區oo街oo巷oo號oo樓");
 <!-- 						</td> -->
 <!-- 					</tr> -->
 <!--  				</c:if> -->
+  
+					<c:choose>
+						<c:when test="${memberBean.function == 'add'}">
+					<tr bgcolor='#F5F5F5'>
+						<td width="120" height="40" align="right"></td>
+						<td width="600" height="40" align="left">
+							  <div class="fb-login-button" data-max-rows="1" data-size="medium" data-button-type="continue_with" 
+        						data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false" 
+        						onlogin="checkLoginState();" >
+        					</div>
+        					<div id="fbLogin">
+        					</div>
+					</tr>
+						</c:when>
+						<c:otherwise></c:otherwise>
+					</c:choose>
+
 					<tr bgcolor='#F5F5F5'>
 						<td width="120" height="40" align="right">*會員帳號：</td>
 						<td width="600" height="40" align="left">
@@ -293,11 +396,12 @@ $("#address").val("新北市板橋區oo街oo巷oo號oo樓");
 					</tr>
 				</tbody>
 			</table>
+			<input type="hidden" id="thirdPartyType" name="thirdPartyType" value="">
+       		<input type="hidden" id="thirdPartyId" name="thirdPartyId" value="">
 		</form:form>
 		    <c:if test="${memberBean.function == 'add'}">
 				<button class="btn-info" onclick="keyin()">key in</button>
 			</c:if>
-
 	</center>
 	<%@ include file="/WEB-INF/frontStageFooter.jsp"%>
 </body>

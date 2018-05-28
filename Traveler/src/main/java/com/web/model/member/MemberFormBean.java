@@ -40,6 +40,9 @@ public class MemberFormBean implements Serializable {
 	
 	private MultipartFile  memberPicture;
 	private String function;
+	private String thirdPartyId;
+	private String thirdPartyType;
+	
 
 	public MemberFormBean() {
 		super();
@@ -259,6 +262,22 @@ public class MemberFormBean implements Serializable {
 	public void setFunction(String function) {
 		this.function = function;
 	}
+	public String getThirdPartyId() {
+		return thirdPartyId;
+	}
+
+	public void setThirdPartyId(String thirdPartyId) {
+		this.thirdPartyId = thirdPartyId;
+	}
+
+	public String getThirdPartyType() {
+		return thirdPartyType;
+	}
+
+	public void setThirdPartyType(String thirdPartyType) {
+		this.thirdPartyType = thirdPartyType;
+	}
+
 
 	@Override
 	public String toString() {
