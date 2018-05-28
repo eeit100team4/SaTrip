@@ -93,8 +93,7 @@ public class LoginController {
 			System.out.println("fbId=" + fbId + "登入");
 			//TODO 使用第三方登入
 		} else {
-			System.out.println("fbId=" + fbId + "登入");
-			if (StringUtils.isBlank(memberId)) {
+			System.out.println("fbId=" + fbId + "非fb登入");if (StringUtils.isBlank(memberId)) {
 				errorMsgMap.put("AccountEmptyError", "帳號欄必須輸入");
 			}
 			// 如果password欄位為空白，放一個錯誤訊息到errorMsgMap之內
@@ -109,7 +108,7 @@ public class LoginController {
 				System.out.println("verify=" + verify );
 			}
 		}
-
+		
 		// **********Remember Me***********************************
 		Cookie cookieMember = null;
 		Cookie cookiePassword = null;
@@ -157,10 +156,11 @@ public class LoginController {
 		response.addCookie(cookieRememberMe);
 		// *****************************************************
 		// 如果errorMsgMap不是空的，表示有錯誤，交棒給login.jsp
+		System.out.println("errorMsgMap.isEmpty()"+errorMsgMap.isEmpty());
 		if (!errorMsgMap.isEmpty()) {
 			 RequestDispatcher rd=request.getRequestDispatcher("/member/login");
 			 rd.forward(request, response);
-//			return "login";
+			return;
 		}
 		// 4.進行Business Logic運算
 		// password=GlobalService.getMD5Endocing(GlobalService.encryptString(password));//二次加密
@@ -176,7 +176,6 @@ public class LoginController {
 			System.out.println("該帳號不存在或密碼錯誤");
 			errorMsgMap.put("LoginError", "該帳號不存在或密碼錯誤");
 		}
-
 		// 5.依照Business Logic運算結果來挑選適當的畫面
 		// 如果errorMsgMap是空的，表示沒有任何錯誤，交棒給下一棒
 		if (errorMsgMap.isEmpty()) {
@@ -187,19 +186,19 @@ public class LoginController {
 				requestURI = (requestURI.length() == 0 ? request.getContextPath() : requestURI);
 				 response.sendRedirect(response.encodeRedirectURL(requestURI));//此行為導頁的方式，指到哪就是哪頁
 				System.out.println("to requestURI=" + requestURI);
-//				return requestURI;
+				return;
 			} else {
 				System.out.println("request.getContextPath()=" + request.getContextPath());
 				 response.sendRedirect(request.getContextPath()+"/");
 				System.out.println("to index");
-//				return "index";
+				return;
 			}
 		} else {
 			// 如果errorMsgMap不是空的，表示有錯誤，交棒給login.jsp
 			 RequestDispatcher rd=request.getRequestDispatcher("/member/login");
 			 rd.forward(request, response);
 			System.out.println("to login");
-//			return "login";
+			return;
 		}
 	}
 
