@@ -10,6 +10,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 
 @Entity
 @Table(name="CustomerOpinion")
@@ -50,7 +52,7 @@ public class ContactusBean implements Serializable {
 		this.feedbackmessagetime = feedbackmessagetime;
 	}
 	
-	
+	@DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
 	public Date getFeedbackmessagetime() {
 		return feedbackmessagetime;
 	}

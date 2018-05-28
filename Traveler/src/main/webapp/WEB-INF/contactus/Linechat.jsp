@@ -84,6 +84,10 @@
 
 <!-- 測試側邊 -->
 <style>
+* {
+	margin: 0;
+	padding: 0;
+}
 #mwt_mwt_slider_scroll
 {
 top: 95px;
@@ -149,15 +153,12 @@ $(document).ready(function(){
 
 </script>
 <style>
-* {
-	margin: 0;
-	padding: 0;
-}
 html,body{
 margin:0;
 padding:0;
 height:100%;
 }
+
 .wrapper{
 min-height:100%;
 margin-bottom:0px;
@@ -165,170 +166,46 @@ margin-bottom:0px;
 .footer .push{
 margin-bottom:0px;
 }
+table{
+ border:2px black solid;
+ width:500px;
+ heigth:800px;
+}
+td{
+border:2px black solid;
+padding:5px;
+}
 </style>
 
 <title>Insert title here</title>
 </head>
-
 <body>
 
 	<%@ include file="/WEB-INF/backStageHeader.jsp" %>	
 	
 						
 <!--=========================要放的東西  =====================-->
-		<div class="container" style="padding-top:80px;padding-left:150px">		
-<script src="https://code.highcharts.com/highcharts.js"></script>
-<!-- <script src="https://code.highcharts.com/modules/exporting.js"></script> -->
-<script src="https://code.highcharts.com/modules/export-data.js"></script>
 
 
-<div id="container" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
-<!-- <span style="font-size:13px;"></span> -->
-<!-- <select id="choose" onchange="TheConfirmBox()"> -->
-<!-- 	<option disabled=disabled selected=selected>請選擇</option> -->
-<!--  	<optgroup label="亞洲區"> --> 
-<!-- 		<option value="http://localhost:8080/Traveler/contactus/contactuspieasia">1~3月份國人出國目的地統計</option> --> 
-<!-- 	<option value="http://localhost:8080/Traveler/contactus/contactuspieage">1~3月份國人出國年齡地統計</option> --> 
-<!-- </select> -->
-<!-- <span id="check" style="color:red;"></span><br> -->
-<script>
-	function TheConfirmBox() {
-		var noteToMe;
-		/*取得id為choose的選單裡剛剛所點擊的連結的名稱*/
-		var whichUserChoose=choose.options[choose.selectedIndex].text;
-		if (confirm("Hello！你確定要前往"+whichUserChoose+"?") == true){
-			noteToMe = "你選取想前往"+whichUserChoose+"！";
-			window.location.assign(choose.options[choose.selectedIndex].value);
-		}else{
-			noteToMe = "你按了取消喔！";
-		}
-		document.getElementById("check").innerHTML = noteToMe;
-	}
-	
-</script>
+	<img alt="" src="/Traveler/images/Line.jpg">
+	<img width='180' height='180' src="/Traveler/images/Line.jpg" />
 
-<script>
-Highcharts.chart('container', {
-    chart: {
-        plotBackgroundColor: null,
-        plotBorderWidth: null,
-        plotShadow: false,
-        type: 'pie'
-    },
-    title: {
-        text: '1~3月份意見反應統計'
-    },
-    tooltip: {
-        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-    },
-    plotOptions: {
-        pie: {
-            allowPointSelect: true,
-            cursor: 'pointer',
-            dataLabels: {
-                enabled: true,
-                format: '<b>{point.name}</b>: {point.percentage:.1f} %',
-                style: {
-                    color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
-                }
-            }
-        }
-    },
-    series: [{
-        name: 'Brands',
-        colorByPoint: true,
-        data: [{
-            name: '機票預訂',
-            y: 20,
-            sliced: true,
-            selected: true
-        }, {
-            name: '飯店預訂 ',
-            y: 24
-        }, {
-            name: '旅遊資訊',
-            y: 28
-        }, {
-            name: '會員服務',
-            y: 25
-        }, {
-            name: '紅利點數',
-            y: 54
-        }, {
-            name: '意見回饋',
-            y: 30
-        }, {
-            name: '其它',
-            y: 18
-      
-        }]
-    }]
-});
-    
-     
-</script>
- <!-- D3 函式庫 --> 
-<!-- <script src=https://d3js.org/d3.v3.min.js charset="utf-8"></script> -->
-<!-- <script src="https://cdn.plot.ly/plotly-latest.min.js"></script> -->
-<!-- <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script> -->
-<!-- <script src="/Traveler/js/airplain/backLeft.js"></script> -->
-     
- 
-<!-- <script> -->
-
-
-<!--  function test(){ -->
-<%--  	var json=${json}; --%>
-<!--  	var totalOpinion=json[0].opinion; -->
-<!--  	var op=json[1].contactusBean.opinion; -->
-<!--  	var op1=json[2].contactusBean.opinion; -->
-<!--  	var op3=json[3].contactusBean.opinion; -->
-<!--  	var op4=json[4].contactusBean.opinion; -->
-<!--  	var op5=json[5].contactusBean.opinion; -->
-<!--  	var op6=json[6].contactusBean.opinion; -->
-<!-- 	var op7=json[7].contactusBean.opinion; -->
-	
-
-	
-	
-<!-- // // 	$("#total").html("<h3  style='color:#CC0000; margin:0px;padding:0px;'>五月份總搜尋數："+totalClick+"</h3>"); -->
-<!-- // 	d3.select("body").append("div").attr("id", "mydiv"); -->
-<!-- // 	//設定欲顯示的資料。 -->
-	
-<!-- // 	var data = [{ -->
-<!-- // 	values: [op,op1,op2,op3,op4,op5,op6,op7], -->
-<!-- // 	labels: ["機票預訂","飯店預訂","旅遊資訊","紅利點數","會員服務","意見回饋","其它"], -->
-<!-- // 	type: 'pie' -->
-<!-- // 	}]; -->
-<!-- // 	//設定框架大小。  -->
-<!-- // 	var frame = { -->
-<!-- // 	height: 700, -->
-<!-- // 	width: 700}; -->
-<!-- // 	//使用Plotly畫出圓餅圖。  -->
-<!-- // 	Plotly.newPlot('mydiv', data, frame); -->
-<!-- // } -->
-<!-- </script> -->
-
-
-</div>
-	<!-- =========側邊欄位開始============ -->	
+<!-- =========側邊欄位開始============ -->	
 <div id="mwt_mwt_slider_scroll">
 	<div id="mwt_slider_content"   >
 		<div id="nav">			 
 			 <ul >
 		 		 <li>
-					<a class="btn btn-primary"href="selectopinion"><h4><font color="white">查看留言</font></h4></a>
+					<a class="btn btn-primary"href="Traveler/contactus/selectopinion"><h4><font color="white">查看留言</font></h4></a>
 				 </li>
 				  <li >
-				   	<a class="btn btn-primary"href="StatisticsReport"><h4><font color="white">統計報表</font></h4></a>			   
+				   	<a class="btn btn-primary"href="Traveler/contactus/StatisticsReport"><h4><font color="white">統計報表</font></h4></a>			   
 				  </li>
 			 </ul>
 		</div>
 	</div>
 </div>
 <!-- =========側邊欄位結束============ -->
-	
-	
 	
 	
 	

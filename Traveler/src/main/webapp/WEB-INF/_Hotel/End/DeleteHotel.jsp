@@ -18,6 +18,7 @@
 <meta name="author" content="FREEHTML5.CO" />
 
 
+
 <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 <link rel="shortcut icon" href="/Traveler/images/favicon.ico">
 
@@ -267,14 +268,11 @@ float:right;
 
 </style>
 
-<!-- <link rel="stylesheet" -->
-<!-- 	href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"> -->
 
+<title>Insert title here</title>
+</head>
+<body>
 
-<!-- 老師 -->
-<link rel="stylesheet" href="css/bootstrap.min.css">
-<link rel="stylesheet" href="css/jumbotron.css">
-<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 
 
 <title>Insert title here</title>
@@ -306,7 +304,7 @@ float:right;
 				</div>
 			</div>
 		</div>
-<!-- =========側邊欄位結束============ -->	
+<!-- =========側邊欄位結束============ -->
 	
 	
 	
@@ -315,62 +313,12 @@ float:right;
 	
 	
 	
-	
-		<main role="main" class="container mt-2">
-		<!-- ____________________ -->
-			
-			<div class="row">
-				<div class="col-lg-3">
-				<div class="col-lg-9">
-				<div class="card">
-					<div class="card-header"></div>
-					<div class="card-body">
-				<!-- 每頁不同的內容從這裡開始 -->
-					
-				 <table id="hotelTable"   class="table table-bordered">
-                       <thead>
-                          <tr>
-                             <th scope="col"><h3>編號</h3></th>
-                             <th scope="col"><h3>照片</h3></th> 
-                             <th scope="col"><h3>國家</h3></th>
-                             <th scope="col"><h3>城市</h3></th>
-                             <th scope="col"><h3>飯店</h3></th> 
-                          </tr>  
-                       </thead>
-                       <tbody> 
-                 		<c:forEach var="hotelInfo" items="${hotels}">
-							<tr>
-									<td><h3>${hotelInfo.hotel_id}</h3></td>
-		                      		<td><img width='200' height='100' src="<c:url value='/getPic/${hotelInfo.hotel_id}' />" /></td>
-		                      		<td width='80px'><h3>${hotelInfo.country}</h3></td>
-		                      		<td width='80px'><h3>${hotelInfo.city}</h3></td>
-		                      		<td width='200px'><h3>${hotelInfo.name}</h3></td>
-							</tr>
-						</c:forEach>
-                       </tbody>
-                       <tfoot>
-	                       <tr>
-	                       		<td><input type="hidden" id="ProductID" name="ProductID"><span></span></td>                        
-		                        <td><input type="text" style="width:125px" class="form-control" id="country" name="country" placeholder=""></td>
-		                        <td><input type="text" style="width:125px" class="form-control" id="country" name="country" placeholder=""></td>
-		                        <td><input type="text" style="width:125px" class="form-control" id="city" name="city" placeholder=""></td>
-		                        <td><input type="text" style="width:350px" class="form-control" id="name" name="name" placeholder=""></td>
-	                       </tr>
-                       </tfoot> 
-                   </table>
-                   
-				<!-- 每頁不同的內容到這裡結束 -->
-			</div>
-			</div>	
-		</div>
-		
-	</div>
-	</div>
-	</main>
-		
-		
-		
-		
+
+	<!--  ========================================================== -->
+
+
+
+
 <%-- 	<%@ include file="/WEB-INF/backStageFooter.jsp" %> --%>
 
 

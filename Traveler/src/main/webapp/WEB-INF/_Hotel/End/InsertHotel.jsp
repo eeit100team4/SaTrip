@@ -269,6 +269,11 @@ float:right;
 </style>
 
 
+<title>Insert title here</title>
+</head>
+<body>
+
+
 
 <title>Insert title here</title>
 </head>
@@ -284,10 +289,16 @@ float:right;
 				<div id="nav">			 
 					 <ul >
 				 		 <li>
-							<a class="btn btn-primary"href="ManagerAllHotels"><h3><font color="white">管理飯店資訊</font></h3></a>
+							<a class="btn btn-primary"href="ManagerAllHotels"><h3><font color="white">顯示飯店資訊</font></h3></a>
 						 </li>
 						  <li >
 						   	<a class="btn btn-primary"href="InsertHotel"><h3><font color="white">新增飯店資訊</font></h3></a>			   
+						  </li>
+						  <li >
+						   	<a class="btn btn-primary"href="UpdateHotel"><h3><font color="white">修改飯店資訊</font></h3></a>			   
+						  </li>
+						  <li >
+						   	<a class="btn btn-primary"href="DeleteHotel"><h3><font color="white">刪除飯店資訊</font></h3></a>			   
 						  </li>
 					 </ul>
 				</div>
@@ -295,22 +306,21 @@ float:right;
 		</div>
 <!-- =========側邊欄位結束============ -->
 	
+	
+	
 	<br>
 	
-	
-	<main role="main" class="container mt-2">
-		<!-- ____________________ -->
-			
+		<main role="main" class="container mt-2">
 			<div class="row">
 				<div class="col-lg-3">
 				<div class="col-lg-9">
 	 
-	  	<form:form method='POST' modelAttribute="hotelBean" 	class='form-horizontal' enctype="multipart/form-data">
+	  					<form:form method='POST' modelAttribute="hotelBean" 	class='form-horizontal' enctype="multipart/form-data">
 
 						<fieldset >
 							<div class="form-group">
 								<label class="control-label col-lg-2 col-lg-2" for='country'>
-									國家：
+									國家
 								</label>
 								<div class="col-lg-10">
 									 <form:input  path="country" type='text'
@@ -320,7 +330,7 @@ float:right;
 			
 							<div class="form-group">
 								<label class="control-label col-lg-2 col-lg-2"  for='city'>
-									 城市：
+									 城市
 								</label>
 								<div class="col-lg-10">
 									<form:input  path="city" type='text'
@@ -328,8 +338,8 @@ float:right;
 								</div>
 							</div>
 								<div class="form-group">
-								<label class="control-label col-lg-2 col-lg-2"  for='name'>
-									 飯店：
+								<label class="control-label col-lg-2 col-lg-2"  for='name' >
+									飯店  
 								</label>
 								<div class="col-lg-10">
 									<form:input  path="name" type='text'
@@ -338,7 +348,7 @@ float:right;
 							</div>
 							<div class="form-group">
 								<label class="control-label col-lg-2 col-lg-2"  for='productImage'>
-									 上傳照片
+									 照片
 								</label>
 								<div class="col-lg-10">
 									<form:input  path="productImage" type='file'
@@ -358,10 +368,8 @@ float:right;
 	  
 			  </div>
 			  </div>
-	    </div>		
-	
-	
-	
+	    </div>	
+	    </main>
 	
 	
 	

@@ -192,7 +192,8 @@ border:1px solid black;
 									<form:option value="機票預訂"/>
 									<form:option value="飯店預訂"/>
 									<form:option value="旅遊資訊"/>
-									<form:option value="會員服務專區"/>
+									<form:option value="紅利點數"/>
+									<form:option value="會員服務"/>
 									<form:option value="意見回饋"/>								
 									<form:option value="其它"/>
 								</form:select>

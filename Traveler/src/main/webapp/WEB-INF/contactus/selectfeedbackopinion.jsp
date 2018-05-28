@@ -118,6 +118,9 @@
 <style>
 table{
 padding:5px;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 10px;
 }
 p{
 color:black;
@@ -125,6 +128,7 @@ color:black;
 td{
 border:1px solid #ccc;
 color:black;
+padding:5px;
 }
 </style>
 </head>
@@ -138,7 +142,7 @@ color:black;
 
 			<!-- end:header-top -->
 
-			<div class="container" style="padding-top:80px;padding-left:200px;width:45em">
+			<div class="container" style="padding-top:80px;padding-left:100px;width:45em">
 	<c:forEach var='con' items='${contactus}'>	
 <form action="/Traveler/contactus/selectfeedbackopinion/${con.pkid}" modelAttribute="contactusBean"  enctype='multipart/form-data'>
 						 <fieldest>
@@ -178,12 +182,12 @@ color:black;
 					    <td cols="40" rows="5"  id="comment" path='comment' value='${con.comment}'>${con.comment}
 					    </td>
 					    </tr>
-					    <tr>
-						<td>
-					    <label for='feedbackmessagetime'>回覆時間: </label> 
-					    <td cols="40" rows="5"  id="feedbackmessagetime" path='feedbackmessagetime' value='${con.feedbackmessagetime}'>${con.feedbackmessagetime}
-					    </td>
-					    </tr>
+<!-- 					    <tr> -->
+<!-- 						<td> -->
+<!-- 					    <label for='feedbackmessagetime'>回覆時間: </label>  -->
+<%-- 					    <td cols="40" rows="5"  id="feedbackmessagetime" path='feedbackmessagetime' value='${con.feedbackmessagetime}'>${con.feedbackmessagetime} --%>
+<!-- 					    </td> -->
+<!-- 					    </tr> -->
 					    <tr>
 					    <td>
 					    <label for='feedback'>回覆欄:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</label>

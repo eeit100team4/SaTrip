@@ -1,5 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -82,7 +86,33 @@
 <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> -->
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script> -->
 <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> -->
-
+<!-- bootstrap網格 -->
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"></link>
+<style>
+.well, .panel {text-align: center;}
+</style>
+<!-- 返回上方按鈕 -->
+<style>
+#gotop {
+    position:fixed;
+    z-index:90;
+    right:30px;
+    bottom:31px;
+    display:none;
+    width:50px;
+    height:50px;
+    color:#fff;
+    background:#33b5e5;
+    line-height:50px;
+    border-radius:50%;
+    transition:all 0.5s;
+    text-align: center;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+}
+#gotop :hover{
+    background:#0099CC;
+}
+</style>
 <!-- 測試側邊 -->
 <style>
 #mwt_mwt_slider_scroll
@@ -276,25 +306,63 @@ float:right;
 
 <title>Insert title here</title>
 </head>
-<body style="background-image: url(/Traveler/images/主題背景用圖1.jpg);">
-
-	<%@ include file="/WEB-INF/backStageHeader.jsp" %>
-
-	<!--=========================要放的東西  =====================-->
-	
-	<!-- =========側邊欄位開始============ -->	
+<body>
+<!--<body style="background-image: url(/Traveler/images/主題背景用圖1.jpg);">-->
+<%@ include file="/WEB-INF/backStageHeader.jsp" %>
+<!--=========================要放的東西  =====================-->
+<!-- 左邊的bar會歪 -->
+<div style="color:black;font-size:24px">
+ <div class="container-fluid" style="text-align:center;background:#2B2B2B">
+ <div class="row" style="font-size:30px;color:white">
+  <div class="col-md-12">
+  <br>
+   <div class="panel-well">歡迎來到主題商品管理頁面</div>
+    <div class="panel-heading">你可以在此使用以下功能:</div>
+    <hr>
+     <div class="panel-body">主題列表管理:目前種類&nbsp;&nbsp;<a style="color:gold">12</a>&nbsp;&nbsp;種</div>
+     <div class="panel-body">旅遊商品管理:上架旅遊商品&nbsp;&nbsp;<a style="color:gold">67</a>&nbsp;&nbsp;項</div>
+     <div class="panel-body">出團行程管理:已建立行程&nbsp;&nbsp;<a style="color:gold">255</a>&nbsp;&nbsp;團</div>
+     <div class="panel-body">全報名表管理:待處理報名申請表&nbsp;&nbsp;<a style="color:gold">81</a>&nbsp;&nbsp;筆</div>
+     <hr>
+     <div class="panel-body">點擊左側連結開始執行管理行為</div>
+     <br>
+     <br>
+     <br>
+  </div>
+ </div>
+</div> 
+</div>
+<!-- =========側邊欄位開始============ -->	
 <%@ include file="/WEB-INF/theme/backLeftSide.jsp" %>
 <!-- =========側邊欄位結束============ -->
+<script type="text/javascript">
+$(function() {
+    /* 按下GoTop按鈕時的事件 */
+    $('#gotop').click(function(){
+        $('html,body').animate({ scrollTop: 0 }, 'slow');   /* 返回到最頂上 */
+        return false;
+    });
+     
+    /* 偵測卷軸滑動時，往下滑超過400px就讓GoTop按鈕出現 */
+    $(window).scroll(function() {
+        if ( $(this).scrollTop() > 400){
+            $('#gotop').fadeIn();
+        } else {
+            $('#gotop').fadeOut();
+        }
+    });
+});
+/*返回上方的按鈕*/ 
+</script>   
+<!-- 記得要把按鈕放到網頁上, 否則它不會出現 -->
+<img src=/Traveler/images/向上箭頭.png id="gotop" style="">
+   <i class="fa fa-angle-up"></i>
 
-	<!--  ========================================================== -->
 
 
 
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-	<%@ include file="/WEB-INF/backStageFooter.jsp" %>
-
-
+<!--  ========================================================== -->
+<%@ include file="/WEB-INF/backStageFooter.jsp" %>
 
 </body>
 </html>

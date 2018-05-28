@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -78,6 +79,7 @@ public class LoginController {
 		String memberId = request.getParameter("memberId");
 		String password = request.getParameter("password");
 		String rm = request.getParameter("rememberMe");
+		String fbId = request.getParameter("fbId");
 		String gRecaptchaResponse = request
 				.getParameter("g-recaptcha-response");
 		String requestURI = (String) session.getAttribute("requestURI");
@@ -87,19 +89,25 @@ public class LoginController {
 		// 無
 		// 3.檢查使用者輸入資料
 		// 如果memberId欄位為空白，放一個錯誤訊息到errorMsgMap之內
-		if (memberId == null || memberId.trim().length() == 0) {
-			errorMsgMap.put("AccountEmptyError", "帳號欄必須輸入");
+		if (StringUtils.isNotBlank(fbId)) {
+			System.out.println("fbId=" + fbId + "登入");
+			//TODO 使用第三方登入
+		} else {
+			if (StringUtils.isBlank(memberId)) {
+				errorMsgMap.put("AccountEmptyError", "帳號欄必須輸入");
+			}
+			// 如果password欄位為空白，放一個錯誤訊息到errorMsgMap之內
+			if (StringUtils.isBlank(password)) {
+				errorMsgMap.put("PasswordEmptyError", "密碼欄必須輸入");
+			}
+			//System.out.println(gRecaptchaResponse);
+			boolean verify = VerifyRecaptcha.verify(gRecaptchaResponse);
+			//System.out.println("verify="+verify);
+			if (!verify) {
+				errorMsgMap.put("LoginError", "你是機器人厚!!");
+			}
 		}
-		// 如果password欄位為空白，放一個錯誤訊息到errorMsgMap之內
-		if (password == null || password.trim().length() == 0) {
-			errorMsgMap.put("PasswordEmptyError", "密碼欄必須輸入");
-		}
-		//System.out.println(gRecaptchaResponse);
-		boolean verify = VerifyRecaptcha.verify(gRecaptchaResponse);
-		//System.out.println("verify="+verify);
-		if (!verify) {
-			errorMsgMap.put("LoginError", "你是機器人厚!!");
-		}
+
 		// **********Remember Me***********************************
 		Cookie cookieMember = null;
 		Cookie cookiePassword = null;

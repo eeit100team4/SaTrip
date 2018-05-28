@@ -36,30 +36,7 @@ public class HotelBackController {
 	@Autowired
 	ServletContext context;
 	
-//		//後台Index
-//		@RequestMapping("/HotelEnd")
-//		public String hotelEnd(){
-//			return "_Hotel/End/HotelEnd";
-//		}
-//		//後台秀出所有房訊  
-//		@RequestMapping("/ShowAllHotels")
-//		public String show(){
-//			return "_Hotel/End/ShowAllHotels";
-//		}
-//		//後台新增房訊  
-//		@RequestMapping("/InsertHotel")
-//		public String insert(){
-//			return "_Hotel/End/InsertHotel";
-//		}
-//		//後台修改房訊  
-//		@RequestMapping("/UpdateHotel")
-//		public String update(){
-//			return "_Hotel/End/UpdateHotel";
-//		}//後台刪除房訊  
-//		@RequestMapping("/DeleteHotel")
-//		public String delete(){
-//			return "_Hotel/End/DeleteHotel";
-//		}		
+		
 	
 		//新增Hotel -GET
 		@RequestMapping(value = "/InsertHotel", method = RequestMethod.GET)
@@ -140,27 +117,34 @@ public class HotelBackController {
 		
 		
 
-//		@RequestMapping(value="/")
-//		public String updateform(Model model,
-//				@ModelAttribute("HotelBean") HotelBean hb) {
-//			
-//			List<HotelBean>  list = hotelService.getAllHotels();
-//			model.addAttribute("hotels", list);
-//			return "";		
-//			
-//		}
-//		
-//		
-//		@RequestMapping(path= "/update/{hotel_id}" )
-//		public String update(@ModelAttribute("HotelBean") HotelBean hb,
-//				@PathVariable Integer hotel_id
-//				) {
-//
-//			hotelService.udpateHotel(hb);
-//
-//			
-//			return "";
-//		}
+		@RequestMapping(value="/UpdateHotel")
+		public String updateform(Model model,
+				@ModelAttribute("HotelBean") HotelBean hb) {
+			
+			List<HotelBean>  list = hotelService.getAllHotels();
+			model.addAttribute("hotels", list);
+			return "/_Hotel/End/UpdateHotel";		
+			
+		}
+		
+		
+		@RequestMapping(path= "/UpdateHotel/{hotel_id}" )
+		public String update(@ModelAttribute("HotelBean") HotelBean hb,
+				@PathVariable Integer hotel_id
+				) {
+
+			hotelService.udpateHotel(hb);
+
+			
+			return "redirect:/_Hotel/End/UpdateHotel";
+		}
+		
+		
+		// 取得HotelBean資料，顯示多筆Hotel資料
+		@RequestMapping("/DeleteHotel")
+		public String DeleteHotel(Model model) {
+			return "_Hotel/End/DeleteHotel";
+		}	
 		
 	
 		

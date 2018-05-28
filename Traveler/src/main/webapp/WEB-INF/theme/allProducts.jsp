@@ -3,30 +3,182 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-	
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
-	integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
-	crossorigin="anonymous">
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-	integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-	crossorigin="anonymous"></script>
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
-	integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
-	crossorigin="anonymous"></script>
-<script
-	src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
-	integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
-	crossorigin="anonymous"></script>
-	
-	
-<title>Insert title here</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Traveler</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
+<meta name="keywords"
+	content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
+<meta name="author" content="FREEHTML5.CO" />
 
+
+<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+<link rel="shortcut icon" href="/Traveler/images/favicon.ico">
+
+<!--<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>-->
+
+<!-- Animate.css -->
+<link rel="stylesheet" href="/Traveler/css/animate.css">
+<!-- Icomoon Icon Fonts-->
+<link rel="stylesheet" href="/Traveler/css/icomoon.css">
+<!-- Bootstrap  -->
+<link rel="stylesheet" href="/Traveler/css/bootstrap.css">
+<!-- Superfish -->
+<link rel="stylesheet" href="/Traveler/css/superfish.css">
+<!-- Magnific Popup -->
+<link rel="stylesheet" href="/Traveler/css/magnific-popup.css">
+<!-- Date Picker -->
+<link rel="stylesheet" href="/Traveler/css/bootstrap-datepicker.min.css">
+<!-- CS Select -->
+<link rel="stylesheet" href="/Traveler/css/cs-select.css">
+<link rel="stylesheet" href="/Traveler/css/cs-skin-border.css">
+
+<link rel="stylesheet" href="/Traveler/css/style.css">
+
+
+<!-- Modernizr JS -->
+<script src="/Traveler/js/modernizr-2.6.2.min.js"></script>
+<!-- FOR IE9 below -->
+<!--[if lt IE 9]>
+	<script src="/Traveler/js/respond.min.js"></script>
+	<![endif]-->
+
+
+<!-- jQuery -->
+
+
+<script src="/Traveler/js/jquery.min.js"></script>
+<!-- jQuery Easing -->
+<script src="/Traveler/js/jquery.easing.1.3.js"></script>
+<!-- Bootstrap -->
+<script src="/Traveler/js/bootstrap.min.js"></script>
+<!-- Waypoints -->
+<script src="/Traveler/js/jquery.waypoints.min.js"></script>
+<script src="/Traveler/js/sticky.js"></script>
+
+<!-- Stellar -->
+<script src="/Traveler/js/jquery.stellar.min.js"></script>
+<!-- Superfish -->
+<script src="/Traveler/js/hoverIntent.js"></script>
+<script src="/Traveler/js/superfish.js"></script>
+<!-- Magnific Popup -->
+<script src="/Traveler/js/jquery.magnific-popup.min.js"></script>
+<script src="/Traveler/js/magnific-popup-options.js"></script>
+<!-- Date Picker -->
+<script src="/Traveler/js/bootstrap-datepicker.min.js"></script>
+<!-- CS Select -->
+<script src="/Traveler/js/classie.js"></script>
+<script src="/Traveler/js/selectFx.js"></script>
+
+<!-- Main JS -->
+<script src="/Traveler/js/main.js"></script>
+<!-- 連結旁邊的小ICON套件  -->	
+<script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
+<!-- Bootstrap -->
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
+<!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> -->
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script> -->
+<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> -->
+<!-- bootstrap網格 -->
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"></link>
+<style>
+.well, .panel {text-align: center;}
+</style>
+<!-- 返回上方按鈕 -->
+<style>
+#gotop {
+    position:fixed;
+    z-index:90;
+    right:30px;
+    bottom:31px;
+    display:none;
+    width:50px;
+    height:50px;
+    color:#fff;
+    background:#33b5e5;
+    line-height:50px;
+    border-radius:50%;
+    transition:all 0.5s;
+    text-align: center;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+}
+#gotop :hover{
+    background:#0099CC;
+}
+</style>
+<!-- 測試側邊 -->
+<style>
+#mwt_mwt_slider_scroll
+{
+top: 95px;
+left:0px; 
+width:200px;
+position:fixed; 
+z-index:9999;
+}
+
+#mwt_slider_content{
+/* background:#FF8800; */
+ background:#FF8800; 
+text-align:center;
+padding-top:20px;
+}
+
+#mwt_fb_tab {
+position:absolute;
+top:20px;
+right:-24px;
+width:24px;
+background:#FF8800;
+color:#ffffff;
+font-family:Arial, Helvetica, sans-serif;
+text-align:center;
+padding:9px 0;
+
+-moz-border-radius-topright:10px;
+-moz-border-radius-bottomright:10px;
+-webkit-border-top-right-radius:10px;
+-webkit-border-bottom-right-radius:10px;
+}
+#mwt_fb_tab span {
+display:block;
+height:12px;
+padding:1px 0;
+line-height:12px;
+text-transform:uppercase;
+font-size:12px;
+}
+</style>
+<script type='text/javascript'>
+$(document).ready(function(){
+	$("#mwt_mwt_slider_scroll").animate({ left:'0px' }, 600 ,'swing');
+	$('#mwt_slider_content').css('height', ($(window).height() - 20) + 'px' );
+})
+// $(function(){
+// var w = $("#mwt_slider_content").width();
+// $('#mwt_slider_content').css('height', ($(window).height() - 20) + 'px' ); //將區塊自動撐滿畫面高度
+
+// $("#mwt_fb_tab").mouseover(function(){ //滑鼠滑入時
+// if ($("#mwt_mwt_slider_scroll").css('left') == '-'+w+'px')
+// {
+// $("#mwt_mwt_slider_scroll").animate({ left:'0px' }, 600 ,'swing');
+// }
+// });
+
+
+// $("#mwt_slider_content").mouseleave(function(){　//滑鼠離開後
+// $("#mwt_mwt_slider_scroll").animate( { left:'-'+w+'px' }, 600 ,'swing');
+// });
+// });
+
+</script>
 <style>
         
 * {
@@ -142,61 +294,98 @@ float:right;
 
 </style>
 
+<!-- <link rel="stylesheet" -->
+<!-- 	href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"> -->
 
 
+<!-- 老師 -->
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/jumbotron.css">
+<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+
+
+<title>Insert title here</title>
 </head>
 <body>
-	<div id="allpage">
-		<header>		
-		 <nav>		
-		<ul class="menu">
-	    	<li cless="le"><a href="index.html"><img src='/Traveler/images//icon_index.png' height="25px" width="25px"/>TRAVEL後台管理系統</a></li>
-					<li><a href="airTickets/back/list"><img src='/Traveler/images//icon_air.png' height="25px" width="25px"/>機票管理</a></li>
-					<li><a href="index.html"><img src='/Traveler/images//icon_hotel.png' height="25px" width="25px"/>飯店管理</a></li>
-					<li><a href="../theme/management"><img src='/Traveler/images//icon_traveler.png' height="25px" width="25px"/>主題旅遊管理</a></li>
-					<li><a href="index.html"><img src='/Traveler/images//icon_vip.png' height="25px" width="25px"/>會員管理</a></li>
-					<li><a href="commlist"><img src='/Traveler/images//icon_comm.png' height="25px" width="25px"/>紅利管理</a></li>
-					<li><a href="feedbackopinion"><img src='/Traveler/images//icon_support.png' height="25px" width="25px"/>客服管理</a></li>
-					<li><a href="index.html"><img src='/Traveler/images//icon_login.png' height="25px" width="25px"/>登入</a></li> <!--登出-->
-		</ul>
 
-		</nav> </header>
-	
-<div class="d1"> 
-<h2 style="text-align:center">旅遊管理項目</h2>
-<ul class="me">
-<li><a href="titleManagement">主題種類</a></li>
-<li><a href="productManagement">商品資料</a></li>
-<li><a href="journeyManagement">行程內容</a></li>
-<li><a href="applicationManagement">報名表單</a></li>
-
-</ul>
-
-		</div>
-
-		
-		
-		
-<div class="d2">
-<c:forEach var='products' items='${products}'>
-  <div style="width:300px; height:200px; float: left; ">
-    <p>
-    <b style='font-size:16px;'>商品名稱:${products.productName}</b><br>
-    <b style='font-size:16px;'>國家:${products.country}</b><br>
-    <b style='font-size:16px;'>種類:${products.themeTitles.titleName}</b><br>
-    <b style='font-size:16px;'>住宿:${products.hotelName}</b><br>
-    </p>
+<%@ include file="/WEB-INF/backStageHeader.jsp" %>
+<!--=========================要放的東西  =====================-->
+<!-- 左邊的bar會歪 -->
+<div style="color:black;margin-left:230px;font-size:24px">
+<!-- 大標題  + 新增主題連結區-->
+<br>
+<div class="container-fluid">
+ <div class="row">
+  <div class="col-md-12">
+   <div class="header">全旅遊商品&nbsp;&nbsp;&nbsp;&nbsp;
+    <a onmouseover="this.style.color='orange'" onmouseout="this.style.color='#4F4FFF'" style="font-size:24px;color:#4F4FFF"href=''>新增旅遊商品<img src="/Traveler/images/向左黑.jpg" width="50" height="50"></a>
+    <a onmouseover="this.style.color='orange'" onmouseout="this.style.color='#4F4FFF'" style="font-size:24px;color:#4F4FFF"href=''>依分類排序<img src="/Traveler/images/排序.png" width="50" height="50"></a>
+    <a onmouseover="this.style.color='orange'" onmouseout="this.style.color='#4F4FFF'" style="font-size:24px;color:#4F4FFF"href=''>依國家排序<img src="/Traveler/images/排序.png" width="50" height="50"></a>
+    </div>
   </div>
- </c:forEach>
-
+ </div>
 </div>
-		
-		<footer>
-		<p>TRAVEL &nbsp; Tel:(02)2222-8888 &nbsp;
-			台北市復興南路一段390號 &nbsp; &copy; 2014 All Rights Reserved Quality Art
-			Technology CO.</p>
-		</footer>
-	</div>
-</body>
+<hr>
+<!-- 表格 title -->
+<div class="container-fluid">
+ <div class="row">
+  <div class="col-md-1">編號</div>
+  <div class="col-md-1">分類</div>
+  <div class="col-md-3">商品名稱</div>
+  <div class="col-md-1">國家</div>
+  <div class="col-md-2">住宿飯店</div>
+  <div class="col-md-2"></div>
+ </div>
+</div>
+<hr>
+<!-- 表格 內容 -->
+<c:forEach var='products' items='${products}'>
+<div class="container-fluid">
+ <div class="row">
+  <div class="col-md-1">${products.productId}</div>
+  <div class="col-md-1">${products.themeTitles.titleName}</div>
+  <div class="col-md-3">${products.productName}</div>
+  <div class="col-md-1">${products.country}</div>
+  <div class="col-md-2">${products.hotelName}</div>
+  <div class="col-md-2" style="width:330px;margine-buttom:10px">
+   <a href=''>商品細節<img src="/Traveler/images/向左橘.png" width="50" height="40"></a>
+   <a href=''>下架商品<img src="/Traveler/images/向左箭頭.png" width="50" height="40"></a>
+  </div> 
+ </div>
+</div>
+</c:forEach>
+</div>
+<!-- =========側邊欄位開始============ -->	
+<%@ include file="/WEB-INF/theme/backLeftSide.jsp" %>
+<!-- =========側邊欄位結束============ -->
+<script type="text/javascript">
+$(function() {
+    /* 按下GoTop按鈕時的事件 */
+    $('#gotop').click(function(){
+        $('html,body').animate({ scrollTop: 0 }, 'slow');   /* 返回到最頂上 */
+        return false;
+    });
+     
+    /* 偵測卷軸滑動時，往下滑超過400px就讓GoTop按鈕出現 */
+    $(window).scroll(function() {
+        if ( $(this).scrollTop() > 400){
+            $('#gotop').fadeIn();
+        } else {
+            $('#gotop').fadeOut();
+        }
+    });
+});
+/*返回上方的按鈕*/
+</script>   
+<!-- 記得要把按鈕放到網頁上, 否則它不會出現 -->
+<img src=/Traveler/images/向上箭頭.png id="gotop" style="">
+   <i class="fa fa-angle-up"></i>
+<br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br>
+<!--  ========================================================== -->
+<%@ include file="/WEB-INF/backStageFooter.jsp" %>
 
+</body>
 </html>
