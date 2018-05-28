@@ -118,9 +118,7 @@ public class HotelBackController {
 		
 
 		@RequestMapping(value="/UpdateHotel")
-		public String updateform(Model model,
-				@ModelAttribute("HotelBean") HotelBean hb) {
-			
+		public String updateform(Model model,@ModelAttribute("HotelBean") HotelBean hb) {
 			List<HotelBean>  list = hotelService.getAllHotels();
 			model.addAttribute("hotels", list);
 			return "/_Hotel/End/UpdateHotel";		
@@ -129,9 +127,7 @@ public class HotelBackController {
 		
 		
 		@RequestMapping(path= "/UpdateHotel/{hotel_id}" )
-		public String update(@ModelAttribute("HotelBean") HotelBean hb,
-				@PathVariable Integer hotel_id
-				) {
+		public String updateHotelIfno(@ModelAttribute("HotelBean") HotelBean hb,@PathVariable Integer hotel_id) {
 
 			hotelService.udpateHotel(hb);
 

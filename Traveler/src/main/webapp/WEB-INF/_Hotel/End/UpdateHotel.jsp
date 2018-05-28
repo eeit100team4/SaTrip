@@ -351,9 +351,11 @@ height:270px;
 <div class="container" style="padding-top:20px">
 <c:forEach var="hotelInfo" items="${hotels}">
 		<div class="ds">
-<form:form method='POST' modelAttribute="HotelBean" 	class='form-horizontal' enctype="multipart/form-data">
-<%-- 			<form:form action='/Traveler/UpdateHotel/${hotelInfo.hotel_id}' --%>
-<%-- 				modelAttribute="HotelBean" enctype="multipart/form-data"> --%>
+<%-- <form:form method='POST' modelAttribute="HotelBean" 	class='form-horizontal' enctype="multipart/form-data"> --%>
+<form:form action='/Traveler/_Hotel/End/UpdateHotel/${hotelInfo.hotel_id}'
+				modelAttribute="HotelBean" enctype="multipart/form-data">
+				
+				
 
 				<fieldset>
 					<div class="dr">

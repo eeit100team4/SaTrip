@@ -47,17 +47,17 @@ public class HotelRepositoryImpl implements HotelRepository {
 	}
 
 	@Override
-	public HotelBean udpateHotel(HotelBean hotelBean) {
+	public void udpateHotel(HotelBean hotelBean) {
 		Session session = factory.getCurrentSession();
 		HotelBean hb = session.get(HotelBean.class, hotelBean.getHotel_id());
 		String country = hotelBean.getCountry();
 		String city = hotelBean.getCity();
 		String name = hotelBean.getCity();
-		hb.setCountry(country);		
-		hb.setCity(city);		
-		hb.setName(name);		
+		hb.setCountry(hotelBean.getCountry());		
+		hb.setCity(hotelBean.getCity());		
+		hb.setName(hotelBean.getName());		
 		session.save(hb);
-		return hb;
+		
 	}	
 	
 	@Override
