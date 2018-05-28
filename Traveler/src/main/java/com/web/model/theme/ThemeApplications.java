@@ -55,7 +55,7 @@ public class ThemeApplications implements Serializable {
 	
 	//帶參數建構子 //加入FK表格
 	public ThemeApplications(Integer applicationId, Integer journeyId, String name, String gender, String cellPhone, Integer people,
-			String callTime, String location, String extra, Timestamp terminate, ThemeJourneys themeJourneys, 
+			String callTime, String location, String extra, Timestamp  terminate, ThemeJourneys themeJourneys, 
 			ThemeProducts themeProducts, ThemeTitles themeTitles) {
 		super();
 		this.applicationId = applicationId;
@@ -134,10 +134,10 @@ public class ThemeApplications implements Serializable {
 	public void setExtra(String extra) {
 		this.extra = extra;
 	}
-	public Timestamp getTerminate() {
+	public Timestamp  getTerminate() {
 		return terminate;
 	}
-	public void setTerminate(Timestamp terminate) {
+	public void setTerminate(Timestamp  terminate) {
 		this.terminate = terminate;
 	}
 	

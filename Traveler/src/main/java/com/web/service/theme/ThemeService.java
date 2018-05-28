@@ -42,4 +42,7 @@ public interface ThemeService {
 	
 	//依報名表編號抓出一筆備註extra
 	ThemeApplications getExtraByApplicationId(Integer applicationId);
+	
+//	//簽收
+//	void updateAllTerminate();
 }
