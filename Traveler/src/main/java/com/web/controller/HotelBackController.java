@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.web.model.commodity.CommodityBean;
@@ -144,15 +145,21 @@ public class HotelBackController {
 //		}	
 		
 		// 取得HotelBean資料，顯示多筆Hotel資料
-		@RequestMapping("/DeleteHotel")
-		public String DeleteHotel(Model model) {
-			
+		
+		@RequestMapping(value="/DeleteHotel/del/{hotelInfo.hotel_id}", method = RequestMethod.POST )
+		public String DeleteHotelTwo(Model model,@RequestParam("hotel_id") Integer hotel_id) {			
+//			System.out.println(hotel_id);
+			hotelService.deleteHotel(hotel_id);
+			return "redirect:/_Hotel/End/DeleteHotel";
+		}	
+		
+		@RequestMapping(value="/DeleteHotel" )
+		public String DeleteHotel(Model model) {			
+//			System.out.println("ommh");
 			List<HotelBean> list = hotelService.getAllHotels();
 			model.addAttribute("hotels", list);			
 			return "_Hotel/End/DeleteHotel";
 		}	
-		
-	
 		
 			
 		

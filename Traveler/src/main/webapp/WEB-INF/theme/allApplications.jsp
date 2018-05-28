@@ -305,7 +305,7 @@ float:right;
 <!-- 提示框 -->
 <script>
 function test()
-{alert("已成功簽收~~將回到簽收頁面");
+{alert("已成功簽收~~將回到旅遊管理功能首頁");
 	}
 </script> 
 <title>Insert title here</title>
@@ -367,7 +367,7 @@ function test()
 </div>
 </c:forEach>
 </div>
-
+</div>
 <script type="text/javascript">
 $(function() {
     /* 按下GoTop按鈕時的事件 */

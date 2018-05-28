@@ -27,6 +27,14 @@ public class ThemeBackController {
 	ThemeService themeService;
 	@Autowired
 	HttpSession session;
+	
+	// 後台顯示全部主題 
+	@RequestMapping("theme/allTitles")
+	public String list(Model model) {
+		List<ThemeTitles> list = themeService.getTitles();
+		model.addAttribute("themeTitles", list);
+		return "theme/allTitles";
+	}
 
 	// 新增主題用 產生空白表單 預設讀取GET方法
 	@RequestMapping(value = "/theme/addTitle", method = RequestMethod.GET)
@@ -99,7 +107,7 @@ public class ThemeBackController {
 	}
 	
 	//顯示全部行程內容
-	@RequestMapping("/theme/allJourneys")
+	@RequestMapping("theme/allJourneys")
 	public String journeyList(Model model) {
 		List<ThemeJourneys> list = themeService.getAllJourneys();
 		model.addAttribute("journeys", list);
@@ -107,7 +115,7 @@ public class ThemeBackController {
 	}
 
 	//顯示全部報名表內容
-	@RequestMapping("/theme/allApplications")
+	@RequestMapping("theme/allApplications")
 	public String applicationList(Model model) {
 		List<ThemeApplications> list = themeService.getAllApplications();
 		model.addAttribute("applications", list);

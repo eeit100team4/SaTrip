@@ -246,7 +246,7 @@
 <div class="container-fluid">
  <div class="row">
   <div class="col-md-12" style="font-weight:bold">
-   <div class="panel-heading" style="color:black;font-size:32px;text-align:left"><img src="/Traveler/images/day.png" width="50" height="50">&nbsp;&nbsp;&nbsp;&nbsp;第一天:${detail.themeProducts.descriTitle1}</div>
+   <div class="panel-heading" style="color:black;font-size:32px;text-align:left"><img src="/Traveler/images/day.png" width="100" height="100">&nbsp;&nbsp;&nbsp;&nbsp;第一天:${detail.themeProducts.descriTitle1}</div>
   </div>
  </div>
 </div> 
@@ -285,7 +285,7 @@
 <div class="container-fluid">
  <div class="row">
   <div class="col-md-12" style="font-weight:bold">
-   <div class="panel-heading" style="color:black;font-size:32px;text-align:left"><img src="/Traveler/images/day.png" width="50" height="50">&nbsp;&nbsp;&nbsp;&nbsp;第二天:${detail.themeProducts.descriTitle2}</div>
+   <div class="panel-heading" style="color:black;font-size:32px;text-align:left"><img src="/Traveler/images/day.png" width="100" height="100">&nbsp;&nbsp;&nbsp;&nbsp;第二天:${detail.themeProducts.descriTitle2}</div>
   </div>
  </div>
 </div> 
@@ -324,7 +324,7 @@
 <div class="container-fluid">
  <div class="row">
   <div class="col-md-12" style="font-weight:bold">
-   <div class="panel-heading" style="color:black;font-size:32px;text-align:left"><img src="/Traveler/images/day.png" width="50" height="50">&nbsp;&nbsp;&nbsp;&nbsp;第三天:${detail.themeProducts.descriTitle3}</div>
+   <div class="panel-heading" style="color:black;font-size:32px;text-align:left"><img src="/Traveler/images/day.png" width="100" height="100">&nbsp;&nbsp;&nbsp;&nbsp;第三天:${detail.themeProducts.descriTitle3}</div>
   </div>
  </div>
 </div> 
