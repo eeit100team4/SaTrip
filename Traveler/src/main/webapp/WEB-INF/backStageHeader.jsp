@@ -15,7 +15,7 @@
 			<nav id="fh5co-menu-wrap" role="navigation">
 			<ul class="sf-menu" id="fh5co-primary-menu"
 				style="background-color: black">
-				<li><a href="/Traveler/airTickets/back/list"><i class="fas fa-plane"></i><font
+				<li><a href="/Traveler/airTickets/back/searchAll"><i class="fas fa-plane"></i><font
 						color="orange">機票</font></a></li>
 				<li><a href="/Traveler/_Hotel/End/ManagerAllHotels"><i class="fas fa-home"></i><font
 						color="orange">飯店</font></a></li>

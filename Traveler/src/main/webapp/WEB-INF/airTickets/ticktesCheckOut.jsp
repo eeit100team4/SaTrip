@@ -215,26 +215,26 @@ function showInfo(){
     <table class="text-center table table-hover">
     <thead>
       <tr>
-        <th class="col-lg-2 text-center">Firstname</th>
-        <th class="col-lg-2 text-center">Lastname</th>
-        <th class="col-lg-3 text-center">護照號碼</th>
+        <th class="col-lg-2 text-center">中文姓名</th>
+        <th style="width:100px;" class="col-lg-2 text-center">英文名</th>
+        <th class="col-lg-2 text-center">英文姓</th>
         <th class="col-lg-3 text-center">生日</th>
         <th class="col-lg-2 text-center">性別</th>
       </tr>
     </thead>
     <tbody>
       <tr>
+        <td>${guestBean.guestOneName}</td>
+        <td style="width:100px;">${guestBean.guestOneLastName}</td>
         <td>${guestBean.guestOneFirstName}</td>
-        <td>${guestBean.guestOneLastName}</td>
-        <td>${guestBean.guestOnepassportNum}</td>
         <td><fmt:formatDate value="${guestBean.guestOneBirth}" pattern="yyyy-MM-dd" /></td>
         <td>${guestBean.guestOneGender}</td>
       </tr>
      <c:if test="${orderList.person==2}">
       <tr>
-       <td>${guestBean.guestTwoFirstName}</td>
+       <td>${guestBean.guestTwoName}</td>
+       <td style="width:100px;">${guestBean.guestTwoFirstName}</td>
         <td>${guestBean.guestTwoLastName}</td>
-        <td>${guestBean.guestTwopassportNum}</td>
          <td><fmt:formatDate value="${guestBean.guestTwoBirth}" pattern="yyyy-MM-dd" /></td>
         <td>${guestBean.guestTwoGender}</td>
       </tr>
