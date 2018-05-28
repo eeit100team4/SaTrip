@@ -1,5 +1,6 @@
 package com.web.repository.imp.theme;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -136,4 +137,15 @@ public class ThemeRepositoryImpl implements ThemeRepository {
 			ThemeApplications themeApplications = (ThemeApplications) session.createQuery(hql).setParameter("applicationId",applicationId).uniqueResult();
 			return themeApplications;
 		}
+//	//簽收
+//	@Override
+//	public void updateTerminate(int applicationId, int one) {
+//		String hql = "UPDATE themeApplications SET terminate = :one WHERE applicationId = :id";
+//		Session session = factory.getCurrentSession();
+//		
+//		int n = session.createQuery(hql)
+//				.setParameter("one", one)
+//				.setParameter("id", applicationId)
+//				.executeUpdate();
+//	}
 }

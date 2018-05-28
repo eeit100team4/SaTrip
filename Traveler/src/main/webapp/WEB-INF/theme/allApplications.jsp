@@ -302,8 +302,12 @@ float:right;
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <link rel="stylesheet" href="css/jumbotron.css">
 <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
-
-
+<!-- 提示框 -->
+<script>
+function test()
+{alert("已成功簽收~~將回到簽收頁面");
+	}
+</script> 
 <title>Insert title here</title>
 </head>
 <body>
@@ -357,7 +361,7 @@ float:right;
   <div class="col-md-2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<fmt:formatDate value="${applications.terminate}" pattern="yyyy/MM/dd"/></div>
   <div class="col-md-3">
    <a href='../theme/allApplications/${applications.applicationId}'>內容<img src="/Traveler/images/向左橘.png" width="50" height="50"></a>
-   <a href=''>簽收<img src="/Traveler/images/向左橘.png" width="50" height="50"></a>
+   <a href='../theme/reback'onclick="test()">簽收<img src="/Traveler/images/向左橘.png" width="50" height="50"></a>
   </div> 
  </div>
 </div>

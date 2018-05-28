@@ -20,7 +20,7 @@ public class ContactusRepositoryImp implements ContactusRepository {
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<ContactusBean> getAllContactus() {
-		String hql="FROM ContactusBean";
+		String hql="FROM ContactusBean order by messagetime desc";
 		Session session = null;
 		List<ContactusBean> list = new ArrayList<>();
 		session = factory.getCurrentSession();

@@ -1,5 +1,6 @@
 package com.web.repository.theme;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 import com.web.model.theme.ThemeTitles;
@@ -43,4 +44,7 @@ public interface ThemeRepository {
 	
 	//依報名表編號抓出一筆備註extra
 	ThemeApplications getExtraByApplicationId(Integer applicationId);
+	
+//	//簽收
+//	void updateTerminate(int applicationId, int one);
 }

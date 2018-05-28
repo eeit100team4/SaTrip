@@ -74,20 +74,24 @@ public class HotelServiceImpl implements HotelService {
 
 		return hotelRepository.insertHotel(hotelBean);
 	}
+	
 	@Transactional
 	@Override
 	public void udpateHotel(HotelBean hotelBean) {
 		
 		 hotelRepository.udpateHotel(hotelBean);
 	}
-	@Transactional
+	
+	
+	@Transactional	
 	@Override
 	public boolean deleteHotel(int hotel_id) {
 		
 		return hotelRepository.deleteHotel(hotel_id);
-
 	}
 	
 	
+	
+
 
 }

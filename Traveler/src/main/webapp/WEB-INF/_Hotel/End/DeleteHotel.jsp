@@ -269,11 +269,6 @@ float:right;
 </style>
 
 
-<title>Insert title here</title>
-</head>
-<body>
-
-
 
 <title>Insert title here</title>
 </head>
@@ -306,13 +301,35 @@ float:right;
 		</div>
 <!-- =========側邊欄位結束============ -->
 	
-	
-	
-	
-	
-	
-	
-	
+	<div class="row no-gutters">
+		<div class="container">
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th scope="col">編號</th>
+						<th scope="col">照片</th>						
+						<th scope="col">國家</th>
+						<th scope="col">城市</th>						
+						<th scope="col">飯店</th>
+						<th scope="col">管理</th>
+					</tr>
+				</thead>
+				<tbody>
+					<c:forEach var="hotelInfo" items="${hotels}">
+						<tr>
+							<td><h3>${hotelInfo.hotel_id}</h3></td>
+                      		<td><img width='200' height='100' src="<c:url value='/getPic/${hotelInfo.hotel_id}' />" /></td>
+                      		<td width='80px'><h3>${hotelInfo.country}</h3></td>
+                      		<td width='80px'><h3>${hotelInfo.city}</h3></td>
+                      		<td width='200px'><h3>${hotelInfo.name}</h3></td>
+                      		<td><input type="hidden" id="ProductID" name="ProductID"><span></span></td>
+						</tr>
+					</c:forEach>
+				</tbody>
+			</table>
+		</div>
+	</div>	
+		
 
 	<!--  ========================================================== -->
 

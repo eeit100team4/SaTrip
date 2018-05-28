@@ -12,6 +12,7 @@ import com.web.model.hotel.HotelRoomBean;
 public interface HotelService {
 	
 	
+	
 	Set<HotelBean> getHotelsByDateTime(Timestamp startTime,Timestamp endTime);
 
 	List<HotelBean> getAllHotels();
