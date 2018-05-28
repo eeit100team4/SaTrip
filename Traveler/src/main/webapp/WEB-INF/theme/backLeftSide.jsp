@@ -8,22 +8,22 @@
   <div id="nav">
    <ul>
     <li>
-     <a class="btn btn-primary" style="text-align:left;" href="allTitles"><h3><font color="white">主題列表管理</font></h3></a>
+     <a class="btn btn-primary" style="text-align:left;" href="/Traveler/theme/allTitles"><h3><font color="white">主題列表管理</font></h3></a>
     </li>
    </ul>
    <ul>
     <li>
-     <a class="btn btn-primary" style="text-align:left;" href="allProducts"><h3><font color="white">旅遊商品管理</font></h3></a>
+     <a class="btn btn-primary" style="text-align:left;" href="/Traveler/theme/allProducts"><h3><font color="white">旅遊商品管理</font></h3></a>
     </li>
    </ul>
    <ul>
     <li>
-     <a class="btn btn-primary" style="text-align:left;" href="allJourneys"><h3><font color="white">出團行程管理</font></h3></a>
+     <a class="btn btn-primary" style="text-align:left;" href="/Traveler/theme/allJourneys"><h3><font color="white">出團行程管理</font></h3></a>
     </li>
    </ul>
     <ul>
      <li>
-      <a class="btn btn-primary" style="text-align:left;" href="allApplications"><h3><font color="white">全報名表管理</font></h3></a>
+      <a class="btn btn-primary" style="text-align:left;" href="/Traveler/theme/allApplications"><h3><font color="white">全報名表管理</font></h3></a>
      </li> 
     </ul>
    </div>

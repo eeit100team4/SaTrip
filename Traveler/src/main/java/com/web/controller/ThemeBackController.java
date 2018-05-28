@@ -138,11 +138,6 @@ public class ThemeBackController {
 		return "theme/reback";
 	}
 	
-//	//簽收
-//	@RequestMapping("theme/allApplications/terminate/{applicationId}")
-//	public String updateTerminate(Model model) {
-//		themeService.updateAllTerminate();
-//		return "theme/allApplications";
-//	}
+	
 
 }
