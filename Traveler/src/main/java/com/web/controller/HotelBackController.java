@@ -148,14 +148,14 @@ public class HotelBackController {
 		
 		@RequestMapping(value="/DeleteHotel/del/{hotelInfo.hotel_id}", method = RequestMethod.POST )
 		public String DeleteHotelTwo(Model model,@RequestParam("hotel_id") Integer hotel_id) {			
-			System.out.println(hotel_id);
+//			System.out.println(hotel_id);
 			hotelService.deleteHotel(hotel_id);
 			return "redirect:/_Hotel/End/DeleteHotel";
 		}	
 		
 		@RequestMapping(value="/DeleteHotel" )
 		public String DeleteHotel(Model model) {			
-			System.out.println("ommh");
+//			System.out.println("ommh");
 			List<HotelBean> list = hotelService.getAllHotels();
 			model.addAttribute("hotels", list);			
 			return "_Hotel/End/DeleteHotel";

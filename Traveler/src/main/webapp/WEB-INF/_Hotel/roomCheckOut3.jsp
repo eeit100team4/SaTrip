@@ -192,7 +192,7 @@ function showInfo(){
 								</tr>
 								<tr class="warning">
 									<td>訂單時間：</td>
-									<td><font color="orange"><b>06/01/2018</b></font></td>
+									<td><font color="orange"><b>06/03/2018</b></font></td>
 								</tr>
 								<tr class="warning">
 									<td>房間類型：</td>
