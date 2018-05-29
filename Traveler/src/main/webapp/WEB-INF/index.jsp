@@ -12,7 +12,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>Travel &mash; 100% Free Fully Responsive HTML5 Template by FREEHTML5.co</title>
+<title>Traveler</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
 <meta name="keywords"
@@ -469,5 +469,12 @@ color:orange;
 		</div>
 	</div>
 	<%@ include file="/WEB-INF/frontStageFooter.jsp"%>
+	
+	<div id="img1" style="display: none">
+		<h1>
+			<strong>搜尋中......</strang>
+		</h1>
+		<img alt="" src="images/airplain.gif" widtg=200px height=150px />
+	</div>
 </body>
 </html>
