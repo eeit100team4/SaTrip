@@ -211,6 +211,9 @@ function sendGuest(){
     }else if($("#contactPhone").val()==""){
         alert("你尚未填寫旅客生日");
         eval("document.form['guestTwoBirth'].focus()");  
+    }else if($("#checkbox101").prop("checked")==false){
+        alert("你尚未勾選同意注意事項");
+        eval("document.form['guestTwoBirth'].focus()");  
     }else{
 
 	
@@ -438,7 +441,7 @@ var birthday="<fmt:formatDate value="${memberBean.birthday}" pattern="yyyy-MM-dd
                     </ul>
                 </div>
                 <div class="form-check">
-    				<input type="checkbox" class="filled-in form-check-input" id="checkbox101" >
+    				<input type="checkbox"  class="filled-in form-check-input" id="checkbox101" >
     				<label class="form-check-label" for="checkbox101">我已閱讀注意事項並同意其內容</label>
 				</div>
 			          <div class="sub text-center">
