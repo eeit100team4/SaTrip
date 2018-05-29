@@ -103,7 +103,7 @@
 <script src="/Traveler/js/main.js"></script>
 
 
-<script src="/Traveler/js/airplain/airSearch.js"></script>
+<!-- <script src="/Traveler/js/airplain/airSearch.js"></script> -->
 <script src="/Traveler/js/jquery-ui.min.js"></script>
 <link rel="stylesheet" href="/Traveler/js/jquery-ui.min.css">
 
@@ -125,6 +125,14 @@ table {
 		$("#chkPassword").val("A123456789");
  }
  
+ //檢核所有欄位無誤後才送出
+ function  checkFormAndSubmit(){ 
+		var a = chkPwd();
+		var b = chkChkPwd();
+		if (a&&b) {
+			$("#changePasswordForm").submit();
+		}
+}
 </script>
 </head>
 
@@ -132,7 +140,7 @@ table {
 	onload="javascript:document.changePasswordForm.oldPassword.focus();">
 	<%@ include file="/WEB-INF/frontStageHeader.jsp"%>
 	<center>
-		<form name="changePasswordForm"
+		<form id="changePasswordForm" name="changePasswordForm"
 			action="<c:url value='./changePwd.do' />" method="POST">
 			<table border="0" align="center" width="600">
 				<thead>
@@ -176,9 +184,9 @@ table {
 					</tr>
 					<br>
 					<tr bgcolor='#F5F5F5'>
-						<td height="50" colspan="2" align="center"><input
-							type="button" value="上一頁" onclick="goBack()"> <input
-							type="submit" value="送出"></td>
+						<td height="50" colspan="2" align="center">
+						<input	type="button" value="上一頁" onclick="goBack()">
+						<input 	type="button" value="送出" onclick="checkFormAndSubmit()"></td>
 					</tr>
 					
 				</tbody>
