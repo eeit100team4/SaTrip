@@ -163,13 +163,14 @@ public class LoginController {
 		}
 		// 4.進行Business Logic運算
 		// password=GlobalService.getMD5Endocing(GlobalService.encryptString(password));//二次加密
-		password = GlobalService.encryptString(password);
 		// 呼叫loginService物件的checkIdPwd()，傳入memberId與password兩個參數
 		MemberBean mb =null;
 		if (StringUtils.isNotBlank(thirdPartyId)) {
+			System.out.println("getMemberById:" + memberId);
 			mb = memberService.getMemberById(memberId);
 		}else {
-			mb = memberService.checkIdPwd(memberId, password);
+			String encodePassword = GlobalService.encryptString(password);
+			mb = memberService.checkIdPwd(memberId, encodePassword);
 		}
 
 		if (mb != null) {
@@ -258,7 +259,7 @@ public class LoginController {
 		// 呼叫loginService物件的checkIdPwd()，傳入memberId與password兩個參數
 		MemberBean mb = memberService.queryPwd(memberId, bdate);
 
-		if (mb != null) {
+		if (mb != null) {//取得DB中password還原後給email
 			final String KEY = "KittySnoopyMicky";
 			SecretKeySpec secretKey = new SecretKeySpec(KEY.getBytes(), "AES");
 			String decrypPassword=GlobalService.decryptString(KEY,mb.getPassword());
