@@ -117,4 +117,11 @@ public class ThemeServiceImpl implements ThemeService {
 	public List<ThemeJourneys> getAllJourneysByDeadline(){
 		return themeRepository.getAllJourneysByDeadline();
 	}
+	@Transactional
+	@Override
+	//顯示所有行程內容(依出發時間排序DESC	)
+	public List<ThemeJourneys> getAllJourneysBySetOutDesc(){
+		return themeRepository.getAllJourneysBySetOutDesc();
+	}
+
 }

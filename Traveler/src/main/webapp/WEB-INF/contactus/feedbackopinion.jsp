@@ -176,7 +176,12 @@ border:2px black solid;
 padding:5px;
 }
 </style>
-
+<script type="text/javascript">
+function display_alert()
+  {
+  alert("確認回覆此訊息嗎?")
+  }
+</script>
 <title>Insert title here</title>
 </head>
 <body>
@@ -232,7 +237,8 @@ padding:5px;
 						</table>
 					    
                <div class='form-group'>
-               	<input type="submit" id='btnAdd' class="btn btn-primary" value="回覆"></input>
+               	<input type="submit" id='btnAdd' class="btn btn-primary" onclick="display_alert()"
+               	value="回覆"></input>
                	</div>
                
 		</fieldest>

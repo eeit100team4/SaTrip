@@ -302,64 +302,68 @@ float:right;
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <link rel="stylesheet" href="css/jumbotron.css">
 <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
-<!-- 提示框 -->
-<script>
-function test()
-{alert("已成功簽收~~將回到旅遊管理首頁");
-	}
-</script> 
+
+
 <title>Insert title here</title>
 </head>
 <body>
 
 <%@ include file="/WEB-INF/backStageHeader.jsp" %>
-
 <!--=========================要放的東西  =====================-->
 <!-- 左邊的bar會歪 -->
 <div style="color:black;margin-left:230px;font-size:24px">
-<!-- 大標:報名者名字 -->
+<!-- 大標題  + 新增主題連結區-->
 <br>
 <div class="container-fluid">
  <div class="row">
-  <div class="col-sm-12">
-   <div class="well" style="text-align:left;font-weight:bold"><img src="/Traveler/images/勳章.png" width="40" height="40">報名表編號:${extra.applicationId}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${extra.name}&nbsp;&nbsp;&nbsp;&nbsp;${extra.gender}</div>   
+  <div class="col-md-12">
+   <div class="header">全旅遊行程&nbsp;&nbsp;&nbsp;&nbsp;
+    <a onmouseover="this.style.color='orange'" onmouseout="this.style.color='#4F4FFF'" style="font-size:24px;color:#4F4FFF"href=''>新增旅遊行程<img src="/Traveler/images/向左黑.jpg" width="60" height="60"></a>
+    <a onmouseover="this.style.color='orange'" onmouseout="this.style.color='#4F4FFF'" style="font-size:24px;color:#4F4FFF"href=''>依商品號排序<img src="/Traveler/images/排序.png" width="40" height="40"></a>
+    <a href='../theme/allJourneysBySetOut'onmouseover="this.style.color='orange'" onmouseout="this.style.color='#4F4FFF'" style="font-size:24px;color:#4F4FFF"href=''>依出發時間排序<img src="/Traveler/images/排序.png" width="40" height="40"></a>
+    <a onmouseover="this.style.color='orange'" onmouseout="this.style.color='#4F4FFF'" style="font-size:24px;color:#4F4FFF"href=''>依價格排序<img src="/Traveler/images/排序.png" width="40" height="40"></a>
+    <a href='../theme/allJourneysByDeadline'onmouseover="this.style.color='orange'" onmouseout="this.style.color='#4F4FFF'" style="font-size:24px;color:#4F4FFF"href=''>依截止日排序<img src="/Traveler/images/排序.png" width="40" height="40"></a>
+    </div>
   </div>
  </div>
 </div>
-<!--三個相關資訊 -->
+<hr>
+<!-- 表格 title -->
 <div class="container-fluid">
  <div class="row">
-  <div class="col-sm-4">
-   <div class="well"style="text-align:left;font-weight:bold">報名資訊</div>
-    <div class="panel-body">電話:&nbsp;&nbsp;${extra.cellPhone}</div>
-    <div class="panel-body">報名人數:&nbsp;&nbsp;${extra.people}人</div>
-    <div class="panel-body">可連絡時間:&nbsp;&nbsp;${extra.callTime}</div>
-    <div class="panel-body">服務據點:&nbsp;&nbsp;${extra.location}</div>
-    <div class="panel-body">備註:&nbsp;&nbsp;${extra.extra}</div>
+  <div class="col-md-1" style="width:80px">編號</div>
+  <div class="col-md-1" style="width:110px">商品號</div>
+  <div class="col-md-1" style="width:130px">出發時間</div>
+  <div class="col-md-1" style="width:130px">航空公司</div>
+  <div class="col-md-1">價格</div>
+  <div class="col-md-1" style="width:150px">報名截止日</div>
+  <div class="col-md-1">建立日</div>
+  <div class="col-md-5"></div>
  </div>
- <div class="col-sm-4">
-   <div class="well"style="text-align:left;font-weight:bold"><a onmouseover="this.style.color='orange'" onmouseout="this.style.color='black'" style="font-size:24px;color:black"href=''>行程資訊</a></div>
-    <div class="panel-body">旅遊類別:&nbsp;&nbsp;${extra.themeJourneys.themeProducts.themeTitles.titleName}</div>
-    <div class="panel-body">旅遊行程編號:&nbsp;&nbsp;${extra.journeyId}</div>
-    <div class="panel-body">出團費用:&nbsp;&nbsp;${extra.themeJourneys.price}</div>
-    <div class="panel-body">航空公司:&nbsp;&nbsp;${extra.themeJourneys.companyName}</div>
-    <div class="panel-body">出發日:&nbsp;&nbsp;<fmt:formatDate value="${extra.themeJourneys.setOut}" pattern="yyyy/MM/dd"/></div>
+</div>
+<hr>
+<!-- 表格 內容 -->
+<c:forEach var='getAllJourneysBySetOutDesc' items='${getAllJourneysBySetOutDesc}'>
+<div class="container-fluid">
+ <div class="row">
+  <div class="col-md-1" style="width:80px">${getAllJourneysBySetOutDesc.journeyId}</div>
+  <div class="col-md-1" style="width:90px">${getAllJourneysBySetOutDesc.themeProducts.productId}</div>
+  <div class="col-md-1" style="width:150px"><fmt:formatDate value="${getAllJourneysBySetOutDesc.setOut}" pattern="yyyy/MM/dd"/></div>
+  <div class="col-md-1" style="width:130px">${getAllJourneysBySetOutDesc.companyName}</div>
+  <div class="col-md-1">${getAllJourneysBySetOutDesc.price}</div>
+  <div class="col-md-1" style="width:140px"><fmt:formatDate value="${getAllJourneysBySetOutDesc.deadline}" pattern="yyyy/MM/dd"/></div>
+  <div class="col-md-1"><fmt:formatDate value="${getAllJourneysBySetOutDesc.createDate}" pattern="yyyy/MM/dd"/></div>
+  <div class="col-md-5" style="width:450px;margin-bottom:10px">
+   <a href=''>&nbsp;&nbsp;&nbsp;詳細時間<img src="/Traveler/images/向左橘.png" width="50" height="40"></a>
+   <a href=''>報名人數<img src="/Traveler/images/向左箭頭.png" width="50" height="40"></a>
+  </div> 
  </div>
- <div class="col-sm-4">
-   <div class="well"style="text-align:left;font-weight:bold"><a onmouseover="this.style.color='orange'" onmouseout="this.style.color='black'" style="font-size:24px;color:black"href=''>商品資訊</a></div>
-    <div class="panel-body">旅遊商品名稱:&nbsp;&nbsp;${extra.themeJourneys.themeProducts.productId}<br>${extra.themeJourneys.themeProducts.productName}</div>
-    <div class="panel-body">旅遊國家:&nbsp;&nbsp;${extra.themeJourneys.themeProducts.country}</div>
-    <div class="panel-body">住宿:&nbsp;&nbsp;${extra.themeJourneys.themeProducts.hotelName}</div>
-    <br>
-    <a href='../leback'onclick="test()" style="margin-left:20px;color:blue"onmouseover="this.style.color='orange'" onmouseout="this.style.color='blue'">點擊此處以完成簽收<img src="/Traveler/images/向左箭頭.png" width="50" height="50"></a>
- </div>
- 
- </div>
+</div>
+</c:forEach>
 </div>
 <!-- =========側邊欄位開始============ -->	
 <%@ include file="/WEB-INF/theme/backLeftSide.jsp" %>
 <!-- =========側邊欄位結束============ -->
-</div>
 <script type="text/javascript">
 $(function() {
     /* 按下GoTop按鈕時的事件 */
@@ -376,16 +380,18 @@ $(function() {
             $('#gotop').fadeOut();
         }
     });
-});				
+});
 /*返回上方的按鈕*/
 </script>   
 <!-- 記得要把按鈕放到網頁上, 否則它不會出現 -->
 <img src=/Traveler/images/向上箭頭.png id="gotop" style="">
    <i class="fa fa-angle-up"></i>
-	<!--  ========================================================== -->
+<br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br>
+<!--  ========================================================== -->
+<%@ include file="/WEB-INF/backStageFooter.jsp" %>
 
-
-<br><br><br>
-	<%@ include file="/WEB-INF/backStageFooter.jsp" %>
 </body>
 </html>

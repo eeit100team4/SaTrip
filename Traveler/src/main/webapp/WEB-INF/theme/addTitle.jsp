@@ -178,7 +178,7 @@ margin-bottom:0px;
 </style>
 <script>
 function test()
-{alert("已新增成功~~");
+{alert("已新增成功~~將回到旅遊管理首頁");
 	}
 </script>
 
