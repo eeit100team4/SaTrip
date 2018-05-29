@@ -25,7 +25,7 @@
 	crossorigin="anonymous"></script>
 
 
-<title>Insert title here</title>
+<title>TravelerManager</title>
 
 <style>
 * {

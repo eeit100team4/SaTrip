@@ -19,7 +19,7 @@
 
 
 <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-<link rel="shortcut icon" href="/Traveler/images/favicon.ico">
+<link rel="shortcut icon" href="/Traveler/images/LeftTopCorner.ico">
 
 <!--<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>-->
 
@@ -330,11 +330,11 @@ float:right;
 				 <table id="hotelTable"   class="table table-bordered">
                        <thead>
                           <tr>
-                             <th scope="col"><h3>編號</h3></th>
-                             <th scope="col"><h3>照片</h3></th> 
-                             <th scope="col"><h3>國家</h3></th>
-                             <th scope="col"><h3>城市</h3></th>
-                             <th scope="col"><h3>飯店</h3></th> 
+                             <th scope="col">編號</th>
+                             <th scope="col">照片</th> 
+                             <th scope="col">國家</th>
+                             <th scope="col">城市</th>
+                             <th scope="col">飯店</th> 
                              
                           </tr>  
                        </thead>
@@ -356,7 +356,7 @@ float:right;
 		                        <td><input type="text" style="width:125px" class="form-control" id="country" name="country" placeholder=""></td>
 		                        <td><input type="text" style="width:125px" class="form-control" id="country" name="country" placeholder=""></td>
 		                        <td><input type="text" style="width:125px" class="form-control" id="city" name="city" placeholder=""></td>
-		                        <td><input type="text" style="width:350px" class="form-control" id="name" name="name" placeholder=""></td>
+		                        <td><input type="text" style="width:250px" class="form-control" id="name" name="name" placeholder=""></td>
 	                       </tr>
                        </tfoot> 
                    </table>

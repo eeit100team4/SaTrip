@@ -159,7 +159,7 @@
  <div class="row">
   <!-- 左邊欄位 -->
   <div class="col-sm-6">
-   <div class="panel-body"><img src="/Traveler/images/絢彩樂訪．環球影城魔法世界五日.png" style="border:10px #808000 ridge;width:725px; height:552px;"></div>
+   <div class="panel-body"><img src="/Traveler/images/${products.productName}-1.png" style="border:10px #808000 ridge;width:725px; height:552px;"></div>
   </div>
   <!--右邊欄位-->
   <div class="col-sm-6" style="border:10px #805300 ridge;margin-top:15px">

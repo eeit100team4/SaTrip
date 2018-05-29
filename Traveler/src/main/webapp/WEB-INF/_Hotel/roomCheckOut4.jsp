@@ -9,7 +9,7 @@
 <title>Traveler</title>
 
 <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-<link rel="shortcut icon" href="/Traveler/images/favicon.ico">
+<link rel="shortcut icon" href="/Traveler/images/LeftTopCorner.ico">
 
 <!--<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>-->
 
@@ -138,8 +138,8 @@ function showInfo(){
 //               $("#TradeDesc").val(orderIdTemp);
 //               alert( $("#TradeDesc").val(orderIdTemp));
 //               console.log($("#TradeDesc").val()+","+ $("#TotalAmount").val()+","+$("#MerchantTradeDate").val());
-              var partOne="ChoosePayment=Credit&ClientBackURL=http://localhost:8080/Traveler/&CreditInstallment=&EncryptType=1&InstallmentAmount=&ItemName=飯店房間&MerchantID=2000132&MerchantTradeDate="+currentDateTime;	  
-              var  partTwo= "&MerchantTradeNo="+rando+"&PaymentType=aio&Redeem=&ReturnURL=http://localhost:8080/Traveler/&StoreID=&TotalAmount=8500&TradeDesc=飯店訂單"
+              var partOne="ChoosePayment=Credit&ClientBackURL=http://localhost:8080/Traveler/_Hotel/OrderFinish4&CreditInstallment=&EncryptType=1&InstallmentAmount=&ItemName=飯店房間&MerchantID=2000132&MerchantTradeDate="+currentDateTime;	  
+              var  partTwo= "&MerchantTradeNo="+rando+"&PaymentType=aio&Redeem=&ReturnURL=http://localhost:8080/Traveler/_Hotel/OrderFinish4&StoreID=&TotalAmount=8500&TradeDesc=飯店訂單"
               
               //將查詢字串傳回後台進行加密
               var sendDet=partOne+partTwo;
@@ -238,7 +238,7 @@ function showInfo(){
 <input type="hidden" name="ItemName" value="飯店房間" /><br />
 
 <!--  ReturnURL 付款完成通知回傳網址: -->
-<input type="hidden" name="ReturnURL" value="http://localhost:8080/Traveler/" /><br />
+<input type="hidden" name="ReturnURL" value="http://localhost:8080/Traveler/_Hotel/OrderFinish4" /><br />
 
 <!--  ChoosePayment 預設付款方式: -->
 <input type="hidden" name="ChoosePayment" value="Credit" /><br />
@@ -247,7 +247,7 @@ function showInfo(){
 <input type="hidden" name="StoreID" value="" /><br />
 
 <!--  ClientBackURL Client端返回廠商網址: -->
-<input type="hidden" name="ClientBackURL" value="http://localhost:8080/Traveler/" /><br />
+<input type="hidden" name="ClientBackURL" value="http://localhost:8080/Traveler/_Hotel/OrderFinish4" /><br />
 
 <!--  CreditInstallment 刷卡分期期數: -->
 <input type="hidden" name="CreditInstallment" value="" /><br />
