@@ -72,7 +72,7 @@ public class ThemeBackController {
 			e.printStackTrace();
 			throw new RuntimeException("檔案上傳發生異常: " + e.getMessage());
 		}
-		return "redirect:allTitles";
+		return "redirect:reback";
 	}
 	//後台頁面  連結到主題管理頁
 	@RequestMapping("theme/back")
@@ -167,6 +167,12 @@ public class ThemeBackController {
 		List<ThemeJourneys> list = themeService.getAllJourneysBySetOutDesc();
 		model.addAttribute("getAllJourneysBySetOutDesc", list);
 		return "theme/allJourneysBySetOutDesc";	
+	}
+	
+	//假後台首頁
+	@RequestMapping("theme/leback")
+	public String leback(){
+	return "theme/leback";
 	}
 
 }
