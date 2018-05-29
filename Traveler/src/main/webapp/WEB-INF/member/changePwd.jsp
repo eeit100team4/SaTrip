@@ -119,11 +119,13 @@ table {
 <script type="text/javascript"
 	src='<c:url value="/js/utils/Traveler.Utils.js"/>'></script>
 <script type="text/javascript" src='<c:url value="/js/member.js"/>'></script>
-<!-- <script> -->
-// function  keyin(){
-// 	$("#password").val("A123456789");
-// 	$("#chkPassword").val("A123456789");
-<!-- </script> -->
+<script>
+ function  keyin(){ 
+		$("#password").val("A123456789");
+		$("#chkPassword").val("A123456789");
+ }
+ 
+</script>
 </head>
 
 <body
@@ -181,7 +183,7 @@ table {
 					
 				</tbody>
 			</table>
-<!-- 			<button class="btn-info" onclick="keyin()">key in</button> -->
+			<button type="button" class="btn-info" onclick="keyin()">key in</button>
 		</form>
 	</center>
 	<%@ include file="/WEB-INF/frontStageFooter.jsp"%>
