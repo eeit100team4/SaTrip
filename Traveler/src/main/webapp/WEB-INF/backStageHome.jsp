@@ -177,7 +177,7 @@ function tran(){
 	
 }
 </script>
-<title>Insert title here</title>
+<title>TravelerManager</title>
 </head>
 <body>
 
