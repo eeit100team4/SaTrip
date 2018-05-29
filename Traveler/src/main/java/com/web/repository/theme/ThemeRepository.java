@@ -47,4 +47,10 @@ public interface ThemeRepository {
 	
 	//依商品編號抓特定單筆商品資料
 	ThemeProducts getProductByproductId(Integer productId);
+	
+	//顯示所有行程內容(依出發時間排序)
+	List<ThemeJourneys> getAllJourneysBySetOut();
+	
+	//顯示所有行程內容(依截止時間排序)
+	List<ThemeJourneys> getAllJourneysByDeadline();
 }

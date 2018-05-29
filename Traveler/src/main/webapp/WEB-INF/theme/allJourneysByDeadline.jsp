@@ -343,16 +343,16 @@ float:right;
 </div>
 <hr>
 <!-- 表格 內容 -->
-<c:forEach var='journeys' items='${journeys}'>
+<c:forEach var='getAllJourneysByDeadline' items='${getAllJourneysByDeadline}'>
 <div class="container-fluid">
  <div class="row">
-  <div class="col-md-1" style="width:80px">${journeys.journeyId}</div>
-  <div class="col-md-1" style="width:90px">${journeys.themeProducts.productId}</div>
-  <div class="col-md-1" style="width:150px"><fmt:formatDate value="${journeys.setOut}" pattern="yyyy/MM/dd"/></div>
-  <div class="col-md-1" style="width:130px">${journeys.companyName}</div>
-  <div class="col-md-1">${journeys.price}</div>
-  <div class="col-md-1" style="width:140px"><fmt:formatDate value="${journeys.deadline}" pattern="yyyy/MM/dd"/></div>
-  <div class="col-md-1"><fmt:formatDate value="${journeys.createDate}" pattern="yyyy/MM/dd"/></div>
+  <div class="col-md-1" style="width:80px">${getAllJourneysByDeadline.journeyId}</div>
+  <div class="col-md-1" style="width:90px">${getAllJourneysByDeadline.themeProducts.productId}</div>
+  <div class="col-md-1" style="width:150px"><fmt:formatDate value="${getAllJourneysByDeadline.setOut}" pattern="yyyy/MM/dd"/></div>
+  <div class="col-md-1" style="width:130px">${getAllJourneysByDeadline.companyName}</div>
+  <div class="col-md-1">${getAllJourneysByDeadline.price}</div>
+  <div class="col-md-1" style="width:140px"><fmt:formatDate value="${getAllJourneysByDeadline.deadline}" pattern="yyyy/MM/dd"/></div>
+  <div class="col-md-1"><fmt:formatDate value="${getAllJourneysByDeadline.createDate}" pattern="yyyy/MM/dd"/></div>
   <div class="col-md-5" style="width:450px;margin-bottom:10px">
    <a href=''>&nbsp;&nbsp;&nbsp;詳細時間<img src="/Traveler/images/向左橘.png" width="50" height="40"></a>
    <a href=''>報名人數<img src="/Traveler/images/向左箭頭.png" width="50" height="40"></a>

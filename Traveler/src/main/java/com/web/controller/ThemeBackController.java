@@ -147,5 +147,19 @@ public class ThemeBackController {
 		session.setAttribute("test", list);
 		return "theme/productExtra";
 	}
+	//顯示全部行程內容(依出發日))
+	@RequestMapping("theme/allJourneysBySetOut")
+	public String journeysBySetOut(Model model) {
+		List<ThemeJourneys> list = themeService.getAllJourneysBySetOut();
+		model.addAttribute("getAllJourneysBySetOut", list);
+		return "theme/allJourneysBySetOut";	
+	}
+	//顯示全部行程內容(依截止日))
+	@RequestMapping("theme/allJourneysByDeadline")
+	public String journeysByDeadline(Model model) {
+		List<ThemeJourneys> list = themeService.getAllJourneysByDeadline();
+		model.addAttribute("getAllJourneysByDeadline", list);
+		return "theme/allJourneysByDeadline";	
+	}
 	
 }

@@ -105,4 +105,16 @@ public class ThemeServiceImpl implements ThemeService {
 	public ThemeProducts getProductByproductId(Integer productId){
 		return themeRepository.getProductByproductId(productId);
 	}
+	@Transactional
+	@Override
+	//顯示所有行程內容(依出發時間排序)
+	public List<ThemeJourneys> getAllJourneysBySetOut(){
+		return themeRepository.getAllJourneysBySetOut();
+	}
+	@Transactional
+	@Override
+	//顯示所有行程內容(依截止時間排序)
+	public List<ThemeJourneys> getAllJourneysByDeadline(){
+		return themeRepository.getAllJourneysByDeadline();
+	}
 }

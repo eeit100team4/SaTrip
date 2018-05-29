@@ -145,5 +145,27 @@ public class ThemeRepositoryImpl implements ThemeRepository {
 		ThemeProducts themeProducts = (ThemeProducts) session.createQuery(hql).setParameter("productId",productId).uniqueResult();
 		return themeProducts;		
 	}
-	
+	@Override
+	@SuppressWarnings("unchecked")
+	//顯示所有行程內容(依出發時間排序)
+	public List<ThemeJourneys> getAllJourneysBySetOut(){
+		String hql = "FROM ThemeJourneys order by setOut";
+		Session session = null;
+		List<ThemeJourneys> list = new ArrayList<>();
+		session = factory.getCurrentSession();
+		list = session.createQuery(hql).getResultList();
+		return list;
+	}
+	@Override
+	@SuppressWarnings("unchecked")
+	//顯示所有行程內容(依截止時間排序)
+	public List<ThemeJourneys> getAllJourneysByDeadline(){
+		String hql = "FROM ThemeJourneys order by deadline";
+		Session session = null;
+		List<ThemeJourneys> list = new ArrayList<>();
+		session = factory.getCurrentSession();
+		list = session.createQuery(hql).getResultList();
+		return list;
+	}
+
 }
