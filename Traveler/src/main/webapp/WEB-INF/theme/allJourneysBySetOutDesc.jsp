@@ -320,7 +320,7 @@ float:right;
    <div class="header">全旅遊行程&nbsp;&nbsp;&nbsp;&nbsp;
     <a onmouseover="this.style.color='orange'" onmouseout="this.style.color='#4F4FFF'" style="font-size:24px;color:#4F4FFF"href=''>新增旅遊行程<img src="/Traveler/images/向左黑.jpg" width="60" height="60"></a>
     <a onmouseover="this.style.color='orange'" onmouseout="this.style.color='#4F4FFF'" style="font-size:24px;color:#4F4FFF"href=''>依商品號排序<img src="/Traveler/images/排序.png" width="40" height="40"></a>
-    <a href='../theme/allJourneysBySetOutDesc'onmouseover="this.style.color='orange'" onmouseout="this.style.color='#4F4FFF'" style="font-size:24px;color:#4F4FFF"href=''>依出發時間排序<img src="/Traveler/images/排序.png" width="40" height="40"></a>
+    <a href='../theme/allJourneysBySetOut'onmouseover="this.style.color='orange'" onmouseout="this.style.color='#4F4FFF'" style="font-size:24px;color:#4F4FFF"href=''>依出發時間排序<img src="/Traveler/images/排序.png" width="40" height="40"></a>
     <a onmouseover="this.style.color='orange'" onmouseout="this.style.color='#4F4FFF'" style="font-size:24px;color:#4F4FFF"href=''>依價格排序<img src="/Traveler/images/排序.png" width="40" height="40"></a>
     <a href='../theme/allJourneysByDeadline'onmouseover="this.style.color='orange'" onmouseout="this.style.color='#4F4FFF'" style="font-size:24px;color:#4F4FFF"href=''>依截止日排序<img src="/Traveler/images/排序.png" width="40" height="40"></a>
     </div>
@@ -343,16 +343,16 @@ float:right;
 </div>
 <hr>
 <!-- 表格 內容 -->
-<c:forEach var='getAllJourneysBySetOut' items='${getAllJourneysBySetOut}'>
+<c:forEach var='getAllJourneysBySetOutDesc' items='${getAllJourneysBySetOutDesc}'>
 <div class="container-fluid">
  <div class="row">
-  <div class="col-md-1" style="width:80px">${getAllJourneysBySetOut.journeyId}</div>
-  <div class="col-md-1" style="width:90px">${getAllJourneysBySetOut.themeProducts.productId}</div>
-  <div class="col-md-1" style="width:150px"><fmt:formatDate value="${getAllJourneysBySetOut.setOut}" pattern="yyyy/MM/dd"/></div>
-  <div class="col-md-1" style="width:130px">${getAllJourneysBySetOut.companyName}</div>
-  <div class="col-md-1">${getAllJourneysBySetOut.price}</div>
-  <div class="col-md-1" style="width:140px"><fmt:formatDate value="${getAllJourneysBySetOut.deadline}" pattern="yyyy/MM/dd"/></div>
-  <div class="col-md-1"><fmt:formatDate value="${getAllJourneysBySetOut.createDate}" pattern="yyyy/MM/dd"/></div>
+  <div class="col-md-1" style="width:80px">${getAllJourneysBySetOutDesc.journeyId}</div>
+  <div class="col-md-1" style="width:90px">${getAllJourneysBySetOutDesc.themeProducts.productId}</div>
+  <div class="col-md-1" style="width:150px"><fmt:formatDate value="${getAllJourneysBySetOutDesc.setOut}" pattern="yyyy/MM/dd"/></div>
+  <div class="col-md-1" style="width:130px">${getAllJourneysBySetOutDesc.companyName}</div>
+  <div class="col-md-1">${getAllJourneysBySetOutDesc.price}</div>
+  <div class="col-md-1" style="width:140px"><fmt:formatDate value="${getAllJourneysBySetOutDesc.deadline}" pattern="yyyy/MM/dd"/></div>
+  <div class="col-md-1"><fmt:formatDate value="${getAllJourneysBySetOutDesc.createDate}" pattern="yyyy/MM/dd"/></div>
   <div class="col-md-5" style="width:450px;margin-bottom:10px">
    <a href=''>&nbsp;&nbsp;&nbsp;詳細時間<img src="/Traveler/images/向左橘.png" width="50" height="40"></a>
    <a href=''>報名人數<img src="/Traveler/images/向左箭頭.png" width="50" height="40"></a>
