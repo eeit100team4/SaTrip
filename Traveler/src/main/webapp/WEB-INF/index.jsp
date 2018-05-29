@@ -45,7 +45,7 @@
 <meta name="twitter:card" content="" />
 
 <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-<link rel="shortcut icon" href="images/favicon.ico">
+<link rel="shortcut icon" href="/Traveler/images/LeftTopCorner.ico">
 
 <!--<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>-->
 
@@ -347,7 +347,7 @@ color:orange;
 								<h3>京都</h3>
 								<span>3 nights</span>
 								<span class="price">$4,500</span>
-								<a class="btn btn-primary btn-outline" href="DisplayRoom">立即定位<i class="icon-arrow-right22"></i></a>
+								<a class="btn btn-primary btn-outline" href="_Hotel/DisplayRoom">立即定位<i class="icon-arrow-right22"></i></a>
 							</div>
 						</div>
 					</div>
@@ -358,7 +358,7 @@ color:orange;
 								<h3>福岡</h3>
 								<span>4 nights</span>
 								<span class="price">$6,800</span>
-								<a class="btn btn-primary btn-outline" href="DisplayRoom1">立即定位<i class="icon-arrow-right22"></i></a>
+								<a class="btn btn-primary btn-outline" href="_Hotel/DisplayRoom1">立即定位<i class="icon-arrow-right22"></i></a>
 							</div>
 						</div>
 					</div>
@@ -369,7 +369,7 @@ color:orange;
 								<h3>北海道</h3>
 								<span>2 nights</span>
 								<span class="price">$6,500</span>
-								<a class="btn btn-primary btn-outline" href="DisplayRoom2">立即定位<i class="icon-arrow-right22"></i></a>
+								<a class="btn btn-primary btn-outline" href="_Hotel/DisplayRoom2">立即定位<i class="icon-arrow-right22"></i></a>
 							</div>
 						</div>
 					</div>
@@ -380,7 +380,7 @@ color:orange;
 								<h3>黑部立山</h3>
 								<span>3 nights</span>
 								<span class="price">$9,500</span>
-								<a class="btn btn-primary btn-outline" href="DisplayRoom3">立即定位<i class="icon-arrow-right22"></i></a>
+								<a class="btn btn-primary btn-outline" href="_Hotel/DisplayRoom3">立即定位<i class="icon-arrow-right22"></i></a>
 							</div>
 						</div>
 					</div>
@@ -391,7 +391,7 @@ color:orange;
 								<h3>北海道</h3>
 								<span>4 nights</span>
 								<span class="price">$8,500</span>
-								<a class="btn btn-primary btn-outline" href="DisplayRoom4">立即定位<i class="icon-arrow-right22"></i></a>
+								<a class="btn btn-primary btn-outline" href="_Hotel/DisplayRoom4">立即定位<i class="icon-arrow-right22"></i></a>
 							</div>
 						</div>
 					</div>
@@ -402,7 +402,7 @@ color:orange;
 								<h3>鹿兒島</h3>
 								<span>2 nights</span>
 								<span class="price">$7,500</span>
-								<a class="btn btn-primary btn-outline" href="DisplayRoom5">立即定位<i class="icon-arrow-right22"></i></a>
+								<a class="btn btn-primary btn-outline" href="_Hotel/DisplayRoom5">立即定位<i class="icon-arrow-right22"></i></a>
 							</div>
 						</div>
 					</div>
