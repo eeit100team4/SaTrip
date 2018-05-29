@@ -216,7 +216,7 @@ Highcharts.chart('container', {
         type: 'pie'
     },
     title: {
-          text: '1~3月份意見反應統計' 
+          text: '5月份意見反應統計' 
     },
     tooltip: {
         pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
