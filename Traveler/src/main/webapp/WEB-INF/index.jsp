@@ -335,7 +335,7 @@ color:orange;
 			<div class="container">
 				<div class="row">
 					<div class="col-md-8 col-md-offset-2 text-center heading-section animate-box">
-						<h3>最後歡迎的飯店 &amp; 飯店預定</h3>
+						<h3>最受歡迎的飯店 &amp; 飯店預定</h3>
 						<p>每間現代化的寬敞客房均擁有極簡風格設計，每間客房都有免費WIFI</p>
 					</div>
 				</div>
@@ -344,9 +344,9 @@ color:orange;
 						<div href="#"><img src="/Traveler/images/hotelPic/Korea/Seoul/korSRA/Double/korSRA1.jpeg" alt="Free HTML5 Website Template by FreeHTML5.co" class="img-responsive">
 							<div class="desc">
 								<span></span>
-								<h3>東京</h3>
+								<h3>京都</h3>
 								<span>3 nights</span>
-								<span class="price">$4,550</span>
+								<span class="price">$4,500</span>
 								<a class="btn btn-primary btn-outline" href="DisplayRoom">立即定位<i class="icon-arrow-right22"></i></a>
 							</div>
 						</div>
@@ -355,10 +355,10 @@ color:orange;
 						<div href="#"><img src="/Traveler/images/hotelPic/Korea/JejuIsland/korCRB/Double/korCRB2.jpeg" alt="Free HTML5 Website Template by FreeHTML5.co" class="img-responsive">
 							<div class="desc">
 								<span></span>
-								<h3>大阪</h3>
+								<h3>福岡</h3>
 								<span>4 nights</span>
-								<span class="price">$4,550</span>
-								<a class="btn btn-primary btn-outline" href="DisplayRoom">立即定位<i class="icon-arrow-right22"></i></a>
+								<span class="price">$6,800</span>
+								<a class="btn btn-primary btn-outline" href="DisplayRoom1">立即定位<i class="icon-arrow-right22"></i></a>
 							</div>
 						</div>
 					</div>
@@ -368,8 +368,8 @@ color:orange;
 								<span></span>
 								<h3>北海道</h3>
 								<span>2 nights</span>
-								<span class="price">$4,550</span>
-								<a class="btn btn-primary btn-outline" href="DisplayRoom">立即定位<i class="icon-arrow-right22"></i></a>
+								<span class="price">$6,500</span>
+								<a class="btn btn-primary btn-outline" href="DisplayRoom2">立即定位<i class="icon-arrow-right22"></i></a>
 							</div>
 						</div>
 					</div>
@@ -377,10 +377,10 @@ color:orange;
 						<div href="#"><img src="/Traveler/images/hotelPic/Thailand/Pattaya/taiBRB/Double/taiBRB1.jpeg" alt="Free HTML5 Website Template by FreeHTML5.co" class="img-responsive">
 							<div class="desc">
 								<span></span>
-								<h3>京都</h3>
+								<h3>黑部立山</h3>
 								<span>3 nights</span>
-								<span class="price">$4,550</span>
-								<a class="btn btn-primary btn-outline" href="DisplayRoom">立即定位<i class="icon-arrow-right22"></i></a>
+								<span class="price">$9,500</span>
+								<a class="btn btn-primary btn-outline" href="DisplayRoom3">立即定位<i class="icon-arrow-right22"></i></a>
 							</div>
 						</div>
 					</div>
@@ -390,8 +390,8 @@ color:orange;
 								<span></span>
 								<h3>北海道</h3>
 								<span>4 nights</span>
-								<span class="price">$4,550</span>
-								<a class="btn btn-primary btn-outline" href="DisplayRoom">立即定位<i class="icon-arrow-right22"></i></a>
+								<span class="price">$8,500</span>
+								<a class="btn btn-primary btn-outline" href="DisplayRoom4">立即定位<i class="icon-arrow-right22"></i></a>
 							</div>
 						</div>
 					</div>
@@ -401,8 +401,8 @@ color:orange;
 								<span></span>
 								<h3>鹿兒島</h3>
 								<span>2 nights</span>
-								<span class="price">$4,550</span>
-								<a class="btn btn-primary btn-outline" href="DisplayRoom">立即定位<i class="icon-arrow-right22"></i></a>
+								<span class="price">$7,500</span>
+								<a class="btn btn-primary btn-outline" href="DisplayRoom5">立即定位<i class="icon-arrow-right22"></i></a>
 							</div>
 						</div>
 					</div>
@@ -430,7 +430,7 @@ color:orange;
 		<div class="container">
 			<div class="row animate-box">
 				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-					<h2>Happy Clients</h2>
+					<h2>顧客留言板</h2>
 				</div>
 			</div>
 			<div class="row">
@@ -438,9 +438,9 @@ color:orange;
 					<div class="box-testimony animate-box">
 						<blockquote>
 							<span class="quote"><span><i class="icon-quotes-right"></i></span></span>
-							<p>&ldquo;Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.&rdquo;</p>
+							<p>&ldquo;我一向不喜歡住陳舊的飯店，這一家確實有點陳舊。我此行兩次入住，第二次的房間更好一點。毛巾也是舊舊的。早飯也沒啥可吃的。優點：第一是服務態度優秀；第二是地段優異，幾乎是新北的最佳位置；第三是價格便宜；第四是冰箱里有免費的飲料。&rdquo;</p>
 						</blockquote>
-						<p class="author">John Doe, CEO <a href="http://freehtml5.co/" target="_blank">FREEHTML5.co</a> <span class="subtext">Creative Director</span></p>
+						<p class="author">黃光賢 <a href="http://freehtml5.co/" target="_blank">EEIT100</a> <span class="subtext">資策會數位研究所</span></p>
 					</div>
 					
 				</div>
@@ -448,9 +448,9 @@ color:orange;
 					<div class="box-testimony animate-box">
 						<blockquote>
 							<span class="quote"><span><i class="icon-quotes-right"></i></span></span>
-							<p>&ldquo;Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.&rdquo;</p>
+							<p>&ldquo;說實話，房間不大，房間景觀很開揚，衛浴分離，但酒店設備很棒，泳池很乾淨～ 酒店附近晚上有點安靜，但離龍山寺站只有5分鐘距離，很推薦給大家。&rdquo;</p>
 						</blockquote>
-						<p class="author">John Doe, CEO <a href="http://freehtml5.co/" target="_blank">FREEHTML5.co</a> <span class="subtext">Creative Director</span></p>
+						<p class="author">林子祺<a href="http://freehtml5.co/" target="_blank">EEIT100</a> <span class="subtext">資策會數位研究所</span></p>
 					</div>
 					
 					
@@ -459,9 +459,9 @@ color:orange;
 					<div class="box-testimony animate-box">
 						<blockquote>
 							<span class="quote"><span><i class="icon-quotes-right"></i></span></span>
-							<p>&ldquo;Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.&rdquo;</p>
+							<p>&ldquo;作為一群朋友，我們在2018年5月住在這家酒店。 酒店是一家新建的酒店，位置偏離市中心，步行5分鐘即可到達地鐵站。 酒店房間很小，床也很小。這使得這家酒店不太好。 酒店的早餐非常好，食物很新鮮，熱和美味。&rdquo;</p>
 						</blockquote>
-						<p class="author">John Doe, Founder <a href="#">FREEHTML5.co</a> <span class="subtext">Creative Director</span></p>
+						<p class="author">江姿瑩<a href="#">EEIT100</a> <span class="subtext">資策會數位研究所</span></p>
 					</div>
 					
 				</div>
@@ -469,13 +469,5 @@ color:orange;
 		</div>
 	</div>
 	<%@ include file="/WEB-INF/frontStageFooter.jsp"%>
-	
-	
-		<div id="img1" style="display: none">
-		<h1>
-			<strong>搜尋中......</strang>
-		</h1>
-		<img alt="" src="images/airplain.gif" widtg=200px height=150px />
-	</div>
 </body>
 </html>

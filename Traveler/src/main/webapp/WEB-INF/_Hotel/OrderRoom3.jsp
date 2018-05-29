@@ -243,7 +243,7 @@ $("#phone").val("0912345678");
 			              <i class="fab fa-cc-mastercard" style="color:red;"></i>
 			              <i class="fab fa-cc-discover" style="color:orange;"></i>
 			            </div>
-		                <a href="roomCheckOut4" class="btn">確認送出</a>
+		                <a href="roomCheckOut3" class="btn">確認送出</a>
 		   </div>
 		   <div class="col-sm-6">
 		   
