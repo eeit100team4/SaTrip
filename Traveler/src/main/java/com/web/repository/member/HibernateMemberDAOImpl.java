@@ -21,10 +21,6 @@ import org.springframework.transaction.annotation.Transactional;
 import com.web.model.member.MemberBean;
 import com.web.service.member.GlobalService;
 
-
-
-
-
 @Repository
 @Transactional
 @SuppressWarnings("unchecked")

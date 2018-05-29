@@ -480,11 +480,11 @@
 
 						<div class="carousel-item active">
 							<img class="d-block w-60"
-								src="/Traveler/images/hotelPic/korFRA1.jpg" alt="First slide">
+								src="/Traveler/images/hotelPic/korFRA4.jpg" alt="First slide">
 						</div>
 						<div class="carousel-item">
 							<img class="d-block w-60"
-								src="/Traveler/images/hotelPic/korFRA2.jpg" alt="First slide">
+								src="/Traveler/images/hotelPic/korFRA8.jpg" alt="First slide">
 						</div>
 
 						<div class="carousel-item">
@@ -493,7 +493,7 @@
 						</div>
 						<div class="carousel-item">
 							<img class="d-block w-100"
-								src="/Traveler/images/hotelPic/korFRA4.jpg" alt="Third slide">
+								src="/Traveler/images/hotelPic/korFRA1.jpg" alt="Third slide">
 						</div>
 						<div class="carousel-item">
 							<img class="d-block w-100"
@@ -509,7 +509,7 @@
 						</div>
 						<div class="carousel-item">
 							<img class="d-block w-100"
-								src="/Traveler/images/hotelPic/korFRA8.jpg" alt="seventh slide">
+								src="/Traveler/images/hotelPic/korFRA2.jpg" alt="seventh slide">
 						</div>
 
 					</div>
@@ -536,16 +536,6 @@
 					</thead>
 					<tbody>						
 						<tr style="width: 180px">
-							<th scope="row"><img src="../images/hotelPic/korFRA1.jpg"
-								width="250" hight="180" title="雙人房" alt="雙人房"></th>
-							<td><h4>不可退費 </h4><br><h4>免費無線上網</h4><br><h4>附早餐</h4>
-							</td>
-							<td><h4>累積 </h4><br><h4>兌換</h4>
-							</td>
-							<td><h4 style="color:red">NT:6,800</h4></td>
-							<td><a href="OrderRoom1" class="btn btn-primary" name="">訂房</a></td>
-						</tr>
-						<tr style="width: 180px">
 							<th scope="row"><img src="../images/hotelPic/korFRA3.jpg"
 								width="250" hight="180" title="雙人房" alt="雙人房"></th>
 							<td><h4>不可退費 </h4><br><h4>免費無線上網</h4><br><h4>附早餐</h4>
@@ -565,6 +555,9 @@
 							<td><h4 style="color:red">NT:9,500</h4></td>
 							<td><a href="OrderRoom3" class="btn btn-primary" name="">訂房</a></td>
 						</tr>
+						
+						
+						
 						<tr style="width: 180px">
 							<th scope="row"><img src="../images/hotelPic/korFRA5.jpg"
 								width="250" hight="180" title="雙人房" alt="雙人房"></th>

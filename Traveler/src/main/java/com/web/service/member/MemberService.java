@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 import com.web.model.member.MemberBean;
+import com.web.model.member.ThirdPartyMemberBean;
 
 
 
@@ -30,5 +31,12 @@ public interface MemberService {
 		public void addMember(MemberBean member) throws SQLException;
 		public MemberBean checkIdPwd(String memberId, String password) throws IOException;
 
-		public MemberBean queryPwd(String memberId, Date bdate)throws IOException;;
+		public MemberBean queryPwd(String memberId, Date bdate)throws IOException;
+		
+		//新增、修改第三方登入會員
+		public int saveThirdPartyMember(ThirdPartyMemberBean thirdPartyMember) throws SQLException;
+		
+		//查詢第三方登入會員
+		public String queryMemberId(String thirdPartyType,String thirdPartyId) throws IOException;
+		
 	}

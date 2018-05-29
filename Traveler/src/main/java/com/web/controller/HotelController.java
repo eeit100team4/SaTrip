@@ -136,6 +136,31 @@ public class HotelController {
 	public String showOrderFinish(Model model) {
 		return "_Hotel/OrderFinish";
 	}
+	// 顯示OrderFinish1
+	@RequestMapping("/_Hotel/OrderFinish1")
+	public String showOrderFinish1(Model model) {
+		return "_Hotel/OrderFinish1";
+	}
+	// 顯示OrderFinish2
+	@RequestMapping("/_Hotel/OrderFinish2")
+	public String showOrderFinish2(Model model) {
+		return "_Hotel/OrderFinish2";
+	}
+	// 顯示OrderFinish3
+	@RequestMapping("/_Hotel/OrderFinish3")
+	public String showOrderFinish3(Model model) {
+		return "_Hotel/OrderFinish3";
+	}
+	// 顯示OrderFinish4
+	@RequestMapping("/_Hotel/OrderFinish4")
+	public String showOrderFinish4(Model model) {
+		return "_Hotel/OrderFinish4";
+	}
+	// 顯示OrderFinish5
+	@RequestMapping("/_Hotel/OrderFinish5")
+	public String showOrderFinish5(Model model) {
+		return "_Hotel/OrderFinish5";
+	}
 		
 	// 顯示roomCheckOut
 	@RequestMapping("/_Hotel/roomCheckOut")

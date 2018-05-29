@@ -25,6 +25,6 @@ public interface MemberDAO {
 //	public void addMember(MemberBean member);
 	public MemberBean checkIdPwd(String memberId, String password) throws IOException;
 
-	public MemberBean queryPwd(String memberId, Date bdate)throws IOException;;
+	public MemberBean queryPwd(String memberId, Date bdate)throws IOException;
 	
 }

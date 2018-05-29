@@ -255,7 +255,7 @@ $("#phone").val("0912345678");
 <!-- 		            <div class="col-md-4 col-sm-6 fh5co-tours animate-box" data-animate-effect="fadeIn"> -->
 						
 <!-- 					</div> -->
-		            <div><img src="/Traveler/images/hotelPic/korFRA2.jpg" height="250" width="550" >
+		            <div><img src="/Traveler/images/hotelPic/korFRA3.jpg" height="250" width="550" >
 						</div>
 		            
 		         

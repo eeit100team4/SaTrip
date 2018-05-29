@@ -42,6 +42,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.web.Utils.DateUtils;
 import com.web.model.member.MemberBean;
 import com.web.model.member.MemberFormBean;
+import com.web.model.member.ThirdPartyMemberBean;
 import com.web.service.member.GlobalService;
 import com.web.service.member.MemberService;
 
@@ -287,6 +288,15 @@ public class MemberController {
 							mb.getChineseFirstName(), mb.getEnglishLastName(), mb.getEnglishFirstName(), bdate, mb.getEmail(), mb.getMobile(), mb.getPhoneNumber(),
 							mb.getAddress(), mb.getPassportNumber(), mb.getMemberImage());
 					memberService.addMember(member);
+					//TODO
+					if (StringUtils.isNotBlank(mb.getThirdPartyId())) {
+						ThirdPartyMemberBean tpmb=
+								new ThirdPartyMemberBean(mb.getThirdPartyId(), 
+								mb.getThirdPartyType(), 
+								mb.getMemberId());
+						memberService.saveThirdPartyMember(tpmb);
+					}
+
 				} catch (Exception e) {
 					errorMsg.put("memberId", "儲存資料時發生錯誤，請檢查，例外=" + e.getMessage());
 					e.printStackTrace();

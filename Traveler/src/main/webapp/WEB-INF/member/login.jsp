@@ -212,15 +212,14 @@ input[type=submit]:hover {
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me', function(response) {
       //alert('Thanks for logging in, ' + response.name + '!' + response.id);
-      var fbId = document.getElementById("fbId").value;
+      var thirdPartyId = document.getElementById("thirdPartyId").value;
       //if(response.id=='1672836152800044') {
-      if (fbId=='') {
-    	  document.getElementById("fbId").value=response.id;
+      if (thirdPartyId=='') {
+    	  document.getElementById("thirdPartyId").value=response.id;
     	  //document.getElementById("loginFormAuto").submit();
       } else {
-    	  document.getElementById("memberId").value='A123456789';
-    	  document.getElementById("password").value='A123456789';
-    	  document.getElementById("fbId").value=response.id;
+    	  document.getElementById("thirdPartyId").value=response.id;
+    	  document.getElementById("thirdPartyType").value='01';
     	  document.getElementById("loginFormAuto").submit();
       }
       //console.log('Successful login for: ' + response.name);
@@ -261,8 +260,9 @@ input[type=submit]:hover {
 <!--   onlogin="checkLoginState();"></i> Login with Facebook -->
 
         <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" 
-        data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false" onlogin="checkLoginState();" style="width:304px" ></div>
- 			</div>       
+        data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false" onlogin="checkLoginState();" style="width:304px" >
+        </div>
+ 	</div>       
 <!--       <fb:login-button scope="public_profile,email" onlogin="checkLoginState();"> -->
 <!-- 	  </fb:login-button> -->
         <a href="#" class="google btn" >
@@ -272,9 +272,8 @@ input[type=submit]:hover {
     </div>    
   </form>
   <form id="loginFormAuto" name="loginFormAuto" action="<c:url value='/member/login.do'/>" method="POST" align="center">
-        <input type="hidden" id="memberId" name="memberId" value="H222977822">
-        <input type="hidden" id="password" name="password" value="a123456">
-        <input type="hidden" id="fbId" name="fbId" value="">
+        <input type="hidden" id="thirdPartyType" name="thirdPartyType" value="">
+        <input type="hidden" id="thirdPartyId" name="thirdPartyId" value="">
   </form>
   </div>
 <div class="bottom-container" style="margin-top:-15px">
