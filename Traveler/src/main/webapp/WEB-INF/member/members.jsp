@@ -17,7 +17,7 @@
 <meta name="author" content="FREEHTML5.CO" />
 
 <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-<link rel="shortcut icon" href="/Traveler/images/favicon.ico">
+<link rel="shortcut icon" href="/Traveler/images/LeftTopCorner.ico">
 
 <!--<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>-->
 
@@ -164,9 +164,9 @@ margin-bottom:0px;
 }
 </style>
 
-<title>Insert title here</title>
+<title>TravelerManager</title>
 </head>
-<body >
+<body>
 
 	<%@ include file="/WEB-INF/backStageHeader.jsp" %>
 
