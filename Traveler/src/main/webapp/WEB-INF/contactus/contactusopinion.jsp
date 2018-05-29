@@ -122,14 +122,7 @@ border:1px solid black;
 function disp_confirm()
   {
   var r=confirm("確認送出嗎?")
-  if (r==true)
-    {
-    alert("你按下確定!")
-    }
-  else
-    {
-    alert("你取消了唷")
-    }
+ 
   }
 </script>
 </head>
