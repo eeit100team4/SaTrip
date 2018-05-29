@@ -65,7 +65,7 @@ public class ThemeRepositoryImpl implements ThemeRepository {
 	@Override
 	@SuppressWarnings("unchecked")
 	public List<ThemeApplications> getAllApplications(){
-		String hql = "FROM ThemeApplications order by journeyId";
+		String hql = "FROM ThemeApplications order by applicationId DESC";
 		Session session = null;
 		List<ThemeApplications> list = new ArrayList<>();
 		session = factory.getCurrentSession();
