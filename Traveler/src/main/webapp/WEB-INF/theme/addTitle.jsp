@@ -181,7 +181,11 @@ function test()
 {alert("已新增成功~~將回到旅遊管理首頁");
 	}
 </script>
-
+<script>
+ function  keyin(){ 
+		$("#xadd").val("鐵道");		
+ }
+ </script>
 <title>Insert title here</title>
 </head>
 <body>
@@ -211,7 +215,7 @@ function test()
 	<form:form method="POST" modelAttribute="themeBean" enctype="multipart/form-data" >
 	 <fieldset>
 	  <label style="margin-right: 150px;">新增主題類別</label><br>
-	   <form:input  path="titleName" type="text"/>								
+	   <form:input id="xadd" path="titleName" type="text"/>								
 		<br>
 		<br>
 		<label style="margin-right: 150px;">新增主題圖片</label>
@@ -219,7 +223,8 @@ function test()
 		<br>
 		<br>															
 		<div>					
-		<input type="submit" value="確認送出" onclick="test()" />
+		<input type="submit" value="確認送出" onclick="test()"/>
+		<input type="button" value="一鍵帶入" onclick="keyin()"/>
 		</div>
 	  </fieldset>
 	</form:form>		
