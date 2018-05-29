@@ -128,14 +128,22 @@ public class ThemeRepositoryImpl implements ThemeRepository {
 	Session session = factory.getCurrentSession();
 	System.out.println(application);
 	session.saveOrUpdate(application);
-		}	
+	}	
 	
 	//依報名表編號抓出一筆備註extra
 	public ThemeApplications getExtraByApplicationId(Integer applicationId) {
-			String hql = "FROM ThemeApplications where applicationId = :applicationId";
-			Session session = factory.getCurrentSession();
-			ThemeApplications themeApplications = (ThemeApplications) session.createQuery(hql).setParameter("applicationId",applicationId).uniqueResult();
-			return themeApplications;
-		}
+	String hql = "FROM ThemeApplications where applicationId = :applicationId";
+	Session session = factory.getCurrentSession();
+	ThemeApplications themeApplications = (ThemeApplications) session.createQuery(hql).setParameter("applicationId",applicationId).uniqueResult();
+	return themeApplications;
+	}
+	
+	 //依商品編號抓特定單筆商品資料
+	public ThemeProducts getProductByproductId(Integer productId) {
+		String hql = "FROM ThemeProducts where productId = :productId";
+		Session session = factory.getCurrentSession();
+		ThemeProducts themeProducts = (ThemeProducts) session.createQuery(hql).setParameter("productId",productId).uniqueResult();
+		return themeProducts;		
+	}
 	
 }

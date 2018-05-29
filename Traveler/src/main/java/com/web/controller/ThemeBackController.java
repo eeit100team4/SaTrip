@@ -133,11 +133,19 @@ public class ThemeBackController {
 	return "theme/applicationExtra";
 	}
 	
+	//假後台首頁
 	@RequestMapping("theme/reback")
 	public String reback(){
 		return "theme/reback";
 	}
 	
+	//依商品編號抓特定單筆商品資料
+	@RequestMapping("theme/allProducts/{productId}")
+	public String getProductByproductId(@PathVariable("productId") Integer productId, Model model) {
+		ThemeProducts list = themeService.getProductByproductId(productId);
+		model.addAttribute("productExtra", list);
+		session.setAttribute("test", list);
+		return "theme/productExtra";
+	}
 	
-
 }

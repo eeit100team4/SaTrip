@@ -302,62 +302,86 @@ float:right;
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <link rel="stylesheet" href="css/jumbotron.css">
 <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
-
-
+<!-- 提示框 -->
+<script>
+function test()
+{alert("已成功簽收~~將回到旅遊管理首頁");
+	}
+</script> 
 <title>Insert title here</title>
 </head>
 <body>
 
 <%@ include file="/WEB-INF/backStageHeader.jsp" %>
+
 <!--=========================要放的東西  =====================-->
 <!-- 左邊的bar會歪 -->
 <div style="color:black;margin-left:230px;font-size:24px">
-<!-- 大標題  + 新增主題連結區-->
-<br>
+<!-- 大標:商品編號跟名稱 -->
+<br>   
 <div class="container-fluid">
  <div class="row">
-  <div class="col-md-12">
-   <div class="header">全旅遊商品&nbsp;&nbsp;&nbsp;&nbsp;
-    <a onmouseover="this.style.color='orange'" onmouseout="this.style.color='#4F4FFF'" style="font-size:24px;color:#4F4FFF"href=''>新增旅遊商品<img src="/Traveler/images/向左黑.jpg" width="60" height="60"></a>
-    <a onmouseover="this.style.color='orange'" onmouseout="this.style.color='#4F4FFF'" style="font-size:24px;color:#4F4FFF"href=''>依分類排序<img src="/Traveler/images/排序.png" width="40" height="40"></a>
-    <a onmouseover="this.style.color='orange'" onmouseout="this.style.color='#4F4FFF'" style="font-size:24px;color:#4F4FFF"href=''>依國家排序<img src="/Traveler/images/排序.png" width="40" height="40"></a>
-    </div>
+  <div class="col-sm-12">
+   <div class="well" style="text-align:left;font-weight:bold">
+   <img src="/Traveler/images/勳章.png" width="40" height="40">商品編號:${productExtra.productId}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${productExtra.productName}
+    <a href='../reback' style="margin-left:20px;color:blue"onmouseover="this.style.color='orange'" onmouseout="this.style.color='blue'">展示圖片設定<img src="/Traveler/images/向左箭頭.png" width="50" height="50"></a></div>   
   </div>
  </div>
 </div>
-<hr>
-<!-- 表格 title -->
+<!-- 類型 國家 住宿 -->
 <div class="container-fluid">
  <div class="row">
-  <div class="col-md-1">編號</div>
-  <div class="col-md-1">分類</div>
-  <div class="col-md-3">商品名稱</div>
-  <div class="col-md-1">國家</div>
-  <div class="col-md-2">住宿飯店</div>
-  <div class="col-md-2"></div>
- </div>
+  <div class="col-sm-4">
+   <div class="well" style="text-align:left;font-weight:bold">類型</div>
+    <div class="panel-body">${productExtra.themeTitles.titleName}</div>  
+  </div>
+  <div class="col-sm-4">
+   <div class="well" style="text-align:left;font-weight:bold">國家</div> 
+    <div class="panel-body">${productExtra.country}</div> 
+  </div>
+  <div class="col-sm-4">
+   <div class="well" style="text-align:left;font-weight:bold">住宿</div>
+    <div class="panel-body">${productExtra.hotelName}</div>  
+  </div>
 </div>
-<hr>
-<!-- 表格 內容 -->
-<c:forEach var='products' items='${products}'>
+<!--三天的內容 -->
 <div class="container-fluid">
  <div class="row">
-  <div class="col-md-1">${products.productId}</div>
-  <div class="col-md-1">${products.themeTitles.titleName}</div>
-  <div class="col-md-3">${products.productName}</div>
-  <div class="col-md-1">${products.country}</div>
-  <div class="col-md-2">${products.hotelName}</div>
-  <div class="col-md-2" style="width:330px;margine-buttom:10px">
-   <a href='../theme/allProducts/${products.productId}'>商品細節<img src="/Traveler/images/向左橘.png" width="50" height="40"></a>
-   <a href=''>下架商品<img src="/Traveler/images/向左箭頭.png" width="50" height="40"></a>
-  </div> 
+  <div class="col-sm-4">
+   <div class="well"style="text-align:left;font-weight:bold">第一天</div>
+    <div class="panel-body" style="font-size:10px">標題:<br>${productExtra.title1}</div>    
+    <div class="panel-body" style="font-size:10px">內文:<br>${productExtra.description1}</div>
+    <div class="panel-body" style="font-size:10px">早餐:<br>${productExtra.breakfast1}</div>
+    <div class="panel-body" style="font-size:10px">中餐:<br>${productExtra.lunch1}</div>  
+    <div class="panel-body" style="font-size:10px">晚餐:<br>${productExtra.dinner1}</div>    
+</div>
+
+ <div class="col-sm-4">
+   <div class="well"style="text-align:left;font-weight:bold">第二天</div>
+    <div class="panel-body" style="font-size:10px">標題:<br>${productExtra.title2}</div>
+    <div class="panel-body" style="font-size:10px">內文:<br>${productExtra.description2}</div>
+    <div class="panel-body" style="font-size:10px">早餐:<br>${productExtra.breakfast2}</div>
+    <div class="panel-body" style="font-size:10px">中餐:<br>${productExtra.lunch2}</div>  
+    <div class="panel-body" style="font-size:10px">晚餐:<br>${productExtra.dinner2}</div>      
+ </div>
+ 
+ <div class="col-sm-4">
+   <div class="well"style="text-align:left;font-weight:bold">第三天</div>
+    <div class="panel-body" style="font-size:10px">標題:<br>${productExtra.title3}</div>
+    <div class="panel-body" style="font-size:10px">內文:<br>${productExtra.description3}</div>
+    <div class="panel-body" style="font-size:10px">早餐:<br>${productExtra.breakfast3}</div>
+    <div class="panel-body" style="font-size:10px">中餐:<br>${productExtra.lunch3}</div>  
+    <div class="panel-body" style="font-size:10px">晚餐:<br>${productExtra.dinner3}</div>      
+   </div>
+  </div>
+  
  </div>
 </div>
-</c:forEach>
-</div>
+
 <!-- =========側邊欄位開始============ -->	
 <%@ include file="/WEB-INF/theme/backLeftSide.jsp" %>
 <!-- =========側邊欄位結束============ -->
+</div>
 <script type="text/javascript">
 $(function() {
     /* 按下GoTop按鈕時的事件 */
@@ -374,18 +398,13 @@ $(function() {
             $('#gotop').fadeOut();
         }
     });
-});
+});				
 /*返回上方的按鈕*/
 </script>   
 <!-- 記得要把按鈕放到網頁上, 否則它不會出現 -->
 <img src=/Traveler/images/向上箭頭.png id="gotop" style="">
    <i class="fa fa-angle-up"></i>
-<br><br><br><br><br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br><br><br><br><br><br>
-<!--  ========================================================== -->
-<%@ include file="/WEB-INF/backStageFooter.jsp" %>
+	<!--  ========================================================== -->
 
 </body>
 </html>

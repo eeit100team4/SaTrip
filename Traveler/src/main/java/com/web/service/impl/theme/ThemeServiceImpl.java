@@ -99,5 +99,10 @@ public class ThemeServiceImpl implements ThemeService {
 		return themeRepository.getExtraByApplicationId(applicationId);
 	}
 	
-	
+	//依商品編號抓特定單筆商品資料
+	@Transactional
+	@Override
+	public ThemeProducts getProductByproductId(Integer productId){
+		return themeRepository.getProductByproductId(productId);
+	}
 }
