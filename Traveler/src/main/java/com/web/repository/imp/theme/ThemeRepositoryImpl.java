@@ -114,7 +114,7 @@ public class ThemeRepositoryImpl implements ThemeRepository {
 		return list;	
 	}
 	
-	//依行程編號抓出單筆資料detail
+	//依行程編號抓出單筆行程資料detail
 	public ThemeJourneys getDetailsByJourneyId(Integer journeyId){
 		String hql = "FROM ThemeJourneys where journeyId = :journeyId";
 		Session session = factory.getCurrentSession();
@@ -167,5 +167,19 @@ public class ThemeRepositoryImpl implements ThemeRepository {
 		list = session.createQuery(hql).getResultList();
 		return list;
 	}
+	@Override
+	@SuppressWarnings("unchecked")
+	//顯示所有行程內容(依出發時間排序)
+	public List<ThemeJourneys> getAllJourneysBySetOutDesc(){
+	String hql = "FROM ThemeJourneys order by setOut DESC";
+	Session session = null;
+	List<ThemeJourneys> list = new ArrayList<>();
+	session = factory.getCurrentSession();
+	list = session.createQuery(hql).getResultList();
+	return list;
+	}
+	
+	
+	
 
 }

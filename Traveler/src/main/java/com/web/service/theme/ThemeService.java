@@ -51,4 +51,9 @@ public interface ThemeService {
 	
 	//顯示所有行程內容(依截止時間排序)
 	List<ThemeJourneys> getAllJourneysByDeadline();
+	
+	//顯示所有行程內容(依出發時間排序DESC)
+	List<ThemeJourneys> getAllJourneysBySetOutDesc();
+	
+
 }

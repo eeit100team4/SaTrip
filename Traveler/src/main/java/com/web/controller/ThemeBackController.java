@@ -72,7 +72,7 @@ public class ThemeBackController {
 			e.printStackTrace();
 			throw new RuntimeException("檔案上傳發生異常: " + e.getMessage());
 		}
-		return "redirect:allTitles";
+		return "redirect:reback";
 	}
 	//後台頁面  連結到主題管理頁
 	@RequestMapping("theme/back")
@@ -147,19 +147,32 @@ public class ThemeBackController {
 		session.setAttribute("test", list);
 		return "theme/productExtra";
 	}
-	//顯示全部行程內容(依出發日))
+	//顯示全部行程內容(依出發日)
 	@RequestMapping("theme/allJourneysBySetOut")
 	public String journeysBySetOut(Model model) {
 		List<ThemeJourneys> list = themeService.getAllJourneysBySetOut();
 		model.addAttribute("getAllJourneysBySetOut", list);
 		return "theme/allJourneysBySetOut";	
 	}
-	//顯示全部行程內容(依截止日))
+	//顯示全部行程內容(依截止日)
 	@RequestMapping("theme/allJourneysByDeadline")
 	public String journeysByDeadline(Model model) {
 		List<ThemeJourneys> list = themeService.getAllJourneysByDeadline();
 		model.addAttribute("getAllJourneysByDeadline", list);
 		return "theme/allJourneysByDeadline";	
 	}
+	//顯示全部行程內容(依出發日DESC)
+	@RequestMapping("theme/allJourneysBySetOutDesc")
+	public String journeysBySetOutDesc(Model model) {
+		List<ThemeJourneys> list = themeService.getAllJourneysBySetOutDesc();
+		model.addAttribute("getAllJourneysBySetOutDesc", list);
+		return "theme/allJourneysBySetOutDesc";	
+	}
 	
+	//假後台首頁
+	@RequestMapping("theme/leback")
+	public String leback(){
+	return "theme/leback";
+	}
+
 }
