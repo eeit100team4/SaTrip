@@ -354,7 +354,7 @@ float:right;
   <div class="col-md-1" style="width:140px"><fmt:formatDate value="${journeys.deadline}" pattern="yyyy/MM/dd"/></div>
   <div class="col-md-1"><fmt:formatDate value="${journeys.createDate}" pattern="yyyy/MM/dd"/></div>
   <div class="col-md-5" style="width:450px;margin-bottom:10px">
-   <a href=''>&nbsp;&nbsp;&nbsp;詳細時間<img src="/Traveler/images/向左橘.png" width="50" height="40"></a>
+   <a href='../theme/allJourneys/${journeys.journeyId}'>&nbsp;&nbsp;&nbsp;詳細時間<img src="/Traveler/images/向左橘.png" width="50" height="40"></a>
    <a href=''>報名人數<img src="/Traveler/images/向左箭頭.png" width="50" height="40"></a>
   </div> 
  </div>

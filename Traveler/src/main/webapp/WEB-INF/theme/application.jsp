@@ -156,8 +156,21 @@
 function test()
 {alert("申請成功~~報名表已幫您寄出!!\n專屬服務人員將在三天內跟您聯絡~~\n接下來將轉回首頁~~");
 	}
-</script> 
-
+</script>
+<!-- 一鍵帶入 --> 
+<script>
+ function  keyin(){ 
+		$("#xname").val("林子祺");
+		$("#xcellPhone").val("0937095094");
+		$("#xgender").val("先生");
+		$("#xpeople").val("2");
+		$("#xcallTime").val("晚上");
+		$("#xlocation").val("台北");
+		$("#xextra").val("另一支手機號碼:0938044028。請盡快跟我聯絡，謝謝您!");
+		
+ }
+ 
+</script>
 </head>
 <body>
 	<%@ include file="/WEB-INF/frontStageHeader.jsp"%>
@@ -165,7 +178,7 @@ function test()
 <div class="container-fluid">
  <div class="row">
   <div class="col-md-12" style="font-weight:bold">
-   <div class="well" style="background-color:black;color:white;font-size:30px;text-align:center">主題旅遊報名申請</div>
+   <div class="well" style="background-color:black;color:white;font-size:30px;text-align:center">主題旅遊報名申請<button onmouseover="this.style.color='orange'" onmouseout="this.style.color='black'" style="color:black;font-size:28px;font-weight:bold"  class="btn"  onclick="keyin()">一鍵帶入資料</button></div>
   </div>
  </div>
 </div> 
@@ -179,7 +192,7 @@ function test()
 <div class="form-group">
  <label for="name" class="col-sm-3 control-label" style='font-size:28px;'>聯絡人姓名</label>
   <div class="col-sm-3 controls">
-   <input type="text" id="name" name="name" placeholder="例:王大明" class="form-control" style='font-size:20px;margin-top:10px'>
+   <input type="text" id="xname" name="name" placeholder="例:王大明" class="form-control" style='font-size:20px;margin-top:10px'>
   </div> 
    
  <b style='font-size:28px;'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${test.themeProducts.productName}</b>
@@ -191,7 +204,7 @@ function test()
   <div class="col-sm-3 controls">
    <!--<input type="text" id="gender" name="gender" placeholder="先生、小姐" class="form-control">  -->
   <div class="form-control" style='font-size:20px;'>
-   <form:select path="gender" style="border:1px none #000;background:white">
+   <form:select id="xgender" path="gender" style="border:1px none #000;background:white">
     <form:option value="-1" label="稱謂"></form:option>
     <form:option value="先生" label="先生"></form:option>
     <form:option value="小姐" label="小姐"></form:option>
@@ -201,11 +214,12 @@ function test()
   
 <b style='font-size:28px;'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;國家:${test.themeProducts.country}</b>
 
+
 </div>
 <div class="form-group"style='font-size:28px;'>
  <label for="cellPhone" class="col-sm-3 control-label" style='font-size:28px;'>連絡電話</label>
   <div class="col-sm-3 controls">
-   <input type="text" id="cellPhone" name="cellPhone" placeholder="例:0912345678" class="form-control"style='font-size:20px;'>
+   <input type="text" id="xcellPhone" name="cellPhone" placeholder="例:0912345678" class="form-control"style='font-size:20px;'>
   </div>
   
 <b style='font-size:28px'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;出發日期:<fmt:formatDate value="${test.setOut}" pattern="yyyy/MM/dd" /></b>
@@ -216,7 +230,7 @@ function test()
  <label for="people" class="col-sm-3 control-label" style='font-size:28px;'>人數</label>
   <div class="col-sm-3 controls">
   <div class="form-control" style='font-size:20px;'>
-   <form:select path="people" style="border:1px none #000;background:white">
+   <form:select id="xpeople" path="people" style="border:1px none #000;background:white">
     <form:option value="-1" label="請挑選人數"></form:option>
     <form:option value="1" label="1人"></form:option>
     <form:option value="2" label="2人"></form:option>
@@ -251,7 +265,7 @@ function test()
   <div class="col-sm-3 controls">
    <!--<input type="text" id="callTime" name="callTime" placeholder="早上、下午、晚上" class="form-control">-->
    <div class="form-control"style='font-size:20px;'>
-    <form:select path="callTime" style="border:1px none #000;background:white">
+    <form:select id="xcallTime" path="callTime" style="border:1px none #000;background:white">
     <form:option value="-1" label="">請選擇時段</form:option>
     <form:option value="早上" label="早上"></form:option>
     <form:option value="下午" label="下午"></form:option>
@@ -269,7 +283,7 @@ function test()
   <div class="col-sm-3 controls">
    <!--<input type="text" id="location" name="location" placeholder="台北、台中、高雄" class="form-control">  -->
    <div class="form-control"style='font-size:20px;'>
-   <form:select path="location" style="border:1px none #000;background:white">
+   <form:select id="xlocation" path="location" style="border:1px none #000;background:white">
     <form:option value="-1" label="">服務據點</form:option>
     <form:option value="台北" label="台北"></form:option>
     <form:option value="台中" label="台中"></form:option>
@@ -285,17 +299,16 @@ function test()
 <div class="form-group">
  <label for="extra" class="col-sm-3 control-label" style='font-size:28px;'>備註事項</label>
   <div class="col-sm-9 controls">
-   <textarea class="form-control" rows="3" id="extra" name="extra" placeholder="請輸入500字以內"style='font-size:20px;'></textarea>
+   <textarea class="form-control" rows="3" id="xextra" name="extra" placeholder="請輸入500字以內"style='font-size:20px;'></textarea>
   </div>
 </div>
 
 <div class="form-group">
  <div class="col-sm-offset-3 col-sm-6">
-  <button onmouseover="this.style.color='orange'" onmouseout="this.style.color='#4F4FFF'" style="color:#4F4FFF;font-size:28px;font-weight:bold" type="submit" class="btn"  onclick="test()">點擊此處以寄出報名表</button>
+  <button onmouseover="this.style.color='orange'" onmouseout="this.style.color='#4F4FFF'" style="color:#4F4FFF;font-size:28px;font-weight:bold" type="submit" class="btn"  onclick="test()">點擊此處以寄出報名表</button> 
  </div>
 </div>
 </form:form>
-    
   </div>
  </div>
 </div>

@@ -123,5 +123,12 @@ public class ThemeServiceImpl implements ThemeService {
 	public List<ThemeJourneys> getAllJourneysBySetOutDesc(){
 		return themeRepository.getAllJourneysBySetOutDesc();
 	}
+	
+	 //依行程編號抓出單筆detail
+	@Transactional
+	@Override
+	public ThemeJourneys getJourneyByJourneyId(Integer journeyId){
+		return themeRepository.getJourneyByJourneyId(journeyId);	
+	}
 
 }
