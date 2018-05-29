@@ -176,6 +176,11 @@ margin-bottom:0px;
 margin-bottom:0px;
 }
 </style>
+<script>
+function test()
+{alert("已新增成功~~");
+	}
+</script>
 
 <title>Insert title here</title>
 </head>
@@ -214,7 +219,7 @@ margin-bottom:0px;
 		<br>
 		<br>															
 		<div>					
-		<input type="submit" value="確認送出"/>
+		<input type="submit" value="確認送出" onclick="test()" />
 		</div>
 	  </fieldset>
 	</form:form>		

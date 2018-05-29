@@ -303,11 +303,7 @@ float:right;
 <link rel="stylesheet" href="css/jumbotron.css">
 <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 <!-- 提示框 -->
-<script>
-function test()
-{alert("已成功簽收~~將回到旅遊管理首頁");
-	}
-</script> 
+
 <title>Insert title here</title>
 </head>
 <body>
@@ -324,7 +320,7 @@ function test()
   <div class="col-sm-12">
    <div class="well" style="text-align:left;font-weight:bold">
    <img src="/Traveler/images/勳章.png" width="40" height="40">商品編號:${productExtra.productId}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${productExtra.productName}
-    <a href='../reback' style="margin-left:20px;color:blue"onmouseover="this.style.color='orange'" onmouseout="this.style.color='blue'">展示圖片設定<img src="/Traveler/images/向左箭頭.png" width="50" height="50"></a></div>   
+    <a href='' style="margin-left:20px;color:blue"onmouseover="this.style.color='orange'" onmouseout="this.style.color='blue'">展示圖片設定<img src="/Traveler/images/向左箭頭.png" width="50" height="50"></a></div>   
   </div>
  </div>
 </div>
