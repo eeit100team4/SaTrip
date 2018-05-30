@@ -185,7 +185,7 @@ margin-bottom:0px;
 }
 </style>
 
-<title>Insert title here</title>
+<title>TravelerManager</title>
 </head>
 <body>
 <!-- <body style="background-image: url(/Traveler/images/sky.jpg);"> -->
@@ -193,7 +193,7 @@ margin-bottom:0px;
 	<%@ include file="/WEB-INF/backStageHeader.jsp" %>
 
 	<!--=========================要放的東西  =====================-->
-		<div class="row no-gutters" style="padding: 25px 0 0 200px">
+		<div class="row no-gutters" style="padding: 25px 0 0 190px">
 		<div class="container">
 			本站會員總人數：${memberSize}人<br>
 				本日新會員人數：${newMemberSize}人
@@ -201,26 +201,26 @@ margin-bottom:0px;
 				<thead>
 					<tr>
 						<th scope="col">會員帳號</th>
-						<th scope="col">會員姓名</th>
-						<th scope="col">會員性別</th>
-						<th scope="col">會員生日</th>
+						<th scope="col" width="90px">會員姓名</th>
+						<th scope="col" width="90px">會員性別</th>
+						<th scope="col" width="100px">會員生日</th>
 						<th scope="col">會員email</th>
 						<th scope="col">會員手機</th>
 						<th scope="col">會員地址</th>
-						<th scope="col">註冊時間</th>
+						<th scope="col" width="100px">註冊時間</th>
 					</tr>
 				</thead>
 				<tbody>
 					<c:forEach var='member' items='${members}'>
 						<tr>
-							<td><a href="<spring:url value='./member2?memberId=${member.memberId}'/>">${fn:substring(member.memberId, 0, 3)}*****${fn:substring(member.memberId, 8, 11)}</a></td>		
-							<td>${member.chineseLastName}ｏ${fn:substring(member.chineseFirstName, 1, 2)}</td>		
+							<td><a href="<spring:url value='./member2?memberId=${member.memberId}'/>">${fn:substring(member.memberId, 0, 2)}****${fn:substring(member.memberId, 6, 11)}</a></td>		
+							<td>${member.chineseLastName}ｏ${fn:substring(member.chineseFirstName,1,2)}</td>		
 							<td>${member.gender}</td>
-							<td>${member.birthday}</td>
-							<td>${fn:substring(member.email,0,3)}*****${fn:substring(member.email, 9, 16)}</td>
-							<td>${fn:substring(member.mobile,0,3)}*****${fn:substring(member.mobile, 9, 12)}</td>
+							<td>${fn:substring(member.birthday,0,2)}***${fn:substring(member.birthday,5,10)}</td>
+							<td>${member.email}</td>
+							<td>${fn:substring(member.mobile,0,3)}******${fn:substring(member.mobile,9,12)}</td>
 							<td>${member.address}</td>
-							<td>${member.registerTime}</td>
+							<td>${fn:substring(member.registerTime,0,19)}</td>
 						</tr>
 
 					</c:forEach>
