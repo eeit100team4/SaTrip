@@ -10,7 +10,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>Traveler</title>
+<title>TravelerManager</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
 <meta name="keywords"
@@ -185,7 +185,6 @@ function display_alert()
   alert("確認回覆此訊息嗎?")
   }
 </script>
-<title>TravelerManager</title>
 </head>
 <body>
 
@@ -257,10 +256,10 @@ function display_alert()
 		<div id="nav">			 
 			 <ul >
 		 		 <li>
-					<a class="btn btn-primary"href="Traveler/contactus/selectopinion"><h4><font color="white">查看留言</font></h4></a>
+					<a class="btn btn-primary"href="/Traveler/contactus/selectopinion"><h4><font color="white">查看留言</font></h4></a>
 				 </li>
 				  <li >
-				   	<a class="btn btn-primary"href="Traveler/contactus/StatisticsReport"><h4><font color="white">統計報表</font></h4></a>			   
+				   	<a class="btn btn-primary"href="/Traveler/contactus/StatisticsReport"><h4><font color="white">統計報表</font></h4></a>			   
 				  </li>
 			 </ul>
 		</div>

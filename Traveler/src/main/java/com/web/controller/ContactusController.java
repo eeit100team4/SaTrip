@@ -160,9 +160,9 @@ public class ContactusController {
 		return "contactus/selectfeedbackopinion";
 	}
 	
-	@RequestMapping("contactus/Linechat")
-	public String linechat(Model model) {
-		return "contactus/selectfeedbackopinion";
-	}
+//	@RequestMapping("contactus/Linechat")
+//	public String linechat(Model model) {
+//		return "contactus/selectfeedbackopinion";
+//	}
 
 }
