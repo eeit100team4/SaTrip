@@ -160,12 +160,12 @@ public class ThemeRepositoryImpl implements ThemeRepository {
 	@SuppressWarnings("unchecked")
 	//顯示所有行程內容(依截止時間排序)
 	public List<ThemeJourneys> getAllJourneysByDeadline(){
-		String hql = "FROM ThemeJourneys order by deadline";
-		Session session = null;
-		List<ThemeJourneys> list = new ArrayList<>();
-		session = factory.getCurrentSession();
-		list = session.createQuery(hql).getResultList();
-		return list;
+	String hql = "FROM ThemeJourneys order by deadline";
+	Session session = null;
+	List<ThemeJourneys> list = new ArrayList<>();
+	session = factory.getCurrentSession();
+	list = session.createQuery(hql).getResultList();
+	return list;
 	}
 	@Override
 	@SuppressWarnings("unchecked")
@@ -179,6 +179,13 @@ public class ThemeRepositoryImpl implements ThemeRepository {
 	return list;
 	}
 	
+	//依行程編號抓出單筆行程資料detail
+	public ThemeJourneys getJourneyByJourneyId(Integer journeyId){
+	String hql = "FROM ThemeJourneys where journeyId = :journeyId";
+	Session session = factory.getCurrentSession();
+	ThemeJourneys themeJourneys = (ThemeJourneys) session.createQuery(hql).setParameter("journeyId",journeyId).uniqueResult();
+	return themeJourneys;
+		}
 	
 	
 

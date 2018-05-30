@@ -55,5 +55,7 @@ public interface ThemeService {
 	//顯示所有行程內容(依出發時間排序DESC)
 	List<ThemeJourneys> getAllJourneysBySetOutDesc();
 	
+	//依行程編號抓出detail
+	ThemeJourneys getJourneyByJourneyId(Integer journeyId);
 
 }

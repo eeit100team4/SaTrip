@@ -253,10 +253,10 @@ html, body {
 		<div id="nav">			 
 			 <ul >
 		 		 <li>
-					<a class="btn btn-primary"href="selectopinion"><h4><font color="white">查看留言</font></h4></a>
+					<a class="btn btn-primary"href="/Traveler/contactus/selectopinion"><h4><font color="white">查看留言</font></h4></a>
 				 </li>
 				  <li >
-				   	<a class="btn btn-primary"href="StatisticsReport"><h4><font color="white">統計報表</font></h4></a>			   
+				   	<a class="btn btn-primary"href="/Traveler/contactus/StatisticsReport"><h4><font color="white">統計報表</font></h4></a>			   
 				  </li>
 			 </ul>
 		</div>

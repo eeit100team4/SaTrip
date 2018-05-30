@@ -11,7 +11,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>Traveler</title>
+<title>TravelerManager</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
 <meta name="keywords"
@@ -20,7 +20,7 @@
 
 
 <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-<link rel="shortcut icon" href="/Traveler/images/favicon.ico">
+<link rel="shortcut icon" href="/Traveler/images/LeftTopCorner.ico">
 
 <!--<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>-->
 
@@ -338,7 +338,7 @@ function test()
     <div class="panel-body">備註:&nbsp;&nbsp;${extra.extra}</div>
  </div>
  <div class="col-sm-4">
-   <div class="well"style="text-align:left;font-weight:bold"><a onmouseover="this.style.color='orange'" onmouseout="this.style.color='black'" style="font-size:24px;color:black"href=''>行程資訊</a></div>
+   <div class="well"style="text-align:left;font-weight:bold"><a onmouseover="this.style.color='orange'" onmouseout="this.style.color='black'" style="font-size:24px;color:black"href='../allJourneys/${extra.themeJourneys.journeyId}'>行程資訊</a></div>
     <div class="panel-body">旅遊類別:&nbsp;&nbsp;${extra.themeJourneys.themeProducts.themeTitles.titleName}</div>
     <div class="panel-body">旅遊行程編號:&nbsp;&nbsp;${extra.journeyId}</div>
     <div class="panel-body">出團費用:&nbsp;&nbsp;${extra.themeJourneys.price}</div>
@@ -346,7 +346,7 @@ function test()
     <div class="panel-body">出發日:&nbsp;&nbsp;<fmt:formatDate value="${extra.themeJourneys.setOut}" pattern="yyyy/MM/dd"/></div>
  </div>
  <div class="col-sm-4">
-   <div class="well"style="text-align:left;font-weight:bold"><a onmouseover="this.style.color='orange'" onmouseout="this.style.color='black'" style="font-size:24px;color:black"href=''>商品資訊</a></div>
+   <div class="well"style="text-align:left;font-weight:bold"><a onmouseover="this.style.color='orange'" onmouseout="this.style.color='black'" style="font-size:24px;color:black"href='../allProducts/${extra.themeJourneys.themeProducts.productId}'>商品資訊</a></div>
     <div class="panel-body">旅遊商品名稱:&nbsp;&nbsp;${extra.themeJourneys.themeProducts.productId}<br>${extra.themeJourneys.themeProducts.productName}</div>
     <div class="panel-body">旅遊國家:&nbsp;&nbsp;${extra.themeJourneys.themeProducts.country}</div>
     <div class="panel-body">住宿:&nbsp;&nbsp;${extra.themeJourneys.themeProducts.hotelName}</div>

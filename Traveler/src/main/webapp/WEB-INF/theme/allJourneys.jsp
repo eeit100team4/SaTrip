@@ -11,7 +11,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>Traveler</title>
+<title>TravelerManager</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
 <meta name="keywords"
@@ -20,7 +20,7 @@
 
 
 <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-<link rel="shortcut icon" href="/Traveler/images/favicon.ico">
+<link rel="shortcut icon" href="/Traveler/images/LeftTopCorner.ico">
 
 <!--<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>-->
 
@@ -354,7 +354,7 @@ float:right;
   <div class="col-md-1" style="width:140px"><fmt:formatDate value="${journeys.deadline}" pattern="yyyy/MM/dd"/></div>
   <div class="col-md-1"><fmt:formatDate value="${journeys.createDate}" pattern="yyyy/MM/dd"/></div>
   <div class="col-md-5" style="width:450px;margin-bottom:10px">
-   <a href=''>&nbsp;&nbsp;&nbsp;詳細時間<img src="/Traveler/images/向左橘.png" width="50" height="40"></a>
+   <a href='../theme/allJourneys/${journeys.journeyId}'>&nbsp;&nbsp;&nbsp;詳細時間<img src="/Traveler/images/向左橘.png" width="50" height="40"></a>
    <a href=''>報名人數<img src="/Traveler/images/向左箭頭.png" width="50" height="40"></a>
   </div> 
  </div>
