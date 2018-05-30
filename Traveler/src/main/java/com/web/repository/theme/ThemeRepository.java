@@ -57,5 +57,7 @@ public interface ThemeRepository {
 	//顯示所有行程內容(依出發時間排序 desc)
 	List<ThemeJourneys> getAllJourneysBySetOutDesc();
 
+	//依行程編號抓出單筆detail(後台用)
+	ThemeJourneys getJourneyByJourneyId(Integer journeyId);
 
 }
