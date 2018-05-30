@@ -6,8 +6,9 @@
 <html>
 <head> 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Member</title>
+<title>Traveler</title>
 <link rel='stylesheet' href='css/styles.css' type="text/css"/>
+<link rel="shortcut icon" href="/Traveler/images/LeftTopCorner.ico">
 <!-- <link rel='stylesheet' href='/Traveler/css/styles.css' type="text/css"/> -->
 </head>
 <body>

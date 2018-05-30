@@ -199,9 +199,9 @@ margin-bottom:0px;
 <img width='100 height='200'
 					  src="<c:url value='/member/getPicture/${member.memberId}'/>"/>
 			<h3>${member.chineseLastName}ｏ${fn:substring(member.chineseFirstName, 1, 2)}</h3>
-			<h3>帳號：${fn:substring(member.memberId, 0, 3)}*****${fn:substring(member.memberId, 8, 11)}</h3>
-			<h3>生日：${member.birthday}</h3>
-			<h3>手機：${member.mobile}</h3>
+			<h3>帳號：${fn:substring(member.memberId, 0, 2)}****${fn:substring(member.memberId, 6, 11)}</h3>
+			<h3>生日：${fn:substring(member.birthday,0,2)}***${fn:substring(member.birthday,5,10)}</h3>
+			<h3>手機：${fn:substring(member.mobile,0,3)}******${fn:substring(member.mobile,9,12)}</h3>
 			<h3>mail：${member.email}</h3>
 			<h3>紅利：${member.point}</h3>
 <!-- 			<input type="button" value="上一頁" onclick="goBack()"> -->

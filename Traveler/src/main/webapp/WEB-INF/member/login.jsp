@@ -7,7 +7,8 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<title>login</title>
+<link rel="shortcut icon" href="/Traveler/images/LeftTopCorner.ico">
+<title>Traveler</title>
 <style>
 body {
   font-family: Arial, Helvetica, sans-serif;
@@ -141,7 +142,7 @@ input[type=submit]:hover {
 <script src='https://www.google.com/recaptcha/api.js'></script>
 <script src="https://apis.google.com/js/platform.js" defer async="true"></script>
 </head>
-<body onLoad="setFocusToUserId()" style="margin-top: 20px">
+<body style="margin-top: 20px">
 <script>
   // This is called with the results from from FB.getLoginStatus().
   function statusChangeCallback(response) {

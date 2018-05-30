@@ -9,7 +9,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel='stylesheet'
 	href='//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css' />
-<title>變更密碼</title>
+<title>Traveler</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
 <meta name="keywords"
@@ -136,8 +136,7 @@ table {
 </script>
 </head>
 
-<body
-	onload="javascript:document.changePasswordForm.oldPassword.focus();">
+<body>
 	<%@ include file="/WEB-INF/frontStageHeader.jsp"%>
 	<center>
 		<form id="changePasswordForm" name="changePasswordForm"

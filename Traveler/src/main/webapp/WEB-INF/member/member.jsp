@@ -14,7 +14,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <link rel='stylesheet'
 	href='//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css' />
-<title>Member</title>
+<title>Traveler</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
 <meta name="keywords"
