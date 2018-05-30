@@ -280,7 +280,7 @@ list-style-type: none;
 								<form:input id="productImage" path="productImage" type='file' />
 							</div>
 							
-							
+<!-- 							<button type="button" class="btn btn-warning" onclick="keyin()" >一鍵帶入</button> -->
 							<button type="submit" class="btn btn-warning" id='btnAdd'>送出</button>
 						</form:form>
 					</div><!-- d3 --> 
@@ -343,6 +343,14 @@ $(document).ready(function(){
 		$(this).css(c1)
 	}
 })
+
+
+ function  keyin(){ 
+		$("#name").val("高飛絨毛玩偶");
+		$("#quantity").val("50");
+		$("#price").val("3600");
+		$("#point").val("36000");
+ }
 
 </script>		
 		

@@ -192,11 +192,12 @@ html, body {
 	<!--=========================要放的東西  =====================-->
 	<div class="row no-gutters">
 		<div class="container">
-			<table class="table table-hover table-bordered">
+		
+			<table class="table table-hover table-bordered" style="padding-top:15px;">
 				<thead>
 					<tr>
 						<th scope="col">訂單編號</th>
-<!-- 						<th scope="col">會員姓名</th> -->
+						<th scope="col">會員姓名</th>
 						<th scope="col">兌換商品</th>
 						<th scope="col">兌換數量</th>
 						<th scope="col">兌換點數</th>
@@ -210,7 +211,7 @@ html, body {
 					<c:forEach var='cli' items='${ClientLists}'>
 						<tr>
 							<td>${cli.id}</td>
-							
+							<td>${cli.memberBean.chineseLastName}${cli.memberBean.chineseFirstName}</td>
 							<td>${cli.commodityBean.name}</td>
 							<td>${cli.cliquantity}</td>
 							<td>${cli.point}</td>
