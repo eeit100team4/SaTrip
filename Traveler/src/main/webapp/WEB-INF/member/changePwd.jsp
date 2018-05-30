@@ -136,8 +136,7 @@ table {
 </script>
 </head>
 
-<body
-	onload="javascript:document.changePasswordForm.oldPassword.focus();">
+<body>
 	<%@ include file="/WEB-INF/frontStageHeader.jsp"%>
 	<center>
 		<form id="changePasswordForm" name="changePasswordForm"

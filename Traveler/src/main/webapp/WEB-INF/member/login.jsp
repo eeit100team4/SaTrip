@@ -142,7 +142,7 @@ input[type=submit]:hover {
 <script src='https://www.google.com/recaptcha/api.js'></script>
 <script src="https://apis.google.com/js/platform.js" defer async="true"></script>
 </head>
-<body onLoad="setFocusToUserId()" style="margin-top: 20px">
+<body style="margin-top: 20px">
 <script>
   // This is called with the results from from FB.getLoginStatus().
   function statusChangeCallback(response) {

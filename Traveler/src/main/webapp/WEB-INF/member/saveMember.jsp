@@ -199,13 +199,11 @@ window.fbAsyncInit = function() {
       //if(response.id=='1672836152800044') {
       if (thirdPartyId=='') {
     	  document.getElementById("thirdPartyId").value=response.id;
-    	  //document.getElementById("loginFormAuto").submit();
       } else {
     	  document.getElementById("thirdPartyId").value=response.id;
     	  document.getElementById("thirdPartyType").value='01';
-    	  alert(response.id+ ','+response.birthday);
+//     	  alert(response.id+ ','+response.birthday);
     	  document.getElementById("fbLogin").innerHTML="已綁定FB帳號";
-//     	  document.getElementById("loginFormAuto").submit();
       }
       //console.log('Successful login for: ' + response.name);
       //document.getElementById('status').innerHTML =
@@ -228,7 +226,7 @@ $("#address").val("新北市板橋區oo街oo巷oo號oo樓");
 }
 </script>
 </head>
-<body onload="javascript:document.insertMemberFormA.mId.focus();">
+<body>
 	<%@ include file="/WEB-INF/frontStageHeader.jsp"%>
 	<center>
 		<!-- <form name="insertMemberFormA" action="member.do" method="POST"> -->

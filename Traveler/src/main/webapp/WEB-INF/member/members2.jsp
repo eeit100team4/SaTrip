@@ -188,8 +188,6 @@ margin-bottom:0px;
 <title>TravelerManager</title>
 </head>
 <body>
-<!-- <body style="background-image: url(/Traveler/images/sky.jpg);"> -->
-
 	<%@ include file="/WEB-INF/backStageHeader.jsp" %>
 
 	<!--=========================要放的東西  =====================-->
