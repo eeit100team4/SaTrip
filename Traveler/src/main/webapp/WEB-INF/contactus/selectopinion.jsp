@@ -225,11 +225,13 @@ html, body {
     				<tr>
       					<td scope="row">${con.pkid}</td>
 <%--      				 	<td>${con.name}</td> --%>
-						<td>${fn:substring(con.name,0,2)}ｏ${fn:substring(con.name, 3,4)}</td>
+						<td>${fn:substring(con.name,0,1)}ｏ${fn:substring(con.name, 2,3)}</td>
       					<td>${con.sex}</td>
       					<td>${con.age}</td>
-      					<td>${con.phone}</td>
+<%--       					<td>${con.phone}</td> --%>
+						<td>${fn:substring(con.phone,0,4)}***${fn:substring(con.phone, 6,9)}</td>
       					<td>${con.email}</td>
+<%-- 						<td>${fn:substring(con.phone,0,4)}***${fn:substring(con.phone, 6,9)}</td> --%>
       					<td>${con.address}</td>
       					<td>${con.opinion}</td>
       					<td>${con.comment}</td>
