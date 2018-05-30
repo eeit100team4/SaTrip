@@ -10,7 +10,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>Traveler</title>
+<title>TravelerManager</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
 <meta name="keywords"
@@ -20,8 +20,8 @@
 
 
 <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-<link rel="shortcut icon" href="/Traveler/images/favicon.ico">
-
+<!-- <link rel="shortcut icon" href="/Traveler/images/favicon.ico"> -->
+<link rel="shortcut icon" href="/Traveler/images/LeftTopCorner.ico">
 <!--<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>-->
 
 <!-- Animate.css -->
@@ -326,7 +326,17 @@ function searchAll(){
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
 <script src="/Traveler/js/airplain/backLeft.js"></script>
+<style>
+.legendtoggle{
+            font-size: 50pt;
+            font-family: Arial;
+}
+.slice text{
+      font-size: 50pt;
+            font-family: Arial;
+}
 
+</style>
 <script>
 
 
@@ -346,12 +356,23 @@ function test(){
 	var data = [{
 	values: [HND,KIX,SEL,BKK,SIN],
 	labels: ['東京羽田', '大阪關西','韓國首爾','泰國曼谷','新加坡', '東京成田'],
-	type: 'pie'
+	type: 'pie',
+// 	textinfo:"label+text+value",
+	textinfo:"label+text+percent",
+// 	insidetextfont :{size:30},
+// 	outsidetextfont :{size:30},
+	textfont  :{size:30},
+// 	legend :{font:{size:30}.},
 	}];
+	
+	var textfont ={
+	size:200,			
+			
+	}
 	//設定框架大小。 
 	var frame = {
-	height: 700,
-	width: 700};
+	height: 600,
+	width: 600};
 	//使用Plotly畫出圓餅圖。 
 	Plotly.newPlot('mydiv', data, frame);
 }

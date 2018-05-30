@@ -9,7 +9,7 @@
 				<div class="container">
 					<div class="nav-header">
 					<!-- 正式上線刪除 -->
-					<a class="btn btn-primary btn-lg" href="/Traveler/backStageHome">暫時後台傳送門</a>
+<!-- 					<a class="btn btn-primary btn-lg" href="/Traveler/backStageHome">暫時後台傳送門</a> -->
 					<!-- 正式上線刪除 -->
 						<a href="/Traveler/" class="js-fh5co-nav-toggle fh5co-nav-toggle dark"><i></i></a>
 						<h1 id="fh5co-logo">
@@ -35,7 +35,7 @@
 							<ul class="fh5co-sub-menu">
 								<li><a href="/Traveler/contactus/InsertOpinionSuccess">查看回覆</a></li>
 								<li><a href="mailto:asally1110@gmail.com">客服信箱</a></li>
-									<li><a href="/Traveler/contactus/Linechat">Line線上客服</a></li>
+<!-- 									<li><a href="/Traveler/contactus/Linechat">Line線上客服</a></li> -->
 						</ul></li>
 							<c:choose>
 									<c:when test="${LoginOK!=null}">

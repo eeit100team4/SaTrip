@@ -239,14 +239,14 @@
 <a><img src="/Traveler/images/${detail.themeProducts.productName}-1.png" style="border:10px #808000 ridge;width:1500px; height:1000px;"></a>
 <a><img src="/Traveler/images/${detail.themeProducts.productName}-2.png" style="border:10px #808000 ridge;width:1500px; height:1000px;"></a>
 <a><img src="/Traveler/images/${detail.themeProducts.productName}-3.png" style="border:10px #808000 ridge;width:1500px; height:1000px;"></a>
-<a><img src="/Traveler/images/${detail.themeProducts.productName}-4.png" style="border:10px #808000 ridge;width:1500px; height:1000px;"></a>
+
 <br>
 <hr>
 <!-- 每日行程 1標題-->
 <div class="container-fluid">
  <div class="row">
   <div class="col-md-12" style="font-weight:bold">
-   <div class="panel-heading" style="color:black;font-size:32px;text-align:left"><img src="/Traveler/images/day.png" width="50" height="50">&nbsp;&nbsp;&nbsp;&nbsp;第一天:${detail.themeProducts.descriTitle1}</div>
+   <div class="panel-heading" style="color:black;font-size:32px;text-align:left"><img src="/Traveler/images/day.png" width="100" height="100">&nbsp;&nbsp;&nbsp;&nbsp;第一天:${detail.themeProducts.descriTitle1}</div>
   </div>
  </div>
 </div> 
@@ -255,7 +255,7 @@
 <div class="container-fluid">
  <div class="row">
   <div class="col-md-6">
-   <div class="panel-body"><img src="/Traveler/images/環球1.jpg" style="border:10px #808000 ridge;width:725px; height:552px;"></div>
+   <div class="panel-body"><img src="/Traveler/images/${detail.themeProducts.productName}-1.png" style="border:10px #808000 ridge;width:725px; height:552px;"></div>
   </div>
   <div class="col-md-6" style="font-size:24px">
     <div class="panel-heading" style="color:blue;font-weight:bold">${detail.themeProducts.descriTitle1}</div>
@@ -285,7 +285,7 @@
 <div class="container-fluid">
  <div class="row">
   <div class="col-md-12" style="font-weight:bold">
-   <div class="panel-heading" style="color:black;font-size:32px;text-align:left"><img src="/Traveler/images/day.png" width="50" height="50">&nbsp;&nbsp;&nbsp;&nbsp;第二天:${detail.themeProducts.descriTitle2}</div>
+   <div class="panel-heading" style="color:black;font-size:32px;text-align:left"><img src="/Traveler/images/day.png" width="100" height="100">&nbsp;&nbsp;&nbsp;&nbsp;第二天:${detail.themeProducts.descriTitle2}</div>
   </div>
  </div>
 </div> 
@@ -294,7 +294,7 @@
 <div class="container-fluid">
  <div class="row">
   <div class="col-md-6">
-   <div class="panel-body"><img src="/Traveler/images/${detail.themeProducts.productName}-1.png" style="border:10px #808000 ridge;width:725px; height:552px;"></div>
+   <div class="panel-body"><img src="/Traveler/images/${detail.themeProducts.productName}-2.png" style="border:10px #808000 ridge;width:725px; height:552px;"></div>
   </div>
   <div class="col-md-6" style="font-size:24px">
     <div class="panel-heading" style="color:blue;font-weight:bold">${detail.themeProducts.descriTitle2}</div>
@@ -324,7 +324,7 @@
 <div class="container-fluid">
  <div class="row">
   <div class="col-md-12" style="font-weight:bold">
-   <div class="panel-heading" style="color:black;font-size:32px;text-align:left"><img src="/Traveler/images/day.png" width="50" height="50">&nbsp;&nbsp;&nbsp;&nbsp;第三天:${detail.themeProducts.descriTitle3}</div>
+   <div class="panel-heading" style="color:black;font-size:32px;text-align:left"><img src="/Traveler/images/day.png" width="100" height="100">&nbsp;&nbsp;&nbsp;&nbsp;第三天:${detail.themeProducts.descriTitle3}</div>
   </div>
  </div>
 </div> 
@@ -333,7 +333,7 @@
 <div class="container-fluid">
  <div class="row">
   <div class="col-md-6">
-   <div class="panel-body"><img src="/Traveler/images/環球2.jpg" style="border:10px #808000 ridge;width:725px; height:552px;"></div>
+   <div class="panel-body"><img src="/Traveler/images/${detail.themeProducts.productName}-3.png" style="border:10px #808000 ridge;width:725px; height:552px;"></div>
   </div>
   <div class="col-md-6" style="font-size:24px">
     <div class="panel-heading" style="color:blue;font-weight:bold">${detail.themeProducts.descriTitle3}</div>

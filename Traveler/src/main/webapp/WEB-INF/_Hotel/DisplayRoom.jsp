@@ -47,7 +47,7 @@
 <meta name="twitter:card" content="" />
 
 <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-<link rel="shortcut icon" href="images/favicon.ico">
+<link rel="shortcut icon" href="/Traveler/images/LeftTopCorner.ico">
 
 <!--<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>-->
 
@@ -477,11 +477,11 @@
 
 						<div class="carousel-item active">
 							<img class="d-block w-60"
-								src="/Traveler/images/hotelPic/korFRA1.jpg" alt="First slide">
+								src="/Traveler/images/hotelPic/korFRA2.jpg" alt="First slide">
 						</div>
 						<div class="carousel-item">
 							<img class="d-block w-60"
-								src="/Traveler/images/hotelPic/korFRA2.jpg" alt="First slide">
+								src="/Traveler/images/hotelPic/korFRA1.jpg" alt="First slide">
 						</div>
 
 						<div class="carousel-item">

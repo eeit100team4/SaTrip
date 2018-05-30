@@ -76,7 +76,7 @@ public class ContactusController {
 //		session.setAttribute("abc", contactus);
 		contactusService.addCustomerOpinion(contactus2);
 		session.setAttribute("contactus", contactus2);
-		return "/contactus/InsertOpinionSuccess";
+		return "redirect:/contactus/contactusopinion";
 	}
 
 

@@ -20,7 +20,7 @@
 
 
 <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-<link rel="shortcut icon" href="/Traveler/images/favicon.ico">
+<link rel="shortcut icon" href="/Traveler/images/LeftTopCorner.ico">
 
 <!--<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>-->
 
@@ -348,59 +348,60 @@ height:270px;
 <!-- =========側邊欄位結束============ -->
 	
 	
-<div class="container" style="padding-top:20px">
-<c:forEach var="hotelInfo" items="${hotels}">
-		<div class="ds">
-<%-- <form:form method='POST' modelAttribute="HotelBean" 	class='form-horizontal' enctype="multipart/form-data"> --%>
-<form:form action='/Traveler/_Hotel/End/UpdateHotel/${hotelInfo.hotel_id}'
-				modelAttribute="HotelBean" enctype="multipart/form-data">
+
+
+				
+				
+				<main role="main" class="container mt-2">
+				    <div class="row">
+				       <div class="col-lg-3">				    
+				       <div class="col-lg-9">				     
+						<div class="card">
+							<div class="card-header"></div>
+							<div class="card-body">
+								<!-- 每頁不同的內容從這裡開始 -->
+								 <table id="productTable" class="table table-bordered">
+				                       <thead>
+				                          <tr>
+				                             <th>編號</th>
+				                             <th>照片</th>
+				                             <th>國家</th>
+				                             <th>城市</th>
+				                             <th>飯店</th>
+				                             <th>管理</th>
+				                          </tr>
+				                       </thead>
+				                       <tbody>
+				                       	
+											<c:forEach var="hotelInfo" items="${hotels}">
+													<tr>
+													<td>${hotelInfo.hotel_id}</td>													
+													<form action="/Traveler/_Hotel/End/UpdateHotel/${hotelInfo.hotel_id}" method="POST">														
+														<td><img width='400' height='200' src="<c:url value='/getPic/${hotelInfo.hotel_id}' />" /></td>														
+								                        <td><input type="text" style="width:100px"class="form-control" id="country" name="country" value="${hotelInfo.country}"></td>
+								                        <td><input type="text" style="width:100px" class="form-control" id="city" name="city" value="${hotelInfo.city}"></td>
+								                        <td><input type="text" style="width:250px" class="form-control" id="name" name="name" value="${hotelInfo.name}" ></td>
+								                       	<td><input id="btnUpd" type='submit' class='btn btn-primary' value="修改"></td>								                       
+								                       
+							                      	</form>
+													</tr>
+												</c:forEach>
+				                       
+				                       
+				                       </tbody>
+				                     
+				                       </table>
+				                       </div>
+				                       </div>
+				                       </div>
+				                       </div>
+				                       </main>
+				                       
 				
 				
 
-				<fieldset>
-					<div class="dr">
-						<img width='200' height='100' src="<c:url value='/getPic/${hotelInfo.hotel_id}' />" />
-					</div>
+		
 
-					<div class="dt">
-						<div class="form-group row col-md-8">
-							<label for='country' class="col-sm-2 col-form-label">國家:</label>
-							<div class="col-sm-10">
-								<form:input id='country' class="form-control" path='country'
-									type='text' value='${hotelInfo.country}' />
-							</div>
-						</div>
-
-						<div class="form-group row col-md-8">
-							<label for='city' class="col-sm-2 col-form-label">城市
-								:</label>
-							<div class="col-sm-10">
-								<form:input id='city' class="form-control" path='city'
-									type='text' value='${hotelInfo.city}' />
-							</div>
-						</div>
-
-						<div class="form-group row col-md-8">
-							<label for='name' class="col-sm-2 col-form-label">飯店 :</label>
-							<div class="col-sm-10">
-								<form:input id='name' class="form-control" path='name'
-									type='text' value='${hotelInfo.name}' />
-							</div>
-						</div>
-
-                            
-						<input type="submit" class="btn btn-warning" value="修改">
-					
-					</div>
-
-				</fieldset>
-				<hr>
-
-			</form:form>
-
-		</div>
-	</c:forEach>
-</div>
 	
 
 	<!--  ========================================================== -->

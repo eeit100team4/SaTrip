@@ -305,7 +305,7 @@ float:right;
 <!-- 提示框 -->
 <script>
 function test()
-{alert("已成功簽收~~將回到簽收頁面");
+{alert("已成功簽收~~將回到旅遊管理首頁");
 	}
 </script> 
 <title>Insert title here</title>
@@ -315,58 +315,50 @@ function test()
 <%@ include file="/WEB-INF/backStageHeader.jsp" %>
 
 <!--=========================要放的東西  =====================-->
-	
-<!-- =========側邊欄位開始============ -->	
-<%@ include file="/WEB-INF/theme/backLeftSide.jsp" %>
-<!-- =========側邊欄位結束============ -->
 <!-- 左邊的bar會歪 -->
 <div style="color:black;margin-left:230px;font-size:24px">
-<!-- 大標題  + 新增主題連結區-->
+<!-- 大標:報名者名字 -->
 <br>
 <div class="container-fluid">
  <div class="row">
-  <div class="col-md-12">
-   <div class="header">全報名表&nbsp;&nbsp;&nbsp;&nbsp;
-    <a onmouseover="this.style.color='orange'" onmouseout="this.style.color='#4F4FFF'" style="font-size:24px;color:#4F4FFF"href=''>依行程排序<img src="/Traveler/images/排序.png" width="40" height="40"></a>
-    <a onmouseover="this.style.color='orange'" onmouseout="this.style.color='#4F4FFF'" style="font-size:24px;color:#4F4FFF"href=''>依人數排序<img src="/Traveler/images/排序.png" width="40" height="40"></a>
-    <a onmouseover="this.style.color='orange'" onmouseout="this.style.color='#4F4FFF'" style="font-size:24px;color:#4F4FFF"href=''>依出團日排序<img src="/Traveler/images/排序.png" width="40" height="40"></a>
+  <div class="col-sm-12">
+   <div class="well" style="text-align:left;font-weight:bold"><img src="/Traveler/images/勳章.png" width="40" height="40">報名表編號:${extra.applicationId}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${extra.name}&nbsp;&nbsp;&nbsp;&nbsp;${extra.gender}</div>   
   </div>
  </div>
 </div>
-<hr>
-<!-- 表格 title -->
+<!--三個相關資訊 -->
 <div class="container-fluid">
  <div class="row">
-  <div class="col-md-1">編號</div>
-  <div class="col-md-1">行程</div>
-  <div class="col-md-1">姓名</div>
-  <div class="col-md-2" style="width:170px">連絡電話</div>
-  <div class="col-md-1" style="width:80px">人數</div>
-  <div class="col-md-1">出團日</div>
-  <div class="col-md-2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;簽收日</div>
-  <div class="col-md-3"></div>
+  <div class="col-sm-4">
+   <div class="well"style="text-align:left;font-weight:bold">報名資訊</div>
+    <div class="panel-body">電話:&nbsp;&nbsp;${extra.cellPhone}</div>
+    <div class="panel-body">報名人數:&nbsp;&nbsp;${extra.people}人</div>
+    <div class="panel-body">可連絡時間:&nbsp;&nbsp;${extra.callTime}</div>
+    <div class="panel-body">服務據點:&nbsp;&nbsp;${extra.location}</div>
+    <div class="panel-body">備註:&nbsp;&nbsp;${extra.extra}</div>
+ </div>
+ <div class="col-sm-4">
+   <div class="well"style="text-align:left;font-weight:bold"><a onmouseover="this.style.color='orange'" onmouseout="this.style.color='black'" style="font-size:24px;color:black"href=''>行程資訊</a></div>
+    <div class="panel-body">旅遊類別:&nbsp;&nbsp;${extra.themeJourneys.themeProducts.themeTitles.titleName}</div>
+    <div class="panel-body">旅遊行程編號:&nbsp;&nbsp;${extra.journeyId}</div>
+    <div class="panel-body">出團費用:&nbsp;&nbsp;${extra.themeJourneys.price}</div>
+    <div class="panel-body">航空公司:&nbsp;&nbsp;${extra.themeJourneys.companyName}</div>
+    <div class="panel-body">出發日:&nbsp;&nbsp;<fmt:formatDate value="${extra.themeJourneys.setOut}" pattern="yyyy/MM/dd"/></div>
+ </div>
+ <div class="col-sm-4">
+   <div class="well"style="text-align:left;font-weight:bold"><a onmouseover="this.style.color='orange'" onmouseout="this.style.color='black'" style="font-size:24px;color:black"href=''>商品資訊</a></div>
+    <div class="panel-body">旅遊商品名稱:&nbsp;&nbsp;${extra.themeJourneys.themeProducts.productId}<br>${extra.themeJourneys.themeProducts.productName}</div>
+    <div class="panel-body">旅遊國家:&nbsp;&nbsp;${extra.themeJourneys.themeProducts.country}</div>
+    <div class="panel-body">住宿:&nbsp;&nbsp;${extra.themeJourneys.themeProducts.hotelName}</div>
+    <br>
+    <a href='../leback'onclick="test()" style="margin-left:20px;color:blue"onmouseover="this.style.color='orange'" onmouseout="this.style.color='blue'">點擊此處以完成簽收<img src="/Traveler/images/向左箭頭.png" width="50" height="50"></a>
+ </div>
+ 
  </div>
 </div>
-<hr>
-<!-- 表格 內容 -->
-<c:forEach var='applications' items='${applications}'>
-<div class="container-fluid">
- <div class="row">
-  <div class="col-md-1">${applications.applicationId}</div>
-  <div class="col-md-1">${applications.journeyId}</div>
-  <div class="col-md-1">${applications.name}</div>
-  <div class="col-md-2" style="width:180px">${applications.cellPhone}</div>
-  <div class="col-md-1" style="width:50px">${applications.people}</div>
-  <div class="col-md-1"><fmt:formatDate value="${applications.themeJourneys.setOut}" pattern="yyyy/MM/dd"/></div>
-  <div class="col-md-2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<fmt:formatDate value="${applications.terminate}" pattern="yyyy/MM/dd"/></div>
-  <div class="col-md-3">
-   <a href='../theme/allApplications/${applications.applicationId}'>內容<img src="/Traveler/images/向左橘.png" width="50" height="50"></a>
-   <a href='../theme/reback'onclick="test()">簽收<img src="/Traveler/images/向左橘.png" width="50" height="50"></a>
-  </div> 
- </div>
-</div>
-</c:forEach>
-</div>
+<!-- =========側邊欄位開始============ -->	
+<%@ include file="/WEB-INF/theme/backLeftSide.jsp" %>
+<!-- =========側邊欄位結束============ -->
 </div>
 <script type="text/javascript">
 $(function() {
@@ -391,8 +383,9 @@ $(function() {
 <img src=/Traveler/images/向上箭頭.png id="gotop" style="">
    <i class="fa fa-angle-up"></i>
 	<!--  ========================================================== -->
-<br><br><br><br><br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+<br><br><br>
 	<%@ include file="/WEB-INF/backStageFooter.jsp" %>
 </body>
 </html>

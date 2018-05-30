@@ -36,7 +36,7 @@ public interface ThemeRepository {
 	//依商品名稱抓出團日期
 	List<ThemeJourneys> getJourneysByProduct(String productName);
 	
-	//依行程編號抓出一筆detail
+	//依行程編號抓出單筆detail
 	ThemeJourneys getDetailsByJourneyId(Integer journeyId);
 	
 	//報名 在欄位輸入報名資料
@@ -45,6 +45,17 @@ public interface ThemeRepository {
 	//依報名表編號抓出一筆備註extra
 	ThemeApplications getExtraByApplicationId(Integer applicationId);
 	
-//	//簽收
-//	void updateTerminate(int applicationId, int one);
+	//依商品編號抓特定單筆商品資料
+	ThemeProducts getProductByproductId(Integer productId);
+	
+	//顯示所有行程內容(依出發時間排序)
+	List<ThemeJourneys> getAllJourneysBySetOut();
+	
+	//顯示所有行程內容(依截止時間排序)
+	List<ThemeJourneys> getAllJourneysByDeadline();
+	
+	//顯示所有行程內容(依出發時間排序 desc)
+	List<ThemeJourneys> getAllJourneysBySetOutDesc();
+
+
 }

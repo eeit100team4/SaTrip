@@ -42,6 +42,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.web.Utils.DateUtils;
 import com.web.model.member.MemberBean;
 import com.web.model.member.MemberFormBean;
+import com.web.model.member.ThirdPartyMemberBean;
 import com.web.service.member.GlobalService;
 import com.web.service.member.MemberService;
 
@@ -54,15 +55,16 @@ public class MemberController {
 	ServletContext context;
 	
 	@RequestMapping("/member/changePwd")
-	public String changePwd(HttpServletRequest request, HttpServletResponse response, Model model) {
+	public String getChangePwdPage(HttpServletRequest request, HttpServletResponse response, Model model) {
 		HttpSession session = request.getSession();
 		MemberBean mb = (MemberBean) session.getAttribute("LoginOK");
 		model.addAttribute("memberId", mb.getMemberId());
 		return "/member/changePwd";
 	}
 
+	@SuppressWarnings("unused")
 	@RequestMapping("/member/changePwd.do")
-	public String changePwd(HttpServletRequest request, HttpServletResponse response) throws IOException {
+	public String changePwd(HttpServletRequest request, HttpServletResponse response, Model model) throws IOException {
 		System.out.println("doChangePwd");
 
 		String succPage = "/member/updateSuccess";
@@ -70,6 +72,7 @@ public class MemberController {
 
 		HttpSession session = request.getSession();
 		MemberBean mb = (MemberBean) session.getAttribute("LoginOK");
+		model.addAttribute("memberId", mb.getMemberId());
 
 		if (mb == null) {
 			return "/member/login";  //如果未登入，mb=null時，就導頁至登入畫面
@@ -131,9 +134,10 @@ public class MemberController {
 
 	@RequestMapping("/member/updateMember")
 	public String updateMember(@ModelAttribute("memberBean") MemberFormBean formBean, HttpServletRequest request, 
-			HttpServletResponse response) {
+			HttpServletResponse response, Model model) {
 		HttpSession session = request.getSession();
 		MemberBean mb = (MemberBean) session.getAttribute("LoginOK");
+		model.addAttribute("memberId", mb.getMemberId());
 		MemberBean memBean=memberService.getMemberById(mb.getMemberId());
 		try {
 			BeanUtils.copyProperties(formBean, memBean);
@@ -287,6 +291,15 @@ public class MemberController {
 							mb.getChineseFirstName(), mb.getEnglishLastName(), mb.getEnglishFirstName(), bdate, mb.getEmail(), mb.getMobile(), mb.getPhoneNumber(),
 							mb.getAddress(), mb.getPassportNumber(), mb.getMemberImage());
 					memberService.addMember(member);
+					//TODO
+					if (StringUtils.isNotBlank(mb.getThirdPartyId())) {
+						ThirdPartyMemberBean tpmb=
+								new ThirdPartyMemberBean(mb.getThirdPartyId(), 
+								mb.getThirdPartyType(), 
+								mb.getMemberId());
+						memberService.saveThirdPartyMember(tpmb);
+					}
+
 				} catch (Exception e) {
 					errorMsg.put("memberId", "儲存資料時發生錯誤，請檢查，例外=" + e.getMessage());
 					e.printStackTrace();

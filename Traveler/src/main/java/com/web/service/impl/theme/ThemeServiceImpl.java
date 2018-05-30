@@ -99,17 +99,29 @@ public class ThemeServiceImpl implements ThemeService {
 		return themeRepository.getExtraByApplicationId(applicationId);
 	}
 	
-//	//簽收
-//	@Transactional
-//	@Override
-//	public void updateAllTerminate(){
-//		List<ThemeApplications> allTerminates = themeRepository.getAllApplications();
-//		
-//		for(ThemeApplications ta : allTerminates) {
-//			if(ta.getTerminate() != null) {
-//				themeRepository.updateTerminate
-//				(ta.getApplicationId(), ta.getTerminate()+1);
-//			}
-//		}
-//	}
+	//依商品編號抓特定單筆商品資料
+	@Transactional
+	@Override
+	public ThemeProducts getProductByproductId(Integer productId){
+		return themeRepository.getProductByproductId(productId);
+	}
+	@Transactional
+	@Override
+	//顯示所有行程內容(依出發時間排序)
+	public List<ThemeJourneys> getAllJourneysBySetOut(){
+		return themeRepository.getAllJourneysBySetOut();
+	}
+	@Transactional
+	@Override
+	//顯示所有行程內容(依截止時間排序)
+	public List<ThemeJourneys> getAllJourneysByDeadline(){
+		return themeRepository.getAllJourneysByDeadline();
+	}
+	@Transactional
+	@Override
+	//顯示所有行程內容(依出發時間排序DESC	)
+	public List<ThemeJourneys> getAllJourneysBySetOutDesc(){
+		return themeRepository.getAllJourneysBySetOutDesc();
+	}
+
 }

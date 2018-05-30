@@ -20,7 +20,10 @@
 
 
 <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-<link rel="shortcut icon" href="/Traveler/images/favicon.ico">
+<!-- <link rel="shortcut icon" href="/Traveler/images/favicon.ico"> -->
+
+<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+<link rel="shortcut icon" href="/Traveler/images/LeftTopCorner.ico">
 
 <!--<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>-->
 
@@ -176,8 +179,13 @@ border:2px black solid;
 padding:5px;
 }
 </style>
-
-<title>Insert title here</title>
+<script type="text/javascript">
+function display_alert()
+  {
+  alert("確認回覆此訊息嗎?")
+  }
+</script>
+<title>TravelerManager</title>
 </head>
 <body>
 
@@ -232,7 +240,8 @@ padding:5px;
 						</table>
 					    
                <div class='form-group'>
-               	<input type="submit" id='btnAdd' class="btn btn-primary" value="回覆"></input>
+               	<input type="submit" id='btnAdd' class="btn btn-primary" onclick="display_alert()"
+               	value="回覆"></input>
                	</div>
                
 		</fieldest>

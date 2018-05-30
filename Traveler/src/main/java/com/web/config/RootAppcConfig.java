@@ -23,7 +23,7 @@ public class RootAppcConfig {
 	public DataSource dataSource() {
 		ComboPooledDataSource ds = new ComboPooledDataSource();
 		ds.setUser("sa");
-		//雲端資料庫
+//		雲端資料庫
 //		ds.setUser("memberuser");
 		ds.setPassword("P@ssw0rd");
 		try {
@@ -33,7 +33,7 @@ public class RootAppcConfig {
 		}
 
 		ds.setJdbcUrl("jdbc:sqlserver://localhost;DatabaseName=Traveler");
-		//雲端資料課
+		//雲端資料課庫
 //		ds.setJdbcUrl("jdbc:sqlserver://eeittraveler.database.windows.net:1433;DatabaseName=Traveler");
 
 		ds.setInitialPoolSize(4);

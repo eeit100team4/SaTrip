@@ -8,9 +8,11 @@ function chkIdn(){
 		document.getElementById('errMsgIdn').innerHTML='帳號欄不可為空';
 	}else  if(checkIDN(idn)){
 		document.getElementById('errMsgIdn').innerHTML='';
+		return true;
 	}else{
 		document.getElementById('errMsgIdn').innerHTML='帳號欄需為真實身份證字號';
 	}
+	return false;
 }
 
 //驗證性別
@@ -20,7 +22,9 @@ function chkGender(){
 		document.getElementById('errMsgGender').innerHTML='性別欄不可為空';
 	}else{
 		document.getElementById('errMsgGender').innerHTML='';
+		return true;
 	}
+	return false;
 }
 
 //驗證密碼(6～12個字元，需包含數字及英文，勿使用特殊字元或符號)
@@ -30,10 +34,11 @@ function chkPwd(){
 		document.getElementById('errMsgPwd').innerHTML='密碼欄不可為空';
 	}else if (checkPassword(pwd)){
 		document.getElementById('errMsgPwd').innerHTML='';
+		return true;
 	}else {
 		document.getElementById('errMsgPwd').innerHTML='密碼最少6個字元，需含數字及英文';
-		
 	}
+	return false;
 }
 //驗證確認密碼欄(需和密碼欄一致)
 function chkChkPwd(){
@@ -43,9 +48,11 @@ function chkChkPwd(){
 		document.getElementById('errMsgChkPwd').innerHTML='確認密碼欄不可為空';
 	}else if(pwd1==pwd2){
 		document.getElementById('errMsgChkPwd').innerHTML='';
+		return true;
 	}else{
 		document.getElementById('errMsgChkPwd').innerHTML='需和密碼欄一致';
 	}
+	return false;
 }
 
 //驗証email('格式需為eason@nnn.com')
@@ -56,9 +63,11 @@ function chkEmail(){
 		document.getElementById('errMsgEmail').innerHTML='email欄不可為空';
 	}else if(valiEmail(mail)){
 		document.getElementById('errMsgEmail').innerHTML='';
+		return true;
 	}else{
 		document.getElementById('errMsgEmail').innerHTML='格式需為eason@nnn.com';
 	}
+	return false;
 }
 
 //驗証Date
@@ -68,9 +77,11 @@ function chkBirthday(){
 		document.getElementById('errMsgBirthday').innerHTML='出年年月日欄不可為空';
 	}else if(chkDate(birthday)){
 		document.getElementById('errMsgBirthday').innerHTML='';
+		return true;
 	}else{
 		document.getElementById('errMsgBirthday').innerHTML='日期需為真實存在的日期';
 	}
+	return false;
 }
 
 //驗證中文姓名
@@ -80,9 +91,11 @@ function chkName(value){
 		document.getElementById('errMsgName').innerHTML='中文姓名欄不可為空';
 	}else if (!(cName.match(/[^\u0391-\uFFE5]/g))){//return true
         document.getElementById('errMsgName').innerHTML='';
+        return true;
     } else {//return false
       document.getElementById('errMsgName').innerHTML='中文姓名欄不可有英文';
     }
+	return false;
 }
 
 //驗証手機09xx-xxx-xxx
@@ -92,7 +105,9 @@ function chkMobile(){
 		document.getElementById('errMsgMobile').innerHTML='手機欄位不可為空';
 	}else if(valiMobile(mobile)){
 		document.getElementById('errMsgMobile').innerHTML='';
+		return true;
 	}else{
 		document.getElementById('errMsgMobile').innerHTML='格式需為09xx-xxx-xxx';
 	}
+	return false;
 }

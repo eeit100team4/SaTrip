@@ -10,7 +10,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>Traveler</title>
+<title>TravelerManager</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
 <meta name="keywords"
@@ -20,8 +20,8 @@
 
 
 <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-<link rel="shortcut icon" href="/Traveler/images/favicon.ico">
-
+<!-- <link rel="shortcut icon" href="/Traveler/images/favicon.ico"> -->
+<link rel="shortcut icon" href="/Traveler/images/LeftTopCorner.ico">
 <!--<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>-->
 
 <!-- Animate.css -->
@@ -260,13 +260,14 @@ margin-bottom:0px;
 	<div class="d2 " style="">
 			<ul class="list-group">
 				<li class="list-group-item">訂單編號：${bean.orderID}</li>
+				<li class="list-group-item">訂單時間：${bean.orderDay}</li>
 				<li class="list-group-item">去程 :${bean.depDate} ${bean.depT}
 					${bean.depC} (機型 ${bean.depNum}) ~ <c:if test="${bean.arrTnextDay==null}">${bean.depDate}</c:if>${bean.arrTnextDay} ${bean.arrT}
 					${bean.arrC}</li>
 				<li class="list-group-item">回程 :${bean.returnDate}
 					${bean.returnTime} ${bean.arrC} (機型 ${bean.returnNum}) ~
 					<c:if test="${returnArrTnextDay==null}">${bean.returnDate}</c:if>${bean.returnArrTnextDay} ${bean.returnArrTime} ${bean.depC}</li>
-				<li class="list-group-item">航空公司：(${bean.airline})</li>
+				<li class="list-group-item">航空公司：${bean.airline}</li>
 				<li class="list-group-item">總價格：NT$ ${bean.price} <c:if test="${bean.bonus!=null}">(extra ${bean.bonus})</c:if></li>
 				<li class="list-group-item">紅利點數：${bean.redPoint} 點</li>
 				<li class="list-group-item">付款狀態：${bean.checkpay}</li>

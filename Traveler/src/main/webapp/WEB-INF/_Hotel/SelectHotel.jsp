@@ -45,7 +45,7 @@
 <meta name="twitter:card" content="" />
 
 <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-<link rel="shortcut icon" href="images/favicon.ico">
+<link rel="shortcut icon" href="/Traveler/images/LeftTopCorner.ico">
 
 <!--<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>-->
 
@@ -432,7 +432,7 @@ color:orange;
 		<div class="container">
 			<div class="row animate-box">
 				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-					<h2>Happy Clients</h2>
+					<h2>顧客留言板</h2>
 				</div>
 			</div>
 			<div class="row">
@@ -440,9 +440,9 @@ color:orange;
 					<div class="box-testimony animate-box">
 						<blockquote>
 							<span class="quote"><span><i class="icon-quotes-right"></i></span></span>
-							<p>&ldquo;Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.&rdquo;</p>
+							<p>&ldquo;我一向不喜歡住陳舊的飯店，這一家確實有點陳舊。我此行兩次入住，第二次的房間更好一點。毛巾也是舊舊的。早飯也沒啥可吃的。優點：第一是服務態度優秀；第二是地段優異，幾乎是新北的最佳位置；第三是價格便宜；第四是冰箱里有免費的飲料。&rdquo;</p>
 						</blockquote>
-						<p class="author">John Doe, CEO <a href="http://freehtml5.co/" target="_blank">FREEHTML5.co</a> <span class="subtext">Creative Director</span></p>
+						<p class="author">黃光賢 <a href="http://freehtml5.co/" target="_blank">EEIT100</a> <span class="subtext">資策會數位研究所</span></p>
 					</div>
 					
 				</div>
@@ -450,9 +450,9 @@ color:orange;
 					<div class="box-testimony animate-box">
 						<blockquote>
 							<span class="quote"><span><i class="icon-quotes-right"></i></span></span>
-							<p>&ldquo;Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.&rdquo;</p>
+							<p>&ldquo;說實話，房間不大，房間景觀很開揚，衛浴分離，但酒店設備很棒，泳池很乾淨～ 酒店附近晚上有點安靜，但離龍山寺站只有5分鐘距離，很推薦給大家。&rdquo;</p>
 						</blockquote>
-						<p class="author">John Doe, CEO <a href="http://freehtml5.co/" target="_blank">FREEHTML5.co</a> <span class="subtext">Creative Director</span></p>
+						<p class="author">林子祺<a href="http://freehtml5.co/" target="_blank">EEIT100</a> <span class="subtext">資策會數位研究所</span></p>
 					</div>
 					
 					
@@ -461,9 +461,9 @@ color:orange;
 					<div class="box-testimony animate-box">
 						<blockquote>
 							<span class="quote"><span><i class="icon-quotes-right"></i></span></span>
-							<p>&ldquo;Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.&rdquo;</p>
+							<p>&ldquo;作為一群朋友，我們在2018年5月住在這家酒店。 酒店是一家新建的酒店，位置偏離市中心，步行5分鐘即可到達地鐵站。 酒店房間很小，床也很小。這使得這家酒店不太好。 酒店的早餐非常好，食物很新鮮，熱和美味。&rdquo;</p>
 						</blockquote>
-						<p class="author">John Doe, Founder <a href="#">FREEHTML5.co</a> <span class="subtext">Creative Director</span></p>
+						<p class="author">江姿瑩<a href="#">EEIT100</a> <span class="subtext">資策會數位研究所</span></p>
 					</div>
 					
 				</div>

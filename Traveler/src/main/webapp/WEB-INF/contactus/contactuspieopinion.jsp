@@ -20,7 +20,10 @@
 
 
 <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-<link rel="shortcut icon" href="/Traveler/images/favicon.ico">
+<!-- <link rel="shortcut icon" href="/Traveler/images/favicon.ico"> -->
+
+<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+<link rel="shortcut icon" href="/Traveler/images/LeftTopCorner.ico">
 
 <!--<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>-->
 
@@ -167,7 +170,7 @@ margin-bottom:0px;
 }
 </style>
 
-<title>Insert title here</title>
+<title>TravelerManager</title>
 </head>
 
 <body>
@@ -216,7 +219,7 @@ Highcharts.chart('container', {
         type: 'pie'
     },
     title: {
-          text: '1~3月份意見反應統計' 
+          text: '5月份意見反應統計' 
     },
     tooltip: {
         pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'

@@ -348,7 +348,7 @@ float:right;
   <div class="col-md-1">${products.country}</div>
   <div class="col-md-2">${products.hotelName}</div>
   <div class="col-md-2" style="width:330px;margine-buttom:10px">
-   <a href=''>商品細節<img src="/Traveler/images/向左橘.png" width="50" height="40"></a>
+   <a href='../theme/allProducts/${products.productId}'>商品細節<img src="/Traveler/images/向左橘.png" width="50" height="40"></a>
    <a href=''>下架商品<img src="/Traveler/images/向左箭頭.png" width="50" height="40"></a>
   </div> 
  </div>

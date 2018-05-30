@@ -20,7 +20,7 @@
 
 
 <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-<link rel="shortcut icon" href="/Traveler/images/favicon.ico">
+<link rel="shortcut icon" href="/Traveler/images/LeftTopCorner.ico">
 
 <!--<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>-->
 
@@ -301,36 +301,58 @@ float:right;
 		</div>
 <!-- =========側邊欄位結束============ -->
 	
-	<div class="row no-gutters">
-		<div class="container">
-			<table class="table table-hover">
-				<thead>
-					<tr>
-						<th scope="col">編號</th>
-						<th scope="col">照片</th>						
-						<th scope="col">國家</th>
-						<th scope="col">城市</th>						
-						<th scope="col">飯店</th>
-						<th scope="col">管理</th>
-					</tr>
-				</thead>
-				<tbody>
-					<c:forEach var="hotelInfo" items="${hotels}">
-						<tr>
-							<td><h3>${hotelInfo.hotel_id}</h3></td>
-                      		<td><img width='200' height='100' src="<c:url value='/getPic/${hotelInfo.hotel_id}' />" /></td>
-                      		<td width='80px'><h3>${hotelInfo.country}</h3></td>
-                      		<td width='80px'><h3>${hotelInfo.city}</h3></td>
-                      		<td width='200px'><h3>${hotelInfo.name}</h3></td>
-                      		<td><input type="hidden" id="ProductID" name="ProductID"><span></span></td>
-						</tr>
-					</c:forEach>
-				</tbody>
-			</table>
-		</div>
-	</div>	
-		
-
+	<main role="main" class="container mt-2">
+				    <div class="row">
+				       <div class="col-lg-3">				    
+				       <div class="col-lg-9">				     
+						<div class="card">
+							<div class="card-header"></div>
+							<div class="card-body">
+								<!-- 每頁不同的內容從這裡開始 -->
+								 <table id="productTable" class="table table-bordered">
+				                       <thead>
+				                          <tr>
+				                             <th>編號</th>
+				                             <th>照片</th>
+				                             <th>國家</th>
+				                             <th>城市</th>
+				                             <th>飯店</th>
+				                             <th>管理</th>
+				                             <th></th>
+				                          </tr>
+				                       </thead>
+				                       <tbody>
+				                       <c:forEach var="hotelInfo" items="${hotels}">
+											<tr>
+											<form action="/Traveler/_Hotel/End/DeleteHotel/del/${hotelInfo.hotel_id}" method="POST">
+												<td><h3>${hotelInfo.hotel_id}</h3></td>
+					                      		<td><img width='400' height='200' src="<c:url value='/getPic/${hotelInfo.hotel_id}' />" /></td>
+					                      		<td width='80px'><h3>${hotelInfo.country}</h3></td>
+					                      		<td width='80px'><h3>${hotelInfo.city}</h3></td>
+					                      		<td width='200px'><h3>${hotelInfo.name}</h3></td>
+												<td><input id="btnAdd" type='submit' class='btn btn-primary' value="刪除"></td>
+												<td><input id="hotel_id" name="hotel_id" type='hidden'  class='btn btn-primary' value="${hotelInfo.hotel_id}"></td>					                      		
+					                      		</form>
+											</tr>
+										</c:forEach>				                       				                       
+				                       </tbody>
+				                       <tfoot>
+				                       <tfoot>
+									       <tr>
+					                       		<td><input type="hidden" id="ProductID" name="ProductID"><span></span></td>                        
+						                        <td><input type="text" style="width:125px" class="form-control" id="country" name="country" placeholder=""></td>
+						                        <td><input type="text" style="width:125px" class="form-control" id="country" name="country" placeholder=""></td>
+						                        <td><input type="text" style="width:125px" class="form-control" id="city" name="city" placeholder=""></td>
+						                        <td><input type="text" style="width:250px" class="form-control" id="name" name="name" placeholder=""></td>
+					                       </tr>				
+				                       </tfoot>
+				                       </table>
+				                       </div>
+				                       </div>
+				                       </div>
+				                       </div>
+				                       </div>
+				                       </main>
 	<!--  ========================================================== -->
 
 

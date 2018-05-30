@@ -20,7 +20,7 @@
 
 
 <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-<link rel="shortcut icon" href="/Traveler/images/favicon.ico">
+<link rel="shortcut icon" href="/Traveler/images/LeftTopCorner.ico">
 
 <!--<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>-->
 
@@ -358,7 +358,7 @@ float:right;
 							
 							<div class="form-group">
 								<div class='col-lg-offset-2 col-lg-10'>
-									<input id="btnAdd" type='submit' class='btn btn-primary'>
+									<input id="btnAdd" type='submit' class='btn btn-primary' value="新增">
 									
 								</div>
 							</div>

@@ -320,9 +320,9 @@ float:right;
    <div class="header">全旅遊行程&nbsp;&nbsp;&nbsp;&nbsp;
     <a onmouseover="this.style.color='orange'" onmouseout="this.style.color='#4F4FFF'" style="font-size:24px;color:#4F4FFF"href=''>新增旅遊行程<img src="/Traveler/images/向左黑.jpg" width="60" height="60"></a>
     <a onmouseover="this.style.color='orange'" onmouseout="this.style.color='#4F4FFF'" style="font-size:24px;color:#4F4FFF"href=''>依商品號排序<img src="/Traveler/images/排序.png" width="40" height="40"></a>
-    <a onmouseover="this.style.color='orange'" onmouseout="this.style.color='#4F4FFF'" style="font-size:24px;color:#4F4FFF"href=''>依出發時間排序<img src="/Traveler/images/排序.png" width="40" height="40"></a>
+    <a href='../theme/allJourneysBySetOut'onmouseover="this.style.color='orange'" onmouseout="this.style.color='#4F4FFF'" style="font-size:24px;color:#4F4FFF"href=''>依出發時間排序<img src="/Traveler/images/排序.png" width="40" height="40"></a>
     <a onmouseover="this.style.color='orange'" onmouseout="this.style.color='#4F4FFF'" style="font-size:24px;color:#4F4FFF"href=''>依價格排序<img src="/Traveler/images/排序.png" width="40" height="40"></a>
-    <a onmouseover="this.style.color='orange'" onmouseout="this.style.color='#4F4FFF'" style="font-size:24px;color:#4F4FFF"href=''>依截止日排序<img src="/Traveler/images/排序.png" width="40" height="40"></a>
+    <a href='../theme/allJourneysByDeadline'onmouseover="this.style.color='orange'" onmouseout="this.style.color='#4F4FFF'" style="font-size:24px;color:#4F4FFF"href=''>依截止日排序<img src="/Traveler/images/排序.png" width="40" height="40"></a>
     </div>
   </div>
  </div>

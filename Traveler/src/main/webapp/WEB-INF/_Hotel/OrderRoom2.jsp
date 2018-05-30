@@ -45,7 +45,7 @@
 <meta name="twitter:card" content="" />
 
 <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-<link rel="shortcut icon" href="images/favicon.ico">
+<link rel="shortcut icon" href="/Traveler/images/LeftTopCorner.ico">
 
 <!--<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>-->
 
@@ -203,7 +203,17 @@ span.price {
 }
 </style>
 
+<script>
+//一鍵帶入旅客資訊
+function entry(){
+	alert("一鍵帶入");
+$("#custname").val("王建明");
+$("#mail").val("wang0804@gmail.com");
+$("#adr").val("台北市大安區復興南路一段390號");
+$("#phone").val("0912345678");
+}
 
+</script>
 
 </head>
 <body>
@@ -217,15 +227,16 @@ span.price {
 		   <div class="col-sm-4">
 		   		
 			  			  <h1><b>客房資訊</b></h1>
-			            <hr style="height: 2px; border: none; color: #333; background-color: #333;">
+			            <hr style="height: 1px; border: none; color: #333; background-color: #333;">
 			            <label for="fname"><i class="fa fa-user"></i>姓名</label>
-			            <input type="text" id="fname" name="firstname" size="35"  >
+			            <input id="custname" type="text" id="fname" name="firstname" size="35"  >
 			            <label for="email"><i class="fa fa-envelope"></i> Email</label>
-			            <input type="text" id="email" name="email" size="35">			            
+			            <input id="mail" type="text" id="email" name="email" size="35">			            
 			            <label for="add"><i ></i>地址</label>
-			            <input type="text" id="adr" name="add" size="35">
+			            <input id="adr" type="text" id="adr" name="add" size="35">
 			            <label for="phone"><i ></i>行動電話</label>
-			            <input type="text" id="phone" name="phone" size="35">
+			            <input id="phone" type="text" id="phone" name="phone" size="35">
+			            <button style="margin:10px;padding:10px;" class="btn-sm btn-info" onclick="entry()">一鍵帶入</button>
 			            <div class="icon-container">
 			              <i class="fab fa-cc-visa" style="color:navy;"></i>
 			              <i class="fab fa-cc-amex" style="color:blue;"></i>
@@ -236,13 +247,23 @@ span.price {
 		   </div>
 		   <div class="col-sm-6">
 		   
-		  			  <h1><b>訂購資訊</b></h1>
-		            <hr style="height: 2px; border: none; color: #333; background-color: #333;">
+					<br>
+					<br>
+					<br>
+		            <hr style="height: 1px; border: none; color: #333; background-color: #333;">
 		            
-		            <p><h3>雙人房, 非吸煙房,免費上網, 延遲退房, 雙人床, 非吸煙房。</h3></p>
-                    <br>
-                    <p><h3>請輸入入住房客的姓名，姓名必須與飯店入住時所出示的身分證明文件相同。</h3></p>
-                    <p><h3>如果房客有超過一個姓氏，請輸入所有姓氏。</h3></p>
+<!-- 		            <div class="col-md-4 col-sm-6 fh5co-tours animate-box" data-animate-effect="fadeIn"> -->
+						
+<!-- 					</div> -->
+		            <div><img src="/Traveler/images/hotelPic/korFRA3.jpg" height="250" width="550" >
+						</div>
+		            
+		         
+					<p><h3>房型：雙人房</h3></p>
+					<p><h3>NT:6,500</h3></p>
+					<p><h3>訂房時間：06/03/2018</h3></p>					
+		            <p><h3>簡介：非吸菸房、免費上網</h3></p>                    
+                    
 			            
 		   </div>
 		   

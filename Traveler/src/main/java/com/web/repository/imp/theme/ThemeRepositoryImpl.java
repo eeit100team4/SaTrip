@@ -65,7 +65,7 @@ public class ThemeRepositoryImpl implements ThemeRepository {
 	@Override
 	@SuppressWarnings("unchecked")
 	public List<ThemeApplications> getAllApplications(){
-		String hql = "FROM ThemeApplications order by journeyId";
+		String hql = "FROM ThemeApplications order by applicationId DESC";
 		Session session = null;
 		List<ThemeApplications> list = new ArrayList<>();
 		session = factory.getCurrentSession();
@@ -114,7 +114,7 @@ public class ThemeRepositoryImpl implements ThemeRepository {
 		return list;	
 	}
 	
-	//依行程編號抓出單筆資料detail
+	//依行程編號抓出單筆行程資料detail
 	public ThemeJourneys getDetailsByJourneyId(Integer journeyId){
 		String hql = "FROM ThemeJourneys where journeyId = :journeyId";
 		Session session = factory.getCurrentSession();
@@ -128,24 +128,58 @@ public class ThemeRepositoryImpl implements ThemeRepository {
 	Session session = factory.getCurrentSession();
 	System.out.println(application);
 	session.saveOrUpdate(application);
-		}	
+	}	
 	
 	//依報名表編號抓出一筆備註extra
 	public ThemeApplications getExtraByApplicationId(Integer applicationId) {
-			String hql = "FROM ThemeApplications where applicationId = :applicationId";
-			Session session = factory.getCurrentSession();
-			ThemeApplications themeApplications = (ThemeApplications) session.createQuery(hql).setParameter("applicationId",applicationId).uniqueResult();
-			return themeApplications;
-		}
-//	//簽收
-//	@Override
-//	public void updateTerminate(int applicationId, int one) {
-//		String hql = "UPDATE themeApplications SET terminate = :one WHERE applicationId = :id";
-//		Session session = factory.getCurrentSession();
-//		
-//		int n = session.createQuery(hql)
-//				.setParameter("one", one)
-//				.setParameter("id", applicationId)
-//				.executeUpdate();
-//	}
+	String hql = "FROM ThemeApplications where applicationId = :applicationId";
+	Session session = factory.getCurrentSession();
+	ThemeApplications themeApplications = (ThemeApplications) session.createQuery(hql).setParameter("applicationId",applicationId).uniqueResult();
+	return themeApplications;
+	}
+	
+	 //依商品編號抓特定單筆商品資料
+	public ThemeProducts getProductByproductId(Integer productId) {
+		String hql = "FROM ThemeProducts where productId = :productId";
+		Session session = factory.getCurrentSession();
+		ThemeProducts themeProducts = (ThemeProducts) session.createQuery(hql).setParameter("productId",productId).uniqueResult();
+		return themeProducts;		
+	}
+	@Override
+	@SuppressWarnings("unchecked")
+	//顯示所有行程內容(依出發時間排序)
+	public List<ThemeJourneys> getAllJourneysBySetOut(){
+		String hql = "FROM ThemeJourneys order by setOut";
+		Session session = null;
+		List<ThemeJourneys> list = new ArrayList<>();
+		session = factory.getCurrentSession();
+		list = session.createQuery(hql).getResultList();
+		return list;
+	}
+	@Override
+	@SuppressWarnings("unchecked")
+	//顯示所有行程內容(依截止時間排序)
+	public List<ThemeJourneys> getAllJourneysByDeadline(){
+		String hql = "FROM ThemeJourneys order by deadline";
+		Session session = null;
+		List<ThemeJourneys> list = new ArrayList<>();
+		session = factory.getCurrentSession();
+		list = session.createQuery(hql).getResultList();
+		return list;
+	}
+	@Override
+	@SuppressWarnings("unchecked")
+	//顯示所有行程內容(依出發時間排序)
+	public List<ThemeJourneys> getAllJourneysBySetOutDesc(){
+	String hql = "FROM ThemeJourneys order by setOut DESC";
+	Session session = null;
+	List<ThemeJourneys> list = new ArrayList<>();
+	session = factory.getCurrentSession();
+	list = session.createQuery(hql).getResultList();
+	return list;
+	}
+	
+	
+	
+
 }

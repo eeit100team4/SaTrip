@@ -118,6 +118,13 @@ from{
 border:1px solid black;
 }
 </style>
+<script type="text/javascript">
+function disp_confirm()
+  {
+  var r=confirm("確認送出嗎?")
+ 
+  }
+</script>
 </head>
 <body>
 	<%@ include file="/WEB-INF/frontStageHeader.jsp"%>
@@ -207,7 +214,8 @@ border:1px solid black;
                                                    感謝您!
                </div>
                <div class='form-group'>
-               	<input type="submit" id='btnAdd' class="btn btn-primary"></input>
+               	<input type="submit" id='btnAdd' class="btn btn-primary" onclick="disp_confirm()"
+value="送出"></input>
                	</div>
 		</fieldest>
 		</form:form>
