@@ -97,6 +97,7 @@ public class MemberBean implements Serializable {
 	public void setMemberId(String memberId) {
 		this.memberId = memberId;
 	}
+	
 
 	@Column(name = "password")
 	public String getPassword() {

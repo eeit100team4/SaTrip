@@ -9,7 +9,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>Traveler</title>
+<title>TravelerManager</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
 <meta name="keywords"
@@ -201,15 +201,14 @@ margin-bottom:0px;
 						<p>
 							<b style='font-size: 16px;'>${member.chineseLastName}ｏ${fn:substring(member.chineseFirstName, 1, 2)}</b>
 						</p>
-						<p>會員帳號：${fn:substring(member.memberId, 0, 3)}*****${fn:substring(member.memberId, 8, 11)}</p>
-						<p>會員手機：${fn:substring(member.mobile,0,3)}*****${fn:substring(member.mobile, 9, 12)}</p>
+						<p>會員帳號：${fn:substring(member.memberId, 0, 2)}****${fn:substring(member.memberId, 6, 11)}</p>
+						<p>會員手機：${fn:substring(member.mobile,0,3)}******${fn:substring(member.mobile,9,12)}</p>
 						<p>會員紅利：${member.point}</p>
 						<p>
 						<a href="<spring:url value='./member2?memberId=${member.memberId}'/>"
 						class="btn btn-primary"><span
 						class="glyphicon-info-sigh glypicon"></span>詳細資料</a>
 						</p>
-						
 					</div>
 				</div>
 			</div>
