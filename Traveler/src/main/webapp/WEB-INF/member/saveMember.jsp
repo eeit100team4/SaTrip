@@ -9,11 +9,13 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <link rel='stylesheet' href='//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css' />
-<title><c:choose>
-		<c:when test="${memberBean.function == 'add'}">加入會員</c:when>
-		<c:when test="${memberBean.function == 'update'}">${welcomeNm} 會員資料更新</c:when>
-		<c:otherwise>麥來亂</c:otherwise>
-	</c:choose></title>
+<title>Traveler
+<%-- 	<c:choose> --%>
+<%-- 		<c:when test="${memberBean.function == 'add'}">加入會員</c:when> --%>
+<%-- 		<c:when test="${memberBean.function == 'update'}">${welcomeNm} 會員資料更新</c:when> --%>
+<%-- 		<c:otherwise>麥來亂</c:otherwise> --%>
+<%-- 	</c:choose> --%>
+</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
 <meta name="keywords"
