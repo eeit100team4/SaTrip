@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"  %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -210,14 +211,14 @@ html, body {
 				<tbody>
 					<c:forEach var='cli' items='${ClientLists}'>
 						<tr>
-							<td>${cli.id}</td>
-							<td>${cli.memberBean.chineseLastName}${cli.memberBean.chineseFirstName}</td>
+							<td>${cli.id}</td>  
+							<td>${cli.memberBean.chineseLastName}ｏ${fn:substring(cli.memberBean.chineseFirstName,1,2)}</td>
 							<td>${cli.commodityBean.name}</td>
 							<td>${cli.cliquantity}</td>
 							<td>${cli.point}</td>
-							<td>${cli.clientname}</td>
+							<td>${fn:substring(cli.clientname,0,1)}ｏ${fn:substring(cli.clientname,2,3)}</td>
 							<td>${cli.clientaddr}</td>
-							<td>${cli.clienttel}</td>
+							<td>${fn:substring(cli.clienttel,0,4)}***${fn:substring(cli.clienttel,7,11)}</td>
 							<td>${cli.date}</td>
 						</tr>
 
