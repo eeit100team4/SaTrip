@@ -142,10 +142,10 @@ public class ThemeBackController {
 	//依商品編號抓特定單筆商品資料
 	@RequestMapping("theme/allProducts/{productId}")
 	public String getProductByproductId(@PathVariable("productId") Integer productId, Model model) {
-		ThemeProducts list = themeService.getProductByproductId(productId);
-		model.addAttribute("productExtra", list);
-		session.setAttribute("test", list);
-		return "theme/productExtra";
+	ThemeProducts list = themeService.getProductByproductId(productId);
+	model.addAttribute("productExtra", list);
+	session.setAttribute("test", list);
+	return "theme/productExtra";
 	}
 	//顯示全部行程內容(依出發日)
 	@RequestMapping("theme/allJourneysBySetOut")
@@ -173,6 +173,17 @@ public class ThemeBackController {
 	@RequestMapping("theme/leback")
 	public String leback(){
 	return "theme/leback";
+	}
+	
+	//依行程編號抓出單筆detail
+	@RequestMapping("theme/allJourneys/{journeyId}")
+	public String getAJourneyByJourneyId(@PathVariable("journeyId") Integer journeyId, Model model) {
+	ThemeJourneys list = themeService.getJourneyByJourneyId(journeyId);
+	System.out.println(list);
+	model.addAttribute("journeyExtra", list);
+	session.setAttribute("gtest", list);		
+	System.out.println("eee"+list);//測試	
+	return "theme/journeyExtra";
 	}
 
 }

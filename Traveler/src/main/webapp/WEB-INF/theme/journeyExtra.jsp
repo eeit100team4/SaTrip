@@ -302,39 +302,80 @@ float:right;
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <link rel="stylesheet" href="css/jumbotron.css">
 <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
-
+<!-- 提示框 -->
 
 <title>Insert title here</title>
 </head>
 <body>
-<!--<body style="background-image: url(/Traveler/images/主題背景用圖1.jpg);">-->
+
 <%@ include file="/WEB-INF/backStageHeader.jsp" %>
+
 <!--=========================要放的東西  =====================-->
 <!-- 左邊的bar會歪 -->
-<div style="color:black;font-size:24px">
- <div class="container-fluid" style="text-align:center;background:#2B2B2B">
- <div class="row" style="font-size:30px;color:white">
-  <div class="col-md-12">
-  <br>
-   <div class="panel-well">歡迎來到主題商品管理頁面</div>
-    <div class="panel-heading">你可以在此使用以下功能:</div>
-    <hr>
-     <div class="panel-body">主題列表管理:目前種類&nbsp;&nbsp;<a style="color:gold">12</a>&nbsp;&nbsp;種</div>
-     <div class="panel-body">旅遊商品管理:上架旅遊商品&nbsp;&nbsp;<a style="color:gold">49</a>&nbsp;&nbsp;項</div>
-     <div class="panel-body">出團行程管理:已建立行程&nbsp;&nbsp;<a style="color:gold">155</a>&nbsp;&nbsp;團</div>
-     <div class="panel-body">全報名表管理:待處理報名申請表&nbsp;&nbsp;<a style="color:gold">0</a>&nbsp;&nbsp;筆</div>
-     <hr>
-     <div class="panel-body">點擊左側連結開始執行管理行為</div>
-     <br>
-     <br>
-     <br>
+<div style="color:black;margin-left:230px;font-size:24px">
+<!-- 大標:行程編號跟名稱 -->
+<br>   
+<div class="container-fluid">
+ <div class="row">
+  <div class="col-sm-12">
+   <div class="well" style="text-align:left;font-weight:bold">
+   <img src="/Traveler/images/勳章.png" width="40" height="40">行程編號:${journeyExtra.journeyId}
+   &nbsp;&nbsp;&nbsp;&nbsp;${journeyExtra.themeProducts.themeTitles.titleName}&nbsp;&nbsp;&nbsp;&nbsp;
+   ${journeyExtra.themeProducts.productName}&nbsp;&nbsp;&nbsp;&nbsp;
+    </div>
   </div>
  </div>
-</div> 
 </div>
+<!-- -->
+<div class="container-fluid">
+ <div class="row">
+  <div class="col-sm-4">
+   <div class="well" style="text-align:left;font-weight:bold">建立日</div>
+    <div class="panel-body"><fmt:formatDate value="${journeyExtra.createDate}" pattern="yyyy/MM/dd"/></div>  
+  </div>
+  <div class="col-sm-4">
+   <div class="well" style="text-align:left;font-weight:bold">截止日</div> 
+    <div class="panel-body"><fmt:formatDate value="${journeyExtra.deadline}" pattern="yyyy/MM/dd"/></div> 
+  </div>
+  <div class="col-sm-4">
+   <div class="well" style="text-align:left;font-weight:bold">價格</div>
+    <div class="panel-body">$&nbsp;&nbsp;${journeyExtra.price}</div>  
+  </div>
+</div>
+<!-- -->
+<div class="container-fluid">
+ <div class="row">
+  <div class="col-sm-4">
+   <div class="well"style="text-align:left;font-weight:bold">出發日</div>
+    <div class="panel-body">出發地&nbsp;&nbsp;${journeyExtra.goStartWhere}</div>    
+    <div class="panel-body">起飛&nbsp;&nbsp;<fmt:formatDate value="${journeyExtra.goStartDate}" pattern="yyyy/MM/dd"/>&nbsp;&nbsp;${journeyExtra.goStartHour}:${journeyExtra.goStartMinute}</div>
+    <div class="panel-body">目的地&nbsp;&nbsp;${journeyExtra.goEndWhere}</div>
+    <div class="panel-body">抵達&nbsp;&nbsp;<fmt:formatDate value="${journeyExtra.goEndDate}" pattern="yyyy/MM/dd"/>&nbsp;&nbsp;${journeyExtra.goEndHour}:${journeyExtra.goEndMinute}</div>    
+</div>
+
+ <div class="col-sm-4">
+   <div class="well"style="text-align:left;font-weight:bold">返回日</div>
+    <div class="panel-body">出發地&nbsp;&nbsp;${journeyExtra.returnStartWhere}</div>
+    <div class="panel-body">起飛&nbsp;&nbsp;<fmt:formatDate value="${journeyExtra.returnStartDate}" pattern="yyyy/MM/dd"/>&nbsp;&nbsp;${journeyExtra.returnStartHour}:${journeyExtra.returnStartMinute}</div>
+    <div class="panel-body">目的地&nbsp;&nbsp;${journeyExtra.returnEndWhere}</div>
+    <div class="panel-body">抵達&nbsp;&nbsp;<fmt:formatDate value="${journeyExtra.returnEndDate}" pattern="yyyy/MM/dd"/>&nbsp;&nbsp;${journeyExtra.returnEndHour}:${journeyExtra.returnEndMinute}</div>       
+ </div>
+ 
+ <div class="col-sm-4">
+   <div class="well"style="text-align:left;font-weight:bold">航空公司</div>
+    <div class="panel-body">${journeyExtra.companyName}</div>
+    <div class="panel-body">去&nbsp;&nbsp;${journeyExtra.goPlaneId}</div>
+    <div class="panel-body">回&nbsp;&nbsp;${journeyExtra.returnPlaneId}</div>     
+   </div>
+  </div>
+  
+ </div>
+</div>
+
 <!-- =========側邊欄位開始============ -->	
 <%@ include file="/WEB-INF/theme/backLeftSide.jsp" %>
 <!-- =========側邊欄位結束============ -->
+</div>
 <script type="text/javascript">
 $(function() {
     /* 按下GoTop按鈕時的事件 */
@@ -351,18 +392,13 @@ $(function() {
             $('#gotop').fadeOut();
         }
     });
-});
-/*返回上方的按鈕*/ 
+});				
+/*返回上方的按鈕*/
 </script>   
 <!-- 記得要把按鈕放到網頁上, 否則它不會出現 -->
 <img src=/Traveler/images/向上箭頭.png id="gotop" style="">
    <i class="fa fa-angle-up"></i>
-
-
-
-
-<!--  ========================================================== -->
-<%@ include file="/WEB-INF/backStageFooter.jsp" %>
+	<!--  ========================================================== -->
 
 </body>
 </html>

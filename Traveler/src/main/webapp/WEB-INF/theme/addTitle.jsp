@@ -10,7 +10,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>Traveler</title>
+<title>TravelerManager</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
 <meta name="keywords"
@@ -20,7 +20,7 @@
 
 
 <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-<link rel="shortcut icon" href="/Traveler/images/favicon.ico">
+<link rel="shortcut icon" href="/Traveler/images/LeftTopCorner.ico">
 
 <!--<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>-->
 
@@ -181,7 +181,11 @@ function test()
 {alert("已新增成功~~將回到旅遊管理首頁");
 	}
 </script>
-
+<script>
+ function  keyin(){ 
+		$("#xadd").val("鐵道");		
+ }
+ </script>
 <title>Insert title here</title>
 </head>
 <body>
@@ -211,7 +215,7 @@ function test()
 	<form:form method="POST" modelAttribute="themeBean" enctype="multipart/form-data" >
 	 <fieldset>
 	  <label style="margin-right: 150px;">新增主題類別</label><br>
-	   <form:input  path="titleName" type="text"/>								
+	   <form:input id="xadd" path="titleName" type="text"/>								
 		<br>
 		<br>
 		<label style="margin-right: 150px;">新增主題圖片</label>
@@ -219,7 +223,8 @@ function test()
 		<br>
 		<br>															
 		<div>					
-		<input type="submit" value="確認送出" onclick="test()" />
+		<input type="submit" value="確認送出" onclick="test()"/>
+		<input type="button" value="一鍵帶入" onclick="keyin()"/>
 		</div>
 	  </fieldset>
 	</form:form>		

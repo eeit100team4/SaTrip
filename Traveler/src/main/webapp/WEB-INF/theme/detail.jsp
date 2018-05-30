@@ -175,8 +175,9 @@
    <div class="panel-body" style="color:black;font-size:24px">一人費用&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NTD&nbsp;&nbsp;$${detail.price}</div>
   </div>
   <div class="col-md-4">
+   <div class="panel-body" style="color:black;font-size:24px;;margin-top:20px"><a onmouseover="this.style.color='orange'" onmouseout="this.style.color='#4F4FFF'" style="color:#4F4FFF;font-size:32px;" href="${detail.journeyId}/application"><img src="/Traveler/images/向右箭頭.jpg" width="100" height="100">點擊此處填寫報名表</a></div>
    <div class="panel-body" style="color:white;font-size:24px"></div>
-   <div class="panel-body" style="color:black;font-size:24px;;margin-top:20px"><a onmouseover="this.style.color='orange'" onmouseout="this.style.color='#4F4FFF'" style="color:#4F4FFF;font-size:32px;" href="${detail.journeyId}/application"><img src="/Traveler/images/向右箭頭.jpg" width="50" height="50">點擊此處填寫報名表</a></div>
+   
    </div>
  </div>
 </div>
@@ -236,9 +237,9 @@
 </div>
 <hr>
 <!--超級大圖  -->
-<a><img src="/Traveler/images/${detail.themeProducts.productName}-1.png" style="border:10px #808000 ridge;width:1500px; height:1000px;"></a>
-<a><img src="/Traveler/images/${detail.themeProducts.productName}-2.png" style="border:10px #808000 ridge;width:1500px; height:1000px;"></a>
-<a><img src="/Traveler/images/${detail.themeProducts.productName}-3.png" style="border:10px #808000 ridge;width:1500px; height:1000px;"></a>
+<a><img src="/Traveler/images/${detail.themeProducts.productName}-2.png" style="border:10px #808000 ridge;width:1500px; height:750px;"></a>
+<a><img src="/Traveler/images/${detail.themeProducts.productName}-1.png" style="border:10px #808000 ridge;width:1500px; height:750px;"></a>
+<a><img src="/Traveler/images/${detail.themeProducts.productName}-3.png" style="border:10px #808000 ridge;width:1500px; height:750px;"></a>
 
 <br>
 <hr>
@@ -255,7 +256,7 @@
 <div class="container-fluid">
  <div class="row">
   <div class="col-md-6">
-   <div class="panel-body"><img src="/Traveler/images/${detail.themeProducts.productName}-1.png" style="border:10px #808000 ridge;width:725px; height:552px;"></div>
+   <div class="panel-body"><img src="/Traveler/images/${detail.themeProducts.productName}-1.png" style="border:10px #808000 ridge;width:725px; height:540px;"></div>
   </div>
   <div class="col-md-6" style="font-size:24px">
     <div class="panel-heading" style="color:blue;font-weight:bold">${detail.themeProducts.descriTitle1}</div>
