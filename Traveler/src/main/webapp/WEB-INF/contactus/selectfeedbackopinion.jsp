@@ -3,6 +3,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -150,7 +152,7 @@ padding:5px;
 									
 						<tr>		
 						<td><label for='name'>姓名:</label>
-						<td id='name' path='name' type='text' value='${con.name}'/>${con.name}</td>
+						<td id='name' path='name' type='text' value='${con.name}'/>${fn:substring(con.name,0,1)}ｏ${fn:substring(con.name, 2,3)}</td>
 						</tr>
 						<tr>
 						<td><label for='sex'>性別: </label>
@@ -162,7 +164,7 @@ padding:5px;
 						</tr>
 						<tr>
 						<td><label for='phone'>連絡電話: </label>
-						<td id='phone' path='phone' type='text' value='${con.phone}'/>${con.phone}</td>
+						<td id='phone' path='phone' type='text' value='${con.phone}'/>${fn:substring(con.phone,0,4)}***${fn:substring(con.phone, 6,9)}</td>
 						</tr>
 						<tr>
 						<td><label for='email'>電子信箱: </label>

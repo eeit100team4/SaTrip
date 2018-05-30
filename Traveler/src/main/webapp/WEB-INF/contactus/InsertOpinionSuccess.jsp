@@ -3,6 +3,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -186,10 +188,12 @@ color:black;
 <%--   			<c:forEach var='con' items='${contactus}'> --%>
     				<tr>
       					<td scope="row">${contactus.pkid}</td>
-     				 	<td>${contactus.name}</td>
+<%--      				 	<td>${contactus.name}</td> --%>
+						<td>${fn:substring(contactus.name,0,1)}ｏ${fn:substring(contactus.name, 2,3)}</td>
 <%--       					<td>${contactus.sex}</td> --%>
 <%--       					<td>${contactus.age}</td> --%>
-      					<td>${contactus.phone}</td>
+<%--       					<td>${contactus.phone}</td> --%>
+						<td>${fn:substring(contactus.phone,0,4)}***${fn:substring(contactus.phone, 6,9)}</td>
       					<td>${contactus.email}</td>
 <%--       					<td>${contactus.address}</td> --%>
       					<td>${contactus.opinion}</td>
