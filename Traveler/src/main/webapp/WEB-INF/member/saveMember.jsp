@@ -278,7 +278,10 @@ $("#address").val("新北市板橋區oo街oo巷oo號oo樓");
 						<td width="120" height="40" align="right">*會員帳號：</td>
 						<td width="600" height="40" align="left">
 							<c:choose>
-								<c:when test="${memberBean.function == 'update'}">${memberBean.memberId}</c:when>
+								<c:when test="${memberBean.function == 'update'}">${memberBean.memberId}
+								<form:input type="hidden" id='memberId' name="memberId" 
+									value="${memberBean.memberId}"  size="14"  path="memberId" />
+								</c:when>
 								<c:otherwise>
 									<form:input type="text" id='memberId' style="text-align: left" name="memberId" 
 									value="${memberBean.memberId}"  size="14" placeholder="請輸入身份證字號" onblur="chkIdn()" path="memberId" />

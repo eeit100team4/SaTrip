@@ -55,15 +55,16 @@ public class MemberController {
 	ServletContext context;
 	
 	@RequestMapping("/member/changePwd")
-	public String changePwd(HttpServletRequest request, HttpServletResponse response, Model model) {
+	public String getChangePwdPage(HttpServletRequest request, HttpServletResponse response, Model model) {
 		HttpSession session = request.getSession();
 		MemberBean mb = (MemberBean) session.getAttribute("LoginOK");
 		model.addAttribute("memberId", mb.getMemberId());
 		return "/member/changePwd";
 	}
 
+	@SuppressWarnings("unused")
 	@RequestMapping("/member/changePwd.do")
-	public String changePwd(HttpServletRequest request, HttpServletResponse response) throws IOException {
+	public String changePwd(HttpServletRequest request, HttpServletResponse response, Model model) throws IOException {
 		System.out.println("doChangePwd");
 
 		String succPage = "/member/updateSuccess";
@@ -71,6 +72,7 @@ public class MemberController {
 
 		HttpSession session = request.getSession();
 		MemberBean mb = (MemberBean) session.getAttribute("LoginOK");
+		model.addAttribute("memberId", mb.getMemberId());
 
 		if (mb == null) {
 			return "/member/login";  //如果未登入，mb=null時，就導頁至登入畫面
@@ -132,9 +134,10 @@ public class MemberController {
 
 	@RequestMapping("/member/updateMember")
 	public String updateMember(@ModelAttribute("memberBean") MemberFormBean formBean, HttpServletRequest request, 
-			HttpServletResponse response) {
+			HttpServletResponse response, Model model) {
 		HttpSession session = request.getSession();
 		MemberBean mb = (MemberBean) session.getAttribute("LoginOK");
+		model.addAttribute("memberId", mb.getMemberId());
 		MemberBean memBean=memberService.getMemberById(mb.getMemberId());
 		try {
 			BeanUtils.copyProperties(formBean, memBean);
