@@ -28,7 +28,7 @@ public class ClientRepository implements ClientDAO {
 	// 列出所有商品兌換資料
 	@Override
 	public List<ClientBean> getAllData() {
-		String hql = "FROM ClientBean";
+		String hql = "FROM ClientBean order by Id desc";
 		Session session = null;
 		List<ClientBean> list = new ArrayList<>();
 		session = factory.getCurrentSession();
