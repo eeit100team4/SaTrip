@@ -205,7 +205,7 @@ function test()
    <!--<input type="text" id="gender" name="gender" placeholder="先生、小姐" class="form-control">  -->
   <div class="form-control" style='font-size:20px;'>
    <form:select id="xgender" path="gender" style="border:1px none #000;background:white">
-    <form:option value="-1" label="稱謂"></form:option>
+    <form:option value="未知" label="稱謂"></form:option>
     <form:option value="先生" label="先生"></form:option>
     <form:option value="小姐" label="小姐"></form:option>
    </form:select>
@@ -231,7 +231,7 @@ function test()
   <div class="col-sm-3 controls">
   <div class="form-control" style='font-size:20px;'>
    <form:select id="xpeople" path="people" style="border:1px none #000;background:white">
-    <form:option value="-1" label="請挑選人數"></form:option>
+    <form:option value="0" label="請挑選人數"></form:option>
     <form:option value="1" label="1人"></form:option>
     <form:option value="2" label="2人"></form:option>
     <form:option value="3" label="3人"></form:option>
@@ -266,7 +266,7 @@ function test()
    <!--<input type="text" id="callTime" name="callTime" placeholder="早上、下午、晚上" class="form-control">-->
    <div class="form-control"style='font-size:20px;'>
     <form:select id="xcallTime" path="callTime" style="border:1px none #000;background:white">
-    <form:option value="-1" label="">請選擇時段</form:option>
+    <form:option value="未知" label="">請選擇時段</form:option>
     <form:option value="早上" label="早上"></form:option>
     <form:option value="下午" label="下午"></form:option>
     <form:option value="晚上" label="晚上"></form:option>
@@ -284,7 +284,7 @@ function test()
    <!--<input type="text" id="location" name="location" placeholder="台北、台中、高雄" class="form-control">  -->
    <div class="form-control"style='font-size:20px;'>
    <form:select id="xlocation" path="location" style="border:1px none #000;background:white">
-    <form:option value="-1" label="">服務據點</form:option>
+    <form:option value="未知" label="">服務據點</form:option>
     <form:option value="台北" label="台北"></form:option>
     <form:option value="台中" label="台中"></form:option>
     <form:option value="高雄" label="高雄"></form:option>
