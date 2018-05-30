@@ -202,7 +202,7 @@ margin-bottom:0px;
 							<b style='font-size: 16px;'>${member.chineseLastName}ｏ${fn:substring(member.chineseFirstName, 1, 2)}</b>
 						</p>
 						<p>會員帳號：${fn:substring(member.memberId, 0, 3)}*****${fn:substring(member.memberId, 8, 11)}</p>
-						<p>會員手機：${member.mobile}</p>
+						<p>會員手機：${fn:substring(member.mobile,0,3)}*****${fn:substring(member.mobile, 9, 12)}</p>
 						<p>會員紅利：${member.point}</p>
 						<p>
 						<a href="<spring:url value='./member2?memberId=${member.memberId}'/>"

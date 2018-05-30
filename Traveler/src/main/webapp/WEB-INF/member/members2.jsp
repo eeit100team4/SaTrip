@@ -217,8 +217,8 @@ margin-bottom:0px;
 							<td>${member.chineseLastName}ｏ${fn:substring(member.chineseFirstName, 1, 2)}</td>		
 							<td>${member.gender}</td>
 							<td>${member.birthday}</td>
-							<td>${member.email}</td>
-							<td>${member.mobile}</td>
+							<td>${fn:substring(member.email,0,3)}*****${fn:substring(member.email, 9, 16)}</td>
+							<td>${fn:substring(member.mobile,0,3)}*****${fn:substring(member.mobile, 9, 12)}</td>
 							<td>${member.address}</td>
 							<td>${member.registerTime}</td>
 						</tr>
