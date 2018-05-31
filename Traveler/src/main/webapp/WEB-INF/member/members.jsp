@@ -194,7 +194,7 @@ margin-bottom:0px;
 		<c:forEach var='member' items='${members}'>
 			<div class="col-sm-6 col-md-3" style="width: 360px; height: 400px">
 				<div class="thumbnail" style="width: 320px; height: 380px">
-					<img width='100 height='200'
+					<img style="width:120px; height:110px"
 					  src="<c:url value='/member/getPicture/${member.memberId}'/>"/>
 					
 					<div class="caption">
