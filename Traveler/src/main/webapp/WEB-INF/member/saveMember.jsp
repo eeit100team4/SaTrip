@@ -219,10 +219,10 @@ $("#password").val("a123456");
 $("#chkPassword").val("a123456");
 $("#birthday").val("1999-06-06");
 $("#chineseLastName").val("江");
-$("#chineseFirstName").val("江江");
+$("#chineseFirstName").val("莯莯");
 $("#email").val("asally1110@gmail.com");
 $("#mobile").val("0989-768-666");
-$("#address").val("新北市板橋區oo街oo巷oo號oo樓");
+$("#address").val("台北市大安區復興南路一段390號3樓");
 }
 </script>
 </head>
