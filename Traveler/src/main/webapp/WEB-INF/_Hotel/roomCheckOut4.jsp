@@ -184,7 +184,7 @@ function showInfo(){
 						<div style="margin-top:20px;" ><h2><span class="label label-warning"></span></h2></div>
 							<table class="table table-bordered table-condensed">
 								<tr>
-									<th class="text-center cor-lg-12" colspan="2">訂單編號 ：</th>
+									<th class="text-center cor-lg-12" colspan="2">訂單編號 ：E8730678</th>
 								</tr>
 								<tr class="warning">
 									<td  class="cor-lg">訂購狀態：</td>
