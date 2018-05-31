@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 
 import org.apache.commons.lang3.RandomStringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +17,6 @@ import com.web.service.member.GlobalService;
 
 @Repository
 @Transactional
-@SuppressWarnings("unchecked")
 public  class HibernateThirdPartyMemberDAOImpl implements ThirdPartyMemberDAO {
 	@Autowired
 	SessionFactory factory;
@@ -38,11 +38,10 @@ public  class HibernateThirdPartyMemberDAOImpl implements ThirdPartyMemberDAO {
 		ThirdPartyMemberBean tpmb = null;
 		Session session = factory.getCurrentSession();
 		tpmb = session.get(ThirdPartyMemberBean.class, thirdPartyId);
-		if(tpmb.getMemberId()!=null) {
+		if(tpmb!=null&& StringUtils.isNotBlank(tpmb.getMemberId())) {
 			memberId=tpmb.getMemberId();
 		}
 		session.flush();
 		return memberId;
 	}
-	
 }

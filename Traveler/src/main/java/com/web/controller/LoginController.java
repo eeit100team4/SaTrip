@@ -94,6 +94,9 @@ public class LoginController {
 			System.out.println("thirdPartyId=" + thirdPartyId + "登入");
 			//使用第三方登入取得memberId帳號
 			memberId=memberService.queryMemberId(thirdPartyType, thirdPartyId);
+			if (StringUtils.isBlank(memberId)) {
+				errorMsgMap.put("LoginError", "此FB未註冊，無法快速登入，請先註冊方可使用");
+			}
 			password ="";
 		} else {
 			System.out.println("thirdPartyId=" + thirdPartyId + "非fb登入");
